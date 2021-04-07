@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Новости &#8220;железа&#8221;</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1239/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1239</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:03 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1239#comment-5519</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 21 Jan 2013 19:14:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1239#comment-5519</guid>
+		<description>800GB оказывается уже есть, только для Е серии.</description>
+		<content:encoded><![CDATA[<p>800GB оказывается уже есть, только для Е серии.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Поддержка SMB2.0 в протоколе CIFS на NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/474/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/474</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:17 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/474#comment-187</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Mon, 21 Dec 2009 11:08:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=474#comment-187</guid>
+		<description>&#62; Пожалуйста, обратите внимание, что SMB2.0 поддерживается только в Vista, Windows 7 и Server 2008, 
+&#62; включать его при использовании в сети клиентов XP и Server 2003 нельзя.
+
+Можно совмещать. Файлер выбирает версию SMB в зависимости от клиента.</description>
+		<content:encoded><![CDATA[<p>&gt; Пожалуйста, обратите внимание, что SMB2.0 поддерживается только в Vista, Windows 7 и Server 2008,<br />
+&gt; включать его при использовании в сети клиентов XP и Server 2003 нельзя.</p>
+<p>Можно совмещать. Файлер выбирает версию SMB в зависимости от клиента.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

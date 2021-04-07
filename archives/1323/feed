@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Обновление линейки FAS - FAS8000</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1323/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1323</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:49 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-13291</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 26 May 2014 08:28:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-13291</guid>
+		<description>WaleraPP:
+
+Примерно столько же, сколько заменяемый им 3220.</description>
+		<content:encoded><![CDATA[<p>WaleraPP:</p>
+<p>Примерно столько же, сколько заменяемый им 3220.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: WaleraPP</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-13290</link>
+		<dc:creator>WaleraPP</dc:creator>
+		<pubDate>Mon, 26 May 2014 08:03:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-13290</guid>
+		<description>сколько вообще стоит fas 8020 ?</description>
+		<content:encoded><![CDATA[<p>сколько вообще стоит fas 8020 ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-12642</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 12 Mar 2014 11:07:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-12642</guid>
+		<description>LesikL:
+Конечно, от контроллера это никак не зависит, это возможность Data ONTAP. 
+Правда пока, на всех контроллерах, нет (автоматического) апгрейда с 7-mode на cluster-mode, но это отдельная задача и решается она другими способами.</description>
+		<content:encoded><![CDATA[<p>LesikL:<br />
+Конечно, от контроллера это никак не зависит, это возможность Data ONTAP.<br />
+Правда пока, на всех контроллерах, нет (автоматического) апгрейда с 7-mode на cluster-mode, но это отдельная задача и решается она другими способами.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: LesikL</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-12632</link>
+		<dc:creator>LesikL</dc:creator>
+		<pubDate>Wed, 12 Mar 2014 08:06:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-12632</guid>
+		<description>??нтересно, а апгрейд со старых контроллеров на новые возможен без потери данных и остановки хранилища? Например, с 3250 или 3140 на 8020?</description>
+		<content:encoded><![CDATA[<p>??нтересно, а апгрейд со старых контроллеров на новые возможен без потери данных и остановки хранилища? Например, с 3250 или 3140 на 8020?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-12449</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 28 Feb 2014 18:08:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-12449</guid>
+		<description>Nostromo:
+
+Ничего странного, 3200/6200 тоже так выходила.</description>
+		<content:encoded><![CDATA[<p>Nostromo:</p>
+<p>Ничего странного, 3200/6200 тоже так выходила.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-12448</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Fri, 28 Feb 2014 18:02:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-12448</guid>
+		<description>romx:
+возможно, но всё равно нелогично как-то получается - выкатывать но линейку по частям. Впрочем, поживём - увидим. 
+
+ЗЫ. Кстати, жаль, что 8000 пока нет в HWU :(</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+возможно, но всё равно нелогично как-то получается - выкатывать но линейку по частям. Впрочем, поживём - увидим. </p>
+<p>ЗЫ. Кстати, жаль, что 8000 пока нет в HWU :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-12445</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 28 Feb 2014 13:41:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-12445</guid>
+		<description>Nostromo:
+Оставляют место в линейке для FAS8080, возможно?</description>
+		<content:encoded><![CDATA[<p>Nostromo:<br />
+Оставляют место в линейке для FAS8080, возможно?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-12444</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Fri, 28 Feb 2014 13:34:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-12444</guid>
+		<description>Один момент сделал меня задуматься: очевидно более мощный контроллер 8060 поддерживает меньше дисков, чем 6290. Вопрос: почему? Это 6290 был перегружен, или 8060 взяли с запасом прочности? ??ли-таки маркетинг?</description>
+		<content:encoded><![CDATA[<p>Один момент сделал меня задуматься: очевидно более мощный контроллер 8060 поддерживает меньше дисков, чем 6290. Вопрос: почему? Это 6290 был перегружен, или 8060 взяли с запасом прочности? ??ли-таки маркетинг?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-12424</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Thu, 27 Feb 2014 11:46:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-12424</guid>
+		<description>А есть данные по кол-ву дисков внутри каждой из серий?</description>
+		<content:encoded><![CDATA[<p>А есть данные по кол-ву дисков внутри каждой из серий?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1323#comment-12413</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Thu, 27 Feb 2014 07:37:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1323#comment-12413</guid>
+		<description>Кстати судя по первым прикидкам в новых FAS8000 нет Data ONTAP Essentials в комплекте. ??того две одинаковые спецификации отличаются как раз на стоимость одного бесплатного протокола.</description>
+		<content:encoded><![CDATA[<p>Кстати судя по первым прикидкам в новых FAS8000 нет Data ONTAP Essentials в комплекте. ??того две одинаковые спецификации отличаются как раз на стоимость одного бесплатного протокола.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

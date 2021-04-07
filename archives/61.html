@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Metrocluster (часть 1)</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="60/trackback.html">VMware и ее успех.</a></div>
+			<div class="alignright"><a href="63/trackback.html">Metrocluster (part 2)</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-61">
+			<h2 class="posttitle"><a href="61/trackback.html" rel="bookmark" title="Permanent Link to Metrocluster (часть 1)">Metrocluster (часть 1)</a></h2>
+			<div class="postmetadata">18 Декабрь 2007, 14:38 <!-- от  --></div>
+			<div class="postentry">
+				<p>Метрокластер (metrocluster) - это кластеризованная, распределенная (metro - metropolitan) система хранения, разработанная NetApp на базе своих систем хранения среднего и верхнего класса. Она позволяет строить катастрофоустойчивые решения по хранению данных, и характеризуется поразительной простотой в эксплуатации. В значительной мере это решение уникально по множеству параметров среди всего, предлагаемого сегодня рынку производителями систем хранения данных.</p>
+<p>Для того, чтобы рассказать о конструкции «метрокластера» - концептуальном нетапповском распределенном «кластере хранения» необходимо прежде всего подробнее рассказать о реализации кластера в системах NetApp вообще, поскольку «metrocluster» в значительной мере базируется на этих концепциях, а они, в значительной мере, уникальны для сегоднящних систем хранения на рынке.</p>
+<p><em><strong>&#8220;Спецпредложение! Клиент, заплативший двойную цену, второй экземпляр получает бесплатно!&#8221; </strong></em></p>
+<p>Мы привыкли к системам без единой точки отказа, так называемым «fault tolerance» системам. Как правило такая конструкция подразумевает дублирование всех критически важных узлов, таких, как блока питания, контроллера управления (на каждом процессор и кэш-память), предусматривается два пути доступа к данным, с тем, чтобы обрыв одного из проводов от сервера или FC-фабрики не прекращал доступа к данным. В общем всего по два, на всякий случай, за исключением собственно корпуса системы хранения. Ну и конечно диски, чаще всего в RAID0+1, что по сути означает то же дублирование. Довольно простое и безыскусное решение. Впрочем весьма действенное. А с тем, что мы по сути платим за две системы, в то время, как пользуемся одной, приходится мириться. Надежность хранения данных, как правило, это вещь, стоящая этих денег.</p>
+<p>Однако дублирование всего, за исключением корпуса, то есть «физической сущности» системы хранения, спасет наши данные в случае отказа любого из элементов внутри системы хранения, и, частично, инфраструктуры (те самые «два пути доступа к данным»). Но не спасет, если проблема будет извне.<br />
+Общий отказ электропитания здания (обоих линий), пожар или наводнение, даже если это будет «наводнение» из лопнувшей трубы отопления или водопровода. Такая пошлая и банальная причина ничуть не делает катастрофу менее катастрофической по последствиям. Ну разве что в газеты вы не попадете, но станет ли вам легче, если причина пожара или наводнения будет не у вас, а, например, у соседа по зданию?<br />
+Сейчас я даже не касаюсь такого специфического «русского дизастера», как приезд более или менее компетентных органов, и изьятия оборудования для обеспеченя «оперативно-разыскной деятельности» впредь до особого уведомления, что, по катастрофическим последствиям своим, думаю, сравнимо с самыми серьезными форс-мажорами цивилизованных стран.</p>
+<p>Как правило для борьбы с такими несчастьями используются решения, называемые «катастрофоустойчивыми» или «disaster recovery solutions».<br />
+Обычно они подразумевают размещение двух идентичных систем хранения (каждая из них, если вы помните, в «двойном экземпляре» для защиты от внутренних отказов оборудования) в различных помещениях, возможно в разных зданиях или даже в различных городах или странах.<br />
+С помощью системы репликации данных, доступных ныне даже для систем хранения начального уровня, данные с рабочей системы реплицируются на удаленную. Да, но что же дальше?<br />
+Вопреки распространенному мнению, репликация на вторичную систему вовсе не делает «решения». Вы так или иначе конечно получаете реплику ваших данных, но нужно предпринять ряд усилий, чтобы остановить репликацию, смонтировать реплики в правильном порядке на сервера, а по окончании неприятностей вернуть все в исходное состояние.<br />
+Каждым производителем систем предлагаются какие-то решения, ка правило с помощью дополнительного ПО, но нигде это не является простым и, на практике, беспроблемным.</p>
+<p>Когда задачей создания отказоустойчивой системы хранения столкнулись инженеры компании NetApp, у них сразу возникла мысль решить эту задачу иным, нежели привычный, способом.</p>
+<p>Поскольку концептуальным свойством систем NetApp является простота эксплуатации, то отчего бы не сделать отказоустойчивую систему в виде кластерной системы, причем сделать весь «отказоустойчивый» функционал полностью прозрачным на уровне «пользвателя»-сервера?<br />
+При этом кластерная система не просто позволяет достичь отказоустойчивости, как в рассмотренной выше fault tolerance схеме «всего по два», но и с легкостью получить  катастрофоустойчивость, путем разнесения узлов кластера, ведь эти узлы полностью независимы физически.</p>
+<p>Так появился традиционный «кластер» NetApp, подавляющее большинство систем сейчас продается в такой конфигурации. Два блока контроллеров, каждый в своем корпусе, каждый полностью автономен, соединены между собой высокоскоростным каналом на базе протокола Infiniband. Этот канал (физически – два кабеля, два независимых канала) позволяет в штатной поставке разнести два контроллера, или в прижившемся термине самого NetApp, две «головы» (head), на расстояние до 5 метров, а с использованием дополительно заказываемого, более длинного кабеля – до 30 метров. Это еще не полноценная катастрофоустойчивость, но уже кое-что, как, например, возможность разнести две части системы хранения по двум соседним помещениям в здании.</p>
+<p>Как это выглядит с точки зрения пользователя?<br />
+Пользователь (здесь и далее под «пользователь» понимается не столько юзер на компьютером, сколько «пользователь данных системы хранения» - сервер) видит две виртуально независимых системы хранения, каждая голова обрабатывает свою часть данных, своеобразный режим Active-Active, в отличие от, например, Active-Passive, когда из двух контороллеров, один работает, а сторой стоит и ждет, когда первый сломается, но интересное начинается в момент, когда по какой-то причине работа одной из «голов» системы прекращается. Диски подключены по двум независимым путям, одним к одному контноллеру, вторым к другому, но «владелец» той или иной группы дисков только один, она «приписана» к той или иной «голове». В случае отказа штатного владельца группы дисков, «выжившая» голова перехватывает «чужие» диски, такое делают все системы хранения в fault tolerant-конфигурации, однако для систем NetApp это еще не все. Живая голова переносит на себя ресурсы, обслуживавшиеся недоступной ныне «головой», такие как имена shares, имена ресурсов и IP-адреса в случае NAS, а также WWN FC-портов и LUNы, в случае работы в SAN. С точки зрения «пользователя» данных все это происходит совершенно прозрачно, никаких перенастроек на стороне серверов делать не нужно. Просто через короткое время все используеые ресурсы, размещенные на вышедшей из строя части системы хранения, вновь оказываются работоспособными.</p>
+<p>«Жесткий диск» в сети SAN, или как NAS-устройство остается живой независимо от происходящих с системой в целом происшествий. Естественно это не чудо, и если одна из «голов» работает на пределе своей загрузки, то, в случае «подхвата» ей ресурсов партнера, и с ними дополнительной загрузки, возможно падение общей производительности. Однако, на практике, «прозрачность» доступности пользовательских данных, когда данные доступны без дополнительной перенастройки, пусть и не так шустро как раньше, это значит гораздо больше.</p>
+<p><em>Дальше - больше&#8230;</em></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+										Раздел: Без рубрики					&nbsp;|&nbsp;&nbsp;<a href="61/trackback.html#respond">Комментарий</a> (<a href='61/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="61/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="61" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.069 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

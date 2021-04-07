@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: RAID-6: что это, и зачем нужно?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/223/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/223</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:57 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-124</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 15:23:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-124</guid>
+		<description>Что же касается производительности RAID-DP на запись, то повторю уже написанное выше. Насколько я все это понимаю, принципиальный момент, который и, как следствие, позволяет получить RAID-6 без потери на быстродействии в Random Write, в том, что в NetApp Random Write всегда становится Sequental. Там просто нет Random Write вообще, по свойствам WAFL. Плюс то, что в системе сразу готовится полный страйп в NVRAM на запись, что практически очень сложно достичь в случае "классических" систем.</description>
+		<content:encoded><![CDATA[<p>Что же касается производительности RAID-DP на запись, то повторю уже написанное выше. Насколько я все это понимаю, принципиальный момент, который и, как следствие, позволяет получить RAID-6 без потери на быстродействии в Random Write, в том, что в NetApp Random Write всегда становится Sequental. Там просто нет Random Write вообще, по свойствам WAFL. Плюс то, что в системе сразу готовится полный страйп в NVRAM на запись, что практически очень сложно достичь в случае &#8220;классических&#8221; систем.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-123</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 15:12:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-123</guid>
+		<description>Ага, спасибо. А про 7 апреля в курсе и даже зарегистрировался. РР знаю, бывает обращаюсь по рабочим вопросам (:</description>
+		<content:encoded><![CDATA[<p>Ага, спасибо. А про 7 апреля в курсе и даже зарегистрировался. РР знаю, бывает обращаюсь по рабочим вопросам (:</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-122</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 15:11:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-122</guid>
+		<description>Вот через три недели NetApp Innovation 2009, и, если ты в Москве, то рекомендую сходить, найти там Рому Ройфмана, взять его в кулуарах за пуговицу, и расспросить. ?? если он будет в настроении, а такое бывает, то он много умнее чем я сможет рассказать.
+Советую воспрользоваться этой возможностью.</description>
+		<content:encoded><![CDATA[<p>Вот через три недели NetApp Innovation 2009, и, если ты в Москве, то рекомендую сходить, найти там Рому Ройфмана, взять его в кулуарах за пуговицу, и расспросить. ?? если он будет в настроении, а такое бывает, то он много умнее чем я сможет рассказать.<br />
+Советую воспрользоваться этой возможностью.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-121</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 15:06:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-121</guid>
+		<description>Что касается RAID-DP = RAID-6, то тут вот какая история. Долгое время NetApp говоил, что RAID-DP это не RAID-6 (оно и понятно, та же характеристика на записи совсем иная).
+Но потом было принято волевое решение сделать все наоборот, и говорить что RAID-DP это RAID-6 (что тоже в каком-то смысле понятно, DP полностью соответствует формальному определению SNIA для RAID-6).
+Причина довольно простая, когда выставляются предложения на тендер, в которм в условиях строго написано "RAID-6 и только", бывает непросто объяснить, что RAID-DP - "same same but different", как говорят у нас, в Таиланде :)
+Поэтому было принято рещение считать RAID-DP - RAID-ом 6, и все.
+
+С точки зрения того, как там все устроено сложно разобраться без бутылки. Ранее, в статье про устройство WAFL уже указывалось, что WAFL такая хитрая штука, что RAID по сути является частью этой "файловой системы", и это многое меняет в принципе. Поэтому просто так тут не поделишь: тут вот софт, тут диски, тут кэш, и так далее. Там все вместе, взаимопроникает. Поэтому, если буквоедствовать, то да, у RAID-DP иная реализация, поскольку так никто больше не делает.</description>
+		<content:encoded><![CDATA[<p>Что касается RAID-DP = RAID-6, то тут вот какая история. Долгое время NetApp говоил, что RAID-DP это не RAID-6 (оно и понятно, та же характеристика на записи совсем иная).<br />
+Но потом было принято волевое решение сделать все наоборот, и говорить что RAID-DP это RAID-6 (что тоже в каком-то смысле понятно, DP полностью соответствует формальному определению SNIA для RAID-6).<br />
+Причина довольно простая, когда выставляются предложения на тендер, в которм в условиях строго написано &#8220;RAID-6 и только&#8221;, бывает непросто объяснить, что RAID-DP - &#8220;same same but different&#8221;, как говорят у нас, в Таиланде :)<br />
+Поэтому было принято рещение считать RAID-DP - RAID-ом 6, и все.</p>
+<p>С точки зрения того, как там все устроено сложно разобраться без бутылки. Ранее, в статье про устройство WAFL уже указывалось, что WAFL такая хитрая штука, что RAID по сути является частью этой &#8220;файловой системы&#8221;, и это многое меняет в принципе. Поэтому просто так тут не поделишь: тут вот софт, тут диски, тут кэш, и так далее. Там все вместе, взаимопроникает. Поэтому, если буквоедствовать, то да, у RAID-DP иная реализация, поскольку так никто больше не делает.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-120</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 15:02:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-120</guid>
+		<description>Ромх, все же я не получил ответа на оба свои вопроса :)
+Вы, как гуру, ответьте, плз. Может я жестоко ошибаюсь и пока не знаю об этом.</description>
+		<content:encoded><![CDATA[<p>Ромх, все же я не получил ответа на оба свои вопроса :)<br />
+Вы, как гуру, ответьте, плз. Может я жестоко ошибаюсь и пока не знаю об этом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-119</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 14:55:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-119</guid>
+		<description>Я при подготовке текста брал исходные данные с http://storagenerve.com
+http://www.storagenerve.com/2009/02/hitachis-hds-raid-6.html
+http://www.storagenerve.com/2009/02/netapps-raid-dp-enhanced-raid-6.html
+http://www.storagenerve.com/2009/02/sun-storageteks-raid-6-implementation.html
+http://www.storagenerve.com/2009/02/emc-symmetrix-dmx-raid-6-implementation.html
+
+Ну и в двусмысленных местах округлял в пользу компетитора, конечно, что, мне не жалко :)</description>
+		<content:encoded><![CDATA[<p>Я при подготовке текста брал исходные данные с <a href="http://storagenerve.com" rel="nofollow">http://storagenerve.com</a><br />
+<a href="http://www.storagenerve.com/2009/02/hitachis-hds-raid-6.html" rel="nofollow">http://www.storagenerve.com/2009/02/hitachis-hds-raid-6.html</a><br />
+<a href="http://www.storagenerve.com/2009/02/netapps-raid-dp-enhanced-raid-6.html" rel="nofollow">http://www.storagenerve.com/2009/02/netapps-raid-dp-enhanced-raid-6.html</a><br />
+<a href="http://www.storagenerve.com/2009/02/sun-storageteks-raid-6-implementation.html" rel="nofollow">http://www.storagenerve.com/2009/02/sun-storageteks-raid-6-implementation.html</a><br />
+<a href="http://www.storagenerve.com/2009/02/emc-symmetrix-dmx-raid-6-implementation.html" rel="nofollow">http://www.storagenerve.com/2009/02/emc-symmetrix-dmx-raid-6-implementation.html</a></p>
+<p>Ну и в двусмысленных местах округлял в пользу компетитора, конечно, что, мне не жалко :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-118</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 13:20:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-118</guid>
+		<description>Странно - почему это "RAID-группа с типом 6 как правило сильно проигрывает (практически на треть!) на Random Write"? У R5 wp=4, у R6 wp=6. Не на треть, а на 50%.
+
+Второй вопрос - я всегда думал, что безпроигрышность NetApp с RAID-DP связана с исключительно технологией NVRAM/WAFL, а не с устройством RAID. Вот HDS тоже чмырит RAID6 от EMC со ссылками на Intel, они совершенно правы - у EMC более медленная реализация R6. А у NetApp что-же, какая-то третья, неизвестная другим производителям реализация R6 (DP)? Что-то я засомневался...</description>
+		<content:encoded><![CDATA[<p>Странно - почему это &#8220;RAID-группа с типом 6 как правило сильно проигрывает (практически на треть!) на Random Write&#8221;? У R5 wp=4, у R6 wp=6. Не на треть, а на 50%.</p>
+<p>Второй вопрос - я всегда думал, что безпроигрышность NetApp с RAID-DP связана с исключительно технологией NVRAM/WAFL, а не с устройством RAID. Вот HDS тоже чмырит RAID6 от EMC со ссылками на Intel, они совершенно правы - у EMC более медленная реализация R6. А у NetApp что-же, какая-то третья, неизвестная другим производителям реализация R6 (DP)? Что-то я засомневался&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-117</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 12:44:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-117</guid>
+		<description>Тут надо понимать принципиальную разницу. У NetApp вообще нет кэша записи в его традиционном понимании как он сделан у остальных массивов. У него есть некая буферная память, где собирается полный страйп записи, и атомарно переносится на диск, то есть в кэш-памяти как таковой ничего не хранится, и она целиком использована под чтение. Этакая транзакционная файловая система.
+За счет же того, что она устроена таким образом, что данные не перезаписываются, эта запись-"сброс кэша" происходит дловольно быстро, и целым страйпом. ??менно за счет того, что запись происходит целым подготовленным страйпом и объясняется то, что скорость записи на RAID-DP не падает по сравнению с "не-DP".
+Остальные массивы вынуждены записывать random-данные поблочно, а не очень эффективным страйповым методом.
+То есть по сути любая random write в NetApp становится sequental, так как так устроена его файловая система. Подробнее смотрите в предыдущем посте, где рассматривается внутреннее устройство WAFL.</description>
+		<content:encoded><![CDATA[<p>Тут надо понимать принципиальную разницу. У NetApp вообще нет кэша записи в его традиционном понимании как он сделан у остальных массивов. У него есть некая буферная память, где собирается полный страйп записи, и атомарно переносится на диск, то есть в кэш-памяти как таковой ничего не хранится, и она целиком использована под чтение. Этакая транзакционная файловая система.<br />
+За счет же того, что она устроена таким образом, что данные не перезаписываются, эта запись-&#8221;сброс кэша&#8221; происходит дловольно быстро, и целым страйпом. ??менно за счет того, что запись происходит целым подготовленным страйпом и объясняется то, что скорость записи на RAID-DP не падает по сравнению с &#8220;не-DP&#8221;.<br />
+Остальные массивы вынуждены записывать random-данные поблочно, а не очень эффективным страйповым методом.<br />
+То есть по сути любая random write в NetApp становится sequental, так как так устроена его файловая система. Подробнее смотрите в предыдущем посте, где рассматривается внутреннее устройство WAFL.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: itdiver.blogspot.com/</title>
+		<link>http://blog.aboutnetapp.ru/archives/223#comment-116</link>
+		<dc:creator>itdiver.blogspot.com/</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 11:58:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=223#comment-116</guid>
+		<description>??нтересно, а сохраняется ли высокие показатели на Random Write у групп RAID-DP после переполнения кэша массива? У EMC, в принципе, пока кэш не переполнился показатели RAID-5 и RAID-6 на Random Write примерно одинаковые - "Однако, пока рабочая нагрузка может передаваться от кэша без принудительного сбрасывания на диск, RAID 5 и RAID 6 имеют сходное поведение с точки зрения времени ответа."</description>
+		<content:encoded><![CDATA[<p>??нтересно, а сохраняется ли высокие показатели на Random Write у групп RAID-DP после переполнения кэша массива? У EMC, в принципе, пока кэш не переполнился показатели RAID-5 и RAID-6 на Random Write примерно одинаковые - &#8220;Однако, пока рабочая нагрузка может передаваться от кэша без принудительного сбрасывания на диск, RAID 5 и RAID 6 имеют сходное поведение с точки зрения времени ответа.&#8221;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

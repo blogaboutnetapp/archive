@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Multi-path High Availaility (MPHA) FAQ</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="950/trackback.html">Учу матчасть :)</a></div>
+			<div class="alignright"><a href="951/trackback.html">Еще немного про autotiering</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-959">
+			<h2 class="posttitle"><a href="959/trackback.html" rel="bookmark" title="Permanent Link to Multi-path High Availaility (MPHA) FAQ">Multi-path High Availaility (MPHA) FAQ</a></h2>
+			<div class="postmetadata">11 Июль 2011, 7:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Я давно собирался написать большой и подробный пост на тему что такое, для чего используется и как применяется режим подключения дисковых полок MPHA в системах NetApp, так как вокруг этой темы имеется, как я заметил, ряд принципиальных непониманий.</p>
+<p>Однако мне на прошедшей и этой неделе пока некогда, поэтому пока позвольте представить вашему вниманию перевод официального FAQ на тему MPHA, от NetApp, а свои мысли на этот счет я оставлю до времени, когда я смогу подробнее “посидеть над столом” и сформулировать их.</p>
+<p>Пока же – официальная позиция NetApp на тему использования MPHA в системах хранения NetApp.</p>
+<p>  <span id="more-959"></span><br />
+<h3>Что такое MPHA? </h3>
+<p>Соединение типа MPHA означает, что ваш контроллер подключен к дисковым полкам <strong>множественными (multiple) <font color="#ff0000">??</font> избыточными (redundant) соединениями</strong>. </p>
+<h3>Обязательно ли соединение типа MPHA для всех современных систем хранения NetApp? </h3>
+<p>Все системы хранения NetApp в HA-кластере сегодня должны использовать подключение MPHA, c с одним исключением. Конфигурация HA-кластера FAS2040 имеет только один порт SAS и по этой причине поддерживает только один путь подключения к полкам SAS.</p>
+<p>Все одноконтроллерные конфигурации NetApp требуют сегодня использования двухпутевого подключения, за исключением FAS2040, использующего дисковые полки SAS (так как имеют только один порт SAS на систему). </p>
+<h3>Поддерживается ли конфигурация MPHA, если используется только один HBA или же только встроенные порты контроллера? </h3>
+<p>NetApp поддерживает такие варианты, но продолжает рекомендовать использовать избыточные компоненты, так как использование только встроенных портов или только одиночного HBA является единой точной отказа в данной конфигурации системы хранения. </p>
+<p>MPHA поддерживается в том числе и на конфигурациях с только одним HBA. NetApp рекомендует разделять соединения между микросхемами HBA (ASIC). На четырехпортовом HBA это обычно означает, что порты A и B обслуживаются одним сипом ASIC, а порты C и D – другим. Следовательно, порты должны составлять пары на разных ASIC данного HBA (например, пара портов A и C и пара – B и D). Для соединений SAS смотрите <a href="http://now.netapp.com/NOW/knowledge/docs/hardware/filer/215-05500_A0.pdf">Universal SAS Cabling Guide</a>, доступный на сайте NetApp Support. </p>
+<p>??спользование встроенных портов также поддерживается. Например, системы серии FAS3200 имеют два встроенных порта SAS для подключения дисковых полок. Для систем, использующих только один стек дисков, NetApp поддерживает использование только двух встроенных портов для подключения MPHA. Однако NetApp рекомендует использовать кроме встроенных портов еще дополнительный HBA в плате расширения, для обеспечения дополнительной аппаратной устойчивости и надежности. </p>
+<p>Хотя такой вариант и поддерживается, вы можете получать сообщения в логах о том, что ваше соединение MPHA не избыточно с аппаратной точки зрения. Если вы намеренно выбрали такой вариант, то можете игнорировать эти сообщения. </p>
+<h3>Как определить, что моя конфигурация MPHA соединена правильно? </h3>
+<p>Наилучший метод при соединении кабелями разработан для оптимальной изоляции между ASIC, HBA и портами. Этот метод также обеспечивает правильное подключение стеков полок сверху-снизу. NetApp рекомендует использовать такой метод соединения дисковых полок и контроллера для всех конфигураций системы хранения NetApp. Руководство <a href="http://now.netapp.com/NOW/knowledge/docs/hardware/filer/215-05500_A0.pdf">Universal SAS Cabling Guide</a> это официальный источник для всех конфигураций подключения SAS MPHA; оно доступно на сайте NetApp Support. Аналогичный подход применяется и при использовании FC. </p>
+<h3>Какие модули полок поддерживаются в MPHA? </h3>
+<p>ESH2, AT-FCX (с CPLD версии 24), ESH4, IOM3, и IOM6 поддерживают работу с MPHA. Модули LRC и ESH не поддерживают MPHA, так как не имеют функции автотерминирования.</p>
+<h3>Какие версии Data ONTAP требуются для использования MPHA? </h3>
+<p>Data ONTAP 7.1.1 и новее требуется для серии FAS900, FAS3020, и FAS3050. Data ONTAP 7.2.1 или новее требуется для всех других платформ (с учетом минимальной рабочей версии для данной платформы).</p>
+<h3>Можно ли проапгрейдить существующую и уже установленную систему хранения NetApp для работы в MPHA? </h3>
+<p>При условии, что все необходимые и перечисленные выше условия соблюдены, и имеется достаточно портов для подключения, апгрейд до multipath HA достаточно прост. Комплект для Multipath HA, в который входят дополнительные HBA, кабеля и SFP, может быть дозаказан к системе, если это необходимо. </p>
+<p>Режим software disk ownership должен быть включен на обоих контроллерах HA-кластерной пары. Если этот режим не активирован, перегрузите оба контроллера в maintenance mode. Запустите команду <font face="Courier New">disk upgrade_ownership</font> до того, как вы начнете подключать кабеля для multipathing. Эта команда выполняется в течение нескольких секунд и автоматически назначает дискам контроллера-владельца.</p>
+<p>Если контроллеры уже используют software disk ownership, тогда пользователю может потребоваться дополнительная карта HBA для дополнительного соединения. Добавочные HBA могут быть установлены в систему, не прерывая нормальной доступности ее данных, путем серии кластерных takeover/giveback, как описано в <a href="http://now.netapp.com/NOW/knowledge/docs/ontap/rel723/pdfs/ontap/cluster.pdf">HA Pair Configuration Guide</a>. </p>
+<h3>Поддерживается ли MPHA в Metrocluster?</h3>
+<p>Оба типа Metrocluster, как stretched, так и fabric поддерживают использование Multipath HA. </p>
+<h3>Требуется ли Software-based Disk Ownership для работы MPHA? </h3>
+<p>Да. </p>
+<h3>Увеличивает ли MPHA производительность? </h3>
+<p>Так как MPHA удваивает количество соединений от каждого контроллера к дискам, увеличивается доступная полоса пропускания, и, как следствие, может увеличиться и производительность. Однако если конфигурация хранилища не достигла потолка по полосе пропускания для петли/стека дисков, то тогда MPHA скорее всего не поможет увеличить производительность. </p>
+<h3>Создаст ли проблемы, если мы используем MPHA только на части наших дисковых стеков? </h3>
+<p>Возможно использовать multipath только на некоторых дисковых стеках на системе хранения и не использовать на других на ней же. Как индикатор данной ситуации будет генерироваться сообщение EMS, указывающее на то, что некоторые стеки не используют multipath. NetApp рекомендует использовать multipath на всех стеках. </p>
+<h3>Каковы еще преимущества, кроме уже перечисленных, при использовании конфигурации Multipath HA? </h3>
+<p>Основные преимущества от использования multipath HA следующие: </p>
+<ul>
+<li>Multipath HA обеспечивает добавочную защиту от таких отказов, как:
+<ul>
+<li>Отказ HBA или порта </li>
+<li>Обрыв или повреждение кабеля от контроллера к дисковой полке </li>
+<li>Отказ модуля дисковой полки </li>
+<li>Двойной отказ межполочного соединения </li>
+<li>Отказ вторичного пути передачи </li>
+</ul>
+</li>
+<li>При использовании Data ONTAP 7.1.2 или 7.2.1 и новее, multipath HA помогает устранить нестабильность дискового стека, возникающую в результате отказа в этом стеке, без необходимости делать кластерный takeover/giveback или останавливать систему хранения. </li>
+<li>Data ONTAP mirrors bypasses on a single HA configuration, and as a result failures are propagated to the alternate path. In this scenario, a multidrive panic due to the multidrive bypass leads to controller downtime. Running multipath HA helps avoid storage instability due to multidrive bypasses because bypasses are not mirrored on multipath HA systems. </li>
+<li>В случае операции кластерного takeover/giveback, в stateful-протоколах, таких как CIFS и iSCSI разрывается сессия протокола. С точки зрения приложения в интервал takeover/giveback также включается время восстановления сессий stateful-протоколов. Так как multipath HA снижает вероятность события takeover/giveback, это снижает число разрывов сессий у stateful-протоколов. </li>
+</ul>
+<h3>Нужно ли мне использовать Multipath HA, если имеется возможность кластерного failover? </h3>
+<p>Конфигурация подключения типа multipath HA улучшает стабильность и устойчивость работы кластерной HA-пары контроллеров. </p>
+<p>Хотя возможность осуществления кластерного failover у контроллеров системы хранения обеспечивает высокую доступность данных путем устойчивости к отказам при проблемах в контроллере, проблемы на стороне дисковых полок часто приводят к нежелательным failover-ам. ??спользование Multipath HA улучшает стабильность и устойчивость системы хранения путем уменьшения количества излишних переключений кластера на контроллер партнера из-за проблем доступа к дискам. Это улучшает общую доступность системы и обеспечивает более высокую общую производительность.</p>
+<p>Начиная с версии Data ONTAP 7.3.1.1 в вывод команды sysconfig добавлена дополнительная информация о состоянии подключения контроллера к дискам.</p>
+<p>На сегодня различаются следующие возможные варианты подключений:</p>
+<table border="0" cellspacing="0" cellpadding="2" width="729">
+<tbody>
+<tr>
+<td valign="top" width="113"><strong><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Single</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">-</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Path</span></strong></td>
+<td valign="top" width="614"><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">Все диски подключены по одному пути</span></td>
+</tr>
+<tr>
+<td valign="top" width="113"><strong><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Mixed</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">-</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Path</span></strong></td>
+<td valign="top" width="614"><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">Некоторые диск подключены по одному, некоторые по нескольким путям</span></td>
+</tr>
+<tr>
+<td valign="top" width="113"><strong><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Multi</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">-</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Path</span></strong></td>
+<td valign="top" width="614"><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">Все диски подключены по нескольким путям</span></td>
+</tr>
+<tr>
+<td valign="top" width="113"><strong><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Single</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">-</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Path</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US"> </span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">HA</span></strong></td>
+<td valign="top" width="614"><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">Все диски подключены по одному пути</span></td>
+</tr>
+<tr>
+<td valign="top" width="113"><strong><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Mixed</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">-</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Path</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US"> </span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">HA</span></strong><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US"> </span></td>
+<td valign="top" width="614"><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">Некоторые диск подключены по одному, некоторые по нескольким путям</span></td>
+</tr>
+<tr>
+<td valign="top" width="113"><strong><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Multi</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">-</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">Path</span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US"> </span><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: en-us; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US">HA</span></strong><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa" lang="EN-US"> </span></td>
+<td valign="top" width="614"><span style="line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 11pt; mso-ansi-language: ru; mso-fareast-font-family: calibri; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: ru; mso-bidi-language: ar-sa">Все диски подключены по нескольким путям</span></td>
+</tr>
+</tbody>
+</table>
+<p>Разница между конфигурацией «HA» и конфигурацией «без HA» заключается в наличии или отсутствии дополнительного, избыточного канала подключения (см. схему)</p>
+<p><font face="Courier New">&gt; sysconfig -a      <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; NetApp Release 7.3.5: Thu May 27 16:40:57 PDT 2010       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; System ID: ; partner ID:       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; System Serial Number:       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; System Rev: H3       <br /><strong>&#160;&#160;&#160;&#160;&#160;&#160;&#160; System Storage Configuration:</strong> <font color="#ff0000">Single-Path HA</font>       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; System ACP Connectivity: NA</font></p>
+<p>Для просмотра того, какие именно диски и полки находятся в single path, превращая подкючение Multi-Path в Mixed-Path, можно воспользоваться командой:</p>
+<p><font face="Courier New">&gt; storage show disk –p</font></p>
+<p><font face="Courier New">&#160;&#160;&#160;&#160;&#160;&#160;&#160; NetApp Release 7.3.5: Thu May 27 16:40:57 PDT 2010      <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; System ID: ;partner ID:       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; System Serial Number:       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; System Rev: E1       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; <strong>System Storage Configuration:</strong> <font color="#ff0000">Mixed-Path HA</font>       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; System ACP Connectivity: NA</font></p>
+<p><font face="Courier New">PRIMARY&#160; PORT&#160; SECONDARY PORT SHELF BAY      <br />&#8212;&#8212;&#8211; &#8212;-&#160; &#8212;&#8212;&#8212; &#8212;- &#8212;&#8212;&#8212;       <br />5a.00.0&#160;&#160; A&#160;&#160;&#160; 6a.00.0&#160;&#160;&#160; B&#160;&#160;&#160;&#160; 0&#160;&#160;&#160; 0&#160; <br />5a.00.1&#160;&#160; A&#160;&#160;&#160; 6a.00.1&#160;&#160;&#160; B&#160;&#160;&#160;&#160; 0&#160;&#160;&#160; 1&#160; </font></p>
+<p><font face="Courier New">&#8230;</font></p>
+<p>Для подробного анализа подключений в сложных, многостековых и многополочных конфигурациях, можно воспользоваться утилитой Wiregauge которую можно взять в Toolchest на сайте NOW.NetApp (<a href="http://now.netapp.com/NOW/download/tools/wiregauge/">http://now.netapp.com/NOW/download/tools/wiregauge/</a>).</p>
+<p>&#160;</p>
+<p>Рассмотрим несколько основных ошибок при подключении полок в Multipath HA.</p>
+<p>Терминология:</p>
+<p>Primary – основной</p>
+<p>Standby – резервный</p>
+<p>Primary redundant – основной избыточный </p>
+<p>Standby redundant – резервный избыточный</p>
+<p>&#160;</p>
+<p><strong>Ошибка MPHA: Основной (primary) и избыточный (redundant) кабели подключены в один и тот же модуль дисковой полки.</strong></p>
+<p>На приведенном рисунке порты контроллера 0a и 0d контроллера, работающие как основной и избыточный каналы, подключены в один I/O модуль стека дисковых полок. Такая конфигурация не имеет устойчивости против выхода из строя такого модуля, и, при выходе его из строя, скажется на доступе к данному стеку для обоих каналов контроллера.</p>
+<p>&#160;</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image107.png" width="557" height="484" /></p>
+<p>&#160;</p>
+<p>Эту ошибку конфигурирования можно обнаружить в выводе команды</p>
+<p><font face="Courier New">*&gt; storage show disk -p      <br />PRIMARY PORT&#160; SECONDARY PORT SHELF BAY       <br />&#8212;&#8212;- &#8212;-&#160; &#8212;&#8212;&#8212;&#8212;&#8211; &#8212;&#8211; &#8212;       <br />&#8230;&#8230;&#8230;..       <br />0b.16&#160;&#160;&#160; B&#160;&#160;&#160; 2b.16&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />2b.17&#160;&#160;&#160; B&#160;&#160;&#160; 0b.17&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />2b.18&#160;&#160;&#160; B&#160;&#160;&#160; 0b.18&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />2b.19&#160;&#160;&#160; B&#160;&#160;&#160; 0b.19&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />0b.20&#160;&#160;&#160; B&#160;&#160;&#160; 2b.20&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />2b.21&#160;&#160;&#160; B&#160;&#160;&#160; 0b.21&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />2b.22&#160;&#160;&#160; B&#160;&#160;&#160; 0b.22&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />2b.23&#160;&#160;&#160; B&#160;&#160;&#160; 0b.23&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />2b.24&#160;&#160;&#160; B&#160;&#160;&#160; 0b.24&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?&#160; <br />0b.25&#160;&#160;&#160; B&#160;&#160;&#160; 2b.25&#160;&#160;&#160;&#160;&#160; B&#160;&#160;&#160;&#160; ?&#160;&#160;&#160; ?</font></p>
+<p>Как вы видите, PRIMARY PORT и SECONDARY PORT одинаковы для некоторых дисков. В приведенном примере все диски подключены и видятся через порт B.</p>
+<p>Эта ошибка также видна в логе ASUP STORAGE.</p>
+<p><font face="Courier New">Disk: 0a.16      <br />Shelf: 1       <br />Bay: 0       <br />&#8230;&#8230;&#8230;&#8230;       <br />Pri Port:&#160;&#160;&#160; A <font color="#ff0000">&lt;&lt;&lt; см. тут        <br /></font>Sec Name: 2a.16       <br />Sec Port:&#160;&#160;&#160; A <font color="#ff0000">&lt;&lt;&lt; см. тут, порт тот же, что и для Pri Port</font>       <br /></font>&#8230;&#8230;&#8230;&#8230;</p>
+<p>Как вы видите, Primary Port и Secondary Port диска 0a.16 оба подключены в порт A полки.</p>
+<p>&#160;</p>
+<p><strong>Ошибка MPHA: Основной (primary) и избыточный (redundant) кабели подключены в порты, заведенные на один ASIC.</strong></p>
+<p>В приведенном примере конфигурации ошибка заключается в том, что соединения для основного и избыточного пути заведены в порты, принадлежащие одному чипу контроллера и/или использующих одну шину PCI. Отказ такого чипа или же проблема на данной шине PCI может создать проблемы для передачи данных для всего дискового стека.</p>
+<p>&#160;</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image108.png" width="554" height="484" /></p>
+<p>&#160;</p>
+<p>Для серии FAS6000:</p>
+<ul>
+<li>0a/0b, 0c/0d, 0e/0f, 0g/0h: каждый FC-порт пары сидит на общем двухпортовом чипе </li>
+<li>0a/0b, 0c/0d сидят на одной общей шине PCI </li>
+<li>0e/0f, 0g/0h сидят на одной общей шине PCI </li>
+</ul>
+<p>Для серии FAS3000 и 3100:</p>
+<ul>
+<li>0a/0b, 0c/0d: каждый FC-порт пары сидит на общем двухпортовом чипе </li>
+<li>Все порты сидят на одной общей шине PCI </li>
+</ul>
+<p>Для серии FAS2000:</p>
+<ul>
+<li>0a/0b сидят на одном чипе </li>
+</ul>
+<p>Кроме этого надо помнить, что все порты на дополнительном HBA на карте расширения – это также single-point-of-failure.</p>
+<p>Ниже приводится пример из лога ASUP STORAGE для диска, подключенного к одному и тому же HBA. В примере показан один диск, расположенный в позиции 12 полки 1. Каналы 2a и 2b идут на один HBA, поэтому этот HBA будет являться single-point-of-failure.</p>
+<p><font face="Courier New">Disk:&#160;&#160;&#160;&#160; 2a.28&#160;&#160;&#160;&#160; <font color="#ff0000">&lt;&lt;&lt; см. тут        <br /></font>Shelf:&#160;&#160;&#160; 1&#160; <br />Bay:&#160;&#160;&#160;&#160;&#160; 12       <br />&#8230;&#8230;&#8230;&#8230;       <br />Pri Port: B       <br />Sec Name: 2b.28&#160;&#160;&#160;&#160;&#160; <font color="#ff0000">&lt;&lt;&lt; см. тут, 2a и 2b это один и тот же HBA</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />Sec Port: A       <br />&#8230;&#8230;&#8230;&#8230;</font></p>
+<p><font face="Courier New"></font></p>
+<p><strong>Ошибка MPHA: «Беспорядочное» подключение.</strong></p>
+<p>Строго говоря, это не ошибка подключения как таковая, она не создает single-point-of-failure, просто «неаккуратненько», что может привести к ошибке у обслуживающего систему персонала, например при идентификации и замене вышедшего из строя диска. Каждый диск при таком варианте подключения имеет 4 идентификатора пути, что усложняет процессы поиска источника проблем, например. </p>
+<p>В приведенном на рисунке примере порт 0a на первой ноде кластера подключен к стороне A верхней полки дискового стека, в то же время контроллер второй ноды кластера использует для подключения к той же полке по стороне B свой порт 0c.</p>
+<p>&#160;</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image109.png" width="581" height="484" /></p>
+<p>&#160;</p>
+<p>Так как ошибка персонала является, по статистике, все еще является одной из самых распространенных среди всех ошибок при работе с любыми системами, было бы разумно правильным, упорядоченным, единообразным и логичным подключением минимизировать такие ошибки.</p>
+<p>Ну и, наконец, <strong>правильный, безошибочный вариант подключения MPHA:</strong></p>
+<p><strong></strong></p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image110.png" width="583" height="484" /></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/cabling.html" rel="tag">cabling</a>, <a href="tag/mpha.html" rel="tag">mpha</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/troubleshooting.html" rel="tag">troubleshooting</a><br />					Раздел: <a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="959/trackback.html#respond">Комментарий</a> (<a href='959/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="959/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (4)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1518">
+		<div id="div-comment-1518">
+		<div class="comment-author">
+			<cite>evgeny:<cite></div>
+			<p>Все замечательно, однако в реальном мире уже бывает приходишь к ошибочной конфигурации. Подскажите, можно ли переключить полки на правильный вариант без потери данных? ?? если да, то можно ли это делать &#8220;на горячую&#8221;, то есть с использованием takeover/giveback?</p>
+						<div class="comment-meta"><a href="959/trackback.html#comment-1518" title="">11 Июль 2011, 20:21</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1520">
+		<div id="div-comment-1520">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>evgeny:</p>
+<p>Уверен, что да, на то она и избыточность. Подозреваю, что можно даже и без кластерного тэйковера, а с тэйковером-то - тем более.</p>
+						<div class="comment-meta"><a href="959/trackback.html#comment-1520" title="">11 Июль 2011, 20:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2260">
+		<div id="div-comment-2260">
+		<div class="comment-author">
+			<cite>Владимир:<cite></div>
+			<p>Все подключено так как показано на последнем изображении (за исключением того что у меня нет второго управляющего блока и второго набора полок)<br />
+В логах появляются сообщения об ошибках:<br />
+Severity: CRITICAL<br />
+Message: Enclosure Services unavailable for one or more shelves on channel 0a.</p>
+<p>Severity: CRITICAL<br />
+Message: Enclosure services has detected an error in access to shelves on channel 0a.</p>
+<p>?? как следствие проблемы с одной из полок.<br />
+Пробуя разными способами переключения, замены модулей выяснил что если подключаться так как показано на первом изображении то сообщения об ошибках не появляются, но тогда возникают ошибки отображения дисков описанные в первом варианте подключения.</p>
+<p>Помогите разобраться что не так сделано.</p>
+						<div class="comment-meta"><a href="959/trackback.html#comment-2260" title="">6 Апрель 2012, 10:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2262">
+		<div id="div-comment-2262">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Владимир:</p>
+<p>Сильно рекомендую попробовать задать вопрос вот тут:</p>
+<p><a href="https://communities.netapp.com/groups/netapp-ru" rel="nofollow">https://communities.netapp.com/groups/netapp-ru</a></p>
+<p>Это русскоязычное комьюнити, которое я создал специально, чтобы был дискуссионный форум. В комментах к постам очень неудобно обсуждать что-то масштабное.<br />
+Там присутствуют несколько заметных специалистов, думаю, что на ваш вопрос там найдут ответ.</p>
+<p>Да и вообще, силь ву пле, гости дорогие, и велкам. :)</p>
+						<div class="comment-meta"><a href="959/trackback.html#comment-2262" title="">6 Апрель 2012, 12:53</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="959" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.079 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

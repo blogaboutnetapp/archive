@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; rdma</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;rdma&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-155">
+				<h2 class="posttitle"><a href="../155/trackback.html" rel="bookmark" title="Permanent Link to «Передний край» – iWARP">«Передний край» – iWARP</a></h2>
+				<div class="postmetadata">20 Август 2008, 7:43 <!-- от  --></div>
+				<div class="postentry">
+					<p><strong>Что есть что на горизонте.</strong></p>
+<p>Стремительное продвижение технологий в повседневность IT-служб иногда поразительно. Сегодня, когда интерфейсы Gigabit Ethernet устанавливаются уже даже в ноутбуки, реальностью становится 10Gigabit Ethernet, который еще пару лет назад был чем-то из области лабораторных изысканий. Что же принесет нам этот виток скоростной гонки интерфейсов – давайте посмотрим.</p>
+<p><strong>RDMA</strong></p>
+<p><strong>RDMA </strong>это <strong>Remote DMA</strong>. Для тех, кто за заботами сегодняшнего дня забыл об основах, позволю себе немного поликбезничать.<br />
+<strong>DMA</strong>, или <strong>Direct Memory Access</strong>, это классическая технология ввода-вывода данных с помощью специального программируемого контроллера DMA – прямого доступа к памяти.</p>
+<p>Ввод-вывод данных, одна из основных операций в вычислительной системе, может осуществляться разными путями. Например путем процессорных операций. Процессор берет байт из порта ввода и заносит его в ячейку памяти. ??ли наоборот, считывает его из ячейки памяти и отправляет в порт вывода. Ясно видно, что эти операции чрезвычайно загружают собой процессор, ведь такое действие надо совершить с каждым байтом (или вернее «словом», оно может быть и многобайтным).</p>
+<p>Проблема с загрузкой процессора при вводе-выводе была решена использованием процедуры DMA – Direct Memory Access. Процессор единожды сообщает специальному контроллеру DMA, с какого или в какой адрес в памяти он желает осуществить перемещение данных, а контроллер исполняет, по завершении уведомляя процессор об исполнении. Получает или передает байты жестким дискам, выводит массивы данных в видеоконтроллер или превращает «цифру» в звук.<br />
+Результат обычно весьма впечатляющ. IT-шники со стажем должны помнить, какой эффект давал переход жестких дисков персональных компьютеров с режима PIO (Programmed Input-Output) к DMA (и в дальнейшем к UltraDMA), степень загрузки процессора на интенсивных дисковых операциях снижалась в разы.</p>
+<p>Но DMA это лишь локальные операции, проще говоря, возможные только в области памяти и устройств одного компьютера. А что если сделать технологию DMA возможной для разных и между компьютерами?<br />
+Так родилась идея <strong>RDMA </strong>– <strong>Remote Direct Memory Access</strong>.</p>
+<p>Технология эта отнюдь не нова. За ее разработкой следит представительный <nofollow><a href="http://www.rdmaconsortium.org/home">RDMA Consortium</a></nofollow>, куда входят многие гранды индустрии, такие как IBM, Cisco, NetApp, EMC, HP, Intel, Microsoft, общим числом около 50. Она шумела как новинка еще в 1998 году, а в 2003 году RDMA Consortium объявил о завершении всех запланированных спецификаций. Однако множество проблем в реализации ограничили ее применение high-end HPC (high-performance computing) системами. RDMA той или иной форме применялась на системах Cray, Silicon Graphics и ряде других, столь же легендарных «небожителей».<br />
+Однако шли годы, и то, что было уделом экспериментальных и сверхвысокопроизводительных вычислений стало нашей повседневностью, вот и до 10G Ethernet очередь дошла.</p>
+<p>Основной идеей, родившей и развивающей RDMA как концепцию, была «размещать нужные данные непосредственно в память приложения», минуя многочисленное каскадное буферирование «из буферов сетевого адаптера в буфера сетевого протокола, из него в буфера OS, из них в буфера дисков, и так далее». ??менно поэтому в приложении к RDMA часто используется термин «zero-copy», то есть «отсутствие копирования», имея ввиду, конечно же, вот такое вот многократное промежуточное копирование между источником и получателем данных.</p>
+<p>Наиболее известной реализацией RDMA и его «zero-copy» в применении к системам передачи данных на сегодняшний день является Infiniband, разработанный в соответствии с этими требованиями. На сегодняшний день это наиболее известная сетевая система для высокопроизводительных кластерных интерконнектов, в свое время, за счет своей открытости и меньшей цены, вытеснившая из этой области проперитарный Myrinet. </p>
+<p><strong>iSCSI – SCSI over IP</strong><br />
+Я уже не раз писал о iSCSI, и останавливаться подробно наверное нет смысла. Сегодня уже все так или иначе находящиеся в теме систем хранения знают что это. <strong>iSCSI </strong>это способ передавать обычные и привычные SCSI-пакеты «упакованными» (модное словечко: «инкапсулированными») в IP-пакеты, и транспортировать их в любой среде передачи IP, например по Ethernet-сети. Тем самым между сервером и его жесткими дисками может находиться не традиционный 68-жильный кабель WideSCSI, а сетевые карты, ethernet-коммутаторы, провода Cat5, СКС, и прочие привычные скорее для «сетевиков» вещи. В наше время, когда в области передачи данных все явственнее происходит конвергенция «все в Ethernet-провод», когда даже будущее такого консервативного протокола как FibreChannel его основным локомотивом, компанией Bocade, видится, по ее заявлениям, в виде <strong>FCoE – FibreChannel-over-Ethernet</strong>, ничего удивительного, что iSCSI нашел себе сегодня широчайшее применение. </p>
+<p><strong>TOE – TCP Offload Engine</strong><br />
+iSCSI, как протокол в целом, состоит, по сути, из двух независимых частей. Также отдельно они, как правило, и реализуются в оборудовании. Одна часть – «SCSI», и все относящееся к этому протоколу. Вторая – «i» - TCP/IP и все касающееся его.<br />
+Как известно, iSCSI может быть реализован полностью программно, и, в ряде случаев это совсем неплохой выбор, недорогой и исключительно гибкий. При этом задачи поддержки протокола осуществляет специальная программа – <strong>iSCSI Initiator</strong>, которые сейчас существуют во всех распространенных операционных системах. Эта программа создает в системе «виртуальный SCSI-адаптер», с которым могут обычным образом взаимодействовать прикладные программы. В дальнейшем она производит на центральном процессоре системы собственно задачи инкапсуляции SCSI-пакетов в IP-пакеты и отправку их драйверу сетевого интерфейса Ethernet, как обычное приложение или драйвер.</p>
+<p>Такая модель дает нам беспрецедентную гибкость реализации, однако, очевидно, создает дополнительную нагрузку на центральный процессор, которую, при скоростях вплоть до Gigabit Ethernet еще можно обычно игнорировать, но на скоростях 10Gigabit Ethernet это уже становится сложно. Поэтому для 10GigE-систем как правило применяются те или иные «аппаратные» реализации.</p>
+<p>«Аппаратизация» iSCSI может быть осуществлена раздельно по рассмотренным выше частям. Мы можем сделать сетевую карту, которая будет самостоятельно производить всю TCP/IP-шную рутину, такую как расчет контрольных сумм и сборка фрагментов, такое устройство называется <strong>TCP Offload Engine – TOE</strong>. При этом «SCSI-адаптер» в системе у нас остается виртуальным. </p>
+<p>Либо сделать полную реализацию обоих частей протокола, то есть аппаратный SCSI-адаптер, на выходе которого будет не WideSCSI-разъем, а сетевой интерфейс, медный или оптический. Реализация же самого протокола для системы и ее приложений, как и ранее, будет для приложения и операционной системы полностью скрыта.</p>
+<p>Как правило адаптеры 10Gbit Ethernet имеют в себе либо TCP Offload Engine, сохраняя программную реализацию SCSI, на CPU системы, в драйвере. Либо полную аппаратную реализацию. Такие адаптеры принято называть, как и в FibreChannel-системах – <strong>HBA – Host Bus Adapter</strong>.</p>
+<p><strong>iWARP</strong><br />
+<strong>iWARP </strong>это <strong>Internet Wide Area RDMA Protocol </strong>– протокол работы RDMA по IP-сетям, основанный на концепциях Virtual Inerface Architecture, и, в определенном смысле, может рассматриваться как некий «Infiniband-over-IP».</p>
+<p>С того момента, когда возросшие скорости Ethernet-сетей стали явной проблемой для чисто программной реализации TCP/IP, разработчики задумались над методами разгрузки процессоров, и одним из них стал TOE – TCP Offload Engine – аппаратная реализация TCP/IP на микросхеме контроллера ethernet-адаптера. Такое решение значительно разгружает центральный процессор от задач поддержки передачи данных, которая теперь, в значительной мере, может осуществляться самим контроллером сети. Особенно это стало важно при увеличении скорости и переходе к 10Gbit Ethernet, работа над такими объемами может серьезно нагрузить и довольно мощный современный процессор. А ведь у него есть и другие задачи, кроме как считать контрольные суммы IP-пакетов. </p>
+<p>Чаще всего с помощью iWARP передаются такие «вышележащие» протоколы, как <strong>SCSI RDMA Protocol </strong>(SRP), <strong>iSCSI Extensions for RDMA</strong> (iSER), <strong>Sockets Direct Protocol</strong> (SDP) и <strong>NFS-over-RDMA</strong>.<br />
+Как видите, интерес Network Appliance к данной технологии понятен и объясним.</p>
+<p><strong>iSER – iSCSI Extensions for RDMA</strong> - это расширение протокола iSCSI, позволяющее ему работать по сетям, предоставляющим RDMA-сервис, например по Infiniband или iWARP. Он позволяет передавать данные непосредственно из и в буфер данных SCSI, минуя многочисленные промежуточные копирования данные из одного буфера в другой при традиционной обработке и передаче данных.<br />
+Целью создания <strong>iSER </strong>была попытка избежать проблемы фрагментации TCP при работе «классического» iSCSI, который, как вы помните, унаследовал от TCP/IP сетей, кроме массы полезного, и неприятную проблему фрагментации, которая, на больших скоростях передачи, характерных для 10Gbit Ethernet может приводить к заметному ухудшению latency. Суть проблемы заключается в том, что, при передаче, согласно природе TCP, пакеты могут приходить получателю в произвольном порядке, и дело получателя расставить их в нужном порядке, прежде чем передавать на обработку. Однако, пока получателю не придет пакет «номер два», он не может передать в SCSI буфер уже принятые пакеты номер «один», «три», «четыре» … «десять», которые вынуждены дожидаться прихода заплутавшего по сети «второго».<br />
+Вследствие этого возможны плохопредсказуемые задержки, которые были незначительны на небольших скоростях, но уже не могут игнорироваться на высоких.<br />
+Для решения этой проблемы <strong>iSER </strong>использует «zero-copy»-возможности RDMA вместо обычного способа инкапсуляции в TCP.<br />
+В качестве протокола передачи на транспортном уровне может использоваться, кроме «нативного» <strong><nofollow><a href="http://en.wikipedia.org/wiki/Sockets_Direct_Protocol">SDP </a></nofollow></strong>– Socket Direct Protocol, и специально разработанный для потоковых передач протокол <strong><nofollow><a href="http://en.wikipedia.org/wiki/Stream_Control_Transmission_Protocol">SCTP </a></nofollow></strong>– Stream Control Transmission Protocol (RFC4960), являющийся функционально объединяющим преимущества TCP и UDP для целей передачи «потоковых» данных. </p>
+<p>Первоначально этот протокол разрабатывался для целей передачи телефонии через IP, но прекрасно подошел и для других потоковых нужд современной Сети. Поддержка SCTP широко присутствует во множестве распространенных операционных системах, например IBM AIX v5, Cisco IOS v12, FreeBSD v7, Linux 2.4/2.6, HP-UX, Sun Solaris 10.<br />
+RDMA и NetApp</p>
+<p>Компанию <strong>NetApp </strong>и <strong>RDMA </strong>связывает многое. NetApp является одним из учредителей вышеупомянутого <strong>RDMA Consortium</strong>, и еще в 2002 году начала продавать любопытный продукт для своих систем хранения - <strong>DAFS Database Accelerator</strong>, решение, базирующееся на протоколе <strong>DAFS – Direct Access File System</strong>. Это RDMA-based протокол, ориентированный на работу с высокопроизводительными базами данных.<br />
+Однако, несмотря на хорошие бенчмарки, согласно которым доступ к сетевому хранилищу NFSv4 через сетевой интерфейс (использовалась специальная карта Emulex VirtualInterface) превосходил по параметрам доступ к локальным дискам системы, продукт не стал бестселлером, и вскоре незаметно исчез из прайс-листа, по видимому придя на рынок слишком рано.</p>
+<p>Но сегодня продукты c RDMA появляются на рынке, используя уже широко и активно распространяющиеся 10Gbit Ethernet-системы. Среди их производителей стоит назвать, например, такие имена, как <strong>Chelsio Communications</strong>, производящий такой интересный продукт, как <strong>Chelsio S310SR</strong> – 10G-адаптер с TCP Offload Engine, аппаратным iSCSI, виртуализацией и RDMA. Причем цена за пару, в так называемом <nofollow><a href="http://chelsio.com/products_10g_adapters.html">Evaluation Kit </a></nofollow>на сайте производителя, показана ниже чем 2000$ за карты с SR optical interface и ниже 1500$ за карты с «медным» CX4.<br />
+Существуют и версии в «мезонинном» исполнении, для установки в blade-системы, например в HP Type II Blade Systems или IBM Blade Center H.</p>
+<p>Любопытно будет также ознакомиться с тестами и бенчмарками. Они, хотя и «вендорские бенчмарки», относиться к которым надо достаточно осмотрительно, но показывают потенциальные возможности новой технологии.</p>
+<p><strong><nofollow><a href="http://www.chelsio.com/assetlibrary/products/NFS_RDMA_IB_iWARP.pdf">Experiences with NFS over IB and iWARP RDMA</a></nofollow></strong><br />
+<em>OpenFabric Workshop, Sonoma, CA<br />
+May 1, 2007</em></p>
+<p><strong><nofollow><a href="http://www.chelsio.com/assetlibrary/products/Cluster_Symposium_2005_Presenta.pdf">InfiniBand and 10-Gigabit Ethernet for I/O in Cluster Computing</a></nofollow></strong><br />
+<em>July 26-28 Cluster Symposium 2005</em></p>
+<p><strong><nofollow><a href="http://www.chelsio.com/assetlibrary/products/HotInterconnect_2005.pdf">Performance Characterization of a 10-Gigabit Ethernet TOE</a></nofollow></strong></p>
+<p><strong><nofollow><a href="http://www.chelsio.com/assetlibrary/products/Cluster_2005_Techical_Report_OS.pdf">Head-to-TOE Evaluation of High-Performance Sockets over Protocol Ofﬂoad Engines</a></nofollow></strong></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="10g.html" rel="tag">10G</a>, <a href="iscsi/index.html" rel="tag">iscsi</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="rdma.html" rel="tag">rdma</a>, <a href="technology.html" rel="tag">technology</a>, <a href="techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../155/trackback.html#comments" title="Комментарий к записи «Передний край» – iWARP">Комментарии (8)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.072 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

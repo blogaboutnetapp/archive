@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Hybrid Aggregate теперь Flash Pool!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1158/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1158</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:55 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-9534</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 03 Sep 2013 12:29:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-9534</guid>
+		<description>Валентин:
+
+Во Flash Pool на SSD операции попадают и при чтении и при записи данных на aggregate, в который включены SSD.</description>
+		<content:encoded><![CDATA[<p>Валентин:</p>
+<p>Во Flash Pool на SSD операции попадают и при чтении и при записи данных на aggregate, в который включены SSD.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Валентин</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-9533</link>
+		<dc:creator>Валентин</dc:creator>
+		<pubDate>Tue, 03 Sep 2013 12:19:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-9533</guid>
+		<description>Хотелось бы уточнить: Вы пишите "SSD работает и на чтение и на запись" - имеется ввиду, что flash pool используется для кэширования операций и на чтение и на запись или все же то, что данные просто в flash pool на SSD диски пишуться для кэширования операций чтения?</description>
+		<content:encoded><![CDATA[<p>Хотелось бы уточнить: Вы пишите &#8220;SSD работает и на чтение и на запись&#8221; - имеется ввиду, что flash pool используется для кэширования операций и на чтение и на запись или все же то, что данные просто в flash pool на SSD диски пишуться для кэширования операций чтения?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-8772</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 02 Aug 2013 04:23:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-8772</guid>
+		<description>pLuto:
+
+На самом деле куда проще спрашивать такое, "внетемное" в форуме NetApp, который я некоторое время назад создал, адрес его в "шапке" блога.
+
+Что касается эффективности FlashPool, то он безусловно будет работать под workload виртуализации, насколько именно хорошо - сможете определить только вы сами, но на прошлой неделе был опубликован документ о тестировании Flash Pool под задачу OLTP на Oracle, характер нагрузки на OLTP в общем довольно близок к тому, как работает большинство серверов виртуализации сами по себе (практически 100% random, чтений больше, чем записей, блоки мелкие).
+
+&gt; но даст ли 400GB полезной емкости flash pool’а более эффективный прирост скорости для ~14TB-ного aggregate, чем банальное построение решения на большем количестве более быстрых шпинделей.
+
+Поэтому ответ тут будет - безусловно "да", конечно же, и куда больший, чем даже в теории может дать несколько дополнительных щпинделей SAS.</description>
+		<content:encoded><![CDATA[<p>pLuto:</p>
+<p>На самом деле куда проще спрашивать такое, &#8220;внетемное&#8221; в форуме NetApp, который я некоторое время назад создал, адрес его в &#8220;шапке&#8221; блога.</p>
+<p>Что касается эффективности FlashPool, то он безусловно будет работать под workload виртуализации, насколько именно хорошо - сможете определить только вы сами, но на прошлой неделе был опубликован документ о тестировании Flash Pool под задачу OLTP на Oracle, характер нагрузки на OLTP в общем довольно близок к тому, как работает большинство серверов виртуализации сами по себе (практически 100% random, чтений больше, чем записей, блоки мелкие).</p>
+<p>> но даст ли 400GB полезной емкости flash pool’а более эффективный прирост скорости для ~14TB-ного aggregate, чем банальное построение решения на большем количестве более быстрых шпинделей.</p>
+<p>Поэтому ответ тут будет - безусловно &#8220;да&#8221;, конечно же, и куда больший, чем даже в теории может дать несколько дополнительных щпинделей SAS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: pLuto</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-8771</link>
+		<dc:creator>pLuto</dc:creator>
+		<pubDate>Fri, 02 Aug 2013 03:09:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-8771</guid>
+		<description>Сорри, что поднимаю тему годичной давности, но ближе нигде ничего не находится :)
+
+Встал вопрос выбора младшей СХД для собственной фермы виртуализации (пока 8 сокетов vmware, планируется рост до 20) и как-то я не смог пока вычитать из документов, насколько эффективен flash pool в подобных случаях.
+
+Сначала я положил глаз на типичную fas2240-2a 24*600 SAS 10k, но мне дьявол нашептывает "возьми 2240-4а 4*200 SSD + 20*2T SATA" (стыки наружу в обоих случаях - 10G, iSCSI/NFS). Полезного места, конечно, будет существенно больше, но даст ли 400GB полезной емкости flash pool'а более эффективный прирост скорости для ~14TB-ного aggregate, чем банальное построение решения на большем количестве более быстрых шпинделей.
+
+Т.е. предполагаю разбиение 20 SATA следующим образом - 2 уходят в spare, оставшиеся 18 пилю пополам, по 9 на контроллер, 7+2p, соответственно на один из aggregate навешиваю flash pool. Этот aggregate пойдет под горячие данные (диски VM, дазы банных), второй, соответственно, под всякое медленное и неважное.
+
+Также держу в голове вариант из bad practices, когда 1 spare, 2 на первый контроллер, остальные 17 (15+2p) на второй. ?? места больше, и шпинделей - т.е. родная скорость будет выше, но тогда-то flash pool будет работать на весь объем данных и, предполагаю, будет еще менее эффективен.
+
+Если не сложно, был бы рад услышать советы и комментарии опытных товарищей.</description>
+		<content:encoded><![CDATA[<p>Сорри, что поднимаю тему годичной давности, но ближе нигде ничего не находится :)</p>
+<p>Встал вопрос выбора младшей СХД для собственной фермы виртуализации (пока 8 сокетов vmware, планируется рост до 20) и как-то я не смог пока вычитать из документов, насколько эффективен flash pool в подобных случаях.</p>
+<p>Сначала я положил глаз на типичную fas2240-2a 24*600 SAS 10k, но мне дьявол нашептывает &#8220;возьми 2240-4а 4*200 SSD + 20*2T SATA&#8221; (стыки наружу в обоих случаях - 10G, iSCSI/NFS). Полезного места, конечно, будет существенно больше, но даст ли 400GB полезной емкости flash pool&#8217;а более эффективный прирост скорости для ~14TB-ного aggregate, чем банальное построение решения на большем количестве более быстрых шпинделей.</p>
+<p>Т.е. предполагаю разбиение 20 SATA следующим образом - 2 уходят в spare, оставшиеся 18 пилю пополам, по 9 на контроллер, 7+2p, соответственно на один из aggregate навешиваю flash pool. Этот aggregate пойдет под горячие данные (диски VM, дазы банных), второй, соответственно, под всякое медленное и неважное.</p>
+<p>Также держу в голове вариант из bad practices, когда 1 spare, 2 на первый контроллер, остальные 17 (15+2p) на второй. ?? места больше, и шпинделей - т.е. родная скорость будет выше, но тогда-то flash pool будет работать на весь объем данных и, предполагаю, будет еще менее эффективен.</p>
+<p>Если не сложно, был бы рад услышать советы и комментарии опытных товарищей.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-2896</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 09 Jul 2012 06:31:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-2896</guid>
+		<description>bbk:
+
+Конечно, такие веши надо смотреть не в транскрипте чата, а в официальном Technical FAQ на fieldportal.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Конечно, такие веши надо смотреть не в транскрипте чата, а в официальном Technical FAQ на fieldportal.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-2895</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 09 Jul 2012 06:27:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-2895</guid>
+		<description>romx&#62;Для любых систем, поддерживаемых в версии 8.1.1
+Question: Any plans to give some boost to 3210 through Flash Cache? Especially since they won't support Flash Cache either?
+[bbk]Здесь похоже опечатка, вместо первого слова Flash Cache, имелось ввиду Flash Pool.
+Answer: Flash Pool is not supported on a FAS3210.
+
+Отсюда:
+&lt;a href="https://communities.netapp.com/servlet/JiveServlet/download/16082-8-34839/Chat%20from%20April%2011%20Morning%20SIW%20-%20Final.docx" rel="nofollow"&gt;Final Chat from the April 11, 2012 SIW:  Technical Overview of Flash Pool (formerly Hybrid Aggregates)&lt;/a&gt;</description>
+		<content:encoded><![CDATA[<p>romx&gt;Для любых систем, поддерживаемых в версии 8.1.1<br />
+Question: Any plans to give some boost to 3210 through Flash Cache? Especially since they won&#8217;t support Flash Cache either?<br />
+[bbk]Здесь похоже опечатка, вместо первого слова Flash Cache, имелось ввиду Flash Pool.<br />
+Answer: Flash Pool is not supported on a FAS3210.</p>
+<p>Отсюда:<br />
+<a href="https://communities.netapp.com/servlet/JiveServlet/download/16082-8-34839/Chat%20from%20April%2011%20Morning%20SIW%20-%20Final.docx" rel="nofollow">Final Chat from the April 11, 2012 SIW:  Technical Overview of Flash Pool (formerly Hybrid Aggregates)</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-2549</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Wed, 16 May 2012 14:04:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-2549</guid>
+		<description>https://communities.netapp.com/polls/1356</description>
+		<content:encoded><![CDATA[<p><a href="https://communities.netapp.com/polls/1356" rel="nofollow">https://communities.netapp.com/polls/1356</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-2548</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Wed, 16 May 2012 13:57:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-2548</guid>
+		<description>Grigory:
+Можно купить хоть 1 диск (3Тб уже доступны). Цена Вам не понравится.
+
+Про заказы основанные на 8.1.1 что-то можно будет говорить в июне, пока все вилами на воде.
+
+romx:
+Как-то плавно течет здесь дискуссия, я даже не поленился поставить в коммьюнити аватарку. Но, заводить на площадке NetApp тему о тонкостях продуктового конфигуратора, интересную по сути только специалистам с ним работающим, не знаю, надо подумать :-)</description>
+		<content:encoded><![CDATA[<p>Grigory:<br />
+Можно купить хоть 1 диск (3Тб уже доступны). Цена Вам не понравится.</p>
+<p>Про заказы основанные на 8.1.1 что-то можно будет говорить в июне, пока все вилами на воде.</p>
+<p>romx:<br />
+Как-то плавно течет здесь дискуссия, я даже не поленился поставить в коммьюнити аватарку. Но, заводить на площадке NetApp тему о тонкостях продуктового конфигуратора, интересную по сути только специалистам с ним работающим, не знаю, надо подумать :-)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-2546</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 16 May 2012 07:02:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-2546</guid>
+		<description>Grigoriy:
+
+&gt; Alexey, а раньше где то пробегала информация что нетапп диски продает только шельфами по 12шт.
+
+Вы путаете диски HDD, которые NetApp продавал и продает только полками, и SDD.
+Продает полками, да, и это, поверьте, очень правильное решение. (а вот IBM в N-series продает поштучно, и я уже три раза объяснял владельцам N-series с проблемами "Ой, а мы промахнулись, неправильно посчитали нужное число дисков, а что же нам теперь делать?").
+
+&gt; То есть сейчас можно сделать заказ на полку 18х2Т(3т уже доступны?) Sata и 6 SSD Sata ?
+
+Нет.
+
+PS. Настоятельно рекомендую с дискуссионными темами перемещаться из комментов на форум в NetApp-RU. Не потому что я вас тут не рад видеть, а потому что там это просто удобнее.</description>
+		<content:encoded><![CDATA[<p>Grigoriy:</p>
+<p>> Alexey, а раньше где то пробегала информация что нетапп диски продает только шельфами по 12шт.</p>
+<p>Вы путаете диски HDD, которые NetApp продавал и продает только полками, и SDD.<br />
+Продает полками, да, и это, поверьте, очень правильное решение. (а вот IBM в N-series продает поштучно, и я уже три раза объяснял владельцам N-series с проблемами &#8220;Ой, а мы промахнулись, неправильно посчитали нужное число дисков, а что же нам теперь делать?&#8221;).</p>
+<p>> То есть сейчас можно сделать заказ на полку 18х2Т(3т уже доступны?) Sata и 6 SSD Sata ?</p>
+<p>Нет.</p>
+<p>PS. Настоятельно рекомендую с дискуссионными темами перемещаться из комментов на форум в NetApp-RU. Не потому что я вас тут не рад видеть, а потому что там это просто удобнее.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Grigoriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1158#comment-2545</link>
+		<dc:creator>Grigoriy</dc:creator>
+		<pubDate>Wed, 16 May 2012 06:44:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1158#comment-2545</guid>
+		<description>Alexey, а раньше где то пробегала информация что нетапп диски продает только шельфами по 12шт.
+То есть сейчас можно сделать заказ на полку 18х2Т(3т уже доступны?) Sata и 6 SSD Sata ?
+про сейчас я имею ввиду когда появится таки 8.1.1 и тд.</description>
+		<content:encoded><![CDATA[<p>Alexey, а раньше где то пробегала информация что нетапп диски продает только шельфами по 12шт.<br />
+То есть сейчас можно сделать заказ на полку 18х2Т(3т уже доступны?) Sata и 6 SSD Sata ?<br />
+про сейчас я имею ввиду когда появится таки 8.1.1 и тд.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

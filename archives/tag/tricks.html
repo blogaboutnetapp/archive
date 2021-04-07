@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; tricks</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;tricks&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"><a href="tricks/page/2.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1223">
+				<h2 class="posttitle"><a href="../1223/trackback.html" rel="bookmark" title="Permanent Link to Замена &ldquo;головы&rdquo; в сторадже: LUN serial">Замена &ldquo;головы&rdquo; в сторадже: LUN serial</a></h2>
+				<div class="postmetadata">18 Октябрь 2012, 7:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В <a href="../1220/trackback.html">статье ранее</a> я показал, как, в принципе, просто меняется контроллер на системе хранения NetApp, причем остаются на дисках доступными, без процедур миграции, все пользовательские данные, а сама процедура замены, и сопряженный с ней даунтайм, при хорошей подготовке и сноровке, можно завершить в течение буквально 20 минут. Однако в процедуре есть одна тонкость.</p>
+<p>Если у вас на сторадже используются SAN LUN-ы, то при замене “головы”, а если более точно, то при замене NVRAM (при замене контроллера обычно с ним также меняется и NVRAM (NVMEM), установленная внутри) у этих LUN изменится их SerialID. В ряде случаев это может озадачить использующие их хосты (например Windows Cluster изменяет при этом их signatures, и не может после поднять в онлайн). Поэтому было бы правильно, после замены контроллера, и до возвращения LUN-ов использующим их системам, вернуть им старые SerialID.</p>
+<p>Если у вас LUN-ов всего несколько, то это можно сделать и вручную (главное не забыть). Но если их много, то встает вопрос автоматизации.</p>
+<p>На сайте <a href="https://communities.netapp.com/">communities.netapp.com</a> было найдено несколько вариантов такого скрипта. <a href="https://communities.netapp.com/docs/DOC-2369">На Perl,</a> <a href="https://communities.netapp.com/docs/DOC-1754">на VBS</a>, и в виде <a href="https://communities.netapp.com/docs/DOC-19112">скрипта PowerShell</a>.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="lun.html" rel="tag">lun</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1223/trackback.html#comments" title="Комментарий к записи Замена &ldquo;головы&rdquo; в сторадже: LUN serial">Комментарии (7)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1219">
+				<h2 class="posttitle"><a href="../1219/trackback.html" rel="bookmark" title="Permanent Link to Радикальное ускорение работы NetApp System Manager 2.x">Радикальное ускорение работы NetApp System Manager 2.x</a></h2>
+				<div class="postmetadata">5 Октябрь 2012, 17:38 <!-- от  --></div>
+				<div class="postentry">
+					<p>Если вы, как и я ранее, мучаетесь от совершенно запредельно ннизкой скорости работы NetApp System Manager 2.x, основного ныне инструмента администрирования NetApp, то радикально ускорить его поможет вам способ, порекомендованный в нашем форуме (если вы еще не там – настоятельно приглашаю, ссылка в шапке блога):</p>
+<p>По видимому причина тормозов – в крайне кривом разрешении хостнейма в IP в Java при работе через DNS, поэтому добавьте соответствие имен контроллеров и их IP в локальный файл hosts. Таким доисторическим приемом вы, на глаз, в десятки раз увеличите скорость работы, открытия панелей и их обновления.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="system-manager.html" rel="tag">system manager</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1219/trackback.html#comments" title="Комментарий к записи Радикальное ускорение работы NetApp System Manager 2.x">Комментарии (13)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1059">
+				<h2 class="posttitle"><a href="../1059/trackback.html" rel="bookmark" title="Permanent Link to Read-Only юзер для System Manager и PowerShell Toolkit">Read-Only юзер для System Manager и PowerShell Toolkit</a></h2>
+				<div class="postmetadata">27 Октябрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??ногда бывает нужно создать пользователя, не имеющего на системе хранения других прав, кроме read-only, например для задач демонстрации и обучения, только для получения каких-то данных или снятия показаний, или же иных подобных применений. Сделать такого пользователя можно с помощью механизма RBAC – Role-Based Access Control (кстати по RBAC в <a href="http://www.netwell.ru/production/techbiblioteka.php">техбиблиотеке Netwell</a> лежит дельная <a href="http://www.netwell.ru/docs/netapp/role-based_access_control.pdf">переведенная документация</a>).</p>
+<p>Пример&#160; создания роли read-only user при помощи DataONTAP Powershell Toolkit.</p>
+<p><code><br />
+#Create read-only role:<br />
+New-NaRole ro_role -Capabilities&#160; login-*<br />
+#Add read-only capabilities to this from attached file:<br />
+$caps = Get-Content .\RoRoles.txt<br />
+ForEach ($cap in $caps)<br />
+{<br />
+&#160; Set-NaRole ro_role -AddCapabilities&#160; $cap<br />
+}<br />
+#Create read-only group:<br />
+New-NaGroup ro_group ro_role<br />
+#Create read-only user:<br />
+New-NaUser ro_user rouserpassword ro_group<br />
+</code></p>
+<p>&#160;</p>
+<p>Файл <a href="/docs/RoRoles.txt">RoRoles.txt</a> со списком вызовов API DataONTAP можно <a href="/docs/RoRoles.txt">скачать тут</a>.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="rbac.html" rel="tag">rbac</a>, <a href="read-only.html" rel="tag">read-only</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1059/trackback.html#respond" title="Комментарий к записи Read-Only юзер для System Manager и PowerShell Toolkit">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-996">
+				<h2 class="posttitle"><a href="../996/trackback.html" rel="bookmark" title="Permanent Link to Одинаковые имена томов и аггрегейтов на системе хранения">Одинаковые имена томов и аггрегейтов на системе хранения</a></h2>
+				<div class="postmetadata">22 Август 2011, 11:15 <!-- от  --></div>
+				<div class="postentry">
+					<p>Любопытную залипуху недавно пришлось разрешить. При объединении на одной системе хранения дисков, аггрегейтов и томов с нескольких других, на системе оказалось несколько томов с одинаковыми именами (ну да, на каждой был свой ???vol0’, к примеру).</p>
+<p>Для устранения этой проблемы Data ONTAP автоматически изменяет имена таких дублирующихся ресурсов, добавляя цифру в скобках. Однако проблема (по крайней мере в 7.x) в том, что такие авто-переименованные ресурсы нельзя переименовать вручную. Но можно переименовать исходный, который вызвал автопереименование последующих. Результат будет такой:</p>
+<p><code>fas1&gt; vol status      <br />&#160; Vol_data&#160;&#160;&#160; online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; Vol_data(1) online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; Vol_data(2) online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; <br />fas1&gt; vol rename vol_data vol_data_orig       <br />fas1&gt; vol status       <br />&#160; Vol_data_orig&#160; online&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; Vol_data&#160; online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; Vol_data(1) online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on </code></p>
+<p>Как вы видите, можно выкрутиться из этой ситуации переименовывая тома вручную по одному.</p>
+<p>Лучше, конечно, в такую ситуацию не попадать, и проверять на возможность дублирования ресурсы (аггрегейты и тома) до миграции. Самым лучшим будет заранее разработать <em>name convention</em>, препятствующую дублированию имен ресурсов на разных стораджах, и следовать ей при развертывании.</p>
+<p>Помощь, как всегда, была найдена в TFM&#160; ;) – NetApp Storage Management Guide.</p>
+<p><a href="https://now.netapp.com/NOW/knowledge/docs/ontap/rel733/html/ontap/smg/GUID-8AF533ED-4D0E-4953-A61C-535169B515B6.html">How you manage duplicate volume names</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tips.html" rel="tag">tips</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../996/trackback.html#respond" title="Комментарий к записи Одинаковые имена томов и аггрегейтов на системе хранения">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-920">
+				<h2 class="posttitle"><a href="../920/trackback.html" rel="bookmark" title="Permanent Link to Network boot">Network boot</a></h2>
+				<div class="postmetadata">13 Июнь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как вы, возможно, слышали, загрузить систему хранения NetApp можно по сети, сравнительно традиционным для UNIX-систем способом загрузки OS (ядра и rootfs) через TFTP. Это может помочь, например, если из за неисправности имеющегося ядра, которое располагается в системах NetApp на внутренней CF-карточке.</p>
+<p>Для того, чтобы загрузиться с TFTP необходимо при загрузке прервать обычное выполнение процедуры загрузки нажав при включении системы Ctrl-C (или в случае повреждения собственного загрузочного ядра OS система окажется там сама), оставшись в “биосе”. В качестве “биоса” в системах хранения NetApp используется специальный загрузчик, под названием LOADER (в более ранних системах, например FAS270 или FAS3020/3050 использовался немного другой метод – CFE – Common Firmware Environment).</p>
+<p>Как для LOADER, так и для CFE для загрузки системы хранения с помошью netboot вам нужно скачать с сайта NetApp netboot-версию OS Data ONTAP нужной вам версии и типа платформы (для современных систем это всегда версия с индексом платформы Q, для FAS3020/3050 индекс платформы будет E, для старых, MIPS-based систем, например FAS270 – M). </p>
+<p>Netboot-версия Data ONTAP 7.3.5.1 (наиболее свежей 7.х на момент написания этого поста) имеет размер 27,4MB (7351_netboot.q), версия Data ONTAP 8.0.1 – 144,6MB (801_netboot_q.tgz) и представляют собой kernel и rootfs завернутые в tar.gz, загружающиеся традиционным образом в память.</p>
+<p>Далее вам следует установить и настроить в сети, доступной системе хранения, сервер TFTP, и положить туда скачанный образ.</p>
+<p>В подсказке LOADER необходимо настроить сетевой интерфейс и запустить сетевую загрузку.</p>
+<p><code>LOADER&gt; ifconfig e0a -addr=192.168.1.10 -mask=255.255.255.0 -gw=192.168.1.1     <br />e0a: Link speed: 1000BaseT FDX       <br />Device e0a:&#160; hwaddr 00-A0-98-03-48-AB, ipaddr 192.168.1.10, mask 255.255.255.0       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; gateway 192.168.1.1, nameserver not set</code></p>
+<p>Доступные опции для команды ifconfig можно посмотреть введя в подсказке LOADER команду <code>help ifconfig</code></p>
+<p>Проверяем работу сети пингуя default gateway:</p>
+<p><code>LOADER&gt; ping 192.168.1.1      <br />192.168.1.1 (192.168.1.1) is alive       <br />192.168.1.1 (192.168.1.1): 1 packets sent, 1 received</code></p>
+<p>Запускаем команду netboot</p>
+<p><code>LOADER&gt; netboot tftp://192.168.1.11/tftproot/netapp_7.2.3_x86_64      <br />Loading:. . . . . . . . . . . </code></p>
+<p>Далее Data ONTAP загружается обычным образом. Если /etc , хранящийся на root volume, при этом доступен, то система запустится штатным образом, восстановив все рабочие настройки, если же система повреждена значительно, и, например /etc также&#160; недоступен, то можно попробовать загрузиться без /etc (выбрав соответствующую опцию в boot menu) инициализировать диски, создать новый aggregate, и запустить установку OS “начисто”.</p>
+<p>Обратите внимание, что для netboot доступны только встроенные ethernet-порты, не те, что возможно у вас на системе установлены на карте расширения, которая в момент начальной загрузки еще недоступна. </p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="howto/index.html" rel="tag">howto</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="netboot.html" rel="tag">netboot</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../920/trackback.html#comments" title="Комментарий к записи Network boot">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-927">
+				<h2 class="posttitle"><a href="../927/trackback.html" rel="bookmark" title="Permanent Link to Оптимизация на Large Sequental Read">Оптимизация на Large Sequental Read</a></h2>
+				<div class="postmetadata">30 Май 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Large Sequental Read, или чтение последовательными большими блоками, это один из распространенных паттернов доступа к данным. Например, с таким характером доступа работают такие задачи, как Decision Suport System (DSS), системы Business Intelligence (BI), а также многие задачи резервного копирования (full backup, например).</p>
+<p>Вследствие характера работы WAFL, такой паттерн доступа может быть проблемным для систем хранения NetApp, поэтому, если ваши задачи часто используют Large Sequental Read, то стоит позаботиться о некоторых методах оптимизации. Я уже писал, что ситуацию с производительностью на последовательном чтении улучшает регулярное выполнение операций реаллокации (они выполняются по расписанию, или при превышении порогового уровня non-contiguous blocks placement, не обязательно гонять его вручную). Также в блоге специалиста NetApp по нагрузочному тестированию и производительности, <a href="http://blogs.netapp.com/pseudo_benchmark">Wei Liu</a>, я приметил еще одну оптимизационную фишечку.</p>
+<p>В системах Data ONTAP версии 7.3.2 и новее имеется опция <code>wafl_max_write_alloc_blocks</code>, по умолчанию она установлена в 64. Если у вас работа с данными осуществляется преимущественно большими блоками, имеет смысл увеличить его значение до 256. Этот параметр, наскольно я могу судить из его названия, управляет размером экстента записи данных. О влиянии и смысле этого элемента дисковой структуры я недавно писал в посте про &#8220;фрагмнтацию&#8221;. Для версий до 7.3.2 этот параметр нужно было установить в файле /etc/rc в виде строки:     <br /><code>setflag wafl_max_write_alloc_blocks 256</code></p>
+<p>Эта опция оптимизирует работу WAFL при работе большими последовательными блоками. Я могу ошибаться, но, исходя из моего понимания процессов за которые она отвечает, сказываться она будет не просто при включении, а при включении и последующей записи на том, или после реаллокации блоков на томе (вы помните, надеюсь, что WAFL не перезаписывает однажды занятые блоки, поэтому структура для уже записанных данных, на момент включения опции, никак не изменится). Поэтому, возможно, заметить эффект от ее использования получится не сразу же.</p>
+<p>Опция была подсмотрена в документе: <a href="http://media.netapp.com/documents/tr-3760.pdf">TR-3760: Building a Scalable Data Warehouse Solution</a>, кстати любопытного и самого по себе чтива.</p>
+<p>Отдельно обращу ваше внимание, что не стоит сразу бросаться “тюнить” систему, так как данная опция, вероятнее всего, положительно влияет только на производительность large sequental read, и может не сказаться, или сказаться отрицательно на всех других. Но если у вас DSS-like база, то, может быть, можно и попробовать.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="optimization.html" rel="tag">optimization</a>, <a href="sequental-read.html" rel="tag">sequental read</a>, <a href="tips.html" rel="tag">tips</a>, <a href="tricks/index.html" rel="tag">tricks</a>, <a href="wafl/index.html" rel="tag">wafl</a><br />					Раздел: <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../927/trackback.html#respond" title="Комментарий к записи Оптимизация на Large Sequental Read">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-646">
+				<h2 class="posttitle"><a href="../646/trackback.html" rel="bookmark" title="Permanent Link to Администраторский доступ с нескольких хостов">Администраторский доступ с нескольких хостов</a></h2>
+				<div class="postmetadata">5 Август 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Системы хранения NetApp позволяют ограничить доступ к админской консоли, задав IP-адрес админского хоста либо при установке, либо в параметре admin.hosts</p>
+<p>Однако, иногда хотелось бы задать не один конкретный адрес, а подсеть, или несколько адресов.</p>
+<p>В этом случае возможен следующий простой трюк. Можно указать в качестве админхоста gateway соответствующей подсети, например в которой находятся рабочие места админов. В этом случае доступ будет ограничен только хостами указанной подсети:</p>
+<p><code>fas1&gt; options admin.hosts 192.168.1.254</code></p>
+<p>Другой вариант – указать их в таком виде:</p>
+<p><code>fas1&gt; options admin.hosts host1.domain.com:host2.domain.com:host3.domain.com</code></p>
+<p>Не забывайте, что это ограничение предельно примитивное, и строить защиту админского доступа только на нем не стоит, так как определяет возможность доступа к логину консоли исключительно по легко изменяемому IP источника. Если стоит задача серьезного разграничения доступа, то стоит использовать как &#8220;секурный&#8221; доступ по SSH и HTTPS (команда secureadmin), pre-shared key, и средства RBAC (Role-based Access Control), о которых я писал ранее и есть переведенный на русский документ в техбиблиотеке.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="access.html" rel="tag">access</a>, <a href="adminhost.html" rel="tag">adminhost</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../646/trackback.html#comments" title="Комментарий к записи Администраторский доступ с нескольких хостов">Комментарии (3)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-540">
+				<h2 class="posttitle"><a href="../540/trackback.html" rel="bookmark" title="Permanent Link to Блокировка трафика протоколов на портах">Блокировка трафика протоколов на портах</a></h2>
+				<div class="postmetadata">1 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??ногда бывает важно сделать так, чтобы трафик определенных протоколов вообще не ходил по определенным портам. Например, у нас есть система хранения, лицензированы протоколы iSCSI, CIFS и настроена репликация SnapMirror. Каждый из этих протоколов работает в своей физической сети. По CIFS ходят юзеры за файлами, по iSCSI прицеплены сервера, а SnapMirror льет свои данные по третьей сети, выделенной только под трафик репликации.</p>
+<p>?? мы хотели бы гарантировать, что каждый трафик будет существовать только в своей сети. До ONTAP 7.3 минимальные средства такого управления были только для iSCSI. Можно было разрешить или запретить iSCSI на конкретном порту, и только. Но начиная с 7.3 появилась новая возможность.</p>
+<p> <code>fas&gt; options interface.cifs.blocked e0b</code>   <br /><code>fas&gt; options interface.iscsi.blocked e1a,e1b,e1c,e1d</code>   <br /><code>fas&gt; options interface.nfs.blocked e0a,e0c</code>   <br /><code>fas&gt; options interface.snapmirror.blocked e0d</code>
+</p>
+<p>??з приведенных примеров, как мне кажется, все понятно. Обратите внимание, что настройки на обоих контроллерах кластера должны быть строго идентичны! Также имейте ввиду, что данные настройки не работают для iSCSI HBA и TOE-карт, то есть это только для обычных NIC, как onboard, так и карт расширения.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="ethernet.html" rel="tag">ethernet</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="options.html" rel="tag">options</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../540/trackback.html#comments" title="Комментарий к записи Блокировка трафика протоколов на портах">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-489">
+				<h2 class="posttitle"><a href="../489/trackback.html" rel="bookmark" title="Permanent Link to Консольный кабель и переустановка системы">Консольный кабель и переустановка системы</a></h2>
+				<div class="postmetadata">14 Январь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??ногда пользователям попадается система хранения с “богатым прошлым”, “доставшаяся в наследство”, или иной странный некомплект. Часто встает вопрос, как привести такую систему в исходное состояние, избавившись от “тяжелого наследства” установленной конфигурации прежних владельцев.</p>
+<p>Для начала, вам следует найти консольный кабель. Он идет в комплекте поставки но, в случае, когда концы системы утеряны, бывает с ними же уходит и кабель.</p>
+<p>В качестве консольного кабеля прекрасно подойдет аналогичный консольный кабель RJ-45-to-DB-9 от оборудования Cisco. Его распиновка такова: </p>
+<pre>Pinouts RJ45
+Pin# Signal
+1    connected to pin 8
+2    Not connected
+3    TXD (from appliance)
+4    GND
+5    GND
+6    RXD (to appliance)
+7    Not connected
+8    connected to pin 1 </pre>
+<p>Для справки также привожу распиновку стандартного RS-232 serial DB-9 </p>
+<pre>Pinouts DB9
+Pin# Signal Data Flow Description
+1    DCD    input     data carrier detected
+2    SIN    input     serial input
+3   SOUT    output    serial output
+4    DTR    output    data terminal ready
+5    GND    N/A       signal ground
+6    DSR    input     data set ready
+7    RTS    output    request to send
+8    CTS    input     clear to send
+9     RI    input     ring indicator </pre>
+<p>Для сброса системы в “состояние с завода” следует выполнить в консоли загруженной системы, войдя от имени root, следующие команды:</p>
+<p>&gt;priv set advanced</p>
+<p>&gt;halt -c factory </p>
+<p>После перезагрузки все ранее сделанные изменения конфигурации в /etc сотрутся, и будет запущен стартовый скрипт setup, обеспечивающий начальную установку впервые включенной системы.</p>
+<p>Если необходимо сменить неизвестный или утерянный пароль root, следует, с подключенным к serial port кабелем и консолью, включить контроллер, и, при загрузке, на предложенную подсказку, нажать Ctrl-C и выбрать (3) Change password.</p>
+<p>Обратите внимание, что сбросить пароль root возможно только с консольным подключением в контроллер.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="hardware.html" rel="tag">hardware</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tips.html" rel="tag">tips</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../489/trackback.html#respond" title="Комментарий к записи Консольный кабель и переустановка системы">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-238">
+				<h2 class="posttitle"><a href="../238/trackback.html" rel="bookmark" title="Permanent Link to NDMPcopy - копирование данных внутренними средствами NetApp">NDMPcopy - копирование данных внутренними средствами NetApp</a></h2>
+				<div class="postmetadata">16 Апрель 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Довольно часто админам, особенно тем, у кого в подчинении находятся несколько систем NetApp, приходится решать задачу переноса информации между системами хранения.<br />
+Например на файлереА у нас терабайт домашних папок, которые понадобилось перенести на новый файлерБ, чтобы освободить место на файлереА.<br />
+??ли перенести данные с одного ресурса на другой внутри той же системы.</p>
+<p>Казалось бы, чего проще: монтируем обе шары на какой-нибудь сервер, запускаем на нем копирование и оставляем на ночь.</p>
+<p>Но нормального админа грызет сомнение, но ведь контроллеры NetApp это &#8220;обычные серверы&#8221;, почему они не могут сами между собой договориться и перекинуть все хозяйство своими силами?<br />
+Могут.</p>
+<p>На помощь приходит команда ndmpcopy.<br />
+NDMP, как протокол передачи данных, тема интересная сама по себе, и когда-нибудь я до нее обязательно доберусь и распишу отдельно, но пока воспользуемся им для утилитарной цели.<br />
+Для того, чтобы запустить копирование данных средствами контроллеров NetApp, включите демон ndmp, если он у вас еще не запущен</p>
+<p><code>ndmpd on</code></p>
+<p>и выполните в консоли команду:</p>
+<p><code>ndmpcopy -sa root:password -da root:password filer01:/vol/vol1/share1/tree1/ filer02:/vol/vol2/share2/tree2</code></p>
+<p>где -sa root:password, соответственно, имя и пароль рута на source filer01, -da - на destination filer0, а далее указаны пути копирования для источника и получателя.</p>
+<p>?? указанные данные польются с одной системы на другую, не загружая копированием сервера, а только себя самих.</p>
+<p>Можно копировать как внутри одной системы:</p>
+<p><code>myhost> ndmpcopy -sa username:password -da username:password myhost:/vol/vol0/source_path myhost:/vol/vol0/destination_path</code></p>
+<p>или короче:</p>
+<p><code>myhost> ndmpcopy /vol/vol0/source_path  /vol/vol0/destination_path</code></p>
+<p>так и с одной системы на другую:</p>
+<p><code>myhost> ndmpcopy -da username:password /vol/vol0/source_path remotehost1:/vol/vol0/destination_path</code></p>
+<p>и даже с одной удаленной на другую, отдавая команды на некоей третьей, которая при этом в копировании не участвует:</p>
+<p><code>myhost> ndmpcopy -sa username:password -da username:password remotehost1:/vol/vol0/source_path remotehost2:/vol/vol0/destination_path</code></p>
+<p>PS. ACLs конечно же при этом также переносятся корректно.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="ndmp.html" rel="tag">ndmp</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../238/trackback.html#respond" title="Комментарий к записи NDMPcopy - копирование данных внутренними средствами NetApp">Комментарий</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="tricks/page/2.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.088 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

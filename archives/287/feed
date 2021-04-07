@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Новые переводы документации.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/287/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/287</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:27 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/287#comment-141</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 27 May 2009 03:51:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=287#comment-141</guid>
+		<description>Спасибо, Alex. :) Поправленную попрошу перевыложить поскорее.</description>
+		<content:encoded><![CDATA[<p>Спасибо, Alex. :) Поправленную попрошу перевыложить поскорее.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/287#comment-140</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Wed, 20 May 2009 16:13:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=287#comment-140</guid>
+		<description>3.3.2. OS Windows — Сервиспаки 
+...
+Microsoft Windows 2003: Standard или Enterprise</description>
+		<content:encoded><![CDATA[<p>3.3.2. OS Windows — Сервиспаки<br />
+&#8230;<br />
+Microsoft Windows 2003: Standard или Enterprise</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/287#comment-139</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Wed, 20 May 2009 16:08:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=287#comment-139</guid>
+		<description>"Если сервера Linux используют высокопроизводительную сеть (gigabit или быстрее), обеспечьте достаточно ресурсов CPU и полосы пропускания память,"
+
+последние три слова</description>
+		<content:encoded><![CDATA[<p>&#8220;Если сервера Linux используют высокопроизводительную сеть (gigabit или быстрее), обеспечьте достаточно ресурсов CPU и полосы пропускания память,&#8221;</p>
+<p>последние три слова</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/287#comment-138</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Wed, 20 May 2009 16:06:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=287#comment-138</guid>
+		<description>Будучи пользователем root на клиенте, выполните следующие команды:  
+cd into /proc/sys/net/core  
+...
+
+нет такой команды "cd into" :)</description>
+		<content:encoded><![CDATA[<p>Будучи пользователем root на клиенте, выполните следующие команды:<br />
+cd into /proc/sys/net/core<br />
+&#8230;</p>
+<p>нет такой команды &#8220;cd into&#8221; :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/287#comment-137</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Wed, 20 May 2009 15:55:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=287#comment-137</guid>
+		<description>видимо, в документе опечатка:
+•	Создайте как минимум две группы online redo log, каждую с тремя участниками (members). Поместите первую группу online redo log в один том, а следующую в другой том.
+...
+•	Предлагаемый вариант: 
+Redo Grp 1: $ORACLE_HOME/Redo_Grp1 (на томе /vol/oralog)
+Redo Grp 2: $ORACLE_HOME/Redo_Grp2 (на томе /vol/oralog)
+
+т.е. в предлагаемом варианте указан один и тот же том, а не два разных, как рекомендуют</description>
+		<content:encoded><![CDATA[<p>видимо, в документе опечатка:<br />
+•	Создайте как минимум две группы online redo log, каждую с тремя участниками (members). Поместите первую группу online redo log в один том, а следующую в другой том.<br />
+&#8230;<br />
+•	Предлагаемый вариант:<br />
+Redo Grp 1: $ORACLE_HOME/Redo_Grp1 (на томе /vol/oralog)<br />
+Redo Grp 2: $ORACLE_HOME/Redo_Grp2 (на томе /vol/oralog)</p>
+<p>т.е. в предлагаемом варианте указан один и тот же том, а не два разных, как рекомендуют</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/287#comment-136</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 14 May 2009 03:21:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=287#comment-136</guid>
+		<description>Еще бы тебе его ругать! ;)
+
+Что же касается неоднозначности, то, перефразируя шутку про раввинов, "у трех собравшихся оракловых сисадминов по поводу любого вопроса будет как минимум четыре мнения".</description>
+		<content:encoded><![CDATA[<p>Еще бы тебе его ругать! ;)</p>
+<p>Что же касается неоднозначности, то, перефразируя шутку про раввинов, &#8220;у трех собравшихся оракловых сисадминов по поводу любого вопроса будет как минимум четыре мнения&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/287#comment-135</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Thu, 14 May 2009 02:42:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=287#comment-135</guid>
+		<description>Хороший перевод! Правда оригинал сам по себе немного не однозначный.</description>
+		<content:encoded><![CDATA[<p>Хороший перевод! Правда оригинал сам по себе немного не однозначный.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

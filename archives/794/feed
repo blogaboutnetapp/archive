@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: IOmeter &#8211; параметр Align I/Os</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/794/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/794</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:49 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/794#comment-1078</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 02 Feb 2011 12:02:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/794#comment-1078</guid>
+		<description>Скорее всего нет, а как? Обычно системы хранения ведь не предоставляют никаких средств снаружи управлять тем, что попадает в кэш, а что нет.
+
+Единственный выход - тестировать на заведомо значительно большем кэша датасете, чтобы обеспечить "пробой кэша" и гарантированное переполнение.</description>
+		<content:encoded><![CDATA[<p>Скорее всего нет, а как? Обычно системы хранения ведь не предоставляют никаких средств снаружи управлять тем, что попадает в кэш, а что нет.</p>
+<p>Единственный выход - тестировать на заведомо значительно большем кэша датасете, чтобы обеспечить &#8220;пробой кэша&#8221; и гарантированное переполнение.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/794#comment-1076</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Wed, 02 Feb 2011 09:11:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/794#comment-1076</guid>
+		<description>спасибо не знал.
+В Iometer можно создать паттерн с учетом попадания в кэш схд?</description>
+		<content:encoded><![CDATA[<p>спасибо не знал.<br />
+В Iometer можно создать паттерн с учетом попадания в кэш схд?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/794#comment-1073</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 01 Feb 2011 08:40:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/794#comment-1073</guid>
+		<description>&gt; Да в версии 2006.07.27 наиболее свежей(
+
+А, вот вы где неправы. Качайте с 
+http://sourceforge.net/projects/iometer/files/
+а не с
+http://iometer.org
+
+Как я понимаю, ветка stable давно тихо отошла, занимаются сейчас только devel, 
+она обновилась крайний раз 2 декабря 2010 года
+iometer-1.1.0-rc1-src.tar.bz2</description>
+		<content:encoded><![CDATA[<p>> Да в версии 2006.07.27 наиболее свежей(</p>
+<p>А, вот вы где неправы. Качайте с<br />
+<a href="http://sourceforge.net/projects/iometer/files/" rel="nofollow">http://sourceforge.net/projects/iometer/files/</a><br />
+а не с<br />
+<a href="http://iometer.org" rel="nofollow">http://iometer.org</a></p>
+<p>Как я понимаю, ветка stable давно тихо отошла, занимаются сейчас только devel,<br />
+она обновилась крайний раз 2 декабря 2010 года<br />
+iometer-1.1.0-rc1-src.tar.bz2</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/794#comment-1072</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Tue, 01 Feb 2011 06:49:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/794#comment-1072</guid>
+		<description>Да в версии 2006.07.27 наиболее свежей(</description>
+		<content:encoded><![CDATA[<p>Да в версии 2006.07.27 наиболее свежей(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/794#comment-1071</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 31 Jan 2011 12:44:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/794#comment-1071</guid>
+		<description>Это в наиболее свежей версии собранной из сорцов так?</description>
+		<content:encoded><![CDATA[<p>Это в наиболее свежей версии собранной из сорцов так?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/794#comment-1070</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Mon, 31 Jan 2011 12:30:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/794#comment-1070</guid>
+		<description>Собирается
+Dynamo при  старте выдает:
+ *** Could not determine processor speed.
+*** Unable to initialize needed performance data.
+This error may indicate that you are trying to run on an unsupported
+processor or OS.  See the Iometer User's Guide for information on
+supported platforms.</description>
+		<content:encoded><![CDATA[<p>Собирается<br />
+Dynamo при  старте выдает:<br />
+ *** Could not determine processor speed.<br />
+*** Unable to initialize needed performance data.<br />
+This error may indicate that you are trying to run on an unsupported<br />
+processor or OS.  See the Iometer User&#8217;s Guide for information on<br />
+supported platforms.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/794#comment-1069</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 31 Jan 2011 11:24:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/794#comment-1069</guid>
+		<description>&gt; А какие результаты будут при 100% Read?
+
+Ну мерять надо, не знаю.
+
+&gt; Iometer тест неплохой, но не работает под Sol10 на последних hi-end серверах E25k, M9000.
+
+А что мешает? Не собирается? А как-то три года назад на каком-то из энтерпрайзов собирал под "десятку", там надо было что-то с ключиками компиляции пошаманить, как я помню.</description>
+		<content:encoded><![CDATA[<p>> А какие результаты будут при 100% Read?</p>
+<p>Ну мерять надо, не знаю.</p>
+<p>> Iometer тест неплохой, но не работает под Sol10 на последних hi-end серверах E25k, M9000.</p>
+<p>А что мешает? Не собирается? А как-то три года назад на каком-то из энтерпрайзов собирал под &#8220;десятку&#8221;, там надо было что-то с ключиками компиляции пошаманить, как я помню.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/794#comment-1068</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Mon, 31 Jan 2011 09:09:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/794#comment-1068</guid>
+		<description>100% RandomWrite=100% seqWrite для Netappa?
+А  какие результаты будут  при 100% Read?
+Iometer тест неплохой, но не работает под Sol10 на последних hi-end серверах E25k, M9000.
+Помогает  VDbench</description>
+		<content:encoded><![CDATA[<p>100% RandomWrite=100% seqWrite для Netappa?<br />
+А  какие результаты будут  при 100% Read?<br />
+Iometer тест неплохой, но не работает под Sol10 на последних hi-end серверах E25k, M9000.<br />
+Помогает  VDbench</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: VMware на NFS: экзотика или новый хит?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/158/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/158</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:09 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/158#comment-40</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 02 Sep 2008 10:57:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=158#comment-40</guid>
+		<description>Если отвечать коротко, то это "Not supported".
+
+А вообще, посмотри в комментах к посту Ника Триантоса
+http://storagefoo.blogspot.com/2007/09/vmware-over-nfs.html
+
+он там на такой же вопрос человека с ником Phani отвечает.
+Вот этот фрагмент начинается:
+http://storagefoo.blogspot.com/2007/09/vmware-over-nfs.html?showComment=1195227840000#c9189872204520561733</description>
+		<content:encoded><![CDATA[<p>Если отвечать коротко, то это &#8220;Not supported&#8221;.</p>
+<p>А вообще, посмотри в комментах к посту Ника Триантоса<br />
+<a href="http://storagefoo.blogspot.com/2007/09/vmware-over-nfs.html" rel="nofollow">http://storagefoo.blogspot.com/2007/09/vmware-over-nfs.html</a></p>
+<p>он там на такой же вопрос человека с ником Phani отвечает.<br />
+Вот этот фрагмент начинается:<br />
+<a href="http://storagefoo.blogspot.com/2007/09/vmware-over-nfs.html?showComment=1195227840000#c9189872204520561733" rel="nofollow">http://storagefoo.blogspot.com/2007/09/vmware-over-nfs.html?showComment=1195227840000#c9189872204520561733</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/158#comment-39</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Tue, 02 Sep 2008 10:43:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=158#comment-39</guid>
+		<description>Отличный текст!
+
+Я только не понял, почему же "для гостевых OS диски, получаемые ESX-ом c системы хранения, выглядят как локальное пространство дисков ESX-сервера" и при этом не работает MCSC?
+
+P.S. WSFC также не будет работать?</description>
+		<content:encoded><![CDATA[<p>Отличный текст!</p>
+<p>Я только не понял, почему же &#8220;для гостевых OS диски, получаемые ESX-ом c системы хранения, выглядят как локальное пространство дисков ESX-сервера&#8221; и при этом не работает MCSC?</p>
+<p>P.S. WSFC также не будет работать?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

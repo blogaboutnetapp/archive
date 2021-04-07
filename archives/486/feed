@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Best Practices по NetApp - по-русски.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/486/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/486</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:17 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: gbyagger</title>
+		<link>http://blog.aboutnetapp.ru/archives/486#comment-1063</link>
+		<dc:creator>gbyagger</dc:creator>
+		<pubDate>Wed, 26 Jan 2011 10:12:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=486#comment-1063</guid>
+		<description>В BestPractices guide NetApp и VMware Vsphere Client 4.1 в пункте 3.3 для включения Jumbo Frames на ESX'e используется команда:
+esxcfg-vmknic -a -I  -n  -m  
+При применении обнаружилось, что -I должна быть в нижнем регистре -i.
+Прошу учесть. Спасибо.</description>
+		<content:encoded><![CDATA[<p>В BestPractices guide NetApp и VMware Vsphere Client 4.1 в пункте 3.3 для включения Jumbo Frames на ESX&#8217;e используется команда:<br />
+esxcfg-vmknic -a -I  -n  -m<br />
+При применении обнаружилось, что -I должна быть в нижнем регистре -i.<br />
+Прошу учесть. Спасибо.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

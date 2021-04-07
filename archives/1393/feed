@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Как получать поддержку: Часть 2</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1393/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1393</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:06 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1393#comment-15307</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 24 Nov 2015 13:51:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1393#comment-15307</guid>
+		<description>Руководство "NetApp Support Owner’s Guide" переведённое на русский язык (не официальное) теперь здесь
+
+http://www.netwell.ru/download/documents/techlibrary/15%20-%20%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%20NetApp.%20%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F.pdf</description>
+		<content:encoded><![CDATA[<p>Руководство &#8220;NetApp Support Owner’s Guide&#8221; переведённое на русский язык (не официальное) теперь здесь</p>
+<p><a href="http://www.netwell.ru/download/documents/techlibrary/15%20-%20%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%20NetApp.%20%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F.pdf" rel="nofollow">http://www.netwell.ru/download/documents/techlibrary/15%20-%20%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%20NetApp.%20%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F.pdf</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sv.Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/1393#comment-14036</link>
+		<dc:creator>Sv.Alex</dc:creator>
+		<pubDate>Thu, 02 Oct 2014 13:09:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1393#comment-14036</guid>
+		<description>Спецом открывал кейс на русском языке. Сначала поплевались, но все же перевели на русского спеца. Хотя и тот потом перестал отвечать и пришлось общаться на инглише. Проблем как таковых с английским не имею-просто хотелось все-таки толковой русской поддержки, ибо зачастую легче выразиться на русском более понятно</description>
+		<content:encoded><![CDATA[<p>Спецом открывал кейс на русском языке. Сначала поплевались, но все же перевели на русского спеца. Хотя и тот потом перестал отвечать и пришлось общаться на инглише. Проблем как таковых с английским не имею-просто хотелось все-таки толковой русской поддержки, ибо зачастую легче выразиться на русском более понятно</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

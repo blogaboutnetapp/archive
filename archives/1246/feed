@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FlashRay</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1246/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1246</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:03 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1246#comment-6151</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Fri, 01 Mar 2013 05:19:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1246#comment-6151</guid>
+		<description>sl0n: да, поторопился! сейчас на сайте NetApp'a все ок!</description>
+		<content:encoded><![CDATA[<p>sl0n: да, поторопился! сейчас на сайте NetApp&#8217;a все ок!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1246#comment-6089</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Tue, 26 Feb 2013 09:15:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1246#comment-6089</guid>
+		<description>2Dmitriy: а еще ведь не 28 февраля? Видимо поэтому не видно .. NOW - это как раз http://support.netapp.com/ Так что должно быть там.</description>
+		<content:encoded><![CDATA[<p>2Dmitriy: а еще ведь не 28 февраля? Видимо поэтому не видно .. NOW - это как раз <a href="http://support.netapp.com/" rel="nofollow">http://support.netapp.com/</a> Так что должно быть там.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1246#comment-6083</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Tue, 26 Feb 2013 04:58:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1246#comment-6083</guid>
+		<description>2sl0n: а подскажите где его скачивать и брать документацию? на http://support.netapp.com в software download его не видно.</description>
+		<content:encoded><![CDATA[<p>2sl0n: а подскажите где его скачивать и брать документацию? на <a href="http://support.netapp.com" rel="nofollow">http://support.netapp.com</a> в software download его не видно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1246#comment-6079</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Mon, 25 Feb 2013 21:15:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1246#comment-6079</guid>
+		<description>2Dmitriy: есть вот такая инфа
+
+Release 1.0: Limited Availability, December 13, 2012. Administered via PVR, and production capable. 
+Release 1.1: General Availability, February 28, 2013. Posted to NOW. Adds Micron PCI-e card support.
+Release 1.2: General Availability, April 18, 2013. Adds VMware vMotion, DRS, VMware HA, iSCSI in the VM support, vSphere 5.1 support, and 
+Fusino IO ioDrive support.
+
+Меня интересовала поддержка Linux'a, но ее пока не планируют .. "фича" прикольная.</description>
+		<content:encoded><![CDATA[<p>2Dmitriy: есть вот такая инфа</p>
+<p>Release 1.0: Limited Availability, December 13, 2012. Administered via PVR, and production capable.<br />
+Release 1.1: General Availability, February 28, 2013. Posted to NOW. Adds Micron PCI-e card support.<br />
+Release 1.2: General Availability, April 18, 2013. Adds VMware vMotion, DRS, VMware HA, iSCSI in the VM support, vSphere 5.1 support, and<br />
+Fusino IO ioDrive support.</p>
+<p>Меня интересовала поддержка Linux&#8217;a, но ее пока не планируют .. &#8220;фича&#8221; прикольная.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1246#comment-6073</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Mon, 25 Feb 2013 13:27:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1246#comment-6073</guid>
+		<description>Роман, а если смотреть в то, что уже вышло: Flash Accel - уже кто-нибудь использует на практике?</description>
+		<content:encoded><![CDATA[<p>Роман, а если смотреть в то, что уже вышло: Flash Accel - уже кто-нибудь использует на практике?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

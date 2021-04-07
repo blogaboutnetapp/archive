@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Организация работы с данными в 8.x Cluster-mode</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1124/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1124</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:21 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1124#comment-2884</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 07 Jul 2012 10:25:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1124#comment-2884</guid>
+		<description>bbk:
+
+Да, конечно, начиная с 8.1 в Data ONTAP Cluster-mode поддерживаются все блочные протоколы
+Цитата из Cluster-mode Technical FAQ:
+
+4.1  STORAGE PROTOCOLS 
+
+WHAT STORAGE PROTOCOLS ARE SUPPORTED BY DATA ONTAP 8.1 OPERATING IN CLUSTER-MODE? 
+
+Data ONTAP 8.1 supports a variety of SAN and NAS protocols, including: 
+•  CIFS SMB 1.0, 2.0, 2.1 
+•  NFS v2, NFSv3, NFS v4, NFS v4.1, and pNFS 
+•  iSCSI 
+•  FCP 
+•  FCoE
+
+Что касается виртуальных файлеров, или как они сейчас называются, vserver, то ничего другого в C-mode и нет, там все делается через создание vserver, и работе в нем. Так сказать, в "dom0", теперь не работают.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Да, конечно, начиная с 8.1 в Data ONTAP Cluster-mode поддерживаются все блочные протоколы<br />
+Цитата из Cluster-mode Technical FAQ:</p>
+<p>4.1  STORAGE PROTOCOLS </p>
+<p>WHAT STORAGE PROTOCOLS ARE SUPPORTED BY DATA ONTAP 8.1 OPERATING IN CLUSTER-MODE? </p>
+<p>Data ONTAP 8.1 supports a variety of SAN and NAS protocols, including:<br />
+•  CIFS SMB 1.0, 2.0, 2.1<br />
+•  NFS v2, NFSv3, NFS v4, NFS v4.1, and pNFS<br />
+•  iSCSI<br />
+•  FCP<br />
+•  FCoE</p>
+<p>Что касается виртуальных файлеров, или как они сейчас называются, vserver, то ничего другого в C-mode и нет, там все делается через создание vserver, и работе в нем. Так сказать, в &#8220;dom0&#8243;, теперь не работают.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1124#comment-2883</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 07 Jul 2012 10:02:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1124#comment-2883</guid>
+		<description>Правильно ли я понимаю, что в Cluster-mode теперь работает как FC так и FCoE?
+А также в Cluster-mode работает как FC так и FCoE для виртуальных файлеров?</description>
+		<content:encoded><![CDATA[<p>Правильно ли я понимаю, что в Cluster-mode теперь работает как FC так и FCoE?<br />
+А также в Cluster-mode работает как FC так и FCoE для виртуальных файлеров?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

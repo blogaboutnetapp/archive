@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp Flash Accel - flash-кэширование на стороне хост-сервера</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1194/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1194</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:55 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1194#comment-3803</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 04 Oct 2012 08:09:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1194#comment-3803</guid>
+		<description>Алексей:
+
+Будет точно известно, когда продукт будет официально объявлен, по обещаниям - в декабре.</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>Будет точно известно, когда продукт будет официально объявлен, по обещаниям - в декабре.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1194#comment-3802</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 04 Oct 2012 08:07:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1194#comment-3802</guid>
+		<description>Так ответы на вопросы эти уже есть? (когерентность, работа в серверном кластере)
+Если фича в коммерческом использовании - полагаю "ДА".</description>
+		<content:encoded><![CDATA[<p>Так ответы на вопросы эти уже есть? (когерентность, работа в серверном кластере)<br />
+Если фича в коммерческом использовании - полагаю &#8220;ДА&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1194#comment-3183</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 23 Aug 2012 17:16:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1194#comment-3183</guid>
+		<description>Сергей:
+
+разница в том, что у NetApp для этого не потребуется покупать железку по EMC-шным ценам, а можно будет, например, купить интеловый SSD, или LSI-ный PCIe.</description>
+		<content:encoded><![CDATA[<p>Сергей:</p>
+<p>разница в том, что у NetApp для этого не потребуется покупать железку по EMC-шным ценам, а можно будет, например, купить интеловый SSD, или LSI-ный PCIe.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1194#comment-3182</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Thu, 23 Aug 2012 16:24:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1194#comment-3182</guid>
+		<description>Конкуренты не дремлют. EMC VFCache http://www.emc.com/storage/vfcache/vfcache.htm , можно купить уже около полу года.
+715k IOPS, в формате PCI-E g2 x8.</description>
+		<content:encoded><![CDATA[<p>Конкуренты не дремлют. EMC VFCache <a href="http://www.emc.com/storage/vfcache/vfcache.htm" rel="nofollow">http://www.emc.com/storage/vfcache/vfcache.htm</a> , можно купить уже около полу года.<br />
+715k IOPS, в формате PCI-E g2 x8.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1194#comment-3181</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Thu, 23 Aug 2012 15:37:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1194#comment-3181</guid>
+		<description>??нтересно, "Reduces latency by 90% while increasing throughput by 80%", но опять же какой access pattern? какой block size?</description>
+		<content:encoded><![CDATA[<p>??нтересно, &#8220;Reduces latency by 90% while increasing throughput by 80%&#8221;, но опять же какой access pattern? какой block size?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

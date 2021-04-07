@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: SnapRestore и некоторые особенности его применения</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1145/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1145</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:17 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1145#comment-8505</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 17 Jul 2013 09:18:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1145#comment-8505</guid>
+		<description>Михаил:
+
+Не знаю даже. Такие вопросы лучше спрашивать на нашем форуме NetApp (ссылка в шапке). Быстрее будет ответ - однозначно.</description>
+		<content:encoded><![CDATA[<p>Михаил:</p>
+<p>Не знаю даже. Такие вопросы лучше спрашивать на нашем форуме NetApp (ссылка в шапке). Быстрее будет ответ - однозначно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Михаил</title>
+		<link>http://blog.aboutnetapp.ru/archives/1145#comment-8504</link>
+		<dc:creator>Михаил</dc:creator>
+		<pubDate>Wed, 17 Jul 2013 09:10:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1145#comment-8504</guid>
+		<description>Подскажите а LUN’ы из снапшота волюма на VServer можно ли подмаунтить?( раздать по iscsi, аналог команды lun-create-from-snapshot в 7-Mode)</description>
+		<content:encoded><![CDATA[<p>Подскажите а LUN’ы из снапшота волюма на VServer можно ли подмаунтить?( раздать по iscsi, аналог команды lun-create-from-snapshot в 7-Mode)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1145#comment-3227</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 30 Aug 2012 12:38:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1145#comment-3227</guid>
+		<description>Да, у нетапа два клона для лунов
+FlexClone:
+clone start /vol/vol1/lun1_src /vol/vol1/lun1_dst
+
+Станадартный и бесплатный:
+lun clone /vol/vol1/lun1_src /vol/vol1/lun1_dst
+
+В чём разница вычитал здесь: Data ONTAP 8.1 SAN Administration Guide For 7-Mode. Там прямо есть такой раздел "Differences between FlexClone LUNs and LUN clones".</description>
+		<content:encoded><![CDATA[<p>Да, у нетапа два клона для лунов<br />
+FlexClone:<br />
+clone start /vol/vol1/lun1_src /vol/vol1/lun1_dst</p>
+<p>Станадартный и бесплатный:<br />
+lun clone /vol/vol1/lun1_src /vol/vol1/lun1_dst</p>
+<p>В чём разница вычитал здесь: Data ONTAP 8.1 SAN Administration Guide For 7-Mode. Там прямо есть такой раздел &#8220;Differences between FlexClone LUNs and LUN clones&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1145#comment-2604</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 30 May 2012 12:08:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1145#comment-2604</guid>
+		<description>На сколько я правильно понял &lt;b&gt;lun clone&lt;/b&gt; должен быть доступен даже без лицензии FlexClone. Протестирую, напишу.</description>
+		<content:encoded><![CDATA[<p>На сколько я правильно понял <b>lun clone</b> должен быть доступен даже без лицензии FlexClone. Протестирую, напишу.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1145#comment-2504</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 10 May 2012 18:26:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1145#comment-2504</guid>
+		<description>А возможно ли как-то применять FlexClone, чтобы обойти эту неприятную особенность SnapRestore - клонировать снепшот в раздел, предварительно почистив последний?</description>
+		<content:encoded><![CDATA[<p>А возможно ли как-то применять FlexClone, чтобы обойти эту неприятную особенность SnapRestore - клонировать снепшот в раздел, предварительно почистив последний?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1145#comment-2500</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 10 May 2012 09:41:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1145#comment-2500</guid>
+		<description>bbk:
+
+&gt; Подскажите а LUN’ы можно из снепшотов восстанавливать без SnapRestore?
+
+Несмотря на то, что вы можете видеть LUN на томе (и его снэпшоте) как "файл", просто скопировать его из снэпшота или тома, и оставит его при этом LUN-ом, не получится. Потеряются метаданные, которые и определяют LUN как блочное устройство.
+Но вы можете смонтировать LUN прямо из снэпшота, и копировать данные на хосте уже из такого "смонтированного диска".</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> Подскажите а LUN’ы можно из снепшотов восстанавливать без SnapRestore?</p>
+<p>Несмотря на то, что вы можете видеть LUN на томе (и его снэпшоте) как &#8220;файл&#8221;, просто скопировать его из снэпшота или тома, и оставит его при этом LUN-ом, не получится. Потеряются метаданные, которые и определяют LUN как блочное устройство.<br />
+Но вы можете смонтировать LUN прямо из снэпшота, и копировать данные на хосте уже из такого &#8220;смонтированного диска&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1145#comment-2498</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 10 May 2012 09:31:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1145#comment-2498</guid>
+		<description>Подскажите а LUN'ы можно из снепшотов восстанавливать без SnapRestore?</description>
+		<content:encoded><![CDATA[<p>Подскажите а LUN&#8217;ы можно из снепшотов восстанавливать без SnapRestore?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

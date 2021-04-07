@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Радикальное ускорение работы NetApp System Manager 2.x</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1219/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1219</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:26 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Alexander</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-4758</link>
+		<dc:creator>Alexander</dc:creator>
+		<pubDate>Tue, 13 Nov 2012 10:35:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-4758</guid>
+		<description>Не летает, НО гораздо быстрее!</description>
+		<content:encoded><![CDATA[<p>Не летает, НО гораздо быстрее!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-4415</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Wed, 31 Oct 2012 05:07:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-4415</guid>
+		<description>Супер, спасибо.</description>
+		<content:encoded><![CDATA[<p>Супер, спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Senkanar</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-3918</link>
+		<dc:creator>Senkanar</dc:creator>
+		<pubDate>Thu, 11 Oct 2012 07:15:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-3918</guid>
+		<description>У меня стоял одинаковый DNS, но тормозило. Прописал в hosts соответствие, теперь все летает.</description>
+		<content:encoded><![CDATA[<p>У меня стоял одинаковый DNS, но тормозило. Прописал в hosts соответствие, теперь все летает.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-3893</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 10 Oct 2012 06:22:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-3893</guid>
+		<description>2 dmarck
+На самом деле если у вас на Менеджмент машине (где System Manager стоит) прописан такой же ДНС, как и на СХД, то в etc писать ничего и не надо.</description>
+		<content:encoded><![CDATA[<p>2 dmarck<br />
+На самом деле если у вас на Менеджмент машине (где System Manager стоит) прописан такой же ДНС, как и на СХД, то в etc писать ничего и не надо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dake</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-3864</link>
+		<dc:creator>Dake</dc:creator>
+		<pubDate>Mon, 08 Oct 2012 10:53:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-3864</guid>
+		<description>Коллеги, поосторожнее с System Manager, продукт несет в себе врожденные патологии, которые еще не исправлены... Например он портит etc/rc так, что в момент файловера вы очень вероятно потеряете все сетевые интерфейсы, включая е0М и SP вам в помощь, если вы его настроили... Также развалятся все VIF'ы, что совсем не айс, особенно если есть iSCSI, который я там использовал... Самое интересное, сетевые интерфейсы я настраивал через CLI, а эта гадина.. ладно обещают в 2.1 исправить.</description>
+		<content:encoded><![CDATA[<p>Коллеги, поосторожнее с System Manager, продукт несет в себе врожденные патологии, которые еще не исправлены&#8230; Например он портит etc/rc так, что в момент файловера вы очень вероятно потеряете все сетевые интерфейсы, включая е0М и SP вам в помощь, если вы его настроили&#8230; Также развалятся все VIF&#8217;ы, что совсем не айс, особенно если есть iSCSI, который я там использовал&#8230; Самое интересное, сетевые интерфейсы я настраивал через CLI, а эта гадина.. ладно обещают в 2.1 исправить.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ua9uqb</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-3862</link>
+		<dc:creator>ua9uqb</dc:creator>
+		<pubDate>Mon, 08 Oct 2012 07:37:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-3862</guid>
+		<description>Мама-дарагая, неужели счастье, вбил строки - стало просто летать!!! Теперь бы CLI не забросить окончательно (</description>
+		<content:encoded><![CDATA[<p>Мама-дарагая, неужели счастье, вбил строки - стало просто летать!!! Теперь бы CLI не забросить окончательно (</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-3859</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Mon, 08 Oct 2012 06:55:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-3859</guid>
+		<description>bbk: sure.
+
+Ну, то есть, можнт быть, у меня тормозов и не было изначально (я не сразу заметил пассаж про 10-15 секунд)</description>
+		<content:encoded><![CDATA[<p>bbk: sure.</p>
+<p>Ну, то есть, можнт быть, у меня тормозов и не было изначально (я не сразу заметил пассаж про 10-15 секунд)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-3857</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 08 Oct 2012 06:48:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-3857</guid>
+		<description>2 dmarck
+Нужно на той ОС, где стоит System Manager, имя систем(ы) должно быть в виде FQDN. А вы там и то добавили?</description>
+		<content:encoded><![CDATA[<p>2 dmarck<br />
+Нужно на той ОС, где стоит System Manager, имя систем(ы) должно быть в виде FQDN. А вы там и то добавили?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-3836</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Sat, 06 Oct 2012 16:34:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-3836</guid>
+		<description>Вот не знаю, добавил эти две записи -- ускорения не обнаружил. Впрочем, не исключено, что от половины до полутора секунд на первичную отрисовку окна -- это и не тормоза вовсе? (хотя лично я так не считаю)</description>
+		<content:encoded><![CDATA[<p>Вот не знаю, добавил эти две записи &#8212; ускорения не обнаружил. Впрочем, не исключено, что от половины до полутора секунд на первичную отрисовку окна &#8212; это и не тормоза вовсе? (хотя лично я так не считаю)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1219#comment-3822</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 05 Oct 2012 16:48:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1219#comment-3822</guid>
+		<description>Kernel Panic:
+
+Те, кто ставит собственные &lt;i&gt;религиозные убеждения&lt;/i&gt; впереди практической пользы - плохие админы.
+?? только тот, кто перестает таким страдать - переходит в этой игре на следующий уровень ;)</description>
+		<content:encoded><![CDATA[<p>Kernel Panic:</p>
+<p>Те, кто ставит собственные <i>религиозные убеждения</i> впереди практической пользы - плохие админы.<br />
+?? только тот, кто перестает таким страдать - переходит в этой игре на следующий уровень ;)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

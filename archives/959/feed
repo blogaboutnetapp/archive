@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Multi-path High Availaility (MPHA) FAQ</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/959/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/959</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:31 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/959#comment-2262</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 06 Apr 2012 05:53:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/959#comment-2262</guid>
+		<description>Владимир:
+
+Сильно рекомендую попробовать задать вопрос вот тут:
+
+https://communities.netapp.com/groups/netapp-ru
+
+Это русскоязычное комьюнити, которое я создал специально, чтобы был дискуссионный форум. В комментах к постам очень неудобно обсуждать что-то масштабное. 
+Там присутствуют несколько заметных специалистов, думаю, что на ваш вопрос там найдут ответ.
+
+Да и вообще, силь ву пле, гости дорогие, и велкам. :)</description>
+		<content:encoded><![CDATA[<p>Владимир:</p>
+<p>Сильно рекомендую попробовать задать вопрос вот тут:</p>
+<p><a href="https://communities.netapp.com/groups/netapp-ru" rel="nofollow">https://communities.netapp.com/groups/netapp-ru</a></p>
+<p>Это русскоязычное комьюнити, которое я создал специально, чтобы был дискуссионный форум. В комментах к постам очень неудобно обсуждать что-то масштабное.<br />
+Там присутствуют несколько заметных специалистов, думаю, что на ваш вопрос там найдут ответ.</p>
+<p>Да и вообще, силь ву пле, гости дорогие, и велкам. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Владимир</title>
+		<link>http://blog.aboutnetapp.ru/archives/959#comment-2260</link>
+		<dc:creator>Владимир</dc:creator>
+		<pubDate>Fri, 06 Apr 2012 03:01:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/959#comment-2260</guid>
+		<description>Все подключено так как показано на последнем изображении (за исключением того что у меня нет второго управляющего блока и второго набора полок)
+В логах появляются сообщения об ошибках:	
+Severity: CRITICAL
+Message: Enclosure Services unavailable for one or more shelves on channel 0a.
+
+Severity: CRITICAL
+Message: Enclosure services has detected an error in access to shelves on channel 0a.
+
+?? как следствие проблемы с одной из полок. 
+Пробуя разными способами переключения, замены модулей выяснил что если подключаться так как показано на первом изображении то сообщения об ошибках не появляются, но тогда возникают ошибки отображения дисков описанные в первом варианте подключения.
+
+Помогите разобраться что не так сделано.</description>
+		<content:encoded><![CDATA[<p>Все подключено так как показано на последнем изображении (за исключением того что у меня нет второго управляющего блока и второго набора полок)<br />
+В логах появляются сообщения об ошибках:<br />
+Severity: CRITICAL<br />
+Message: Enclosure Services unavailable for one or more shelves on channel 0a.</p>
+<p>Severity: CRITICAL<br />
+Message: Enclosure services has detected an error in access to shelves on channel 0a.</p>
+<p>?? как следствие проблемы с одной из полок.<br />
+Пробуя разными способами переключения, замены модулей выяснил что если подключаться так как показано на первом изображении то сообщения об ошибках не появляются, но тогда возникают ошибки отображения дисков описанные в первом варианте подключения.</p>
+<p>Помогите разобраться что не так сделано.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/959#comment-1520</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 11 Jul 2011 13:43:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/959#comment-1520</guid>
+		<description>evgeny:
+
+Уверен, что да, на то она и избыточность. Подозреваю, что можно даже и без кластерного тэйковера, а с тэйковером-то - тем более.</description>
+		<content:encoded><![CDATA[<p>evgeny:</p>
+<p>Уверен, что да, на то она и избыточность. Подозреваю, что можно даже и без кластерного тэйковера, а с тэйковером-то - тем более.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: evgeny</title>
+		<link>http://blog.aboutnetapp.ru/archives/959#comment-1518</link>
+		<dc:creator>evgeny</dc:creator>
+		<pubDate>Mon, 11 Jul 2011 13:21:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/959#comment-1518</guid>
+		<description>Все замечательно, однако в реальном мире уже бывает приходишь к ошибочной конфигурации. Подскажите, можно ли переключить полки на правильный вариант без потери данных? ?? если да, то можно ли это делать "на горячую", то есть с использованием takeover/giveback?</description>
+		<content:encoded><![CDATA[<p>Все замечательно, однако в реальном мире уже бывает приходишь к ошибочной конфигурации. Подскажите, можно ли переключить полки на правильный вариант без потери данных? ?? если да, то можно ли это делать &#8220;на горячую&#8221;, то есть с использованием takeover/giveback?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

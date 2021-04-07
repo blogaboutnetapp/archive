@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Встроенное шифрование данных в Data ONTAP 8.0.1</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/842/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/842</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:48 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/842#comment-3215</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 28 Aug 2012 13:06:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/842#comment-3215</guid>
+		<description>Для того, чтобы с попавшего в руки постороннего диска (дисков) гарантированно нельзя было извлечь чувствительную для прежнего владельца информацию.</description>
+		<content:encoded><![CDATA[<p>Для того, чтобы с попавшего в руки постороннего диска (дисков) гарантированно нельзя было извлечь чувствительную для прежнего владельца информацию.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/842#comment-3214</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 28 Aug 2012 13:00:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/842#comment-3214</guid>
+		<description>Я про данный конкретный случай из вашей статьи. Просто понять пытаюсь как эти NSE  диски применять можно и для чего.</description>
+		<content:encoded><![CDATA[<p>Я про данный конкретный случай из вашей статьи. Просто понять пытаюсь как эти NSE  диски применять можно и для чего.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/842#comment-3212</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 28 Aug 2012 12:52:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/842#comment-3212</guid>
+		<description>bbk:
+
+В каком случае? У Decru была своя внешняя коробка - "сервер ключей".
+Насколько я знаю, для шифрования дисков также используется внешняя инфраструктура ключей, у IBM такое есть, как я знаю.
+Но подробно в тему не углублялся.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>В каком случае? У Decru была своя внешняя коробка - &#8220;сервер ключей&#8221;.<br />
+Насколько я знаю, для шифрования дисков также используется внешняя инфраструктура ключей, у IBM такое есть, как я знаю.<br />
+Но подробно в тему не углублялся.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/842#comment-3211</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 28 Aug 2012 12:39:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/842#comment-3211</guid>
+		<description>Где там ключ храниться и в каком случае СХД не даст доступ к данным?
+??ли это не средство для защиты, к примеру, от "людей в масках"?</description>
+		<content:encoded><![CDATA[<p>Где там ключ храниться и в каком случае СХД не даст доступ к данным?<br />
+??ли это не средство для защиты, к примеру, от &#8220;людей в масках&#8221;?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/842#comment-3210</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 28 Aug 2012 12:28:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/842#comment-3210</guid>
+		<description>bbk:
+Был такой Decru у NetApp, но сейчас он продан в Brocade. Там - да, (черный) ящик с данными на входе и криптованным потоком на выходе (обратно также), включаемый в разрыв FC, Ethernet или SCSI.
+В данном же случае в статье речь про встроенные возможности контроллера некоторых жестких дисков.
+Основная цель на самом деле это возможность для корпораций выкидывать диски в помойку не задумываясь над их содержимым (для компаний с чувствительными данными, сотнями decomissioned дисков каждый год и строкими правилами внутренней информационной безопасности это огромная проблема и геморройй)</description>
+		<content:encoded><![CDATA[<p>bbk:<br />
+Был такой Decru у NetApp, но сейчас он продан в Brocade. Там - да, (черный) ящик с данными на входе и криптованным потоком на выходе (обратно также), включаемый в разрыв FC, Ethernet или SCSI.<br />
+В данном же случае в статье речь про встроенные возможности контроллера некоторых жестких дисков.<br />
+Основная цель на самом деле это возможность для корпораций выкидывать диски в помойку не задумываясь над их содержимым (для компаний с чувствительными данными, сотнями decomissioned дисков каждый год и строкими правилами внутренней информационной безопасности это огромная проблема и геморройй)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/842#comment-3209</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 28 Aug 2012 12:18:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/842#comment-3209</guid>
+		<description>Слышал, что есть решения с сервером ключей + какое-то специальное сетевое оборудование. Для этого варианта они обязательны или достаточно одной СХД?</description>
+		<content:encoded><![CDATA[<p>Слышал, что есть решения с сервером ключей + какое-то специальное сетевое оборудование. Для этого варианта они обязательны или достаточно одной СХД?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP 8.0.1RC1 &#8211; что нового?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/713/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/713</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:57 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/713#comment-885</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 14 Oct 2010 05:10:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=713#comment-885</guid>
+		<description>&gt; Мне пока тоже не встречались массивы в cluster mode.
+
+??х пока вообще немного. Обычно это некие специализированные нишевые решения, например в HPC clustering или в областях, связанных с обработкой аудиовидео.
+Но думаю, что с расширением пока ограниченной функциональности cluster-mode, и с массовым развитием "облачной" концепции, на которую они хорошо ложатся, будет больше.</description>
+		<content:encoded><![CDATA[<p>> Мне пока тоже не встречались массивы в cluster mode.</p>
+<p>??х пока вообще немного. Обычно это некие специализированные нишевые решения, например в HPC clustering или в областях, связанных с обработкой аудиовидео.<br />
+Но думаю, что с расширением пока ограниченной функциональности cluster-mode, и с массовым развитием &#8220;облачной&#8221; концепции, на которую они хорошо ложатся, будет больше.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/713#comment-884</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Wed, 13 Oct 2010 07:57:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=713#comment-884</guid>
+		<description>Понятно, спасибо. Мне пока тоже не встречались массивы в cluster mode.</description>
+		<content:encoded><![CDATA[<p>Понятно, спасибо. Мне пока тоже не встречались массивы в cluster mode.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/713#comment-883</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 12 Oct 2010 14:20:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=713#comment-883</guid>
+		<description>У меня к сожалению совсем нет личного опыта использования GX и 8.0 Cluster Mode, с удовольствием бы сам на эту тему что-нибудь прочитал.
+
+??спользовать стоит в случае, если есть специфические требования, например в cluster mode, если я правильно понимаю, вы получаете сплошное пространство хранения из дисков обоих голов, а не два независимых пространства, как у 7-Mode.</description>
+		<content:encoded><![CDATA[<p>У меня к сожалению совсем нет личного опыта использования GX и 8.0 Cluster Mode, с удовольствием бы сам на эту тему что-нибудь прочитал.</p>
+<p>??спользовать стоит в случае, если есть специфические требования, например в cluster mode, если я правильно понимаю, вы получаете сплошное пространство хранения из дисков обоих голов, а не два независимых пространства, как у 7-Mode.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/713#comment-882</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Tue, 12 Oct 2010 11:41:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=713#comment-882</guid>
+		<description>Роман, кстати о Cluster-mode.
+
+А можете написать заметку на данную тему? Стоит ли использовать данный режим имея обычные 2 головы?
+
+Спасибо.</description>
+		<content:encoded><![CDATA[<p>Роман, кстати о Cluster-mode.</p>
+<p>А можете написать заметку на данную тему? Стоит ли использовать данный режим имея обычные 2 головы?</p>
+<p>Спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/713#comment-872</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 08 Oct 2010 12:29:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=713#comment-872</guid>
+		<description>Я думаю, что в ветви "семерки" такого уже не будет, так как, если я правильно понимаю, это уже реализовано в "восьмерке" в cluster mode. Зачем перенрсить фичу из боле новой в более старую систему, если все равно все так или иначе пересядут на новую.</description>
+		<content:encoded><![CDATA[<p>Я думаю, что в ветви &#8220;семерки&#8221; такого уже не будет, так как, если я правильно понимаю, это уже реализовано в &#8220;восьмерке&#8221; в cluster mode. Зачем перенрсить фичу из боле новой в более старую систему, если все равно все так или иначе пересядут на новую.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/713#comment-871</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Fri, 08 Oct 2010 11:17:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=713#comment-871</guid>
+		<description>Так вот о чем и речь, жаль что невозможно (или слишком сложно при текущей архитектуре). Vfiler то мигрируют в полноценном Data Motion. CF для LUN проходит non-disruptive опять же (механизм конечно особенный). Т.е. на уровне ноды такое возможно, наверняка на уровне волума/LUN тоже.</description>
+		<content:encoded><![CDATA[<p>Так вот о чем и речь, жаль что невозможно (или слишком сложно при текущей архитектуре). Vfiler то мигрируют в полноценном Data Motion. CF для LUN проходит non-disruptive опять же (механизм конечно особенный). Т.е. на уровне ноды такое возможно, наверняка на уровне волума/LUN тоже.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/713#comment-870</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 08 Oct 2010 10:18:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=713#comment-870</guid>
+		<description>Тут ключевой момент, что он мигрирует не прерывая работу с LUN, а в случае другого контроллера можно и чем-нибудь обычным скопировать, все равно обеспечивать непрерывную работу при такой миграции не требуется (невозможно).</description>
+		<content:encoded><![CDATA[<p>Тут ключевой момент, что он мигрирует не прерывая работу с LUN, а в случае другого контроллера можно и чем-нибудь обычным скопировать, все равно обеспечивать непрерывную работу при такой миграции не требуется (невозможно).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/713#comment-869</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Fri, 08 Oct 2010 10:12:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=713#comment-869</guid>
+		<description>&#62;появилась возможность под названием Data Motion for Volumes
+Хех, так хочется чтоб между нодами такое работало.
+
+Data ONTAP 8.0.1 7-Mode or later supports nondisruptive volume move from one aggregate to another within the same controller for capacity utilization, improved performance, and to satisfy service-level agreements (SLAs).</description>
+		<content:encoded><![CDATA[<p>&gt;появилась возможность под названием Data Motion for Volumes<br />
+Хех, так хочется чтоб между нодами такое работало.</p>
+<p>Data ONTAP 8.0.1 7-Mode or later supports nondisruptive volume move from one aggregate to another within the same controller for capacity utilization, improved performance, and to satisfy service-level agreements (SLAs).</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

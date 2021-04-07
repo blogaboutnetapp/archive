@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Hybrid Aggregate</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1096/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1096</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:11 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2514</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 12 May 2012 12:36:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2514</guid>
+		<description>Alexey Marushchenko:
+
+&gt; Кстати, минимально возможный объем ssd полки к заказу - 4 диска.
+
+Спасибо, в понедельник будет подробный пост про Flash Pool.</description>
+		<content:encoded><![CDATA[<p>Alexey Marushchenko:</p>
+<p>> Кстати, минимально возможный объем ssd полки к заказу - 4 диска.</p>
+<p>Спасибо, в понедельник будет подробный пост про Flash Pool.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2513</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Sat, 12 May 2012 12:14:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2513</guid>
+		<description>Кстати, минимально возможный объем ssd полки к заказу - 4 диска.
+
+Особую прелесть добавляет то, что у SSD наружу выходит интерфейс SATA. Что намекает на очень интересную конфигурацию использования полок.</description>
+		<content:encoded><![CDATA[<p>Кстати, минимально возможный объем ssd полки к заказу - 4 диска.</p>
+<p>Особую прелесть добавляет то, что у SSD наружу выходит интерфейс SATA. Что намекает на очень интересную конфигурацию использования полок.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2508</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 11 May 2012 12:07:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2508</guid>
+		<description>koliama:
+
+&gt; Вряд ли кто-то будет покупать полку под SSD для этого массива. 
+
+Логично было бы предположить, что с появлением Hybrid Aggregate SSD будут продаваться не полками ;)
+
+&gt; ??мхо НетАпп наконец-то понял что Tiering - это кулл
+
+Может и так, только Hybrid Aggregate это не Tiering, а кэш :)</description>
+		<content:encoded><![CDATA[<p>koliama:</p>
+<p>> Вряд ли кто-то будет покупать полку под SSD для этого массива. </p>
+<p>Логично было бы предположить, что с появлением Hybrid Aggregate SSD будут продаваться не полками ;)</p>
+<p>> ??мхо НетАпп наконец-то понял что Tiering - это кулл</p>
+<p>Может и так, только Hybrid Aggregate это не Tiering, а кэш :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: koliama</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2507</link>
+		<dc:creator>koliama</dc:creator>
+		<pubDate>Fri, 11 May 2012 11:07:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2507</guid>
+		<description>Гм.. Пример про 2240 невалиден. Вряд ли кто-то будет покупать полку под SSD для этого массива. ??мхо НетАпп наконец-то понял что Tiering - это кулл :) ?? предложил довольно интересную реализацию его на своем хайенде (по сравнению с другими вендорами). А FlashCaсhe - он и в Африке кэш. Два параллельных друг другу решения предназначенные для решения разных задач.</description>
+		<content:encoded><![CDATA[<p>Гм.. Пример про 2240 невалиден. Вряд ли кто-то будет покупать полку под SSD для этого массива. ??мхо НетАпп наконец-то понял что Tiering - это кулл :) ?? предложил довольно интересную реализацию его на своем хайенде (по сравнению с другими вендорами). А FlashCaсhe - он и в Африке кэш. Два параллельных друг другу решения предназначенные для решения разных задач.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2496</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 09 May 2012 18:22:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2496</guid>
+		<description>bbk:
+
+Нет, вы неправы. Hybrid Aggregate не замена, а дополнение для Flash Cache, в тех случаях, когда Flash Cache недостаточно, или когда использовать его невозможно (пример: 2240).
+Hybrid Aggregate может (и работает) вместе с Flash Cache (но может работать и сам по себе).
+
+Fibre Channel не заменяет Ethernet, SAS не заменяет SATA, у них свои области использования, и они, и те и другие, могут использоваться вместе, в одной системе, улучшая ее свойства.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Нет, вы неправы. Hybrid Aggregate не замена, а дополнение для Flash Cache, в тех случаях, когда Flash Cache недостаточно, или когда использовать его невозможно (пример: 2240).<br />
+Hybrid Aggregate может (и работает) вместе с Flash Cache (но может работать и сам по себе).</p>
+<p>Fibre Channel не заменяет Ethernet, SAS не заменяет SATA, у них свои области использования, и они, и те и другие, могут использоваться вместе, в одной системе, улучшая ее свойства.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2495</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 09 May 2012 17:40:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2495</guid>
+		<description>Закралась мне в голову мысль, НетАпп задумал отказаться от Flash Cache в пользу Hybrid Aggregate.
+В общем, результаты тестирований Hybrid Aggregate, всё нам прояснят, ждёмс их с нетерпением.</description>
+		<content:encoded><![CDATA[<p>Закралась мне в голову мысль, НетАпп задумал отказаться от Flash Cache в пользу Hybrid Aggregate.<br />
+В общем, результаты тестирований Hybrid Aggregate, всё нам прояснят, ждёмс их с нетерпением.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2444</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 04 May 2012 07:51:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2444</guid>
+		<description>&#62;Если для других это абслютно и насущно необходимо, то в случае WAFL это не так уж остро нужно. Скорее это дополнительная фича, такое к тому и отношение.
+Не в духе нетапа делать "просто фичи". Если сделали, то наверняка добились намного лучших показателей на запись. Никто и не говорил, что WAFL плохо работает на запись, но придела совершенства нет, даже еслди она работает лучше чем у кого-либо  :)</description>
+		<content:encoded><![CDATA[<p>&gt;Если для других это абслютно и насущно необходимо, то в случае WAFL это не так уж остро нужно. Скорее это дополнительная фича, такое к тому и отношение.<br />
+Не в духе нетапа делать &#8220;просто фичи&#8221;. Если сделали, то наверняка добились намного лучших показателей на запись. Никто и не говорил, что WAFL плохо работает на запись, но придела совершенства нет, даже еслди она работает лучше чем у кого-либо  :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2432</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 03 May 2012 08:46:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2432</guid>
+		<description>&gt; Учитывая, что 3240 это и так чуть-ли не High-End
+
+Ой, да вы бросьте какой же 3240 - High-End...
+Тут давеча вот мне в комментах чуть ли не убедили, что highend это поддержка FICON и мэйнфреймов ;D
+
+&gt; у НетАппа не было _правильной_ альтернативы для дополнительной акселерации на запись.
+
+Правильная акселерация записи - это использование WAFL ;) ("лучшая рыба - это колбаса"(с)
+На самом деле ситуация такова, и я об этом писал, что, в отличие от других систем, у NetApp не стоит так остро необходимость кэшировать (ускорять) запись. Если для других это абслютно и насущно необходимо, то в случае WAFL это не так уж остро нужно. Скорее это дополнительная фича, такое к тому и отношение.</description>
+		<content:encoded><![CDATA[<p>> Учитывая, что 3240 это и так чуть-ли не High-End</p>
+<p>Ой, да вы бросьте какой же 3240 - High-End&#8230;<br />
+Тут давеча вот мне в комментах чуть ли не убедили, что highend это поддержка FICON и мэйнфреймов ;D</p>
+<p>> у НетАппа не было _правильной_ альтернативы для дополнительной акселерации на запись.</p>
+<p>Правильная акселерация записи - это использование WAFL ;) (&#8221;лучшая рыба - это колбаса&#8221;(с)<br />
+На самом деле ситуация такова, и я об этом писал, что, в отличие от других систем, у NetApp не стоит так остро необходимость кэшировать (ускорять) запись. Если для других это абслютно и насущно необходимо, то в случае WAFL это не так уж остро нужно. Скорее это дополнительная фича, такое к тому и отношение.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-2430</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 03 May 2012 08:33:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-2430</guid>
+		<description>Дано пора. Несмотря на то что у EMC tiering работает крайне специфически (к примеру размер чанков), в общем идея стоящая. Учитывая то, что WAFL и так _правильно_ работает, у НетАппа не было _правильной_ альтернативы для дополнительной акселерации на запись.
+
+Будет интересно узнать дальнейшую судьбу этой технологии, бэстпрактисы, схемы роботы, ну и дополнительные аргументы, почему Hybrid Aggregate "не_замена" Flash Cache.
+
+Кстати, в свете добавления технологии Hybrid Aggregate в DataOntap 8.1.1, направленной на большие системы, странно было отказываться от поддержки Flash Cache для систем начального mid-range 3210/3140 в DataOntap 8.1.
+Учитывая, что 3240 это и так чуть-ли не High-End, получается как в анекдоте про официанта и клиента: 
+-вы что будете чай или кофе?
+-пожалуй кофе.
+-не угадали, чай!
+Акселерация доступна в High-End или в High-End...
+Получается: или поддержку Flash Cache для 3210/3140 должны будут добавить или НетАпп планирует вывести эти системы из линейки.</description>
+		<content:encoded><![CDATA[<p>Дано пора. Несмотря на то что у EMC tiering работает крайне специфически (к примеру размер чанков), в общем идея стоящая. Учитывая то, что WAFL и так _правильно_ работает, у НетАппа не было _правильной_ альтернативы для дополнительной акселерации на запись.</p>
+<p>Будет интересно узнать дальнейшую судьбу этой технологии, бэстпрактисы, схемы роботы, ну и дополнительные аргументы, почему Hybrid Aggregate &#8220;не_замена&#8221; Flash Cache.</p>
+<p>Кстати, в свете добавления технологии Hybrid Aggregate в DataOntap 8.1.1, направленной на большие системы, странно было отказываться от поддержки Flash Cache для систем начального mid-range 3210/3140 в DataOntap 8.1.<br />
+Учитывая, что 3240 это и так чуть-ли не High-End, получается как в анекдоте про официанта и клиента:<br />
+-вы что будете чай или кофе?<br />
+-пожалуй кофе.<br />
+-не угадали, чай!<br />
+Акселерация доступна в High-End или в High-End&#8230;<br />
+Получается: или поддержку Flash Cache для 3210/3140 должны будут добавить или НетАпп планирует вывести эти системы из линейки.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1096#comment-1972</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 28 Nov 2011 10:29:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1096#comment-1972</guid>
+		<description>В свете того, что ssd продается полками, решение действительно для очень больших систем (полка кэша - звучит) Хотя, если понимать название Hybrid Aggregate буквально, то ssd будет добавляться в классический агрегат raid-dp отдельным диском(дисками) и не будут организованы в собственном агрегате. В этом случае, технически ничего не мешает продавать то же 2240 с дисками 2+22, как это делает ibm с v7000. Те технически это больше похоже на DataMotion горячих данных или на Flash Cache с записью (типа создается копия данных на ssd с отложенным обновлением основных данных)?</description>
+		<content:encoded><![CDATA[<p>В свете того, что ssd продается полками, решение действительно для очень больших систем (полка кэша - звучит) Хотя, если понимать название Hybrid Aggregate буквально, то ssd будет добавляться в классический агрегат raid-dp отдельным диском(дисками) и не будут организованы в собственном агрегате. В этом случае, технически ничего не мешает продавать то же 2240 с дисками 2+22, как это делает ibm с v7000. Те технически это больше похоже на DataMotion горячих данных или на Flash Cache с записью (типа создается копия данных на ssd с отложенным обновлением основных данных)?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

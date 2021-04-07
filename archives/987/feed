@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Традиционные стораджи и NetApp V-series. Производительность.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/987/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/987</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:35 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/987#comment-1770</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Fri, 07 Oct 2011 16:59:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/987#comment-1770</guid>
+		<description>А на каких таких "реальных конфигурациях", которые заметил Николай? Я лично прочитал голословное заявление, не содержащее никакой информации, и которое на настоящий момент никак нельзя проверить. Есть опыт? Поделитесь.</description>
+		<content:encoded><![CDATA[<p>А на каких таких &#8220;реальных конфигурациях&#8221;, которые заметил Николай? Я лично прочитал голословное заявление, не содержащее никакой информации, и которое на настоящий момент никак нельзя проверить. Есть опыт? Поделитесь.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/987#comment-1606</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 09 Aug 2011 03:25:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/987#comment-1606</guid>
+		<description>Nikolay:
+
+Ну, откровенно говоря, там тест был так лукаво организован, чтобы увидеть такой рост, да. Несколько склонированных FlexClone томов, на которых и гонялся IOmeter, очень хорошо ложатся в dedupe-aware кэш NetApp. Но таки да, по совокупности, рост производительности (или хотя бы неухудшение) вполне возможен и на более реальных конфигурациях, как вы заметили, спасибо.</description>
+		<content:encoded><![CDATA[<p>Nikolay:</p>
+<p>Ну, откровенно говоря, там тест был так лукаво организован, чтобы увидеть такой рост, да. Несколько склонированных FlexClone томов, на которых и гонялся IOmeter, очень хорошо ложатся в dedupe-aware кэш NetApp. Но таки да, по совокупности, рост производительности (или хотя бы неухудшение) вполне возможен и на более реальных конфигурациях, как вы заметили, спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nikolay</title>
+		<link>http://blog.aboutnetapp.ru/archives/987#comment-1604</link>
+		<dc:creator>Nikolay</dc:creator>
+		<pubDate>Mon, 08 Aug 2011 08:39:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/987#comment-1604</guid>
+		<description>Могу поделиться опытом виртуализации XP 24k через v3170 - действительно кол-во IOps получилось как минимум не ниже чем выдавала под аналогичной нагрузкой XP (для инженеров HP это стало неприятным сюрпризом :))</description>
+		<content:encoded><![CDATA[<p>Могу поделиться опытом виртуализации XP 24k через v3170 - действительно кол-во IOps получилось как минимум не ниже чем выдавала под аналогичной нагрузкой XP (для инженеров HP это стало неприятным сюрпризом :))</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

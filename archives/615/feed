@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Про Top-5 производителей систем хранения</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/615/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/615</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:59 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/615#comment-2786</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 23 Jun 2012 10:21:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=615#comment-2786</guid>
+		<description>bbk:
+
+Ну она и DS продает, которые тоже, теперь в каком-то смысле NetApp ;)</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Ну она и DS продает, которые тоже, теперь в каком-то смысле NetApp ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/615#comment-2785</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 23 Jun 2012 09:49:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=615#comment-2785</guid>
+		<description>Уже 2012 июня, IBM до сих пор продаёт N-серию...</description>
+		<content:encoded><![CDATA[<p>Уже 2012 июня, IBM до сих пор продаёт N-серию&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/615#comment-462</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 10 Jun 2010 07:00:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=615#comment-462</guid>
+		<description>Повторюсь, это вопрос непростой. Вообще "большой бизнес" и его мотивы часто довольно слабо коррелируют с так нвзываемым "здравым смыслом" (что не мешает ему при этом оставаться "большим").
+Тут в это теме столько "за" и "против", что я затрудняюсь даже посчитать их количество, чтобы просто сопоставить чего больше, и это при том, что я, наверняка, больше половины просто не вижу.
+
+Так что хочу призвать не делать скоропалительных выводов, в особенности не обладая всей "полнотой информации".
+
+Да, конечно, конкурирует, а что, кто-то предполагал иное, когда это соглашение заключалось? Нет конечно.
+Но совершенно очевидно, что также существуют и "моновендорные" клиенты IBM, где вопрос конкуренции просто не стоит, а также проблемы с продуктовой линейкой в мидрендже, которые пока решаются ну оочень неоднозначно и неоднозначными способами. Это все тоже нельзя не учитывать.
+
+Так что давайте не будем гадать и посмотрим как будут развиваться события.</description>
+		<content:encoded><![CDATA[<p>Повторюсь, это вопрос непростой. Вообще &#8220;большой бизнес&#8221; и его мотивы часто довольно слабо коррелируют с так нвзываемым &#8220;здравым смыслом&#8221; (что не мешает ему при этом оставаться &#8220;большим&#8221;).<br />
+Тут в это теме столько &#8220;за&#8221; и &#8220;против&#8221;, что я затрудняюсь даже посчитать их количество, чтобы просто сопоставить чего больше, и это при том, что я, наверняка, больше половины просто не вижу.</p>
+<p>Так что хочу призвать не делать скоропалительных выводов, в особенности не обладая всей &#8220;полнотой информации&#8221;.</p>
+<p>Да, конечно, конкурирует, а что, кто-то предполагал иное, когда это соглашение заключалось? Нет конечно.<br />
+Но совершенно очевидно, что также существуют и &#8220;моновендорные&#8221; клиенты IBM, где вопрос конкуренции просто не стоит, а также проблемы с продуктовой линейкой в мидрендже, которые пока решаются ну оочень неоднозначно и неоднозначными способами. Это все тоже нельзя не учитывать.</p>
+<p>Так что давайте не будем гадать и посмотрим как будут развиваться события.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Owl</title>
+		<link>http://blog.aboutnetapp.ru/archives/615#comment-461</link>
+		<dc:creator>Owl</dc:creator>
+		<pubDate>Thu, 10 Jun 2010 06:35:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=615#comment-461</guid>
+		<description>Это правда, некоторая конкуренция действительно имеет место быть, причем иногда купить NetApp через IBM оказывается даже выгодней ;)
+А отказаться, думаю, действительно могут, ибо даже сейчас IBM не уделяет активного внимания линейке N-Series, особенно в России.
+С другой стороны, если откажутся - IBM по стораджам окажется вообще в глубокой... ммм... ну Вы поняли ;)</description>
+		<content:encoded><![CDATA[<p>Это правда, некоторая конкуренция действительно имеет место быть, причем иногда купить NetApp через IBM оказывается даже выгодней ;)<br />
+А отказаться, думаю, действительно могут, ибо даже сейчас IBM не уделяет активного внимания линейке N-Series, особенно в России.<br />
+С другой стороны, если откажутся - IBM по стораджам окажется вообще в глубокой&#8230; ммм&#8230; ну Вы поняли ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/615#comment-459</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 07 Jun 2010 11:51:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=615#comment-459</guid>
+		<description>Не знаю, сложно сказать однозначно, во-первых потому что я не владею в полном объеме ситуацией на рынке, по понятной причине.
+Самому было бы интересно узнать.</description>
+		<content:encoded><![CDATA[<p>Не знаю, сложно сказать однозначно, во-первых потому что я не владею в полном объеме ситуацией на рынке, по понятной причине.<br />
+Самому было бы интересно узнать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/615#comment-458</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 07 Jun 2010 11:44:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=615#comment-458</guid>
+		<description>IBM говорят, кстати, что быть может откажутся от OEM NetApp, т.к. NetApp активно играет на тех же рынках, где есть IBM и конкурирует со своим партнером.
+
+Насколько это может быть правдой?</description>
+		<content:encoded><![CDATA[<p>IBM говорят, кстати, что быть может откажутся от OEM NetApp, т.к. NetApp активно играет на тех же рынках, где есть IBM и конкурирует со своим партнером.</p>
+<p>Насколько это может быть правдой?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Надежность RAID 5, качество SATA, и Дед Мороз.</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../370/trackback.html">PAM-I, PAM-II&#8230; SSD?</a></div>
+			<div class="alignright"><a href="../386/trackback.html">Мастер-класс говнилок, или &ldquo;сеанс черной уличной магии&rdquo;</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-373">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Надежность RAID 5, качество SATA, и Дед Мороз.">Надежность RAID 5, качество SATA, и Дед Мороз.</a></h2>
+			<div class="postmetadata">31 Август 2009, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Сокращенный перевод <a href="http://blogs.netapp.com/msenviro/2009/08/raid-5-reliability-sata-quality-and-the-easter-bunny.html">поста</a> Chris Lionetti, Reference Architect – Microsoft Solutions Engineering</p>
+<p>Этот пост рассматривает проблему Unrecoverable Error Rate (UER), «Уровня невосстановимых ошибок» на жестких дисках. </p>
+<p>Диски типа SATA оптимизируются по соотношению GB/$ и GB/Watt, в то время, как диски с интерфейсом FC и SAS по параметрам IOPS/$ и IOPS/Watt. Это означает, что в плане плотности записи и механики, диски типа SATA решительно отличаются от дисков FC/SAS <strong>*1</strong>. Диски FC/SAS трехлетней давности имеют Unrecoverable Error Rate равный одному блоку на 10^15 бит данных (UER15). Диски SATA имеют этот параметр равный 1 блоку на 10^14 бит данных (UER14), что означает, что один блок (512Bytes) может быть потерян в среднем каждые 11TB считанных данных. Для UER15 это означает 1 блок каждые 110TB данных, и UER16 значит 1 блок каждые 1100TB пространства.</p>
+<p>Давайте используем те же 9-дисковые наборы, что и в первой части поста. Берем 9-дисковый RAID 5 (8+1), 10-дисковый RAID DP/6 (8+2), и 16-дисковый RAID 10 (8+8). Предполагаем, что мы используем ту же инфраструктурную схему, при которой используется суммарно 800 дисков с данными. </p>
+<p>Также возьмем за предположение величину отказа в 3%. Это означает 27 ребилдов для RAID 5 (см. <a href="../345/trackback.html">предыдущую статью</a> почему так). Допустим, что мы используем диски на 1TB, что означает, что когда в нашей дисковой инфраструктуре случается отказ (по нашим расчетам это может происходить до 27 раз в год) у меня есть шанс 8 из 11 (72% вероятность) что я получу ошибочно прочитанный UER-блок во время ребилда. Так как в случае&#160; возникновения UER она воздействует на весь страйп в наборе RAID 5, она влияет на объем данных, равный <strong>Stripe Element size * stripe size</strong>. Это означает, что вы можете получить до <strong>64KB x 8 = 512KB</strong> поврежденных данных посреди вашего датасета, не узнав об этом. Хорошая новость в том, что, скорее всего, вы используете более надежные диски. </p>
+<p>Если вы используете так называемые «enterprise class» диски вместо недорогих дисков «Desktop class SATA», то вы получаете диски с уровнем UER15. Такие более высококачественные диски, с более высоким UER, будут повреждать данные всего в 7.2% случаев во время каждого ребилда. В случае использования дисков FC 15K/10K, эта величина понизится до 0.72% во время каждого ребилда.</p>
+<p>В случае RAID10, опасность гораздо ниже, так как ребилд производится всего с одного диска, а не с целой их группы. Смотрите таблицу. </p>
+<p>Данные в таблице берут за основу параметры: 3% AFR, 8 дисков данных, и рассматривают вероятность для каждой операции ребилда. </p>
+<table border="0" cellspacing="0" cellpadding="2" width="600">
+<tbody>
+<tr>
+<td valign="top" width="166">Вероятность повреждения</td>
+<td valign="top" width="166">RAID-5 (8+1)</td>
+<td valign="top" width="166">RAID-10 (8+8)</td>
+</tr>
+<tr>
+<td valign="top" width="200">1 блок на 10^14 бит</td>
+<td valign="top" width="200">72,7%</td>
+<td valign="top" width="200">9,1%</td>
+</tr>
+<tr>
+<td valign="top" width="200">1 блок на 10^15 бит</td>
+<td valign="top" width="200">7,3%</td>
+<td valign="top" width="200">0,9%</td>
+</tr>
+<tr>
+<td valign="top" width="200">1 блок на 10^16 бит</td>
+<td valign="top" width="200">0,7%</td>
+<td valign="top" width="200">0,1%</td>
+</tr>
+<tr>
+<td valign="top" width="200">Величина поврежденного участка</td>
+<td valign="top" width="200">512KByte</td>
+<td valign="top" width="200">64KByte</td>
+</tr>
+</tbody>
+</table>
+<p>&#160;</p>
+<p>Диски типа Enterprise SATA обычно приближаются к величине UER15, в то время, как в случае дисков FC и SAS 15K RPM всегда говорят о UER16.</p>
+<p><strong>Скрытые проблемы на Enterprise SATA</strong>.     <br />Аргумент, который всегда приводится, это что SATA имеют теперь тот же уровень ошибок, что и «enterprise drives». SATA на протяжении последних лет постепенно улучшают свои показатели, с UER14 до UER15, но, одновременно с этим, учетверяют свой объем. Стали ли диски боле надежными? Да, но не в 10 раз, как вы могли бы подумать, глядя на техспеки. За то же самое время диски enterprise FC улучшили показатель надежности с UER15 до UER16, достигнув при этом примерно половины емкости от дисков SATA.</p>
+<p>Существует также некая возможность в дисках SATA, которая позволяет индустрии дисков SATA достигать уровня UER15. Эта возможность называется «heroic recovery» <strong>*2</strong>. Этот вариант восстановления ошибочно считанных данных при чтении означает, что диск прочитывает очень большой фрагмент данных и пытается восстановить неустойчиво прочтенный блок с использованием избыточности, чтобы потом переписать его куда-нибудь в другое место. Результатом замедления работы при «heroic recovery» может быть то, что диск перестает вовремя отвечать на запросы, и, в результате, вываливается из RAID. </p>
+<p>Большинство (если не все) контроллеров RAID выключает на своих дисках «heroic recovery». Вопрос, ответ на который невозможно получить ни от одного вендора жестких дисков, это то, измерен ли UER этих диско с выключенной heroic recovery? Если вы утверждаете, что heroic recovery блока может восстановить данные с 9 из 10 неустойчиво читающихся блоков, то выключение этой возможности означает снижение для диска UER15 до UER14. Я включил в график данные как для UER14, так и для UER15, ваши диски будут располагаться где-то между этими двумя. Этот график показывает как оптимистичные, так и пессимистичные оценки вероятностей в RAID 5 и RAID 10 для объемов ваших данных, могущих быть поврежденными на протяжении года.</p>
+<p><a href="/pics//raid5uerrorsrate.jpg"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="RAID5-uerrors-rate" border="0" alt="RAID5-uerrors-rate" src="/pics//raid5uerrorsrate-thumb.jpg" width="539" height="341" /></a> </p>
+<p>&#160; <br /><strong>Выводы</strong>     <br />У вас есть две возможности избежать неприятностей. Вы можете либо выбрать использовать RAID6, либо использовать диски с UER16. Этот пост написан не с целью продать вам диски SATA или FC, но лишь только помочь вам осознать опасности использования RAID5, а также опасность использования дисков SATA не имея способ смягчить возможные последствия. Вот в чем смысл нашего сегодняшнего заголовка. Все эти три понятия - сказочные. </p>
+<p><em>(прим. romx: долго подмывало вместо Деда Мороза написать Честный Милиционер, или что-то в этом духе. В оригинале был Easter Bunny, «пасхальный кролик»)</em></p>
+<p>Самое главное, что вы должны уяснить, дочитав это пост, это то, что больше нельзя доверять RAID 5. У вас есть сравнительно небольшой риск того, что ваши данные будут полностью потеряны, но существует гораздо более высокий риск того, что поврежденные данные приведут к замедлению работы, если попадутся в момент операции ребилда.</p>
+<p>&#8211;    <br /><strong>*1 </strong>Willis Whittington – WINHEC05 presentation on enterprise drives     <br /><strong>*2</strong> <a href="http://www.wdc.com/en/products/products.asp?driveid=403">http://www.wdc.com/en/products/products.asp?driveid=403</a> Читайте про time limited recovery. Целых 7 секунд!. Эта проблема существует по всей индустрии SATA, а не только у Western Digital.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="373" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.068 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

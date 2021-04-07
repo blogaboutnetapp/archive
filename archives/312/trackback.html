@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Лучше Чем Настоящий FibreChannel - Дедупликация</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../324/trackback.html">Data ONTAP 8.0 - хорошие новости.</a></div>
+			<div class="alignright"><a href="../337/trackback.html">??спользование STATSPACK для Oracle</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-312">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Лучше Чем Настоящий FibreChannel - Дедупликация">Лучше Чем Настоящий FibreChannel - Дедупликация</a></h2>
+			<div class="postmetadata">20 Июль 2009, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Несколько слов о том, почему, собственно, именно NetApp занял сейчас такую значительную долю рынка дедупликации, и что мешает сделать то же самое другим вендорам.<br />
+Ну конечно, в значительной мере, свою роль сыграло бесплатное предложение данного функционала, как я уже говорил ранее, лицензия на Deduplication поставляется бесплатно. ?? это, безусловно, способствовало широкому распространению технологии. Та же история была сыграна в свое время с рынком iSCSI, на котором NetApp так же занял значительную его часть (увы, не в России, которая до сих пор для себя iSCSI и его преимущества, по существу, не открыла)</p>
+<p>Однако никакая бесплатность не сработала бы, если бы продукт был бы неработоспособен в принципе.<br />
+Что же мешает сделать то же самое, реализовать ту же, <a href="../299/trackback.html">рассмотренную ранее</a> модель с оффлайновой дедупликацией, ведь вроде все по описанию просто? В чем же дело?</p>
+<p>А дело вновь в &#8220;волшебных пузырьках&#8221;, которые называются <a href="http://en.wikipedia.org/wiki/Write_Anywhere_File_Layout">WAFL</a>. :)</p>
+<p>Один из блоггеров NetApp, за которым я внимательно слежу и читаю все его выпуски, уже не раз тут упомянутый <a href="http://blogs.netapp.com/extensible_netapp/">Костадис Руссос</a>, полемизируя с &#8220;блогорупором EMC&#8221; Чаком Холлисом, который использовал в одном из постов в приложении к продуктам EMC слова &#8220;Настоящий FibreChannel&#8221; (Real FibreChannel), в противовес &#8220;всяким там эмуляциям, SAN-ам из NAS-а, и прочим &#8216;виртуальным&#8217; стораджам&#8221;, стал использовать термин &#8220;Лучше Чем Настоящий FibreChannel&#8221; (Better Than Real FibreChannel).</p>
+<p>??так, чем же NetApp Лучше Чем Настоящий FibreChannel.</p>
+<p>Вы уже знаете, что система хранения NetApp для организации и доступа к данным на дисках использует специальную логическую структуру, особую &#8220;файловую систему&#8221;, под названием WAFL - Write Anywhere File Layout. К подробностям о ней, ее устройстве и всяких интересных штуках, отсылаю к моим <a href="../216/trackback.html">предыдущим постам на эту тему</a>.<br />
+Для нас сейчас интересен один аспект.</p>
+<p>Дело в том, что использование дедупликации для любой системы хранения влечет за собой немедленную и очень сильную фрагментацию данных. Очевидно, что если мы заменяем, в последовательно записанных данных, каждые несколько блоков на ссылку куда-то в недра ранее записанных данных, которые являются полностью идентичными вновь записанным, то старательно последовательно записанный фрагмент превращается в хаотически размазанный по всему стораджу.</p>
+<p>Это настоящий кошмар для любого &#8220;класического стораджа&#8221;, который любой ценой стремится минимизировать random-компоненту доступа, так как на нем эффективность его резко падает как на записи (особенно), так и на чтении (большое &#8220;замусоривание&#8221; кэша и отсутствие эффективного &#8220;предсказания&#8221;/&#8221;read ahead&#8221;).</p>
+<p>Но ведь вспомните, такой режим &#8220;постоянно-рандомной записи и чтения&#8221; есть по сути &#8220;нативный&#8221; режим для WAFL! Блоки WAFL записываются и считываются произвольно и рандомно не только в случае дедуплицирования данных, но и при обычной, естественной работе, которой стораджи NetApp занимаются уже много лет!<br />
+То есть переход от &#8220;классического&#8221; к &#8220;дедуплицированному&#8221; хранилищу, и вызванная этим &#8220;фрагментация данных&#8221;, такая катастрофическая для &#8220;классического&#8221; стораджа, вполне обычна и повседневна для NetApp, и включение дедупликации на быстродействии системы хранения никак не отразится!</p>
+<p>Что, кстати подтверждают и реальные пользователи, которые называют величины падения производительности при переходе к дедуплицированным данным, там где их удается замерить, в считаные единицы процентов.</p>
+<p>То есть, проблема использования дедупликации это, по сути, проблема решения задачи обеспечения производительности на фрагментированных данных со случайным чтением.<br />
+А так как NetApp давно и успешно <a href="../221/trackback.html">решил для себя внутри проблему доступа к фрагментированным данным</a>, то и переход к дедупликации не будет для него болезненным, или коль-нибудь заметно отражающимся на его производительности.<br />
+ (я уже <a href="../225/trackback.html">приводил цифры</a>, когда тщательно, искуственно, и специально подготовленный не встречающемся в реальной жизни фрагментированием, дисковый раздел имел сниженную производительность всего на 10-15 процентов)</p>
+<p>Вот что нам дает такая классная штука, как придуманная и написанная аж в 92 году специальная &#8220;файловая система&#8221;, вот в чем преимущества &#8220;виртуальных стораджей&#8221; над &#8220;настоящим FibreChannel&#8221;. Вот чего &#8220;настоящий FibreChannel&#8221; не может.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/btrfc.html" rel="tag">btrfc</a>, <a href="../tag/deduplication/index.html" rel="tag">deduplication</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/wafl/index.html" rel="tag">wafl</a><br />					Раздел: <a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (3)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2695">
+		<div id="div-comment-2695">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Вопрос о фрагментации от процесса дедупликации и её влияния на производительность системы, поднят очень интересный.<br />
+Но ответ не достаточно описателен.</p>
+<p>??сходя из поста можно сказать, что проблема решается исключительно кешем на чтение и реалокацией (которая по умолчанию выключена).</p>
+<p>Мне кажется, что вы здесь подменили понятие <b>случайных данных собранных в страйп</b> <i>на</i> <b>блочную фрагментированность от процесса дедупликации</b>. ?? тут встаёт вопрос есть ли разница между тем и другим?</p>
+<p>Вопрос сводится к тому, как работает алгоритм сбора &#8220;случайных&#8221; данных в страйп. Другими словами: насколько дынные внутри страйпа фрагментированны и является ли длинна такого фрагмента, в страйпе, постоянной, если там не 100%-й рандум?</p>
+<p>Если алгоритм совсем тупой, то скорее всего оба понятия одно и тоже. Похоже вы к этому и клоните: производительность не падает от случайного чтения случайно разбросанных данных.</p>
+<p>Но если алгоритм умный и понимает, что случайные блоки относятся к одной логической цепочке, то не такие уж и фрагментированные данные получаются в нашем страйпе, а следовательно выше изложенные понятия не следует мешать в кучу. Продолжая эту логику, я бы заключил, что дедупликация всё-таки сильно фрагментирует данные, в то время как они расположены не случайно, а более или менее последовательно. Соответственно должна быть деградация производительности от фрагментации вызванной дедупликацией.</p>
+<p>Как известно падения производительности от дедупликации всё-таки нет, но мы так до конца и не понимаем почему. Было бы неплохо закрыть эту дыру.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2695" title="">13 Июнь 2012, 19:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2698">
+		<div id="div-comment-2698">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bkk:</p>
+<p>> Мне кажется, что вы здесь подменили понятие <b>случайных данных собранных в страйп</b> <i>на</i> <b>блочную фрагментированность от процесса дедупликации</b>.</p>
+<p>Несколько раз прочел, но смысла так и не уловил. Перформулируйте, и пропробуйте еще раз.</p>
+<p>Я бы хотел еще раз, специально, обратит ваще внимание, что влияние фрагментации на 100% random workload по меньшей мере не доказано.<br />
+С точки зрения теории и логики, разницы между рандомным чтением рандомно расположенных данных и рандомным чтением секвентально расположенных ланных нет никакой. В обоих случаях это чтение 100% random. рандом на рандом не дает &#8220;рандом в квадрате&#8221;, он по прежнему остается 100% рандомным.</p>
+<p>Секвентальное же чтение это довольно специфические задачи, типа традиционного бэкапа. На этих задачах фрагментация действительно будет ухудшать показатели sequental read, но в случае NetApp задачи бэкапа обычно решаются иными путями, не требующими лить секвентальный дамп с дисков.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2698" title="">13 Июнь 2012, 21:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2706">
+		<div id="div-comment-2706">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>bbk&gt; Мне кажется, что вы здесь подменили понятие случайных данных собранных в страйп на блочную фрагментированность от процесса дедупликации.</p>
+<p>Спрайтом я называю данные собранные одним большим куском в NVRAM оптимизированным для записи на диски.<br />
+Одно дело фрагментированность вызванная процессом дедупликации.<br />
+Другое дело фрагментированность данных внутри страйпа.</p>
+<p>Другими словами я усомнился в том, что данные внутри страйпа 100% random.<br />
+Как работает алгоритм собирания данных в страйп?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2706" title="">14 Июнь 2012, 13:29</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="312" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.070 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

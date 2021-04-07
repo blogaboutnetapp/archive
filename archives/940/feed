@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Некоторые данные о производительности EMC FASTcache и FAST VP</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/940/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/940</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:39 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/940#comment-1493</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 05 Jul 2011 08:47:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/940#comment-1493</guid>
+		<description>firehunter:
+
+Спасибо за полный и подробный ответ, кстати (а то тут в основном все я, да я отвечаю;)</description>
+		<content:encoded><![CDATA[<p>firehunter:</p>
+<p>Спасибо за полный и подробный ответ, кстати (а то тут в основном все я, да я отвечаю;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: nonkonf</title>
+		<link>http://blog.aboutnetapp.ru/archives/940#comment-1492</link>
+		<dc:creator>nonkonf</dc:creator>
+		<pubDate>Tue, 05 Jul 2011 02:20:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/940#comment-1492</guid>
+		<description>На самом деле эти результаты очень показательны для тех, кто в данной сфере разбирается.
+Самое важное - это механизм работы FASTcache, его нельзя включать для всех возможных видов данных и операций, иначе результыты будут сильно отличаться от ожидаемых. Кроме того, размер кэша должен быть рассчитан исходя из размера горячих данных, и я никогда не поверю, что для 28Tb данных горячими являются 183Гб :) По своему опыту работы могу назвать число 10%, то есть 3Тб данных, которые постоянно читаются и обрабатываются. Теоретически это может означать, что шанс попадания в FASTCache в данном случае равен 6% (Hit Ratio). Поэтому неудивительно, что на картинке только 2500 операций вращаются в кэше (хотя на самом деле удивительно, потому что должно быть меньше!)</description>
+		<content:encoded><![CDATA[<p>На самом деле эти результаты очень показательны для тех, кто в данной сфере разбирается.<br />
+Самое важное - это механизм работы FASTcache, его нельзя включать для всех возможных видов данных и операций, иначе результыты будут сильно отличаться от ожидаемых. Кроме того, размер кэша должен быть рассчитан исходя из размера горячих данных, и я никогда не поверю, что для 28Tb данных горячими являются 183Гб :) По своему опыту работы могу назвать число 10%, то есть 3Тб данных, которые постоянно читаются и обрабатываются. Теоретически это может означать, что шанс попадания в FASTCache в данном случае равен 6% (Hit Ratio). Поэтому неудивительно, что на картинке только 2500 операций вращаются в кэше (хотя на самом деле удивительно, потому что должно быть меньше!)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/940#comment-1491</link>
+		<dc:creator>firehunter</dc:creator>
+		<pubDate>Tue, 05 Jul 2011 01:19:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/940#comment-1491</guid>
+		<description>Dmitriy:
+Можно еще вот так попробовать посмотреть статистику: "stats start ext_cache_obj:*:disk_reads_replaced ext_cache_obj:*:hit_percent system:*:read_ops". Статистика начнет собираться. Посмотреть результаты - "stats stop".
+Есть подозрение, что статистика не очень точная, возможно потому что значительная часть запросов обслуживается из первичного кеша, а может и по другой причине.
+Для более точной статистики наверное лучше собрать вместо system:*:read_ops счетчики disk:*:user_reads, но данные придется обрабатывать внешним скриптом, т.к. статистика будет по каждому диску отображаться отдельно и ее надо суммировать.</description>
+		<content:encoded><![CDATA[<p>Dmitriy:<br />
+Можно еще вот так попробовать посмотреть статистику: &#8220;stats start ext_cache_obj:*:disk_reads_replaced ext_cache_obj:*:hit_percent system:*:read_ops&#8221;. Статистика начнет собираться. Посмотреть результаты - &#8220;stats stop&#8221;.<br />
+Есть подозрение, что статистика не очень точная, возможно потому что значительная часть запросов обслуживается из первичного кеша, а может и по другой причине.<br />
+Для более точной статистики наверное лучше собрать вместо system:*:read_ops счетчики disk:*:user_reads, но данные придется обрабатывать внешним скриптом, т.к. статистика будет по каждому диску отображаться отдельно и ее надо суммировать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/940#comment-1490</link>
+		<dc:creator>firehunter</dc:creator>
+		<pubDate>Mon, 04 Jul 2011 23:41:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/940#comment-1490</guid>
+		<description>Dmitriy:
+
+Если у Вас в системе стоит FlashCache - то мой взгляд проще всего промониторить командой "stats show -p flexscale-access -i 1" *) под реальной нагрузкой. Там есть статистика по "Hit Rate", т.е. по эффективности кеша. Если грубо, то если система в среднем делает за период измерения 10,000 iops всего, при этом эффективность кеша 80% значит 8,000 iops до дисков не дошли, а обслужились из кеша.
+Наверное это не самый лучших способ и наверняка у производителя есть скрипты на эту тему :)
+
+*) цифру один в команде меняем на время, за которое хотим посмотреть агрегированную статистику.</description>
+		<content:encoded><![CDATA[<p>Dmitriy:</p>
+<p>Если у Вас в системе стоит FlashCache - то мой взгляд проще всего промониторить командой &#8220;stats show -p flexscale-access -i 1&#8243; *) под реальной нагрузкой. Там есть статистика по &#8220;Hit Rate&#8221;, т.е. по эффективности кеша. Если грубо, то если система в среднем делает за период измерения 10,000 iops всего, при этом эффективность кеша 80% значит 8,000 iops до дисков не дошли, а обслужились из кеша.<br />
+Наверное это не самый лучших способ и наверняка у производителя есть скрипты на эту тему :)</p>
+<p>*) цифру один в команде меняем на время, за которое хотим посмотреть агрегированную статистику.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/940#comment-1489</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 04 Jul 2011 09:26:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/940#comment-1489</guid>
+		<description>Dmitriy:
+
+Можно было бы попробовать сперва сделать замеры в варианте с кэшем, а потом отключить его (&gt;options flexscale.enable off , если не ошибаюсь) и посмотреть разницу.</description>
+		<content:encoded><![CDATA[<p>Dmitriy:</p>
+<p>Можно было бы попробовать сперва сделать замеры в варианте с кэшем, а потом отключить его (>options flexscale.enable off , если не ошибаюсь) и посмотреть разницу.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/940#comment-1488</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Mon, 04 Jul 2011 08:43:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/940#comment-1488</guid>
+		<description>Стоит отметить, что не просто кто-то, а работник EMC: http://storagesavvy.com/about/ :)
+
+Я думаю, что ценность графика, приведенного в статье, станет больше, если вписать комментарий из оригинала:
+I didn’t graph it here but the total array IO Response time through this window is averaging 2.5 m</description>
+		<content:encoded><![CDATA[<p>Стоит отметить, что не просто кто-то, а работник EMC: <a href="http://storagesavvy.com/about/" rel="nofollow">http://storagesavvy.com/about/</a> :)</p>
+<p>Я думаю, что ценность графика, приведенного в статье, станет больше, если вписать комментарий из оригинала:<br />
+I didn’t graph it here but the total array IO Response time through this window is averaging 2.5 m</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/940#comment-1487</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Mon, 04 Jul 2011 07:56:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/940#comment-1487</guid>
+		<description>А можно ли как-то получить схожий разрез производительности в IOPS для NetApp? увидеть сколько идет с FlashCache, а сколько с SAS дисков? Operation Manager показывает только суммарный график по IOPS'ам.
+p.s. ?? для 480 шпинделей (правда нету соотношения сколько из них SAS, сколько SATA) наверно это не самые большие попугаи :) зато реальные цифры.</description>
+		<content:encoded><![CDATA[<p>А можно ли как-то получить схожий разрез производительности в IOPS для NetApp? увидеть сколько идет с FlashCache, а сколько с SAS дисков? Operation Manager показывает только суммарный график по IOPS&#8217;ам.<br />
+p.s. ?? для 480 шпинделей (правда нету соотношения сколько из них SAS, сколько SATA) наверно это не самые большие попугаи :) зато реальные цифры.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

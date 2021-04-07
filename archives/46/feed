@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NFS и CIFS: что выбрать?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/46/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/46</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:45 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/46#comment-2551</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 17 May 2012 12:55:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/46#comment-2551</guid>
+		<description>Cсылка изменилась. Теперь &lt;a href="//communities.netapp.com/blogs/eisler/2008/07/08/part-i-since-nfsv4-is-stateful-it-must-be-less-robust-right" rel="nofollow"&gt;это здесь&lt;a&gt;</description>
+		<content:encoded><![CDATA[<p>Cсылка изменилась. Теперь <a href="//communities.netapp.com/blogs/eisler/2008/07/08/part-i-since-nfsv4-is-stateful-it-must-be-less-robust-right" rel="nofollow">это здесь</a><a></a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/46#comment-49</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 14 Sep 2008 14:38:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/46#comment-49</guid>
+		<description>У меня стоит в плане разобраться с этой темой детальнее, но пока могу посоветовать прошерстить, например, записи вот этого человека:
+
+http://blogs.netapp.com/eislers_nfs_blog/2008/07/part-i-since-nf.html
+
+Это один из разработчиков спецификации NFS4, кстати.
+Там у него есть много интересного в блоге.</description>
+		<content:encoded><![CDATA[<p>У меня стоит в плане разобраться с этой темой детальнее, но пока могу посоветовать прошерстить, например, записи вот этого человека:</p>
+<p><a href="http://blogs.netapp.com/eislers_nfs_blog/2008/07/part-i-since-nf.html" rel="nofollow">http://blogs.netapp.com/eislers_nfs_blog/2008/07/part-i-since-nf.html</a></p>
+<p>Это один из разработчиков спецификации NFS4, кстати.<br />
+Там у него есть много интересного в блоге.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/46#comment-48</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Sun, 14 Sep 2008 14:24:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/46#comment-48</guid>
+		<description>Роман,
+а NFSv4 является Stateful ONLY? ?? другой вопрос - при создании NFS-шары на NetApp я могу выбрать версию протокола - к примеру NFSv3 для доступа каких-нибудь удаленных офисов, которые как раз могут отваливаться и т.д. (для чего и нужен stateless), а VMWare положить на NFSv4 (stateful в выделенной LAN)?</description>
+		<content:encoded><![CDATA[<p>Роман,<br />
+а NFSv4 является Stateful ONLY? ?? другой вопрос - при создании NFS-шары на NetApp я могу выбрать версию протокола - к примеру NFSv3 для доступа каких-нибудь удаленных офисов, которые как раз могут отваливаться и т.д. (для чего и нужен stateless), а VMWare положить на NFSv4 (stateful в выделенной LAN)?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

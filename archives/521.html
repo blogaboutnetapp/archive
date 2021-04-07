@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Multimode VIF в NetApp (часть 2)</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="523/trackback.html">Во что обходится производительность: NetApp и EMC</a></div>
+			<div class="alignright"><a href="525/trackback.html">Тестирование FCoE и iSCSI на FAS3170</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-521">
+			<h2 class="posttitle"><a href="521/trackback.html" rel="bookmark" title="Permanent Link to Multimode VIF в NetApp (часть 2)">Multimode VIF в NetApp (часть 2)</a></h2>
+			<div class="postmetadata">8 Февраль 2010, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p><strong>MAC Load-Balancing</strong>     <br />Этот алгоритм используется не так часто, так как ему присущ ряд недостатков. Основанный на использовании MAC алгоритм балансировки вычисляет XOR между MAC-адресами пар источника и получателя. ??сточником будет MAC-адрес сетевой карты хосте, подключенного к контроллеру&#160; NetApp. Получателем будет MAC-адрес VIF-интерфейса контроллера NetApp. Алгоритм работает хорошо, когда хосты и контроллер NetApp размещаются в одной подсети или VLAN. Когда хост расположен в другой подсети относительно контроллера NetApp, мы сталкиваемся с недостатками алгоритма. Для понимания того, что происходит, нам надо разобраться с тем, что происходит с фреймом Ethernet, когда он маршрутизируется по сети.</p>
+<p>Допустим, мы хотим соединить Host1 с Controller1.</p>
+<p>Host1 IP address - 10.10.1.10/24 (default gateway для Host1 - 10.10.1.1)   <br />Controller1 IP address - 10.10.3.100/24 (default gateway для Controller1 - 10.10.3.1)</p>
+<p>Выше мы задали для Host1 и Controller1 две отдельные подсети. Единственный путь передачи данных в том случае - через роутер. В рассматриваемом случае, роутер для подсетей 10.10.1.1 и 10.10.3.1 это один и тот же физический роутер, эти адреса просто два физических его интерфейса. Задача роутера - связать две подсети, и обеспечить передачу данных между ними.</p>
+<p>Когда Host1 передает frame предназначенный для Controller1, он отправляет его на роутер по адресу default gateway, так как видит, что адрес 10.10.3.100 это IP-адрес не его локальной подсети, потому он отправляет его в адрес default gateway, по которому расположен роутер, в надежде, что роутер знает что с ним делать дальше, и найдет путь к получателю.</p>
+<p>с Host1 на Host1Router</p>
+<p>-IP Source: Host1 (10.10.1.10)   <br />-MAC Source: Host1    <br />-IP Destination: VIFController1 (10.10.3.100)    <br />-MAC Destination: Host1DefaultRouter</p>
+<p>с Host1Router на Controller1</p>
+<p>-IP Source: Host1 (10.10.1.10)   <br />-MAC Source: Controller1DefaultRouter    <br />-IP Destination: VIFController1 (10.10.3.100)    <br />-MAC Destination: VIFController1</p>
+<p>Обратите внимание: MAC-адреса источника и получателя меняются, когда фрейм передается по сети. Так работает маршрутизация, и когда маршрутизаторы встречаются на пути несколько раз, то и MAC будет изменен несколько раз по пути от источника к получателю. Не важно сколько раз конкретно, главное что он меняется когда фрейм попадает в локальный сегмент контроллера. MAC источника будет являться MAC-ом роутера, а получателем – MAC-адрес VIF контроллера. Для полного понимания проблемы, допустим у нас есть четыре 1Gbps канала, объединенных в Etherchannel на Controller1. Допустим у нас есть 50 хостов в той же подсети, что и&#160; Host1. Пары source и destination для соединения Host1 к Controller1 будут ровно теми же, что и любых других хостов в подсети host1, так как&#160; MAC-адреса source и destination всегда будут равны Controller1DefaultRouter и VIFController1.</p>
+<p><strong>IP Load-Balancing</strong>     <br />IP Load-Balancing это параметр по умолчанию для всех NetApp MultiMode VIF и наиболее часто используемый на практике метод построения MultiMode VIF на сегодня. Алгоритм не отличается от уже рассмотренного алгоритма с использованием MAC, который мы расмотрели выше. Разница только в том, что мы используем IP-адреса ??сточника (Source) и Получателя (Destination), которые, если вы посмотрите рассмотренный ранее вариант, никогда не менятся, в отличие от&#160; адресов MAC. Факт того, что IP-адреса не меняются, создает сценарий, в котором у вас больше шансов получить уникальные пары, что, в результате, приводит к более равномерному распределению трафика по физическим линкам.</p>
+<p>Для правильного понимания механизма работы следует учесть один важный момент, касающийся пар IP-адресов source и destination: при вычислении пар source-destination принимаются во внимание только последние октеты адресов. Это означает, что в адресе 10.10.1.10 будет использован для идентификации только 10 – последний октет адреса, в адресе 10.10.3.100 - только 100. Принимать во внимание этот момент следует в случае развертывания системы в сети, состоящей из нескольких подсетей, в этом случае может получиться так, что адреса из разных подсетей (но с одинаковым последним октетом) будут передаваться по одному физическому линку.</p>
+<p><strong>IP Aliasing</strong>     <br />Понимание принципов алгоритмов Load-Balancing позволяет вам, как администратору, использовать их к собственной выгоде. Все NetApp VIF и физичские интерфейсы имеют возможность назначить им так называемые “алиасы”. Это просто дополнительный адрес для самого VIF. Рекомендуется назначит адреса(для VIF + определенное количество алиасов) равное числу физических линков в EtherChannel между контроллером и коммутатором, к которому подключен контроллер. Таким образом если вы используете VIF, состоящий из&#160; 4 штук 1Gbps линков в виде MultiMode VIF между контроллером и коммутатором, то назначьте один адрес для VIF и добавьте к нему три алиаса для того же VIF.</p>
+<p>Простое назначение дополнительных адресов не поможет использовать преимущества дополнительных адресов. Вы должны убедиться, что хосты, которые смонтировали данные с контроллеров NetApp используют все эти адреса. Этого можно достичь несколькими разными путями, в зависимости от того, какие протоколы используются для доступа к данным, ниже приведены некоторые примеры для NFS.</p>
+<p><strong>Oracle NFS</strong> -&#160; хосты с Oracle должны монтировать тома NFS равномерно распределяя их по доступным&#160; IP-адресам контроллера. Если у вас есть 4 различных NFS ресурса, то смонтируйте их используя для доступа четыре различных IP-адреса контроллера. Каждый ресурс будет иметь различную пару из источника и получателя (source and destination pair) и полоса передачи между хостом и контроллером будет использована более эффективно.</p>
+<p><strong>VMware NFS</strong> – хосты ESX должны монтировать каждый NFS Datastore через различные IP-адреса контроллера NetApp. Такой вариант наилучшим способом использует один интерфейс VMkernel (адрес источника (source)). Если у вас больше датасторов, чем&#160; IP-адресов, то просто распределите датасторы по доступным IP-адресам контроллера NetApp поравномернее.</p>
+<p>Обратите внимание: Когда вы назначаете алиас интерфейсу, и у вас установлены и включены партнерские отношения между двумя контроллерами (и, естественно, их физическими интерфейсами) кластера NetApp, то в случае кластерного файловера алиасы также перенесутся на партнерский интерфейс</p>
+<p>Ну и, наконец, обещанные шаблоны:</p>
+<p> <span id="more-521"></span><code></p>
+<p>LACP - Dynamic MultiMode VIF</p>
+<p>____________________________________</p>
+<p>Filer RC File</p>
+<p>#Manually Edited Filer RC file&#160; 3 March, 2009,&#160; by Trey Layton</p>
+<p>hostname filer a</p>
+<p>vif create lacp template-vif1 -b ip e0a e0b e0c e0d</p>
+<p>ifconfig template-vif1 10.10.3.100 netmask 255.255.255.0 mtusize 1500 partner (partner-vif-name)      <br />ifconfig template-vif1 alias 10.10.3.101 netmask 255.255.255.0       <br />ifconfig template-vif1 alias 10.10.3.102 netmask 255.255.255.0       <br />ifconfig template-vif1 alias 10.10.3.103 netmask 255.255.255.0</p>
+<p>route add default 10.10.3.1 1      <br />routed on       <br />options dns.domainname template.netapp.com       <br />options dns.enable on       <br />options nis.enable off       <br />savecore</p>
+<p> </code></p>
+<p>_____________________________________</p>
+<p>Cisco Configuration</p>
+<p> <code></p>
+<p>!!!!!! The following interface is a virtual interface for the etherchannel.      <br />!!!!!!This interface must be referenced       <br />!!!!!! on the physical interface to create the channel.</p>
+<p>interface Port-channel 1      <br />description Virtual Interface for Etherchannel to filer       <br />switchport</p>
+<p>switchport mode access</p>
+<p>switchport nonegotiate      <br />spanning-tree guard loop</p>
+<p>spanning-tree portfast      <br />!</p>
+<p>!!!!! The following are the physical interfaces in the channel.      <br />!!!!! The above is the virtual interface for the channel.       <br />!!!!! Each physical interface will reference the virtual interface.</p>
+<p>interface GigabitEthernet 2/12      <br />description filer interface e0a       <br />switchport       <br />switchport mode access</p>
+<p>switchport nonegotiate      <br />flowcontrol receive on</p>
+<p>no cdp enable      <br />spanning-tree guard loop       <br />spanning-tree portfast       <br />channel-protocol lacp       <br />channel-group 1 mode active</p>
+<p>!!!!!!      <br />!!!!!! The above channel-group command is the command       <br />!!!!!! which bonds the physical interface to the virtual interface       <br />!!!!!! previously created.       <br />!!!!!! The command following the channel number is the mode - active is for LACP.       <br />!!!!!!       <br />!       <br />interface GigabitEthernet 2/13       <br />description filer interface e0b       <br />switchport       <br />switchport mode access</p>
+<p>switchport nonegotiate      <br />flowcontrol receive on</p>
+<p>no cdp enable      <br />spanning-tree guard loop       <br />spanning-tree portfast       <br />channel-protocol lacp       <br />channel-group 1 mode active</p>
+<p>!      <br />interface GigabitEthernet 2/14       <br />description filer interface e0c       <br />switchport       <br />switchport mode access</p>
+<p>switchport nonegotiate      <br />flowcontrol receive on</p>
+<p>no cdp enable      <br />spanning-tree guard loop       <br />spanning-tree portfast       <br />channel-protocol lacp       <br />channel-group 1 mode active</p>
+<p>!      <br />interface GigabitEthernet 2/15       <br />description filer interface e0d       <br />switchport       <br />switchport mode access</p>
+<p>switchport nonegotiate      <br />flowcontrol receive on</p>
+<p>no cdp enable      <br />spanning-tree guard loop       <br />spanning-tree portfast       <br />channel-protocol lacp       <br />channel-group 1 mode active</p>
+<p><strong>Static EtherChannel - Static MultiMode VIF</strong></p>
+<p>____________________________________</p>
+<p><strong>Filer RC File</strong></p>
+<p>#Manually Edited Filer RC file 3 March, 2009, by Trey Layton</p>
+<p>hostname filer a</p>
+<p>vif create multi template-vif1 -b ip e0a e0b e0c e0d</p>
+<p>ifconfig template-vif1 10.10.3.100 netmask 255.255.255.0 mtusize 1500 partner (partner-vif-name)      <br />ifconfig template-vif1 alias 10.10.3.101 netmask 255.255.255.0       <br />ifconfig template-vif1 alias 10.10.3.102 netmask 255.255.255.0       <br />ifconfig template-vif1 alias 10.10.3.103 netmask 255.255.255.0</p>
+<p>route add default 10.10.3.1 1      <br />routed on       <br />options dns.domainname template.netapp.com       <br />options dns.enable on       <br />options nis.enable off       <br />savecore</p>
+<p>_____________________________________</p>
+<p><strong>Cisco Configuration</strong></p>
+<p>!!!!!! The following interface is a virtual interface for the etherchannel.      <br />!!!!!! This interface must be referenced       <br />!!!!!! on the physical interface to create the channel.</p>
+<p>interface Port-channel 1      <br />description Virtual Interface for Etherchannel to filer       <br />switchport</p>
+<p>switchport mode access      <br />switchport nonegotiate       <br />spanning-tree guard loop</p>
+<p>spanning-tree portfast      <br />!</p>
+<p>interface GigabitEthernet 2/12      <br />description filer interface e0a       <br />switchport       <br />switchport mode access       <br />switchport nonegotiate       <br />flowcontrol receive on</p>
+<p>no cdp enable      <br />spanning-tree guard loop       <br />spanning-tree portfast       <br />channel-group 1 mode on</p>
+<p>!!!!!!      <br />!!!!!! The above channel-group command is the command       <br />!!!!!! which bonds the physical interface to the virtual interface       <br />!!!!!! previously created. The command following the channel number       <br />!!!!!! is the mode - active is for LACP.       <br />!       <br />interface GigabitEthernet 2/13       <br />description filer interface e0b       <br />switchport       <br />switchport mode access       <br />switchport nonegotiate       <br />flowcontrol receive on</p>
+<p>no cdp enable      <br />spanning-tree guard loop       <br />spanning-tree portfast       <br />channel-group 1 mode on</p>
+<p>!      <br />interface GigabitEthernet 2/14       <br />description filer interface e0c       <br />switchport       <br />switchport mode access       <br />switchport nonegotiate       <br />flowcontrol receive on</p>
+<p>no cdp enable      <br />spanning-tree guard loop       <br />spanning-tree portfast       <br />channel-group 1 mode on</p>
+<p>!      <br />interface GigabitEthernet 2/15       <br />description filer interface e0d       <br />switchport       <br />switchport mode access       <br />switchport nonegotiate       <br />flowcontrol receive on</p>
+<p>no cdp enable      <br />spanning-tree guard loop       <br />spanning-tree portfast       <br />channel-group 1 mode on</p>
+<p> </code></p>
+<p>_____________________________________</p>
+<p>Примечание читателя: Бывают случаи, когда включение в конфигурацию Cisco параметр <em>flowcontrol recieve on</em> мешает правильной работе LACP. Проверить.</p>
+<p>Примечание romx: Я вижу все недостатки переведенного текста, но увы, пока ничего приемлемее не нашлось, хоть самому пиши :(</p>
+<p><strong>UPD:</strong> На рассмотренную тему рекомендую смотреть более поздний пост - <a href="632/trackback.html">Ethernet Storage</a> и приведенный там перевод.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/cisco.html" rel="tag">cisco</a>, <a href="tag/etherchannel.html" rel="tag">etherchannel</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/trunking.html" rel="tag">trunking</a>, <a href="tag/vif.html" rel="tag">vif</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="521/trackback.html#respond">Комментарий</a> (<a href='521/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="521/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (9)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-230">
+		<div id="div-comment-230">
+		<div class="comment-author">
+			<cite>paul-k:<cite></div>
+			<p>возможно он не заработал потому что со стороны головы не было &#8216;ifconfig e0a flowcontrol send&#8217; (по умолчанию - full) - а в циске стоит принудиловка только на receive&#8230; какой-то косяк в negotiation</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-230" title="">8 Февраль 2010, 22:19</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-240">
+		<div id="div-comment-240">
+		<div class="comment-author">
+			<cite>Nikolay:<cite></div>
+			<p>Multimode VIF в NetApp (часть 2) - почему-то не могу найти в Вашем блоге первую часть статьи :(</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-240" title="">9 Февраль 2010, 21:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-242">
+		<div id="div-comment-242">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Он случайно затерся своей второй частью. Если очень надо, то восстановлю на следующей неделе.</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-242" title="">9 Февраль 2010, 22:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-245">
+		<div id="div-comment-245">
+		<div class="comment-author">
+			<cite>Nikolay:<cite></div>
+			<p>Если не затруднит, восстановите пожалуйста.</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-245" title="">10 Февраль 2010, 13:48</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1037">
+		<div id="div-comment-1037">
+		<div class="comment-author">
+			<cite>Anton:<cite></div>
+			<p>Приветствую, вторая часть отличная, спасибо, но хочется прочитать и первую. Может к годовому юбилею восстановите?</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-1037" title="">13 Январь 2011, 15:32</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1038">
+		<div id="div-comment-1038">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Anton: нет смысла. Эти два поста являются, фактически, главой из документа TR-3802 Ethernet Storage, того же автора, который я первел целиком и выложил в техбиблиотеку Netwell, о чем есть ссылка в UPD.<br />
+Лучше его читайте.</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-1038" title="">13 Январь 2011, 15:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2361">
+		<div id="div-comment-2361">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>В<br />
+ifconfig e0a 10.1.1.100 netmask 255.255.255.0 mtusize 9000 partner<br />
+10.1.1.200 flowcontrol send</p>
+<p>что такое 10.1.1.200? По логике вещей это должен быть свич. ??ли всё-же это партнёр (сервер который примапил шару/лун)?</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-2361" title="">26 Апрель 2012, 21:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2366">
+		<div id="div-comment-2366">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>Это IP интерфейса контроллера-партнера. Того, на который будет перенесен данный интерфейс, в случае отказа данного контроллера.</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-2366" title="">27 Апрель 2012, 1:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2768">
+		<div id="div-comment-2768">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>В результате тестирования я убедился в том, что если речь о IP балансировке в рамках одной подсети и количество физических серверов как минимум равно количеству агрегированных физических линков, то никакие алиасы цеплять не нужно. Как правило эти условия соблюдаются автоматически.<br />
+От алиасов только голавная боль при работе с NFS - такие шары примапленные по разным IP адресам (NAS&#8217;a) видятся как разные датасторы и соответственно vMoution произойти не может.</p>
+<p>??нтересно, а если мапить с разных IP адресов (хоста) на один IP адрес (СХД) будет ли vSphere&#8217;а понимать, что это один и тот же датастор? Если да, то в такой схеме проблем с vMoution по идее быть не должно. Но с этим есть смысл замарачиваться, только если в вышеописанных условиях вместо одной подсети - несколько и последние октеты совпадают у нескольких хостов. Но с другой стороны проще уже выполнить условие уникальности последнего октета узлов подключённых к СХД.</p>
+						<div class="comment-meta"><a href="521/trackback.html#comment-2768" title="">20 Июнь 2012, 14:50</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="521" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.077 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

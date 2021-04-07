@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; NetApp EF540 Flash Array</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1243/trackback.html">Сборка fio под Windows x64</a></div>
+			<div class="alignright"><a href="../1245/trackback.html">Техподдержка на русском - выскажи свое мнение!</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1244">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to NetApp EF540 Flash Array">NetApp EF540 Flash Array</a></h2>
+			<div class="postmetadata">18 Февраль 2013, 7:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Несмотря на то, что я уже не раз в этом блоге обещал не слишком писать про NetApp E-series (по разным причинам, не буду вдаваться в детали, уже писал неоднократно почему), но как-то так, в насмешку над моими словами, жизнь заставляет писать о них почаще. А сегодня есть повод еще раз поднять тему E-Series, потому что в ней появился интересный продукт – Flash Array.</p>
+<p>??з названия нетрудно догадаться, что это становящийся сегодня все более популярным так называемый all-flash массив, то есть сторадж сделанный только на flash SSD, без классических, “вращающихся” дисков вовсе. На рынке уже несколько лет как присутствуют такие устройства, прежде всего это системы хранения производства компании Violin Memory, пионера подобных систем, и Texas Memory Systems (ныне принадлежащая IBM).</p>
+<p>Если вы читаете этот блог достаточно давно, то вы уже знаете, что в линейке NetApp есть самые разнообразные продукты с использованием Flash, можно даже сказать, что NetApp имеет вообще все возможные варианты, и в этом по своему уникальна. Считайте сами: FlashCache, встроенный в систему хранения кэш на flash memory, Flash Pool, гибридный дисково-flash-евый массив, прозрачный для пользователя и его задач, FlashAccel – софтверное решение, позволяющее использовать диски SSD на стороне сервера интегрировано, в общей инфраструктуре хранения, и вот, наконец, четвертый возможный вариант использования flash, all-flash array, “дисковый” массив состоящий из чистых SSD.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/NetApp-EF540-Flash-Array_D808/image.png" width="721" height="260" /></p>
+<p>Как показывает нам его название, он построен на базе весьма удачных массивов “классической” архитектуры, досташихся NetApp вместе с приобретенным несколько лет назад подразделением компании LSI под названием Engenio, производящей крайне удачные блочные массивы по OEM-контрактам, вы их, уверен, хорошо знаете как дисковые массивы IBM DS, а также ряд других систем хранения от других компаний. Это все – Engenio, ныне подразделение NetApp.</p>
+<p>Под крышей NetApp Engenio получила “второе дыхание” и дисковые массивы “традиционной” блочной архитектуры используются NetApp для ряда специальных проектов, например для grid-систем под Hadoop, или для систем video surveilance, а также поставляются всем прежним OEM-клиентам Engenio.</p>
+<p>Вот на базе дисковой полки и контролллеров 5400-серии и был сделан EF540 Flash Array.</p>
+<p>Вид контроллеров сзади:</p>
+<p><a href="/pics/NetApp-EF540-Flash-Array_D808/image_3.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/NetApp-EF540-Flash-Array_D808/image_thumb.png" width="886" height="162" /></a></p>
+<p>Система поставляется в двух вариантах: с 12 и с 24 дисками MLC SSD на 800GB raw (то есть с суммарной емкостью 9,6 и 19,2 TB raw) и обеспечивает в максимуме около 300 тысяч установившихся IOPS чтения (100% random read, 4K) при менее 1 ms latency (или же около 6GB/s throughput большими блоками, то есть, конечно, не одновременно с 300K IOPS).</p>
+<p>На контроллерах в стандартном форм-факторе SBB v2.0, слева направо:</p>
+<p><a href="/pics/NetApp-EF540-Flash-Array_D808/image_4.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/NetApp-EF540-Flash-Array_D808/image_thumb_3.png" width="902" height="170" /></a></p>
+<p>Порт USB для диагностики и обслуживания. Два порта Ethernet для управления (это НЕ для передачи данных! Только для админнистрирования! Ни iSCSI в базе, ни NAS тут нет!), далее 4 независимых порта 8Gb/s FC. Правее находится схемный модуль, так называемый Host Interface card, в котором располагается, на рисунке, последовательная консоль и порт SAS 6Gb/s drive expansion, который в EF540 НЕ ??СПОЛЬЗУЕТСЯ, подключить к EF540 дополнительные полки НЕЛЬЗЯ.</p>
+<p>Кроме показанного на рисунке также возможны иные варианты такого Host interface module, например с еще плюс 4x 8G FC, 4x 6G SAS (не для расширения, а для IO, например для подключения в SAS Switch и доступа по ним от сервера), 2x 10G iSCSI или же 2x 40G Infiniband (в последнем случае штатные порты FC отключены). На контроллере также располагается 12GB кэш-памяти. Поддерживаются типы RAID – 0,1,5,6,10.</p>
+<p>Нацелены данные системы, прежде всего, как и все E-series в линейке NetApp, на определенную узкую “нишу” крайне высокопроизводительных приложений, это, прежде всего, энтерпрайзные базы данных, где latency играет решающую роль, и за что, следует специально подчеркнуть, компании готовы платить, и платить много. Это НЕ системы “для всех”, это нишевое решение для тех, у кого предельно низкие значения IO latency это решающий фактор.</p>
+<p>Ну и, конечно же, как правило, EF540 будет использоваться не столько сама по себе, сколько как компонент более высокоуровневого решения, включающего в себя не только стораджи E-series, но и те же FAS, например уже готов TR, посвященный построению высокопроизводительной базы данных на Sybase ASE, с использованием FAS6200 для хранения данных, и EF540 для ускорения определенных операций, работающих вместе.</p>
+<p>??, “<em>чтобы два раза не вставать</em>”, по некоторым слухам, NetApp в России намеревается в ближайшее время начать продавать стораджи семейства E5400 по своему обычному каналу, через партнеров, ранее, напомню, эти системы хранения можно было купить только как OEM-продукт, например через IBM, как&#160; DS35xx, сам NetApp, от своего имени, в России их не продавал.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/e-series.html" rel="tag">e-series</a>, <a href="../tag/ef540.html" rel="tag">ef540</a>, <a href="../tag/flash/index.html" rel="tag">flash</a>, <a href="../tag/flash-array.html" rel="tag">flash array</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (6)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-5923">
+		<div id="div-comment-5923">
+		<div class="comment-author">
+			<cite>Alexsar:<cite></div>
+			<p>?? сколько стоит такое чудо техники на 24 диска? Просто ради интереса.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5923" title="">19 Февраль 2013, 12:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-5936">
+		<div id="div-comment-5936">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Alexsar:</p>
+<p>Тысяч 200-250, не меньше. Обычно люди, для которых критичны показатели производительности на уровне 300 тысяч IOPS при субмиллисекундных latency не страдают от недостатка денег :), тем более что система аналогичных показателей на дисках выйдет в разы дороже.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5936" title="">19 Февраль 2013, 23:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-5937">
+		<div id="div-comment-5937">
+		<div class="comment-author">
+			<cite>Bakset:<cite></div>
+			<p>to romx: 200-250 в прайсе или? :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5937" title="">19 Февраль 2013, 23:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-5938">
+		<div id="div-comment-5938">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Bakset:</p>
+<p>Ну откуда же я вам могу назвать другие цены, я же не партнер и не продавец, конечно листпрайс.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5938" title="">19 Февраль 2013, 23:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-5964">
+		<div id="div-comment-5964">
+		<div class="comment-author">
+			<cite>anvarich:<cite></div>
+			<p>TR по Sybase не могу найти, можете указать ссылку</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5964" title="">20 Февраль 2013, 15:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-5966">
+		<div id="div-comment-5966">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>anvarich:</p>
+<p>Он пока доступен на fieldportal, сам EF540 только зарелизен, думаю что нужно время, прежде чем партнерские документы перекочуют в паблик.<br />
+Его номер - TR-4126</p>
+<p>Sybase Adaptive Server Enterprise V ersion<br />
+15.7 on NetApp EF540 Flash Array and FAS<br />
+Storage<br />
+Bobby Oommen, Jeffrey Steiner, NetApp<br />
+February 2013 | TR-4126</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5966" title="">20 Февраль 2013, 16:05</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1244" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.068 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

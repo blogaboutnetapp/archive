@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Так ли незаменимы магнитные ленты для бэкапа? Часть 4</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../624/trackback.html">Петабайт флэша</a></div>
+			<div class="alignright"><a href="../626/trackback.html">SnapLock &ndash; неизменяемое сохранение данных на дисках</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-623">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Так ли незаменимы магнитные ленты для бэкапа? Часть 4">Так ли незаменимы магнитные ленты для бэкапа? Часть 4</a></h2>
+			<div class="postmetadata">24 Июнь 2010, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Обычно “в пику” дискам сторонники лент приводят два возражения. Во-первых – как сделать удаленное хранение, о варианте решения этой задачи я говорил в прошлом посте. Во-вторых - как организовать “длинные” циклы retention. Несмотря на то, что я рассказывал в самом первом посте цикла, о той разнице, которая разделяет понятие “резервная копия” и “архивная копия”, многие компании хотят иметь резервные копии на протяжении значительного периода времени, например года, такие резервные копии уже постепенно переходятпо своему статусу в “архивные”, но согласен, что длинный цикл ротации бэкапов, с возможностью откатиться на довольно отдаленный момент времени состояния данных может быть удобен во многих случаях.</p>
+<p>Поскольку в этом блоге я обычно пишу преимущественно о системах хранения NetApp, а вот уже три выпуска подряд я говорю о системах хранения “вообще”, позволю себе вернуться именно к NetApp, и рассматривать в дальнейшем именно их, впрочем, за вычетом ряда специальных возможностей, могие вещи будут иметь сходные реализации и в дисковых системах хранения других вендоров.</p>
+<p>Давайте посмотрим, насколько длинный цикл <em>retention</em> мы можем организовать с помощью систем NetApp FAS и их возможности создавать снэпшоты.</p>
+<p>Напомню, что каждый том данных на системе NetApp FAS может иметь до 255 снэпшотов.    <br />Давайте воспользуемся ими и организуем с их помощью классическую бэкапную ротацию:</p>
+<ul>
+<li>“Часовой” снэпшот, с интервалом каждые 6 часов круглосуточно, с хранением затем в течении суток. </li>
+<li>“Дневной” снэпшот, каждый день, всю неделю, в 10 вечера, с хранением в течении 4 месяцев </li>
+<li>“Недельный” снэпшот, каждое воскресенье в 10 вечера, с хранением на 2 года </li>
+<li>“Месячный” снэпшот, каждое первое воскресенье месяца, с хранением на 7 лет </li>
+</ul>
+<table border="0" cellspacing="0" cellpadding="0" width="517">
+<tbody>
+<tr>
+<td valign="bottom" width="517" colspan="5" nowrap="nowrap">
+<p style="text-align: center; line-height: normal; margin-bottom: 0pt" align="center"><strong>Example&#160;&#160; Schedule</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="76" nowrap="nowrap"></td>
+<td valign="bottom" width="164" nowrap="nowrap"></td>
+<td valign="bottom" width="186" nowrap="nowrap"></td>
+<td valign="bottom" rowspan="2" width="91" colspan="2" nowrap="nowrap">
+<p style="text-align: center; line-height: normal; margin-bottom: 0pt" align="center"><strong>Retention</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="76" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt"><strong>Schedule</strong></p>
+</td>
+<td valign="bottom" width="164" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt"><strong>Frequency</strong></p>
+</td>
+<td valign="bottom" width="186" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right"><strong>Time</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="76" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Hourly</p>
+</td>
+<td valign="bottom" width="164" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Every 6 hours</p>
+</td>
+<td valign="bottom" width="186" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right">4AM, 10AM, 4PM</p>
+</td>
+<td valign="bottom" width="30" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right">24</p>
+</td>
+<td valign="bottom" width="61" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Hours</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="76" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Daily</p>
+</td>
+<td valign="bottom" width="164" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Mon-Sun</p>
+</td>
+<td valign="bottom" width="186" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right">10PM</p>
+</td>
+<td valign="bottom" width="30" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right">90</p>
+</td>
+<td valign="bottom" width="61" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Days</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="76" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Weekly</p>
+</td>
+<td valign="bottom" width="164" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Every Sunday</p>
+</td>
+<td valign="bottom" width="186" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right">10PM</p>
+</td>
+<td valign="bottom" width="30" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right">104</p>
+</td>
+<td valign="bottom" width="61" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Weeks</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="76" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Monthly</p>
+</td>
+<td valign="bottom" width="164" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">1st Sunday in Month</p>
+</td>
+<td valign="bottom" width="186" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right">10PM</p>
+</td>
+<td valign="bottom" width="30" nowrap="nowrap">
+<p style="text-align: right; line-height: normal; margin-bottom: 0pt" align="right">84</p>
+</td>
+<td valign="bottom" width="61" nowrap="nowrap">
+<p style="line-height: normal; margin-bottom: 0pt">Months</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Обратите внимание, что по принципу действия такого снэпшота, любой из них будет являться для потребителя full backup (хотя внутри, скрыто от пользователя, конечно же incremental), то есть любой из этих 245 снэпшотов будет иметь полный набор данных тома на соответствующий момент времени.</p>
+<p>??того такая схема ротации всего в 245 снэпшотов на том позволит нам иметь цикл непрерывной ротации бэкапов данного тома, ни много ни мало – 7 лет!</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/backup/index.html" rel="tag">backup</a>, <a href="../tag/disk.html" rel="tag">disk</a>, <a href="../tag/tape.html" rel="tag">tape</a><br />					Раздел: <a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (18)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-535">
+		<div id="div-comment-535">
+		<div class="comment-author">
+			<cite>Ivan:<cite></div>
+			<p>romx - Четвертый снимок отсутствует в первом расписании.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-535" title="">24 Июнь 2010, 9:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-538">
+		<div id="div-comment-538">
+		<div class="comment-author">
+			<cite>Korj:<cite></div>
+			<p>Ivan ээээ&#8230; См. второе расписание? 8)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-538" title="">24 Июнь 2010, 13:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-539">
+		<div id="div-comment-539">
+		<div class="comment-author">
+			<cite>Ivan:<cite></div>
+			<p>Что именно? шедулить месячный бекап средствами массива нельзя, на сколько я в курсе. Например, тот же SAP Snapmanager hourly класс позволяет задать с промежутками, и если идет через каждые 6 часов, то и делать он их будет 4 в сутки, что не так? ??ли snapmanger сам решает какое расписание имеет больший приоритет?<br />
+ЗЫ: я ждал этого возражения :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-539" title="">24 Июнь 2010, 13:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-540">
+		<div id="div-comment-540">
+		<div class="comment-author">
+			<cite>Korj:<cite></div>
+			<p>Ivan, SM for Hyper-V использует виндовый скедулер + указывается срок убийства или количество хранимых по данному schedule, соответственно настраивается всё что угодно, и вышеприведённая табличка вполне реализуема. Если в каком-то из тулзов неудобная система скедулинга, то тут вопрос к это программе (просить разработчиков допилить; использовать другую программу; использовать совместно с ней какой-нибудь скрипт, удаляющий лишние снэпшоты), а не к хранилке.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-540" title="">24 Июнь 2010, 14:55</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-541">
+		<div id="div-comment-541">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Проблема со снапшотами заключается в том, что из них неудобно восстанавливаться, особенно в случае VMWare. Классический пример - снапшот VMFS или NFS раздела. Задача - восстановить отдельный файл внутри виртуальной машины или, например, обьект какого-либо приложения (tablespace в базе данных, почтовый ящик в Exchnage и т.д.) внутри виртуальной машины. При использовании традиционного бекап софта, установленного внутри гостевой OS, восстановление происходит нажатием одной кнопки. В случе снапшотов приходится монтировать снапшот и ковырять vmdk файл, это не всегда тривиальная задача, особенно если задачу восстановления нужно доверить людям из суппорт-деск. В данном случае я не говорю что бекапы на диск плохи &#8220;вообще&#8221;, но использование только снапшотов при полном отсутствии нормального бекап-софта накладывает серьёзные ограничения на процесс восстановления. При этом есть уже куча бекап-продуктов, которые умеют оптимально использовать диск в качестве target&#8217;a для бекапа, делают дедупликацию данных и прочее. Это я всё к тому, что в случае НетАппа мы имеем ту же ситуацию с молотком и гвоздями: у них есть снапшоты которыми они пытаются решить ВСЕ проблемы восстановления, даже когда есть более эффективные методы.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-541" title="">24 Июнь 2010, 17:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-542">
+		<div id="div-comment-542">
+		<div class="comment-author">
+			<cite>Альберт:<cite></div>
+			<p>deepblue,<br />
+Как вы сами и сказали - стороннего цельного софта нет (есть NetAppовский но недопиленный\нецентрализованный он какой-то: россыпь SnapManager продуктов для разных нужд).</p>
+<p>Кстати для чисто VMWare нужд SMVI вполне пригож. Уж машину из бэкапа поднять просто.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-542" title="">24 Июнь 2010, 20:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-543">
+		<div id="div-comment-543">
+		<div class="comment-author">
+			<cite>Korj:<cite></div>
+			<p>Не храните в vdmk ту информацию, которая лучше себя будет чувствовать в виде файлов на CIFS/NFS. Покупайте те программы, которые Вас устраивают: решения средствами СХД предлагает NetApp, решения другими средствами - другие вендоры.<br />
+Про единую могучую систему восстановления Всего - улыбнуло. ??нтересно, чей же это должен быть инструмент - Властелина Мира? Чтоб и за БД отвечал он, и за виртуалки он, и за файлы пользователей - он - Великий и Ужасный. Я сомневаюсь, что рынок SOHO/SB (где для всего этого - один админ) интересен NetApp.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-543" title="">25 Июнь 2010, 4:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-544">
+		<div id="div-comment-544">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>&gt; Классический пример - снапшот VMFS или NFS раздела. Задача - восстановить отдельный файл внутри виртуальной машины или, например, обьект какого-либо приложения </p>
+<p>Не совсем понятна претензия к NetApp в данном ключе. Да, NetApp много что не может. Кофе варить и за пивом сбегать - тоже :)<br />
+Но его ли это задача? Вина ли NetApp в том, что VMware сделала VMFS закрытой, и не обеспечила сторонним решениям доступ к его содержимому (кроме как через ублюдского VCB)?<br />
+Разве задача NetApp обеспечить доступ к данным приложения для резервного копирования, разве не само это приложение должно об этом позаботиться, и предоставить соответствующие инструменты?</p>
+<p>По моему вы брсаетесь в другую крайность и считаете NetApp и снэпшоты &#8220;идеальной панацеей&#8221;, &#8220;единственым возможным решением для всего&#8221;, иначе я не могу представить что именно вас спровоцировало на такое о нем мнение.<br />
+Это просто система хранения данных. Не нужно требовать от нее больше функций, чем выполняет внешняя сетевая система хранения данных.<br />
+Да, есть снэпшоты, и средства их использующие для комплексной защиты данных _конкретного_ приложения за счет глубокой интеграции с ним. Но если о гранулярности своих данных через снэпшоты не позаботится само приложение, то NetApp сможет ровно то, что может - сохранить crash-consistent копию файловой системы или LUN.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-544" title="">25 Июнь 2010, 7:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-545">
+		<div id="div-comment-545">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Претензий у меня ни к кому нет :) Просто то, как мы перешли с темы бэкапа на диски (что есть гуд) к теме снэпшотов, может создать впечатление, что снэпшоты - это самый правильный метод решения задачи бэкапа на диски. Я попытался указать, почему во многих случаях это не так. ??дея бэкапа на диски не нова, проблема всегда была в том, что мейнстрим бэкап софт не умел и до сих пор часто не умеет эффективно эти самые диски использовать. Потом появились нишевые продукты, которые эту проблему решили с помощью дедупликации - PureDisk, Avamar. Сейчас с разным успехом эти функции встраиваются в мейнстрим продукты. Ну и про DataDomain с которым у НетАппа не получилось, тоже забывать не стоит. На мой взгляд снэпшотами заменить функционал полноценного бэкап софта нельзя.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-545" title="">25 Июнь 2010, 17:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-546">
+		<div id="div-comment-546">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> может создать впечатление, что снэпшоты - это самый правильный метод решения задачи бэкапа на диски. </p>
+<p>Знаете что самое сложное в &#8220;общении с читателями&#8221;?<br />
+Разгорваривать с &#8220;вчитывающими&#8221;. Так я называю тех, которые вместо прочтения того, что написано автором, то есть мной, начинают читать (и спорить следом) то, что автор не писал, а то, что их самих &#8220;беспокоит&#8221; в даный момент.<br />
+За прошедшие полторы недели меня успели обвинить (по порядку):<br />
+1. В том, что я предлагаю выкинуть все ленты, и использовать только диски<br />
+2. В том что я пиарю NetApp и пощу проплаченне посты (на тот момент даже слово NetApp ни в одном посте из трех еще даже не упоминалось).<br />
+4. В том, что приведенные мной описания &#8220;наполнены однобокими расчетами&#8221; (при том что я вообще никаких ценовых расчетов кроме цены отдельного устрйства &#8220;по прайсру&#8221; не привел).</p>
+<p>Может что и пропустил, лень бегать по комментам.</p>
+<p>Можете смело добавить к этому ваше: &#8220;что снэпшоты - это самый правильный метод решения задачи бэкапа на диски&#8221;.</p>
+<p>Возможно вы будете шокированы внимательно прочитав пост, но то, что вы там &#8220;прочитали&#8221; родилось в вашей голове, и я этого не говорил. Спасибо за доверие, конечно, но если вы хотите говорить со мной, то давайте говорить о том, что я на самом деле утверждал, а не о том, что вы мне приписали. Благодарю за внимание :)</p>
+<p>> проблема всегда была в том, что мейнстрим бэкап софт не умел и до сих пор часто не умеет эффективно эти самые диски использовать.</p>
+<p>Самое смешное, что в недавнем посте в параллельном треде (про VTL) меня чуть не на британский флаг порвали, оспаривая необходимость эмуляции ленты на VTL, &#8220;ведь все давно умеют писать на диски&#8221;. Строго говоря все это действительно так. Например популярный Backup Exec 10d (и далее), появившийся в 2006, если не ошибаюсь, году, именно потому и &#8220;d&#8221;, что умеет использовать диски нативно. NetBackup 6.5 умеет это точно, про 6.0 не помню, 5.0 умел работать с дисками как с &#8220;псевдолентами&#8221;.<br />
+Так кто из современного бэкап-софта не умеет писать на диски нативно или через &#8220;псевдоленту&#8221; (без эмуляции) хотя бы?</p>
+<p>> Ну и про DataDomain с которым у НетАппа не получилось</p>
+<p>Ну насчет &#8220;не получилось&#8221; это еще вопрос, кому больше хотелось. У NetApp есть уже лет пять как есть и продается вполне неплохой свой собственный продукт этого класса - NetApp VTL.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-546" title="">25 Июнь 2010, 22:20</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-547">
+		<div id="div-comment-547">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>&gt;Возможно вы будете шокированы внимательно прочитав пост, но то, что вы там<br />
+&gt;“прочитали” родилось в вашей голове, и я этого не говорил. Спасибо за доверие,<br />
+&gt;конечно, но если вы хотите говорить со мной, то давайте говорить о том, что я на<br />
+&gt;самом деле утверждал, а не о том, что вы мне приписали. Благодарю за внимание :)</p>
+<p>ОК, просто ваша серия постов прочиталась иманно так. Раз посты называются часть 1,2,3,4, я за вас додумал, что вы рассматриваете вариант замены снэпшотами традиционной связки &#8220;бэкап софт-лента&#8221;. &#8220;Бэкап софт-диск&#8221; - более равнозначная замена, это всё, что я хотел сказать.</p>
+<p>Если я вас не так понял, то беру свои слова обратно, мир-дружба-жевачка.</p>
+<p>&gt;Самое смешное, что в недавнем посте в параллельном треде (про VTL) меня чуть<br />
+&gt;не на британский флаг порвали, оспаривая необходимость эмуляции ленты на<br />
+&gt;VTL, “ведь все давно умеют писать на диски”. Строго говоря все это действительно<br />
+&gt;так. Например популярный Backup Exec 10d (и далее), появившийся в 2006, если<br />
+&gt;не ошибаюсь, году, именно потому и “d”, что умеет использовать диски нативно.<br />
+&gt;NetBackup 6.5 умеет это точно, про 6.0 не помню, 5.0 умел работать с дисками как<br />
+&gt;с “псевдолентами”.<br />
+&gt;Так кто из современного бэкап-софта не умеет писать на диски нативно или через<br />
+&gt;“псевдоленту” (без эмуляции) хотя бы?</p>
+<p>??мелось в виду, что если использовать традиционные политики типа &#8220;полный бэкап раз в неделю/инкрементальный раз в день&#8221; с дисками, то дисковое решение быстро становится слишком дорогим, вы сами об этом писали. Только сейчас вендоры начали добовлять фичи в бэкап-софт типа той же дедупликации, которые делают задачу бекапа на диск экономомически оправданной.</p>
+<p>&gt;Ну насчет “не получилось” это еще вопрос, кому больше хотелось. У NetApp есть<br />
+&gt;уже лет пять как есть и продается вполне неплохой свой собственный продукт этого<br />
+&gt;класса - NetApp VTL.</p>
+<p>Ну NetApp VTL с DataDomain я сравнивать не стал бы, это разного класса продукты, иначе бы NetApp не предлагал за них $ 1.9 миллиарда. :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-547" title="">25 Июнь 2010, 23:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-548">
+		<div id="div-comment-548">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Дабы не навлечь на себя потоков гнева на этом блоге, добавлю, что DataDomain и NetApp VTL - разного класса продукты в рамках конкретной задачи (backup 2 disk). Насколько я понял, NetApp VTL, как отдельный продукт, вообще собираются прибить, что, в принципе, логично:<br />
+<a href="http://www.enterprisestorageforum.com/continuity/news/article.php/3863086/NetApp-Halts-VTL-Deduplication-Development.htm" rel="nofollow">http://www.enterprisestorageforum.com/continuity/news/article.php/3863086/NetApp-Halts-VTL-Deduplication-Development.htm</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-548" title="">25 Июнь 2010, 23:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-549">
+		<div id="div-comment-549">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Только сейчас вендоры начали добовлять фичи в бэкап-софт типа той же дедупликации, которые делают задачу бекапа на диск экономомически оправданной.</p>
+<p>Ну тут я могу лишь сказать, что считаю возложение задачи дедупликации на сторадж, выбранный NetApp абсолютно правильным.</p>
+<p>> иначе бы NetApp не предлагал за них $ 1.9 миллиарда. :)</p>
+<p>Мое мнение (которое может не совпадать с мнением NetApp) что в истории с покупкой DDUP NetApp покупал в первую очередь клиентскую базу.</p>
+<p>> NetApp VTL, как отдельный продукт, вообще собираются прибить</p>
+<p>Там вообще запутанная история какая-то. Официально это звучт так: прекращена дальнейшая разработка VTL как продукта. Продолжается его продажа по состоянию на сентябрь прошлого года. Почему-отчего - комментариев получить не удалось, увы.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-549" title="">25 Июнь 2010, 23:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-550">
+		<div id="div-comment-550">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>&gt; Ну тут я могу лишь сказать, что считаю возложение задачи дедупликации на сторадж, выбранный NetApp абсолютно правильным.</p>
+<p>??нтересно, на основании чего вы думаете, что дедуплицировать лучше на сторадже? Понятно что у NetApp выбора особенно не было, но в зависимости от задачи будут разные аргументы &#8220;за&#8221; и &#8220;против&#8221;. Раз уж мы взялись за бэкап, то здесь всё совсем неоднозначно. Традиционно бэкап - это самые большие потоки данных и логично их дедуплицировать на стороне хоста, чтобы снизить нагрузку на сеть, особенно при бэкапах на расстоянии. DataDomain, вот, придумал DD Boost, который дедуплицирует данные на стороне бэкап сервера, хотя на сторадже уже давно это умеют делать, как с этим дела у НетАппа?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-550" title="">26 Июнь 2010, 0:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-551">
+		<div id="div-comment-551">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> ??нтересно, на основании чего вы думаете, что дедуплицировать лучше на сторадже?</p>
+<p>По-моему очевидно. Потому что в таком случае это прозрачно для приложений, работает с любой системой резервного копирования, и грузит этой задачей (притом оффлайново) только сторадж, снимая нагрузку с сервера резервного копирования, которому и так обычно нелегко.</p>
+<p>> чтобы снизить нагрузку на сеть, особенно при бэкапах на расстоянии.</p>
+<p>В решении NetApp &#8220;на расстояние&#8221; ( на вторичное, удаленное хранилище) передаются уже дедуплицированные на первичном хранилище данные. То есть сперва оно бэкапится локально (не слишком разумно сразу бэкапить удаленно, помним про неободимость быстрого рестора оперативного бэкапа &#8220;только что&#8221;), дедуплицируется в процессе жизни, после чего реплицируется уже дедуплицированным.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-551" title="">26 Июнь 2010, 0:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-552">
+		<div id="div-comment-552">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Раз уж перечислили все &#8220;за&#8221;, стоит перечислить и все &#8220;против&#8221; использования НетАпп дедупликации для бэкапных данных:</p>
+<p>- Если делать дедупликацию на хосте, то запись идёт быстрее, так как данные по сети передаются в уже дедуплицированном виде и сеть загружается намного меньше. Это особенно актуально для VMWare, где сетевой ресурс часто ограничивает коэффициент консолидации. Чаще всего при миграции с физических на виртуальные хосты приходится переделывать всю схему бэкапа и дисковая дедупликация здесь к сожалению никак не помогает.<br />
+- Низкий коэффициент дедупликации (fixed-length block алгоритм), обычно не удаётся добиться больше, чем 10-20% дедупликации, в интернете полно материала на эту тему. Решения специально заточенные под эту задачу дают намного лучший результат.<br />
+- Дедупликация делается по расписанию ПОСЛЕ того, как данные записаны на диск. Даже если можно 100Гб дедуплицировать до 90Гб, первоначально всё равно нужно будет 100Гб свободного места.</p>
+<p>Вообще моё личное субъективное мнение - самое лучшее место для такой дедупликации - &#8220;файловые шары&#8221;. &#8220;Включил и забыл&#8221; и место экономится.</p>
+<p>Для бэкапов эта функция почти бесполезна именно по причинам перечисленным выше.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-552" title="">26 Июнь 2010, 1:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-554">
+		<div id="div-comment-554">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Если делать дедупликацию на хосте, то запись идёт быстрее</p>
+<p>Зато нагружается процессор хоста _в момент бэкапа_, что снижает его производительность, и, как следствие, скорость записи. От чего ушли - к тому пришли.</p>
+<p>> Это особенно актуально для VMWare, где сетевой ресурс часто ограничивает коэффициент консолидации.</p>
+<p>Если датасторы VMware хранятся на NetApp FAS, то они обычно уже дедуплицированы на момент бэкапа (и весьма эффективно, обычно, по практическому опыту, 70-90%. Если использовать нетапповское же решение репликации Volume SnapMirror, то трафик оказывается дедуплицированным.</p>
+<p>> Низкий коэффициент дедупликации (fixed-length block алгоритм)</p>
+<p>На VTL есть и variable block.</p>
+<p>> обычно не удаётся добиться больше, чем 10-20% дедупликации</p>
+<p>У NetApp на этот счет есть другие сведения.</p>
+<p>> Дедупликация делается по расписанию ПОСЛЕ того, как данные записаны на диск.</p>
+<p>Да, и это не минус, повторюсь, это огромный плюс! Процесс дедупликации никак не влияет на производительность системы, так как асинхронен с процессами. А место&#8230; Что место? Это просто диски. Диски купить куда как проще и дешевле, чем производительность и время сохранния/восстановления. Как я уже говорил по другому поводу: получить производительность по цене дисков это весьма неплохой deal по нынешним временам.</p>
+<p>> Для бэкапов эта функция почти бесполезна именно по причинам перечисленным выше.</p>
+<p>Я ответил?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-554" title="">26 Июнь 2010, 18:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2794">
+		<div id="div-comment-2794">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>deepblue&gt;??нтересно, на основании чего вы думаете, что дедуплицировать лучше на сторадже?<br />
+К примеру одно ПО может дедуплицировать, другое нет, в рамках стораджа так хранить данные не эффективно: одни данные дедуплицированны, другие нет. Что вас подвигло на этот _странный_ вопрос не пойму, ответ очевиден.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2794" title="">23 Июнь 2012, 19:55</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="623" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.086 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

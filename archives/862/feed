@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Multistore</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/862/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/862</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:22 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/862#comment-2524</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 14 May 2012 11:24:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/862#comment-2524</guid>
+		<description>На свой вопрос о безопасности и VLAN'ах для vFiler'ов ответ нашел здесь: 
+https://communities.netapp.com/message/81017#81017</description>
+		<content:encoded><![CDATA[<p>На свой вопрос о безопасности и VLAN&#8217;ах для vFiler&#8217;ов ответ нашел здесь:<br />
+<a href="https://communities.netapp.com/message/81017#81017" rel="nofollow">https://communities.netapp.com/message/81017#81017</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/862#comment-2382</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 06:23:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/862#comment-2382</guid>
+		<description>Никто так и не выяснил на счёт FCoE для vfiler'ов?
+
+По поводу безопасности,- если каждый управляет своими VLAN, то это получается дыра в безопасности в случае совместного использования несколькими vfiler'ами физических Ethernet интерфейсов. С другой же стороны, если файлерам отдаются физические интерфейсы в монопольное использование, где напастись 64+1 интерфейсов?
+
+?? ещё вопрос на счёт того, можно ли передать виртуальному файлеру в управление физические диски? Подозреваю,что только разделы vfiler0.</description>
+		<content:encoded><![CDATA[<p>Никто так и не выяснил на счёт FCoE для vfiler&#8217;ов?</p>
+<p>По поводу безопасности,- если каждый управляет своими VLAN, то это получается дыра в безопасности в случае совместного использования несколькими vfiler&#8217;ами физических Ethernet интерфейсов. С другой же стороны, если файлерам отдаются физические интерфейсы в монопольное использование, где напастись 64+1 интерфейсов?</p>
+<p>?? ещё вопрос на счёт того, можно ли передать виртуальному файлеру в управление физические диски? Подозреваю,что только разделы vfiler0.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP 8.x Cluster-mode: подробнее</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1118/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1118</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:05 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: AlektroNik</title>
+		<link>http://blog.aboutnetapp.ru/archives/1118#comment-14264</link>
+		<dc:creator>AlektroNik</dc:creator>
+		<pubDate>Wed, 26 Nov 2014 13:11:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1118#comment-14264</guid>
+		<description>Подскажите пожалуйста несколько вопросов.
+Это моя первая система NetApp.
+
+??меем:
+FAS 2240-2 (2 контроллера), 20 дисков SAS по 500 ГБ и 4 диска SSD по 128 ГБ, двух портовый модуль 10Gb на каждом контроллере. Режим работы 7 mode.
+
+Вопросы:
+1) Обновление системы с 7-mode на cluster mode требует только обновления системы или нужно что-то из физики докупать/менять.
+2) Мы планировали использовать эту хранилку в качестве файлового сервера и начать тестировать и внедрять в дальнейшем потихоньку VMware View (бывший VDI). Для этих целей собственно и планировали выпустить 10Gb адаптеры в DATA сеть. На сколько я вижу из инструкций и статьи 10GB в cluster режиме используются чисто под синхронизацию между нодами. Дейтсвительно ли 10Gb адаптеры нельзя использовать в cluster режиме под сеть данных как в режиме 7 mode? ?? хватит ли мне ресурсов сети (по идее 8 портов по 1Гб) для реализации виртуальных десктопов без привлечения 10Gb сетевые адаптеры?
+3) Какую схему моглибы порекомендовать Вы исходя из "??меем" + нужна отказоустойчивость и высокодоступность?</description>
+		<content:encoded><![CDATA[<p>Подскажите пожалуйста несколько вопросов.<br />
+Это моя первая система NetApp.</p>
+<p>??меем:<br />
+FAS 2240-2 (2 контроллера), 20 дисков SAS по 500 ГБ и 4 диска SSD по 128 ГБ, двух портовый модуль 10Gb на каждом контроллере. Режим работы 7 mode.</p>
+<p>Вопросы:<br />
+1) Обновление системы с 7-mode на cluster mode требует только обновления системы или нужно что-то из физики докупать/менять.<br />
+2) Мы планировали использовать эту хранилку в качестве файлового сервера и начать тестировать и внедрять в дальнейшем потихоньку VMware View (бывший VDI). Для этих целей собственно и планировали выпустить 10Gb адаптеры в DATA сеть. На сколько я вижу из инструкций и статьи 10GB в cluster режиме используются чисто под синхронизацию между нодами. Дейтсвительно ли 10Gb адаптеры нельзя использовать в cluster режиме под сеть данных как в режиме 7 mode? ?? хватит ли мне ресурсов сети (по идее 8 портов по 1Гб) для реализации виртуальных десктопов без привлечения 10Gb сетевые адаптеры?<br />
+3) Какую схему моглибы порекомендовать Вы исходя из &#8220;??меем&#8221; + нужна отказоустойчивость и высокодоступность?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1118#comment-2264</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 10 Apr 2012 10:27:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1118#comment-2264</guid>
+		<description>Fedor:
+
+Никак. Слишком велики архитектурные различия.
+Миграция происходт путем полной "разборки" старой системы, и сборки из ее (и дополнительных) частей новой системы хранения. Данные, к сожалению, также придется восстановить на новую систему из резервной копии.</description>
+		<content:encoded><![CDATA[<p>Fedor:</p>
+<p>Никак. Слишком велики архитектурные различия.<br />
+Миграция происходт путем полной &#8220;разборки&#8221; старой системы, и сборки из ее (и дополнительных) частей новой системы хранения. Данные, к сожалению, также придется восстановить на новую систему из резервной копии.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Fedor</title>
+		<link>http://blog.aboutnetapp.ru/archives/1118#comment-2263</link>
+		<dc:creator>Fedor</dc:creator>
+		<pubDate>Tue, 10 Apr 2012 10:21:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1118#comment-2263</guid>
+		<description>Доброго времени суток!
+
+Каким образом будет проходить миграция с Data ONTAP 8.x на Data ONTAP 8.x Cluster-mode?
+Я так понимаю что переход на Data ONTAP 8.x Cluster-mode не возможен без перерыва сервиса?</description>
+		<content:encoded><![CDATA[<p>Доброго времени суток!</p>
+<p>Каким образом будет проходить миграция с Data ONTAP 8.x на Data ONTAP 8.x Cluster-mode?<br />
+Я так понимаю что переход на Data ONTAP 8.x Cluster-mode не возможен без перерыва сервиса?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1118#comment-2176</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 10 Feb 2012 01:01:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1118#comment-2176</guid>
+		<description>panvartan:
+
+Возможность работать на 1Gb/s есть только у первых 8 портов 5010/5020, в этом состоит ограничение 2040 с 5010.
+Насчет распространяется ли предложение Cluster Express на 2040 сказать точно не могу, спрашивайте у вашего партнера NetApp. Я не видел явно указанных ограничений.
+Вообще же покупать 2040 под Cluster-mode это не самая лучшая и дальновидная идея.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Возможность работать на 1Gb/s есть только у первых 8 портов 5010/5020, в этом состоит ограничение 2040 с 5010.<br />
+Насчет распространяется ли предложение Cluster Express на 2040 сказать точно не могу, спрашивайте у вашего партнера NetApp. Я не видел явно указанных ограничений.<br />
+Вообще же покупать 2040 под Cluster-mode это не самая лучшая и дальновидная идея.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1118#comment-2173</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Tue, 07 Feb 2012 17:05:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1118#comment-2173</guid>
+		<description>Для сопряжения 2040 и 5010 используется специальные SFP-модули под RJ45 ? ?? к кластеру на 2040 тоже дарят нексусы, имеющие сопоставимую с 2040 стоимость?</description>
+		<content:encoded><![CDATA[<p>Для сопряжения 2040 и 5010 используется специальные SFP-модули под RJ45 ? ?? к кластеру на 2040 тоже дарят нексусы, имеющие сопоставимую с 2040 стоимость?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

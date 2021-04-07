@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Замена &#8220;головы&#8221; в сторадже: disk ownership change</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1220/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1220</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:25 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3922</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 11 Oct 2012 13:29:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3922</guid>
+		<description>sl0n:
+
+1. Да как-то лень шевелить то, что и так работает. :)
+2. Переезжайте на communities.netapp.com/groups/netapp-ru, там куда удобнее дискутировать, чем тут.</description>
+		<content:encoded><![CDATA[<p>sl0n:</p>
+<p>1. Да как-то лень шевелить то, что и так работает. :)<br />
+2. Переезжайте на communities.netapp.com/groups/netapp-ru, там куда удобнее дискутировать, чем тут.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3921</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Thu, 11 Oct 2012 13:27:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3921</guid>
+		<description>PS Роман, вы как-то обещали настроить подписку на комменты .. было бы крута  =)</description>
+		<content:encoded><![CDATA[<p>PS Роман, вы как-то обещали настроить подписку на комменты .. было бы крута  =)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3919</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Thu, 11 Oct 2012 08:30:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3919</guid>
+		<description>romx:
+
+&#62;Ну есть, конечно, например у NetApp есть обширная библиотека для field engineers, как раз для таких операций. Поискать там что ли? Вам именно пошаговая инструкция нужна?
+
+Если не трудно, поищите плз. Достаточно общих описаний я думаю.
+
+&#62; Ну вот меняю я, допустим, FAS2020 на FAS6280 :) ??ли даже FAS3140 на FAS3240. У них, например, даже общего интерконнекта нет, по чему будем тэйковер делать?
+
+Понял теперь, я как-то чрезмерно сфокусировался на FAS3140 =)</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>&gt;Ну есть, конечно, например у NetApp есть обширная библиотека для field engineers, как раз для таких операций. Поискать там что ли? Вам именно пошаговая инструкция нужна?</p>
+<p>Если не трудно, поищите плз. Достаточно общих описаний я думаю.</p>
+<p>&gt; Ну вот меняю я, допустим, FAS2020 на FAS6280 :) ??ли даже FAS3140 на FAS3240. У них, например, даже общего интерконнекта нет, по чему будем тэйковер делать?</p>
+<p>Понял теперь, я как-то чрезмерно сфокусировался на FAS3140 =)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3916</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 11 Oct 2012 01:10:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3916</guid>
+		<description>sl0n:
+
+Ну есть, конечно, например у NetApp есть обширная библиотека для field engineers, как раз для таких операций. Поискать там что ли? Вам именно пошаговая инструкция нужна?
+
+&gt; Я не совсем понимаю причину почему невозможно это сделать non-disruptivly?
+
+Ну вот меняю я, допустим, FAS2020 на FAS6280 :) ??ли даже FAS3140 на FAS3240. У них, например, даже общего интерконнекта нет, по чему будем тэйковер делать?</description>
+		<content:encoded><![CDATA[<p>sl0n:</p>
+<p>Ну есть, конечно, например у NetApp есть обширная библиотека для field engineers, как раз для таких операций. Поискать там что ли? Вам именно пошаговая инструкция нужна?</p>
+<p>> Я не совсем понимаю причину почему невозможно это сделать non-disruptivly?</p>
+<p>Ну вот меняю я, допустим, FAS2020 на FAS6280 :) ??ли даже FAS3140 на FAS3240. У них, например, даже общего интерконнекта нет, по чему будем тэйковер делать?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3915</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Wed, 10 Oct 2012 20:00:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3915</guid>
+		<description>romx: есть ли официальная документация для замены контроллера? Я не совсем понимаю причину почему невозможно это сделать non-disruptivly?</description>
+		<content:encoded><![CDATA[<p>romx: есть ли официальная документация для замены контроллера? Я не совсем понимаю причину почему невозможно это сделать non-disruptivly?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3901</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 10 Oct 2012 15:48:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3901</guid>
+		<description>sl0n:
+
+Не понял вопроса. Переформулируйте, если ответ важен.</description>
+		<content:encoded><![CDATA[<p>sl0n:</p>
+<p>Не понял вопроса. Переформулируйте, если ответ важен.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3899</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Wed, 10 Oct 2012 15:32:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3899</guid>
+		<description>Спасибо за доверие =)
+
+Можно ссылку на описываемую ситуация - апгрейт контроллера?</description>
+		<content:encoded><![CDATA[<p>Спасибо за доверие =)</p>
+<p>Можно ссылку на описываемую ситуация - апгрейт контроллера?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3898</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 10 Oct 2012 14:36:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3898</guid>
+		<description>sl0n:
+
+Мы все гордимся вами, и чо? ;)
+Но вообще-то мы тут про апгрейд контроллера.</description>
+		<content:encoded><![CDATA[<p>sl0n:</p>
+<p>Мы все гордимся вами, и чо? ;)<br />
+Но вообще-то мы тут про апгрейд контроллера.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3897</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Wed, 10 Oct 2012 14:28:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3897</guid>
+		<description>Я недавно менял SAS HBA в FAS3140 (две контроллера в одном шасси), режим работы "Mixed-Path HA", я сделал cf takeover, полностью извлек один из контроллеров из шасси и заменил HBA. У меня не было перерыва в обслуживании .. ЧЯДНТ ? =)</description>
+		<content:encoded><![CDATA[<p>Я недавно менял SAS HBA в FAS3140 (две контроллера в одном шасси), режим работы &#8220;Mixed-Path HA&#8221;, я сделал cf takeover, полностью извлек один из контроллеров из шасси и заменил HBA. У меня не было перерыва в обслуживании .. ЧЯДНТ ? =)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1220#comment-3858</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 08 Oct 2012 06:51:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1220#comment-3858</guid>
+		<description>Андрей:
+Нет, конечно, замена контроллеров в 7-mode это disruptive операция, необходимо остановить доступ к данным, однако сами данные останутся на дисках и будут сразу же доступны после запуска новой пары контроллеров, без миграции и бэкапов-ресторов.</description>
+		<content:encoded><![CDATA[<p>Андрей:<br />
+Нет, конечно, замена контроллеров в 7-mode это disruptive операция, необходимо остановить доступ к данным, однако сами данные останутся на дисках и будут сразу же доступны после запуска новой пары контроллеров, без миграции и бэкапов-ресторов.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; SnapLock &ndash; неизменяемое сохранение данных на дисках</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../623/trackback.html">Так ли незаменимы магнитные ленты для бэкапа? Часть 4</a></div>
+			<div class="alignright"><a href="../610/trackback.html">Полезные команды: aggr show_space</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-626">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to SnapLock &ndash; неизменяемое сохранение данных на дисках">SnapLock &ndash; неизменяемое сохранение данных на дисках</a></h2>
+			<div class="postmetadata">29 Июнь 2010, 9:53 <!-- от  --></div>
+			<div class="postentry">
+				<p>Тема магнитных лент не отпускает долго. Тем не менее, приближаемся к финалу.</p>
+<p>В прошлой и позапрошлой статье под заголовком “Так ли незаменимы магнитные ленты для бэкапов” я рассмотрел два популярных “кейса”, считающихся классической “вотчиной” ленточного метода хранения, а именно: удаленное хранение копии и “длиные” retention, или циклы хранения копий, и показал, как эти задачи могут быть решены с использованием дисковых систем хранения, в частности интересующих меня NetApp.</p>
+<p>Однако в комментариях подсказали и еще один кейс. Дело в том, что “оффлайновое” хранение данных в случае ленты облегчает неизменямое хранение сохраненных данных. Ведь в случае онлайн-хранения на дисках, при всех плючах такого хранения, сохраняется определенная опасность того, что онлайн-копия може быть случайно или злонамеренно повреждена. Особенно это важно в случаях, когда немодифицируемое долговременное хранение определено соответствующим законодательством страны. Так, например, такие условия хранения архивных данных определены в США для публичных компаний (акт Sarbanes-Oxley), для биржевых брокеров (SEC Rule 17a-4), компаний, работающих в области здравоохранения (HIPAA), правительственных учреждений (DOD 5015.2) и других случаях. Зачастую в этих требованиях фигурируют сроки такого хранения, исчисляемые десятками лет.</p>
+<p>Для решеня этой залачи у NetApp есть сравнительно малоизвестная в России функция, и о которой я пока еще не писал, но которая, тем не менее, по понятным и описанным выше причинам, широко применятся в инсталляциях за рубежом – SnapLock.</p>
+<p>Я уже рассказывал, что лежащая в основе всех систем хранения NetApp пециальная файловая структура – <a href="../216/trackback.html">WAFL</a>, имеет одну очень интересную особенность. Эта особенность, в свою очередь, определяет один из базовых приципов ее работы, используемой системой.</p>
+<p>В <a href="../19/trackback.html">WAFL</a> единожды записанный блок в дальнейшем не модифицируется. В случае необходимости изменить данные, хранящиеся в этом блоке, диспетчер блоков выделяет для записи измененных данных пустой блок из пула свободных блоков. На основе этого принципа работает механизм <a href="../39/trackback.html">снэпшотов</a> (Snapshots), о котором я уже таже писал, и иллюстрировал принцип работы несложной анимацией, посмотрите по ссылке, возможно станет понятнее, как это работает. </p>
+<p>Процесс записи изменений в новые блоки происходит до тех пор, пока файл, которому принадлежат эти блоки данных существует. После того, как удаляется файл и все его снэпшоты, все блоки помечаются в битовой карте как “пустые”. Таким образом, процесс записи возможен только таким образом: если блок пустой, то его можно записать. Если блок уже не пустой, то повторная запись в него невозможна.&#160; Пока файл существует, то все принадлежащие ему блоки WAFL сохраняются неизменными. Если блок записан, то средств изменить его “непустое” содержимое у OS нет.    <br />Это, так сказать, основа функциональности WAFL.</p>
+<p>Таким образом, мы видим, что заблокировав в OS одну единственную функцию, которая помечает блоки данной файловой системы как неиспользуемые, мы легко превратим наш раздел на системе хранения в строгий WORM (write once, read many).   <br />У системы хранения просто не будет никакой физической возможности внести изменения в уже записанные данные, а при необходимости, даже заблокировать удаление их.</p>
+<p>??менно этот функционал в NetApp называется опцией <a href="http://www.netapp.com/us/products/protection-software/snaplock.html">SnapLock</a>.</p>
+<p>SnapLock существует в двух вариантах, отличающихся строгостью их использования: SnapLock Compliance и SnapLock Enterprise.</p>
+<p>Первый вариант – это самая строгая реализация описанных требований Compliance. Для дискового тома в момент конфигурирования задается срок его WORM-состояния, и после этого нет никаких возможностей изменить или удалить записываемые на этот том данные на весь заданный срок. Вообще никаких. Никому, включая админа системы с “рутовыми” правами. Даже после физической перестановки дисков в другую систему. Надежность работы подтверждена многочисленными сертификациями на соответствие вышеперечисленным законодательным актам.</p>
+<p>Менее строгая SnapLock Enterprise позволяет, также как и для SnapLock Compliance, задавать период неизменяемого хранения, однако “высший” администратор системы хранения, по-прежнему не имея возможности изменить хранимые данные, может, при необходимости, такой том удалить целиком.</p>
+<p>Таким образом, использование SnapLock на системах хранения NetApp может помочь реализовать заведомо надежно защищенное от возможности удаления или изменения данных хранилище, в тех случаях, когда такие требования стоят во главе угла.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/backup/index.html" rel="tag">backup</a>, <a href="../tag/compliance.html" rel="tag">compliance</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/snaplock.html" rel="tag">snaplock</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (8)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-556">
+		<div id="div-comment-556">
+		<div class="comment-author">
+			<cite>Korj:<cite></div>
+			<p>Вот ведь всё-таки как по-другому у людей мозги работают - всегда присутствует некий доверительный допуск: ежу ведь понятно, что без соответствующей криптографии и внешнего заверения таймстэмпов эта система работает только на честном слове. (собственно как и архив на worm-ленточках в общем виде), но верят ведь&#8230;<br />
+Думаю, в России таких законов нет по одной простой причине - никто не верит честному слову, а без этого реализация многократно усложняется, если не становится невозможной.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-556" title="">29 Июнь 2010, 15:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-557">
+		<div id="div-comment-557">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Это &#8220;честное слово&#8221; называется &#8220;сертификация&#8221;.<br />
+Любая криптография, кстати, это тоже доверие на слово. Вы верите тому, что вам сказали, что AES-256 не взламывается. :)<br />
+Законов нет по простой причине - это в России никому (пока) не нужно, в том виде, в котором оно существует в Евросоюзе и США. В США акт Sarbanes-Oxley тоже не сразу появился, как и SEC организовалась. Оно не возникает на пустом месте, а рождается в ответ на какие-то бизнес-нужды. В России нужды вести априори честный бизнес пока немного :-}</p>
+						<div class="comment-meta"><a href="trackback.html#comment-557" title="">29 Июнь 2010, 15:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-558">
+		<div id="div-comment-558">
+		<div class="comment-author">
+			<cite>Korj:<cite></div>
+			<p>romx, алгоритмы ЭЦП общеизвестны, их анализировали по всему миру криптоаналитики. Если их взломают, то последнее о чём следует беспокоиться - их применение в данном аспекте.<br />
+Более того, с минимальным применением математики можно, скажем, создать банк хэшей государственный - и поди подбери через n лет так изменённую информацию, чтоб совпал хэш с тем, что отправили когда-то в единый госреестр(или нотариальный реестр). Это достаточно легко реализовать, тем более на Западе. Но не реализуют - &#8220;В нашем клубе принято джентльменам верить на слово&#8221;.<br />
+Без защиты же сертификация может показать только одно - штатными средствами ничего сделать нельзя для конкретной сертифицируемой прошивки. Вынув же диски и подключив их тупо к компьютеру, зная какие конкретно данные нам надо изменить и обладая самыми минимальными знаниями о WAFL из публичных источников, можно модифицировать содержимое. Цена вопроса может быть вполне адекватной спросу.</p>
+<p>Подделать worm-кассету без ЭЦП, правда, ещё проще.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-558" title="">29 Июнь 2010, 15:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-559">
+		<div id="div-comment-559">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>>> Вы верите тому, что вам сказали, что AES-256 не взламывается. :)<br />
+> их анализировали по всему миру криптоаналитики.</p>
+<p>Ну, а я про что ;)</p>
+<p>> Вынув же диски и подключив их тупо к компьютеру, _зная какие конкретно данные нам надо изменить_ и обладая самыми минимальными знаниями о WAFL.</p>
+<p>Выделено.<br />
+Ну это&#8230; вперед. Есть шансы хорошо поднять бабла  ;) Обещаю, что целый месяц я про вашу гениальную догадку никому не скажу, пользуйтесь форой, время пошло. ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-559" title="">29 Июнь 2010, 17:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-560">
+		<div id="div-comment-560">
+		<div class="comment-author">
+			<cite>Korj:<cite></div>
+			<p>romx, я имел в виду, что мы знаем информацию в наших файлах, которые разрезаны на кусочки и лежат на файловой системе, насколько я понимаю, в незашифрованном виде. Остаётся вопрос чексумов (рейд деградируем сразу, чтоб не мешал). При соответствующей цене вопроса это решается - не вижу тут ничего принципиально нерешимого.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-560" title="">29 Июнь 2010, 21:32</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-561">
+		<div id="div-comment-561">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Я думаю, что вы, все же, переоцениваете свои возможности, и недооцениваете NetApp ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-561" title="">29 Июнь 2010, 22:10</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-562">
+		<div id="div-comment-562">
+		<div class="comment-author">
+			<cite>Korj:<cite></div>
+			<p>romx, я конкретно про себя не говорил - мне есть чем заняться, не нарушая законов. При соответствующей оплате и достаточном выделенном на решение задачи времени, я абсолютно не вижу принципиальных препятствий для соответствующих специалистов. Что по-вашему может таковым стать? Закрытость решения? Кого это когда останавливало? Криптографии нет. В конце концов прошивка свободно доступна, и выполняется на обычном x86. Тем более, 8-ка вообще на базе FreeBSD. Половина внутреннего строения описана патентами и документацией.<br />
+Ну что там такого принципиально непостижимого-то? Вопрос только в цене, как я изначально и сказал.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-562" title="">29 Июнь 2010, 22:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-563">
+		<div id="div-comment-563">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>&#8220;Если русскому гимназисту вечером дать карту звездного неба, которую он доселе не видел, то он наутро вам вернет ее исправленной&#8221; (с) Ф.М.Достоевский.</p>
+<p>Действительно, фигня какая. ;-D</p>
+						<div class="comment-meta"><a href="trackback.html#comment-563" title="">29 Июнь 2010, 22:47</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="626" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.073 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

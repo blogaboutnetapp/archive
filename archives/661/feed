@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: О расчете дискового пространства: NetApp FAS и EMC NS &#8211; что стоит за FUD (часть 1)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/661/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/661</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:58 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-2810</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 25 Jun 2012 09:51:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-2810</guid>
+		<description>kamiuchi&#62; забыли про сектора на clariion(emc),входящего в Celerra NS, размер сектора у emc 520 а не 512 байт.
+Так у NetApp'а тоже сектора по 520 байт.</description>
+		<content:encoded><![CDATA[<p>kamiuchi&gt; забыли про сектора на clariion(emc),входящего в Celerra NS, размер сектора у emc 520 а не 512 байт.<br />
+Так у NetApp&#8217;а тоже сектора по 520 байт.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: kamiuchi</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-1056</link>
+		<dc:creator>kamiuchi</dc:creator>
+		<pubDate>Thu, 20 Jan 2011 12:45:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-1056</guid>
+		<description>а вот и ссылка http://russia.emc.com/collateral/hardware/specification-sheet/h5807-celerra-ns-480-ss.pdf</description>
+		<content:encoded><![CDATA[<p>а вот и ссылка <a href="http://russia.emc.com/collateral/hardware/specification-sheet/h5807-celerra-ns-480-ss.pdf" rel="nofollow">http://russia.emc.com/collateral/hardware/specification-sheet/h5807-celerra-ns-480-ss.pdf</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: kamiuchi</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-1055</link>
+		<dc:creator>kamiuchi</dc:creator>
+		<pubDate>Thu, 20 Jan 2011 12:27:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-1055</guid>
+		<description>забыли про сектора на clariion(emc),входящего в Celerra NS, размер сектора у emc 520 а не 512 байт.</description>
+		<content:encoded><![CDATA[<p>забыли про сектора на clariion(emc),входящего в Celerra NS, размер сектора у emc 520 а не 512 байт.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-663</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 12 Aug 2010 05:14:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-663</guid>
+		<description>Ну я вообще стараюсь, как вы заметили, уйти от прямого сравнения продуктов разных вендоров, потому что обычно ничего кроме холивора и флейма в комментах это не порождает.
+Все это пустое и "сисадминщина" по большому счету.
+
+Однако, судя по логам статистики немало людей приходят в этот блог по запросам типа "EMC vs. NetApp" и прочим подобным. (Теперь им будет куда целенаправленно с поисковика попадать по этому запросу, буагага.)
+Поэтому ненадолго отойду от своего принципа не затрагивать прямое сравнение продуктов разных вендоров, тем более, что наши конкуренты как раз напротив, часто этой возможностью злоупотребляют.</description>
+		<content:encoded><![CDATA[<p>Ну я вообще стараюсь, как вы заметили, уйти от прямого сравнения продуктов разных вендоров, потому что обычно ничего кроме холивора и флейма в комментах это не порождает.<br />
+Все это пустое и &#8220;сисадминщина&#8221; по большому счету.</p>
+<p>Однако, судя по логам статистики немало людей приходят в этот блог по запросам типа &#8220;EMC vs. NetApp&#8221; и прочим подобным. (Теперь им будет куда целенаправленно с поисковика попадать по этому запросу, буагага.)<br />
+Поэтому ненадолго отойду от своего принципа не затрагивать прямое сравнение продуктов разных вендоров, тем более, что наши конкуренты как раз напротив, часто этой возможностью злоупотребляют.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: emailtoid.net/i/0fc11d54/&#8230;</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-656</link>
+		<dc:creator>emailtoid.net/i/0fc11d54/&#8230;</dc:creator>
+		<pubDate>Mon, 09 Aug 2010 15:00:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-656</guid>
+		<description>Простите, поофтоплю немного. Давно читаю данный блог и все хотел отписаться, обучен как NetApp'у так и EMC (Clarrion, V-Max) поэтому могу оценивать правдивость того что тут пишется ;), и рад, что тут 99.99% правды, в отличии от бредней Чака Холлиса :)
+Добавлю свои пять копеек к посту - как EMC вообще может упрекать NetApp за snapshot reservation т.к. реализация snapshot'ов у EMC должна вызывать у них только чувство стыда и не более.
+Жду с не терпением следующего поста чтобы добавить свои, возможно, уже не 5 копеек :)</description>
+		<content:encoded><![CDATA[<p>Простите, поофтоплю немного. Давно читаю данный блог и все хотел отписаться, обучен как NetApp&#8217;у так и EMC (Clarrion, V-Max) поэтому могу оценивать правдивость того что тут пишется ;), и рад, что тут 99.99% правды, в отличии от бредней Чака Холлиса :)<br />
+Добавлю свои пять копеек к посту - как EMC вообще может упрекать NetApp за snapshot reservation т.к. реализация snapshot&#8217;ов у EMC должна вызывать у них только чувство стыда и не более.<br />
+Жду с не терпением следующего поста чтобы добавить свои, возможно, уже не 5 копеек :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-655</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Mon, 09 Aug 2010 10:25:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-655</guid>
+		<description>Я сам занимаюсь массивами EMC с инженерной части, поэтому не люблю все эти маркетинги. :)
+Хотя EMCишные ролики про гарантированные 20% на youtube прикольные. LOL.
+
+В любом случае этот блог почитываю, что даёт возможность трезво смотреть на вещи. Спасибо за это.</description>
+		<content:encoded><![CDATA[<p>Я сам занимаюсь массивами EMC с инженерной части, поэтому не люблю все эти маркетинги. :)<br />
+Хотя EMCишные ролики про гарантированные 20% на youtube прикольные. LOL.</p>
+<p>В любом случае этот блог почитываю, что даёт возможность трезво смотреть на вещи. Спасибо за это.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-654</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Mon, 09 Aug 2010 10:16:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-654</guid>
+		<description>romx, очень интересно было бы также увидеть сравнение по стоимости решения в обоих вариантов. понятно, что там могут быть скидки и все такое. хотя бы по "gpl"-прайсу..</description>
+		<content:encoded><![CDATA[<p>romx, очень интересно было бы также увидеть сравнение по стоимости решения в обоих вариантов. понятно, что там могут быть скидки и все такое. хотя бы по &#8220;gpl&#8221;-прайсу..</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-653</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 09 Aug 2010 10:01:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-653</guid>
+		<description>Спасибо, Алексей.
+Как я уже говорил ранее не раз, когда специалист в одной области, например в системах хранения одного вендора, начинает что-либо утверждать в другой области, например о работе систем хранения другого вендора, безоговорочно верить всему сказанному им совершенно точно нельзя. :) Это касается любых специалистов, любых вендоров. В интернете "тому мы тьму примеров слышим". Значительная часть любого FUD-а зачастую непредумышленная, просто от некомпетентности. Хотя, зачастую, есть и откровенно злонамеренная ложь.
+Поправил.</description>
+		<content:encoded><![CDATA[<p>Спасибо, Алексей.<br />
+Как я уже говорил ранее не раз, когда специалист в одной области, например в системах хранения одного вендора, начинает что-либо утверждать в другой области, например о работе систем хранения другого вендора, безоговорочно верить всему сказанному им совершенно точно нельзя. :) Это касается любых специалистов, любых вендоров. В интернете &#8220;тому мы тьму примеров слышим&#8221;. Значительная часть любого FUD-а зачастую непредумышленная, просто от некомпетентности. Хотя, зачастую, есть и откровенно злонамеренная ложь.<br />
+Поправил.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/661#comment-652</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Mon, 09 Aug 2010 09:53:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=661#comment-652</guid>
+		<description>&#62;&#62;Неожиданной для пользователя NetApp будет тот факт, что при конфигурировании EMC Celerra надо жестко и однозначно задать объемы, отводимые под дальнейшее использование в NAS и FCP, причем переопределить их в дальнейшем нельзя.
+
+Это неправда. При работе с Celerra можно будет менять соотношения под NAS и FCP.</description>
+		<content:encoded><![CDATA[<p>&gt;&gt;Неожиданной для пользователя NetApp будет тот факт, что при конфигурировании EMC Celerra надо жестко и однозначно задать объемы, отводимые под дальнейшее использование в NAS и FCP, причем переопределить их в дальнейшем нельзя.</p>
+<p>Это неправда. При работе с Celerra можно будет менять соотношения под NAS и FCP.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

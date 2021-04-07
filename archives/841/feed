@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Оптимизация производительности. Часть 2. ??нструменты.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/841/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/841</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:48 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/841#comment-1208</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 10 Mar 2011 12:53:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/841#comment-1208</guid>
+		<description>Rafaelich:
+
+Официальное мнение: занятие ниши, но не entry level, а специализированных продуктов для Full-motion Video и потоковых приложений, которым нужен тупой сторадж с потоковым чтением-записью.
+Ну плюс завязка отношений с OEM-рынком, на котором LSI как раз очень хорошо играет, а NetApp - практически не работает (ну кроме IBM и недавнего соглашения с Fujitsu). Плюс источник роста объемов в долларах за счет уже имеющихся клиентов LSI.</description>
+		<content:encoded><![CDATA[<p>Rafaelich:</p>
+<p>Официальное мнение: занятие ниши, но не entry level, а специализированных продуктов для Full-motion Video и потоковых приложений, которым нужен тупой сторадж с потоковым чтением-записью.<br />
+Ну плюс завязка отношений с OEM-рынком, на котором LSI как раз очень хорошо играет, а NetApp - практически не работает (ну кроме IBM и недавнего соглашения с Fujitsu). Плюс источник роста объемов в долларах за счет уже имеющихся клиентов LSI.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Rafaelich</title>
+		<link>http://blog.aboutnetapp.ru/archives/841#comment-1207</link>
+		<dc:creator>Rafaelich</dc:creator>
+		<pubDate>Thu, 10 Mar 2011 09:01:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/841#comment-1207</guid>
+		<description>Я теряюсь в догадках... Либо куплено чтобы уничтожить, либо попытка еще раз попробовать занять младшую нишу...</description>
+		<content:encoded><![CDATA[<p>Я теряюсь в догадках&#8230; Либо куплено чтобы уничтожить, либо попытка еще раз попробовать занять младшую нишу&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/841#comment-1206</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 10 Mar 2011 07:41:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/841#comment-1206</guid>
+		<description>Rafaelich:
+Ну не уподобляйтесь спамерам ;) Рискуете. Видели бы вы сколько таких как ваше "комментариев" от ботов режет Akismet тут ;)
+
+Но за новость спасибо, "Внушаеть" (с) Хрюн. Однако почему-то рынок не прореагировал никак.
+А вообще бывают, конечно, и логичнее покупки.
+Надеюсь, что NetApp понимает, что он делает. До сих пор, по крайней мере, сомнений в разумности менеджмента не было.
+Но все равно странно, что там купили-то, в результате? NetApp это же не IBM, все что он до сих пор покупали, это что-то в "обновку" их любимых и драгоценных FAS.</description>
+		<content:encoded><![CDATA[<p>Rafaelich:<br />
+Ну не уподобляйтесь спамерам ;) Рискуете. Видели бы вы сколько таких как ваше &#8220;комментариев&#8221; от ботов режет Akismet тут ;)</p>
+<p>Но за новость спасибо, &#8220;Внушаеть&#8221; (с) Хрюн. Однако почему-то рынок не прореагировал никак.<br />
+А вообще бывают, конечно, и логичнее покупки.<br />
+Надеюсь, что NetApp понимает, что он делает. До сих пор, по крайней мере, сомнений в разумности менеджмента не было.<br />
+Но все равно странно, что там купили-то, в результате? NetApp это же не IBM, все что он до сих пор покупали, это что-то в &#8220;обновку&#8221; их любимых и драгоценных FAS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Rafaelich</title>
+		<link>http://blog.aboutnetapp.ru/archives/841#comment-1205</link>
+		<dc:creator>Rafaelich</dc:creator>
+		<pubDate>Thu, 10 Mar 2011 07:12:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/841#comment-1205</guid>
+		<description>Нифигасебе: http://www.lsi.com/news/corporate_news/2011/2011_03_09.html</description>
+		<content:encoded><![CDATA[<p>Нифигасебе: <a href="http://www.lsi.com/news/corporate_news/2011/2011_03_09.html" rel="nofollow">http://www.lsi.com/news/corporate_news/2011/2011_03_09.html</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Средства мониторинга производительности: sysstat</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/199/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/199</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:49 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/199#comment-2596</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 30 May 2012 08:25:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=199#comment-2596</guid>
+		<description>А можно подробнее о &lt;b&gt;high water mark&lt;/b&gt;, &lt;b&gt;low water mark&lt;/b&gt; и о &lt;i&gt;втором&lt;/i&gt; символе в поле &lt;b&gt;CP Ty&lt;/b&gt;, что это такое?
+
+Скажите, какой командой можно посмотреть тип и собственно саму нагрузку генерируемую &lt;i&gt;клиентом&lt;/i&gt;?
+
+У вас в абзаце про Disk Scrubbing нет ссылочки на &lt;a href="http://docs.aboutnetapp.ru/sysstat2.txt" rel="nofollow"&gt;sysstat2.txt&lt;/a&gt;.</description>
+		<content:encoded><![CDATA[<p>А можно подробнее о <b>high water mark</b>, <b>low water mark</b> и о <i>втором</i> символе в поле <b>CP Ty</b>, что это такое?</p>
+<p>Скажите, какой командой можно посмотреть тип и собственно саму нагрузку генерируемую <i>клиентом</i>?</p>
+<p>У вас в абзаце про Disk Scrubbing нет ссылочки на <a href="http://docs.aboutnetapp.ru/sysstat2.txt" rel="nofollow">sysstat2.txt</a>.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: &#8220;Эффективность&#8221;: что это значит для системы хранения?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/576/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/576</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:58 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Георгий</title>
+		<link>http://blog.aboutnetapp.ru/archives/576#comment-1598</link>
+		<dc:creator>Георгий</dc:creator>
+		<pubDate>Thu, 04 Aug 2011 20:34:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=576#comment-1598</guid>
+		<description>Да, похоже на то. Документы обязательно посмотрю. Они у меня есть, но руки не доходят. :-) Спасибо!</description>
+		<content:encoded><![CDATA[<p>Да, похоже на то. Документы обязательно посмотрю. Они у меня есть, но руки не доходят. :-) Спасибо!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/576#comment-1587</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 04 Aug 2011 01:03:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=576#comment-1587</guid>
+		<description>Георгий:
+
+Он мог наполнить его eager-zeroed thick дисками VMDK, которые при создании принудительно "заливаются нулями". Также губительно для thin provisioned LUN себя ведет "дефрагментация" на уровне OS хоста.
+Рекомендую на этот счет посмотреть Best Practices TR-3428 и TR-3749.</description>
+		<content:encoded><![CDATA[<p>Георгий:</p>
+<p>Он мог наполнить его eager-zeroed thick дисками VMDK, которые при создании принудительно &#8220;заливаются нулями&#8221;. Также губительно для thin provisioned LUN себя ведет &#8220;дефрагментация&#8221; на уровне OS хоста.<br />
+Рекомендую на этот счет посмотреть Best Practices TR-3428 и TR-3749.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Георгий</title>
+		<link>http://blog.aboutnetapp.ru/archives/576#comment-1586</link>
+		<dc:creator>Георгий</dc:creator>
+		<pubDate>Wed, 03 Aug 2011 17:05:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=576#comment-1586</guid>
+		<description>Ага, ну я рад, что себе правильно представлял. Спасибо! :-)
+Да, по моему не очень богатому опыту, когда я отдавал LUN для datastore VMware то он вырас практически сразу после того, как с ним произвели какие-то манипуляции админ ESX. Так что в этом случае "со временем" свелось к тому-же "сразу". :-)
+Впрочем будем надеяться, что space reclamation появится везде!</description>
+		<content:encoded><![CDATA[<p>Ага, ну я рад, что себе правильно представлял. Спасибо! :-)<br />
+Да, по моему не очень богатому опыту, когда я отдавал LUN для datastore VMware то он вырас практически сразу после того, как с ним произвели какие-то манипуляции админ ESX. Так что в этом случае &#8220;со временем&#8221; свелось к тому-же &#8220;сразу&#8221;. :-)<br />
+Впрочем будем надеяться, что space reclamation появится везде!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/576#comment-1583</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 03 Aug 2011 01:29:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=576#comment-1583</guid>
+		<description>Георгий:
+
+Да, конечно, со временем thin-LUN действительно вырастет. Но _со_временем_, а до того момента он будет занимать меньше места. А thick-LUN сразу займет все зарезервированное место, хотя и не будет использвать его для хранения данных.
+Кроме того есть весьма ясное впечатление, что индустрия договорилась о методах space reclamation в рамках стандартного протокола SCSI (и тот же TRIM в SATA, например), и вскоре удастся реализовывать space reclamaton неким стандартным, единым образом для всех OS.</description>
+		<content:encoded><![CDATA[<p>Георгий:</p>
+<p>Да, конечно, со временем thin-LUN действительно вырастет. Но _со_временем_, а до того момента он будет занимать меньше места. А thick-LUN сразу займет все зарезервированное место, хотя и не будет использвать его для хранения данных.<br />
+Кроме того есть весьма ясное впечатление, что индустрия договорилась о методах space reclamation в рамках стандартного протокола SCSI (и тот же TRIM в SATA, например), и вскоре удастся реализовывать space reclamaton неким стандартным, единым образом для всех OS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Георгий</title>
+		<link>http://blog.aboutnetapp.ru/archives/576#comment-1581</link>
+		<dc:creator>Георгий</dc:creator>
+		<pubDate>Tue, 02 Aug 2011 20:54:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=576#comment-1581</guid>
+		<description>Цитата: "Допустим, что сисадмин системы хранения выделил на размещение виртуальных машин application and middleware, объемом 1600GB раздел равный 2TB. Давайте сравним эффективность решения от NetApp, с использованием RAID-DP и thin provisioning, и “классического” размещения."
+Вот на мой не сильно просвещенный взгляд... В случае выделения LUN-ов под виртуальные машины разве будет работать "thin provisioning" без "space reclamation"? Взять тот-же документ по "thin provisioning" - "TR-3483". В нем явно говорится, что при создании - удалении файлов объем занятых блоков под LUN будет только расти... Ну и собственно "space reclamation" вроде не под все есть... Разве не так?</description>
+		<content:encoded><![CDATA[<p>Цитата: &#8220;Допустим, что сисадмин системы хранения выделил на размещение виртуальных машин application and middleware, объемом 1600GB раздел равный 2TB. Давайте сравним эффективность решения от NetApp, с использованием RAID-DP и thin provisioning, и “классического” размещения.&#8221;<br />
+Вот на мой не сильно просвещенный взгляд&#8230; В случае выделения LUN-ов под виртуальные машины разве будет работать &#8220;thin provisioning&#8221; без &#8220;space reclamation&#8221;? Взять тот-же документ по &#8220;thin provisioning&#8221; - &#8220;TR-3483&#8243;. В нем явно говорится, что при создании - удалении файлов объем занятых блоков под LUN будет только расти&#8230; Ну и собственно &#8220;space reclamation&#8221; вроде не под все есть&#8230; Разве не так?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

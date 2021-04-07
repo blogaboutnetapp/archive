@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Дистрибуторы в России</title>
+	<atom:link href="http://blog.aboutnetapp.ru/distributory-v-rossii/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:02:43 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/distributory-v-rossii#comment-15515</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 01 Jun 2016 11:41:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=215#comment-15515</guid>
+		<description>Актуальность хромает)
+OCS Distribution давно пора добавить в список
+http://www.ocs.ru/Products/Vendors/NetApp/</description>
+		<content:encoded><![CDATA[<p>Актуальность хромает)<br />
+OCS Distribution давно пора добавить в список<br />
+<a href="http://www.ocs.ru/Products/Vendors/NetApp/" rel="nofollow">http://www.ocs.ru/Products/Vendors/NetApp/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Михаил</title>
+		<link>http://blog.aboutnetapp.ru/distributory-v-rossii#comment-15151</link>
+		<dc:creator>Михаил</dc:creator>
+		<pubDate>Fri, 02 Oct 2015 09:05:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=215#comment-15151</guid>
+		<description>А теперь NetApp идет и по каналу OCS</description>
+		<content:encoded><![CDATA[<p>А теперь NetApp идет и по каналу OCS</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: comotoza</title>
+		<link>http://blog.aboutnetapp.ru/distributory-v-rossii#comment-14451</link>
+		<dc:creator>comotoza</dc:creator>
+		<pubDate>Fri, 16 Jan 2015 11:14:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=215#comment-14451</guid>
+		<description>Ссылки на страницы netapp у обоих дисти не актуальны.</description>
+		<content:encoded><![CDATA[<p>Ссылки на страницы netapp у обоих дисти не актуальны.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Max</title>
+		<link>http://blog.aboutnetapp.ru/distributory-v-rossii#comment-11519</link>
+		<dc:creator>Max</dc:creator>
+		<pubDate>Thu, 12 Dec 2013 13:12:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=215#comment-11519</guid>
+		<description>Мерилион переехал :) теперь другой адрес</description>
+		<content:encoded><![CDATA[<p>Мерилион переехал :) теперь другой адрес</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

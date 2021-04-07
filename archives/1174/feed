@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Еще о тестировании Cluster-mode в SPC-1</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1174/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1174</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:40 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1174#comment-3644</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 24 Sep 2012 13:31:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1174#comment-3644</guid>
+		<description>Да, где-то так. Подробное описание того, как был организован доступ есть в документе Full disclosure.</description>
+		<content:encoded><![CDATA[<p>Да, где-то так. Подробное описание того, как был организован доступ есть в документе Full disclosure.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1174#comment-3643</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Mon, 24 Sep 2012 13:22:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1174#comment-3643</guid>
+		<description>Я правильно понял, что нагрузка исходит из группы хостов, которые воспринимают Cluster как Одна схд? 
+Распределением нагрузки группы хостов по контроллером кластера занимается ОС кластера?</description>
+		<content:encoded><![CDATA[<p>Я правильно понял, что нагрузка исходит из группы хостов, которые воспринимают Cluster как Одна схд?<br />
+Распределением нагрузки группы хостов по контроллером кластера занимается ОС кластера?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1174#comment-2853</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 02 Jul 2012 04:34:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1174#comment-2853</guid>
+		<description>Ярослав:
+
+&gt; ROMX, вы путаете used storage capacity (величина полезного объема данных) и disk utilization (объем данных, записанных на диск)
+
+Нет, не путаю.
+
+&gt; У NetApp в тесте used storage capacity 36,98%, а disk utilization 37% (страница 12 full report).
+
+А в другом тесте есть и 84% заполнение, причем на 70% это фактические данные, а не "данные и их еще одна копия", и все рвно показатели по latency очень хорошие, лучше многих.
+
+&gt; После заполнения дисков на 70 и более процентов latency начинает расти катастрофически
+
+Это ложь, про "катастрофически". Но влияние конечно есть, оно у всех есть, у любой системы хранения, любого вендора, это законы физики. Как нам показывает незавидный результат 3Par. :-}
+
+&gt; А NetApp делает тест на low latency объеме диска 
+
+А теперь помотрите ранее опубликованный результат для FAS3270A
+
+&gt; я говорю про то, что раз уж сравниваете две системы и утверждаете, что одна из них лучше, то и сравнивайте их работу в одинаковых условиях.
+
+Выше я уже привел фрагмент обсуждения про это в комментариях к оригинальному посту. Сходите, почитайте.
+Требование "всем делать также криво, как сделали мы, потому что у нас же криво!" довольно нелепо, на мой вгзляд.</description>
+		<content:encoded><![CDATA[<p>Ярослав:</p>
+<p>> ROMX, вы путаете used storage capacity (величина полезного объема данных) и disk utilization (объем данных, записанных на диск)</p>
+<p>Нет, не путаю.</p>
+<p>> У NetApp в тесте used storage capacity 36,98%, а disk utilization 37% (страница 12 full report).</p>
+<p>А в другом тесте есть и 84% заполнение, причем на 70% это фактические данные, а не &#8220;данные и их еще одна копия&#8221;, и все рвно показатели по latency очень хорошие, лучше многих.</p>
+<p>> После заполнения дисков на 70 и более процентов latency начинает расти катастрофически</p>
+<p>Это ложь, про &#8220;катастрофически&#8221;. Но влияние конечно есть, оно у всех есть, у любой системы хранения, любого вендора, это законы физики. Как нам показывает незавидный результат 3Par. :-}</p>
+<p>> А NetApp делает тест на low latency объеме диска </p>
+<p>А теперь помотрите ранее опубликованный результат для FAS3270A</p>
+<p>> я говорю про то, что раз уж сравниваете две системы и утверждаете, что одна из них лучше, то и сравнивайте их работу в одинаковых условиях.</p>
+<p>Выше я уже привел фрагмент обсуждения про это в комментариях к оригинальному посту. Сходите, почитайте.<br />
+Требование &#8220;всем делать также криво, как сделали мы, потому что у нас же криво!&#8221; довольно нелепо, на мой вгзляд.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ярослав</title>
+		<link>http://blog.aboutnetapp.ru/archives/1174#comment-2845</link>
+		<dc:creator>Ярослав</dc:creator>
+		<pubDate>Sat, 30 Jun 2012 10:02:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1174#comment-2845</guid>
+		<description>ROMX, вы путаете used storage capacity (величина полезного объема данных) и disk utilization (объем данных, записанных на диск). Да, used storage capacity в тесте у 3PAR 40,23%. А вот disk utilization 87% (легко считается на 22 странице full report). Так как RAID-10.
+
+У NetApp в тесте used storage capacity 36,98%, а disk utilization 37% (страница 12 full report).
+
+После заполнения дисков на 70 и более процентов latency начинает расти катастрофически, так же катастрофически влияя на IOPS. ?? в этих экстремальных условиях 3PAR показывает 230 IOPS на диск при вполне достойной latency. А NetApp делает тест на low latency объеме диска (при заполнении диска до 40% latency практически не растет) и говорит: смотрите, какая крутая у нас система по сравнению с 3PAR.
+
+Я сейчас не говорю, что система FAS6240 плохая, я говорю про то, что раз уж сравниваете две системы и утверждаете, что одна из них лучше, то и сравнивайте их работу в одинаковых условиях. 60% утилизации тоже не показатель. Я думаю вы легко сможете найти графики зависимости latency и disk utilization.
+
+Так что Dimitris прав, надо внимательно читать отчеты и анализировать, что за ними скрывается.</description>
+		<content:encoded><![CDATA[<p>ROMX, вы путаете used storage capacity (величина полезного объема данных) и disk utilization (объем данных, записанных на диск). Да, used storage capacity в тесте у 3PAR 40,23%. А вот disk utilization 87% (легко считается на 22 странице full report). Так как RAID-10.</p>
+<p>У NetApp в тесте used storage capacity 36,98%, а disk utilization 37% (страница 12 full report).</p>
+<p>После заполнения дисков на 70 и более процентов latency начинает расти катастрофически, так же катастрофически влияя на IOPS. ?? в этих экстремальных условиях 3PAR показывает 230 IOPS на диск при вполне достойной latency. А NetApp делает тест на low latency объеме диска (при заполнении диска до 40% latency практически не растет) и говорит: смотрите, какая крутая у нас система по сравнению с 3PAR.</p>
+<p>Я сейчас не говорю, что система FAS6240 плохая, я говорю про то, что раз уж сравниваете две системы и утверждаете, что одна из них лучше, то и сравнивайте их работу в одинаковых условиях. 60% утилизации тоже не показатель. Я думаю вы легко сможете найти графики зависимости latency и disk utilization.</p>
+<p>Так что Dimitris прав, надо внимательно читать отчеты и анализировать, что за ними скрывается.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1174#comment-2840</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 29 Jun 2012 11:04:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1174#comment-2840</guid>
+		<description>Border:
+
+Не, не совсем так.
+У NetApp есть опубликованные тесты с 70-процентной загрузкой, и они все равно лучше по latency. ?? это при том, что 3270 это совсем иного класса система, midrange, и упомянутый 3Par дороже ее раз в 10, и во столько же раз большем числе дисков, а по IOPS быстрее всего раза в 6. ;)
+
+Также не стоит забывать, что, в отличие от "других вендоров", которые тестируют на RAID-10, то есть, фактически, работают с двумя синхронными копиями данных (сечас все контроллеры RAID-10 умеют для ускорения работы читать и писать на обе половины зеркала данных по-очереди), то есть фактическая величина объема данных на дисках 3Par будет 40,23% (стр.12 full report), против 36,98% у FAS6240 (и 60,51% у FAS3270).
+
+Еще вот тут в комментариях понятно объясняется: http://recoverymonkey.org/2012/06/20/netapp-posts-great-cluster-mode-spc-1-result/#comment-683</description>
+		<content:encoded><![CDATA[<p>Border:</p>
+<p>Не, не совсем так.<br />
+У NetApp есть опубликованные тесты с 70-процентной загрузкой, и они все равно лучше по latency. ?? это при том, что 3270 это совсем иного класса система, midrange, и упомянутый 3Par дороже ее раз в 10, и во столько же раз большем числе дисков, а по IOPS быстрее всего раза в 6. ;)</p>
+<p>Также не стоит забывать, что, в отличие от &#8220;других вендоров&#8221;, которые тестируют на RAID-10, то есть, фактически, работают с двумя синхронными копиями данных (сечас все контроллеры RAID-10 умеют для ускорения работы читать и писать на обе половины зеркала данных по-очереди), то есть фактическая величина объема данных на дисках 3Par будет 40,23% (стр.12 full report), против 36,98% у FAS6240 (и 60,51% у FAS3270).</p>
+<p>Еще вот тут в комментариях понятно объясняется: <a href="http://recoverymonkey.org/2012/06/20/netapp-posts-great-cluster-mode-spc-1-result/#comment-683" rel="nofollow">http://recoverymonkey.org/2012/06/20/netapp-posts-great-cluster-mode-spc-1-result/#comment-683</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Border</title>
+		<link>http://blog.aboutnetapp.ru/archives/1174#comment-2839</link>
+		<dc:creator>Border</dc:creator>
+		<pubDate>Fri, 29 Jun 2012 10:35:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1174#comment-2839</guid>
+		<description>Вот только NetApp использовал на своей СХД примерно 40-50% дискового пространства, то есть наиболее оптимальное с точки зрения задачи показать low latency, а 3PAR 80%. Графики просто уверенно подтверждают зависимость latency от степени утилизации дискового пространства.</description>
+		<content:encoded><![CDATA[<p>Вот только NetApp использовал на своей СХД примерно 40-50% дискового пространства, то есть наиболее оптимальное с точки зрения задачи показать low latency, а 3PAR 80%. Графики просто уверенно подтверждают зависимость latency от степени утилизации дискового пространства.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1174#comment-2834</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Thu, 28 Jun 2012 06:54:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1174#comment-2834</guid>
+		<description>&#62; •1920 дисков 146GB 15K RPM (не так-то просто такие купить нынче, не так ли?) 
+это 15k SFF диски с самой высокой производительностью среди hdd, процентов на 20 быстрее 450GB 15K RPM  LFF</description>
+		<content:encoded><![CDATA[<p>&gt; •1920 дисков 146GB 15K RPM (не так-то просто такие купить нынче, не так ли?)<br />
+это 15k SFF диски с самой высокой производительностью среди hdd, процентов на 20 быстрее 450GB 15K RPM  LFF</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

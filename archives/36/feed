@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Thin Provisioning</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/36/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/36</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:03 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Блог Минуса:кратко обо всем в ??Т &#187; Blog Archive &#187; Концепция Thin Provisioning</title>
+		<link>http://blog.aboutnetapp.ru/archives/36#comment-72</link>
+		<dc:creator>Блог Минуса:кратко обо всем в ??Т &#187; Blog Archive &#187; Концепция Thin Provisioning</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 09:10:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/36#comment-72</guid>
+		<description>[...] в системах SAN. Оригинал статьи расположен по этой ссылке, в очень интересном блоге, посвященном системам [...]</description>
+		<content:encoded><![CDATA[<p>[...] в системах SAN. Оригинал статьи расположен по этой ссылке, в очень интересном блоге, посвященном системам [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: VMware на NetApp NFS - подробности о плюсах, детальный разбор &#124; about NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/36#comment-41</link>
+		<dc:creator>VMware на NetApp NFS - подробности о плюсах, детальный разбор &#124; about NetApp</dc:creator>
+		<pubDate>Fri, 05 Sep 2008 01:58:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/36#comment-41</guid>
+		<description>[...] Provisioning (подробнее было здесь) Я уже ранее писал о thin provisioning. Это любопытная [...]</description>
+		<content:encoded><![CDATA[<p>[...] Provisioning (подробнее было здесь) Я уже ранее писал о thin provisioning. Это любопытная [...]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

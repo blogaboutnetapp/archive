@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: SnapMirror, часть 1</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1260/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1260</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:00 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1260#comment-7790</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 01 Jun 2013 04:01:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1260#comment-7790</guid>
+		<description>Артур:
+
+Да, но для этого обязательно использовать специальную интерфейсную плату, через который будет идти такая репликация, в общем в живой природе я ни разу такого варианта не видел, это осталось в качестве поддержки какого-то глубокого легаси в прошлом веке.</description>
+		<content:encoded><![CDATA[<p>Артур:</p>
+<p>Да, но для этого обязательно использовать специальную интерфейсную плату, через который будет идти такая репликация, в общем в живой природе я ни разу такого варианта не видел, это осталось в качестве поддержки какого-то глубокого легаси в прошлом веке.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Артур</title>
+		<link>http://blog.aboutnetapp.ru/archives/1260#comment-7710</link>
+		<dc:creator>Артур</dc:creator>
+		<pubDate>Mon, 27 May 2013 11:56:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1260#comment-7710</guid>
+		<description>Если я правильно помню, репликация идет по IP, но при этом есть возможность в качестве транспорта использовать Fibre Channel (IP over FC).</description>
+		<content:encoded><![CDATA[<p>Если я правильно помню, репликация идет по IP, но при этом есть возможность в качестве транспорта использовать Fibre Channel (IP over FC).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/1260#comment-7709</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Mon, 27 May 2013 10:53:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1260#comment-7709</guid>
+		<description>Александр, 
+В случае установленных "отношений" SnapMirror между массивами можно отдавать команду на апдейт удаленной копии средствами нужного SnapManager.
+Проще говоря, SnapManager делает консистентный снапшот тома, после чего именно этот снапшот передается на удаленную систему.</description>
+		<content:encoded><![CDATA[<p>Александр,<br />
+В случае установленных &#8220;отношений&#8221; SnapMirror между массивами можно отдавать команду на апдейт удаленной копии средствами нужного SnapManager.<br />
+Проще говоря, SnapManager делает консистентный снапшот тома, после чего именно этот снапшот передается на удаленную систему.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1260#comment-7708</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Mon, 27 May 2013 10:36:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1260#comment-7708</guid>
+		<description>Мне вот интересно как сохраняется консистентность данных при асинхронной репликации. Если механизм базируется на снапшотах, которые могут быть консистентными при использовании снапменеджеров. Собственно вопрос - как? (возможно я что-то не понимаю)</description>
+		<content:encoded><![CDATA[<p>Мне вот интересно как сохраняется консистентность данных при асинхронной репликации. Если механизм базируется на снапшотах, которые могут быть консистентными при использовании снапменеджеров. Собственно вопрос - как? (возможно я что-то не понимаю)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1260#comment-7704</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 27 May 2013 05:54:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1260#comment-7704</guid>
+		<description>panvartan:
+
+Ну это не прям вот сейчас, а уже несколько лет как, насколько я помню, ну и - да, возможность параллельно читать с зеркала действительно позволяет улучшить производительность чтения, как и для всех ныне существующих RAID-1 контроллеров.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Ну это не прям вот сейчас, а уже несколько лет как, насколько я помню, ну и - да, возможность параллельно читать с зеркала действительно позволяет улучшить производительность чтения, как и для всех ныне существующих RAID-1 контроллеров.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1260#comment-7703</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 27 May 2013 05:44:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1260#comment-7703</guid>
+		<description>Пять копеек про syncMirror - сейчас nettapp позиционирует эту технологию, как средство от отказа полки (говорят, такое тоже бывает). В сопутствующих плюшках - повышение скорости чтения на 80% и значительное повышение устойчивости рейда при отказе больших дисков, особенно под нагрузкой.</description>
+		<content:encoded><![CDATA[<p>Пять копеек про syncMirror - сейчас nettapp позиционирует эту технологию, как средство от отказа полки (говорят, такое тоже бывает). В сопутствующих плюшках - повышение скорости чтения на 80% и значительное повышение устойчивости рейда при отказе больших дисков, особенно под нагрузкой.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

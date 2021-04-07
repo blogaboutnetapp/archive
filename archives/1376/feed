@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp AFF: All-Flash FAS</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1376/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1376</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:18 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1376#comment-13537</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Sun, 06 Jul 2014 15:33:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1376#comment-13537</guid>
+		<description>Может Рома сделает отдельный пост по теме тестов AFF для VDI, если осталось много вопросов?</description>
+		<content:encoded><![CDATA[<p>Может Рома сделает отдельный пост по теме тестов AFF для VDI, если осталось много вопросов?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/1376#comment-13533</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Sat, 05 Jul 2014 12:41:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1376#comment-13533</guid>
+		<description>AFF обгоняет EF на профиле нагрузки VDI вообще, а не только при клонировании, благодаря записи тетрисами. Возможно, дедупликация тоже играет роль.</description>
+		<content:encoded><![CDATA[<p>AFF обгоняет EF на профиле нагрузки VDI вообще, а не только при клонировании, благодаря записи тетрисами. Возможно, дедупликация тоже играет роль.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1376#comment-13529</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Fri, 04 Jul 2014 08:22:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1376#comment-13529</guid>
+		<description>Тоже интересно почитать про кейс когда AFF быстрее EF.</description>
+		<content:encoded><![CDATA[<p>Тоже интересно почитать про кейс когда AFF быстрее EF.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/1376#comment-13527</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Thu, 03 Jul 2014 19:59:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1376#comment-13527</guid>
+		<description>&#62; показывал результаты тестирования, в которой All-Flash FAS объективно обыгрывал EF550
+
+На клонировании VDI или ещё на чём-то? (Проспал я этот момент на брекфесте).</description>
+		<content:encoded><![CDATA[<p>&gt; показывал результаты тестирования, в которой All-Flash FAS объективно обыгрывал EF550</p>
+<p>На клонировании VDI или ещё на чём-то? (Проспал я этот момент на брекфесте).</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

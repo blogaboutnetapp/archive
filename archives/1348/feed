@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp в российских облачных провайдерах</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1348/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1348</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:14 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: k0DeMaster</title>
+		<link>http://blog.aboutnetapp.ru/archives/1348#comment-12998</link>
+		<dc:creator>k0DeMaster</dc:creator>
+		<pubDate>Sat, 05 Apr 2014 07:51:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1348#comment-12998</guid>
+		<description>Если говорить о дополнениях - то есть как минимум еще один облачный провайдер построенный на платформе VMware. Относительно недавно Stack Group запустил в коммерческую эксплуатацию проект M1Cloud, у них FAS 3250HA.</description>
+		<content:encoded><![CDATA[<p>Если говорить о дополнениях - то есть как минимум еще один облачный провайдер построенный на платформе VMware. Относительно недавно Stack Group запустил в коммерческую эксплуатацию проект M1Cloud, у них FAS 3250HA.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1348#comment-12996</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 05 Apr 2014 07:12:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1348#comment-12996</guid>
+		<description>k0DeMaster:
+
+Спасибо за дополнение. Возможно дело в том, что в обзоре рассматривался конкретно вариант с VMware, а часто такие провайдеры имеют в эксплуатации разные варианты и разные "облака", на Xen, OpenStack, KVM, и так далее, кроме VMware. Вполне возможно что у DataLine  для VMware есть только такой вариант, или они почему- то предпочли называть MSA как сторадж в ответ на запрос клиентов, составлявших этот обзор.</description>
+		<content:encoded><![CDATA[<p>k0DeMaster:</p>
+<p>Спасибо за дополнение. Возможно дело в том, что в обзоре рассматривался конкретно вариант с VMware, а часто такие провайдеры имеют в эксплуатации разные варианты и разные &#8220;облака&#8221;, на Xen, OpenStack, KVM, и так далее, кроме VMware. Вполне возможно что у DataLine  для VMware есть только такой вариант, или они почему- то предпочли называть MSA как сторадж в ответ на запрос клиентов, составлявших этот обзор.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: k0DeMaster</title>
+		<link>http://blog.aboutnetapp.ru/archives/1348#comment-12995</link>
+		<dc:creator>k0DeMaster</dc:creator>
+		<pubDate>Sat, 05 Apr 2014 07:03:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1348#comment-12995</guid>
+		<description>Вообще, в обзоре есть неточности: так например, у Dataline есть метрокластер на FAS6210, а указана HP MSA.</description>
+		<content:encoded><![CDATA[<p>Вообще, в обзоре есть неточности: так например, у Dataline есть метрокластер на FAS6210, а указана HP MSA.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1348#comment-12994</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 05 Apr 2014 06:47:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1348#comment-12994</guid>
+		<description>k0DeMaster:
+Ну это конечно мы все знаем, но интересно было именно на фактическое проникновение в отрасль посмотреть. Потому что, зачастую, фичи - фичами, а консервативный (в России - гиперконсервативный) IT, зачастую, руководствуется очень своими критериями выбора. 
+?? именно поэтому эти результаты и интересны, потому что показывают уже готовые, эксплуатирующиеся системы, которые компании выбрали, чтобы уже вести бизнес, а не просто фичами поиграть и на презентации посмотреть.</description>
+		<content:encoded><![CDATA[<p>k0DeMaster:<br />
+Ну это конечно мы все знаем, но интересно было именно на фактическое проникновение в отрасль посмотреть. Потому что, зачастую, фичи - фичами, а консервативный (в России - гиперконсервативный) IT, зачастую, руководствуется очень своими критериями выбора.<br />
+?? именно поэтому эти результаты и интересны, потому что показывают уже готовые, эксплуатирующиеся системы, которые компании выбрали, чтобы уже вести бизнес, а не просто фичами поиграть и на презентации посмотреть.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: k0DeMaster</title>
+		<link>http://blog.aboutnetapp.ru/archives/1348#comment-12993</link>
+		<dc:creator>k0DeMaster</dc:creator>
+		<pubDate>Sat, 05 Apr 2014 06:40:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1348#comment-12993</guid>
+		<description>Абсолютно обоснованный выбор! Не одна другая СХД не предлагает такой гибкости при выделении дисковых ресурсов для разных клиентов с совершенно разными потребностями. NFS тоже является безусловным плюсом, т.к. отпадает необходимость городить SAN. RAID-DP можно сравнивать с RAID1 (которые в большинстве случаев используют другие вендоры) в части скорости работы и полезной дисковой ёмкости (50% от RAW). Всякие плюшки ввиде Flash Pool и Flash Cache дополняют функционал СХД. ?? конечно, возможность создать Metro Cluster при наличии двух площадок, да еще и с синхронной репликацией!</description>
+		<content:encoded><![CDATA[<p>Абсолютно обоснованный выбор! Не одна другая СХД не предлагает такой гибкости при выделении дисковых ресурсов для разных клиентов с совершенно разными потребностями. NFS тоже является безусловным плюсом, т.к. отпадает необходимость городить SAN. RAID-DP можно сравнивать с RAID1 (которые в большинстве случаев используют другие вендоры) в части скорости работы и полезной дисковой ёмкости (50% от RAW). Всякие плюшки ввиде Flash Pool и Flash Cache дополняют функционал СХД. ?? конечно, возможность создать Metro Cluster при наличии двух площадок, да еще и с синхронной репликацией!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1348#comment-12992</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 05 Apr 2014 06:29:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1348#comment-12992</guid>
+		<description>Odna Ptichka:
+Благодарю за бдительность. :) ??справил.</description>
+		<content:encoded><![CDATA[<p>Odna Ptichka:<br />
+Благодарю за бдительность. :) ??справил.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1348#comment-12991</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Sat, 05 Apr 2014 06:20:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1348#comment-12991</guid>
+		<description>битая ссылка на Хабрахабр.</description>
+		<content:encoded><![CDATA[<p>битая ссылка на Хабрахабр.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Новые поступления в переводную techlibrary: RBAC в Data ONTAP</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/589/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/589</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:10 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: motl</title>
+		<link>http://blog.aboutnetapp.ru/archives/589#comment-2167</link>
+		<dc:creator>motl</dc:creator>
+		<pubDate>Tue, 31 Jan 2012 19:46:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=589#comment-2167</guid>
+		<description>Found strange behaviour of RBAC . 
+
+In case you set to group Administrators role none . 
+
+The user which in this group still may manage shares/open  files  on netapp through the MMC .
+
+Any ideas ?
+
+Regards . 
+
+Dani .</description>
+		<content:encoded><![CDATA[<p>Found strange behaviour of RBAC . </p>
+<p>In case you set to group Administrators role none . </p>
+<p>The user which in this group still may manage shares/open  files  on netapp through the MMC .</p>
+<p>Any ideas ?</p>
+<p>Regards . </p>
+<p>Dani .</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

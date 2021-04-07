@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Storage QoS в Clustered Data ONTAP 8.2</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1300/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1300</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:22 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-13092</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 24 Apr 2014 13:23:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-13092</guid>
+		<description>Александр:
+Можно назначить не для клиента, а для SVM, насколько я понимаю, то есть на виртуального файлера.
+
+Но если вы хотите в самом деле получить ответ, то рекомендую такие вопросы задавать не в комментах к постам прошлогодней давности, все равно их никто не читает кроме меня, а в форуме https://communities.netapp.com/groups/netapp-ru, там много компетентных пользователей, там получить ответ быстро (и правильный) куда выше.</description>
+		<content:encoded><![CDATA[<p>Александр:<br />
+Можно назначить не для клиента, а для SVM, насколько я понимаю, то есть на виртуального файлера.</p>
+<p>Но если вы хотите в самом деле получить ответ, то рекомендую такие вопросы задавать не в комментах к постам прошлогодней давности, все равно их никто не читает кроме меня, а в форуме <a href="https://communities.netapp.com/groups/netapp-ru" rel="nofollow">https://communities.netapp.com/groups/netapp-ru</a>, там много компетентных пользователей, там получить ответ быстро (и правильный) куда выше.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-13091</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 24 Apr 2014 12:19:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-13091</guid>
+		<description>В чем конкретно я ошибаюсь? ??ли, спрошу иначе, могу я на СХД NetApp явно гарантировать определенному клиенту, скажем, 1000IOPS, и каким образом? Что мне нужно сделать для этого?</description>
+		<content:encoded><![CDATA[<p>В чем конкретно я ошибаюсь? ??ли, спрошу иначе, могу я на СХД NetApp явно гарантировать определенному клиенту, скажем, 1000IOPS, и каким образом? Что мне нужно сделать для этого?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-13090</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 24 Apr 2014 12:05:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-13090</guid>
+		<description>Александр:
+Вы ошибаетесь. Хотя шейпер и недостаточное условие для того, чтобы построить QoS, его наличие абсолютно необходимо для него. Это раз.
+Два - QoS в cDOT обеспечивают политики, использующие шейпер, и именно они позволяют обеспечить качество сервиса, гарантируя ему полосу или объем IOPS, все в точности как вы и говорите.
+Приоритезация была в форме FlexShare, и она совершенно точно не обеспечивает гарантию доступности ресурса, только перераспределение приоритетов, а этого, как показывает практика, часто недостаточно.</description>
+		<content:encoded><![CDATA[<p>Александр:<br />
+Вы ошибаетесь. Хотя шейпер и недостаточное условие для того, чтобы построить QoS, его наличие абсолютно необходимо для него. Это раз.<br />
+Два - QoS в cDOT обеспечивают политики, использующие шейпер, и именно они позволяют обеспечить качество сервиса, гарантируя ему полосу или объем IOPS, все в точности как вы и говорите.<br />
+Приоритезация была в форме FlexShare, и она совершенно точно не обеспечивает гарантию доступности ресурса, только перераспределение приоритетов, а этого, как показывает практика, часто недостаточно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-13089</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 24 Apr 2014 11:53:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-13089</guid>
+		<description>Это самый примитивный шейпер, а не "настоящий QoS". Очевидно потому, что шейпер никакого качества сервиса никому не обеспечивает. Реализация QoS подразумевает, что можно или явно гарантировать клиенту полосу, обеспечив ему должный уровень сервиса (собственно QoS), либо обеспечить приоритизацию его трафика с той же конечной целью.</description>
+		<content:encoded><![CDATA[<p>Это самый примитивный шейпер, а не &#8220;настоящий QoS&#8221;. Очевидно потому, что шейпер никакого качества сервиса никому не обеспечивает. Реализация QoS подразумевает, что можно или явно гарантировать клиенту полосу, обеспечив ему должный уровень сервиса (собственно QoS), либо обеспечить приоритизацию его трафика с той же конечной целью.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-13085</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 23 Apr 2014 14:45:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-13085</guid>
+		<description>Александр:
+
+Во-первых, давайте не говорить за всех.
+Во-вторых, вы конечно можете считать QoS то что вы написали выше, но настоящий QoS это именно задание лимита ресурса в абсолютном выражении.</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>Во-первых, давайте не говорить за всех.<br />
+Во-вторых, вы конечно можете считать QoS то что вы написали выше, но настоящий QoS это именно задание лимита ресурса в абсолютном выражении.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-13084</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 23 Apr 2014 14:40:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-13084</guid>
+		<description>В "настоящем" QoS хотелось бы видеть как раз приоритизацию по весам, а не жесткое задание IOPS и mb/s, что бесполезно практически совсем.</description>
+		<content:encoded><![CDATA[<p>В &#8220;настоящем&#8221; QoS хотелось бы видеть как раз приоритизацию по весам, а не жесткое задание IOPS и mb/s, что бесполезно практически совсем.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-11241</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 00:33:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-11241</guid>
+		<description>Nostromo:
+В 8.3 обещали, то есть где-то в первом квартале следующего года.</description>
+		<content:encoded><![CDATA[<p>Nostromo:<br />
+В 8.3 обещали, то есть где-то в первом квартале следующего года.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-11235</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 19 Nov 2013 16:25:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-11235</guid>
+		<description>Добавлю - Clustered DataONTAP, разумеется.</description>
+		<content:encoded><![CDATA[<p>Добавлю - Clustered DataONTAP, разумеется.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-11234</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 19 Nov 2013 16:24:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-11234</guid>
+		<description>Кстати, вы упомянули в другом посте, что на данный момент DataONTAP не поддерживает синхронную репликацию. Как я понял, это имелось ввиду SnapMirror sync - вы не в курсе, когда он будет поддерживаться?</description>
+		<content:encoded><![CDATA[<p>Кстати, вы упомянули в другом посте, что на данный момент DataONTAP не поддерживает синхронную репликацию. Как я понял, это имелось ввиду SnapMirror sync - вы не в курсе, когда он будет поддерживаться?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1300#comment-11008</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 08 Nov 2013 01:41:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1300#comment-11008</guid>
+		<description>&gt; ??ли можно задавать именно полосу пропускания, а не процент от общей полосы?
+Да, именно так, как собственно и должно быть в "настоящем QoS"</description>
+		<content:encoded><![CDATA[<p>> ??ли можно задавать именно полосу пропускания, а не процент от общей полосы?<br />
+Да, именно так, как собственно и должно быть в &#8220;настоящем QoS&#8221;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

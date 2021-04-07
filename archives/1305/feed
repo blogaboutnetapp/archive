@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Большое обновление в семействе E-series</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1305/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1305</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:20 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: NetApp E2700 по спецценам в IT-Град до 27 июля &#124; about NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-13381</link>
+		<dc:creator>NetApp E2700 по спецценам в IT-Град до 27 июля &#124; about NetApp</dc:creator>
+		<pubDate>Thu, 12 Jun 2014 10:10:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-13381</guid>
+		<description>[...] E2700 – это классические блочные стораджи, которые можно использовать например как [...]</description>
+		<content:encoded><![CDATA[<p>[...] E2700 – это классические блочные стораджи, которые можно использовать например как [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11265</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 17:47:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11265</guid>
+		<description>EFххх действительно построен на базе Е-серии. Это решает проблему с мелкосерийным производством, характерную для AFA.  Есть утверждение, что на  EF540 построено самое большое решение AFA в мире. Есть заказчик, который сразу закупил несколько сотен систем. 
+
+Это очень много для этого рынка. 
+
+Но теже технологии, те же контроллеры, используются в системах объемы поставок, которых сотнями тысяч в год. Это позволяет повысить устойчивость платформы и объемы позволяют иметь нормальное, а не штучное производство.</description>
+		<content:encoded><![CDATA[<p>EFххх действительно построен на базе Е-серии. Это решает проблему с мелкосерийным производством, характерную для AFA.  Есть утверждение, что на  EF540 построено самое большое решение AFA в мире. Есть заказчик, который сразу закупил несколько сотен систем. </p>
+<p>Это очень много для этого рынка. </p>
+<p>Но теже технологии, те же контроллеры, используются в системах объемы поставок, которых сотнями тысяч в год. Это позволяет повысить устойчивость платформы и объемы позволяют иметь нормальное, а не штучное производство.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11263</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 17:15:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11263</guid>
+		<description>Куда интеснее посмотреть на реалии. Если у вас есть задача на 100-200K IOPS  с суб-миллисекундной задержкой, то EF один из возможных вариантов. ?? очень неплохой, с учетом надежности этого решения и относительной доступности.
+
+Pure - не серьезно. В России точно, в Европе - пока сомнительно. 
+XtremIO - интереснее, но пока неприятные новости о  получившейся надежности решения http://www.theregister.co.uk/2013/11/18/xtremio_kit_has_high_initial_flash_death_rate/ . Наверное исправят, после опыта "над живыми людьми"</description>
+		<content:encoded><![CDATA[<p>Куда интеснее посмотреть на реалии. Если у вас есть задача на 100-200K IOPS  с суб-миллисекундной задержкой, то EF один из возможных вариантов. ?? очень неплохой, с учетом надежности этого решения и относительной доступности.</p>
+<p>Pure - не серьезно. В России точно, в Европе - пока сомнительно.<br />
+XtremIO - интереснее, но пока неприятные новости о  получившейся надежности решения <a href="http://www.theregister.co.uk/2013/11/18/xtremio_kit_has_high_initial_flash_death_rate/" rel="nofollow">http://www.theregister.co.uk/2013/11/18/xtremio_kit_has_high_initial_flash_death_rate/</a> . Наверное исправят, после опыта &#8220;над живыми людьми&#8221;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11261</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 16:37:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11261</guid>
+		<description>Artur:
+SANtricity - это еще не все.</description>
+		<content:encoded><![CDATA[<p>Artur:<br />
+SANtricity - это еще не все.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11260</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 16:35:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11260</guid>
+		<description>У 3par имели в виду систему 7450. В ней по словам HP внесли какие-то модификации в прошивку для более эффективной работы с SSD. EF540 и EF550 не разработанные с нуля массивы под SSD, там все та же SANtricity, что и в обычной E-серии. Так что думаю вполне корректно сравнивать EF и HP 3par 7450.
+
+Куда интереснее было бы посмотреть на сравнение с PureStorage и EMC XtremIO.
+
+Роман, а где можно почитать про то, что 800GB SSD диски в EF550 именно SLC?</description>
+		<content:encoded><![CDATA[<p>У 3par имели в виду систему 7450. В ней по словам HP внесли какие-то модификации в прошивку для более эффективной работы с SSD. EF540 и EF550 не разработанные с нуля массивы под SSD, там все та же SANtricity, что и в обычной E-серии. Так что думаю вполне корректно сравнивать EF и HP 3par 7450.</p>
+<p>Куда интереснее было бы посмотреть на сравнение с PureStorage и EMC XtremIO.</p>
+<p>Роман, а где можно почитать про то, что 800GB SSD диски в EF550 именно SLC?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11254</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 12:44:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11254</guid>
+		<description>romx:
+ок, этот кто-то, по-видимому - я :). Но давайте-таки проясним - E2700 c ssd-драйвами, по-вашему, подходят для random io? Ну и если да, то, логично ли ожидать тестов SPC-1? ?? ещё - имеет ли смысл искать на hardware universe подробности начинки E-series (частоту контроллеров, допустим)?</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+ок, этот кто-то, по-видимому - я :). Но давайте-таки проясним - E2700 c ssd-драйвами, по-вашему, подходят для random io? Ну и если да, то, логично ли ожидать тестов SPC-1? ?? ещё - имеет ли смысл искать на hardware universe подробности начинки E-series (частоту контроллеров, допустим)?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11252</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 12:14:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11252</guid>
+		<description>Nostromo:
+Кто-то из нас все напутал :) EF - конечно под рандом. А вот E, которые с дисками HDD, они часто под sequental, и прочие специальные виды доступа. Вы про что из них спрашивали?</description>
+		<content:encoded><![CDATA[<p>Nostromo:<br />
+Кто-то из нас все напутал :) EF - конечно под рандом. А вот E, которые с дисками HDD, они часто под sequental, и прочие специальные виды доступа. Вы про что из них спрашивали?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11251</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 12:08:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11251</guid>
+		<description>romx: 
+Я, кстати, не совсем понимаю идею использовать ssd на sequential load, когда они показывают очень высокую производительность на random io. Взять даже обычные ssd для серверов, которые hp предлагает - 12k random iops на запись и 60k на чтение - чем не решение для oltp? А для sequential load они же показывают ~500MBps и разница с hdd гораздо меньше, чем в случае с random io.</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+Я, кстати, не совсем понимаю идею использовать ssd на sequential load, когда они показывают очень высокую производительность на random io. Взять даже обычные ssd для серверов, которые hp предлагает - 12k random iops на запись и 60k на чтение - чем не решение для oltp? А для sequential load они же показывают ~500MBps и разница с hdd гораздо меньше, чем в случае с random io.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11250</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 11:37:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11250</guid>
+		<description>bbk:
+Это настолько абстрактные "IOPS", что этот "конь" - даже не сферический, а такой, метафизический, платоновский. "??дея коня" ;D
+
+Nostromo:
+Так я ж разве зря написал в посте: это системы для специальных нагрузок. Поэтому если их и будут тестировать, то это будет не SPC-1, а скорее SPC-2, то есть для секвентальных workload.
+Впрочем, вот IBM свои DS3500 гоняет на SPC-1, можете посмотреть их, но сам NetApp их на задачи рандомного IO как основного workload не нацеливает, как я понял.
+Далее: Сравнивать all-flash и систему дисковую, но не с HDD установленными, а с SSD, не очень осмысленно. Если с чем-то сравнивать EF, то с каким-нибудь Violin, или подобной системой. 3Par, даже если в него поставить SSD, аналогом Violin, или EF5 не станет. Его можно сравнивать, если хочется с E2 или E5, с SSD, такая конфигурация есть, как я выше написал.</description>
+		<content:encoded><![CDATA[<p>bbk:<br />
+Это настолько абстрактные &#8220;IOPS&#8221;, что этот &#8220;конь&#8221; - даже не сферический, а такой, метафизический, платоновский. &#8220;??дея коня&#8221; ;D</p>
+<p>Nostromo:<br />
+Так я ж разве зря написал в посте: это системы для специальных нагрузок. Поэтому если их и будут тестировать, то это будет не SPC-1, а скорее SPC-2, то есть для секвентальных workload.<br />
+Впрочем, вот IBM свои DS3500 гоняет на SPC-1, можете посмотреть их, но сам NetApp их на задачи рандомного IO как основного workload не нацеливает, как я понял.<br />
+Далее: Сравнивать all-flash и систему дисковую, но не с HDD установленными, а с SSD, не очень осмысленно. Если с чем-то сравнивать EF, то с каким-нибудь Violin, или подобной системой. 3Par, даже если в него поставить SSD, аналогом Violin, или EF5 не станет. Его можно сравнивать, если хочется с E2 или E5, с SSD, такая конфигурация есть, как я выше написал.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1305#comment-11249</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 11:08:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1305#comment-11249</guid>
+		<description>2 bbk: ну это-то понятно, просто у нетаппа есть хорошая традиция выкладывать тесты FAS SPC-1, так что, на мой взгляд, логичным было бы и для E-series тоже так поступить.</description>
+		<content:encoded><![CDATA[<p>2 bbk: ну это-то понятно, просто у нетаппа есть хорошая традиция выкладывать тесты FAS SPC-1, так что, на мой взгляд, логичным было бы и для E-series тоже так поступить.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

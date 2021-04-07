@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; basics</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;basics&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-22">
+				<h2 class="posttitle"><a href="../22/trackback.html" rel="bookmark" title="Permanent Link to RAID - что это и чем отличается от средства против комаров. ;)">RAID - что это и чем отличается от средства против комаров. ;)</a></h2>
+				<div class="postmetadata">3 Июль 2007, 20:53 <!-- от  --></div>
+				<div class="postentry">
+					<p>??нтересной особенностью систем хранения NetApp является использование необычного типа RAID - Type 4.</p>
+<p>Для того чтобы понять, что это и чем необычно, давайте вкратце рассмотрим, что такое RAID и все используемые в нем типы.</p>
+<p><strong><em>RAID</em></strong> - аббревиатура, расшифровываемая как <em>Redundant Array of Independent Disks</em> - &#8220;отказоустойчивый массив из независимых дисков&#8221; (раньше иногда вместо Independent использовалось слово Inexpensive). Концепция структуры, состоящей из нескольких дисков, объединенных в группу, обеспечивающую отказоустойчивость родилась в 1987 году в основополагающей работе Паттерсона, Гибсона и Катца.</p>
+<p><strong>??сходные типы RAID-массивов</strong></p>
+<p><strong><em>RAID-0<br />
+</em></strong>Если мы считаем, что RAID это &#8220;отказоустойчивость&#8221;(<em>Redundant&#8230;</em>), то RAID-0 это &#8220;нулевая отказоустойчивость&#8221;, отсутствие ее. Структура RAID-0 это &#8220;массив дисков с чередованием&#8221;. Блоки данных поочередно записываются на все входящие в массив диски, по порядку. Это повышает быстродействие, в идеале во столько раз, сколько дисков входит в массив, так как запись распараллеливается между несколькими устройствами.<br />
+Однако во столько же раз снижается надежность, поскольку данные будут потеряны при выходе из строя любого из входящих в массив дисков.</p>
+<p><strong><em>RAID-1<br />
+</em></strong>Это так называемое &#8220;зеркало&#8221;. Операции записи производятся на два диска параллельно. Надежность такого массива выше, чем у одиночного диска, однако быстродействие повышается незначительно (или не повышается вовсе).</p>
+<p><strong><em>RAID-10<br />
+</em></strong>Попытка объединить достоинства двух типов RAID и лишить их присущих им недостатков. Если взять группу RAID-0 с повышенной производительностью, и придать каждому из них (или массиву целиком) &#8220;зеркальные&#8221; диски для защиты данных от потери в результате выхода из строя, мы получим отказоустойчивый массив с повышенным, в результате использования чередования, быстродействием.<br />
+На сегодняшний день &#8220;в живой природе&#8221; это один из наиболее популярных типов RAID.<br />
+Минусы - мы платим за все вышеперечисленные достоинства половиной суммарной емкости входящих в массив дисков.</p>
+<p><strong><em>RAID-2</em></strong><br />
+Остался полностью теоретическим вариантом. Это массив, в котором данные кодируются помехоустойчивым кодом Хэмминга, позволяющим восстанавливать отдельные сбойные фрагменты за счет его избыточности. Кстати различные модификации кода Хэмминга, а также его наследников, используются в процессе считывания данных с магнитных головок жестких дисков и оптических считывателей CD/DVD.</p>
+<p><strong><em>RAID-3</em></strong> и <strong><em>4<br />
+</em></strong>&#8220;Творческое развитие&#8221; идеи защиты данных избыточным кодом. Код Хэмминга незаменим в случае &#8220;постоянно недостоверного&#8221; потока, насыщенного непрерывными слабопредсказуемыми ошибками, такого, например, как зашумленный эфирный канал связи. Однако в случае жестких дисков основная проблема не в ошибках считывания (мы считаем, что данные выдаются жесткими дисками в том виде, в каком мы их записали, если уж он работает), а в выходе из строя целиком диска.<br />
+Для таких условий можно скомбинировать схему с чередованием (RAID-0) и для защиты от выхода из строя одного из дисков дополнить записываемую информацию избыточностью, которая позволит восстановить данные при потере какой-то ее части, выделив под это дополнительный диск.<br />
+При потере любого из дисков данных мы можем восстановить хранившиеся на нем данные путем несложных математических операций над данными избыточности, в случае выходя из строя диска с данными избыточности мы все равно имеем данные, считываемые с дискового массива типа RAID-0.<br />
+Варианты RAID-3 и RAID-4 отличаются тем, что в первом случае чередуются отдельные байты, а во втором - группы байт, &#8220;блоки&#8221;.<br />
+Основным недостатком этих двух схем является крайне низкая скорость записи на массив, поскольку каждая операция записи вызывает обновление &#8220;контрольной суммы&#8221;, блока избыточности для записанной информации. Очевидно, что, несмотря на структуру с чередованием, производительность массива RAID-3 и RAID-4 ограничена производительностью одного диска, того, на котором лежит &#8220;блок избыточности&#8221;.</p>
+<p><strong><em>RAID-5<br />
+</em></strong>Попытка обойти это ограничение породила следующий тип RAID, в настоящее время он получил, наряду с RAID-10, наибольшее распространение. Если запись на диск &#8220;блока избыточности&#8221; ограничивает весь массив, давайте его тоже размажем по дискам массива, сделаем для этой информации невыделенный диск, тем самым операции обновления избыточности окажутся распределенными по всем дискам массива. То есть мы также как и в случае RAID-3(4) берем дисков для хранения N информации в количестве N + 1 диск, но в отличие от Type 3 и 4 этот диск также используется для хранения данных вперемешку с данными избыточности, как и остальные N.<br />
+Недостатки? А как же без них. Проблема с медленной записью отчасти была решена, но все же не полностью. Запись на массив RAID-5 осуществляется, тем не менее, медленнее, чем на массив RAID-10. Зато RAID-5 более &#8220;экономически эффективен&#8221;. Для RAID-10 мы платим за отказоустойчивость ровно половиной дисков, а в случае RAID-5 это всего один диск.</p>
+<p>Однако скорость записи снижается пропорционально увеличению количества дисков в массиве (в отличие от RAID-0, где она только растет). Это связано с тем, что при записи блока данных массиву нужно заново рассчитать блок избыточности, для чего прочитать остальные &#8220;горизонтальные&#8221; блоки и пересчитать в соответствии с их даными блок избыточности. То есть на одну операцию записи массив из 8 дисков (7 дисков данных + 1 дополнительный) будет делать 6 операций чтения в кэш (остальные блоки данных со всех дисков, чтобы рассчитать блок избыточности), вычислять из этих блоков блок избыточности, и делать 2 записи (запись блока записываемых данных и перезапись блока избыточности). В современных системах частично острота снимается за счет кэширования, но тем не менее удлиннение группы RAID-5 хотя и вызывает пропорциональное увеличение скорости чтения, но также и соответственное ему снижение скорости записи.<br />
+Ситуация со снижением производительности при записи на RAID-5 иногда порождает любопытный экстремизм, например, <a href="http://www.baarf.com/">http://www.baarf.com/</a> ;)</p>
+<p>Тем не менее, поскольку RAID-5 есть наиболее эффективная RAID-структура с точки зрения расхода дисков на &#8220;погонный мегабайт&#8221; он широко используется там, где снижение скорости записи не является решающим параметром, например для долговременного хранения данных или для данных, преимущественно считываемых.<br />
+Отдельно следует упомянуть, что расширение дискового массива RAID-5 добавлением дополнительного диска вызывает полное пересчитывание всего RAID, что может занимать часы, а в отдельных случаях и дни, во время которых производительность массива катастрофически падает.</p>
+<p><strong><em>RAID-6<br />
+</em></strong>Дальнейшее развитие идеи RAID-5. Если мы рассчитаем дополнительную избыточность по иному нежели применяемому в RAID-5 закону, то мы сможем сохранить доступ к данным при отказе двух дисков массива.<br />
+Платой за это является дополнительный диск под данные второго &#8220;блока избыточности&#8221;. То есть для хранения данных равных объему N дисков нам нужно будет взять N + 2 диска.Усложняется &#8220;математика&#8221; вычисления блоков избыточности, что вызывает еще большее снижение скорости записи по сравнению с RAID-5, зато повышается надежность. Причем в ряде случаев она даже превышает уровень надежности RAID-10. Нетрудно увидеть, что RAID-10 тоже выдерживает выход из строя двух дисков в массиве, однако в том случае, если эти диски принадлежат одному &#8220;зеркалу&#8221; или разным, но при этом не двум зеркальным дискам. А вероятность именно такой ситуации никак нельзя сбрасывать со счета.</p>
+<p>Дальнейшее увеличение номеров типов RAID происходит за счет &#8220;гибридизации&#8221;, так появляются RAID-0+1 ставший уже рассмотренным RAID-10, или всяческие химерические RAID-51 и так далее.<br />
+В живой природе к счастью не встречаются, обычно оставаясь &#8220;сном разума&#8221; (ну, кроме уже описанного выше RAID-10).</p>
+<p>&#8220;Но тут наступило утро, и Шахеразада прекратило дозволенные речи&#8221;.</p>
+<p>Как именно в NetApp используется необычный тип RAID, каким образом удалось обойти присущие этому типу недостатки и чем вызван такой &#8220;особый путь&#8221; данной системы хранения - смотрите в следующей серии!</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="basics.html" rel="tag">basics</a>, <a href="raid.html" rel="tag">raid</a>, <a href="techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../22/trackback.html#comments" title="Комментарий к записи RAID - что это и чем отличается от средства против комаров. ;)">1 комментарий</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.066 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

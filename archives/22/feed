@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: RAID - что это и чем отличается от средства против комаров. ;)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/22/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/22</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:46 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: lbd</title>
+		<link>http://blog.aboutnetapp.ru/archives/22#comment-15358</link>
+		<dc:creator>lbd</dc:creator>
+		<pubDate>Wed, 16 Dec 2015 22:30:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/22#comment-15358</guid>
+		<description>Однако скорость записи снижается пропорционально увеличению количества дисков в массиве  - все происходит ровно наоборот чем больше дисков - тем быстрее
+как пример - NAS QNAP TVS-EC2480U-SAS-RP
+5-й рейд, 24 диска HDD, имеем чтение 3812MB/s, запись - 3769MB/s Неплохо для HDD  пусть и SAS, просто  24 диска и 5-й рейд, вот только работает он совсем не так, как думает Шахерезада...</description>
+		<content:encoded><![CDATA[<p>Однако скорость записи снижается пропорционально увеличению количества дисков в массиве  - все происходит ровно наоборот чем больше дисков - тем быстрее<br />
+как пример - NAS QNAP TVS-EC2480U-SAS-RP<br />
+5-й рейд, 24 диска HDD, имеем чтение 3812MB/s, запись - 3769MB/s Неплохо для HDD  пусть и SAS, просто  24 диска и 5-й рейд, вот только работает он совсем не так, как думает Шахерезада&#8230;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

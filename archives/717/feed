@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Размышления над EMC FAST v2 и FLARE30</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/717/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/717</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:56 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/717#comment-892</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Fri, 15 Oct 2010 15:51:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=717#comment-892</guid>
+		<description>Ролик продемонстрированный на EMC Forum 2010 http://www.youtube.com/watch?v=fjGDQDrmCdE&#38;feature=youtube_gdata_player :)))</description>
+		<content:encoded><![CDATA[<p>Ролик продемонстрированный на EMC Forum 2010 <a href="http://www.youtube.com/watch?v=fjGDQDrmCdE&amp;feature=youtube_gdata_player" rel="nofollow">http://www.youtube.com/watch?v=fjGDQDrmCdE&amp;feature=youtube_gdata_player</a> :)))</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/717#comment-888</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 14 Oct 2010 14:27:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=717#comment-888</guid>
+		<description>А ведь кто-то даже пользуется FAST... мы с коллегой честно говоря охреневаем как можно использовать это на OLTP приложениях... Был на EMC Forum 2010 поржал от души. В одном из докладов в презентации было написано следующее: эффективность 20% НЕ входит ни в одну из технологий оптимизации EMC... народ спрашивал - "а откуда эта цифра?". Ответ докладчика: как откуда? она просто есть... ну EMC так утверждает? что в СЫРОМ пространстве EMC на 20% эфективнее (Чак Холлис промыл всем мозги :) Я хотел было вступить в полемику и доказать, что это лапша на уши, но было время обеда и я хотел кушать :))))
+
+http://chucksblog.emc.com/chucks_blog/2010/07/an-offer-you-cant-refuse.html</description>
+		<content:encoded><![CDATA[<p>А ведь кто-то даже пользуется FAST&#8230; мы с коллегой честно говоря охреневаем как можно использовать это на OLTP приложениях&#8230; Был на EMC Forum 2010 поржал от души. В одном из докладов в презентации было написано следующее: эффективность 20% НЕ входит ни в одну из технологий оптимизации EMC&#8230; народ спрашивал - &#8220;а откуда эта цифра?&#8221;. Ответ докладчика: как откуда? она просто есть&#8230; ну EMC так утверждает? что в СЫРОМ пространстве EMC на 20% эфективнее (Чак Холлис промыл всем мозги :) Я хотел было вступить в полемику и доказать, что это лапша на уши, но было время обеда и я хотел кушать :))))</p>
+<p><a href="http://chucksblog.emc.com/chucks_blog/2010/07/an-offer-you-cant-refuse.html" rel="nofollow">http://chucksblog.emc.com/chucks_blog/2010/07/an-offer-you-cant-refuse.html</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Максим</title>
+		<link>http://blog.aboutnetapp.ru/archives/717#comment-877</link>
+		<dc:creator>Максим</dc:creator>
+		<pubDate>Mon, 11 Oct 2010 09:30:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=717#comment-877</guid>
+		<description>Пмоему весь FUD уже давно пора воспринимать, как "подтверждение заслуг"</description>
+		<content:encoded><![CDATA[<p>Пмоему весь FUD уже давно пора воспринимать, как &#8220;подтверждение заслуг&#8221;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

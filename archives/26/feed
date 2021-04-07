@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Тестирование производительности, part 1.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/26/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/26</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:39 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/26#comment-2483</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 08 May 2012 19:35:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/26#comment-2483</guid>
+		<description>Просто с толку сбивает.
+А жаль, что с историей у вас получилось так жестоко. ??ногда не бесполезно сходить в прошлое и посмотреть "Как это было" :)</description>
+		<content:encoded><![CDATA[<p>Просто с толку сбивает.<br />
+А жаль, что с историей у вас получилось так жестоко. ??ногда не бесполезно сходить в прошлое и посмотреть &#8220;Как это было&#8221; :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/26#comment-2306</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 18 Apr 2012 14:33:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/26#comment-2306</guid>
+		<description>bbk:
+
+Посты 2007 года имеют сегодня исключительно археологическую ценность. Ссылка “Читать запись полностью” осталась из текста, перенесенного из прошлого блогового движка, и сейчас не используется. Удалить, чтобы не оскорбляла ваши эстетические чувства? ;)</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Посты 2007 года имеют сегодня исключительно археологическую ценность. Ссылка “Читать запись полностью” осталась из текста, перенесенного из прошлого блогового движка, и сейчас не используется. Удалить, чтобы не оскорбляла ваши эстетические чувства? ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/26#comment-2305</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 18 Apr 2012 14:29:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/26#comment-2305</guid>
+		<description>Ссылка "Читать запись полностью" что-то не фурычит...</description>
+		<content:encoded><![CDATA[<p>Ссылка &#8220;Читать запись полностью&#8221; что-то не фурычит&#8230;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

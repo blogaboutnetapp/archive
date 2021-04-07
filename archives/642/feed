@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Свежие новости по VMware</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/642/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/642</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:05 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/642#comment-2800</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 24 Jun 2012 09:21:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=642#comment-2800</guid>
+		<description>bbk:
+
+&gt; Чтобы работал VAAI нужна ли какая-то лицензия со стороны стораджа?
+
+Нет, VAAI это интерфейс доступа к функциям протокола SCSI, имеющимся у системы хранения.
+
+&gt; В случае “Full Copy” встает вопрос, как сторадж будет делать полную копию
+
+Простым посекторным копированием. ??спользуютнся недавно утвержденные команды SCSI. Если сторадж их поддерживает - он совместим с VAAI, если нет - нет
+http://storagegaga.wordpress.com/2012/01/06/why-vaai/
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&#038;cmd=displayKC&#038;externalId=1021976</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> Чтобы работал VAAI нужна ли какая-то лицензия со стороны стораджа?</p>
+<p>Нет, VAAI это интерфейс доступа к функциям протокола SCSI, имеющимся у системы хранения.</p>
+<p>> В случае “Full Copy” встает вопрос, как сторадж будет делать полную копию</p>
+<p>Простым посекторным копированием. ??спользуютнся недавно утвержденные команды SCSI. Если сторадж их поддерживает - он совместим с VAAI, если нет - нет<br />
+<a href="http://storagegaga.wordpress.com/2012/01/06/why-vaai/" rel="nofollow">http://storagegaga.wordpress.com/2012/01/06/why-vaai/</a><br />
+<a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&#038;cmd=displayKC&#038;externalId=1021976" rel="nofollow">http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&#038;cmd=displayKC&#038;externalId=1021976</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/642#comment-2799</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sun, 24 Jun 2012 08:57:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=642#comment-2799</guid>
+		<description>Чтобы работал VAAI нужна ли какая-то лицензия со стороны стораджа?
+В случае "Full Copy" встает вопрос, как сторадж будет делать полную копию: FlexClon'ом или, к примеру, ndmpcopy. ?? наоборот, если, к примеру, нет лицензии на FlexClon, будет ли работать "Full Copy" и вообще будет ли работать VAAI?</description>
+		<content:encoded><![CDATA[<p>Чтобы работал VAAI нужна ли какая-то лицензия со стороны стораджа?<br />
+В случае &#8220;Full Copy&#8221; встает вопрос, как сторадж будет делать полную копию: FlexClon&#8217;ом или, к примеру, ndmpcopy. ?? наоборот, если, к примеру, нет лицензии на FlexClon, будет ли работать &#8220;Full Copy&#8221; и вообще будет ли работать VAAI?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

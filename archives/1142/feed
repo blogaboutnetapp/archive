@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Форум о NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1142/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1142</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:18 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1142#comment-15906</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Tue, 03 Oct 2017 12:48:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1142#comment-15906</guid>
+		<description>Добрый день!
+Не смог создать тему на forums.netapp.com/community, попробую задать вопрос в коментариях:(
+не поможете решить задачу?
+Есть Netapp fas2554. и есть хосты ESXi 6.0
+При работе наблюдаем очень сильное проседание скорости чтения/записи на хранилище.
+Проверяем самым простым способом, начинаем копировать крупный файл, 10-40Гб. начинается копирование отлично, 500-800 Мб/с, но через небольшой промежуток времени 
+на хосте через esxtop наблюдаем возрастание показателя DAVG/cmd. когда показатель достигает 200, что само по себе ненормально, скорость чтения/записи падает до 20-100 Мб/с
+и все дальнейшее копирование плавает в этих показателях.
+KAVG/cmd при это остается в пределах нормы, от 0 до 3х.
+Во всех мануалах на эту рекацию все советуют смотреть хранилище.
+Снимали показания счетчиков с самого netapp, к сожалению не знаем куда смотреть. загрузка дисков от 20 до 50%. https://yadi.sk/i/lTCupR113NRxWY
+не можем понять от чего берутся эти провисания, и как от них избавиться.
+Не поможете советом? или подскажите пожалуйста, как создать тему на форуме?</description>
+		<content:encoded><![CDATA[<p>Добрый день!<br />
+Не смог создать тему на forums.netapp.com/community, попробую задать вопрос в коментариях:(<br />
+не поможете решить задачу?<br />
+Есть Netapp fas2554. и есть хосты ESXi 6.0<br />
+При работе наблюдаем очень сильное проседание скорости чтения/записи на хранилище.<br />
+Проверяем самым простым способом, начинаем копировать крупный файл, 10-40Гб. начинается копирование отлично, 500-800 Мб/с, но через небольшой промежуток времени<br />
+на хосте через esxtop наблюдаем возрастание показателя DAVG/cmd. когда показатель достигает 200, что само по себе ненормально, скорость чтения/записи падает до 20-100 Мб/с<br />
+и все дальнейшее копирование плавает в этих показателях.<br />
+KAVG/cmd при это остается в пределах нормы, от 0 до 3х.<br />
+Во всех мануалах на эту рекацию все советуют смотреть хранилище.<br />
+Снимали показания счетчиков с самого netapp, к сожалению не знаем куда смотреть. загрузка дисков от 20 до 50%. <a href="https://yadi.sk/i/lTCupR113NRxWY" rel="nofollow">https://yadi.sk/i/lTCupR113NRxWY</a><br />
+не можем понять от чего берутся эти провисания, и как от них избавиться.<br />
+Не поможете советом? или подскажите пожалуйста, как создать тему на форуме?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: timg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1142#comment-15813</link>
+		<dc:creator>timg</dc:creator>
+		<pubDate>Fri, 07 Apr 2017 11:14:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1142#comment-15813</guid>
+		<description>Можно использовать команду 
+disk remove_ownership
+а затем 
+disk assign
+
+??ли просто в одну команду:
+disk reassign</description>
+		<content:encoded><![CDATA[<p>Можно использовать команду<br />
+disk remove_ownership<br />
+а затем<br />
+disk assign</p>
+<p>??ли просто в одну команду:<br />
+disk reassign</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1142#comment-15810</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Wed, 05 Apr 2017 13:37:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1142#comment-15810</guid>
+		<description>Добрый день! Вопрос заключается в следующем! Есть NetApp FAS2040 на одном из контроллеров находятся несколько spare дисков (досталось от предыдущих владельцев), каким образом можно поменять статус spare диска на свободный, и присвоить его одному из контроллеров!!</description>
+		<content:encoded><![CDATA[<p>Добрый день! Вопрос заключается в следующем! Есть NetApp FAS2040 на одном из контроллеров находятся несколько spare дисков (досталось от предыдущих владельцев), каким образом можно поменять статус spare диска на свободный, и присвоить его одному из контроллеров!!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

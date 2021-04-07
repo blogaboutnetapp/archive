@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Показатели IOPS отдельных дисков SATA/FC/SAS</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/442/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/442</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:34 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/442#comment-2721</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 14 Jun 2012 15:09:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=442#comment-2721</guid>
+		<description>Алексей:
+
+Случайный, конечно же.
+На самом деле далее там будет еще пост, в котором указывается как это считатется.</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>Случайный, конечно же.<br />
+На самом деле далее там будет еще пост, в котором указывается как это считатется.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/442#comment-2718</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 14 Jun 2012 14:55:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=442#comment-2718</guid>
+		<description>Опа! вот за это спасибо!
+Теперь вопрос, на каких задачах, не помните? Точнее, интересует - это последовательный доступ или произвольный. ??ли смешанный?</description>
+		<content:encoded><![CDATA[<p>Опа! вот за это спасибо!<br />
+Теперь вопрос, на каких задачах, не помните? Точнее, интересует - это последовательный доступ или произвольный. ??ли смешанный?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

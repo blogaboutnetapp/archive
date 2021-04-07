@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Правда ли что производительность хранилища NetApp падает со временем из-за фрагментации?</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="831/trackback.html">FAS2020 &ndash; распродажа 2011, УТОЧНЕН??Я!</a></div>
+			<div class="alignright"><a href="822/trackback.html">fpolicy &ndash; простая блокировка файлов по расширению в NAS</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-820">
+			<h2 class="posttitle"><a href="820/trackback.html" rel="bookmark" title="Permanent Link to Правда ли что производительность хранилища NetApp падает со временем из-за фрагментации?">Правда ли что производительность хранилища NetApp падает со временем из-за фрагментации?</a></h2>
+			<div class="postmetadata">17 Февраль 2011, 5:00 <!-- от  --></div>
+			<div class="postentry">
+				<p><em>Несколько слов по поводу того, что пост этот случайно появился в понедельник, а затем исчез из блога. Как вы догадываетесь, я не в 8 утра в понедельник пишу посты, они у меня обычно написаны в некотором количестве впрок, обычно на месяц вперед, с &#8220;автопостилкой&#8221;, которая их &#8220;раскрывает&#8221; по мере наступления соответствующего дня и времени. Случайно оно взглючило и расскринился пост за четверг. Так что не надо conspiracy theory привлекать, это просто глюки базы блога. Вот вам этот текст, раз уж он все равно в rss-ленту для многих утек.</em></p>
+<p>Любопытный эксперимент провел <em><a href="http://blogs.netapp.com/efficiency/2011/02/flash-cache-doesnt-cache-writes-why.html">John Fullbright</a> </em>отвечая на вопрос, являющийся, пожалуй, второй по популярности темой FUD наших конкурентов: “Производительность NetApp (якобы) падает с течением времени, из-за увеличения фрагментации WAFL на дисках, при постоянной случайной записи”.</p>
+<p>У него дома стоит сравнительно небольшая система “позапрошлого” поколения – FAS3050, с двумя полками дисков SATA 320GB 5400RPM, которую он использует под домашнюю лабораторию для хранения виртуальных машин MS Hyper-V.</p>
+<p>Система эта, к слову, имеет свой собственный <a href="http://twitter.com/NetAppFASLive">твиттер</a>, и пишет туда, с помощью скрипта на Powershell, новости своей жизни :)</p>
+<p>Вот каковы были <a href="http://blogs.netapp.com/efficiency/2011/02/flash-cache-doesnt-cache-writes-why.html">исходные данные</a>:</p>
+<p><strong>The Test Platform:</strong></p>
+<ul>
+<li>FAS3050</li>
+<li>ONTAP 7.3.4</li>
+<li>(2) DS14MK2-AT drive shelves – dual looped</li>
+<li>(28) 320GB Maxtor MaxLine II 5400RPM SATA drives
+<ul>
+<li>Storage for Checksums ~8%</li>
+<li>Right-sized (for hot-swap) = ~2% across the industry</li>
+<li>WAFL Formatted = 26.8 GB per drive (reserved for storage virtualization)</li>
+<li>11ms average seek time</li>
+<li>2MB buffer</li>
+<li>Internal data rate 44MBps</li>
+<li>Drive transfer rate of 133 MBps</li>
+</ul>
+</li>
+<li>Storage Efficiency/Virtualization Technologies Employed:
+<ul>
+<li>Volume-level Deduplication</li>
+<li>Thin Provisioning</li>
+<li>RAID-DP</li>
+</ul>
+</li>
+<li>RAID-DP RG size = 24</li>
+<li>Tuning options: </li>
+<ul>
+<li>optimize_write_once = off</li>
+<li>read_reallocate = on</li>
+</ul>
+</ul>
+<p>??з 28 имеющихся дисков, на 3 расположен root volume, 1 диск hot spare, остальные 24 целиком собраны в одну группу RAID-DP, на которой расположен один aggregate.</p>
+<p>Общая usable space системы равна 5,18TB (5.18 TB = 5304 GB = 22 drives * 241.2 GB). Кроме тестовых данных на системе расположены 26 виртуальных машин Hyper-V (показатели дедупликации для данного тома – 78%), а также шара CIFS с образами ISO.</p>
+<p>Для теста на пространстве хранения было создано 3 LUN по 1,5TB размером каждый, которые по iSCSI были подключены к трем виртуальным машинам, с запущеным на них IOmeter Dynamo.   <br />Таким образом, пространство хранения системы было заполнено тестировочными LUN-ами примерно на 88%.</p>
+<p>В IOmeter был конфигурирован тестовый паттерн с 100% random write блоками по 4KB (также было выставлено выравнивание по границе 4KB, о нужности и смысле чего я <a href="794/trackback.html">писал ранее</a>).    <br />Для тестирования были сконфигурированы три workers, каждый на своей виртуальной машине.</p>
+<p><a href="/pics//6a00d8341ca27e53ef0148c8700c6b970c-800wi.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="6a00d8341ca27e53ef0148c8700c6b970c-800wi" border="0" alt="6a00d8341ca27e53ef0148c8700c6b970c-800wi" src="/pics//6a00d8341ca27e53ef0148c8700c6b970c-800wi-thumb.jpg" width="735" height="537" /></a></p>
+<p>Каждый worker создал на своем LUN тестовый файл на всю его длину.    <br />Тестирование продолжалось 240 часов (10 суток) для того, чтобы гарантировать полную многократную перезапись содержимого тестового файла.</p>
+<p>Спустя 15 часов после начала теста IOmeter демонстрировал следующие результаты:</p>
+<p><a href="/pics//6a00d8341ca27e53ef0148c87010dd970c-800wi.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="6a00d8341ca27e53ef0148c87010dd970c-800wi" border="0" alt="6a00d8341ca27e53ef0148c87010dd970c-800wi" src="/pics//6a00d8341ca27e53ef0148c87010dd970c-800wi-thumb.jpg" width="782" height="483" /></a></p>
+<p>Вы видите показатель производительности, равный 11248 IOPS при 4,2ms latency.   <br />Довольно неплохо для 24 дисков SATA.</p>
+<p>Спустя 60 часов:</p>
+<p><a href="/pics//6a00d8341ca27e53ef0148c8701996970c-800wi.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="6a00d8341ca27e53ef0148c8701996970c-800wi" border="0" alt="6a00d8341ca27e53ef0148c8701996970c-800wi" src="/pics//6a00d8341ca27e53ef0148c8701996970c-800wi-thumb.jpg" width="782" height="483" /></a></p>
+<p>Результат вырос до 12063 IOPS, а latency незначительно снизилась до 3,97ms.</p>
+<p>На протяжении 10 дней тестирования на 4,5TB суммарного объема трех LUN было записано примерно 36TB тестового потока данных. В ходе тестирования был зарегистрирован <strong>рост</strong> показателя IOPS на 18% при незначительных изменениях latency в районе 4ms.</p>
+<p>Общая картина изменений IOPS в ходе тестирования:</p>
+<p><a href="/pics//6a00d8341ca27e53ef0148c87024dd970c-800wi.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="6a00d8341ca27e53ef0148c87024dd970c-800wi" border="0" alt="6a00d8341ca27e53ef0148c87024dd970c-800wi" src="/pics//6a00d8341ca27e53ef0148c87024dd970c-800wi-thumb.jpg" width="582" height="241" /></a></p>
+<p>По вертикали – IOPS, по горизонтали – часы. В дальнейшем, до конца тестирования, показатели не менялись.</p>
+<p>UPD: Также упомяну, что еще в 2008-м году NetApp публиковала в SPC-1 результат <a href="http://www.storageperformance.org/results/a00062_NetApp_FAS3040-48hr-sustain_executive-summary.pdf">48-hours Sustainability Test</a> системы FAS3040. Результаты и описание можно посмотреть на сайте SPC и по приведенной ссылке на PDF.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/fud/index.html" rel="tag">fud</a>, <a href="tag/iometer.html" rel="tag">iometer</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/random-write.html" rel="tag">random write</a><br />					Раздел: <a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>					&nbsp;|&nbsp;&nbsp;<a href="820/trackback.html#respond">Комментарий</a> (<a href='820/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="820/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (16)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1092">
+		<div id="div-comment-1092">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>Что за письма из будущего?</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1092" title="">14 Февраль 2011, 9:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1115">
+		<div id="div-comment-1115">
+		<div class="comment-author">
+			<cite>s_kiselev:<cite></div>
+			<p>Поправьте меня, но насколько я понимаю, нужно мерить random read, чтобы понять как по мере заполнения хранилища падает производительность.<br />
+Все мы знаем что нетапп отлично справляется с записью (даже кэш под это не используется - поправьте меня если не так), собрал страйп и бросил на все шпиндели в агрегате - отсутствует пенальти на запись. Поэтому определять влияние фрагментации при операциях записи мне кажется не разумно. Важнее именно рандомные операции чтения - вот здесь в случае нетапп, фрагментация оказывает влияние.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1115" title="">17 Февраль 2011, 14:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1116">
+		<div id="div-comment-1116">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Верно отчасти. Да, действительно, тест 100% random write не дает исчерпывающего ответа, но такого измерения еще не было. Был, к слову сказать, sustainability test, на который я даю ссылку, посмотрите его тоже.<br />
+Что же касается влияния фрагментации на _random_ read, то тут тоже не все однозначно, об этом я уже тоже писал, например тут:<br />
+<a href="455/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/455</a></p>
+<p>Просто оцените с точки зрения логики: у нас случайно расположенные по диску блоки, которые мы случайно же читаем, или у нас последовательно расположенные блоки, которые мы случайно читаем. При случайном чтении &#8220;случайность&#8221; не возводится в квадрат. В обоих случаях это один и тот же random read. &#8220;Последовательность&#8221; или &#8220;непоследовательность&#8221; блоков никак не делает 100% random более &#8220;random&#8221;-ным или менее.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1116" title="">17 Февраль 2011, 15:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1117">
+		<div id="div-comment-1117">
+		<div class="comment-author">
+			<cite>Allilya:<cite></div>
+			<p>?? в чем смысл теста?  100% random write &#8230; Netapp и так сам в рандомное место пишет. ??з-за фрагментации будет падать время линейного чтения, т.е. из-за WAFL при дикой фрагментации скорость будет как на рандом чтении. Понятно что 100% random write никак не может деградировать со временем.<br />
+К этим workers на запись добавте еще один на линейную запись+чтение и посмотрите его деградацию.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1117" title="">17 Февраль 2011, 15:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1118">
+		<div id="div-comment-1118">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>А у вас правда много задач с характеристиками sequental read? Какие, если не секрет?<br />
+Вот я, сколько ни думал, кроме ветхозаветного backup на ленты, ничего не придумал.<br />
+Ну DSS database еще возможно. Все же остальное преимущественно random, OLTP, VM, multiuser fileservice, webserver - все random близкий к 100%.<br />
+А про влияние фрагментации на random read смотрите комментарий над вашим.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1118" title="">17 Февраль 2011, 15:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1138">
+		<div id="div-comment-1138">
+		<div class="comment-author">
+			<cite>Allilya:<cite></div>
+			<p>У нас к счастью вообще нет linear нагрузки. Поэтому netapp справляется. Хотя пока где-то 15% от планируемой нагрузки, тестируем. Проблем с бюджетом видимо тоже не предвидится, так что мы - самые приятные клиенты. Хотя и задаем вопросы, почему 3 полки c sas выдают на iometer в тесте DB меньше, чем домашний ssd.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1138" title="">19 Февраль 2011, 5:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1139">
+		<div id="div-comment-1139">
+		<div class="comment-author">
+			<cite>Allilya:<cite></div>
+			<p>Ой, не sas, а fc конечно. Вообщем стыдно за hdd. В такие недешевые железки, как netapp, можно было и ssd ставить. FlexCache видимо как спасательный круг. Но помогает временно, при дальнейшей нагрузке корабль пойдет на дно, все.</p>
+<p>P.S. У WAFL ествественно единственный существенный изъян - при фрагментации просядет линейное чтение до показателей рандом чтения в экстремальных случаях. Если конечно есть дикая и постоянная линейная запись в несколько потоков, то там тоже будет плохо без дефрагментации, хотя на &#8220;обычных&#8221; железках тоже не факт что будет хорошо. (вроде как характерно к видео-серверам, видимо на этот кусок рынка netapp никак не претендует) Собственно, чем тут внутренняя фрагментация СХД отличается от фрагментации hdd? Проблема одна и таже! Но это кончено при обычных hdd, при переходе на ssd все поменяется, хотя и wafl на ssd потеряет всякий смысл ибо ssd уже внутренне работает по аналогичной схеме.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1139" title="">19 Февраль 2011, 6:13</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1141">
+		<div id="div-comment-1141">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Allilya:<br />
+У вас, для новичка, какие-то немного смешные претении к NetApp. :)<br />
+&#8220;Корабль пойдет на дно&#8230;&#8221; - &#8220;Вах, баюс&#8221; ;)</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1141" title="">19 Февраль 2011, 10:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1148">
+		<div id="div-comment-1148">
+		<div class="comment-author">
+			<cite>Allilya:<cite></div>
+			<p>Это претензии к статье - меряли совсем непонятно что. Я бы такой позор либо удалил, либо перетестил по-нормальному.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1148" title="">21 Февраль 2011, 14:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1149">
+		<div id="div-comment-1149">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Allilya:</p>
+<p>Если вы &#8220;перетестите по нормальному&#8221; я с удовольствием опубликую ваши результаты, пока же - публикую те данные, что есть.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1149" title="">21 Февраль 2011, 14:59</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1151">
+		<div id="div-comment-1151">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>&#8220;Вы видите показатель производительности, равный 11248 IOPS при 4,2ms latency.<br />
+Довольно неплохо для 24 дисков SATA.&#8221;<br />
+Это 486 IOPS с диска Maxtor MaxLine II 5400RPM ? Что я не понимаю?</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1151" title="">21 Февраль 2011, 16:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1152">
+		<div id="div-comment-1152">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:<br />
+Ну почему нет? На что кэш даден?</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1152" title="">21 Февраль 2011, 16:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1153">
+		<div id="div-comment-1153">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Гм, насколько я помню IOmeter , если не указано иное, заполняет тестовыми данными все доступное дисковое пространство, 1,5 тб. в кэш есно не поместится. За 10 дней со скоростью 47 мб/с действительно 36тб перепишется, но каким образом диск на 5400 переварит  486 IOPS записи, они телепатически на нем изменятся?<br />
+Чуть ниже описывалась другой тест &#8220;протестированный FAS2020 был сконфигурирован с 16 LUN-ами по 8GB каждый, на общем томе FlexVol, лежащим на 24 дисках SAS/FC 15KRPM (12 SAS + 14 FC)&#8230; дразмер блока - 8KB, 70% random, read/write=40/60 &#8230; При указанных условиях, система FAS2020 достигла показателей в 6000 IOPS&#8221; Это 240 IOPS на диск, что похоже на индивидуальную производительность диска. Да в этом тесте присутствует чтение, а в первом размер блока совпадает с блоком wafl, неужели это и есть факторы дающие такие разные результаты?</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1153" title="">21 Февраль 2011, 17:30</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1154">
+		<div id="div-comment-1154">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:<br />
+> неужели это и есть факторы дающие такие разные результаты?<br />
+Ну отчего нет? Вполне возможно. У NetApp на самом деле очень эффктивная random write.<br />
+Сравнивать же по абсолютной величине разную по характеру нагрузку нельзя совершенно точно, это азбука нагрузочного тестирования.</p>
+<p>> 1,5 тб. в кэш есно не поместится<br />
+Все - не поместится, но может поместиться какая-то часть, а так как доступ - random, то есть вероятность, что этот random произойдет в пределах фрагмента в кэше. Таким образом, при random access, даже при dataset-е значительно больше кэша, кэш не простаивает без дела, а улучшает показатели производительности.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1154" title="">21 Февраль 2011, 17:50</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1158">
+		<div id="div-comment-1158">
+		<div class="comment-author">
+			<cite>Allilya:<cite></div>
+			<p>panvartan:<br />
+А дело не в кеше. Почитайте внимательно про wafl, все плюсы и минусы будут ясны, как разберетесь в принципах!<br />
+Если объем раздела на котором тестировали был меньше полного объема дисков, то тест на рандом запись при wafl должен показывать скорость линейной записи на raid6! Почему так? Ну очевидно, данные пишутся туда, куда проще, т.е. в свободное место дисков (незадействованное, и явно что lun не ограничивает) и пофиг сколько потоков и что они рандом, все пишется последовательно в свободное место. Попутно создается таблица соответствия &#8220;виртуальных&#8221; и &#8220;реальных&#8221; секторов. Как &#8220;свободное&#8221; место заканчивается, если под lun&#8217;ы было отведено не более половины места, значит то &#8220;физическое&#8221; место уже свободно и туда продолжается запись потоком и т.д. Вот если сделать рандом тест на объем равный физическому месту на диске, то после записи первого полного объема (назовем инициализацией) начнется настоящая рандом запись со всеми вытекающими&#8230; при этом даже линейная запись на wafl привратится в рандом. О ужас. Вообщем синтетику сделать, чтобы netapp был в попе видимо не сложно. Куда интересней, как в реальной жизни он поведет.</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1158" title="">22 Февраль 2011, 0:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1159">
+		<div id="div-comment-1159">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Почитайте внимательно про wafl</p>
+<p>Спасибо за предложение &#8220;почитать про WAFL&#8221;. Я тронут :)<br />
+Пожалуй вы первый в этом блоге мне такое предложили ;) Надеюсь это было от чистого сердца. ;)</p>
+						<div class="comment-meta"><a href="820/trackback.html#comment-1159" title="">22 Февраль 2011, 0:48</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="820" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.079 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

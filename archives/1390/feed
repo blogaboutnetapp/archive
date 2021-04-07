@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FAS8040 Unboxing в блоге IT-grad</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1390/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1390</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:18 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1390#comment-13994</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 18 Sep 2014 11:31:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1390#comment-13994</guid>
+		<description>Роман, уже 2 раза менял - один раз в EMC, другой у NetApp'а. В NetApp'e оказалось геморойнее + меняется серийник, что нужно учесть в autosupport и в бухгалтерии организации :(
+в EMC меняется только контроллер (один винтик открутить вытащить старый и вставить новый). Также просто заменить IO модуль если он отделен от контроллера, как у "любимых" VNX (в VPlex нужно тушить директор). У NetApp'а придется вырубать контроллер, если необходимо заменить, например, дополнительный FC адаптер.
+
+У меня просто много масивов и копаться в них приходится часто, поэтому и сложилось такое мнение через призму простоты обслуживания всего этого.</description>
+		<content:encoded><![CDATA[<p>Роман, уже 2 раза менял - один раз в EMC, другой у NetApp&#8217;а. В NetApp&#8217;e оказалось геморойнее + меняется серийник, что нужно учесть в autosupport и в бухгалтерии организации :(<br />
+в EMC меняется только контроллер (один винтик открутить вытащить старый и вставить новый). Также просто заменить IO модуль если он отделен от контроллера, как у &#8220;любимых&#8221; VNX (в VPlex нужно тушить директор). У NetApp&#8217;а придется вырубать контроллер, если необходимо заменить, например, дополнительный FC адаптер.</p>
+<p>У меня просто много масивов и копаться в них приходится часто, поэтому и сложилось такое мнение через призму простоты обслуживания всего этого.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1390#comment-13992</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 17 Sep 2014 19:27:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1390#comment-13992</guid>
+		<description>Александр:
+
+На этот счет тоже есть разные мнения. Да, возможно, это удобно при замене контроллера. Но сколько раз в жизни системы на ней меняют контроллеры? А все остальное время это - минимум две дополнительные контактные пары для каждого сигнального провода (один - от контроллера в backplane, второй - от backplane к порту в модуле ввода-вывода). А ни один дополнительный контакт не увеличивает надежность системы, только уменьшает, порой - значительно.</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>На этот счет тоже есть разные мнения. Да, возможно, это удобно при замене контроллера. Но сколько раз в жизни системы на ней меняют контроллеры? А все остальное время это - минимум две дополнительные контактные пары для каждого сигнального провода (один - от контроллера в backplane, второй - от backplane к порту в модуле ввода-вывода). А ни один дополнительный контакт не увеличивает надежность системы, только уменьшает, порой - значительно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1390#comment-13989</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 16 Sep 2014 16:49:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1390#comment-13989</guid>
+		<description>В плане удобства обслуживания железа есть ещё куда расти. Например у всеми ними "любимого" EMC модули ввода вывода отделены от контроллеров, что очень удобно при замене контроллеров, когда подключено очень много проводочков. :)</description>
+		<content:encoded><![CDATA[<p>В плане удобства обслуживания железа есть ещё куда расти. Например у всеми ними &#8220;любимого&#8221; EMC модули ввода вывода отделены от контроллеров, что очень удобно при замене контроллеров, когда подключено очень много проводочков. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1390#comment-13950</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 02 Sep 2014 10:03:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1390#comment-13950</guid>
+		<description>Евгений:
+Официально он продается только в составе систем, сконфигурированных для Clustered Data ONTAP, и только под Cluster Connect. Отдельно он не продается, и использование его для какого-либо другого трафика в нем, кроме как кластерного интерконнекта, не поддерживается.</description>
+		<content:encoded><![CDATA[<p>Евгений:<br />
+Официально он продается только в составе систем, сконфигурированных для Clustered Data ONTAP, и только под Cluster Connect. Отдельно он не продается, и использование его для какого-либо другого трафика в нем, кроме как кластерного интерконнекта, не поддерживается.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Евгений</title>
+		<link>http://blog.aboutnetapp.ru/archives/1390#comment-13949</link>
+		<dc:creator>Евгений</dc:creator>
+		<pubDate>Tue, 02 Sep 2014 10:00:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1390#comment-13949</guid>
+		<description>Можно ли такой коммутатор брать не только для ClusterNet Interconnect Cluster, но и для пользователей NFS и CIFS? 
+Сдается мне, что они в составе общей квоте будут весьма привлекательны в плане стоимости</description>
+		<content:encoded><![CDATA[<p>Можно ли такой коммутатор брать не только для ClusterNet Interconnect Cluster, но и для пользователей NFS и CIFS?<br />
+Сдается мне, что они в составе общей квоте будут весьма привлекательны в плане стоимости</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1390#comment-13893</link>
+		<dc:creator>odna Ptichka</dc:creator>
+		<pubDate>Mon, 18 Aug 2014 16:49:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1390#comment-13893</guid>
+		<description>В данном случае контрактный производитель немного другой, а броадком поставщик компонентов. Но это совсем не важно.</description>
+		<content:encoded><![CDATA[<p>В данном случае контрактный производитель немного другой, а броадком поставщик компонентов. Но это совсем не важно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1390#comment-13891</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Mon, 18 Aug 2014 12:10:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1390#comment-13891</guid>
+		<description>Коммутаторы Broadcom. Nexus по-прежнему доступны и используются для более крупных кластеров.</description>
+		<content:encoded><![CDATA[<p>Коммутаторы Broadcom. Nexus по-прежнему доступны и используются для более крупных кластеров.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

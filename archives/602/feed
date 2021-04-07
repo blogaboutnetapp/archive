@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FlexShare - управление приоритетами томов</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/602/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/602</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:22 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/602#comment-2384</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 06:40:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=602#comment-2384</guid>
+		<description>bbk:
+
+В условиях, когда, согласно рекомендованной конфигурации, один volume это один LUN, приоритет на volume будет автоматически и приоритетом LUN-а.
+
+&gt; Возможно ли как-то распределить нагрузку между виртуальными машинами
+
+Это задача не для стораджа, а для гипервизора, VMware, например, эту задачу решает, про остальных не знаю.
+
+А вообще рекомендую все такие вопросы задавать в https://communities.netapp.com/groups/netapp-ru
+Там и отвечающих больше и вести диалог удобнее.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>В условиях, когда, согласно рекомендованной конфигурации, один volume это один LUN, приоритет на volume будет автоматически и приоритетом LUN-а.</p>
+<p>> Возможно ли как-то распределить нагрузку между виртуальными машинами</p>
+<p>Это задача не для стораджа, а для гипервизора, VMware, например, эту задачу решает, про остальных не знаю.</p>
+<p>А вообще рекомендую все такие вопросы задавать в <a href="https://communities.netapp.com/groups/netapp-ru" rel="nofollow">https://communities.netapp.com/groups/netapp-ru</a><br />
+Там и отвечающих больше и вести диалог удобнее.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/602#comment-2383</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 06:35:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=602#comment-2383</guid>
+		<description>А на луны приоритеты расставлять можно?
+
+Есть вопрос, он к теме QoS, может не совсем сюда.
+Возможно ли как-то распределить нагрузку между виртуальными машинами которые находятся, к примеру на одном разделе, так чтобы одна машина не съела все IOPS'ы  остальных?</description>
+		<content:encoded><![CDATA[<p>А на луны приоритеты расставлять можно?</p>
+<p>Есть вопрос, он к теме QoS, может не совсем сюда.<br />
+Возможно ли как-то распределить нагрузку между виртуальными машинами которые находятся, к примеру на одном разделе, так чтобы одна машина не съела все IOPS&#8217;ы  остальных?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

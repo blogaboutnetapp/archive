@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Гарантии от вендора - это всегда приятно</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/217/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/217</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:33 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/217#comment-115</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 24 Feb 2009 03:20:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=217#comment-115</guid>
+		<description>Разумеется там есть определенные условия от "чересчур хитрых"(наверное с пометкой: &lt;em&gt;"special'no dlya russkikh"&lt;/em&gt; ;), которые зальют диски зипами, и скажут "что так и было" :) Но в целом они (условия) вполне в рамках fair use.</description>
+		<content:encoded><![CDATA[<p>Разумеется там есть определенные условия от &#8220;чересчур хитрых&#8221;(наверное с пометкой: <em>&#8220;special&#8217;no dlya russkikh&#8221;</em> ;), которые зальют диски зипами, и скажут &#8220;что так и было&#8221; :) Но в целом они (условия) вполне в рамках fair use.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: pavelk</title>
+		<link>http://blog.aboutnetapp.ru/archives/217#comment-114</link>
+		<dc:creator>pavelk</dc:creator>
+		<pubDate>Mon, 23 Feb 2009 18:11:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=217#comment-114</guid>
+		<description>Да-да..
+--
+Application data and home directories that are part of these virtual machines can be included in these volumes, provided that any data that doesn’t deduplicate well—such as unique images, databases, and so on—doesn’t exceed 10% of the total data in the aggregate.
+--</description>
+		<content:encoded><![CDATA[<p>Да-да..<br />
+&#8211;<br />
+Application data and home directories that are part of these virtual machines can be included in these volumes, provided that any data that doesn’t deduplicate well—such as unique images, databases, and so on—doesn’t exceed 10% of the total data in the aggregate.<br />
+&#8211;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Блог журналиста</title>
+		<link>http://blog.aboutnetapp.ru/archives/217#comment-113</link>
+		<dc:creator>Блог журналиста</dc:creator>
+		<pubDate>Fri, 20 Feb 2009 16:34:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=217#comment-113</guid>
+		<description>&lt;strong&gt;обзор за сегодня...&lt;/strong&gt;
+
+[...]а гарантии 50% экономии дискового пространства, при использовании их систем для хранения данных в ви...</description>
+		<content:encoded><![CDATA[<p><strong>обзор за сегодня&#8230;</strong></p>
+<p>[...]а гарантии 50% экономии дискового пространства, при использовании их систем для хранения данных в ви&#8230;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

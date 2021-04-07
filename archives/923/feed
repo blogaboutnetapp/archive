@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: TechTalk Live, Москва, 19 мая.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/923/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/923</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:41 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/923#comment-1370</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 21 May 2011 07:31:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/923#comment-1370</guid>
+		<description>Dmitry Gorokhov:
+
+Вот, кстати, не забывайте о фидбэке, иначе как улучшать качество без "обратной связи"?
+Комментируйте, оставляйте свои замечания и отзывы, можете это делать тут, я передам "куда следует". :)
+Чем больше вы оставите замечаний, тем лучше будут следующие встречи.
+Более того вам скажу, по количеству фидбэка NetApp ориентируется и оценивает интерес.
+Например год назад именно из за полного отсутствия фидбэка была закрыта наша затея с ежемесячными техническими вебинарами. Только возникший фидбэк после моего поста о планируемом закрытии проекта перевода Best Practices на сайте Netwell, заставил руководство пересмотреть планы и найти средства на продолжение работ.
+
+Так что не забывайте, улучшение - в ваших руках, это вполне действенный метод!
+У нас тут не выборы в Госдуму, ваш голос - влияет!</description>
+		<content:encoded><![CDATA[<p>Dmitry Gorokhov:</p>
+<p>Вот, кстати, не забывайте о фидбэке, иначе как улучшать качество без &#8220;обратной связи&#8221;?<br />
+Комментируйте, оставляйте свои замечания и отзывы, можете это делать тут, я передам &#8220;куда следует&#8221;. :)<br />
+Чем больше вы оставите замечаний, тем лучше будут следующие встречи.<br />
+Более того вам скажу, по количеству фидбэка NetApp ориентируется и оценивает интерес.<br />
+Например год назад именно из за полного отсутствия фидбэка была закрыта наша затея с ежемесячными техническими вебинарами. Только возникший фидбэк после моего поста о планируемом закрытии проекта перевода Best Practices на сайте Netwell, заставил руководство пересмотреть планы и найти средства на продолжение работ.</p>
+<p>Так что не забывайте, улучшение - в ваших руках, это вполне действенный метод!<br />
+У нас тут не выборы в Госдуму, ваш голос - влияет!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/923#comment-1369</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Sat, 21 May 2011 07:07:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/923#comment-1369</guid>
+		<description>В целом было не очень интересно, за исключением выступления ??горя Увкина, которого всегда интересно слушать.</description>
+		<content:encoded><![CDATA[<p>В целом было не очень интересно, за исключением выступления ??горя Увкина, которого всегда интересно слушать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/923#comment-1364</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 18 May 2011 13:24:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/923#comment-1364</guid>
+		<description>Александр:
+
+"Вперррвые на аррррене!!" ;)</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>&#8220;Вперррвые на аррррене!!&#8221; ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/923#comment-1362</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 18 May 2011 08:17:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/923#comment-1362</guid>
+		<description>Да, да, да... будем там. Первый раз вижу чтобы Тимофей Гудилин и Михаил Швыдкий выступали с докладами. ??нтересно будет послушать их!</description>
+		<content:encoded><![CDATA[<p>Да, да, да&#8230; будем там. Первый раз вижу чтобы Тимофей Гудилин и Михаил Швыдкий выступали с докладами. ??нтересно будет послушать их!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

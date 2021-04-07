@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- generator="WordPress/2.6" -->
+<rss version="0.92">
+<channel>
+	<title>about NetApp</title>
+	<link>http://blog.aboutnetapp.ru</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<lastBuildDate>Tue, 30 Jan 2018 09:31:25 +0000</lastBuildDate>
+	<docs>http://backend.userland.com/rss092</docs>
+	<language>en</language>
+	
+	<item>
+		<title>Новый канал в Telegram!</title>
+		<description>До нас дошли известия, что в сети появился новый источник интересной технической информации.
+http://t.me/storagetalks
+Рекомендую подписаться на этот канал, его ведет известный в узких кругах специалист, который может рассказать много интересных фактов о решениях NetApp. 
+Лично я планирую его всячески отслеживать :)
+ </description>
+		<link>http://blog.aboutnetapp.ru/archives/1425</link>
+			</item>
+	<item>
+		<title>NetApp Innovation 2015 - сюрпризы начинаются ;)</title>
+		<description>Меньше двух недель остается до конференции NetApp Innovation, программа которой, казалось бы, уже сверстана. 
+Но NetApp был бы не NetApp, если бы наши инженеры обошлись без сюрпризов. ;)
+?? вот у нас новая программа, главным гвоздем которой станет рассказ о том, что такое Data Fabric, о которой все так много говорят. ...</description>
+		<link>http://blog.aboutnetapp.ru/archives/1424</link>
+			</item>
+	<item>
+		<title>NetApp Innovation 2015</title>
+		<description>NetApp приглашает всех на свою ежегодную конференцию NetApp Innovation !
+
+Программа в этом году обещает быть еще более насыщенной, чем в прошом. Роман Ройфман со своей командой специалистов создали очень интересную и содержательную программу выступлений, и гарантируют, что скучать не придется :)
+Конференция будет проходить 10 ноября 2015г. в Lotte Hotel Moscow ...</description>
+		<link>http://blog.aboutnetapp.ru/archives/1421</link>
+			</item>
+	<item>
+		<title>Еще один интересный блог о NetApp</title>
+		<description>
+Блог о технологиях NetApp и системах хранения данных в целом
+
+Добавьте себе в закладки !
+
+ </description>
+		<link>http://blog.aboutnetapp.ru/archives/1420</link>
+			</item>
+	<item>
+		<title>Технический семинар MERLION и NetApp</title>
+		<description>Компании MERLION и NetApp приглашают на технический тренинг для заказчиков -  
+NetApp Storage Engineering Club 
+
+Мероприятие состоится 17 апреля
+
+Программа:
+
+9:30   – 9:45   приветственный кофе – брейк
+9:45   – 13:00 бизнес-часть
+13:00 – 14:00 обед
+ 
+На тренинге эксперты расскажут об особенностях операционной системы NetApp Clustered Data ONTAP ...</description>
+		<link>http://blog.aboutnetapp.ru/archives/1419</link>
+			</item>
+	<item>
+		<title>7MTT vs OCUM</title>
+		<description>При установке 7-Mode Transition Tool на тот же хост, где запущен OnCommand Unified Manager, 
+7MTT не запускается, а ругается на то, что 
+
+This page can’t be displayed
+•Make sure the web address https://127.0.0.1:8443 is correct.
+ 
+Это происходит из-за того, что OCUM и 7MTT конкурируют за один и тот же порт - ...</description>
+		<link>http://blog.aboutnetapp.ru/archives/1418</link>
+			</item>
+	<item>
+		<title>Data ONTAP 8.3 - GA релиз</title>
+		<description>На сайте NetApp  доступен для скачивания релиз cDOT 8.3 GA (General Availability)
+Всем, кто использовал 8.3 RC1 и RC2 предлагается обновиться на новую версию. 
+А чтобы апгрейд прошел проще, сгенерируйте подробный план апгрейда с помощью Upgrade Advisor на странице Autosupport'a. 
+
+cDOT 8.3 Release Notes
+
+ </description>
+		<link>http://blog.aboutnetapp.ru/archives/1417</link>
+			</item>
+	<item>
+		<title>Selective LUN Map в 8.3</title>
+		<description>Новая фича DataONTAP 8.3 может ввести админов в замешательство. 
+В этой версии для LUN'ов автоматически включена функция SLM - Selective LUN Map.
+Что это означает ? 
+Если раньше LUN был виден по всем мыслимым путям до кластера, то теперь, с этой функцией, клиентам видны только пути, ведущие на ноду, где живет ...</description>
+		<link>http://blog.aboutnetapp.ru/archives/1416</link>
+			</item>
+	<item>
+		<title>С Новым Годом !</title>
+		<description>Удачи и счастья в Новом Году ! 
+Пусть он принесет нам всем много новых интересных дел, возможностей и приятных сюрпризов. 
+:)
+ </description>
+		<link>http://blog.aboutnetapp.ru/archives/1415</link>
+			</item>
+	<item>
+		<title>Еще один интересный курс для технарей</title>
+		<description>Компания HBC собирает технических специалистов на бесплатный курс «Знакомство с технологиями и оборудованием NetApp». Курс будет проходить в Москве 4 декабря 2014 года, рассчитан на целый день - с 10:00 до 18:00.
+Обещают рассказать про:
+
+- NetApp – позиции на рынке СХД, стратегическое видение
+- Системы хранения данных (Обзорно):
+Системы хранения FAS Series
+Системы хранения ...</description>
+		<link>http://blog.aboutnetapp.ru/archives/1414</link>
+			</item>
+</channel>
+</rss>

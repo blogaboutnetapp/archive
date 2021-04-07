@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; NetApp and VMware vSphere Best practices на русском!</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../787/trackback.html">Компрессия или дедупликация?</a></div>
+			<div class="alignright"><a href="../788/trackback.html">time skew при настройке подключения в домен AD</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-789">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to NetApp and VMware vSphere Best practices на русском!">NetApp and VMware vSphere Best practices на русском!</a></h2>
+			<div class="postmetadata">16 Декабрь 2010, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p><em>“Еще одно, последнее сказанье, и летопись окончена моя”.</em></p>
+<p>Мы это сделали. Да! На сайте компании-дистрибутора Netwell опубликован мой перевод 97-страничного “<a href="http://www.netwell.ru/docs/netapp/tr-3749_rus_netapp_and_vmware_vsphere_v41_bp.pdf">Руководства по наилучшим методам использования систем NetApp с VMware vSphere</a>”, перевод <a href="http://media.netapp.com/documents/tr-3749.pdf">TR-3749</a>, <del datetime="2012-01-05T12:07:03+00:00">в версии 2.1, августа этого года</del> обновлено до версии 3.0. Точное название файла смотрите на сайте Netwell!</p>
+<p><a href="http://www.netwell.ru/docs/netapp/tr-3749_rus_netapp_and_vmware_vsphere_v41_bp.pdf">Скачать PDF</a>    <br /><a href="http://www.netwell.ru/docs/netapp/TR-3749_Rus_NetApp_and_VMware_vSphere_v4.1_BP.htm">Читать и ссылаться на html</a></p>
+<p>Увы, на этом активные переводы мои пока завершены. Бюджета на них больше нет, а фидбэк от читателей, как ни печально, минимальный.   <br />Кстати, если вы пользуетесь <a href="http://www.netwell.ru/production/techbiblioteka.php">моими переводами с сайте Netwell</a>, и считаете их полезными, а также были бы рады их продолжению, то не ленитесь черкнуть по этому поводу электронное письмо по адресу <a href="mailto:info@netwell.ru">info@netwell.ru</a>. В том числе с благодарностью будут приняты и идеи того, какие бы документы, на какую тему из уже созданных и выложенных на английском в <a href="http://www.netapp.com/us/library/">Technical Library</a> у NetApp, вы бы хотели иметь на русском языке, в переводе.</p>
+<p>Хочу выразить благодарность <strike>моим папе, маме, собаке</strike> автору и ведущему блога <a href="http://vm4.ru/">vm4.ru</a>, автору бесценной по количеству полезной информации книжки “<a href="http://www.ozon.ru/context/detail/id/5148922/">Администрирование VMware vSphere</a>”, Михаилу Михееву, за терпение и отзывчивость, а также за ряд важных комментариев и консультации в ходе перевода, хотя, увы, не все из них и попали в окончательный текст</p>
+<p>Чтобы два раза не вставать, пользуясь случаем, хочу сообщить, что в период новогодних каникул “<em>рашэн кристмас</em>” новых постов не будет (все равно меня читают, как я знаю, только в рабочее время и в рабочие дни), вернемся к регулярности во второй половине января, не переключайте ваши браузеры.</p>
+<p><strong>UPD:</strong> Обратите внимание, что несмотя на то, что документ в целом посвящен практике использования систем NetApp для хранения данных VMware, тем не менее в документе есть много полезной информации, если ваша система хранения под VMware (пока еще;) не NetApp.<br />
+Так, например, подробно рассматриваются вопросы организации отказоустойчивой избыточной сетевой инфраструктуры Ethernet, для подключения с помощью iSCSI или NFS, а также ряд дугих полезных и важных вопросов. Так что рекомендую просмотреть этот документ, даже если вы только и просто интересуетесь, и используете какие-то иные системы хранения.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/best-practices.html" rel="tag">best practices</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/tr-3749.html" rel="tag">tr-3749</a>, <a href="../tag/vmware/index.html" rel="tag">vmware</a>, <a href="../tag/vsphere/index.html" rel="tag">vsphere</a><br />					Раздел: <a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>,  <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (11)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-967">
+		<div id="div-comment-967">
+		<div class="comment-author">
+			<cite>Dmitry Gorokhov:<cite></div>
+			<p>Роман, спасибо за документ!</p>
+<p>\\&#8221;(все равно меня читают, как я знаю, только в рабочее время и в рабочие дни)&#8221;<br />
+Так вы и пишете в понедельник и четверг, лично я всегда читаю посты в день их выпуска :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-967" title="">16 Декабрь 2010, 16:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-968">
+		<div id="div-comment-968">
+		<div class="comment-author">
+			<cite>Павлов Дмитрий:<cite></div>
+			<p>Роман, как Вы лично думаете-только честно.<br />
+Если много народа напишет в netwell, поблагодарит их и укажет ,какие еще TR хотелось бы почитать по-русски-это возымеет эффект?  Я уже писал им, но могу подбмть еще народ. Я лично намного быстрее и лучше воспринимаю инфу, если она на родном.<br />
+Тем более обычно сталкиваешься(характерно для ciscopress) перевод выполнен promt или студентом-и хочется сказать, спасибо, больше не надо. То Ваши переводы уникальны-сочетание знания языка и того, что Вы хороший специалист.<br />
+ Вообще -если покупки стораджей netapp в России  растут(а я не знаю, правда)-в этом Ваша заслуга 50%. Пора бы netapp Вам приплачивать, честное слово. Дык, положа руку на сердце(я понимаю-это Ваш кусок хлеба, а в таком случае все мы склонны выдавать желаемое за действительное)-если будут письма и просьбы перевезти тиды-будет эффект?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-968" title="">16 Декабрь 2010, 17:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-969">
+		<div id="div-comment-969">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Так вы и пишете в понедельник и четверг, лично я всегда читаю посты в день их выпуска :)</p>
+<p>Тут &#8220;причина&#8221; и &#8220;следствие&#8221;. Я пишу именно по этим дням, так как это максимизирует количество посещений (пару лет назад проводил эксперименты с разными днями). Но кроме людей, которые ходят на конкретные новые посты или читают по подписке в RSS, есть еще приходящие с поисковиков, с вопросами типа &#8220;что такое кластер&#8221; или &#8220;netapp vs. emc&#8221;, и в выходные и нерабочие дни, даже несмотря на то, что, например, был опубликован новый пост, но в России на этот день пришелся внезапный выходной, все равно читателей будет у него втрое меньше. Такие вот хитрости вебмастеринга :)</p>
+<p>> Если много народа напишет в netwell, поблагодарит их и укажет ,какие еще TR хотелось бы почитать по-русски-это возымеет эффект?</p>
+<p>Я не знаю, но зато будет какая-то явная отдача, с которой уже можно будет аргументировать прибавку бюджета на эту затею.</p>
+<p>> Я уже писал им, но могу подбмть еще народ.</p>
+<p>Вот только без слэшдот-эффекта ;)</p>
+<p>> Я лично намного быстрее и лучше воспринимаю инфу, если она на родном.</p>
+<p>Это естественно. Несмотря на то, что английский языка достаточно понимаем айтишниками, даже для меня самого распечатать пару глав на русском, чтобы в дороге почитать в автобусе или метро, это совсем не то же самое, если язык - английский.<br />
+Ну и потом я в любом случае считаю, что локализация документации это, в том числе, и большой имиджевый плюс для компании, знак внимания к данному рынку, его важности для компании, и свидетельство серьезности намерений на нем, в глазак клиентов, настоящих и будущих.<br />
+NetApp собрался сам переводить что-то, но зная их темпы в таких делах, как и вообще общую корпоративную неповоротливость&#8230; Не думаю, что мы увидим результаты раньше чем через год/полтора.</p>
+<p>> Вообще -если покупки стораджей netapp в России растут(а я не знаю, правда)-в этом Ваша заслуга 50%. Пора бы netapp Вам приплачивать, честное слово.</p>
+<p>Парадокс ситуации заключается в том, что, несмотря на то, что я такой весь из себя широкоизвестный в узких кругах &#8220;евангелист&#8221;, собственные мои отношения с российским NetApp, в лучшем случае &#8220;прохладные&#8221;. Такая вот закулисная, неожданная для кого-то правда.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-969" title="">16 Декабрь 2010, 18:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-971">
+		<div id="div-comment-971">
+		<div class="comment-author">
+			<cite>Павлов Дмитрий:<cite></div>
+			<p>&#8220;Парадокс ситуации заключается в том, что, несмотря на то, что я такой весь из себя широкоизвестный в узких кругах “евангелист”, собственные мои отношения с российским NetApp, в лучшем случае “прохладные”. Такая вот закулисная, неожданная для кого-то правда.&#8221;</p>
+<p>Ну и зря они так:( . Обратитесь в нерусский, может там люди поумней.</p>
+<p>?? еще интересно-я далек от web-мастеринга-поэтому и интересно. А какой Вам прок от посещений-в блоге атомный контент, но 0 рекламы. Неужели как-то можно извлекать прибыль при ее отсутствии? А вообще, Роман, вы тут бесплатно объясняете вещи, за которые другие граждане дерут большие деньги. Вы не пробовали найти чела, который поможет извлечь выгоду из вашего блога?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-971" title="">17 Декабрь 2010, 0:23</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-972">
+		<div id="div-comment-972">
+		<div class="comment-author">
+			<cite>Dmitry Gorokhov:<cite></div>
+			<p>На сколько я знаю, офис Netapp в Москве очень небольшой. Да и люди там работают довольно специфические. Так что все возможно в заимоотношениях :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-972" title="">17 Декабрь 2010, 3:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-973">
+		<div id="div-comment-973">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Да и люди там работают довольно специфические.<br />
+Да все мы люди непростые &#8220;это дубли у нас простые&#8221; (с), я тоже человек своеобразный :)<br />
+Так что в целом претензий минимум, я прекрасно понимаю их ситуацию, в которую я постоянно отказыаюсь вписаться. Так что это не обида, а просто констататция, что от российского NetApp данному блогу помощь принципиально не оказывается, скорее даже наоборот, за что-нибудь да пальцем грозится и брови супятся, за ранние анонсы, например. Но такова уж жизнь больших корпораций, в которой ты принадлежишь не себе, а &#8220;корпоративной политике&#8221;, какая бы она ни была замечательной сама по себе.<br />
+Пишу просто то в качестве разъяснения, а то не раз приходилось слышать мнение, что я, мол, официальный блоггер на зарплате. :)</p>
+<p>> Обратитесь в нерусский, может там люди поумней.<br />
+Ну вопрос в том, насколько есть заинтересованность в рынке, это главный вопрос. Если российский рынок дает мизер, то тратиться на него в тактическом смысле, резону нет (в стратегическом - да, но там бюджеты другие). Вот, например, выяснилось, что (условно) 90% продаж России делает Москва. ?? это обессмыслило идею проведения вебинаров, которые мы начали было год назад, потому что в Москве проще собрать народ очно.</p>
+<p>> А какой Вам прок от посещений-в блоге атомный контент, но 0 рекламы.<br />
+Ну во первых это &#8220;пенис экстендер&#8221; :)<br />
+Во вторых повод не терять навыки, одновременно занимаясь тем, что интересно.<br />
+В третьих, доход с него я получаю косвенный, поднимая собственную профессиональную ценность, которая уже может оплачиваться. Возьмем те же переводы, ведь для того, чтобы сделать хороший перевод, надо быть &#8220;в теме&#8221;, причм на обоих языках. ?? так далее.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-973" title="">17 Декабрь 2010, 6:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-974">
+		<div id="div-comment-974">
+		<div class="comment-author">
+			<cite>Павлов Дмитрий:<cite></div>
+			<p>Люди!<br />
+Вот честно -emc,hds я не видел.<br />
+Но Netapp-лучше hp.<br />
+Если взять 100 показателей(условно)<br />
+то netapp 2040/3xxx против eva-в плане функционала 80/20<br />
+Единственное в чем нетарр проигрывает<br />
+cv eva УДОБНЕЕ любой из морд NETAPP.<br />
+Ну и матрешка netapp сильно навороченная, т.е. чтобы начать пользоваться надо много читать и спрашивать, да и потом не все понятно. А так по функционалу-просто небо и земля</p>
+						<div class="comment-meta"><a href="trackback.html#comment-974" title="">17 Декабрь 2010, 15:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-975">
+		<div id="div-comment-975">
+		<div class="comment-author">
+			<cite>Korj:<cite></div>
+			<p>Отношения отношениями, но через некоторое время после выхода предыдущего перевода, его стали рекомендовать по официальным каналам NetApp. Без каких-либо комментариев типа &#8220;не ленитесь черкнуть по этому поводу электронное письмо по адресу <a href="mailto:info@netwell.ru">info@netwell.ru</a>&#8220;. Так что фидбэк, возможно, занижен потому, что большинство прочитавших получили Ваши переводы не от автора, а как данность, спущенную свыше, практически как официальную литературу. Давать фидбэк на официальную литературу, как правило, не принято и бессмысленно.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-975" title="">17 Декабрь 2010, 16:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-976">
+		<div id="div-comment-976">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Это есть, что да - то да. Помощи от них не допросишься, а воспользоваться чужим трудом &#8220;за так&#8221; - это у нас, у русских, завсегда&#8230; ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-976" title="">17 Декабрь 2010, 16:19</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-977">
+		<div id="div-comment-977">
+		<div class="comment-author">
+			<cite>Fill:<cite></div>
+			<p>Давай поговорим .</p>
+						<div class="comment-meta"><a href="trackback.html#comment-977" title="">18 Декабрь 2010, 23:26</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-978">
+		<div id="div-comment-978">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Давай поговорим .</p>
+<p>Ну дыкть я у тебя и в аське и в скайпе, давай :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-978" title="">18 Декабрь 2010, 23:58</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="789" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.077 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: EMC Storage Pools &#8211; как это работает &#8220;под крышкой&#8221;.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/969/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/969</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:23 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Просто проходил</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-7309</link>
+		<dc:creator>Просто проходил</dc:creator>
+		<pubDate>Wed, 08 May 2013 16:26:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-7309</guid>
+		<description>Все эти "засады" устарели в 2012 году - с появлением прошивки VNX OE 5.32. Теперь при добавлении в пул новых дисков (а так же и в то время, когда работает перемещение данных по уровням) данные "переразмазываются" и узкие места, которые описаны в этой статье, больше не возникают. Процесс можно запустить и вручную в любой момент.
+
+http://www.slideshare.net/emcacademics/emc-vnx-fast-vp, страница 10
+
+Да и про fast vp "каждую субботу" - fast vp считает количество обращений к блокам и именно так определяет наиболее горячие участки. Бекап трогает блоки один раз и на общую статистику не влияет - так что не надо ничего отключать, все и так работать будет нормально.</description>
+		<content:encoded><![CDATA[<p>Все эти &#8220;засады&#8221; устарели в 2012 году - с появлением прошивки VNX OE 5.32. Теперь при добавлении в пул новых дисков (а так же и в то время, когда работает перемещение данных по уровням) данные &#8220;переразмазываются&#8221; и узкие места, которые описаны в этой статье, больше не возникают. Процесс можно запустить и вручную в любой момент.</p>
+<p><a href="http://www.slideshare.net/emcacademics/emc-vnx-fast-vp" rel="nofollow">http://www.slideshare.net/emcacademics/emc-vnx-fast-vp</a>, страница 10</p>
+<p>Да и про fast vp &#8220;каждую субботу&#8221; - fast vp считает количество обращений к блокам и именно так определяет наиболее горячие участки. Бекап трогает блоки один раз и на общую статистику не влияет - так что не надо ничего отключать, все и так работать будет нормально.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-7268</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 06 May 2013 04:08:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-7268</guid>
+		<description>Cade: 
+
+&gt; 1. FAST VP это не файловая система поверх RAID
+Это зависит от того, что именно вы понимаете под "файловой системой". Если то, что можно смонтировать командой mount, то - да, не является. Если как то, что позволяет адресовать блоки данных уровнем выше, чем команды SCSI, то - является.
+Да полно вам, нет ничего стыдного в использовании той или иной файловой системы поверх raw, это только пусть Чак стыдится за свой блогобред, нормальным людям уже давно понятно, насколько это на практике выгодно. Даже EMC. :)
+
+Утверждение про reallocate и его "ненужность" оставлю на вашей совести.</description>
+		<content:encoded><![CDATA[<p>Cade: </p>
+<p>> 1. FAST VP это не файловая система поверх RAID<br />
+Это зависит от того, что именно вы понимаете под &#8220;файловой системой&#8221;. Если то, что можно смонтировать командой mount, то - да, не является. Если как то, что позволяет адресовать блоки данных уровнем выше, чем команды SCSI, то - является.<br />
+Да полно вам, нет ничего стыдного в использовании той или иной файловой системы поверх raw, это только пусть Чак стыдится за свой блогобред, нормальным людям уже давно понятно, насколько это на практике выгодно. Даже EMC. :)</p>
+<p>Утверждение про reallocate и его &#8220;ненужность&#8221; оставлю на вашей совести.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Cade</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-7267</link>
+		<dc:creator>Cade</dc:creator>
+		<pubDate>Mon, 06 May 2013 03:52:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-7267</guid>
+		<description>To Aigor: Блоки которые бэкапяться, будут помечены как более горячие и в результате могут переехать, но, например для субботы, сбор статистики и переезд можно отключать.
+
+To romx, Nikolay:
+1. FAST VP это не файловая система поверх RAID
+2. reallocate не сильно здесь нужен. Пул предназначен для раскладывания часто используемых блоков на более быстрые диски (SSD, SAS), редко используемых блоков на медленные диски (SATA), тем самым и достигается эффект reallocat'а. 
+Особого смысла в пуле из одинаковых дисков нет.</description>
+		<content:encoded><![CDATA[<p>To Aigor: Блоки которые бэкапяться, будут помечены как более горячие и в результате могут переехать, но, например для субботы, сбор статистики и переезд можно отключать.</p>
+<p>To romx, Nikolay:<br />
+1. FAST VP это не файловая система поверх RAID<br />
+2. reallocate не сильно здесь нужен. Пул предназначен для раскладывания часто используемых блоков на более быстрые диски (SSD, SAS), редко используемых блоков на медленные диски (SATA), тем самым и достигается эффект reallocat&#8217;а.<br />
+Особого смысла в пуле из одинаковых дисков нет.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Aigor</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-1813</link>
+		<dc:creator>Aigor</dc:creator>
+		<pubDate>Wed, 19 Oct 2011 07:12:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-1813</guid>
+		<description>Непонятный момент - как работает fast vp в случае если Каждую субботу например все содержимое массива будет резервно копироваться, как это повлияет на перемешивание slice ов после копирования.</description>
+		<content:encoded><![CDATA[<p>Непонятный момент - как работает fast vp в случае если Каждую субботу например все содержимое массива будет резервно копироваться, как это повлияет на перемешивание slice ов после копирования.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nikolay</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-1577</link>
+		<dc:creator>Nikolay</dc:creator>
+		<pubDate>Sun, 31 Jul 2011 13:16:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-1577</guid>
+		<description>Согласен. В доках ничего с ходу не нашел. Грустно.. 21 век все-таки на дворе..</description>
+		<content:encoded><![CDATA[<p>Согласен. В доках ничего с ходу не нашел. Грустно.. 21 век все-таки на дворе..</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-1576</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 31 Jul 2011 10:23:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-1576</guid>
+		<description>Nikolay:
+
+Ну так я ж не специалист по EMC, я не знаю. Вот что перевел - то перевел, или что вычитал в Best Practices в прошлом посте.
+Но судя по всему да, таки нет, надеюсь что только пока. В Симметриксах, как говорят, есть, но это, понятно, совсем другая игра.</description>
+		<content:encoded><![CDATA[<p>Nikolay:</p>
+<p>Ну так я ж не специалист по EMC, я не знаю. Вот что перевел - то перевел, или что вычитал в Best Practices в прошлом посте.<br />
+Но судя по всему да, таки нет, надеюсь что только пока. В Симметриксах, как говорят, есть, но это, понятно, совсем другая игра.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nikolay</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-1575</link>
+		<dc:creator>Nikolay</dc:creator>
+		<pubDate>Sun, 31 Jul 2011 10:17:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-1575</guid>
+		<description>Мда.. про reallocate (засада №2)- позабавило.. Получается что даже старая EVA еще времен Compaq умела это делать. А новые железяки от EMC - нет.
+Romx, скажите, а это действительно так? Может это так сказать "нативный механизм", который не надо включать руками или задавать какие-либо опции при создании StoragePool?</description>
+		<content:encoded><![CDATA[<p>Мда.. про reallocate (засада №2)- позабавило.. Получается что даже старая EVA еще времен Compaq умела это делать. А новые железяки от EMC - нет.<br />
+Romx, скажите, а это действительно так? Может это так сказать &#8220;нативный механизм&#8221;, который не надо включать руками или задавать какие-либо опции при создании StoragePool?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: villain</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-1570</link>
+		<dc:creator>villain</dc:creator>
+		<pubDate>Thu, 28 Jul 2011 13:11:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-1570</guid>
+		<description>Можно будет поглядеть на 05.31.000.5.011 - но судя по best practices для 31-ой FLARE - там тоже нет ничего.
+По памяти в графическом интерфейсе ничего нет, может в cli что-нть есть?</description>
+		<content:encoded><![CDATA[<p>Можно будет поглядеть на 05.31.000.5.011 - но судя по best practices для 31-ой FLARE - там тоже нет ничего.<br />
+По памяти в графическом интерфейсе ничего нет, может в cli что-нть есть?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-1569</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 28 Jul 2011 12:17:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-1569</guid>
+		<description>Это называется ирония и жестокая шутка судьбы. EMC всю дорогу щемил NetApp за "файловую систему поверх RAID", за фрагментацию, за виртуализацию SAN, и вот теперь так жизнь повернулась, что EMC приходится делать то же самое, за что онга столько шпыняла NetApp. Но только у NetApp уже 7 лет опыта в этой области, большинство "детских болезней" решения уже пройдено и вылечено, накоплен опыт, а EMC во все это счас влетает полной мордой, с самого, так сказать, начала. Что ж остается делать терпевшему насмешки от EMC все эти годы NetApp, только зло посмеиваться над тем, как поворачивает ситуацию жизнь. :)</description>
+		<content:encoded><![CDATA[<p>Это называется ирония и жестокая шутка судьбы. EMC всю дорогу щемил NetApp за &#8220;файловую систему поверх RAID&#8221;, за фрагментацию, за виртуализацию SAN, и вот теперь так жизнь повернулась, что EMC приходится делать то же самое, за что онга столько шпыняла NetApp. Но только у NetApp уже 7 лет опыта в этой области, большинство &#8220;детских болезней&#8221; решения уже пройдено и вылечено, накоплен опыт, а EMC во все это счас влетает полной мордой, с самого, так сказать, начала. Что ж остается делать терпевшему насмешки от EMC все эти годы NetApp, только зло посмеиваться над тем, как поворачивает ситуацию жизнь. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/969#comment-1568</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 28 Jul 2011 11:58:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/969#comment-1568</guid>
+		<description>Dmitriy: неа, нету на FLARE 04.30.000.5.509 по карйней мере нет. Последняя доступная на powerlink 04.30.000.5.517 и к ней приписано следующее: New features in 04.30.000.5.517 There were no new features in this release. The Fixed problems section
+on page 7 contains changes made in this version.
+
+На VMax'e есть reallocate для VP пулов т.к. там те же самые грабли с "размазыванием", там так и написано: если хотите расширить VP пул, то расширяйте его на такой же размер... :( глупость конечно, но главное в маркетинговых проспектах фича VP есть! :)</description>
+		<content:encoded><![CDATA[<p>Dmitriy: неа, нету на FLARE 04.30.000.5.509 по карйней мере нет. Последняя доступная на powerlink 04.30.000.5.517 и к ней приписано следующее: New features in 04.30.000.5.517 There were no new features in this release. The Fixed problems section<br />
+on page 7 contains changes made in this version.</p>
+<p>На VMax&#8217;e есть reallocate для VP пулов т.к. там те же самые грабли с &#8220;размазыванием&#8221;, там так и написано: если хотите расширить VP пул, то расширяйте его на такой же размер&#8230; :( глупость конечно, но главное в маркетинговых проспектах фича VP есть! :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

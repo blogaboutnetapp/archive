@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: ??звлечение данных о Busy Spindles из вывода stats</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1116/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1116</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:23 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Андрей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1116#comment-13055</link>
+		<dc:creator>Андрей</dc:creator>
+		<pubDate>Thu, 17 Apr 2014 11:47:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1116#comment-13055</guid>
+		<description>А еще можно вот так вывести:
+stats show  disk:*:display_name disk:*:disk_busy</description>
+		<content:encoded><![CDATA[<p>А еще можно вот так вывести:<br />
+stats show  disk:*:display_name disk:*:disk_busy</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1116#comment-10143</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 30 Sep 2013 10:42:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1116#comment-10143</guid>
+		<description>?? никто не рассказал, как работает.</description>
+		<content:encoded><![CDATA[<p>?? никто не рассказал, как работает.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

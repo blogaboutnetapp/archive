@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Почему я считаю, что WAFL это не файловая система?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/282/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/282</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:57 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/282#comment-10952</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 06 Nov 2013 07:18:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=282#comment-10952</guid>
+		<description>С помощью ndmpcopy, кстати, можно копировать, он сохраняет метаданные в процессе копирования.</description>
+		<content:encoded><![CDATA[<p>С помощью ndmpcopy, кстати, можно копировать, он сохраняет метаданные в процессе копирования.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/282#comment-10951</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Wed, 06 Nov 2013 07:07:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=282#comment-10951</guid>
+		<description>пошел краштестить )
+Благо есть стенд...</description>
+		<content:encoded><![CDATA[<p>пошел краштестить )<br />
+Благо есть стенд&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/282#comment-10949</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 06 Nov 2013 07:03:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=282#comment-10949</guid>
+		<description>Не, при этом потеряются связанные с этим объектом метаданные, определяющие работу с ним как с LUN, и после этого смонтировать его как LUN будет невозможно.</description>
+		<content:encoded><![CDATA[<p>Не, при этом потеряются связанные с этим объектом метаданные, определяющие работу с ним как с LUN, и после этого смонтировать его как LUN будет невозможно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/282#comment-10948</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Wed, 06 Nov 2013 06:54:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=282#comment-10948</guid>
+		<description>А вот интересно, если этот lun (в виде файл по NFS) скопировать на linux (например), а потом назад залить в виде копии под другим именем. 
+Эта копия сможет продолжить работу как lun? ))</description>
+		<content:encoded><![CDATA[<p>А вот интересно, если этот lun (в виде файл по NFS) скопировать на linux (например), а потом назад залить в виде копии под другим именем.<br />
+Эта копия сможет продолжить работу как lun? ))</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Валентин</title>
+		<link>http://blog.aboutnetapp.ru/archives/282#comment-9161</link>
+		<dc:creator>Валентин</dc:creator>
+		<pubDate>Thu, 15 Aug 2013 07:47:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=282#comment-9161</guid>
+		<description>Роман, не стал писать на форум. Спрошу у Вас здесь. Вы рекомендовали к прочтинию статью http://www.netwell.ru/docs/netapp/wp3002_wafl.htm
+Там есть для меня непонятный момент, я еще и сюда http://en.wikisource.org/wiki/United_States_patent_5819292 заглянул.
+В статье есть пример: "Например, файловая система размером 10 GB с одним inode на каждые 4 KB дискового пространства займет 320 MB только одних inodes."
+У меня не сходится:
+Если размер самого inode 64 байта (16 блоков по байта) (правда есть еще заголовок - Standard inode information 310A) то должно получиться около 160 Мб. В общем вопрос откуда 320 MB?</description>
+		<content:encoded><![CDATA[<p>Роман, не стал писать на форум. Спрошу у Вас здесь. Вы рекомендовали к прочтинию статью <a href="http://www.netwell.ru/docs/netapp/wp3002_wafl.htm" rel="nofollow">http://www.netwell.ru/docs/netapp/wp3002_wafl.htm</a><br />
+Там есть для меня непонятный момент, я еще и сюда <a href="http://en.wikisource.org/wiki/United_States_patent_5819292" rel="nofollow">http://en.wikisource.org/wiki/United_States_patent_5819292</a> заглянул.<br />
+В статье есть пример: &#8220;Например, файловая система размером 10 GB с одним inode на каждые 4 KB дискового пространства займет 320 MB только одних inodes.&#8221;<br />
+У меня не сходится:<br />
+Если размер самого inode 64 байта (16 блоков по байта) (правда есть еще заголовок - Standard inode information 310A) то должно получиться около 160 Мб. В общем вопрос откуда 320 MB?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/282#comment-1447</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 23 Jun 2011 11:03:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=282#comment-1447</guid>
+		<description>Ну в целом я согласен с автором, которого я цитирую в своем посте. Такое определение хорошо, но оно слишком общО, чтобы им пользоваться.</description>
+		<content:encoded><![CDATA[<p>Ну в целом я согласен с автором, которого я цитирую в своем посте. Такое определение хорошо, но оно слишком общО, чтобы им пользоваться.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: пищухин Василий Михайлович</title>
+		<link>http://blog.aboutnetapp.ru/archives/282#comment-1446</link>
+		<dc:creator>пищухин Василий Михайлович</dc:creator>
+		<pubDate>Thu, 23 Jun 2011 09:12:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=282#comment-1446</guid>
+		<description>Уважаемый Автор! С интересом прочёл Ваш перевод статьи "Почему я считаю, что WAFL это не файловая система?" Костадиса Руссоса. ??нформация интересная и познавательная. Хотел бы узнать Ваше мнение на такую формулировку перевода определения файловой системы:
+«Файловая система это специализированная база данных 
+
+управления внешней памятью  при
+
+для хранения, иерархической организации, управления, навигации, доступа и извлечения данных»</description>
+		<content:encoded><![CDATA[<p>Уважаемый Автор! С интересом прочёл Ваш перевод статьи &#8220;Почему я считаю, что WAFL это не файловая система?&#8221; Костадиса Руссоса. ??нформация интересная и познавательная. Хотел бы узнать Ваше мнение на такую формулировку перевода определения файловой системы:<br />
+«Файловая система это специализированная база данных </p>
+<p>управления внешней памятью  при</p>
+<p>для хранения, иерархической организации, управления, навигации, доступа и извлечения данных»</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: EMC FASTcache и NetApp Flash Cache</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/936/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/936</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:00 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-4919</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 20 Nov 2012 08:24:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-4919</guid>
+		<description>bbk:
+
+Вы про FASTcache? 64KB.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Вы про FASTcache? 64KB.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-4918</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 20 Nov 2012 08:15:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-4918</guid>
+		<description>&#62;если, допустим, только 4KB из блока в 64KB нам действительно нужны
+А вот интересно где-то бы получить базовый размер блока которым оперирует СХД VNX/VNXe.</description>
+		<content:encoded><![CDATA[<p>&gt;если, допустим, только 4KB из блока в 64KB нам действительно нужны<br />
+А вот интересно где-то бы получить базовый размер блока которым оперирует СХД VNX/VNXe.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Mekhanoshin</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-1682</link>
+		<dc:creator>Alexey Mekhanoshin</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 07:34:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-1682</guid>
+		<description>Картинки отвалились, - какая жалость.</description>
+		<content:encoded><![CDATA[<p>Картинки отвалились, - какая жалость.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-1521</link>
+		<dc:creator>firehunter</dc:creator>
+		<pubDate>Mon, 11 Jul 2011 13:43:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-1521</guid>
+		<description>romx: 
+
+плюс к последней фразе: "и алгоритмы, которые позволяют наиболее эффективно производить запись".
+Это в качестве варианта. Это мое предложение, основанное на личном мнении о статье, точнее о том, как ее прочтут неподготовленные читатели. Конечно Вы можете со мной не согласится. Я ни на чем не настаиваю.
+Думаю что дискуссию можно сворачивать.</description>
+		<content:encoded><![CDATA[<p>romx: </p>
+<p>плюс к последней фразе: &#8220;и алгоритмы, которые позволяют наиболее эффективно производить запись&#8221;.<br />
+Это в качестве варианта. Это мое предложение, основанное на личном мнении о статье, точнее о том, как ее прочтут неподготовленные читатели. Конечно Вы можете со мной не согласится. Я ни на чем не настаиваю.<br />
+Думаю что дискуссию можно сворачивать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-1519</link>
+		<dc:creator>firehunter</dc:creator>
+		<pubDate>Mon, 11 Jul 2011 13:40:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-1519</guid>
+		<description>romx:
+
+Я не настаиваю NVRAM называть как либо. Мне просто кажется, что NVRAM достоин упоминания о нем в статье. Так или иначе это устройство является важной частью всей системы. ?? несколько фраз про WAFL и отсутствии необходимости классического кеширования записи для нее я бы дополнил "... потому что WAFL использует NVRAM".</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>Я не настаиваю NVRAM называть как либо. Мне просто кажется, что NVRAM достоин упоминания о нем в статье. Так или иначе это устройство является важной частью всей системы. ?? несколько фраз про WAFL и отсутствии необходимости классического кеширования записи для нее я бы дополнил &#8220;&#8230; потому что WAFL использует NVRAM&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-1517</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 11 Jul 2011 11:57:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-1517</guid>
+		<description>firehunter:
+
+Дело в том, что 4000 IOPS это довольно обычная величина для sequental write на SATA. Она получается оттого, что random в процссе записи на диски становтся sequental. Отсюда и такие величины на random-запись
+Как вы, возможно, знаете, записи, хотя и попадают в NVRAM на пути к дискам, но не задерживаются там надолго, каждые 10 секунд NVRAM делает flush на диски (либо при заполнении более 50% половины суммарной емкости памяти, одного из двух банков, NVRAM).
+То есть фактическая емкость "кэша" в NetApp, если вы настаиваете на том, чтобы называть NVRAM кэшем, составляет 25% от его "паспортной емкости". Это совсем немного для кэша (но достаточно для NVRAM).
+Таким образом, диски на самом деле "потребляют" поток как указано, так как, в противном случае, емкость кэша быстро бы переполнилась, и производительность на запись бы упала. Данным просто некуда было бы поместиться.
+А раз она не падает, а вполне себе steady, значит один диск SATA на самом деле успевает прожевывать 100% random write на такой скорости.</description>
+		<content:encoded><![CDATA[<p>firehunter:</p>
+<p>Дело в том, что 4000 IOPS это довольно обычная величина для sequental write на SATA. Она получается оттого, что random в процссе записи на диски становтся sequental. Отсюда и такие величины на random-запись<br />
+Как вы, возможно, знаете, записи, хотя и попадают в NVRAM на пути к дискам, но не задерживаются там надолго, каждые 10 секунд NVRAM делает flush на диски (либо при заполнении более 50% половины суммарной емкости памяти, одного из двух банков, NVRAM).<br />
+То есть фактическая емкость &#8220;кэша&#8221; в NetApp, если вы настаиваете на том, чтобы называть NVRAM кэшем, составляет 25% от его &#8220;паспортной емкости&#8221;. Это совсем немного для кэша (но достаточно для NVRAM).<br />
+Таким образом, диски на самом деле &#8220;потребляют&#8221; поток как указано, так как, в противном случае, емкость кэша быстро бы переполнилась, и производительность на запись бы упала. Данным просто некуда было бы поместиться.<br />
+А раз она не падает, а вполне себе steady, значит один диск SATA на самом деле успевает прожевывать 100% random write на такой скорости.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-1516</link>
+		<dc:creator>firehunter</dc:creator>
+		<pubDate>Mon, 11 Jul 2011 06:43:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-1516</guid>
+		<description>romx:
+
+Собственно я предполагаю, что следующее предложение в статье может ввести в заблуждение неподготовленного читателя: "Около четырех с половиной тысяч IOPS random-записи на один диск SATA - это как раз то, отчего в системах NetApp нет свойственной для "классических систем" острой необходимости в кэше записи на уровне контроллера." Он, читатель, может сделать вывод, что все операции происходят исключительно в RAM и ONTAP сообщает о успешном завершении записи только тогда, когда она реально упала на диски. А это, как мы с Вами знаем - не так.</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>Собственно я предполагаю, что следующее предложение в статье может ввести в заблуждение неподготовленного читателя: &#8220;Около четырех с половиной тысяч IOPS random-записи на один диск SATA - это как раз то, отчего в системах NetApp нет свойственной для &#8220;классических систем&#8221; острой необходимости в кэше записи на уровне контроллера.&#8221; Он, читатель, может сделать вывод, что все операции происходят исключительно в RAM и ONTAP сообщает о успешном завершении записи только тогда, когда она реально упала на диски. А это, как мы с Вами знаем - не так.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-1515</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 11 Jul 2011 01:21:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-1515</guid>
+		<description>firehunter:
+
+Ну я уже даже не знаю, что вам еще написать, все свои аргументы за то, почему это так, я привел, даже не по разу, дискуссия, на мой взгляд, зашла в тупик (вернее вошла в рекурсию).
+
+Действительно, лучше всего начать с определения терминологий, так как с моей точки зрения NVRAM кэшем не является, и к теме не относится, но вы, по-видимому, со мной не согласны.</description>
+		<content:encoded><![CDATA[<p>firehunter:</p>
+<p>Ну я уже даже не знаю, что вам еще написать, все свои аргументы за то, почему это так, я привел, даже не по разу, дискуссия, на мой взгляд, зашла в тупик (вернее вошла в рекурсию).</p>
+<p>Действительно, лучше всего начать с определения терминологий, так как с моей точки зрения NVRAM кэшем не является, и к теме не относится, но вы, по-видимому, со мной не согласны.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-1514</link>
+		<dc:creator>firehunter</dc:creator>
+		<pubDate>Mon, 11 Jul 2011 00:47:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-1514</guid>
+		<description>romx:
+
+Здесь надо определятся с терминологией.
+Конечно NVRAM это не кеш, если кешем считать реализацию энергонезависимой памяти и алгоритмов работы с ней в других системах. Но как это не называйте, при попадании данных от клиента в NVRAM, ему сообщается об успешной записи.
+Статья ваша, Вам решать что в ней писать. Я лишь высказал свое мнение, что на мой взгляд, краткое упоминание NVRAM в ней не было бы лишним. Ведь именно NVRAM позволяет делать все трюки с записью, такие как отложенное выделение места под запись, CP и пр. В противном случае у читателя может сложиться неверное впечатление.</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>Здесь надо определятся с терминологией.<br />
+Конечно NVRAM это не кеш, если кешем считать реализацию энергонезависимой памяти и алгоритмов работы с ней в других системах. Но как это не называйте, при попадании данных от клиента в NVRAM, ему сообщается об успешной записи.<br />
+Статья ваша, Вам решать что в ней писать. Я лишь высказал свое мнение, что на мой взгляд, краткое упоминание NVRAM в ней не было бы лишним. Ведь именно NVRAM позволяет делать все трюки с записью, такие как отложенное выделение места под запись, CP и пр. В противном случае у читателя может сложиться неверное впечатление.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/936#comment-1513</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 10 Jul 2011 12:32:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/936#comment-1513</guid>
+		<description>firehunter:
+
+Дело в том, что я пишу в этом блоге уже более четырех лет, и о многом уже писал ранее.
+Глупо каждую заметку сюда писать ab ovo, начиная "с зарождения жизни на Земле".
+Про NVRAM я писал, например в статье про WAFL: http://blog.aboutnetapp.ru/archives/19
+Достаточно подробно про NVRAM и его работу рассказывается также в переведенной мной статье про устройство WAFL, которая выложена на сайте Netwell, в библиотеке переводов:
+http://www.netwell.ru/docs/netapp/wp3002_wafl.pdf
+
+К тому же, повторюсь, NVRAM это НЕ кэш, поэтому вполне логично, по крайней мере с моей стороны, в статье про КЭШ, про NVRAM как раз и не писать.</description>
+		<content:encoded><![CDATA[<p>firehunter:</p>
+<p>Дело в том, что я пишу в этом блоге уже более четырех лет, и о многом уже писал ранее.<br />
+Глупо каждую заметку сюда писать ab ovo, начиная &#8220;с зарождения жизни на Земле&#8221;.<br />
+Про NVRAM я писал, например в статье про WAFL: <a href="http://blog.aboutnetapp.ru/archives/19" rel="nofollow">http://blog.aboutnetapp.ru/archives/19</a><br />
+Достаточно подробно про NVRAM и его работу рассказывается также в переведенной мной статье про устройство WAFL, которая выложена на сайте Netwell, в библиотеке переводов:<br />
+<a href="http://www.netwell.ru/docs/netapp/wp3002_wafl.pdf" rel="nofollow">http://www.netwell.ru/docs/netapp/wp3002_wafl.pdf</a></p>
+<p>К тому же, повторюсь, NVRAM это НЕ кэш, поэтому вполне логично, по крайней мере с моей стороны, в статье про КЭШ, про NVRAM как раз и не писать.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

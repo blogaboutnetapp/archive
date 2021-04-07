@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Мастер-класс говнилок, или &ldquo;сеанс черной уличной магии&rdquo;</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="373/trackback.html">Надежность RAID 5, качество SATA, и Дед Мороз.</a></div>
+			<div class="alignright"><a href="388/trackback.html">О &#8220;дешевизне&#8221; SATA-дисков</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-386">
+			<h2 class="posttitle"><a href="386/trackback.html" rel="bookmark" title="Permanent Link to Мастер-класс говнилок, или &ldquo;сеанс черной уличной магии&rdquo;">Мастер-класс говнилок, или &ldquo;сеанс черной уличной магии&rdquo;</a></h2>
+			<div class="postmetadata">3 Сентябрь 2009, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<ol>
+<p>Сегодня я бы хотел провести для вас своеобразный &quot;мастер-класс говнилок&quot;, или, если угодно, &quot;сеанс черной магии&quot;, разумеется &quot;с последующим ее разоблачением&quot;. Я воспользуюсь для этого <a href="http://chucksblog.typepad.com/chucks_blog/2008/08/your-storage-mi.html">статьей небезызвестного блоггера Чака Холлиса</a>, почти официального &quot;говнильщика&quot; компании EMC. В части &quot;разоблачений&quot; мне поможет <a href="http://chucksblog.typepad.com/chucks_blog/2008/08/your-storage-mi.html">Вэл Берковичи, блоггер NetApp</a>, некоторое время назад сделавший показательный разбор одного из постов Чака.</p>
+<p>Чак выбрал своей темой сравнительный анализ результатов получения Usable Space из Raw на трех разных платформах хранения - EMC Clariion, HP EVA и NetApp FAS. Ну за EVA, я надеюсь, вступится еще кто-нибудь, я же разберу двух оставшихся, тем более что я по EVA не спец, однако уверен, что и там вполне могут быть схожие &quot;результаты&quot;.</p>
+<p>Вэл очень показательно сравнивает манеры, при проведении такого сравнения с поведением фокусника. Сначала нам показывают нечто вполне обычное и привычное. Колоду карт. Кролика и шляпу. Женщину в ящике ;) Мы осматриваем их, и вынуждены согласиться, что да, никакого подвоха тут нет (обычно уже на этом этапе что-то не так, и хитрость уже спрятана, чтобы вовремя сработать).</p>
+<p>На втором этапе фокусник превращает рассмотренные нами обычные предметы в что-то необычное. Что-то исчезает, что-то видоизменяется, и так далее. Вы потрясены. </p>
+<p>Тут все зависит от того, хотите ли вы быть одураченными. Если да, как обстоит дело в большинстве случаев, вам ничего не остается как согласиться с фокусником: &quot;Да все так, кролик исчезает в шляпе, а женщина перепилена&quot;, даже несмотря на то, что в глубине души вы и понимаете, что вас где-то провели. Но ведь вы внимательно следили!</p>
+<p>В свое время, в каждом выпуске журнала “Юный Техник”, известный фокусник Эмиль Кио давал описания какого-нибудь незамысловатого фокуса (ну у него их много в запасе было), с объяснениями &quot;как&quot;.</p>
+<p>Попробую и я показать вам в каком месте у Чака начинается &quot;ловкость рук&quot;.</p>
+<p>??так, начало, The Pledge, &quot;предъявление предметов&quot;. </p>
+<p>Чак предлагает нам сравнить величины Usable Space на каком-нибудь простом и знакомом примере. Например инфраструктура хранения для MS Exchange.</p>
+<p>Возьмем для примера <strike>шляпу</strike> диски FC 146GB, определим, что мы хотим получить на выходе пространство, равное емкости 120 дисков (около 17,5TB), и посчитаем, сколько дисков нам придется купить для системы, чтобы эти условия соблюсти.</p>
+<p>Мы берем руководства Best Practices по установке для соответствующих систем, и начинаем, оперируя ими, рассчитывать пространство, &quot;делать сайзинг&quot; как это называется у нас.</p>
+<p>Повторюсь, я не слишком большой спец в области конфигурирования EMC, поэтому я просто возьму анализ для CX4 самого Чака. Я не стану переписывать тут весь его пост, за подробностями можно пройти непосредственно к нему, покажу лишь сам принцип. ??так, перед нами стоит задача получить на выходе usable-емкость 120 дисков на 146GB. Что добавится к этой величине?</p>
+<p><strong>Диски hotspare</strong> - EMC рекомендует иметь 1 диск hot spare на каждые 30 дисков данных.</p>
+<p><strong>Пространство для snapshots</strong> - возьмем эту величину равной 10% от usable</p>
+<p><strong>Секторный оверхед</strong> - Clariion также как NetApp FAS использует увеличенный до 520 байт сектор, то есть примерно 1.5% к пространству usable.</p>
+<p>Но что это? Внимательный взгляд уже видит первую ловкость. Отчего это Чак берет в качестве типа RAID для такой большой системы - RAID-5? </p>
+<p>Даже если вас не убедила моя &quot;дюжина ножей&quot;(<a href="345/trackback.html">пост раз</a> и <a href="373/trackback.html">пост два</a>) в спину RAID-5, довольно будет и того, что это не рекомендует даже сам EMC в тех самых Best Practices, на которые сам же Чак Холлис и ссылается:</p>
+<p>страница 15, документ #H4060, Oct. 2007:</p>
+<blockquote><p>It is generally accepted that RAID 1/0 is a better choice for random-write environments like Exchange</p>
+</blockquote>
+<p>В том числе это так и для DMX (стр. 7-49):</p>
+<p><a href="http://www.emc.com/collateral/hardware/solution-overview/h4067-microsoft-exchange-server-symmetrix.pdf">http://www.emc.com/collateral/hardware/solution-overview/h4067-microsoft-exchange-server-symmetrix.pdf</a></p>
+<blockquote><p>As a matter of Best Practice, EMC generally recommends RAID1 to be the primary choice in RAID configuration for reasons of reliability and availability and performance for high-end deployments of Microsoft Exchange Server.</p>
+</blockquote>
+<p>Вот он, трюк. Сейчас посмотрим, что получится в результате.</p>
+<p>Кроме этого, Чак еще пару раз &quot;забывает&quot; о некоторых моментах, так, например, говоря о рекомендации делать right sizing на 10% для дисков в RAID на NetApp, для того, чтобы, при необходимости, можно было ввести в RAID диск слегка отличающийся по &quot;геометрии&quot;, например спустя несколько лет, если поставляемые на замену диски отличаются от оригинальных в количестве секторов, он напрочь &quot;забывает&quot; это учесть в своем расчете для CX4, несмотря на то, что на это прямо указывается в Best Practices EMC.</p>
+<p>Также не забудем и про пресловутый Vault на первых 5 дисках. Если в случае использования RAID-5 у нас были шансы использовать этот маленький пятидисковый RAID-5 в составе системы, также целиком выполненной в RAID-5, то в случае RAID-10 деть этот небольшой RAID-5 нам некуда, придется не использовать его для данной задачи вовсе.</p>
+<p>??спользовать же эти 5 дисков в составе большого RAID-10 нельзя, так как Vault на них уменьшает их &quot;аппаратную геометрию&quot;, и они становятся &quot;несовместимыми&quot; по размерам с остальными дисками системы. То есть минус 5 дисков целиком.</p>
+<p>Но для нашей большой системы это уже детали в единицы процентов (для системы меньшего размера они уже не будут столь незначительными). Оставим их, учтя в общем расчете, и только.</p>
+<p>Что же у нас получилось?</p>
+<p>А вот что:</p>
+<p><a href="/pics//clip-image001.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="clip_image001" border="0" alt="clip_image001" src="/pics//clip-image001-thumb.png" width="371" height="244" /></a></p>
+<p><a href="/pics//clip-image002.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="clip_image002" border="0" alt="clip_image002" src="/pics//clip-image002-thumb.png" width="396" height="244" /></a></p>
+<p>Разительная разница по сравнению с цифрами, приведенными у Чака, не правда ли?</p>
+<p><em>&quot;Ловкость рук, и никакого мошенства&quot;.</em></p>
+<p><a href="/pics//clip-image003.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="clip_image003" border="0" alt="clip_image003" src="/pics//clip-image003-thumb.png" width="451" height="235" /></a></p>
+<p><a href="/pics//clip-image004.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="clip_image004" border="0" alt="clip_image004" src="/pics//clip-image004-thumb.png" width="228" height="231" /></a></p>
+<p>&#160;</p>
+<p>Теперь займемся нашим NetApp FAS.</p>
+<p>??сходные данные те же.</p>
+<p>120 дисков по 146GB емкости в Usable, сколько должно быть в Raw?</p>
+<p>??сходный ход расчета Чака оставим без изменений, но будем опять внимательно смотреть &quot;за руками&quot;. </p>
+<p>Вот оно! </p>
+<blockquote><p>One thing is extremely clear &#8212; running out of snap reserve looks to be a very bad thing in a NetApp environment &#8212; there&#8217;s no place to put an incoming write, usually resulting in catastrophic application failure.&#160; By comparison, other approaches (e.g. CX4 and EVA) simply stop trying to capture before-write data if you run out of reserve &#8212; the application itself continues to run. </p>
+<p>&#8230;</p>
+<p>It is recommended to have a 100% space reservation value set for volumes hosting LUNs containing Exchange data. </p>
+</blockquote>
+<p>Разумеется в таком анализе не обойдется без традиционной спекуляции на тему 100% LUN space reservation. Как-то даже слишком предсказуемо.</p>
+<p>Обязателен, неизбежен и абсолютно необходим ли 100% space reservation, как необходимо отдать 100% от объема data disks при создании RAID-10?</p>
+<p><strong>НЕТ.</strong></p>
+<p>Вы не можете уменьшить количество дисков, уходящих под &quot;зеркало&quot; в RAID-10, в котором Usable еще до всех &quot;вычетов&quot; всегда будет менее 50% от Raw.</p>
+<p>Однако можете уменьшить количество места, отдаваемое под fractional LUN reservation в NetApp FAS, так как его уменьшение не ведет к неработоспособности.</p>
+<p>Я уже <a href="233/trackback.html">останавливался ранее</a> на том, что же скрывается за fractional (LUN space) reservation.</p>
+<p>Скажу честно, тема непроста, но понять ее можно. Вот, если вкратце, на пальцах:</p>
+<p>LUN space reservation это место, выделяемое и резервируемое на томе в том случае, если вы планируете использовать snapshot для LUN,и есть риск, что значительная часть объема этого LUN будет перезаписана. В этом случае резервирование пространства размером с весь LUN гарантирует нам то, что можно будет создать snapshot с этого LUN и место для нормальной работы с этим LUN-ом еще останется.</p>
+<p>По умолчанию, руководствуясь правилом &quot;прежде всего - не навреди&quot; Data ONTAP действительно предлагает наиболее &quot;консервативную&quot; установку, в виде 100% reserve, гарантирующую, что даже если админ совсем ничего не понимает, и ставит систему Enter-ом, соглашаясь со всеми дефолтными настройками, то ничего смертельно опасного для его данных при работе не произойдет.</p>
+<p>Означает ли это, что никаких других возможностей не предусматривается? <strong>Нет, не означает</strong>.</p>
+<p>Можно ли не использовать 100% LUN space reservation, и чтобы при это все работало? <strong>Да, запросто</strong>.</p>
+<p>Какие еще возможности есть? Можно, например, автоматически увеличивать размер тома, на котором расположен LUN, с тем, чтобы места хватало и на LUN, и на создаваемые Snapshots. А можно настроить автоматическое удаление старых снэпшотов, при создании более новых, если им не хватает места.</p>
+<p>Ну и, наконец, если места не хватило, то предусмотрена возможность корректного автоматического размонтирования LUN-а, на котором невозможно продолжать запись.</p>
+<p>?? все это - без необходимости резервировать 100% от usable space под LUN space reservation.</p>
+<p>Давайте посчитаем по нашей методике raw space, взяв желаемый usable добавим к нему все &quot;вычеты&quot;, &quot;оверхеды&quot; и &quot;резервации&quot;, добавим диски parity RAID из расчета 2 диска на каждые 14 дисков (RAID-DP), и, наконец, hot spare (два на первые 100, и по два на каждые следующие 84), и посмотрим что получилось (все дробные величины округлялись в большую сторону до целочисленных значений, указанные на диаграмме значения показывают доли секторов диаграммы и не всегда равны процентам в таблице).</p>
+<p><a href="/pics//clip-image005.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="clip_image005" border="0" alt="clip_image005" src="/pics//clip-image005-thumb.png" width="347" height="244" /></a></p>
+<p><a href="/pics//clip-image006.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="clip_image006" border="0" alt="clip_image006" src="/pics//clip-image006-thumb.png" width="405" height="244" /></a></p>
+<p>Для желающих поиграться - прикладываю мою табличку, где я все это рисовал.</p>
+<p><a href="/docs/EMC_vs._NetApp.xlsx">EMC_vs._NetApp.xlsx</a></p>
+<p>??так, резюмируя прочитанное. Для того, чтобы провести правильный сеанс &quot;говнения&quot; конкурента, необходимо следующее:</p>
+<li>Представить себя как &quot;независимое лицо&quot;, незаинтересованное в определенном &quot;предвзятом&quot; результате. Например проведите сравнение параллельно для нескольких вендоров. </li>
+<li>Продемонстрировать все исходные материалы, упирая на их доступность. </li>
+<li>Всегда аппелировать к вендорским Best Practices, пусть даже отдельные части их и будут проигнорированы, а сами они могут быть &quot;outdated&quot;, устаревшими. Мало кто полезет проверять все подробности в 150-страничном PDF-е, в лучшем случае прочтет указываемое вами предложение в тексте, зачастую без контекстной связи. </li>
+<li>Всегда сравнивать системы в выгодном для себя контексте. Ваша система имеет низкую производительность? Сравнивайте на задачах архивного хранения и резервного копирования. Система высокопроизводительна, но дорогостояща? Сконфигурируйте минимально возможную, пусть и неприменимую в реальной жизни конфигурацию. Малопроизводительна, но дешева? Активно пользуйтесь сравнением соотношения price/performance. Владея инициативой при написании документа - заставьте противника обороняться на неудобном для него поле. </li>
+<li>Не забудьте о психологическом давлении и субъективности восприятия. Хорошее название для сравнительного документа &quot;Вся правда о…&quot;. Почаще упоминайте &quot;свободность&quot; и &quot;открытость&quot; (“хорошо!”) в пику &quot;проперитарности&quot; и &quot;закрытости&quot; (“плохо!”). </li>
+<li>Проводя в тексте нужный трюк, постарайтесь отвлечь от него внимание, например ссылками на какие-либо документы, или цитаты авторитетов. Актуальность их обычно не проверяется. Хорошо работают графики таблицы, иллюстрирующие ваши выводы, тем боле, что чаще всего перепроверять данные никто не полезет. </li>
+<li>Отлично работают: “правильная” группировка результатов, а также маленькие хитрости, типа смешивания единиц измерения, неуказание единиц, нелинейная шкала отображения для графиков, и так далее. </li>
+</ol>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/emc/index.html" rel="tag">emc</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="386/trackback.html#respond">Комментарий</a> (<a href='386/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="386/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (9)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1464">
+		<div id="div-comment-1464">
+		<div class="comment-author">
+			<cite>kdv:<cite></div>
+			<p>ссылка на &#8220;Вэл Берковичи, блоггер NetApp,&#8221; указывает на блог Чака Холлиса.</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1464" title="">29 Июнь 2011, 1:23</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1669">
+		<div id="div-comment-1669">
+		<div class="comment-author">
+			<cite>kpoxa:<cite></div>
+			<p>а смысл сравнивать RAID10 и RAID6 в послезной емкости?<br />
+Я понял, у фанатов НетАпа также нет адекватной оценки любимых устройств.</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1669" title="">7 Сентябрь 2011, 20:59</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1670">
+		<div id="div-comment-1670">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>kpoxa:</p>
+<p>А с чем сравнивать RAID-DP?</p>
+<p>С RAID-5 сравнивать неверно, потому что RAID-DP значительно, <a href="975/trackback.html" rel="nofollow">в сотни раз его надежнее</a>.<br />
+Не сравнивают же RAID-10 и RAID-0?</p>
+<p>RAID-6 под primary data не рекомендует сам EMC, по причине низкого быстродействия.</p>
+<p>Ближайшим аналогом из &#8220;стандартных&#8221; типов RAID, для RAID-DP, по параметрам надежности и быстродействия, будет как раз RAID-10, вот с ним и сравниваем.</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1670" title="">7 Сентябрь 2011, 21:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1671">
+		<div id="div-comment-1671">
+		<div class="comment-author">
+			<cite>kpoxa:<cite></div>
+			<p>Это можно сказать, а не тихо умолчать, в статье даже упоминания, что речь идет в RAID-DP нет, значит это не адекватна.</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1671" title="">8 Сентябрь 2011, 12:00</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1672">
+		<div id="div-comment-1672">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>kpoxa:</p>
+<p>Дайте угадаю. Вы впервые на этом блоге, пришли с поисковика, и сразу на эту статью, и даже ее читали не очень внимательно?<br />
+RAID-DP это уже лет 8 как тип RAID по умолчанию в системах NetApp, по сути это единственный на сегодня используемый в них RAID. С чем же еще сравнивать, когда этот тип RAID - единственный, и рекомендуемый для всех систем?</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1672" title="">8 Сентябрь 2011, 12:05</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1673">
+		<div id="div-comment-1673">
+		<div class="comment-author">
+			<cite>kpoxa:<cite></div>
+			<p>Дайте попробую - расчет на тех, кто не думая поверит всему на слово?<br />
+Какая разница что RAID-DP единственный рэйд в НетАпп?<br />
+Никакой, в любом сравнении должно быть обьяснение о причинах, тут его нет, просто обзывание ЕМС говном, а НетАпп - супер, мне лично, пока, не нравится ни то не другое, я выбираю, хочу обьективного сравнения, а его нет, и один и другие врут друг про друга, а не врут, так умалчивают а важных фактах.</p>
+<p>А надежнее, пока что, z3 в ZFS, он надежнее, чем RAID-DP. Возможно избыточно надежнее.</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1673" title="">8 Сентябрь 2011, 12:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1674">
+		<div id="div-comment-1674">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> мне лично, пока, не нравится ни то не другое, я выбираю, хочу обьективного сравнения, а его нет</p>
+<p>В таком случае приглашаю вас почитать этот блог поподробнее и подольше.<br />
+Готов вернуться к этому спору позже, когда вы будете владеть бОльшим объемом информации, и, самое главное, это обязательное условие для участия в споре тут, уметь взвешенно, вежливо и аргументированно отстаивать свою позицию.</p>
+<p>??, да, конечно, внимательно читая своего оппонента перед этим.</p>
+<p>?? спасибо за ваш интерес.</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1674" title="">8 Сентябрь 2011, 12:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1707">
+		<div id="div-comment-1707">
+		<div class="comment-author">
+			<cite>kpoxa:<cite></div>
+			<p>Насчет вежливого обсуждения без проблем, просто когда вижу &#8220;мастер-класс говнилок&#8221;, то мне кажется что тут другой уровень :)<br />
+Так что проще всем всегда быть вежливее, даже с конкурентами, такие как я не будут на это реагировать не совсем адекватно.</p>
+<p>На последние 2 недели ни продавцы решений НетАпп, ни ЕМС не смогли мне предложить мотивированного решения моей задачи, как-то странно себя ведут, говорят - покупайте и тестируйте.</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1707" title="">19 Сентябрь 2011, 18:20</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1708">
+		<div id="div-comment-1708">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> просто когда вижу “мастер-класс говнилок”, то мне кажется что тут другой уровень </p>
+<p>&#8220;Говнилка&#8221; это общепринятый и хорошо всем знакомый у нас в отрасли термин. :) В англоязычной литературе используется понятие <a href="http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt" rel="nofollow">FUD</a> - Fear, Uncertainity and Doubt.<br />
+Это я поясняю, потому что вы, по видимому, новичок тут у нас.</p>
+<p>Обратите внимание, что EMC как раз ни на что не обиделся, а обиделись, почему-то - вы, который еще даже не клиент ни той ни другой стороны :)</p>
+<p>> На последние 2 недели ни продавцы решений НетАпп, ни ЕМС не смогли мне предложить мотивированного решения моей задачи, как-то странно себя ведут, говорят - покупайте и тестируйте.</p>
+<p>Причины тут, скорее всего, две. Либо у вас не получается понятно сформулировать, либо задача такая непростая, что успешное решение ее не гарантируется. В обоих случаях вполне объяснимым поведением со стороны пресейлов вендора будет свалить всю ответственность по выбору в такой темной ситуации на вас, предложив мерять самому. Вполне логичное и объяснимое поведение.</p>
+<p>Если хотите - напишите мне на <a href="mailto:romx@mail.ru">romx@mail.ru</a>, расскажу и помогу чем могу. Ничего не обещаю, но может быть какую-то ясность удастя внести, как знать.</p>
+						<div class="comment-meta"><a href="386/trackback.html#comment-1708" title="">19 Сентябрь 2011, 18:43</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="386" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.077 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

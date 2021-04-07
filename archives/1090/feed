@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Что такое Mailbox Disk?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1090/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1090</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:28 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1090#comment-11518</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Thu, 12 Dec 2013 10:20:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1090#comment-11518</guid>
+		<description>Ясно :) А мы по кругу с форума пришли в этот пост :)</description>
+		<content:encoded><![CDATA[<p>Ясно :) А мы по кругу с форума пришли в этот пост :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1090#comment-11489</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 10 Dec 2013 09:42:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1090#comment-11489</guid>
+		<description>Artur:
+Ничем. Хозяин крайне легкомысленно отнесся к потере cluster takeover его системой, я тогда посоветовал ему задать этот вопрос на форуме, и вот, спустя пару лет, он это все же сделал :)</description>
+		<content:encoded><![CDATA[<p>Artur:<br />
+Ничем. Хозяин крайне легкомысленно отнесся к потере cluster takeover его системой, я тогда посоветовал ему задать этот вопрос на форуме, и вот, спустя пару лет, он это все же сделал :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1090#comment-11488</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Tue, 10 Dec 2013 06:39:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1090#comment-11488</guid>
+		<description>Роман, присоединяюсь к вопросу о системе, которая потеряла mailbox диски. Чем все закончилось?</description>
+		<content:encoded><![CDATA[<p>Роман, присоединяюсь к вопросу о системе, которая потеряла mailbox диски. Чем все закончилось?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1090#comment-5565</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 24 Jan 2013 10:22:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1090#comment-5565</guid>
+		<description>&#62;Я как раз сейчас ковыряюсь с такой системой 
+??нтересно, получилось этот вопрос разрешить?</description>
+		<content:encoded><![CDATA[<p>&gt;Я как раз сейчас ковыряюсь с такой системой<br />
+??нтересно, получилось этот вопрос разрешить?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1090#comment-2477</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 08 May 2012 11:38:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1090#comment-2477</guid>
+		<description>bbk:
+
+ACP появился всего несколько лет как, а mailbox disk был всегда :)</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>ACP появился всего несколько лет как, а mailbox disk был всегда :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1090#comment-2475</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 08 May 2012 11:24:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1090#comment-2475</guid>
+		<description>Может это можно было сделать более красивым способом, к примеру через Alternate Control Path (ACP). Хотя есть ли лучше способ показать, что доступ к дискам есть, как не записать что-то на диск? Так что вопрос на счёт рудимента остается открыт.</description>
+		<content:encoded><![CDATA[<p>Может это можно было сделать более красивым способом, к примеру через Alternate Control Path (ACP). Хотя есть ли лучше способ показать, что доступ к дискам есть, как не записать что-то на диск? Так что вопрос на счёт рудимента остается открыт.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

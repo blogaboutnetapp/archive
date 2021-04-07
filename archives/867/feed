@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Оптимизация производительности. Часть 4. fcstat</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/867/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/867</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:46 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/867#comment-8494</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Tue, 16 Jul 2013 13:20:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/867#comment-8494</guid>
+		<description>Команды актуальны как для 7 так и для 8 )
+Я просто сейчас на D7ADM учусь, скоро напишу обзор курса и некоторое мнение у себя на страничке. 
+Вот делаю лабы, интенсивно читаю Ваши статьи )</description>
+		<content:encoded><![CDATA[<p>Команды актуальны как для 7 так и для 8 )<br />
+Я просто сейчас на D7ADM учусь, скоро напишу обзор курса и некоторое мнение у себя на страничке.<br />
+Вот делаю лабы, интенсивно читаю Ваши статьи )</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/867#comment-8493</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Tue, 16 Jul 2013 13:18:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/867#comment-8493</guid>
+		<description>Сори, прошлый коммент можно удалить)
+Да и этот тоже )</description>
+		<content:encoded><![CDATA[<p>Сори, прошлый коммент можно удалить)<br />
+Да и этот тоже )</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/867#comment-8492</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 16 Jul 2013 13:14:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/867#comment-8492</guid>
+		<description>Mc.Sim:
+Дело давнее, уже плохо помню, но в документации на 7.3.7 такая команда есть.
+https://library.netapp.com/ecmdocs/ECMP1113837/html/man1/na_fcstat.1.html</description>
+		<content:encoded><![CDATA[<p>Mc.Sim:<br />
+Дело давнее, уже плохо помню, но в документации на 7.3.7 такая команда есть.<br />
+<a href="https://library.netapp.com/ecmdocs/ECMP1113837/html/man1/na_fcstat.1.html" rel="nofollow">https://library.netapp.com/ecmdocs/ECMP1113837/html/man1/na_fcstat.1.html</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/867#comment-8491</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Tue, 16 Jul 2013 13:02:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/867#comment-8491</guid>
+		<description>приветствую.
+Роман, данные команды выполнялись на 7 версии ONTAP?</description>
+		<content:encoded><![CDATA[<p>приветствую.<br />
+Роман, данные команды выполнялись на 7 версии ONTAP?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Metrocluster (part 2)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/63/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/63</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:43 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/63#comment-2585</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 25 May 2012 10:40:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/63#comment-2585</guid>
+		<description>bbk:
+
+Во-первых - выше я же привел источники, посмотрите.
+
+Во-вторых, я считаю, что в значительном количестве случаев полная автоматизация тэйковера, и, в особенности, гивбэка, значительным злом.
+Потому что лучше человека в ситуации на самом деле никто не разберется, а автоматика может наворотить дел.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Во-первых - выше я же привел источники, посмотрите.</p>
+<p>Во-вторых, я считаю, что в значительном количестве случаев полная автоматизация тэйковера, и, в особенности, гивбэка, значительным злом.<br />
+Потому что лучше человека в ситуации на самом деле никто не разберется, а автоматика может наворотить дел.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/63#comment-2583</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 25 May 2012 07:43:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/63#comment-2583</guid>
+		<description>Есть ли решение, арбитр для метрокластера, у НетАпп'а, для случая разрыва всех коммуникаций между площаками, чтобы не ждать админа который скажет &lt;b&gt;cf forcetecover&lt;/b&gt;, а автоматизировать процесс?</description>
+		<content:encoded><![CDATA[<p>Есть ли решение, арбитр для метрокластера, у НетАпп&#8217;а, для случая разрыва всех коммуникаций между площаками, чтобы не ждать админа который скажет <b>cf forcetecover</b>, а автоматизировать процесс?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/63#comment-2567</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 18 May 2012 13:10:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/63#comment-2567</guid>
+		<description>bbk:
+
+Это решается за счет внешнего "кворумного" стораджа, расположенного на "третьем" сайте, решение описано в TR3816 Providing Zero Downtime for Enterprise Applications Using Oracle Real Application Cluster on Extended Distance Cluster, Oracle Automatic Storage Management Normal Redundancy, and NetApp MetroCluster
+
+или за счет софтового решения, в виде плагина к MS SCOM.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Это решается за счет внешнего &#8220;кворумного&#8221; стораджа, расположенного на &#8220;третьем&#8221; сайте, решение описано в TR3816 Providing Zero Downtime for Enterprise Applications Using Oracle Real Application Cluster on Extended Distance Cluster, Oracle Automatic Storage Management Normal Redundancy, and NetApp MetroCluster</p>
+<p>или за счет софтового решения, в виде плагина к MS SCOM.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/63#comment-2566</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 18 May 2012 12:51:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/63#comment-2566</guid>
+		<description>Вопрос Alex'а о split-brain’е так и не прояснился?</description>
+		<content:encoded><![CDATA[<p>Вопрос Alex&#8217;а о split-brain’е так и не прояснился?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/63#comment-64</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Wed, 17 Sep 2008 11:08:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/63#comment-64</guid>
+		<description>:))
+все же, насколько я понимаю, проблему сплит-брейна программными средствами (при отсутствии третьего арбитра) не решить, как ни крути.</description>
+		<content:encoded><![CDATA[<p>:))<br />
+все же, насколько я понимаю, проблему сплит-брейна программными средствами (при отсутствии третьего арбитра) не решить, как ни крути.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/63#comment-63</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 17 Sep 2008 10:58:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/63#comment-63</guid>
+		<description>Чорт, спалили :-D
+Еще когда писал ведь думал, что как-то не получается у меня "на пальцах" все описать, кто-нибудь обязательно спросит подробностей. ;)
+Не расскажу, увы. Возможно позже вернусь к этой теме, пока же могу только махнуть "манами". :)</description>
+		<content:encoded><![CDATA[<p>Чорт, спалили :-D<br />
+Еще когда писал ведь думал, что как-то не получается у меня &#8220;на пальцах&#8221; все описать, кто-нибудь обязательно спросит подробностей. ;)<br />
+Не расскажу, увы. Возможно позже вернусь к этой теме, пока же могу только махнуть &#8220;манами&#8221;. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/63#comment-62</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Wed, 17 Sep 2008 10:43:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/63#comment-62</guid>
+		<description>Роман, все-таки не очень понятно, каким образом НетАпп решает проблему split-brain'а. Например, в случае обрывов всех каналов связи между двумя разнесенными площадками. Как в этом случае наличие зеркальной копии "соседа" позволяет решить проблему?</description>
+		<content:encoded><![CDATA[<p>Роман, все-таки не очень понятно, каким образом НетАпп решает проблему split-brain&#8217;а. Например, в случае обрывов всех каналов связи между двумя разнесенными площадками. Как в этом случае наличие зеркальной копии &#8220;соседа&#8221; позволяет решить проблему?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

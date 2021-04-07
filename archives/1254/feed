@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP 8.2 goes RC!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1254/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1254</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:01 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-10771</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 28 Oct 2013 06:50:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-10771</guid>
+		<description>Евгений:
+Да, переходный период считается завершенным, остатки фич допереносятся в Cluster-mode, и все, дальше уже только она. ?? правильно, сколько можно тащить легаси.</description>
+		<content:encoded><![CDATA[<p>Евгений:<br />
+Да, переходный период считается завершенным, остатки фич допереносятся в Cluster-mode, и все, дальше уже только она. ?? правильно, сколько можно тащить легаси.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Евгений</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-10770</link>
+		<dc:creator>Евгений</dc:creator>
+		<pubDate>Mon, 28 Oct 2013 06:48:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-10770</guid>
+		<description>С удовольствием бы почитал в вашем переводе.
+К слову со слов представителей NetApp Russia - 8.3 будет только Clustered, без 7-mode.</description>
+		<content:encoded><![CDATA[<p>С удовольствием бы почитал в вашем переводе.<br />
+К слову со слов представителей NetApp Russia - 8.3 будет только Clustered, без 7-mode.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-10768</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 28 Oct 2013 06:28:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-10768</guid>
+		<description>Евгений:
+
+Говорят и уже есть, говорят, что и спрашивают у партнеров вовсю, мне вот в переводы поназаказали Cluster-mode, я об этом как раз недавно писал. Так что интересн есть, и уже первые успешные инсталляции пошли, и будут еще, когда выйдет 8.3 с, по слухам, SnapMirror Sync.</description>
+		<content:encoded><![CDATA[<p>Евгений:</p>
+<p>Говорят и уже есть, говорят, что и спрашивают у партнеров вовсю, мне вот в переводы поназаказали Cluster-mode, я об этом как раз недавно писал. Так что интересн есть, и уже первые успешные инсталляции пошли, и будут еще, когда выйдет 8.3 с, по слухам, SnapMirror Sync.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Евгений</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-10766</link>
+		<dc:creator>Евгений</dc:creator>
+		<pubDate>Mon, 28 Oct 2013 06:05:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-10766</guid>
+		<description>А есть ли примеры успешного внедрения в странах СНГ Clustered DataONTAP?</description>
+		<content:encoded><![CDATA[<p>А есть ли примеры успешного внедрения в странах СНГ Clustered DataONTAP?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Виктор</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-8082</link>
+		<dc:creator>Виктор</dc:creator>
+		<pubDate>Mon, 17 Jun 2013 14:36:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-8082</guid>
+		<description>Спасибо</description>
+		<content:encoded><![CDATA[<p>Спасибо</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-7998</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 10 Jun 2013 14:03:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-7998</guid>
+		<description>Виктор:
+
+Откровенно говоря не думаю, что в вашем случае овчинка (перестановка OS) стоит выделки.</description>
+		<content:encoded><![CDATA[<p>Виктор:</p>
+<p>Откровенно говоря не думаю, что в вашем случае овчинка (перестановка OS) стоит выделки.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Виктор</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-7997</link>
+		<dc:creator>Виктор</dc:creator>
+		<pubDate>Mon, 10 Jun 2013 13:40:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-7997</guid>
+		<description>Сейчас, когда RC уже можно скачать - в описании я вижу, что поддержка SMB3.0 появилась только в c-mode
+Размышляю, стоит ли переходить на неё и какие будут плюсы-минусы.
+Про плюсы более-менее ясно, а вот с минусами..
+
+во-первых:
+Насколько я понимаю, в C-mode добавлен, как бы сказать, уровень виртуализации.
+Насколько это дополнительно загружает файлер? У меня самый простенький по нынешним временам, FAS2220 в HA-режиме.
+
+во-вторых: насколько я вычитал, мне потребуются все новые лицензии. Видимо их надо запрашивать у поставщика (в моём случае это IT-Grad)
+
+В-третьих: перехода с 7-mode на C-mode, по-моему, не существует - то есть файлер будет полностью очищен.
+шары я перекину, а что делать с LUN-ами - копировать с них информацию или есть способ экспорта/импорта (читал в этом жэе блоге про проблемы с метаданными)</description>
+		<content:encoded><![CDATA[<p>Сейчас, когда RC уже можно скачать - в описании я вижу, что поддержка SMB3.0 появилась только в c-mode<br />
+Размышляю, стоит ли переходить на неё и какие будут плюсы-минусы.<br />
+Про плюсы более-менее ясно, а вот с минусами..</p>
+<p>во-первых:<br />
+Насколько я понимаю, в C-mode добавлен, как бы сказать, уровень виртуализации.<br />
+Насколько это дополнительно загружает файлер? У меня самый простенький по нынешним временам, FAS2220 в HA-режиме.</p>
+<p>во-вторых: насколько я вычитал, мне потребуются все новые лицензии. Видимо их надо запрашивать у поставщика (в моём случае это IT-Grad)</p>
+<p>В-третьих: перехода с 7-mode на C-mode, по-моему, не существует - то есть файлер будет полностью очищен.<br />
+шары я перекину, а что делать с LUN-ами - копировать с них информацию или есть способ экспорта/импорта (читал в этом жэе блоге про проблемы с метаданными)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-7643</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 24 May 2013 07:14:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-7643</guid>
+		<description>&lt;b&gt;Виктор&lt;/b&gt;
+&#62;Причина вопроса в том, что у нас один файлер FAS2220, и рекомендуется ли переводить его на CLUSTER, мне пока не ясно.
+Нетап перейдёт полностью на C-Mode, разработка под 7-Mode будет приостановлена до минимума.
+Так что задумываться о переходе всё-равно есть повод.
+
+&lt;b&gt;Александр&lt;/b&gt;
+&#62;Оптику именно для дальних расстояний и придумали.
+C-Mode в версии 8.1 поддерживал "растянутые" конфигурации, по PVR, но в 8.2 это убрали.
+Возможно допиливают, не знаю.</description>
+		<content:encoded><![CDATA[<p><b>Виктор</b><br />
+&gt;Причина вопроса в том, что у нас один файлер FAS2220, и рекомендуется ли переводить его на CLUSTER, мне пока не ясно.<br />
+Нетап перейдёт полностью на C-Mode, разработка под 7-Mode будет приостановлена до минимума.<br />
+Так что задумываться о переходе всё-равно есть повод.</p>
+<p><b>Александр</b><br />
+&gt;Оптику именно для дальних расстояний и придумали.<br />
+C-Mode в версии 8.1 поддерживал &#8220;растянутые&#8221; конфигурации, по PVR, но в 8.2 это убрали.<br />
+Возможно допиливают, не знаю.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-7150</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 29 Apr 2013 13:32:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-7150</guid>
+		<description>Александр:
+
+Оптика ведь никак не влияет на величину задержки в линии, а именно она определяет максимум длины кабеля от передатчика до приемника.</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>Оптика ведь никак не влияет на величину задержки в линии, а именно она определяет максимум длины кабеля от передатчика до приемника.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1254#comment-7149</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 29 Apr 2013 13:30:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1254#comment-7149</guid>
+		<description>Виктор:
+
+Насколько я знаю - и в 7-mode тоже. Единственный протокол, которого нет в 7-mode, но есть в C-mode, это pNFS, и это, в общем, понятно почему.</description>
+		<content:encoded><![CDATA[<p>Виктор:</p>
+<p>Насколько я знаю - и в 7-mode тоже. Единственный протокол, которого нет в 7-mode, но есть в C-mode, это pNFS, и это, в общем, понятно почему.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

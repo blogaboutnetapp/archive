@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Перенос root volume</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/922/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/922</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:29 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-10586</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 18 Oct 2013 09:53:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-10586</guid>
+		<description>Мне помогло:
+secureadmin disable ssl
+secureadmin setup -f ssl
+secureadmin enable ssl</description>
+		<content:encoded><![CDATA[<p>Мне помогло:<br />
+secureadmin disable ssl<br />
+secureadmin setup -f ssl<br />
+secureadmin enable ssl</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-10585</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 18 Oct 2013 09:27:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-10585</guid>
+		<description>bbk:
+Лучше такие вопросы задавать в известном форуме на community.netapp.com, по крайней мере там ваши сообщения прочтет не только лишь я один :)</description>
+		<content:encoded><![CDATA[<p>bbk:<br />
+Лучше такие вопросы задавать в известном форуме на community.netapp.com, по крайней мере там ваши сообщения прочтет не только лишь я один :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-10584</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 18 Oct 2013 09:15:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-10584</guid>
+		<description>После переноса раздела почему-то SystemManager не хочет конектиться к контроллеру. Сертификаты перегенирировал, по SSH пускает. Кто подскажет в чём загвоздка?</description>
+		<content:encoded><![CDATA[<p>После переноса раздела почему-то SystemManager не хочет конектиться к контроллеру. Сертификаты перегенирировал, по SSH пускает. Кто подскажет в чём загвоздка?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-4388</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 30 Oct 2012 15:09:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-4388</guid>
+		<description>2 &lt;b&gt;Альберт Салман&lt;/b&gt;
+&#62;Перед данной операцией настояльно рекомендуется выключить всякие идущие процессы: snapvault, snapmirror и т.д. что меняет содержимое root volume.
+
+Здесь речь идёт о хранении информации на root разделе (что и так не является бестпрактисом) или всё-же желательно их останавливать на всём контроллере (независимо от того, что snapvault/snapmirror процессы юзают "не рут" разделы)?</description>
+		<content:encoded><![CDATA[<p>2 <b>Альберт Салман</b><br />
+&gt;Перед данной операцией настояльно рекомендуется выключить всякие идущие процессы: snapvault, snapmirror и т.д. что меняет содержимое root volume.</p>
+<p>Здесь речь идёт о хранении информации на root разделе (что и так не является бестпрактисом) или всё-же желательно их останавливать на всём контроллере (независимо от того, что snapvault/snapmirror процессы юзают &#8220;не рут&#8221; разделы)?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-2634</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 01 Jun 2012 14:11:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-2634</guid>
+		<description>Алексей:
+
+По большому счету специально использовать пространство root volume имеет смысл только в случае, если пространство там образовано за счет того, что вы создали для root volume отдельный aggregate. В этом случае у вас получается размер неиспользуемого пространства равный емкости этого выделенного aggregate, на котором расположен root volume.
+
+Но при сравнительно небольшом количестве дисков бывает выгоднее не выделять под root vol отдельный aggregate, а создать его на общем aggregate, вместе с томами данных. В этом случае вам совершенно все равно сколько там на нем места. Уменьшите его до рекомендованных выше величин, а все остальное пространство aggregate можете задействовать под volume с данными и LUN.
+Теоретически можно даже сделать этот том без space reservation и с volume autogrow, и тогда он будет занимать только реально занятое в нем данными место. Но это, как я знаю, все же не рекомендуется.</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>По большому счету специально использовать пространство root volume имеет смысл только в случае, если пространство там образовано за счет того, что вы создали для root volume отдельный aggregate. В этом случае у вас получается размер неиспользуемого пространства равный емкости этого выделенного aggregate, на котором расположен root volume.</p>
+<p>Но при сравнительно небольшом количестве дисков бывает выгоднее не выделять под root vol отдельный aggregate, а создать его на общем aggregate, вместе с томами данных. В этом случае вам совершенно все равно сколько там на нем места. Уменьшите его до рекомендованных выше величин, а все остальное пространство aggregate можете задействовать под volume с данными и LUN.<br />
+Теоретически можно даже сделать этот том без space reservation и с volume autogrow, и тогда он будет занимать только реально занятое в нем данными место. Но это, как я знаю, все же не рекомендуется.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-2633</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Fri, 01 Jun 2012 14:03:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-2633</guid>
+		<description>Спасибо за быстрый ответ, romx! 
+Я планирую хранить важные данные: лун, который я подцеплю к ESX для продакшн контента.
+
+Помимо этого мой root volume хранится на root agregate вместе с остальными volume. ??меет ли смысл в данной ситуации создавать отдельный root volume размером в ~10GB?
+К сожалению, исходя из официального мануала, не могу понять реальные риски такого распределения ресурсов.</description>
+		<content:encoded><![CDATA[<p>Спасибо за быстрый ответ, romx!<br />
+Я планирую хранить важные данные: лун, который я подцеплю к ESX для продакшн контента.</p>
+<p>Помимо этого мой root volume хранится на root agregate вместе с остальными volume. ??меет ли смысл в данной ситуации создавать отдельный root volume размером в ~10GB?<br />
+К сожалению, исходя из официального мануала, не могу понять реальные риски такого распределения ресурсов.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-2632</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 01 Jun 2012 13:48:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-2632</guid>
+		<description>Алексей:
+
+Да, конечно сможете. Это не является "наилучшей практикой", но повсеместно пространство на root volume используется для хранения каких-нибудь, обычно второстепенных и некритичных для работы компании данных.
+Главное оставить там достаточно места, в размере не менее рекомендованного, указанного выше. ??ногда дополнительное место (сверх занятого в настоящий момент, но менее приведенных выше цифр рекомендаций, указанные там размеры посчитаны уже с учетом этого требования) может понадобиться, например, для сброса core dump, или подобных же задач.</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>Да, конечно сможете. Это не является &#8220;наилучшей практикой&#8221;, но повсеместно пространство на root volume используется для хранения каких-нибудь, обычно второстепенных и некритичных для работы компании данных.<br />
+Главное оставить там достаточно места, в размере не менее рекомендованного, указанного выше. ??ногда дополнительное место (сверх занятого в настоящий момент, но менее приведенных выше цифр рекомендаций, указанные там размеры посчитаны уже с учетом этого требования) может понадобиться, например, для сброса core dump, или подобных же задач.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-2630</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Fri, 01 Jun 2012 13:35:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-2630</guid>
+		<description>Спасибо за статью. У меня вопрос: имеется 200GB root volume, с 1% занятого пространства. Могу ли я использовать свободное место для хранения данных? Чревато ли это какими-либо неприятными последствиями?</description>
+		<content:encoded><![CDATA[<p>Спасибо за статью. У меня вопрос: имеется 200GB root volume, с 1% занятого пространства. Могу ли я использовать свободное место для хранения данных? Чревато ли это какими-либо неприятными последствиями?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-2083</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 28 Dec 2011 05:46:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-2083</guid>
+		<description>Дмитрий:
+
+Зачем? Это весьма опциональное действие, и то, только если вы зачем-то используете протокол HTTP с корнем на root-vol, что вообще довольно сомнительная затея.</description>
+		<content:encoded><![CDATA[<p>Дмитрий:</p>
+<p>Зачем? Это весьма опциональное действие, и то, только если вы зачем-то используете протокол HTTP с корнем на root-vol, что вообще довольно сомнительная затея.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/922#comment-2080</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Wed, 28 Dec 2011 03:08:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=922#comment-2080</guid>
+		<description>Надо еще httpd.rootdir поменять</description>
+		<content:encoded><![CDATA[<p>Надо еще httpd.rootdir поменять</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

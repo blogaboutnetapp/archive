@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Еще несколько слов про MPHA</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1022/trackback.html">NetApp Virtual Storage Console 2.1.1</a></div>
+			<div class="alignright"><a href="../1038/trackback.html">OnCommand System Manager 2.0</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1008">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Еще несколько слов про MPHA">Еще несколько слов про MPHA</a></h2>
+			<div class="postmetadata">22 Сентябрь 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Ранее я уже писал о том, что такое Multi-Path High Availability (MPHA) – методе подключения дисковых полок к контроллеру, сделав перевод <a href="../959/trackback.html">официального FAQ</a>. Однако обещал, что чуть позже напишу еще некоторые мои соображения на этот счет. Вот они.</p>
+<p>Кратко, для “введения в суть”: MPHA это, на сегодня, настоятельно рекомендованный способ избыточного и отказоустойчивого подключения дисковых полок к контроллерам на системе хранения NetApp. Суть его состоит в том, что каждый “стек” полок подключается не просто парой избыточных кабелей в два порта каждого стека полок, но четырьмя кабелями, одной парой с одного конца стека, а второй – с противоположного конца, задействуя не два, а <strong>четыре</strong> инициатор-порта на каждом из кластерной пары контроллеров (поясняющие схемы можно посмотреть в статье по ссылке выше). ??того, на два контроллера, работающих с двумя стеками полок, получается <strong>восемь</strong> портов и восемь путей к дискам (с одним стеком, соответственно, четыре).</p>
+<p>Такая схема обладает большей надежностью, так как позволяет решить проблему со сбоем или обрывом соединения в дисковой полке посередине большого стека, проблем в интерфейсном модуле полки, или межполочном соединении, или же отказу пути, который приводит к необходимости кластерного файловера и перебросу данного дискового стека на контроллер-партнер. Кроме того, так как оба пути, и в “голову”, и в “хвост” стека, активны, это может, потенциально, повысить пропускную способность канала от контроллера к дискам, если система “забила” потоком данных один из этих путей.</p>
+<p>Проблема тут возникает для систем “малого класса”, а именно для FAS2040, у которой всего два порта SAS на систему (один на контроллер), и FAS3210, которая, как вы помните, имеет два порта SAS в контроллере и всего два слота расширения (и нет возможности поставить блок расширения портов IOXM, который есть только для 3240/3270).</p>
+<p>FAS2040 совсем не может использовать “классический” рекомендованный вариант MPHA, а FAS3210 может его использовать только в варианте с дополнительной платой интерфейсов SAS, которая занимает один из двух слотов расширения.</p>
+<p>(<font color="red">исправлено 30.09 romx, Теперь эта проблема в конфигураторе с неотключаемым для 3200 MPHA изменена</font>)</p>
+<p><del datetime="2011-09-30T04:04:18+00:00"><br />
+Таким образом у покупателя FAS3210, например, есть выбор поставить в оставшийся слот плату Flash Cache ??Л??, например, 10Gb Ethernet, но НЕ одновременно.<br />
+Проблема заключается в том, что, если ранее, MPHA в конфигураторе была отключаемой опцией, и можно было снять эту галку в чекбоксе, и при этом освобождался искомый слот, то теперь, увы, MPHA это обязательная опция конфигурирования, и, следовательно, в один слот из двух у 3210 в обязательном порядке будет поставлена карта SAS-портов, оставляя доступной пользователю и его выбору только один слот.<br />
+??менно этим объясняется отказ пресейла партнера NetApp отключить MPHA и сделать вам, допустим, FAS3210 с Flash Cache и 10Gb Ethernet одновеменно. Ему просто не дает это сделать конфигуратор.</del></p>
+<p>Однако вариант подключения <strong>без MPHA</strong>, хотя MPHA и настоятельно рекомендуемый, навязываемый конфигуратором и <em>“обязательный”</em>, как о нем пишет переведенный ранее FAQ, все же работает, поддерживается NetApp, и, более того, именно такой вариант сконфигурирован, например, в конфигурации FlexPod (что можно посмотреть в <a href="http://www.netapp.com/us/library/datasheets/flexpod-for-vmware-specification-sheet.html">опубликованной спецификации на FlexPod</a>), где используется как раз 3210, как раз с Flash Cache <strong>??</strong> двухпортовой 10Gb Ethernet Unified Target card в одном контроллере (и без MPHA полок, соответственно).</p>
+<p>То есть, безусловно, MPHA это хорошо, это правильно, но отказ от всех других вариантов подключения это, как я понимаю ситуацию, политическое, а не техническое решение (по крайней мере на сегодняшний день).</p>
+<p>Несколько A на различные Frequently Q:</p>
+<p>Q: Означает ли, что отказавшись от MPHA мы получим не-multipath или не-high available подключение полок, а, следовательно, “единую точку отказа” и прочие корпоративные IT-ужасы?</p>
+<p>A: Нет, не означает. <em>Не-MPHA</em> подключение также и отказоустойчивое и многопутевое, просто в некоторых специальных случаях сбоев для продолжения доступа к данным при подключении <em>не-MPHA</em> может потребоваться cluster failover, а MPHA сможет работать по дополнительному оставшемуся пути, не проводя cluster failover, и, тем самым, экономя время и не обрывая CIFS-сессии, например. Для небольших систем хранения, например на всего одну-четыре полки на систему, случаи такого вида сравнительно малораспространены. Стоит ли жертвовать ради потенциального устранения этих редких случаев одним слотом из двух на 3210 – решать вам.</p>
+<p>Q: Обязательно ли использование MPHA?</p>
+<p>A: NetApp считает что обязательно (см. <a href="../959/trackback.html">FAQ</a>) для тех систем, где MPHA может быть реализован (исключение, таким образом, только для 2040). Но варианты без MPHA по прежнему поддерживаются. Решение, как я понимаю, за пользователем.</p>
+<p>Q: Как же нам все же получить FAS3210 с Flash Cache и 10G Ethernet?</p>
+<p>A: <font color="red">Проблема с конфигуратором существовала, но сейчас ее нет. Сейчас в штатном режиме можно получить от партнера спецификацию 3210 с двумя любыми картами внутри, без MPHA. (исправлено 30.09 romx.)</font><br />
+<del datetime="2011-09-30T03:44:59+00:00">Попросите сконфигурировать вам FAS3210 с Flash Cache и закажите в том же заказе дополнительно плату 10G Ethernet, которая придет отдельно, не установленная в контроллер. Далее вы сможете самостоятельно вынуть карту портов SAS и поставить на ее место карту 10G Ethernet, далее подключите дисковые полки в обычной, не-MPHA, в &#8220;традиционной&#8221; отказоустойчивой, двухпутевой конфигурации.</p>
+<p>Q: Не даете ли вы в данном случае дурного совета?</p>
+<p>A: Даю :) Помните, что вы читаете не официальный блог NetApp, а просто заведомо ложные, порочашие измышления на тему, данный пост написан не сотрудником NetApp, и NetApp не несет ответственности за что либо публикуемое в данном блоге. Вышеприведенный совет <strong>не является официальной рекомендацией NetApp</strong>. Хотя подключение <em>не-MPHA</em> в настоящее время по прежнему <strong>поддерживается</strong> в существующих системах хранения, и отказ он MPHA на системе хранения <strong>не является причиной отказа в поддержке</strong>.</p>
+<p>Q: Но, все-таки…</p>
+<p>A: См. спецификацию FlexPod, валидированную Cisco и NetApp, с использованием FAS3210 без MPHA, в как раз описываемой конфигурации с Flash Cache и 10G Ethernet.</p>
+<p></del></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/mpha.html" rel="tag">mpha</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;" rel="category tag">whoisho</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (10)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1719">
+		<div id="div-comment-1719">
+		<div class="comment-author">
+			<cite>Minus:<cite></div>
+			<p>Привет, Роман!<br />
+Не знаю, к какому посту написать комментарий, напишу сюда.<br />
+Ты когда планируешь написать про вышедшую 8.1RC1 и про ее плюшки, в частности, про &#8220;Starting with Data ONTAP 8.1, the ATTO FibreBridge 6500N, which is a Fibre Channel-to-SAS bridge that allows SAS disk shelves (with SAS or SATA disk drives) to be used in stretch and fabric MetroCluster configurations, is supported.&#8221;?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1719" title="">23 Сентябрь 2011, 14:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1720">
+		<div id="div-comment-1720">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Minus:</p>
+<p>Ха. А оно уже успело выйти?<br />
+Как-то пропустил этот момент.<br />
+Напишу, как только разберусь, надо ж почитать сперва. Там много интересного планировалось, как я помню.<br />
+?? да, долгожданный бридж :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1720" title="">23 Сентябрь 2011, 14:13</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1721">
+		<div id="div-comment-1721">
+		<div class="comment-author">
+			<cite>Minus:<cite></div>
+			<p>Вышло оно сегодня с утра, вчера еще не было :)<br />
+Так как я тут обновлял новую систему до 8.0.2, с удивлением увидел 8.1RC1 в списке.<br />
+Вкусного много. Они наконец, кажется, сделали конвертацию агрегатов из 32 в 64 бита, если я правильно понял вот это - &#8220;The 64bit-upgrade option has been added. This option enables the administrator to upgrade an aggregate from 32-bit to 64-bit format by adding enough storage to exceed the 16 TB maximum 32-bit aggregate size.&#8221;</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1721" title="">23 Сентябрь 2011, 14:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1722">
+		<div id="div-comment-1722">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Minus:</p>
+<p>A! А я-то смотрю, буквально вчера вечером по Software Downloads лазил, в связи с выходом System Manager 2.0, и не увдел, а оно &#8220;вон оно что, Михалыч&#8221; :)</p>
+<p>Конвертер в 64-bit давно обещали. Обещали и блочные протоколы в Cluster-mode, наконец-то.<br />
+Читаю whatsnew, да.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1722" title="">23 Сентябрь 2011, 15:03</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1723">
+		<div id="div-comment-1723">
+		<div class="comment-author">
+			<cite>Minus:<cite></div>
+			<p>FilerView приказал долго жить :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1723" title="">23 Сентябрь 2011, 15:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1724">
+		<div id="div-comment-1724">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Minus:</p>
+<p>Ага. Видел. Эти дети Ханумана зарелизили SM 2.0, но он, блин&#8230; ну не знаю, может я предвзят. Ну очень он страннен. Может глянешь, а то у меня счас не к чему подключить его? :(</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1724" title="">23 Сентябрь 2011, 15:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1725">
+		<div id="div-comment-1725">
+		<div class="comment-author">
+			<cite>Minus:<cite></div>
+			<p>Я уже поставил. Работает шустрее бета-версии, но у меня тоже предвзятое отношение к поделиям на Java. Писали бы дальше на православном .NET, зачем было менять платформу?<br />
+??з плюсов заметил хелп, который имеет прямые ссылки на статьи о той или иной опции (типа Thin Provisioning) на сайте NOW.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1725" title="">23 Сентябрь 2011, 15:15</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1726">
+		<div id="div-comment-1726">
+		<div class="comment-author">
+			<cite><a href='http://2e5a136' rel='external nofollow'>sergeykim</a>:<cite></div>
+			<p>Про FAS3210 MPHA и недостаток слотов почти все неверно.<br />
+ - FAS3210 поддерживает MPHA в отличии от FAS2040 и при этом ему не нужна доп SAS карта<br />
+ - Если в FAS3210 дополнительная SAS карта не нужна нет необходимости ее покупать. (конфигуратор в некоторых случаях добавляется SAS адаптер по умолчанию - по умолчанию предлагает сделать две петли и более - ее нужно убирать самостоятельно стандартными средствами). Соответственно, можно запросто конфигурировать с Flash Cache и UTA 10Gb, например.<br />
+ - Конфигурация FlexPod посчитана с MPHA (нет ни одного свободного слота SAS на полках)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1726" title="">23 Сентябрь 2011, 16:13</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1727">
+		<div id="div-comment-1727">
+		<div class="comment-author">
+			<cite><a href='http://2e5a136' rel='external nofollow'>sergeykim</a>:<cite></div>
+			<p>- двух портовых SAS PCI карт для FAS3xx0 FAS6xx0 не бывает (только четырехпортовые)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1727" title="">23 Сентябрь 2011, 16:32</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1728">
+		<div id="div-comment-1728">
+		<div class="comment-author">
+			<cite>Dmitry Gorokhov:<cite></div>
+			<p>Можно спросить касаемо вот этого:<br />
+&#8220;Попросите сконфигурировать вам FAS3210 с Flash Cache и закажите в том же заказе дополнительно плату 10G Ethernet, которая придет отдельно, не установленная в контроллер. Далее вы сможете самостоятельно вынуть карту портов SAS и поставить на ее место карту 10G Ethernet&#8221;</p>
+<p>Это означает, что у заказчика нет вариантов не заплатить за дополнительную SAS карту? или она идет по нулевой стоимости?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1728" title="">23 Сентябрь 2011, 20:44</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1008" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

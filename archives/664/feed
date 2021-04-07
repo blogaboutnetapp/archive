@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Space Reclamation</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/664/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/664</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:04 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/664#comment-671</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Tue, 17 Aug 2010 07:09:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=664#comment-671</guid>
+		<description>"Система хранения об этом не знает, и не может высвободить однажды занятое таким томом место"
+
+Подождите, но ведь место-то как раз высвобождается дедупликацией! Что, кроме циферок в интерфейсе управления пострадает? Какие практические минусы, кроме "идеологически неверного" подхода?</description>
+		<content:encoded><![CDATA[<p>&#8220;Система хранения об этом не знает, и не может высвободить однажды занятое таким томом место&#8221;</p>
+<p>Подождите, но ведь место-то как раз высвобождается дедупликацией! Что, кроме циферок в интерфейсе управления пострадает? Какие практические минусы, кроме &#8220;идеологически неверного&#8221; подхода?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/664#comment-670</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 17 Aug 2010 00:56:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=664#comment-670</guid>
+		<description>Ну так я же и написал,"что считать проблемой". Проблемой считать то, что thin provisioned LUN растут, даже если данные внутри них удаляются, и "логически" они пусты. Система хранения об этом не знает, и не может высвободить однвжды занятое таким томом место, что снижает эффекивность thin provisioning.</description>
+		<content:encoded><![CDATA[<p>Ну так я же и написал,&#8221;что считать проблемой&#8221;. Проблемой считать то, что thin provisioned LUN растут, даже если данные внутри них удаляются, и &#8220;логически&#8221; они пусты. Система хранения об этом не знает, и не может высвободить однвжды занятое таким томом место, что снижает эффекивность thin provisioning.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/664#comment-669</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Mon, 16 Aug 2010 16:02:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=664#comment-669</guid>
+		<description>Всё зависит от того, что считать "проблемой". Если размер LUN, и вытекающие из этого проблемы с размером volume и т.д. - то да, ухудшит. Если же место на aggr, то оно после такой операции будет свободно.
+Опять же, смотря что лежит на том LUN. Если на нём лежат образы дисков для виртуальных машин, то внутри у них будет та же ситуация, и во второй уровень вложенности уже только дедупликация добраться и сможет - там уже никакого snapdrive.</description>
+		<content:encoded><![CDATA[<p>Всё зависит от того, что считать &#8220;проблемой&#8221;. Если размер LUN, и вытекающие из этого проблемы с размером volume и т.д. - то да, ухудшит. Если же место на aggr, то оно после такой операции будет свободно.<br />
+Опять же, смотря что лежит на том LUN. Если на нём лежат образы дисков для виртуальных машин, то внутри у них будет та же ситуация, и во второй уровень вложенности уже только дедупликация добраться и сможет - там уже никакого snapdrive.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/664#comment-668</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 16 Aug 2010 09:55:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=664#comment-668</guid>
+		<description>Не "решит", а "ухудшит еще более". Почему - читайте внимательнее.
+??, да, дедупликация никак не влияет на _размер_ LUN-а в мегабайтах.</description>
+		<content:encoded><![CDATA[<p>Не &#8220;решит&#8221;, а &#8220;ухудшит еще более&#8221;. Почему - читайте внимательнее.<br />
+??, да, дедупликация никак не влияет на _размер_ LUN-а в мегабайтах.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/664#comment-667</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Mon, 16 Aug 2010 08:35:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=664#comment-667</guid>
+		<description>Добавление в скедулер/крон ночью забивания нулями пустого пространства (таких утилиток пачка под любую ОС и ФС) решит проблему однозначно, как минимум при включенной дедубликации. Хотя, конечно, вместо этого шаманства честно сказать СХД об освобождённом пространстве - логичнее и быстрее.</description>
+		<content:encoded><![CDATA[<p>Добавление в скедулер/крон ночью забивания нулями пустого пространства (таких утилиток пачка под любую ОС и ФС) решит проблему однозначно, как минимум при включенной дедубликации. Хотя, конечно, вместо этого шаманства честно сказать СХД об освобождённом пространстве - логичнее и быстрее.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

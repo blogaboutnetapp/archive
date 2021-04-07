@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: fpolicy &#8211; простая блокировка файлов по расширению в NAS</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/822/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/822</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:09 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Aaz</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1216</link>
+		<dc:creator>Aaz</dc:creator>
+		<pubDate>Mon, 14 Mar 2011 09:56:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1216</guid>
+		<description>romx:
+
+Угу-угу. Не платят ему. ;)
+
+Как не платят? Если он там работает? (второй пост по ссылке)
+http://blog.vadmin.ru/2011_01_01_archive.html</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>Угу-угу. Не платят ему. ;)</p>
+<p>Как не платят? Если он там работает? (второй пост по ссылке)<br />
+<a href="http://blog.vadmin.ru/2011_01_01_archive.html" rel="nofollow">http://blog.vadmin.ru/2011_01_01_archive.html</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий Прокудин</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1166</link>
+		<dc:creator>Дмитрий Прокудин</dc:creator>
+		<pubDate>Tue, 22 Feb 2011 15:51:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1166</guid>
+		<description>2 одна птичка:
+Да чего же нехорошего?
+Фраза "просто я знаю СХД EMC лучше, чем, скажем, Netapp" двусмысленна.
+Лично я почему-то воспринял ее, как "я знаю, что...".
+Но если Антон имел ввиду свои сравнительные знания, как ее тоже можно воспринять, то я конечно извиняюсь, тогда это моя ошибка восприятия.</description>
+		<content:encoded><![CDATA[<p>2 одна птичка:<br />
+Да чего же нехорошего?<br />
+Фраза &#8220;просто я знаю СХД EMC лучше, чем, скажем, Netapp&#8221; двусмысленна.<br />
+Лично я почему-то воспринял ее, как &#8220;я знаю, что&#8230;&#8221;.<br />
+Но если Антон имел ввиду свои сравнительные знания, как ее тоже можно воспринять, то я конечно извиняюсь, тогда это моя ошибка восприятия.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1165</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 22 Feb 2011 14:24:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1165</guid>
+		<description>одна птичка:
+
+Не, там еще веселее, там в одном месте 
+"Употребление мной СХД производства EMC в этом и будущих постах в качестве примеров - не есть реклама (мне кстати нифига за нее не платят)"
+
+а двадцатью сантиметрами выше на экране:
+"думаете а не купить ли вам СХД EMC для виртуальной инфраструктуры - не стесняйтесь, пишите мне. Обязательно поможем"
+
+Угу-угу. Не платят ему. ;)</description>
+		<content:encoded><![CDATA[<p>одна птичка:</p>
+<p>Не, там еще веселее, там в одном месте<br />
+&#8220;Употребление мной СХД производства EMC в этом и будущих постах в качестве примеров - не есть реклама (мне кстати нифига за нее не платят)&#8221;</p>
+<p>а двадцатью сантиметрами выше на экране:<br />
+&#8220;думаете а не купить ли вам СХД EMC для виртуальной инфраструктуры - не стесняйтесь, пишите мне. Обязательно поможем&#8221;</p>
+<p>Угу-угу. Не платят ему. ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1164</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Tue, 22 Feb 2011 14:01:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1164</guid>
+		<description>2РОМХ:
+
+VFM, он же Virtual File Manager, был разработкой небольшой компании MyView. NetApp -эту конторку не купил, а Брокейд купил. Но в последствии Брокейд утопил этот продукт, а NetApp так же был вынужден прекратить его продвигать. 
+
+
+2Дмитрий Прокудин:
+
+нехорошо, там цитата другая: "Употребление мной СХД производства EMC в этом и будущих постах в качестве примеров - не есть реклама (мне кстати нифига за нее не платят), а просто я знаю СХД EMC лучше, чем, скажем, Netapp."</description>
+		<content:encoded><![CDATA[<p>2РОМХ:</p>
+<p>VFM, он же Virtual File Manager, был разработкой небольшой компании MyView. NetApp -эту конторку не купил, а Брокейд купил. Но в последствии Брокейд утопил этот продукт, а NetApp так же был вынужден прекратить его продвигать. </p>
+<p>2Дмитрий Прокудин:</p>
+<p>нехорошо, там цитата другая: &#8220;Употребление мной СХД производства EMC в этом и будущих постах в качестве примеров - не есть реклама (мне кстати нифига за нее не платят), а просто я знаю СХД EMC лучше, чем, скажем, Netapp.&#8221;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий Прокудин</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1163</link>
+		<dc:creator>Дмитрий Прокудин</dc:creator>
+		<pubDate>Tue, 22 Feb 2011 13:30:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1163</guid>
+		<description>Но и это еще не все!
+Антону также вторят vSpecialist Rockstars:
+http://www.youtube.com/watch?v=4Eh3VV4hL8s&#38;feature=player_embedded</description>
+		<content:encoded><![CDATA[<p>Но и это еще не все!<br />
+Антону также вторят vSpecialist Rockstars:<br />
+<a href="http://www.youtube.com/watch?v=4Eh3VV4hL8s&amp;feature=player_embedded" rel="nofollow">http://www.youtube.com/watch?v=4Eh3VV4hL8s&amp;feature=player_embedded</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1162</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 22 Feb 2011 13:25:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1162</guid>
+		<description>- Э! Гиви! Армяне лучше чем грузины!
+- Вай, чем это?
+- ...Чем грузины, гаварю тэбэ!</description>
+		<content:encoded><![CDATA[<p>- Э! Гиви! Армяне лучше чем грузины!<br />
+- Вай, чем это?<br />
+- &#8230;Чем грузины, гаварю тэбэ!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий Прокудин</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1161</link>
+		<dc:creator>Дмитрий Прокудин</dc:creator>
+		<pubDate>Tue, 22 Feb 2011 13:22:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1161</guid>
+		<description>Роман, Роман, Holy War! ;)
+http://blog.vadmin.ru/2011/02/blog-post.html#comments
+Жбанков говорит... ?! Нет, он просто ЗНАЕТ, что "СХД EMC лучше, чем, скажем, Netapp."</description>
+		<content:encoded><![CDATA[<p>Роман, Роман, Holy War! ;)<br />
+<a href="http://blog.vadmin.ru/2011/02/blog-post.html#comments" rel="nofollow">http://blog.vadmin.ru/2011/02/blog-post.html#comments</a><br />
+Жбанков говорит&#8230; ?! Нет, он просто ЗНАЕТ, что &#8220;СХД EMC лучше, чем, скажем, Netapp.&#8221;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1156</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 21 Feb 2011 13:38:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1156</guid>
+		<description>Александр:
+
+Не идеально, согласен. А какой-нибудь DFM и Operations Manager не смотрели, там нет ли такого?
+А VFM по-моему бросили пару лет назад :(</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>Не идеально, согласен. А какой-нибудь DFM и Operations Manager не смотрели, там нет ли такого?<br />
+А VFM по-моему бросили пару лет назад :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/822#comment-1147</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Mon, 21 Feb 2011 07:50:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/822#comment-1147</guid>
+		<description>К сожалению гибкость fpolicy оставляет желать лучшего т.к. работает это на весь сервис CIFS, что не дает нам гибко управлять ресурсами каталогов с различным назначением (банально департамент маркетинга должен иметь право сохранять медиаконтент). Поэтому если кто захочет гибко управлять квотами и файл скринингом, то лучше использовать NTP Software QFS или NORTHERN STORAGE SUITE (я использую его). Они работают через тот же fpolicy, но гораздо гибче.
+
+Никак не пойму почему в NetApp не слделают собственный гибкий механизм управления квотами и т.п. есть же у них Virtual
+File Manager (VFM) почему бы не расширить этот продкут... не понимаю (наверно поэтому он так не популярен) :(</description>
+		<content:encoded><![CDATA[<p>К сожалению гибкость fpolicy оставляет желать лучшего т.к. работает это на весь сервис CIFS, что не дает нам гибко управлять ресурсами каталогов с различным назначением (банально департамент маркетинга должен иметь право сохранять медиаконтент). Поэтому если кто захочет гибко управлять квотами и файл скринингом, то лучше использовать NTP Software QFS или NORTHERN STORAGE SUITE (я использую его). Они работают через тот же fpolicy, но гораздо гибче.</p>
+<p>Никак не пойму почему в NetApp не слделают собственный гибкий механизм управления квотами и т.п. есть же у них Virtual<br />
+File Manager (VFM) почему бы не расширить этот продкут&#8230; не понимаю (наверно поэтому он так не популярен) :(</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

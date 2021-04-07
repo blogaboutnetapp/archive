@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Обновление NetApp Support Site (ex-NOW)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1126/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1126</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:21 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1126#comment-2209</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 07 Mar 2012 07:35:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1126#comment-2209</guid>
+		<description>sergeykim:
+
+Ну, "кто без греха - первый брось камень" :)
+Тормозит, да. Еще My Autosupport отвалился вот, говорят.
+
+Документ называется 
+NetAppSupportSiteCustomerReferenceGuide.pdf (и такой же PartnerReferenceGuide).
+и я его качал по ссылки прямо с главной.</description>
+		<content:encoded><![CDATA[<p>sergeykim:</p>
+<p>Ну, &#8220;кто без греха - первый брось камень&#8221; :)<br />
+Тормозит, да. Еще My Autosupport отвалился вот, говорят.</p>
+<p>Документ называется<br />
+NetAppSupportSiteCustomerReferenceGuide.pdf (и такой же PartnerReferenceGuide).<br />
+и я его качал по ссылки прямо с главной.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sergeykim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1126#comment-2208</link>
+		<dc:creator>sergeykim</dc:creator>
+		<pubDate>Wed, 07 Mar 2012 07:32:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1126#comment-2208</guid>
+		<description>Не говоря уж о том, что все очень сильно тормозит, многие полезные вещи, которые не очень легко можно было отыскать на NOW на теперешнем сайте вообще крайне сложно найти.
+Например, прямо на встрече с заказчиком нужно срочно найти "System Configuration Guide" чтобы уточнить одну техническую деталь. На NOW невозможно было открыть это в два - три клика, а на теперешнем сайте так вообще невозможно найти.
+
+P. S. а где можно найти тот "111-страничнй документ"?</description>
+		<content:encoded><![CDATA[<p>Не говоря уж о том, что все очень сильно тормозит, многие полезные вещи, которые не очень легко можно было отыскать на NOW на теперешнем сайте вообще крайне сложно найти.<br />
+Например, прямо на встрече с заказчиком нужно срочно найти &#8220;System Configuration Guide&#8221; чтобы уточнить одну техническую деталь. На NOW невозможно было открыть это в два - три клика, а на теперешнем сайте так вообще невозможно найти.</p>
+<p>P. S. а где можно найти тот &#8220;111-страничнй документ&#8221;?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrew</title>
+		<link>http://blog.aboutnetapp.ru/archives/1126#comment-2205</link>
+		<dc:creator>Andrew</dc:creator>
+		<pubDate>Mon, 05 Mar 2012 09:49:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1126#comment-2205</guid>
+		<description>Пытаемся запустить MyAutosupport, получаем
+
+Not Found
+
+Our server could not find anything matching your request. Please return to the home page.
+
+SlashDot эффект? :-))</description>
+		<content:encoded><![CDATA[<p>Пытаемся запустить MyAutosupport, получаем</p>
+<p>Not Found</p>
+<p>Our server could not find anything matching your request. Please return to the home page.</p>
+<p>SlashDot эффект? :-))</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

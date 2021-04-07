@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Замена &#8220;головы&#8221; в сторадже: LUN serial</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1223/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1223</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:25 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1223#comment-4187</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 23 Oct 2012 14:50:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1223#comment-4187</guid>
+		<description>Андрей:
+
+Тем не менее именно таков официальный ответ NetApp. Ваше дело верить ему, или проверять это своими силами.</description>
+		<content:encoded><![CDATA[<p>Андрей:</p>
+<p>Тем не менее именно таков официальный ответ NetApp. Ваше дело верить ему, или проверять это своими силами.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Андрей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1223#comment-4186</link>
+		<dc:creator>Андрей</dc:creator>
+		<pubDate>Tue, 23 Oct 2012 14:42:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1223#comment-4186</guid>
+		<description>Не хочу показаться самым умным, но партнамберы у блоков питания, фанов одинаковые. А внутренности далеко от того чтобы дать возможность там что-то менять - слишком мало места. Но про официальность я понял, ок.</description>
+		<content:encoded><![CDATA[<p>Не хочу показаться самым умным, но партнамберы у блоков питания, фанов одинаковые. А внутренности далеко от того чтобы дать возможность там что-то менять - слишком мало места. Но про официальность я понял, ок.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1223#comment-4154</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 22 Oct 2012 08:51:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1223#comment-4154</guid>
+		<description>Андрей:
+
+Официально не поддерживается. Утверждается, что для работы контроллера в корпусе дисковой полки, сделанной изначально как полка, не хватает мощностей охлаждения, или поток воздуха там не так идет. В общем 2240 внутри чуть конструктивно видоизменена для лучшего охлаждения. Поэтому в 2240 контроллер IOM вместо контроллера стораджа вставить можно (много холода - не мало), а вот наоборот - что-то там не так как надо охлаждается, поэтому не поддерживается. Вполне возможно, что даже работать будет, но не гарантируется, поэтому не поддерживается во всех обещанных NetApp условиях эксплуатации.</description>
+		<content:encoded><![CDATA[<p>Андрей:</p>
+<p>Официально не поддерживается. Утверждается, что для работы контроллера в корпусе дисковой полки, сделанной изначально как полка, не хватает мощностей охлаждения, или поток воздуха там не так идет. В общем 2240 внутри чуть конструктивно видоизменена для лучшего охлаждения. Поэтому в 2240 контроллер IOM вместо контроллера стораджа вставить можно (много холода - не мало), а вот наоборот - что-то там не так как надо охлаждается, поэтому не поддерживается. Вполне возможно, что даже работать будет, но не гарантируется, поэтому не поддерживается во всех обещанных NetApp условиях эксплуатации.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Андрей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1223#comment-4065</link>
+		<dc:creator>Андрей</dc:creator>
+		<pubDate>Fri, 19 Oct 2012 05:39:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1223#comment-4065</guid>
+		<description>Алексей:
+Почему нельзя? У меня успешно получалось поменять местами сущности 2240-4 и 4243!</description>
+		<content:encoded><![CDATA[<p>Алексей:<br />
+Почему нельзя? У меня успешно получалось поменять местами сущности 2240-4 и 4243!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1223#comment-4042</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 18 Oct 2012 14:10:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1223#comment-4042</guid>
+		<description>Артур:
+
+Там в тексте скриптов указан "Usage:", но - да, конечно, как иначе можно узнать старый ID?</description>
+		<content:encoded><![CDATA[<p>Артур:</p>
+<p>Там в тексте скриптов указан &#8220;Usage:&#8221;, но - да, конечно, как иначе можно узнать старый ID?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Артур</title>
+		<link>http://blog.aboutnetapp.ru/archives/1223#comment-4039</link>
+		<dc:creator>Артур</dc:creator>
+		<pubDate>Thu, 18 Oct 2012 12:34:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1223#comment-4039</guid>
+		<description>Правильно ли я понял, что скрипты запускаются до замены голов. А после уже на основе сгенеренных файлов заменяются SerialID?</description>
+		<content:encoded><![CDATA[<p>Правильно ли я понял, что скрипты запускаются до замены голов. А после уже на основе сгенеренных файлов заменяются SerialID?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1223#comment-4037</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 18 Oct 2012 10:36:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1223#comment-4037</guid>
+		<description>Еще интересный факт, что из FAS2240, например - можно сделать полку.
+Купил ты например FAS2240 - пользуешься им.
+Решил вырасти до FAS3200, а старую FAS2240 можно превратить в дополнительную полочку для твоей новой FAS3200.
+Делается это апгрэйдом, фактически покупаются 2 IOM модуля + connect требуха.
+Но нельзя сделать наоборот - из полки нельзя сделать FAS2240.</description>
+		<content:encoded><![CDATA[<p>Еще интересный факт, что из FAS2240, например - можно сделать полку.<br />
+Купил ты например FAS2240 - пользуешься им.<br />
+Решил вырасти до FAS3200, а старую FAS2240 можно превратить в дополнительную полочку для твоей новой FAS3200.<br />
+Делается это апгрэйдом, фактически покупаются 2 IOM модуля + connect требуха.<br />
+Но нельзя сделать наоборот - из полки нельзя сделать FAS2240.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

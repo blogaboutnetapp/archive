@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; SnapMirror, часть 2</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1262/trackback.html">Новинки на EMC World или всегда ли &ldquo;рулит софт&rdquo;?</a></div>
+			<div class="alignright"><a href="1264/trackback.html">SnapVault</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1263">
+			<h2 class="posttitle"><a href="1263/trackback.html" rel="bookmark" title="Permanent Link to SnapMirror, часть 2">SnapMirror, часть 2</a></h2>
+			<div class="postmetadata">10 Июнь 2013, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>??так, в прошлом посте я показал подробно, что за средства репликации данных есть у NetApp, и почему так получилось, что для синхронной репликации есть целых два решения, а также чем отличаются синхронная и асинхронная репликация для тех, кто это пока еще нетвердо знал.</p>
+<p>Начнем же подробнее про именно SnapMirror.</p>
+<p>  <span id="more-1263"></span></p>
+<p>Для начала стоит сказать, что SnapMirror, как ни странно, также существует в двух существенно отличающихся “технических ипостасях”, это так называемый Volume SnapMirror (VSM), и так называемый QTree SnapMirror (QSM). Эти два режима существенно отличаются особенностями своей работы, поэтому об этих отличиях стоит знать и уметь эти отличия применять себе на пользу.</p>
+<p>Я уже упомянул в прошлом посте о том, что основой SnapMirror является технология снэпшотов, то есть создания мгновенных копий состояния дискового тома. В снэпшоте хранятся только изменения, поэтому он сравнительно невелик по размерам, и, перенеся его на получателя репликации, например на удаленную систему, мы с легкостью перенесем на нее все изменения с исходного стораджа, сэкономив время и трафик. Репликацию можно выполнить по локальной сети Ethernet, через любой IP-канал, в том числе WAN, а при определенных условиях, через FC, но для этого нужны специальные адаптеры в контроллер, и такой вариант считается редкостью и приеняется нечасто. Обычно возможностей и пропускной способности IP-сети вполне достаточно для репликации.</p>
+<p>Оба этих режима, как Volume SnapMirror, так и QTree SnapMirror используют для своей работы снэпшоты, но в остальном они существенно отличаются.</p>
+<p><strong>Volume SnapMirror:</strong></p>
+<ul>
+<li>Блочная репликация, блок-в-блок диска, без учета содержимого и файловой структуры. </li>
+<li>Репликация всегда один-в-один том. </li>
+<li>Поддерживается синхронный, полусинхронный и асинхронный режимы. </li>
+<li>Не страдает производительность при большом объеме мелких файлов или глубоко вложенных директориях </li>
+<li>??сходный том во время репликации доступен для записи и чтения, том-получатель репликации – readonly. </li>
+<li>Неприменимы квоты на томе-получателе </li>
+<li>Сохраняются дедупликация, компрессия, и прочие свойства данных на томе-источнике, а также сделанные на нем снэпшоты, которые тоже переносятся на получателя репликации. </li>
+<li>Не поддерживается репликация между томами разных систем, то есть между traditional и flexvol </li>
+<li>Начиная с 8.1 поддерживаются репликации между томами 32-bit и 64-bit </li>
+<li>Версия Data ONTAP на системе-получателе репликации должна быть идентична источнику, или новее его. </li>
+</ul>
+<p>&#160;</p>
+<p><strong>QTree SnapMirror:</strong></p>
+<ul>
+<li>“Логическая”, файловая репликация. Файлы и директории создаются последовательно на томе-получателе в процессе репликации </li>
+<li>Неважно каков будет том-получатель, он может быть иной структуры и размера, чем том-источник. </li>
+<li>Можно организовать репликацию “много QTree с разных источников – на один том-получатель” </li>
+<li>Том как источника, так и получателя может быть доступен для записи, но реплицируемый в данный момент qtree-получатель будет readonly, остальные qtree тома – доступны на запись. </li>
+<li>Возможна только асинхронная репликация </li>
+<li>Не поддерживает каскадированную репликацию </li>
+<li>Глубоко вложенные директории или директории с большим количеством файлов при репликаци могут вызвать падение производительности и высокую нагрузку на контроллер. </li>
+</ul>
+<p>Как вы видите, подчас может показаться, что QSM и VSM это вообще две разных системы репликации, да, в общем-то, так оно и есть :)</p>
+<p>Основная настройка репликации SnapMirror производится изменениями записей в конфигурационном файле snapmirror.conf, находящемся на /etc</p>
+<p>Для того, чтобы настроить репликацию, прежде всего убедитесь, что на системе есть нужные лицензии SnapMirror, если нет – добавьте их на обоих системах, и получателе, и источнике, командой: </p>
+<p><code>license add [license_number]</code></p>
+<p>Затем укажите, что две эти системы взаимно будут находиться в отношениях репликации (relationship), это настроит соответствующие сетевые порты на обеих системах.</p>
+<p><code>filerA &gt; options snapmirror.access host=filerB</code></p>
+<p><code>filerB &gt; options snapmirror.access host=filerA</code></p>
+<p>Теперь можно задать конфирурацию репликации в файле snapmirror.conf строкой в формате:</p>
+<p><em><font color="#0000ff">Source-storage-system-name</font>:source-path <font color="#c0504d">destination-storage-system-name</font>:destination-path <font color="#9b00d3">arguments </font><font color="#9bbb59">schedule</font></em></p>
+<p>В <em>arguments</em> можно, например, задать максимальную полосу, используемую репликацией: <em>kbps=3000</em> означает, что максимально от канала связи между источником и получателем будет заниматься не более 3000 kilobit/s. Это поможет вам ограничить “аппетиты” репликации, и сделать так, чтобы репликация не забивала совместно используемый канал, и не влияла на обычную работу систем.</p>
+<p>Расписание репликации (<em>schedule</em>) задается в формате, известном как <a href="http://www.nncron.ru/help/RU/working/cron-format.htm">CRON format</a>:</p>
+<p><em>minute hour day-of-month month day-of-week </em></p>
+<p>Цифра (или диапазон) указывает конкретную величину, а “звездочка” в позиции – любое, срабатывает всегда. Например значение расписания <strong>10 22 * 1,3,4</strong> будет значить:</p>
+<ul>
+<li>10 – запускать репликацию по прохождении 10 минут от начала часа </li>
+<li>22 – в 22 часа </li>
+<li>* – в все дни месяца </li>
+<li>1,3,4 – в понедельник (1), среду (3) и четверг (4) </li>
+</ul>
+<p>Расписание <strong>10 * * * *</strong> задает старт репликации каждые 10 минут, а <strong>15 7,19 * 1,2,3,4,5</strong> – запуск репликации в 7:15 утром и 19:15 вечером, каждого буднего дня (1,2,3,4,5) с понедельника по пятницу. Как видите, несмотря на некоторую аскетичность, механизм расписания позволяет задавать его довольно произвольно.</p>
+<p>Обратите внимание, что даже если вы не планируете использовать SnapMirror (и SnapVault, тема нашего следующего поста в <em>Back-to-Basics</em>) в реальной жизни, вам все равно придется крайне досконально проштудировать тему, если вы нацелитесь сдать нетапповскую сертификацию, например NCDA (NetApp Certified Data Administrator), там ОЧЕНЬ много вопросов по настройке SnapMirror и SnapVault.</p>
+<p>??так, если все настройки в snapmirror.conf сделаны, можно начать репликацию. Если репликация до этого не делалась, и том-получатель пока “чистый”, то придется, первым шагом, выполнить так называмый <em>baseline transfer</em>, полную начальную передачу всех даных на томе-источнике на том-получатель. Для осуществления репликации, том-получатель (в нашем примере – volA на filerB) должен находиться в состоянии, называемом restricted, и назначаемым тому специальной командой.</p>
+<p><code>filerB &gt; vol restrict volA</code></p>
+<p><code>filerB &gt; snapmirror initialize -S filerA:volA filerB:volA</code></p>
+<p><em>Baseline transfer</em>, это, конечно, довольно продолжительная процедура. Посмотреть процесс ее выполнения можно с помощью команды:</p>
+<p><code>filerB &gt; snapmirror status</code></p>
+<p><strong>Обратите внимание:</strong> Никогда не удаляйте вручную автоматически созданный внутри процедуры SnapMirror снэпшот тома. В этом случае SnapMirror не сможет определить инкрементальные блоки для репликации, и снова начнет полную репликацию baseline transfer. Впрочем, иногда это можно сделать специально, для переинициализации SnapMirror и траблшутинга.</p>
+<p>Вы также можете разрешить системе вести лог репликации, укажите <code>options.snapmirror.log enabled</code>, и вслед за этим в файл <code>/etc/log/snapmirror</code> будет выводиться лог репликации.</p>
+<p>Если репликация не запускается, то, среди прочего, проверьте нет ли между двумя системами файрволла. При работе SnapMirror использует группу портов от номера 10565 до 10569. Самое простое (и, в целом, безопасное) решение – открыть для IP системы-получателя и системы-источника диапазон портов TCP 10565-10569 в обоих направлениях. </p>
+<p>Baseline transfer отработал успешно, и на протяжении долгого времени репликация передает изменения с тома FilerA на том FilerB. Но вот настал момент, когда нам потребовалось воспользоваться репликой данных. Для этого, прежде всего, надо разорвать отношения репликации, <em>break relationship</em>.</p>
+<p><code>filerB &gt; snapmirror break &lt;volume name&gt;</code></p>
+<p>При этом том-получатель и данные на нем становятся доступными.</p>
+<p>Для временной приостановки репликации, без ее разрыва, используется команда:</p>
+<p><code>filerB &gt; snapmirror quiesce &lt;volume name&gt;</code></p>
+<p>Если после разрыва репликации вам потребовалось их вновь восстановить не проводя baseline transfer, это делается процедурой resync:</p>
+<p><code>filerB &gt; snapmirror resync filerB:volume-name</code></p>
+<p>Для разрыва репликации насовсем, используется другая команда, отдаваемая&#160; на файлере-источнике:</p>
+<p><code>filerA &gt; snapmirror release source_vol filerB:dest_vol</code></p>
+<p>В результате вы получаете том-копию данных на второй системе хранения, реплике исходного тома, и можете использовать его данные для восстановления работы системы на резервной площадке.</p>
+<p>Другим интересным вариантом использования SnapMirror является система “дистрибуции контента”, например передачи содержимого определенных папок, с документами или иной подобной информацией, с главного стораджа, например в головном офисе, на системы филиалов. С учетом того, что репликация осуществляется только изменений, к тому же используется компрессия в канале передачи данных, подобная репликация может быть весьма выгодной и эффективной.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/snapmirror.html" rel="tag">snapmirror</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="1263/trackback.html#respond">Комментарий</a> (<a href='1263/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1263/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1263" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

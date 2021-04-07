@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Администраторский доступ с нескольких хостов</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/646/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/646</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:04 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/646#comment-644</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Thu, 05 Aug 2010 19:05:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=646#comment-644</guid>
+		<description>Я имел в виду принципиальную разницу - есть документированная опция trusted.hosts, поддерживается в том числе System Manager-ом. ?? есть недокументированная "deleted" опция вроде бы с тем же функционалом. Зачем её использовать? 
+
+Вообще как эта опция работать-то должна? Как вообще получается, что она шлюз воспринимает в качестве адреса? Адреса не из её подсети работать не будут, потому что она видит шлюз? Вообще как это согласуется с tcp/ip - какое отношение имеет шлюз к пакету? он с точки зрения tcp/ip вообще прозрачен - пакет приходит от исходного адреса - никаких шлюзов в пакете не отмечается. Как система узнаёт, из какого шлюза пришёл пакет? reverse arp? из своей таблицы _исходящего_ роутинга?
+Вы уверены, что вы (или Mohit Garg? ;) не перепутали gateway и proxy server? Трюк с proxy будет работать и с trusted.hosts, более того, из-за настройки прокси-сервера казалось бы допустимый хост может не пускать в админку, потому что он через прокси лезет (особенный казус с System Manager-ом, которому пишут имя хоста, а он его резолвит и лезет по ip).
+
+Что касается trusted.hosts, то практика показывает, что как минимум список из 6 хостов вполне работает, а если уж нужен более гибкий инструмент - то "option *.access" (na_protocolaccess) позволяет гибче некуда конфигурировать доступ вполне документированным и современным способом.</description>
+		<content:encoded><![CDATA[<p>Я имел в виду принципиальную разницу - есть документированная опция trusted.hosts, поддерживается в том числе System Manager-ом. ?? есть недокументированная &#8220;deleted&#8221; опция вроде бы с тем же функционалом. Зачем её использовать? </p>
+<p>Вообще как эта опция работать-то должна? Как вообще получается, что она шлюз воспринимает в качестве адреса? Адреса не из её подсети работать не будут, потому что она видит шлюз? Вообще как это согласуется с tcp/ip - какое отношение имеет шлюз к пакету? он с точки зрения tcp/ip вообще прозрачен - пакет приходит от исходного адреса - никаких шлюзов в пакете не отмечается. Как система узнаёт, из какого шлюза пришёл пакет? reverse arp? из своей таблицы _исходящего_ роутинга?<br />
+Вы уверены, что вы (или Mohit Garg? ;) не перепутали gateway и proxy server? Трюк с proxy будет работать и с trusted.hosts, более того, из-за настройки прокси-сервера казалось бы допустимый хост может не пускать в админку, потому что он через прокси лезет (особенный казус с System Manager-ом, которому пишут имя хоста, а он его резолвит и лезет по ip).</p>
+<p>Что касается trusted.hosts, то практика показывает, что как минимум список из 6 хостов вполне работает, а если уж нужен более гибкий инструмент - то &#8220;option *.access&#8221; (na_protocolaccess) позволяет гибче некуда конфигурировать доступ вполне документированным и современным способом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/646#comment-642</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 05 Aug 2010 13:38:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=646#comment-642</guid>
+		<description>&lt;b&gt;trusted.hosts&lt;/b&gt;
+Specifies &lt;b&gt;up to 5 clients&lt;/b&gt; that will be allowed telnet, rsh, and administrative HTTP (i.e. FilerView)access to the server.</description>
+		<content:encoded><![CDATA[<p><b>trusted.hosts</b><br />
+Specifies <b>up to 5 clients</b> that will be allowed telnet, rsh, and administrative HTTP (i.e. FilerView)access to the server.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/646#comment-641</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Thu, 05 Aug 2010 07:20:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=646#comment-641</guid>
+		<description>А в чём разница с документированной опцией trusted.hosts?</description>
+		<content:encoded><![CDATA[<p>А в чём разница с документированной опцией trusted.hosts?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

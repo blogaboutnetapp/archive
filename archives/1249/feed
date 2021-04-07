@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Опубликован VSC 4.2 beta</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1249/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1249</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:02 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1249#comment-6875</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 15 Apr 2013 10:14:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1249#comment-6875</guid>
+		<description>&#62;добавлена поддержка новых систем в VDDK (например Windows Server 2012).
+А энта чево такое?</description>
+		<content:encoded><![CDATA[<p>&gt;добавлена поддержка новых систем в VDDK (например Windows Server 2012).<br />
+А энта чево такое?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pavel Kosachev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1249#comment-6348</link>
+		<dc:creator>Pavel Kosachev</dc:creator>
+		<pubDate>Tue, 12 Mar 2013 05:45:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1249#comment-6348</guid>
+		<description>Может кто-то уже смотрел, доработали ли утилиту SFR (Single File Restore), которая не запускается внутри Windows 2012 гостя? 
+Где можно посмотреть changelog из 150 ошибок или это закрытая информация?</description>
+		<content:encoded><![CDATA[<p>Может кто-то уже смотрел, доработали ли утилиту SFR (Single File Restore), которая не запускается внутри Windows 2012 гостя?<br />
+Где можно посмотреть changelog из 150 ошибок или это закрытая информация?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

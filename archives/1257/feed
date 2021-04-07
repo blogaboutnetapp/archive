@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Снова про EMC VNX</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1257/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1257</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:39 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: zerg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-8308</link>
+		<dc:creator>zerg</dc:creator>
+		<pubDate>Thu, 04 Jul 2013 10:08:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-8308</guid>
+		<description>Pavel Kosachev:
+
+Уже год балтаются луны в Tresspass на одном Clariion(ну считай тот же VNXBlock). Не дает SP переместить их нагрузка слишком большая. А вы говорите о том что все хорошо. Может у вас при maitanance нагрузки не было? Дык ведь VMAX тоже на это грешит.</description>
+		<content:encoded><![CDATA[<p>Pavel Kosachev:</p>
+<p>Уже год балтаются луны в Tresspass на одном Clariion(ну считай тот же VNXBlock). Не дает SP переместить их нагрузка слишком большая. А вы говорите о том что все хорошо. Может у вас при maitanance нагрузки не было? Дык ведь VMAX тоже на это грешит.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7462</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 16 May 2013 10:09:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7462</guid>
+		<description>Роман, в 8.1.2P1 7-mode ещё нельзя.. :(
+&#62; vol move
+vol move: No subcommand supplied.
+usage:
+Move a single 7-mode flexible volume between two aggregates within a controller.</description>
+		<content:encoded><![CDATA[<p>Роман, в 8.1.2P1 7-mode ещё нельзя.. :(<br />
+&gt; vol move<br />
+vol move: No subcommand supplied.<br />
+usage:<br />
+Move a single 7-mode flexible volume between two aggregates within a controller.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pavel Kosachev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7457</link>
+		<dc:creator>Pavel Kosachev</dc:creator>
+		<pubDate>Thu, 16 May 2013 07:04:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7457</guid>
+		<description>1. NetApp DataMotion. - Подходит для перемещение целиком LUN или Volume. Это плохо работает для виртуализации, когда в рамках одного луна может находиться несколько VM. Но даже если разместить LUN=VM , все равно придется делить данные приложения на активно используемую часть и неактивно используемые, что не всегда возможно и/или очень трудозатратно.</description>
+		<content:encoded><![CDATA[<p>1. NetApp DataMotion. - Подходит для перемещение целиком LUN или Volume. Это плохо работает для виртуализации, когда в рамках одного луна может находиться несколько VM. Но даже если разместить LUN=VM , все равно придется делить данные приложения на активно используемую часть и неактивно используемые, что не всегда возможно и/или очень трудозатратно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: s1d</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7455</link>
+		<dc:creator>s1d</dc:creator>
+		<pubDate>Thu, 16 May 2013 06:50:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7455</guid>
+		<description>Добрый день.
+Подскажите, где найти новую бумагу, в которой написано про перемещение томов между агрегатами разных контроллеров, нашел только это:
+http://www.netapp.com/us/system/pdf-reader.aspx?m=ds-3122.pdf&#38;cc=us
+Спасибо</description>
+		<content:encoded><![CDATA[<p>Добрый день.<br />
+Подскажите, где найти новую бумагу, в которой написано про перемещение томов между агрегатами разных контроллеров, нашел только это:<br />
+<a href="http://www.netapp.com/us/system/pdf-reader.aspx?m=ds-3122.pdf&amp;cc=us" rel="nofollow">http://www.netapp.com/us/system/pdf-reader.aspx?m=ds-3122.pdf&amp;cc=us</a><br />
+Спасибо</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7439</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 15 May 2013 14:40:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7439</guid>
+		<description>Александр:
+
+Да нет, не под запретм, просто так как они (цены) индивидуальны, то особого смысла их обсуждать нет. Да и лично мне это не особенно инткересно, это "область деятельности" продавцов, а не продавец.
+
+&gt; между агрегатами только одного контроллера (7-mode).
+
+Разве? в 8.1 7-mode многое поменялось, кстати.</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>Да нет, не под запретм, просто так как они (цены) индивидуальны, то особого смысла их обсуждать нет. Да и лично мне это не особенно инткересно, это &#8220;область деятельности&#8221; продавцов, а не продавец.</p>
+<p>> между агрегатами только одного контроллера (7-mode).</p>
+<p>Разве? в 8.1 7-mode многое поменялось, кстати.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7438</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 15 May 2013 14:26:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7438</guid>
+		<description>NetApp DataMotion - справедливости ради стоит заметить, что нетапчик это делает между агрегатами только одного контроллера (7-mode). EMC LUN'ы двигает откуда угодно и куда угодно.
+А вообще, когда у вас пара стороджей со статичными задачами, то действительно сложно заметить степень удобства и функциональности, а вот когда стороджей уже несколько сотен, то тут уже можно сравнить и чёрт возьми нетапчик начинает "рулить".
+
+Цены тут под запретом, но тем не менее у нетапа самое честное ценообразование, если можно так выразиться.</description>
+		<content:encoded><![CDATA[<p>NetApp DataMotion - справедливости ради стоит заметить, что нетапчик это делает между агрегатами только одного контроллера (7-mode). EMC LUN&#8217;ы двигает откуда угодно и куда угодно.<br />
+А вообще, когда у вас пара стороджей со статичными задачами, то действительно сложно заметить степень удобства и функциональности, а вот когда стороджей уже несколько сотен, то тут уже можно сравнить и чёрт возьми нетапчик начинает &#8220;рулить&#8221;.</p>
+<p>Цены тут под запретом, но тем не менее у нетапа самое честное ценообразование, если можно так выразиться.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7435</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 15 May 2013 11:50:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7435</guid>
+		<description>Pavel Kosachev:
+
+1. "В netapp получили что почти закончилось место в SAS и пустует место в SATA" - NetApp DataMotion.
+2. К вопросу не относится
+3. Речь не про переключение, а про работу не со "своим" контроллером
+4. Вопрос не про наличие QoS</description>
+		<content:encoded><![CDATA[<p>Pavel Kosachev:</p>
+<p>1. &#8220;В netapp получили что почти закончилось место в SAS и пустует место в SATA&#8221; - NetApp DataMotion.<br />
+2. К вопросу не относится<br />
+3. Речь не про переключение, а про работу не со &#8220;своим&#8221; контроллером<br />
+4. Вопрос не про наличие QoS</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pavel Kosachev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7434</link>
+		<dc:creator>Pavel Kosachev</dc:creator>
+		<pubDate>Wed, 15 May 2013 10:41:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7434</guid>
+		<description>??спользуем обе системы EMC VNX , NetApp. 
+Это опыт конкретной компании, тактика размещения виртуальных машин -  полное дублирование серверов на netapp и emc. 
+
+В защиту VNX 
+1. Действительно эффективная система wide-striping (пулы) и его tiering! В netapp получили что почти закончилось место в SAS и пустует место в SATA, тоже касается нагрузки на контроллеры, как тут сможет помощь Virtual Tiering? ILM на базе приложений обойдется не пример дороже. 
+2. Как заметили ранее - цены на доп. полки в netapp - тоже сопоставимы со стоимостью новой системы, для VNX пока не смотрели потому что там места еще много. 
+3. Штатно сгоняли на период maitanance луны на один из контроллеров - проблем с производительностью не замечали. 
+4. QoS в пулах есть , правда нужна доп. лицензия. Она есть, но вопросы QoS обычно затрагиваются при достижении пороговых значений по Bandwidth или iops. 
+
+Это я к тому, что у всех систем есть свои особенности , как у netapp , так и у EMC. 
+Например thin provisioning работает только в условиях однократной записи данных в LUN, как только включаются процессы ILM на уровне приложений, эффект от thin provisioning пропадает.</description>
+		<content:encoded><![CDATA[<p>??спользуем обе системы EMC VNX , NetApp.<br />
+Это опыт конкретной компании, тактика размещения виртуальных машин -  полное дублирование серверов на netapp и emc. </p>
+<p>В защиту VNX<br />
+1. Действительно эффективная система wide-striping (пулы) и его tiering! В netapp получили что почти закончилось место в SAS и пустует место в SATA, тоже касается нагрузки на контроллеры, как тут сможет помощь Virtual Tiering? ILM на базе приложений обойдется не пример дороже.<br />
+2. Как заметили ранее - цены на доп. полки в netapp - тоже сопоставимы со стоимостью новой системы, для VNX пока не смотрели потому что там места еще много.<br />
+3. Штатно сгоняли на период maitanance луны на один из контроллеров - проблем с производительностью не замечали.<br />
+4. QoS в пулах есть , правда нужна доп. лицензия. Она есть, но вопросы QoS обычно затрагиваются при достижении пороговых значений по Bandwidth или iops. </p>
+<p>Это я к тому, что у всех систем есть свои особенности , как у netapp , так и у EMC.<br />
+Например thin provisioning работает только в условиях однократной записи данных в LUN, как только включаются процессы ILM на уровне приложений, эффект от thin provisioning пропадает.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7427</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Wed, 15 May 2013 04:14:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7427</guid>
+		<description>Я бы ещё добавил в предостережения схему работы EMC VNX в файловом или Unified варианте.
+DataMover-ы или по другому X-Blad-ы, сами не отрабатывают отказ одного из файловых контроллеров, это делает Control Station, которая является сервером под RHEL, соответственно для отказоустойчивости таких CS надо две штуки(прим. в базе считается одна, вторую добавляют на этапе конфигурирования спецификации, может выйти накладка и клиент получит только одну CS)</description>
+		<content:encoded><![CDATA[<p>Я бы ещё добавил в предостережения схему работы EMC VNX в файловом или Unified варианте.<br />
+DataMover-ы или по другому X-Blad-ы, сами не отрабатывают отказ одного из файловых контроллеров, это делает Control Station, которая является сервером под RHEL, соответственно для отказоустойчивости таких CS надо две штуки(прим. в базе считается одна, вторую добавляют на этапе конфигурирования спецификации, может выйти накладка и клиент получит только одну CS)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1257#comment-7391</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 13 May 2013 08:51:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1257#comment-7391</guid>
+		<description>Konstantin:
+
+Не, ну такое-то и у нетаппа бывает (ну как, "бывает" - "есть";)
+Просто обычно новая система покупается с большими акционными скидками, которые правильный продавец знает и умеет их использовать для проталкивания продажи, а полка уже идет по ценам листпрайса, ну может небольшая скидка, если повезет.
+В одном проекте, где я принимал участие, была забавная ситуация, там для покупки 12 дополнительных дисков и одной лицензии к уже купленной системе оказалось выгодно "затрейдинить" старую систему и купить вместо нее новую, с плюс дисками и complete bundle, чем докупать апгрейд к имеющейся.
+
+Но я бы хотел в этом блоге не касаться ценовых вопросов, это все же далеко от интересного мне, и ценообразование штука уж больно специфическая (с точки зрения инженера), у любого вендора.</description>
+		<content:encoded><![CDATA[<p>Konstantin:</p>
+<p>Не, ну такое-то и у нетаппа бывает (ну как, &#8220;бывает&#8221; - &#8220;есть&#8221;;)<br />
+Просто обычно новая система покупается с большими акционными скидками, которые правильный продавец знает и умеет их использовать для проталкивания продажи, а полка уже идет по ценам листпрайса, ну может небольшая скидка, если повезет.<br />
+В одном проекте, где я принимал участие, была забавная ситуация, там для покупки 12 дополнительных дисков и одной лицензии к уже купленной системе оказалось выгодно &#8220;затрейдинить&#8221; старую систему и купить вместо нее новую, с плюс дисками и complete bundle, чем докупать апгрейд к имеющейся.</p>
+<p>Но я бы хотел в этом блоге не касаться ценовых вопросов, это все же далеко от интересного мне, и ценообразование штука уж больно специфическая (с точки зрения инженера), у любого вендора.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

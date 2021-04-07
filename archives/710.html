@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; В чем разница между &ldquo;свойством&rdquo; и &ldquo;недостатком&rdquo;</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="716/trackback.html">Немного &ldquo;неформального&rdquo; с Innovation 2010</a></div>
+			<div class="alignright"><a href="713/trackback.html">Data ONTAP 8.0.1RC1 &ndash; что нового?</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-710">
+			<h2 class="posttitle"><a href="710/trackback.html" rel="bookmark" title="Permanent Link to В чем разница между &ldquo;свойством&rdquo; и &ldquo;недостатком&rdquo;">В чем разница между &ldquo;свойством&rdquo; и &ldquo;недостатком&rdquo;</a></h2>
+			<div class="postmetadata">4 Октябрь 2010, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>В некоем оффлайновом споре, развернувшемся по поводу <a href="708/trackback.html">недавно опубликованной</a> мной заметки по поводу того, как организовано использование дисковой емкости на системах хранения NetApp, я столкнулся с непониманием того, что было мной названо “<em>не недостатком, а свойством</em>”, и в чем между ними в данном случае принципиальная разница.    <br />Вынося это обсуждение из того спора, я хочу отдельно пояснить свою позицию по этому вопросу.</p>
+<p>Например, когда мы решаем использовать для хранения наших данных RAID-5, емкость которого равна сумме всех входящих в него дисков, минус емкость одного диска, или даже RAID-10, емкость которого равна половине суммы всех емкостей его дисков, мы не говорим, что <em>“всем был бы хорош RAID-5, вот только главный недостаток его в том, что емкость его на целый диск меньше, чем могла бы быть”.</em>     <br />Мы знаем, что “по другому быть не могло”.</p>
+<p>Мы знаем, что уменьшение емкости на один диск (или даже на половину всех дисков в случае RAID-10), это не <em>недостаток</em>, а естественно присущее такому типу RAID <em>свойство</em>. Мы знаем, что взамен мы получаем более высокую устойчивость системы, более высокую, чем в случае простого набора дисков, а также большее быстродействие. За все этомы платим емкостью одного диска (или двумя для RAID-6, или половиной для RAID-10), что-ж, за все надо платить. Если нам нужна надежность, мы выбираем RAID и платим. </p>
+<p>Но никто не трактует уменьшение емкости при создании RAID как “недостаток” RAID. Никто не ставит это в вину RAID, так как совершенно очевидно, что это <strong>свойство</strong> RAID, за счет этого он работает и обеспечивает свои дополнительные пользовательские преимущества, такие как быстродействие и повышенная, в сравнении с отдельным диском, или группой таких дисков, надежность, ради чего мы его и применяем.</p>
+<p>Абсолютно точно также обстоит дело с <a href="708/trackback.html">Block Checksums</a> в NetApp. Также как диск parity в RAID-5 это повышает надежность и добавляет функциональность (например позволяет <a href="299/trackback.html">дедуплицировать данные</a> или использовать <a href="294/trackback.html">Oracle HARD</a>), за счет некоторого уменьшения полезного объема. Это тоже не <em>недостаток</em> примененной NetApp модели использования дисков, это его <em>свойство</em>.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>					&nbsp;|&nbsp;&nbsp;<a href="710/trackback.html#respond">Комментарий</a> (<a href='710/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="710/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (12)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-852">
+		<div id="div-comment-852">
+		<div class="comment-author">
+			<cite>villain:<cite></div>
+			<p>Роман, мне кажется сейчас ты занимаешься софистикой.</p>
+<p>В случае с 512/520 байт в отличии от RAID5/3/4 - &#8220;по-другому быть могло&#8221; - но архитектура WAFL заточена именно так (я кстати не говорю что это плохое решение - вполне себе архитектурное решение)</p>
+<p>одное решение в комментариях было</p>
+<p>&#8230;.. цитирую комментарии &#8230;..</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-852" title="">4 Октябрь 2010, 21:10</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-853">
+		<div id="div-comment-853">
+		<div class="comment-author">
+			<cite>villain:<cite></div>
+			<p>ой 8-(( - погрызло весь мой большой коммент - попробую написать в мелких</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-853" title="">4 Октябрь 2010, 21:12</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-854">
+		<div id="div-comment-854">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Роман, мне кажется сейчас ты занимаешься софистикой.<br />
+>В случае с 512/520 байт в отличии от RAID5/3/4 - “по-другому быть могло” - но архитектура WAFL заточена именно так</p>
+<p>А RAID - &#8220;заточен по другому&#8221;, но суть та же. За функциональность надо чем-то платить. В обоих вышеупомянутых случаях платим raw-местом.<br />
+В чем софистика?</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-854" title="">4 Октябрь 2010, 21:15</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-855">
+		<div id="div-comment-855">
+		<div class="comment-author">
+			<cite>villain:<cite></div>
+			<p>Прочитай свой же комментарий от 25 сентября 2010, 18:21 в посте <a href="708/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/708</a></p>
+<p>ты ссылаешься на архитектурные решения. Вторым вариантом например можно записывать 8-байт сразу в следующий сектор и выполнять ремаппинг аппаратно на переходниках SATA/FC или SATA/SAS. Все равно ведь читать/писать два сектора вместо одного пусть будут соседние.</p>
+<p>А то вдруг у кого-либо из вендоров окажется что есть 52-байтные сектора на SATA дисках и емкость будет больше чем у NetApp?</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-855" title="">4 Октябрь 2010, 21:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-856">
+		<div id="div-comment-856">
+		<div class="comment-author">
+			<cite>villain:<cite></div>
+			<p>Софистика в том, что RAID5 &#8220;по-другому&#8221; сделать не получится - это RAID5 8-)</p>
+<p>А защиту чексуммой сделать можно и потери ~ 10% можно избежать - вопрос &#8220;цены&#8221;</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-856" title="">4 Октябрь 2010, 21:19</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-857">
+		<div id="div-comment-857">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Софистика в том, что RAID5 “по-другому” сделать не получится - это RAID5 8-)</p>
+<p>По моему у вас какая-то неконвенциональная трактовка понятия &#8220;софизм&#8221;. Ссылку на словарь приводить уж не буду, да?</p>
+<p>> А защиту чексуммой сделать можно и потери ~ 10% можно избежать - вопрос “цены”</p>
+<p>Как и в случае RAID, кстати. &#8220;?? чо?&#8221;</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-857" title="">4 Октябрь 2010, 21:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-858">
+		<div id="div-comment-858">
+		<div class="comment-author">
+			<cite>villain:<cite></div>
+			<p>8-)<br />
+Софизм - ложное умозаключение, которое, тем не менее, при поверхностном рассмотрении кажется правильным.</p>
+<p>Я говорю что твое утверждение -<br />
+{<br />
+Эффект &#8220;отбрасывания&#8221; каждого девятого сектора это будет для числа секторов коэффициент 0,88 &#8220;в периоде&#8221;.<br />
+Умножим паспортное количество секторов на 0,88… и получим:<br />
+}<br />
+Можно обойтись меньшими накладными расходами, примеры тебе привели - dixi. В RAID5 ты всегда &#8220;потеряешь&#8221; емкость одного диска - по-другому сделать нельзя - это будет не RAID5 8-)))</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-858" title="">4 Октябрь 2010, 21:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-859">
+		<div id="div-comment-859">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Можно обойтись меньшими накладными расходами, примеры тебе привели</p>
+<p>Там же я ответил, почему такой вариант не подходит. Это очень усложнит работу, ограничит функциональность, и ухудшит производительность.</p>
+<p>> В RAID5 ты всегда “потеряешь” емкость одного диска - по-другому сделать нельзя - это будет не RAID5</p>
+<p>Ну да, все верно, а тут - будет не NetApp. Полная аналогия.</p>
+<p>Рассуждения же &#8220;а можно было бы сделать по другому, и тогда&#8221;, это все умствования и &#8220;разговоры в пользу бедных&#8221;. Что рассуждать, давайте реализацию, обсудим, посмотрим, и решим, лучше ли она и чем.</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-859" title="">4 Октябрь 2010, 21:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-860">
+		<div id="div-comment-860">
+		<div class="comment-author">
+			<cite>villain:<cite></div>
+			<p>Тебе уже привели две реализации - обе видимо плохо ложатся на архитектуру WAFL.</p>
+<p>1) Один сектор с чексуммами на каждые 64 блока<br />
+2) Писать последовательно 520 байт</p>
+<p>для упрощения - возможно отказаться от интерфейса SATA у &#8220;канистры&#8221; с диском и использовать SAS/FC, всю трансляцию делать прозрачно для операционки - т.е. всегда отдавать 520-ый сектор. Что вызовет повышение стоимости ээ диска в системе например 8-) - варианты есть.</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-860" title="">4 Октябрь 2010, 21:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-861">
+		<div id="div-comment-861">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Конечно есть. ??спользовать SAS или FC-диски, например :) Там сектор может быть произвольного размера на самом диске.</p>
+<p>Я бы с удовольствием бы выслушал &#8220;примеры реализации&#8221;, но не от &#8220;комментаторов в блогах&#8221;, так как это все голимое &#8220;пикейножилетничество&#8221;.</p>
+<p>Если другая реализация была бы возможна, то она бы появилась, не у NetApp, так у кого-то еще. Вот когда появится - приходите, поговорим, обсудим, а пока это все толчение в ступе.</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-861" title="">4 Октябрь 2010, 22:12</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-862">
+		<div id="div-comment-862">
+		<div class="comment-author">
+			<cite>villain:<cite></div>
+			<p>Роман, вторая реализация, насколько мне известно, применяется в EMC-ых системах хранения.</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-862" title="">5 Октябрь 2010, 10:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-863">
+		<div id="div-comment-863">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Алексей,<br />
+во первых, как я знаю, там не все так однозначно, как, по видимому, представляется тебе.<br />
+Во вторых я бы просил, несмотря на наше давнее знакомство, все же &#8220;придерживаться&#8221;, и если тебе хочется обсуждать детали технической реализации 520-байтового блока, то делать это в комментариях к соответствующему посту, а не &#8220;к последнему, неважно на какую он тему&#8221;, а здесь - комментировать только подятую топиком тему.</p>
+<p>Для соблюдения порядка я постараюсь большую часть дискуссии сегодня перенести в комментарии к соответствующему посту, а здесь останется только то, что относится к данной теме.</p>
+						<div class="comment-meta"><a href="710/trackback.html#comment-863" title="">5 Октябрь 2010, 11:00</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="710" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.072 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

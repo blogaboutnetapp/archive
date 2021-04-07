@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Проблемы и решения Usable Space. Часть 2.</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="269/trackback.html">Проблемы (и решения) Usable Space. Часть 1. Основы.</a></div>
+			<div class="alignright"><a href="287/trackback.html">Новые переводы документации.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-286">
+			<h2 class="posttitle"><a href="286/trackback.html" rel="bookmark" title="Permanent Link to Проблемы и решения Usable Space. Часть 2.">Проблемы и решения Usable Space. Часть 2.</a></h2>
+			<div class="postmetadata">11 Май 2009, 13:06 <!-- от  --></div>
+			<div class="postentry">
+				<p>Теперь давайте посмотрим как на всем этом, рассмотренном в прошлом посте, располагаются пользовательские данные.<br />
+Поверх &#8220;слоя виртуализации&#8221; - Aggregate - включающего в себя, как правило, все диски системы, и позволяющего нам распараллеливать ввод-вывод на все имеющиеся &#8220;физические шпиндели&#8221;, находятся собственно элементы доступные пользователю, &#8220;тома&#8221; типа FlexVol или Flexible Volumes.<br />
+Непосредственно на этих томах, которые, еще раз напомню, физически &#8220;тонким слоем размазаны&#8221; по всем входящим в aggregate дискам системы, уже можно хранить файлы для NAS-систем, или создавать LUN-ы для SAN.</p>
+<p>Однако тут стоит вспомнить о том, что все это разнообразие и богатство обеспечивается нам своеобразной структурой данных, или &#8220;файловой системой&#8221; <a href="19/trackback.html">WAFL</a>, которая и создает базовые структуры данных на дисках, являясь заодно и менеджером томов, и частью &#8220;RAID-контроллера&#8221; системы. Эта необычная &#8220;псевдо-файловая система&#8221; достойна отдельной серии постов, и я уже опубликовал тут мой перевод интереснейшей <a href="282/trackback.html">статьи инженера NetApp Костадиса Руссоса</a>, о том, как устроена WAFL, и почему, по его мнению, не вполне корректно называть WAFL &#8220;файловой системой&#8221;, по крайней мере чтобы не смешивать ее в восприятии с другими файловыми системами.</p>
+<p>Не буду вдаваться в детальные подробности ее устройства, тем более, что не далее как несколько постов назад я уже <a href="216/trackback.html">анонсировал подробное описание &#8220;внутренностей&#8221; WAFL от его непосредственных авторов</a>. ??нтересующиеся могут попробовать углубиться в тему прочитав ту статью в техбиблиотеке на сайте одного из дистрибуторов NetApp в России, компании Netwell.<br />
+(см. ссылку в правом столбце)</p>
+<p>Для нас же важно то, что же нам дает использование поверх raw data этой файловой системы? Будем уж так ее по традиции называть, хотя следует помнить, что это если и файловая система, то в чем-то единственная в своем роде.</p>
+<p>Прежде всего, это возможность создавать и хранить <a href="39/trackback.html">снэпшоты</a>, самая, пожалуй, известная особенность NetApp./p  pСнэпшоты, кстати сказать придуманные и впервые реализованные в индустрии систем хранения именно NetApp, работают следующим образом:<br />
+<img style="display: inline" title="Snapshots" alt="Snapshots" src="/pics//snapshots.gif" width="462" height="250"></p>
+<p>??дея снэпшотов плодотворно питает множество &#8220;фич&#8221; систем хранения NetApp. Многие возможности, такие как SnapMirror (репликация) или FlexClone (виртуальное клонирование), прямо или косвенно выросли из этого свойства WAFL.</p>
+<p>Как я уже писал ранее, особенностью реализации снэпшота в NetApp является его &#8220;некопированность&#8221;. При создании NetApp&#8217;s Snapshot &#8482; данные, уже попавшие на диски, не копируются, а только сохраняется дополнительная таблица inodes. Так как WAFL устроена таким образом, что данные на нее не перезаписываются, а всегда только дозаписываются, пока блок хоть где-то использован, это гарантирует нам то, что данные в снэпшоте при таком подходе, останутся неизменными.</p>
+<p>Это коренным образом отличается от любого другого подхода создания &#8220;снэпшотов&#8221; у конкурентов, где при его создании данные либо копируются сразу, либо по мере перезаписи &#8220;активной файловой системы&#8221; переносятся на зарезервированное пространство (при этом мы серьезно теряем в производительности системы, так как одна операция записи превращается в четыре, чтение содержимого блока, которое мы изменяем, запись блока в зарезервированное место, запись нового содержимого в блок &#8220;активной файловой системы&#8221;;, и, наконец, изменения в таблице размещения блоков, чтобы изменить указатели на блоки данных в снэпшоте.</p>
+<p>Второй особенностью следует назвать необычный тип RAID, RAID-4 (&#8221;ONTAP RAID&#8221;), и необычный способ работы с ним. Почему я рассматриваю RAID на уровне файловой системы? Дело в том, что WAFL, по сути, &#8220;спускается&#8221; в своей работе на уровень RAID- и Volume-manager.<br />
+Этот вопрос уже рассматривался в упомянутой ранее статье Костадиса Руссоса. WAFL не имеет ряда принципиальных для других файловых систем средств, например по работе с файловыми и директорными структурами, поиска и извлечения файлов, зато она оперирует на &#8220;низком&#8221; уровне RAID. То есть можно себе представить, что, по сравнению с какой-нибудь NTFS или ext3, WAFL пропорционально смещена &#8220;вниз&#8221; по этой &#8220;иерархии&#8221;. В ней меньше &#8220;высокоуровневых&#8221; средств, которые отданы &#8220;на откуп&#8221; сетевым файловым системам, таким как NFS или CIFS, или средствам блочной работы с LUN-ами, зато она, в большем объеме, чем традиционные файловые системы, работает с уровнем RAID и Volumes, в которые традиционные файловые системы не вмешиваются.</p>
+<blockquote><p>Конечно в наше время почти каждая файловая система работает поверх того или иного уровня RAID, но только WAFL с ONTAP RAID знают друг о друге достаточно, чтобы использовать при работе преимущества друг друга.<br />
+Costadis Roussos, NetApp</p>
+</blockquote>
+<p>Обычно производители систем хранения предлагают выбор между двумя-тремя типами RAID: RAID-10 (или RAID-0+1), и RAID-5 (а сейчас к ним добавился набирающий популярность RAID-6). Ранее я писал подробную статью о RAID, и разнице между ними, интересующимся предлагаю сходить туда.<br />
+Эти типы RAID, применяемые на подавляющем количестве систем хранения, выбираются для конкретной задачи и используются следующим образом: если нужно хорошее быстродействие на запись, то все рекомендации говорят о использовании RAID-10. Его преимущества - быстрота работы. Его недостаток - мы &#8220;дарим&#8221; системе за это половину всей емкости дисков, Usable Space равно 50% от Raw. Довольно бандитские условия. ;)</p>
+<p>Если быстродействие на запись не важно, а важна емкость - RAID-5. При этом на каждую RAID-группу мы теряем один диск под данные &#8220;четности&#8221;, но заметно падает скорость записи (а также скорость восстановления при сбое диска). Такая организация дисков как правило используется для систем долговременного хранения, хранения резервных копий, и тому подобного.</p>
+<p>RAID-6 применяется либо при повышенных требованиях к надежности, либо при использовании менее надежных дисков, таких как SATA. При его использовании еще сильнее снижается скорость записи (примерно на 15-20% от скорости RAID-5), так как увеличивается объем вычислений для второго диска &#8220;четности&#8221;</p>
+<p>Против всего этого зоопарка NetApp выставляет всего два варианта, а именно: RAID-4 и RAID-DP (вариант RAID-6). Почему?<br />
+Очень просто. RAID-4 или RAID-DP, в их реализации у NetApp, практически не проигрывают по быстродействию RAID-10, но при этом столь же экономичны к usable space как RAID-5/6.<br />
+А раз так, то зачем другие типы RAID, если те, что есть, полностью удовлетворяют по всем нужным параметрам?</p>
+<p>Вот почему NetApp не предлагает &#8220;привычные&#8221; типы RAID. ??х многообразие у традиционных систем хранения просто маскирует принципиальную ущербность &#8220;классических&#8221; типов RAID, среди которых пользователю предлагается выбрать компромисс, либо пожертвовав usable-емкостью в пользу быстродействия (RAID-10), либо быстродействием в пользу емкости (RAID-5), либо и тем и другим в пользу надежности (RAID-6).</p>
+<p>Теперь, вооруженные всеми этими знаниями, перейдем к разбору &#8220;классики говнилок&#8221; - тому, &#8220;куда у этого Нетаппа девается место на дисках&#8221;. Продолжим в следующий понедельник.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/techtalk/index.html" rel="tag">techtalk</a>, <a href="tag/usable-space.html" rel="tag">usable space</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="286/trackback.html#respond">Комментарий</a> (<a href='286/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="286/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="286" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.068 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; О расчете дискового пространства: NetApp FAS и EMC NS &ndash; что стоит за FUD (часть 1)</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../646/trackback.html">Администраторский доступ с нескольких хостов</a></div>
+			<div class="alignright"><a href="../648/trackback.html">Usable Space у NetApp &ndash; что стоит за FUD? (часть 2)</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-661">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to О расчете дискового пространства: NetApp FAS и EMC NS &ndash; что стоит за FUD (часть 1)">О расчете дискового пространства: NetApp FAS и EMC NS &ndash; что стоит за FUD (часть 1)</a></h2>
+			<div class="postmetadata">9 Август 2010, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>У одного из нетапповских блоггеров увидел хорошую <a href="http://blogs.netapp.com/dropzone/2010/05/playing-to-lose-hoping-to-win-emcs-latest-guarantee-part-2.html">статью</a>, перевод фрагмента которой хочу опубликовать у себя.</p>
+<p>Одной из самых популярных “страшилок-говнилок” в отношении NetApp является пугалка о том, как неэффективно расходуется пространство на системах хранения NetApp, как мало получается usable space из данного объема raw. Пожалуй, по популярности эта “говнилка” у наших конкуретнов идет сразу за страшилкой о фрагментации (и ее мифическим “катастрофическим влиянием на производительность”), и за пугалкой про “эмуляцию LUN поверх файловой системы”. Я уже писал ранее про то, как обстоит дело с первой, и рассказывал как устроена организация данных на “низком уровне” в WAFL, объясняющая ситуацию со со второй.</p>
+<p>Пришла пора разобрать где правда в третьей.    <br />??так, правда ли, что usable space на NetApp получается значительно меньше на том же объеме raw, например при сравнении с “более традиционными” системами?</p>
+<p>Давайте разберем пример, хоть и не исчерпывающий, но довольно зрелищный.</p>
+<p> <span id="more-661"></span></p>
+<p>Давайте разобьем вопрос исчисления usable space на две части. Сперва, в данной статье, рассмотрим, первым этапом, вопрос образования так называемого <strong>usable disk space</strong>, который образуется, когда мы от пространства <em>raw disk space</em> отнимаем объемы, занимаемые структурами RAID, spare и прочим подобным. А в следующей рассмотрим образование <strong>usable storage space</strong>, того пространства, которое образуется, когда от <em>usable disk space</em> отнимутся оверхеды логических структур системы хранения, резервы снэпшотов, и прочее.</p>
+<p>Поскольку традиционно системы NetApp “соревнуются” и сравниваются с системами “классической схемы”, а наиболее последовательным и сильным поборником “классической” модели сегодня является компания EMC, то давайте сравним именно с их продуктами, тем более, что именно со стороны EMC обычно и слышен основной вал критики.</p>
+<p><a href="http://www.pkguild.com/2010/05/emc-20-unified-storage-guarantee-exposed/">http://www.pkguild.com/2010/05/emc-20-unified-storage-guarantee-exposed/</a></p>
+<p>Давайте подойдем к задаче с реалистичных позиций. Не раз приходится видеть, как наши конкуренты сравнивают свои системы с системами NetApp на максимально удобных для себя задачах и конфигурациях. Не стану утверждать, что подбор максимально выгодной для себя конфигурации есть в таких сравнениях самоценной задачей, и что делается это исключительно злонамеренно, вовсе нет. Но тем не менее очень часто приходится в таких сравнениях видеть совершенно диковинные конфигурации “на стороне NetApp”, которые ни одному инженеру NetApp не придет в голову создавать. Кроме того, очень часто приходится видеть, как “сравнивают несравнимое”, например по разному подсчитанную дисковую емкость, или в одном случае берется рассчитанная емкость “без” оверхедов,а в другом случае – с ними. Тем более, что некоего единого стандарта для калькуляторов емкости не существует, и для того, чтобы понять какие именно данные вы от калькулятора олучаете надо углубиться в его описание (а это всегда лень). К тому же, как я уже писал ранее, спецалист в системах хранения одного вендора, зачастую бывает прискорбно невежественнен в системах другого, в особенности, если последние используют значительно иные принципы распределения емкости, как это получается в случае NetApp.</p>
+<p><strong><span style="text-decoration: underline">??так, к делу</span></strong></p>
+<p>??так, что же мы попробуем сконфигурировать и сравнить. Сконфигурируем примерно сравнимую по возможностям с NetApp FAS систему EMC, пусть это будет Celerra NS-480. Поскольку на стороне NetApp мы получаем unified storage, попробуем приблизиться к нему и на стороне EMC. Создадим конфигурацию, для работы как в SAN, так и как NAS. С некоторых пор в Celerra это возможно, что, по мнению EMC, позволяет называть их Unified Storage, как и NetApp FAS. Возьмем для простоты, что наша конфигурация Celerra будет поделена 50/50 между NAS и FCP. Хотя вы уже знаете, что Unified Storage в понимании NetApp не требует никакого специального жесткого деления между двумя “доменами”, NAS и SAN, тем не менее это лучшее, на что мы можем расчитывать со стороны EMC. </p>
+<p><strong>Конфигурация EMC, вариант A: 4+1 RAID-5</strong></p>
+<p>Вариантов конфигурации в случае EMC может быть довольно много. Несмотря на то, что в большинстве случаев в своих Best Practices EMC прямо рекомендует использовать тип RAID-10 (0+1) для большинства задач и рабочих нагрузок, но сравнение RAID-10 у EMC и RAID-DP, будучи корректным с точки зрения вендорских рекомендаций, вызвывает много критики “с той стороны”. Что-ж, дадим EMC шанс. Помня о всех принципиальных недостатках RAID-5 на больших дисках и в enerprise-задачах, давайте попробуем сравнить конфигурацию с RAID-5 и RAID-DP. Мы не будем использовать “на стороне NetApp” RAID 4, несмотря не то, что он существует до сих пор в Data ONTAP, и наиболее точно соответствует RAID-5 с точки зрения “расхода дисков”, но достаточно давно NetApp приняла решение рекомендовать для использования в своих системах только RAID-DP. Будем придерживаться этой линии и мы.</p>
+<p>Возьмем структуру RAID-5 вида 4+1, то есть 1 диск parity на каждые 4 диска data. Такая конфигурация есть достаточно разумный компромисс между быстродействием и надежностью (напомню, что увеличение RAID-группы в RAID-5 ухудшает произвдительность на random write и увеличивает время RAID rebuild в случае выхода диска из строя). Некоторые референсные архитектуры, опубликованные EMC, также демонстрируют использование RAID-5 в такой конфигурации.</p>
+<p>Воспльзуемся онлайн-конфигуратором EMC для систем Celerra NS.</p>
+<p><a href="/pics//image49.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image-thumb22.png" width="343" height="484" /></a> </p>
+<p>??спользуем диски FC 450GB и заполним ими систему NS480, один шкаф целиком, используя конфигурацию RAID-5 4+1 и адекватное количество spares. При заполнении шкафа у нас останется еще место на одну группу 3+1. На картинке можно посмотеть схему, как ее рисует конфигуратор EMC.</p>
+<p>Мы сейчас не рассматриваем снэпшоты и прочие накладные расходы “верхнего уровня”, я подробно рассмотрю их во второй части статьи. Принципиально, добавление резерва под снэпшоты поверх usable отразиться на usable-емкости сходным образом как у EMC, так и у NetApp.</p>
+<p>Неожиданной для пользователя NetApp будет тот факт, что при конфигурировании EMC Celerra надо жестко и однозначно задать объемы, отводимые под дальнейшее использование в NAS и FCP, <del datetime="2010-08-09T10:01:25+00:00">причем переопределить их в дальнейшем нельзя.</del> Несколько странное поведение для системы, называющей себя Unified Storage. Ну ладно, не будем тут иронизировать по этому поводу, как <strike>получилось</strike>сделали – так сделали. </p>
+<p><a href="/pics//image310.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image3-thumb.png" width="315" height="484" /></a> </p>
+<p>Вот какой результат дает нам EMC capacity calculator. ??спользуя 165 дисков, и руководствуясь рекомендациями&#160; EMC, которые предлагают для такой конфигурации 6 дисков hot spares, у нас получается 24.86TB пространства NAS и 24.77TB для SAN. Суммарная емкость получается 49.63TB.</p>
+<p><strong>Конфигурация NetApp, вариант A: 20+2 RAID DP</strong></p>
+<p>Помните, мы сравниваем реальные конфиги, а не то, что, например, в данном контексте “удобно” EMC. Я регулярно рекомендую конфиг, подобный рассмотренному для NetApp как вполне реальный, практический конфиг для продакшна. NetApp на самом деле рекомендует использовать длинные группы RAID-DP, так как они лишены основных недостатков таковых у RAID-5 – снижения производительности и опасности “двойного дискового сбоя”, то есть отказа второго диска во время ребилда отказа первого, в длинных группах RAID (тем более под нагрузкой), который может занять вплоть до нескольких дней.&#160; </p>
+<p>??меющийся “калькулятор емкости” для NetApp не позволяет задать точное количество дисков, мы можем оперировать только полками целиком. Для того, чтобы получить 165 дисков в калькуляторе, я задам 24 дисковых полки, которые дадут 168 дисков. Под spares NetApp рекомендует выделять диски следующим образом: 2 spares на первых 84 диска, на каждый контроллер, и по 1 диску на каждые последующие 84 диска. 168 дисков, поделенных на 2 контроллера потребуют суммарно 4 диска в spares. Но так как мы имеем 3 лишних диска, то я их тоже назначу как spares, чтобы они не считались в расчете емкости, и максимально уравнять подсчет с уже созданной конфигурацией EMC. ??того: 4 spares, плюс еще 3 spares, дискового излишка, всего 7 spares.</p>
+<p><a href="/pics//image61.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image6-thumb.png" width="450" height="484" /></a> </p>
+<p>??спользуемый инструмент это внутренний “калькулятор” NetApp, доступный сотрудникам и партнерам компании в специальном инструменте сайзинга систем хранения. В принципе, за исключением онлайн-доступности, он функционально идентичен рассмотренному выше инструменту EMC.</p>
+<p>Вы видите на скриншоте рекомендуемую конфигурацию по приведенным входным данным. С дисками 450GB FC максимальное количество дисков в структуре “32bit aggregate” равно 44.&#160; Оно делится поровну между двумя RAID-группами структуры 20+2. Обычным является использование RAID-групп размером от 16 до 22 дисков, но в принципе NetApp поддерживает для дисков FC размер групп вплоть до 28. Начнем с того же количества дисков (168 – 3 ненужных нам “spare”), оставшиеся диски разбиваются на 8 групп RAID-DP. После вычитания 138GB на root volume, суммарная емкость “usable” для NAS и/или SAN составляет почти точно 52TB.</p>
+<p><strong>Вариант A: Результат</strong></p>
+<p>EMC: <strong>50TB</strong> usable</p>
+<p>NetApp: <strong>52TB</strong> usable <strong><font color="#008000"><span style="text-decoration: underline">(на 2TB или на 4% больше)</span></font></strong></p>
+<p>Реакция на получившиеся результаты может быть двоякая.&#160; Если вы “болеете” на стороне команды EMC вы обязательно скажете, что сравнение нечестное, так как мы использовали небольшую группу RAID-5 против значительно большей группы RAID-6 (то что в NetApp называют RAID-DP). Это дает значительное преимущество в получающейся usable-емкости для NetApp. Да, все верно, но я предупреждал в самом начале, что мы будем сравнивать реальные конфиги, из реальной жизни. NetApp и его инженеры не рекомендуют для использования тип RAID менее RAID-DP (хотя по прежнему остается доступным RAID-4, если вы хотите использовать именно его) и его “длинные” группы вполне легальны, и рекомендуются в наших Best Practices. Напротив, EMC не рекомендует использовать RAID-6 для почти любых нагруженных конфигураций, в особенности при характере нагрузки с большом количеством random write.</p>
+<p>Если вы болеете за команду NetApp, то вы тоже обязательно скажете, что сравнение нечестное, потому что вариант NetApp предлагает значительно более высокий уровень защиты данных, за счет наличия защиты от “двойного сбоя” в RAID с “двойным парити”, в отличие от варианта EMC. Согласен, но, во-первых, 4+1 рекомендуется EMC как допустимая, в ряде случаев, конфигурация, а потом мы говорим в данном посте прежде всего о емкости, а не надежности хранения. </p>
+<p>Ну хорошо, чтобы удовлетворить и тех и этих давайте внесем эти требования в конфиги. RAID-группы большего размера позволят нам улучшить ситуацию с емкостью у EMC (сейчас мы уже не смотрим на производительность результата, только емкость) и рассмотрим только варианты с double disk failure protection. </p>
+<p><strong>Конфигурация EMC, вариант B: 12+2 RAID-6</strong></p>
+<p>В этой конфигурации я использовал максимальный размер RAID-группы, чтобы снизить количество дисков, уходящих под parity. Конфиг получился внешне немного странным, так как в нем получилось в 6 верхних полках по “пустому месту” размером в один диск. Но сейчас мы не анализируем эффективность заполнения дисками полок, только вопрос преобразования raw в usable, поэтому на эти 6 пустых слотов не обращаем внимания. У нас получилось 159 дисков и 6 spares. Так как первые 5 дисков (1,27TB usable capacity)&#160; должны использоваться под&#160; так называемый vault, и, так как мы оставим их в RAID-5, они не будут считаться в usable space с условием double failure protection.&#160; Оставшиеся 6+2 сконфигурированы в RAID-6 и будут учтены. Утверждается, что EMC не рекомендует использовать пространство дисков vault под хранение данных. Как ранее, я конфигуирую достаточное количество hot spares, как рекомендует калькулятор.</p>
+<p><a href="/pics//image91.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image9-thumb.png" width="357" height="484" /></a> </p>
+<p>Вот каковы результаты. Емкость total usable capacity только слегка выше, но то оттого, что общее число дисков уменьшилось. Когда мы вычтем из usable capacity объем 1.27TB, который не удовлетворяет условиям double disk failure protection, то есть RAID-группу vault, общий объем станет 49.54TB.</p>
+<p><a href="/pics//image121.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image12-thumb.png" width="317" height="484" /></a>&#160;</p>
+<p><strong>Конфигурация NetApp, вариант B: 20+2 RAID-DP</strong></p>
+<p>Конфигурация NetApp по варианту B в целом та же, с одним изменением, в этом случае у нас уже 9 лишних spares, которые получились, чтобы уравнять емкость raw. В целом таких мы получаем 13 дисков (4 нужных + 9 лишних spares).</p>
+<p>Конфигурацию в калькуляторе вы можете увидеть на картинке. После уменьшения root volume на 138GB, мы получаем итоговую usable capacity для SAN или NAS равную 49.7TB.</p>
+</p>
+<p><a href="/pics//image151.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image15-thumb.png" width="450" height="484" /></a> </p>
+<p><strong>Результат Варианта B:</strong></p>
+<p>EMC: <strong>49.54TB</strong> usable</p>
+<p>NetApp: <strong>49.70TB</strong> usable <strong><font color="#008000"><span style="text-decoration: underline">(примерное на 160GB или .03% больше)</span></font></strong></p>
+<p>?? это даже несмотря на “фору” в 9 дисков, которые мы вынуждены были вывести в spare, чтобы уравнять условия, и которые, в реальной жизни, также могут быть использованы под данные!    <br />?? даже несмотря на то, что получившаяся система NetApp окажется значительно быстрее, так как использование RAID 6 приводит примерно к 30-45% падению на интнсивной загрузке ввода-вывода, чем не страдает RAID DP, поэтому, кстати EMC, имея возможность использовать RAID 6 не рекомендует его использование для любых задач, исключая малонагруженные, или где быстродействие некритично (например архивное хранение).</p>
+<p>Конечно же, я уверен, что болеющие на стороне “команды EMC” немедленно укажут мне здесь на “необходимость” учета snapshot и fractional reservation, а также прочих “накладных расходов” систем NetApp.    <br />Но чтобы не раздувать и так весьма объемный этот пост, я раскажу о том, как обстоят сегодня дела с этими параметрами в следующей статье.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/capacity.html" rel="tag">capacity</a>, <a href="../tag/emc/index.html" rel="tag">emc</a>, <a href="../tag/fud/index.html" rel="tag">fud</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/raid.html" rel="tag">raid</a>, <a href="../tag/raw.html" rel="tag">raw</a>, <a href="../tag/useable.html" rel="tag">useable</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (9)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-652">
+		<div id="div-comment-652">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>&gt;&gt;Неожиданной для пользователя NetApp будет тот факт, что при конфигурировании EMC Celerra надо жестко и однозначно задать объемы, отводимые под дальнейшее использование в NAS и FCP, причем переопределить их в дальнейшем нельзя.</p>
+<p>Это неправда. При работе с Celerra можно будет менять соотношения под NAS и FCP.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-652" title="">9 Август 2010, 16:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-653">
+		<div id="div-comment-653">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Спасибо, Алексей.<br />
+Как я уже говорил ранее не раз, когда специалист в одной области, например в системах хранения одного вендора, начинает что-либо утверждать в другой области, например о работе систем хранения другого вендора, безоговорочно верить всему сказанному им совершенно точно нельзя. :) Это касается любых специалистов, любых вендоров. В интернете &#8220;тому мы тьму примеров слышим&#8221;. Значительная часть любого FUD-а зачастую непредумышленная, просто от некомпетентности. Хотя, зачастую, есть и откровенно злонамеренная ложь.<br />
+Поправил.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-653" title="">9 Август 2010, 17:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-654">
+		<div id="div-comment-654">
+		<div class="comment-author">
+			<cite>Alex:<cite></div>
+			<p>romx, очень интересно было бы также увидеть сравнение по стоимости решения в обоих вариантов. понятно, что там могут быть скидки и все такое. хотя бы по &#8220;gpl&#8221;-прайсу..</p>
+						<div class="comment-meta"><a href="trackback.html#comment-654" title="">9 Август 2010, 17:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-655">
+		<div id="div-comment-655">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>Я сам занимаюсь массивами EMC с инженерной части, поэтому не люблю все эти маркетинги. :)<br />
+Хотя EMCишные ролики про гарантированные 20% на youtube прикольные. LOL.</p>
+<p>В любом случае этот блог почитываю, что даёт возможность трезво смотреть на вещи. Спасибо за это.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-655" title="">9 Август 2010, 17:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-656">
+		<div id="div-comment-656">
+		<div class="comment-author">
+			<cite><a href='http://emailtoid.net/i/0fc11d54/2b4ae7c4/' rel='external nofollow'>emailtoid.net/i/0fc11d54/&hellip;</a>:<cite></div>
+			<p>Простите, поофтоплю немного. Давно читаю данный блог и все хотел отписаться, обучен как NetApp&#8217;у так и EMC (Clarrion, V-Max) поэтому могу оценивать правдивость того что тут пишется ;), и рад, что тут 99.99% правды, в отличии от бредней Чака Холлиса :)<br />
+Добавлю свои пять копеек к посту - как EMC вообще может упрекать NetApp за snapshot reservation т.к. реализация snapshot&#8217;ов у EMC должна вызывать у них только чувство стыда и не более.<br />
+Жду с не терпением следующего поста чтобы добавить свои, возможно, уже не 5 копеек :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-656" title="">9 Август 2010, 22:00</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-663">
+		<div id="div-comment-663">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Ну я вообще стараюсь, как вы заметили, уйти от прямого сравнения продуктов разных вендоров, потому что обычно ничего кроме холивора и флейма в комментах это не порождает.<br />
+Все это пустое и &#8220;сисадминщина&#8221; по большому счету.</p>
+<p>Однако, судя по логам статистики немало людей приходят в этот блог по запросам типа &#8220;EMC vs. NetApp&#8221; и прочим подобным. (Теперь им будет куда целенаправленно с поисковика попадать по этому запросу, буагага.)<br />
+Поэтому ненадолго отойду от своего принципа не затрагивать прямое сравнение продуктов разных вендоров, тем более, что наши конкуренты как раз напротив, часто этой возможностью злоупотребляют.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-663" title="">12 Август 2010, 12:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1055">
+		<div id="div-comment-1055">
+		<div class="comment-author">
+			<cite>kamiuchi:<cite></div>
+			<p>забыли про сектора на clariion(emc),входящего в Celerra NS, размер сектора у emc 520 а не 512 байт.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1055" title="">20 Январь 2011, 19:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1056">
+		<div id="div-comment-1056">
+		<div class="comment-author">
+			<cite>kamiuchi:<cite></div>
+			<p>а вот и ссылка <a href="http://russia.emc.com/collateral/hardware/specification-sheet/h5807-celerra-ns-480-ss.pdf" rel="nofollow">http://russia.emc.com/collateral/hardware/specification-sheet/h5807-celerra-ns-480-ss.pdf</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-1056" title="">20 Январь 2011, 19:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2810">
+		<div id="div-comment-2810">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>kamiuchi&gt; забыли про сектора на clariion(emc),входящего в Celerra NS, размер сектора у emc 520 а не 512 байт.<br />
+Так у NetApp&#8217;а тоже сектора по 520 байт.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2810" title="">25 Июнь 2012, 16:51</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="661" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.077 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

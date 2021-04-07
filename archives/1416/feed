@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Selective LUN Map в 8.3</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1416/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1416</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:02:45 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1416#comment-15008</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 29 Aug 2015 15:13:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1416#comment-15008</guid>
+		<description>2 IgorT
+А если нод в кластере больше чем две, к примеру 8?
+А как их потом масштабировать/уменьшать?</description>
+		<content:encoded><![CDATA[<p>2 IgorT<br />
+А если нод в кластере больше чем две, к примеру 8?<br />
+А как их потом масштабировать/уменьшать?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: IgorT</title>
+		<link>http://blog.aboutnetapp.ru/archives/1416#comment-14666</link>
+		<dc:creator>IgorT</dc:creator>
+		<pubDate>Tue, 17 Mar 2015 07:08:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1416#comment-14666</guid>
+		<description>Это все конечно здорово, но что на самом деле снижает сложность работы мультипасинга и упрощает схему подключения, так это symmetric active-active архитектура.</description>
+		<content:encoded><![CDATA[<p>Это все конечно здорово, но что на самом деле снижает сложность работы мультипасинга и упрощает схему подключения, так это symmetric active-active архитектура.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: divan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1416#comment-14665</link>
+		<dc:creator>divan</dc:creator>
+		<pubDate>Mon, 16 Mar 2015 08:46:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1416#comment-14665</guid>
+		<description>неа, не вносит. 
+Кстати 10й солярис не перестраивает пути после миграции тома. Т.е. оптимальный путь у него остаётся через первоначальные НА-пары.</description>
+		<content:encoded><![CDATA[<p>неа, не вносит.<br />
+Кстати 10й солярис не перестраивает пути после миграции тома. Т.е. оптимальный путь у него остаётся через первоначальные НА-пары.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1416#comment-14664</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Mon, 16 Mar 2015 08:05:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1416#comment-14664</guid>
+		<description>А если делать миграцию луна через OnCommand, он не внесёт изменения в список нод самостоятельно?</description>
+		<content:encoded><![CDATA[<p>А если делать миграцию луна через OnCommand, он не внесёт изменения в список нод самостоятельно?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

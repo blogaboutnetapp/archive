@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: ALUA &#8211; Asymmetric Logical Unit Access</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/631/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/631</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:05 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/631#comment-13036</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Tue, 15 Apr 2014 11:57:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=631#comment-13036</guid>
+		<description>Для истории )))
+esxcli nmp device
+сейчас 
+esxcli storage nmp device</description>
+		<content:encoded><![CDATA[<p>Для истории )))<br />
+esxcli nmp device<br />
+сейчас<br />
+esxcli storage nmp device</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/631#comment-2580</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 23 May 2012 17:37:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=631#comment-2580</guid>
+		<description>s0n1q:
+
+Думаю, что будет то же самое, что и без ALUA вообще. То есть если настроить руками правильно, через какой контроллер данные к какому LUN ходят - то ничем не буде отличаться от того, что настроит ALUA.</description>
+		<content:encoded><![CDATA[<p>s0n1q:</p>
+<p>Думаю, что будет то же самое, что и без ALUA вообще. То есть если настроить руками правильно, через какой контроллер данные к какому LUN ходят - то ничем не буде отличаться от того, что настроит ALUA.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: s0n1q</title>
+		<link>http://blog.aboutnetapp.ru/archives/631#comment-2579</link>
+		<dc:creator>s0n1q</dc:creator>
+		<pubDate>Wed, 23 May 2012 10:13:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=631#comment-2579</guid>
+		<description>А что произойдет с системой, если указать одинаковый приоритет для двух контроллеров? Возможна ли такая конфигурация?</description>
+		<content:encoded><![CDATA[<p>А что произойдет с системой, если указать одинаковый приоритет для двух контроллеров? Возможна ли такая конфигурация?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/631#comment-2265</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Wed, 11 Apr 2012 00:32:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=631#comment-2265</guid>
+		<description>Сначала проверяем, и оказывается по умолчанию все правильно настроено
+ESXi 4.1.0 582267
+~ # esxcli nmp device list
+naa.60a98000534b534b4b5a69366b7a5564
+    Device Display Name: NETAPP Fibre Channel Disk (naa.60a98000534b534b4b5a69366b7a5564)
+    Storage Array Type: VMW_SATP_ALUA
+    Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=3,TPG_state=ANO}{TPG_id=2,TPG_state=AO}}
+    Path Selection Policy: VMW_PSP_RR
+    Path Selection Policy Device Config: {policy=rr,iops=1000,bytes=10485760,useANO=0;lastPathIndex=0: NumIOsPending=0,numBytesPending=0}
+    Working Paths: vmhba4:C0:T0:L2</description>
+		<content:encoded><![CDATA[<p>Сначала проверяем, и оказывается по умолчанию все правильно настроено<br />
+ESXi 4.1.0 582267<br />
+~ # esxcli nmp device list<br />
+naa.60a98000534b534b4b5a69366b7a5564<br />
+    Device Display Name: NETAPP Fibre Channel Disk (naa.60a98000534b534b4b5a69366b7a5564)<br />
+    Storage Array Type: VMW_SATP_ALUA<br />
+    Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=3,TPG_state=ANO}{TPG_id=2,TPG_state=AO}}<br />
+    Path Selection Policy: VMW_PSP_RR<br />
+    Path Selection Policy Device Config: {policy=rr,iops=1000,bytes=10485760,useANO=0;lastPathIndex=0: NumIOsPending=0,numBytesPending=0}<br />
+    Working Paths: vmhba4:C0:T0:L2</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Haired</title>
+		<link>http://blog.aboutnetapp.ru/archives/631#comment-613</link>
+		<dc:creator>Haired</dc:creator>
+		<pubDate>Fri, 23 Jul 2010 04:57:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=631#comment-613</guid>
+		<description>Спасибо. Очень доходчиво расписано, и главное во время попалось на глаза :)</description>
+		<content:encoded><![CDATA[<p>Спасибо. Очень доходчиво расписано, и главное во время попалось на глаза :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

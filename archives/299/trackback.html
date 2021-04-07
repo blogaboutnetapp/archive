@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Дедупликация - как это работает у NetApp?</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../295/trackback.html">Не переусердствуй, пиная мертвого льва.</a></div>
+			<div class="alignright"><a href="../311/trackback.html">Дедупликация - включить и пользоваться</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-299">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Дедупликация - как это работает у NetApp?">Дедупликация - как это работает у NetApp?</a></h2>
+			<div class="postmetadata">22 Июнь 2009, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Дедупликация данных, то есть удаление из данных повторяющихся блоков с целью уменьшения объемов хранения, есть довольно горячая тема на сегодня.<br />
+Недавно начавшаяся &#8220;титаномахия&#8221; между NetApp и EMC, двумя крупнейшими по размерам производителями систем хранения с дедупликацией, за обладание третьим игроком этого рынка, компанией Data Domain, по очереди получающей от NetApp и EMC все повышающиеся по цене предложения о покупке, показывает интерес индустрии к теме.</p>
+<p>Что же такое <strong>дедупликация</strong>, или, как она называлась раньше у NetApp, <em>ASIS - Advanced Single Instance Store</em>? </p>
+<p>Не секрет, что хранимая информация часто многократно и ненамеренно &#8220;дублируется&#8221;. Речь даже не о том, что пользовательские &#8220;домашние папки&#8221; сотрудников отдела продаж хранят во множестве экземпляров текущий прайс компании, а регулярно проносящиеся по организации рассылки пользователями друг другу какого-нибудь очередного &#8220;прикольного&#8221; &#8220;вирусного&#8221; видео на ютубе, или свежего &#8220;топа бездны&#8221; заполняют ящики MS Exchange. С такими &#8220;файловыми&#8221; дублированиями уже умели бороться довольно давно, и разными способами, хоть и по прежнему не слишком успешно.</p>
+<p>Однако есть другие варианты, наиболее просто демонстрируемый и широко распространенный сегодня - содержимое виртуальных машин. Если у вас есть пять виртуальных машин на базе Windows, то у вас есть, скорее всего, пять полностью идентичных инсталляций Windows, минимум на 2-3 гигабайта каждая, отличающихся на момент их создания, грубо говоря, только &#8220;именем компьютера&#8221; и IP-адресом, лежащих отдельно друг от друга на дисках, и занимающих свои 2-3 гигабайта.<br />
+Однако, так как это содержимое хранится внутри файла &#8220;виртуальных дисков&#8221;, то обычными методами мы никак не сможем устранить это дублирование. Ведь файлы этих виртуальных дисков все же не идентичны (на какие-то единицы процентов).<br />
+Аналогичный пример - базы данных. Если у нас для записи базы данных для полутора тысяч сотрудников указано &#8220;не женат/не замужем&#8221;, равно как и наоборот, или, например, в поле &#8220;город&#8221; указано &#8220;Москва&#8221;, а предусмотренное архитектурой базы BLOB-поле для хранения фотографии у 90% пустое, то это также будет дублированием.</p>
+<p>Может быть просто обидно, хранить на дорогостоящих SAS и FC дисках многократно повторяющиеся, и по сути не нужные, не несущие информацию, избыточные блоки данных. Мы сохранили уникальный блок - все. Нужно его содержимое - берите его там, зачем копировать его по диску в сотнях и тысячах копий!<br />
+Так дело обстоит с точки зрения банальной логики.<br />
+Мы победили на файловом уровне, с помощью разных средств, рассылальщиков &#8220;башорга&#8221; по конторе, но с дублированием множества копий идентичных данных в виртуальных машинах справиться гораздо сложнее.</p>
+<p>Несколькими постами ранее я рассказывал о том, что при хранении информации на дисках NetApp используется &#8220;нестандартный&#8221; сектор, 512 байт обычного сектора дополнены 8 байтами специальных &#8220;контрольных сумм&#8221;, позволяющих контролировать нарушение целостности информации при их передаче.<br />
+Однако кроме этого NetApp использует их довольно остроумным способом и в процессе нахождения и устранения дубликатов данных.</p>
+<p>Одна из основных задач в процессе дедупликации - нахождение идентичных блоков данных.<br />
+Для того, чтобы не устраивать сравнение &#8220;всех со всеми&#8221;, пока не найдешь дубликат, это очень долго и дорого в плане использования памяти и процессора, обычно используется способ вычисления так наываемой &#8220;хэш-функции&#8221;. </p>
+<p>&#8220;Хэш-функция&#8221; это некая формула, по которой можно получить более или менее уникальный &#8220;фингерпринт&#8221;, &#8220;цифровой отпечаток пальца&#8221;, некое число, уникальное для данного сочетания байт. Сравнивать такие числа гораздо проще, чем содержимое файлов, от которых они взяты.<br />
+Простейший вариант хэш-функции, это так называемая &#8220;контрольная сумма&#8221;. У нас есть набор чисел-байт, давайте просуммируем их, и на выходе получим некое число, зависящее от значения тех, кого мы просуммировали. Проблема использования простейшей контрольной суммы очевидна.<br />
+Сумма 5+3+2 дает 10. Но и сумма 4+4+2 дает тоже 10.<br />
+Это называется &#8220;хэш-коллизия&#8221;, ситуация, когда разные по содержимому блоки дают идентичный результат хэш-функции. Чем это чревато - нетрудно сообразить. Основываясь только на результате хэша мы можем ошибочно удалить вовсе не идентичные по содержимому данные.</p>
+<p>Решение в общем-то очевидно. На самом деле никто не пользуется примитивной контрольной суммой, я ее привел просто в качестве примера, иллюстрирующего проблему.<br />
+Для вычисления хэш-функции используются различные математические алгоритмы, более устойчивые к хэш-коллизии, наиболее известны, например, CRC32 или MD5.<br />
+Более устойчивые - да, но не абсолютно.<br />
+Устроит ли вас результат, что &#8220;ваши данные <em>скорее всего</em>, с высокой степенью вероятности, не будут ошибочно удалены&#8221;? По видимому - нет.</p>
+<p>Что же делать? Снова очевидно - усложнять алгоритм, снижая вероятность коллизии.<br />
+Однако, возникает проблема накладных расходов. Вычисление сложного алгоритма есть довольно непростая и ресурсоемкая задача. А если учесть, что мы должны проделывать ее для каждого записываемого на систему хранения блока без исключения? Процессорные ресурсы сейчас дешевы, но не настолько же.</p>
+<p>??менно это является причиной того, что массивно-дедуплицирующие системы, например такие, как система типа CAS (Content-addressable Storage) EMC Centera, очень, ОЧЕНЬ медленные на запись.</p>
+<p>NetApp, представив в 2007 году свое решение той задачи, предсказуемо пошел своим путем.<br />
+Как я уже упоминал, системы NetApp хранят результат CRC, это сравнительно простой в вычислении и &#8220;недорогой&#8221;, но недостаточно устойчивый к коллизиям алгоритм вычисления, для каждого 512-байтного блока. Этот CRC достается нам, по сути, бесплатно, он в принципе уже есть на дисках, хотим мы этого, или нет, пользуемся им, или нет.<br />
+Но использовать только его для определения дубликатов нельзя.</p>
+<p>Файловая структура WAFL, лежащая &#8220;в основе&#8221; всех систем хранения NetApp использует блок данных размером 4KB, то есть 8 таких секторов.<br />
+CRC от этих 8 секторов дают нам некий более или менее уникальный fingerprint такого блока.<br />
+Эти фингерпринты сводятся в массив внутренней &#8220;базы&#8221;, по которой производится поиск идентичных фингерпринтов. Как вычисление несложного хэша, так и поиск по значениям такого хэша, это, в принципе, не слишком сложная и ресурсоемкая задача, тем более, что, как я написал выше, значительная часть задачи уже и так решена, так как CRC у нас уже есть для всех секторов &#8220;бай дизайн&#8221;, изначально, по умолчанию.<br />
+??дентичные фингерпринты <em>являются основанием предполагать</em> идентичность соответствующих им блоков.<br />
+Обратите внимание, не &#8220;означают идентичность&#8221;, для этого алгоритм слишком прост.</p>
+<p>Теперь, сократив количество подлежащих анализу блоков в сотни и тысячи раз, и обнаружив &#8220;достойных кандидатов&#8221;, мы проводим обычное побайтовое <del>собеседование</del> сравнение этих 4KB блоков, и вот если мы в результате этого сравнения обнаруживаем полную идентичность - вот тогда мы и удаляем, то есть вероятность неправомерного удаления в результате &#8220;хэш-коллизии&#8221; полностью устранена, но при этом, за счет такого двухстадийного процесса, мы обошлись без использования сложного и ресурсоемкого &#8220;устойчивого к коллизиям хэша&#8221;.</p>
+<p>Однако у такого метода есть существенная особенность - он не может быть проведен online, в момент собственно записи данных. Это в чистом виде offline-алгоритм. Сперва данные записываются, потом генерируются fingerprint-ы, потом проходит поиск, выявляются кандидаты на дедупликацию, проводится побайтное сравнение дупликатов и принимается решение.</p>
+<p>Однако &#8220;чистый offline&#8221; процесса дедупликации дает нам пренебрежимо малое влияние процесса на производительность системы. Конечно многое зависит от мощности системы, характера данных, и так далее, но чаще всего пользователи сообщают о влиянии на производительность от включенной дедупликации в 0% для чтения, и в районе 5-7% при записи, то есть, во многих случаях, пренебрежимо малых величинах.<br />
+В результате, системы NetApp могут использовать дедупликацию на ролях так называемых Primary storages, то есть основных, &#8220;боевых&#8221; системах хранения, а не только на хранилищах бэкапов, DR-реплик и резервных, ненагруженных системах.<br />
+Хотя применение дедупликации на primary storages и требует соблюдения рада оговорок, оно, как показывает практика прошедших пары лет, вполне работоспособно и широко применяется сегодня. ?? уж точно дедупликация пригодна для разнообразных secondary storages, таких как D2D Backup, реплики данных и резервные системы.</p>
+<p>Так как NetApp принял в свое время решение отдавать лицензию на Dedupe бесплатно, на сегоднящний день количество систем хранения со включенным и работающим Deduplication, по отчету техсаппорта компании, получающего эту информацию, превышает на начало года число 37 тысяч систем.<br />
+Это подавляюще преимущественное положение на рынке дедупликации на сегодня.</p>
+<p><strong>Q: Насколько эффективна дедупликация для хранимых данных?</strong><br />
+<strong>А:</strong> NetApp сделал специальный эмпирический калькулятор, с помошью которого можно приблизительно оценить результат для разных типов данных.<br />
+<a href="http://www.dedupecalc.com/">http://www.dedupecalc.com/</a></p>
+<p><strong>Q: А как бы не приблизительные и эмпирические цифры узнать, а на моих конкретных данных?</strong><br />
+<strong>A:</strong> У NetApp есть небольшая программка, которую можно запустить на том данных, она просчитает по нему fingerprint и сообщит ожидаемую эффективность дедупликации. Взять ее можно у партнера NetApp, так как она под определенными ограничениями, не просите ее у меня.<br />
+Партнеру скажите, что вам нужна программка SSET под Windows или Linux, он ее может скачать с партнерского раздела.</p>
+<p><strong>Q: Я запустил дедупликацию (или SSET) по тому данных, на котором у меня лежит сотня full backup моих данных, и я ожидал получить высокую степень эффективности на таких данных, ведь по сути это полностью одинаковые данные за небольшими изменениями, но получил результат заметно менее ожидаемого, почему так?</strong><br />
+<strong>A:</strong> Дело в том, что для дедупликации важна абсолютная идентичность данных в пределах 4KB-блока. Если идентичные данные имеют по какой-то причине смещение между сравниваемыми блоками, хоть на байт (такое часто случается в форматах файлов резервного копирования), они уже будут считаться неидентичными для алгоритма дедупликации FAS, который не умеет обрабатывать смещение данных в блоках. Эта проблема решена в алгоритме дедупликации для систем VTL, лучше подходящих, и специально заточенных под бэкапы.<br />
+По этой причине, кстати, дедупликация FAS так эффективна для виртуальных дисков виртуальных машин, обычно виртуальные диски всегда идентично выровнены между собой, и границы блоков для них совпадают.</p>
+<p><strong>Q: Как можно получить лицензию для имеющейся системы?</strong><br />
+<strong>A:</strong> Свяжитесь с ее продавцом, он закажет для вашей системы лицензию. Она бесплатна, но она нужна. Как правило для всех новых систем она поставляется по умолчанию, как iSCSI, например.</p>
+<p><strong>Q: Есть ли какие-то ограничения по использованию?</strong><br />
+<strong>A1:</strong> Конечно есть :) Для полного понимания рекмендуется прочесть соответствующий Best Practices на сайте NetApp, а из FAQ-овых вопросов - обязательно посмотрите, какой лимит определен для вашей системы хранения. Он зависит от версии используемой Data ONTAP, и на момент написания этого текста, для 7.3.1 составляет 1TB для FAS2020 (самой младшей), 2TB для 2050 и 3020, 3TB для 3050, 4TB для 3040 и 3140, выше (3070, 3160, 6000) размер тома с включенной дедупликацией может быть равен максимальному размеру тома на системе хранения - 16TB. Это ограничение вызвано нежеланием перегружать возможным процессом не слишком большие объемы памяти и процессоров для этих систем, что могло бы вызвать заметное снижение рабочей производительности системы.<br />
+Если вы создали том больше, чем разрешено для данной OS и данного &#8220;железа&#8221;, то дедупликация не запустится. С другой стороны и ничего плохого тоже не произойдет :).<br />
+<strong>А2:</strong> Обратите также внимание, что дедупликация производится только для активной файловой системы. Если много блоков данных &#8220;заперто&#8221; в снэпшотах, то степень достигнутой дедупликации будет ниже, так как блоки данных в снэпшотах не обрабатываются. Возможно со временем эту проблему решат, но пока перед началом дедупликации рекомендуется удалять снэпшоты, провести дедупликацию, после чего снэпшоты можно снова брать и использовать. </p>
+<p><strong>Q: Велична в 2TB на том данных, подлежащих дедупликации, это объем записываемых в него данных?</strong><br />
+<strong>A:</strong> Нет, это именно размер тома. Если у вас на системе ограничение 2TB на том с дедупликацией, и при этом вы пишете на него данные, которые могут быть дедуплицированы вдвое, то после записи 2TB и первого прохода процесса дедупликации, у вас освободится 1TB, который вы, в свою очередь, сможете записать после окончания этого процесса. Далее по этому записанному 1TB также пройдет дедупликация, и после ее окончания вы снова получите свободное место. Но первоначально объем записи равен размеру тома, не забывайте, что это именно оффлайновая дедупликация, даже если вы заливаете 2TB нулей, вы получите эффект только после его обработки.<br />
+Однако, если вы включили дедупликацию на томе большего размера, на котором есть всего 2TB и менее данных, то дедупликация просто не включится. Важен именно размер тома.</p>
+<p><strong>Q: Могу я вернуть &#8220;как было&#8221; если у меня что-то пойдет &#8220;не так&#8221;?</strong><br />
+<strong>A:</strong> Конечно, можно как включить, так и выключить дедупликацию в любой момент, а также вернуть назад &#8220;дупликацию&#8221;, если почему-то что-то не устроит.</p>
+<p><strong>Где еще почитать поподробнее по-русски о технических аспектах:</strong><br />
+<a href="http://www.netwell.ru/docs/netapp/tr-3505_rus_deduplication_best_practices.pdf">RUS TR-3505 Deduplication for FAS and V-series Best Practices.pdf</a></p>
+<p>&#8211;<br />
+UPD:<br />
+О том, как дедупликация влияет на производительность работы систем хранения NetApp можно прочитать здесь:<br />
+<a href="../432/trackback.html"><strong>Дедупликация и производительность работы</strong></a></p>
+<p>&#8211;<br />
+UPD2: Кстати, знаете ли вы, что NetApp <strong>гарантирует</strong> экономию по меньшей мере 50% объема хранения в случае использования дедупликации для данных виртуальных сред (VMware ESX/vSphere, MS Hyper-V/Hyper-V R2, Citrix Xen)?<br />
+<a href="http://www.netapp-vi.eu/ru/guarantee.php">http://www.netapp-vi.eu/ru/</a></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/deduplication/index.html" rel="tag">deduplication</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (8)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-150">
+		<div id="div-comment-150">
+		<div class="comment-author">
+			<cite>Albert Salman:<cite></div>
+			<p>Выключить всегда можно, но если места не хватит на выполнение &#8220;sis undo&#8221;- блоки так и останутся дедуплицированными.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-150" title="">23 Июнь 2009, 23:15</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1327">
+		<div id="div-comment-1327">
+		<div class="comment-author">
+			<cite>Azat:<cite></div>
+			<p>Где еще почитать поподробнее по-русски о технических аспектах:<br />
+RUS TR-3505 Deduplication for FAS and V-series Best Practices.pdf</p>
+<p><a href="/docs/RUS%20TR-3505%20Deduplication%20%20for%20FAS%20and%20V-series%20Best%20Practices.pdf" rel="nofollow">/docs/RUS%20TR-3505%20Deduplication%20%20for%20FAS%20and%20V-series%20Best%20Practices.pdf</a></p>
+<p>ссылка не работает</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1327" title="">28 Апрель 2011, 18:30</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1328">
+		<div id="div-comment-1328">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Azat: </p>
+<p>Спасибо, переставил ссылку, теперь должно работать.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1328" title="">28 Апрель 2011, 18:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2677">
+		<div id="div-comment-2677">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Нигде не найду утилиту <b>Space Savings Estimation Tool (SSET)</b>.<br />
+Подскажите где её скачать?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2677" title="">11 Июнь 2012, 21:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2678">
+		<div id="div-comment-2678">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:<br />
+> Нигде не найду утилиту Space Savings Estimation Tool (SSET).<br />
+Подскажите где её скачать?</p>
+<p>Выше в тексте:<br />
+<i>Взять ее можно у партнера NetApp, так как она под определенными ограничениями, не просите ее у меня.<br />
+Партнеру скажите, что вам нужна программка SSET под Windows или Linux, он ее может скачать с партнерского раздела.</i></p>
+						<div class="comment-meta"><a href="trackback.html#comment-2678" title="">11 Июнь 2012, 21:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2679">
+		<div id="div-comment-2679">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Так нашел сам, <a href="https://fieldportal.netapp.com/search/?qsb=1&amp;query=Space+Savings+Estimation+Tool&amp;within=&amp;thumb=on&amp;dscp=on" rel="nofollow">вот</a>.<br />
+Только нужен доступ к FieldPortal .</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2679" title="">11 Июнь 2012, 21:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2680">
+		<div id="div-comment-2680">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>> Только нужен доступ к FieldPortal .</p>
+<p>Бинго! ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2680" title="">11 Июнь 2012, 21:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-8066">
+		<div id="div-comment-8066">
+		<div class="comment-author">
+			<cite>Виктор:<cite></div>
+			<p>Быть может, дурацкий вопрос:<br />
+- У меня два тома - Root только под DataONTAP и DATA под данные, в моём случае только LUN-ы.<br />
+- обратил внимание, что снимки тома делаются моментально, а вот восстановление одного LUN-а из снимка (а не всего снимка целиком) на 10-30 гигов может занять несколько часов.</p>
+<p>Хотел использовать отдельный том для каждого LUN-а, но возникли вопросы:<br />
+1) пространство. FlexibleVolume - это как ThinProvision для LUN-ов, то есть место свободно, пока его не начали использовать?</p>
+<p>2) Дедупликация и прочие способы Storage Efficiency - насколько я понял, дедупликация действует внутри Volume, а не внутри Aggregate, а значит 10 разных LUN, лежащие на РАЗНЫХ FlexVol, на которые я по очереди установлю одну и ту же OS займут в 10 раз больше места, чем 10 LUN-ов, лежащие на одном VOLUME ?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-8066" title="">16 Июнь 2013, 19:29</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="299" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.075 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

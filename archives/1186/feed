@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: О дисковом трее в DS4486</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1186/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1186</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:12 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Daywalker</title>
+		<link>http://blog.aboutnetapp.ru/archives/1186#comment-15967</link>
+		<dc:creator>Daywalker</dc:creator>
+		<pubDate>Sat, 17 Feb 2018 16:40:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1186#comment-15967</guid>
+		<description>Меняется полностью трей с двумя дисками. Я уже менял, описал здесь (http://blog.volobuev.su/zamena-diska-na-netapp-ds4486/)</description>
+		<content:encoded><![CDATA[<p>Меняется полностью трей с двумя дисками. Я уже менял, описал здесь (http://blog.volobuev.su/zamena-diska-na-netapp-ds4486/)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Aleksey Sychev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1186#comment-3102</link>
+		<dc:creator>Aleksey Sychev</dc:creator>
+		<pubDate>Wed, 08 Aug 2012 06:55:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1186#comment-3102</guid>
+		<description>2 sl0n: Если я не ошибаюсь - 8.1.1RC1</description>
+		<content:encoded><![CDATA[<p>2 sl0n: Если я не ошибаюсь - 8.1.1RC1</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1186#comment-3099</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Tue, 07 Aug 2012 18:34:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1186#comment-3099</guid>
+		<description>Я какие требования в плане версии OnTAP?</description>
+		<content:encoded><![CDATA[<p>Я какие требования в плане версии OnTAP?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1186#comment-3085</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 06 Aug 2012 06:13:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1186#comment-3085</guid>
+		<description>После такой "эвакуации" carrier может быть извлечён. Предполагаю, что заменяется сразу весь carrier - клиент не выкалупывает оттуда мертвый диск, ему приезжает замена в виде carrier'а с двумя дисками сразу.
+Каждый диск может быть в отдельной рейд группе. Поддерживается с FAS/V 3240, 3270, 60x0, 62x0.
+Предназначено для низкосортных задач, таких как резервирование или архивирование. Уже должно быть доступно к заказу.</description>
+		<content:encoded><![CDATA[<p>После такой &#8220;эвакуации&#8221; carrier может быть извлечён. Предполагаю, что заменяется сразу весь carrier - клиент не выкалупывает оттуда мертвый диск, ему приезжает замена в виде carrier&#8217;а с двумя дисками сразу.<br />
+Каждый диск может быть в отдельной рейд группе. Поддерживается с FAS/V 3240, 3270, 60&#215;0, 62&#215;0.<br />
+Предназначено для низкосортных задач, таких как резервирование или архивирование. Уже должно быть доступно к заказу.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1186#comment-3084</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 06 Aug 2012 06:05:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1186#comment-3084</guid>
+		<description>??звлекается сразу пара, при выходе диска из строя, со второго происходит "эвакуация" данных.</description>
+		<content:encoded><![CDATA[<p>??звлекается сразу пара, при выходе диска из строя, со второго происходит &#8220;эвакуация&#8221; данных.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

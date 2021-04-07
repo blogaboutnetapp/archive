@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Дедупликация - как это работает у NetApp?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/299/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/299</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:52 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Виктор</title>
+		<link>http://blog.aboutnetapp.ru/archives/299#comment-8066</link>
+		<dc:creator>Виктор</dc:creator>
+		<pubDate>Sun, 16 Jun 2013 12:29:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=299#comment-8066</guid>
+		<description>Быть может, дурацкий вопрос:
+- У меня два тома - Root только под DataONTAP и DATA под данные, в моём случае только LUN-ы.
+- обратил внимание, что снимки тома делаются моментально, а вот восстановление одного LUN-а из снимка (а не всего снимка целиком) на 10-30 гигов может занять несколько часов.
+
+Хотел использовать отдельный том для каждого LUN-а, но возникли вопросы:
+1) пространство. FlexibleVolume - это как ThinProvision для LUN-ов, то есть место свободно, пока его не начали использовать?
+
+2) Дедупликация и прочие способы Storage Efficiency - насколько я понял, дедупликация действует внутри Volume, а не внутри Aggregate, а значит 10 разных LUN, лежащие на РАЗНЫХ FlexVol, на которые я по очереди установлю одну и ту же OS займут в 10 раз больше места, чем 10 LUN-ов, лежащие на одном VOLUME ?</description>
+		<content:encoded><![CDATA[<p>Быть может, дурацкий вопрос:<br />
+- У меня два тома - Root только под DataONTAP и DATA под данные, в моём случае только LUN-ы.<br />
+- обратил внимание, что снимки тома делаются моментально, а вот восстановление одного LUN-а из снимка (а не всего снимка целиком) на 10-30 гигов может занять несколько часов.</p>
+<p>Хотел использовать отдельный том для каждого LUN-а, но возникли вопросы:<br />
+1) пространство. FlexibleVolume - это как ThinProvision для LUN-ов, то есть место свободно, пока его не начали использовать?</p>
+<p>2) Дедупликация и прочие способы Storage Efficiency - насколько я понял, дедупликация действует внутри Volume, а не внутри Aggregate, а значит 10 разных LUN, лежащие на РАЗНЫХ FlexVol, на которые я по очереди установлю одну и ту же OS займут в 10 раз больше места, чем 10 LUN-ов, лежащие на одном VOLUME ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/299#comment-2680</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 11 Jun 2012 14:53:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=299#comment-2680</guid>
+		<description>bbk:
+
+&gt; Только нужен доступ к FieldPortal .
+
+Бинго! ;)</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> Только нужен доступ к FieldPortal .</p>
+<p>Бинго! ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/299#comment-2679</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 11 Jun 2012 14:46:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=299#comment-2679</guid>
+		<description>Так нашел сам, &lt;a href="https://fieldportal.netapp.com/search/?qsb=1&#38;query=Space+Savings+Estimation+Tool&#38;within=&#38;thumb=on&#38;dscp=on" rel="nofollow"&gt;вот&lt;/a&gt;.
+Только нужен доступ к FieldPortal .</description>
+		<content:encoded><![CDATA[<p>Так нашел сам, <a href="https://fieldportal.netapp.com/search/?qsb=1&amp;query=Space+Savings+Estimation+Tool&amp;within=&amp;thumb=on&amp;dscp=on" rel="nofollow">вот</a>.<br />
+Только нужен доступ к FieldPortal .</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/299#comment-2678</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 11 Jun 2012 14:36:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=299#comment-2678</guid>
+		<description>bbk:
+&gt; Нигде не найду утилиту Space Savings Estimation Tool (SSET).
+Подскажите где её скачать?
+
+Выше в тексте:
+&lt;i&gt;Взять ее можно у партнера NetApp, так как она под определенными ограничениями, не просите ее у меня.
+Партнеру скажите, что вам нужна программка SSET под Windows или Linux, он ее может скачать с партнерского раздела.&lt;/i&gt;</description>
+		<content:encoded><![CDATA[<p>bbk:<br />
+> Нигде не найду утилиту Space Savings Estimation Tool (SSET).<br />
+Подскажите где её скачать?</p>
+<p>Выше в тексте:<br />
+<i>Взять ее можно у партнера NetApp, так как она под определенными ограничениями, не просите ее у меня.<br />
+Партнеру скажите, что вам нужна программка SSET под Windows или Linux, он ее может скачать с партнерского раздела.</i></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/299#comment-2677</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 11 Jun 2012 14:31:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=299#comment-2677</guid>
+		<description>Нигде не найду утилиту &lt;b&gt;Space Savings Estimation Tool (SSET)&lt;/b&gt;.
+Подскажите где её скачать?</description>
+		<content:encoded><![CDATA[<p>Нигде не найду утилиту <b>Space Savings Estimation Tool (SSET)</b>.<br />
+Подскажите где её скачать?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/299#comment-1328</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 28 Apr 2011 11:36:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=299#comment-1328</guid>
+		<description>Azat: 
+
+Спасибо, переставил ссылку, теперь должно работать.</description>
+		<content:encoded><![CDATA[<p>Azat: </p>
+<p>Спасибо, переставил ссылку, теперь должно работать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Azat</title>
+		<link>http://blog.aboutnetapp.ru/archives/299#comment-1327</link>
+		<dc:creator>Azat</dc:creator>
+		<pubDate>Thu, 28 Apr 2011 11:30:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=299#comment-1327</guid>
+		<description>Где еще почитать поподробнее по-русски о технических аспектах:
+RUS TR-3505 Deduplication for FAS and V-series Best Practices.pdf
+
+http://docs.aboutnetapp.ru/RUS%20TR-3505%20Deduplication%20%20for%20FAS%20and%20V-series%20Best%20Practices.pdf
+
+ссылка не работает</description>
+		<content:encoded><![CDATA[<p>Где еще почитать поподробнее по-русски о технических аспектах:<br />
+RUS TR-3505 Deduplication for FAS and V-series Best Practices.pdf</p>
+<p><a href="http://docs.aboutnetapp.ru/RUS%20TR-3505%20Deduplication%20%20for%20FAS%20and%20V-series%20Best%20Practices.pdf" rel="nofollow">http://docs.aboutnetapp.ru/RUS%20TR-3505%20Deduplication%20%20for%20FAS%20and%20V-series%20Best%20Practices.pdf</a></p>
+<p>ссылка не работает</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Albert Salman</title>
+		<link>http://blog.aboutnetapp.ru/archives/299#comment-150</link>
+		<dc:creator>Albert Salman</dc:creator>
+		<pubDate>Tue, 23 Jun 2009 16:15:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=299#comment-150</guid>
+		<description>Выключить всегда можно, но если места не хватит на выполнение "sis undo"- блоки так и останутся дедуплицированными.</description>
+		<content:encoded><![CDATA[<p>Выключить всегда можно, но если места не хватит на выполнение &#8220;sis undo&#8221;- блоки так и останутся дедуплицированными.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

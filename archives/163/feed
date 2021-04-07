@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: VMware на NFS: не только NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/163/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/163</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:09 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-75</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 10:23:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-75</guid>
+		<description>1. Vol create oradata 100g
+2. vol autosize oradata -m 1t -i 10g on
+3. lun create -s 1t -t solaris -o noreserve /vol/oradata/lun0
+
+Аутосайз сам расширяет, если кончилось место в томе. Но имейте ввиду, что нормальное расширение, т.е. даже когда что-то пишется работает только с LUN, если на томе сделать NFS шару и поставить авторасширение, то в случае например вы копируете и кончилось место, он ругнется и отвалиться, а потом уже Netapp его расширит и только на инкремент в опции -i.
+Т.е. если вы копировали 100Г и нет места, он сто раз будет говорит, что нет места, и 100 раз будет расширяться, поэтому в случае с NFS придеться за местом следить самому.</description>
+		<content:encoded><![CDATA[<p>1. Vol create oradata 100g<br />
+2. vol autosize oradata -m 1t -i 10g on<br />
+3. lun create -s 1t -t solaris -o noreserve /vol/oradata/lun0</p>
+<p>Аутосайз сам расширяет, если кончилось место в томе. Но имейте ввиду, что нормальное расширение, т.е. даже когда что-то пишется работает только с LUN, если на томе сделать NFS шару и поставить авторасширение, то в случае например вы копируете и кончилось место, он ругнется и отвалиться, а потом уже Netapp его расширит и только на инкремент в опции -i.<br />
+Т.е. если вы копировали 100Г и нет места, он сто раз будет говорит, что нет места, и 100 раз будет расширяться, поэтому в случае с NFS придеться за местом следить самому.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-74</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 09:41:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-74</guid>
+		<description>Встряну со своей стороны: имейте ввиду, что почти наверняка можно попросить у NetApp демо-лицензию на NFS, чтобы попробовать его практически на вашей реальной системе, и убедиться в его нужности и работоспособности до собственно покупки.
+Почти всегда идут навстречу, свяжитесь с поставлявшим вам систему партнером, пусть они свяжутся с представительством.
+Это же действует на любую опцию NetApp имеющую лицензию. Не стесняйтесь спрашивать. :)</description>
+		<content:encoded><![CDATA[<p>Встряну со своей стороны: имейте ввиду, что почти наверняка можно попросить у NetApp демо-лицензию на NFS, чтобы попробовать его практически на вашей реальной системе, и убедиться в его нужности и работоспособности до собственно покупки.<br />
+Почти всегда идут навстречу, свяжитесь с поставлявшим вам систему партнером, пусть они свяжутся с представительством.<br />
+Это же действует на любую опцию NetApp имеющую лицензию. Не стесняйтесь спрашивать. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-73</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 09:30:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-73</guid>
+		<description>Ildarych, серверов много, разнообразных, все по FC, все на одном аггрегате. LUN'ы нарезал с запасом. Первое время после инсталляции системы не был поднят ленточный бэкап и лили на диски. По неопытности - на рабочие луны, а не на отдельные. Ещё момент - частое клонирование баз. ?? прочие операции, когда дисковое пространство занимается на время. Одним словом, в результате имеем изрядно свободного места, про которое Netapp не знает. Проблема только в этом. В плане производительности и защиты данных, тьфу тьфу, вроде всё нормально.
+
+Хочется послушать русскоязычного человека с опытом работы оракла на NFS. А то в анонсах нетаппа больно радостный тон. Либо покупать NFS и тестить самому. А пока что, наверно, придётся мне пересоздать "особо отличившиеся" луны.
+
+Все луны - с noreserve. Про autosize тома я не в курсах. Это что?</description>
+		<content:encoded><![CDATA[<p>Ildarych, серверов много, разнообразных, все по FC, все на одном аггрегате. LUN&#8217;ы нарезал с запасом. Первое время после инсталляции системы не был поднят ленточный бэкап и лили на диски. По неопытности - на рабочие луны, а не на отдельные. Ещё момент - частое клонирование баз. ?? прочие операции, когда дисковое пространство занимается на время. Одним словом, в результате имеем изрядно свободного места, про которое Netapp не знает. Проблема только в этом. В плане производительности и защиты данных, тьфу тьфу, вроде всё нормально.</p>
+<p>Хочется послушать русскоязычного человека с опытом работы оракла на NFS. А то в анонсах нетаппа больно радостный тон. Либо покупать NFS и тестить самому. А пока что, наверно, придётся мне пересоздать &#8220;особо отличившиеся&#8221; луны.</p>
+<p>Все луны - с noreserve. Про autosize тома я не в курсах. Это что?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-71</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 09:04:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-71</guid>
+		<description>Sanet, а можно более подробно?
+Насколько я понял, некий Sun сервер подключён по FC, и у вас кончилось место на массиве, а вы предварительно отдали под него все свободное место, грубо говоря один том, в нем один лун и это все на одну полку?
+Как подключать правильно NFS и какая скорость будет по NFS, есть в ссылках которые давал romx. Сам я лично с Oracle под NFS не работал, не довелось, но идея перспективная, особенно в свете 10G Ethernet.
+Очень советую обратить внимание на  Best Practices Guide, там все есть и как подключать и как разбивать. В частности про разделение датафайлов, темп и т.д.
+В своих системах у меня 3 тома: data, temp, archivelog. Temp не снапшотиться, archivelog советуют ставить snapmirror, но я его пока что на агрегете с sata дисками разместил, места там много и скорость нормальная.
+?? самое главное! В 99% создавайте лун с -o noreserve, т.е. без space reserve. ?? к этому ставьте на томе, где лун, autosize.
+Тем самым в большинстве случаев не будет душить жаба, что реально у нас база 100гиг, а мы под нее терабайтный лун сделали.
+Если много дисков/полок, смысла делать для данных, индексов, темпа и т.д. отдельные агрегейты нет никакого.</description>
+		<content:encoded><![CDATA[<p>Sanet, а можно более подробно?<br />
+Насколько я понял, некий Sun сервер подключён по FC, и у вас кончилось место на массиве, а вы предварительно отдали под него все свободное место, грубо говоря один том, в нем один лун и это все на одну полку?<br />
+Как подключать правильно NFS и какая скорость будет по NFS, есть в ссылках которые давал romx. Сам я лично с Oracle под NFS не работал, не довелось, но идея перспективная, особенно в свете 10G Ethernet.<br />
+Очень советую обратить внимание на  Best Practices Guide, там все есть и как подключать и как разбивать. В частности про разделение датафайлов, темп и т.д.<br />
+В своих системах у меня 3 тома: data, temp, archivelog. Temp не снапшотиться, archivelog советуют ставить snapmirror, но я его пока что на агрегете с sata дисками разместил, места там много и скорость нормальная.<br />
+?? самое главное! В 99% создавайте лун с -o noreserve, т.е. без space reserve. ?? к этому ставьте на томе, где лун, autosize.<br />
+Тем самым в большинстве случаев не будет душить жаба, что реально у нас база 100гиг, а мы под нее терабайтный лун сделали.<br />
+Если много дисков/полок, смысла делать для данных, индексов, темпа и т.д. отдельные агрегейты нет никакого.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-70</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 08:32:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-70</guid>
+		<description>romx, спасибо, проштудирую. В принципе, если даже датафайлы оставить на лунах, ничто не мешает лить на NFS файлы экспорта, архивлоги и т.п.
+
+Ildarych, можете прокомментировать?</description>
+		<content:encoded><![CDATA[<p>romx, спасибо, проштудирую. В принципе, если даже датафайлы оставить на лунах, ничто не мешает лить на NFS файлы экспорта, архивлоги и т.п.</p>
+<p>Ildarych, можете прокомментировать?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-69</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 08:16:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-69</guid>
+		<description>А, Sanjay Gulabani теперь Account Manager, судя по LinkedIn :)
+
+Кстати, на sql.ru в форумах есть Alex Roudnev, он тоже знатный оракловод, и у себя в Америке тоже на NetApp сидит и любит его. Обратите внимание на его посты в форуме sql.ru.</description>
+		<content:encoded><![CDATA[<p>А, Sanjay Gulabani теперь Account Manager, судя по LinkedIn :)</p>
+<p>Кстати, на sql.ru в форумах есть Alex Roudnev, он тоже знатный оракловод, и у себя в Америке тоже на NetApp сидит и любит его. Обратите внимание на его посты в форуме sql.ru.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-68</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 08:05:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-68</guid>
+		<description>sanet: сам я не специалист в Оракле, но вот ildarych, тот который не верит, что LUN иногда и уменьшают ;) - как раз оракловый админ с NetApp-ом (правда на FC, как я знаю). Попробуйте спросить у него.
+
+Далее. Можно для затравки почитать переведенную статью "Oracle on NFS" из весеннего выпуска TechONTAP. Там есть и ссылки на тесты производительности, посмотрите.
+http://www.vd.verysell.ru/files/ie/330_4_DOCUMENT_oracle_on_nfs.pdf
+
+Например под Linux.
+http://www.netapp.com/library/tr/3495.pdf
+
+Вся пополняемая библиотека переводов:
+http://www.vd.verysell.ru/suppliers/netapp/documentation
+
+??меет смысл также посмотрть Best Practices Guide про Oracle
+http://media.netapp.com/documents/tr-3369.pdf
+
+Ну а кроме этого в блогах Нетапперов покопаться.
+http://www.netapp.com/us/communities/communities-blogs.html
+ 
+Блог Санджая давно не обновляется, возможно переехал
+http://netappdb.blogspot.com/
+Зато есть живой:
+http://blogs.netapp.com/databases/</description>
+		<content:encoded><![CDATA[<p>sanet: сам я не специалист в Оракле, но вот ildarych, тот который не верит, что LUN иногда и уменьшают ;) - как раз оракловый админ с NetApp-ом (правда на FC, как я знаю). Попробуйте спросить у него.</p>
+<p>Далее. Можно для затравки почитать переведенную статью &#8220;Oracle on NFS&#8221; из весеннего выпуска TechONTAP. Там есть и ссылки на тесты производительности, посмотрите.<br />
+<a href="http://www.vd.verysell.ru/files/ie/330_4_DOCUMENT_oracle_on_nfs.pdf" rel="nofollow">http://www.vd.verysell.ru/files/ie/330_4_DOCUMENT_oracle_on_nfs.pdf</a></p>
+<p>Например под Linux.<br />
+<a href="http://www.netapp.com/library/tr/3495.pdf" rel="nofollow">http://www.netapp.com/library/tr/3495.pdf</a></p>
+<p>Вся пополняемая библиотека переводов:<br />
+<a href="http://www.vd.verysell.ru/suppliers/netapp/documentation" rel="nofollow">http://www.vd.verysell.ru/suppliers/netapp/documentation</a></p>
+<p>??меет смысл также посмотрть Best Practices Guide про Oracle<br />
+<a href="http://media.netapp.com/documents/tr-3369.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3369.pdf</a></p>
+<p>Ну а кроме этого в блогах Нетапперов покопаться.<br />
+<a href="http://www.netapp.com/us/communities/communities-blogs.html" rel="nofollow">http://www.netapp.com/us/communities/communities-blogs.html</a></p>
+<p>Блог Санджая давно не обновляется, возможно переехал<br />
+<a href="http://netappdb.blogspot.com/" rel="nofollow">http://netappdb.blogspot.com/</a><br />
+Зато есть живой:<br />
+<a href="http://blogs.netapp.com/databases/" rel="nofollow">http://blogs.netapp.com/databases/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-67</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Thu, 18 Sep 2008 07:41:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-67</guid>
+		<description>Роман, все последние статьи про NFS относятся к Vmware. А есть ли опыт переползания с LUN'ов на NFS для физических машин? Насколько проседаем по производительности в этом случае, в частности для Оракла?
+У меня задача уменьшения лунов уже встала во весь рост, а SnapDrive для многопроцессорных SPARC'ов, боюсь, сильно дорог.</description>
+		<content:encoded><![CDATA[<p>Роман, все последние статьи про NFS относятся к Vmware. А есть ли опыт переползания с LUN&#8217;ов на NFS для физических машин? Насколько проседаем по производительности в этом случае, в частности для Оракла?<br />
+У меня задача уменьшения лунов уже встала во весь рост, а SnapDrive для многопроцессорных SPARC&#8217;ов, боюсь, сильно дорог.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-66</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 17 Sep 2008 14:56:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-66</guid>
+		<description>Я поищу, но политически грамотным будет воспользоваться результатами официальных бенчмарков - SPC-1 и SPEC SFS.</description>
+		<content:encoded><![CDATA[<p>Я поищу, но политически грамотным будет воспользоваться результатами официальных бенчмарков - SPC-1 и SPEC SFS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/163#comment-65</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Wed, 17 Sep 2008 12:23:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=163#comment-65</guid>
+		<description>еще такой вопрос: нет ли у вас результатов замеров IOPSов для систем NetApp? в архивах блога смотрел, но там статьи про бенчмарки покоцанные..</description>
+		<content:encoded><![CDATA[<p>еще такой вопрос: нет ли у вас результатов замеров IOPSов для систем NetApp? в архивах блога смотрел, но там статьи про бенчмарки покоцанные..</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

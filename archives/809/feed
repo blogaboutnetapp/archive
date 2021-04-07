@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: LUN на NetApp это НЕ &#8220;просто файл&#8221;!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/809/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/809</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:51 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/809#comment-1086</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 07 Feb 2011 11:05:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=809#comment-1086</guid>
+		<description>&gt; А вот вопрос, немного в сторону. Никто не знает, какаие ещё устройства, кроме самого Нетаппа, смогут с ним общаться по NDMP?
+
+Если речь про ndmpcopy - то никто, ndmpcopy это нестандартная, "внутренняя" функция, расширение протокола, в стандартную версию его не вошедшая.</description>
+		<content:encoded><![CDATA[<p>> А вот вопрос, немного в сторону. Никто не знает, какаие ещё устройства, кроме самого Нетаппа, смогут с ним общаться по NDMP?</p>
+<p>Если речь про ndmpcopy - то никто, ndmpcopy это нестандартная, &#8220;внутренняя&#8221; функция, расширение протокола, в стандартную версию его не вошедшая.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/809#comment-1085</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Mon, 07 Feb 2011 08:43:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=809#comment-1085</guid>
+		<description>Тоже захотел проверить, по CIFS у меня не получилось скопировать даже отмапленный и заоффлайненный ЛУН, "Access Denied".</description>
+		<content:encoded><![CDATA[<p>Тоже захотел проверить, по CIFS у меня не получилось скопировать даже отмапленный и заоффлайненный ЛУН, &#8220;Access Denied&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/809#comment-1084</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Mon, 07 Feb 2011 08:21:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=809#comment-1084</guid>
+		<description>&#62; Плюс, возможно даже в случае неправильного восстановления вылечить такой LUN создав клон
+
+О! Возможно, это может помочь даже при тупом копировании по CIFS. Надо будет потестить.
+
+А вот вопрос, немного в сторону. Никто не знает, какаие ещё устройства, кроме самого Нетаппа, смогут с ним общаться по NDMP? 
+Пробовал SUN Unified Storage 7000 - Нетапп меня послал, говорит, "удалённая система - не нетапп".</description>
+		<content:encoded><![CDATA[<p>&gt; Плюс, возможно даже в случае неправильного восстановления вылечить такой LUN создав клон</p>
+<p>О! Возможно, это может помочь даже при тупом копировании по CIFS. Надо будет потестить.</p>
+<p>А вот вопрос, немного в сторону. Никто не знает, какаие ещё устройства, кроме самого Нетаппа, смогут с ним общаться по NDMP?<br />
+Пробовал SUN Unified Storage 7000 - Нетапп меня послал, говорит, &#8220;удалённая система - не нетапп&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/809#comment-1083</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Mon, 07 Feb 2011 08:01:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=809#comment-1083</guid>
+		<description>При использовании NetBackup не обязательно восстанавливать целиком том. Главное (как и сказано в статье) восстановить его либо в корень либо в qtree, и тогда метаданные будут (не ясно правда откуда, все-таки похоже на то что они создаются стораджем при выполнении каких-то условий).
+Плюс, возможно даже в случае неправильного восстановления вылечить такой LUN создав клон, тогда метаданные ЛУНа будут созданы: https://kb.netapp.com/support/index?page=content&#38;id=2012496. Лицензия flex_clone не нужна.</description>
+		<content:encoded><![CDATA[<p>При использовании NetBackup не обязательно восстанавливать целиком том. Главное (как и сказано в статье) восстановить его либо в корень либо в qtree, и тогда метаданные будут (не ясно правда откуда, все-таки похоже на то что они создаются стораджем при выполнении каких-то условий).<br />
+Плюс, возможно даже в случае неправильного восстановления вылечить такой LUN создав клон, тогда метаданные ЛУНа будут созданы: <a href="https://kb.netapp.com/support/index?page=content&amp;id=2012496" rel="nofollow">https://kb.netapp.com/support/index?page=content&amp;id=2012496</a>. Лицензия flex_clone не нужна.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/809#comment-1082</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Mon, 07 Feb 2011 07:48:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=809#comment-1082</guid>
+		<description>Чё-то не то. LUN'ы спокойно копируются командой ndmpcopy с тома на том, равно как и восстанавливаются из бэкапа по NDMP туда, куда скажешь. Ресторить целиком том не требуется.
+Не знаю, зачем в статье на NOW красным выделили в скриншоте "maintaining existing structure" - это стандартная опция нетбэкапа, безотносительно NDMP. Я не пробовал играться с qtree, но восстанавливал без проблем по 3-му варианту (restore individual directories and files to different locations) на другой сторедж и другой том. Том был создан заранее и на нём уже лежали другие LUN'ы.
+Всё вышесказанное относится, разумеется, только к NDMP. Слить LUN, например, по CIFS или NFS и подцепить его потом как диск, AFAIK, невозможно в принципе.</description>
+		<content:encoded><![CDATA[<p>Чё-то не то. LUN&#8217;ы спокойно копируются командой ndmpcopy с тома на том, равно как и восстанавливаются из бэкапа по NDMP туда, куда скажешь. Ресторить целиком том не требуется.<br />
+Не знаю, зачем в статье на NOW красным выделили в скриншоте &#8220;maintaining existing structure&#8221; - это стандартная опция нетбэкапа, безотносительно NDMP. Я не пробовал играться с qtree, но восстанавливал без проблем по 3-му варианту (restore individual directories and files to different locations) на другой сторедж и другой том. Том был создан заранее и на нём уже лежали другие LUN&#8217;ы.<br />
+Всё вышесказанное относится, разумеется, только к NDMP. Слить LUN, например, по CIFS или NFS и подцепить его потом как диск, AFAIK, невозможно в принципе.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

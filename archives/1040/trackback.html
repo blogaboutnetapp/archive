@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Вышел Data ONTAP 8.1 RC</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1038/trackback.html">OnCommand System Manager 2.0</a></div>
+			<div class="alignright"><a href="../1019/trackback.html">NetApp Innovation 2011 &ndash; 4 октября!</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1040">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Вышел Data ONTAP 8.1 RC">Вышел Data ONTAP 8.1 RC</a></h2>
+			<div class="postmetadata">26 Сентябрь 2011, 12:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Вышел долгожданный 8.1</p>
+<p>Напомню, что по введенной с июля 2010 года модели именования релизов, выпуск под названием RC (Release Candidate) является полноценным релизом, оттестированным и готовым в продакшн.</p>
+<p>Цитата с сайта:</p>
+<blockquote><p><strong><font size="4">Release Candidate (RC)</font></strong></p>
+<p>All Data ONTAP releases are made available first as release candidates (RCs). The RC classification indicates that NetApp has <strong>completed the internal testing of the major release</strong>. RCs are provided primarily to customers who want to start exploring the major or maintenance releases for either new features or bug fixes early on. <strong>RC releases are fully tested and are suitable for production usage. </strong><em>(выделение мое, romx)</em></p>
+<p>NetApp might provide multiple RCs, as necessary, to address any specific issues found before the release becomes a general availability (GA) release. NetApp Global Services (NGS) provides support for RCs. After RCs move to GA, all maintenance and patch releases are based on the GA release and not on the RC.</p>
+</blockquote>
+<p>Релизы “цифра после запятой” (Major Release) выходят каждые 18 месяцев, после их выпуска, каждые 6 месяцев выпускаются так называемые Maintenance Release.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image146.png" width="640" height="480" /></p>
+<p>Список изменений довольно велик и существеннен. Очень много важных изменений, поэтому далее я собрал почти все значимое, в кратком переводе. Порядок пунктов хаотичный и не слишком системный, просто FYI.</p>
+<p>  <span id="more-1040"></span></p>
+<p>Появился FC-to-SAS Bridge. Теперь Metrocluster может строиться на полках DS4243 и DS2246, с дисками SAS, а не на старых DS14MK4 c дисками FC. В этом качестве будет продаваться ATTO FiberBridge 6500N. Его поддержка появилась в 8.1RC1.</p>
+<p>Также поддерживается прямое включение устройств на магнитной ленте с интерфейсом SAS (а не только FC, как раньше).</p>
+<p>Прекращена поддержка полок DS14MK2 с интерфейсными модулями ESH2. Так что если вы все еще используете такие – не обновляйтесь на 8.1.</p>
+<p>Появился механизм так называемого cache rewarming. ??звестная проблема с инвалидацией и опустошением (и последующим новым наполнением) кэша Flash Cache при кластерном тэйковере или ином отключении контроллера (наполнение это, вследствие большого размера кэша, было продолжительно и довольно болезненно), теперь решена остроумным способом. WAFL делает снэпшот для находящегося в Flash Cache сегмента данных, а когда система возвращается в работу, Flash Cache восстанавливается из этого снэпшота. Напомню, что Flash Cache это кэш только чтения, поэтому проблем с flush-ем данных на диски в нем, при такой ситуации, там просто нет в принципе, и можно сделать rewarming вот таким простым и изящным способом. Этот режим теперь включен по умолчанию.</p>
+<p>Появился механизм reallocation на дедуплицированных томах. Напомню, раньше, на дедуплицированных томах, средства data reallocation в WAFL практически не работали. Примерно понимая всю принципиальную сложность задачи дефрагментации при дедупликации, интересно как именно они этого добились.</p>
+<p>Больше не будет FilerView – традиционного веб-интерфейса, встроенного в систему. Пользуйтесь System Manager 2.0.</p>
+<p>Появились новые средства System Health Monitoring.</p>
+<p>Улучшения в Autosupport.</p>
+<p>Теперь, для новых систем, по умолчанию создаваемый aggregate выбран как 64-bit. Root vol также располагается по умолчанию и первоначальной установке системы на 64-bit aggregate.</p>
+<p>Aggregate snapshot reserve установлен в 0 по умолчанию, за исключением создания aggregate для syncmirror, там он используется и там по прежнему 5%.</p>
+<p>Почти повсюду поддерживается IPv6, в том числе в RLM и SP (в BMC, в FAS2040 – нет).</p>
+<p>Появилась поддержка TLS (Transport Layer Security) v1.0,в дополнение к SSL.</p>
+<p>??зменились дефолтные установки безопасности для протоколов. Теперь безопасные протоколы (SSH, HTTPS) включены по умолчанию, а небезопасные (RSH, Telnet, FTP, HTTP) – выключены.</p>
+<p>Устрожена политика пароля для root-user. Пароль должен быть минимум 8 символов, хотя бы одну цифру, и хотя бы две буквы.</p>
+<p>Появился специальный (отключенный по умолчанию) логин diag, для диагностики и траблшутинга в консоли. Это специальный служебный пользователь, работа которым предполагается только под руководством службы поддержки для диагностики проблем. (что-то типа нынешнего priv set diag?)</p>
+<p>Улучшения и модификации в boot menu.</p>
+<p>??зменения в механизме работы лицензий. Теперь бесплатные опции, такие как дедупликация, не будут требовать лицензий вовсе. Также появятся “групповые” лицензии, на пак функций целиком.</p>
+<p>Появилась долгожданная возможность конверсии 32-bit aggregate в 64-bit, без копирования и перемещения данных, in place.</p>
+<p>Будет поддерживаться работа Volume SnapMirror между aggregates разных типов (32 на 64&#160; и обратно).</p>
+<p>Увеличен размер aggregates для некоторых платформ. </p>
+<p>Больше нет лимита на поддиректории (раньше было ограничение в 99998 вложенных поддиректорий для директории, если это вас беспокоит;)</p>
+<p>Появилась поддержка SFTP и FTPS (FTP-over-SSL).</p>
+<p>Snapshot Reserve для томов FlexVol, создаваемый по умолчанию, уменьшен до 5%.</p>
+<p>Заработал SnapLock.</p>
+<p>Теперь Data Motion for vFilers (непрерывающая работу vFiler-ов миграция их) возможна не только между контроллерами одной системы хранения, но и между разными системами хранения NetApp.</p>
+<p>Появился интерактивный шелл SSH в vFiler ( то есть прямо в конкретный vFiler, без необходимости входить в vFiler0 и переключать контекст). Также поддерживается IPv6.</p>
+<p>Компрессия (и управление ей) теперь работает и в vFiler (не только в vFiler0, как ранее)</p>
+<p>База фингерпринтов дедупликации теперь хранится в двух экземплярах, одна на уровне FlexVol (как до DOT 7.3), и одна на уровне aggregate (как после 7.3). Это, как я понимаю, позволяет решить проблему с продолжением дедупликации после репликации тома на другую систему, без необходимости пересканировать и пересоздавать базу fingerprints, которая после репликации оставалась на старой системе.</p>
+<p>Компрессия теперь работает для SnapLock и для обоих типов Metrocluster.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/81.html" rel="tag">8.1</a>, <a href="../tag/data-ontap.html" rel="tag">data ontap</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/ontap.html" rel="tag">ontap</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (15)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1732">
+		<div id="div-comment-1732">
+		<div class="comment-author">
+			<cite>tmk:<cite></div>
+			<p>a pnfs?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1732" title="">26 Сентябрь 2011, 12:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1733">
+		<div id="div-comment-1733">
+		<div class="comment-author">
+			<cite>odna ptichka:<cite></div>
+			<p>про размеры томов  и агрегатов забыл</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1733" title="">26 Сентябрь 2011, 13:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1736">
+		<div id="div-comment-1736">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>odna ptichka:</p>
+<p>Не, не забыл.</p>
+<p>> Увеличен размер aggregates для некоторых платформ. </p>
+<p>Но в Whatsnew никаких подробностей сверх этого не было.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1736" title="">26 Сентябрь 2011, 16:26</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1739">
+		<div id="div-comment-1739">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>tmk:</p>
+<p>Думаю, что pnfs будет развиваться в рамках cluster-mode части Data ONTAP. Особой нужды в нем в двухконтроллерной конфигурации хранилища нет.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1739" title="">27 Сентябрь 2011, 11:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1740">
+		<div id="div-comment-1740">
+		<div class="comment-author">
+			<cite>Minus:<cite></div>
+			<p>Обидно то, что отсутствует возможность апгрейда до 64bit агрегатов, содержащих root-vol. :(<br />
+Владельцы маленьких систем, у которых все на aggr0, все еще не могут познать все бонусы 64bit агрегатов.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1740" title="">27 Сентябрь 2011, 12:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1741">
+		<div id="div-comment-1741">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Minus:</p>
+<p>Если так, то это неприятная новость.<br />
+А какие особенные бонусы от 64-bit для маленьких систем? Я так вот вижу разве только компрессию.  Есть что-то еще, для, допустим, владельцев 2040 и пары десятков дисков?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1741" title="">27 Сентябрь 2011, 12:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1742">
+		<div id="div-comment-1742">
+		<div class="comment-author">
+			<cite>Minus:<cite></div>
+			<p>Ну, вообще если я правильно понял ман по aggr add -64bit-upgrade, апгрейд произойдет только в том случае если мы а) добавляем новые диски б) максимальный размер агрегата становится больше 16Тб. Во всех других случаях опция просто добавит диски.<br />
+По поводу бонусов - компрессия лично для меня на первом месте (у меня один FAS2040 для NDMP и файловых бэкапов). Во-вторых, data motion. У меня основная система тоже 2040, но с максимальным количеством дисков, при этом так получилось, что SATA агрегаты 32bit, а SAS - 64bit. Так что - никакого ручного tiering-а, а хотелось бы. Понятно, что это надо было планировать изначально, но все равно обидно.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1742" title="">27 Сентябрь 2011, 12:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1747">
+		<div id="div-comment-1747">
+		<div class="comment-author">
+			<cite>odna ptichka:<cite></div>
+			<p>pNFS будет в RC2 (для С-Mode)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1747" title="">28 Сентябрь 2011, 16:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1748">
+		<div id="div-comment-1748">
+		<div class="comment-author">
+			<cite>odna ptichka:<cite></div>
+			<p>как-то так<br />
+&#8212;-<br />
+CAN I EXPAND MY 32-BIT ROOT AGGREGATE TO 64-BIT?<br />
+If there is a strong requirement to expand your root aggregate beyond 16TB, you can add disks and trigger the 64-bit expansion on the root aggregate</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1748" title="">28 Сентябрь 2011, 16:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1760">
+		<div id="div-comment-1760">
+		<div class="comment-author">
+			<cite>Minus:<cite></div>
+			<p>odna ptichka:</p>
+<p>Да, рутовый агрегат апнуть до 64-бит можно, только расширив его за пределы 16Тб. Т.е. для маленьких 2040, например, из 12х2Тб SATA, счастья не случится, т.е. in-place upgrade невозможен.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1760" title="">3 Октябрь 2011, 15:05</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1774">
+		<div id="div-comment-1774">
+		<div class="comment-author">
+			<cite>Никита:<cite></div>
+			<p>&gt;&gt; Думаю, что pnfs будет развиваться в рамках cluster-mode части Data ONTAP. Особой нужды в нем в двухконтроллерной конфигурации хранилища нет.</p>
+<p>Как это нет нужды? А балансировка нагрузки между агрегатами двух разных голов? По мне так это чуть ли не самый важный архитектурный минус MetApp по сравнению с EMC - необходимость делить диски между двумя головами и невозможность балансировки между ними. А помимо этого, pNFS может дать возможность балансировки нагрузки от одного хоста к одному файлу через NFS по двум или более сетевым интерфейсам в транке. Так что, думается, pNFS был бы очень полезен для двухконтроллерной конфигурации</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1774" title="">10 Октябрь 2011, 1:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1778">
+		<div id="div-comment-1778">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Никита:</p>
+<p>Ну, по-моему это как-то уж совсем оверкилл и глушение рыбы атомной бомбой, использовать ради такого <i>не менее чем</i> pNFS.<br />
+Балансироваться между агрегейтами, если такая необходимость возникает, можно же (и нужно) и на уровне собственно прикладной задачи. Это и дешевле, и лучше работает.</p>
+<p>К слову сказать, EMC для Clariion также не рекомендует доступ к дискам от двух контроллеров, если речь идет о производительности и существенной нагрузке. Это возможно, но не рекомендуетя в best practices, я об этом факте упоминал ранее, в постах про EMC. Так что NetApp тут не одинок, и просто сразу не занмается фигней, ведущей к ухудшению производительности доступа к дискам. :)</p>
+<p>Впрочем, как выше уже подтвердили, pNFS буде в Cluster-mode, а, начиная с RC2, Cluster mode наконец будет поддерживать блочный доступ (FC, iSCSI) и многие другие привычные технологии, типа дедупликации, и двухузловая Cluster-mode будет стоит как двухузловая 7-Mode, что откроет многим возможность начать использовать Cm.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1778" title="">10 Октябрь 2011, 9:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1780">
+		<div id="div-comment-1780">
+		<div class="comment-author">
+			<cite>Никита:<cite></div>
+			<p>У EMC-шного dual ownership есть недостатки, в частности увеличивается latency, но тем не менее выигрыш в IOPS-ах получить можно. Да и даже если EMC-шный dual ownership такой плохой, почему бы не NetApp-у не обставить их и в этом моменте? Хорошего в том, что диски делятся на две части, ничего нет. Балансироваться между агрегатами на уровне прикладной задачи? Что же правильного и удобного в том, чтобы вместо того, чтобы прозрачно в автоматическом режиме распределять нагрузку между всеми дисками средствами СХД, строить нагромождения на прикладном уровне? Это все равно что распределять нагрузку по дискам не путем построения из них RAID-а, а &#8220;на уровне прикладной задачи&#8221;. Например, вместо одной базы SQL на RAID из четырех дисков, поднять кластер из 4-х SQL серверов, каждый их которых использовал бы один диск. ?? что такого дорогого и оверкильного в pNFS , особенно учитывая, что &#8220;&#8230;двухузловая Cluster-mode будет стоит как двухузловая 7-Mode, что откроет многим возможность начать использовать Cm.&#8221;? Разве что на pNFS будет идти отдельная от NFS дорогущая лицензия, но это уже вопрос не к дороговизне pNFS самой по себе, а к маркетингу. Так и ту же дедупликацию можно было бы сделать платной и считать, что это нечто только для high end систем</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1780" title="">11 Октябрь 2011, 2:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1781">
+		<div id="div-comment-1781">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Да и даже если EMC-шный dual ownership такой плохой, почему бы не NetApp-у не обставить их и в этом моменте?</p>
+<p>Ну, они и обставили :)</p>
+<p>> Хорошего в том, что диски делятся на две части, ничего нет.</p>
+<p>На самом деле это всерьез беспокоит, когда этих дисков - 12, а задача для стораджа - одна :)<br />
+Во всех остальных случаях это, на практике, не принципиальная проблема.</p>
+<p>> Что же правильного и удобного в том, чтобы вместо того, чтобы прозрачно в автоматическом режиме распределять нагрузку между всеми дисками средствами СХД, строить нагромождения на прикладном уровне?</p>
+<p>В том, что прикладной уровень это, как правило, уже умеет, и, как правило, делает это куда более умно и с учетом рабочей задачи, чем сторадж, который, обычно, ничего не знает про задачу.</p>
+<p>В общем, тут есть два разных варианта подхода <del>мой и неверный</del>.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1781" title="">11 Октябрь 2011, 9:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-5512">
+		<div id="div-comment-5512">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>&gt;Minus<br />
+&gt;Ну, вообще если я правильно понял ман по aggr add -64bit-upgrade, апгрейд произойдет только в том случае если мы а) добавляем новые диски</p>
+<p>Есть ещё один вариант - апробированный и рабочий. Убить агрегат и создать снова 64-битный. Грубо, но работает.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5512" title="">21 Январь 2013, 17:22</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1040" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.077 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Как добавить &#8220;дисков&#8221; в Data ONTAP Simulator 8?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1102/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1102</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:24 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1102#comment-5584</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 25 Jan 2013 09:27:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1102#comment-5584</guid>
+		<description>&#62;Peter Sergeev
+У меня тоже получилось.</description>
+		<content:encoded><![CDATA[<p>&gt;Peter Sergeev<br />
+У меня тоже получилось.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Peter Sergeev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1102#comment-2558</link>
+		<dc:creator>Peter Sergeev</dc:creator>
+		<pubDate>Fri, 18 May 2012 10:07:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1102#comment-2558</guid>
+		<description>Тут описан способ увеличения дисков с 1ГБ до 4ГБ
+http://www.wooditwork.com/2012/01/04/installing-maximising-the-netapp-ontap-8-1-simulator/
+
+Проверил, работает (как минимум на 8.1 7-Mode sim).
+Основная сложность - менять нужно на VMWare Workstation, т.к. ESXi не даёт увеличить ide-диски. Потом уже заливать отредактированную виртуалку в ESXi.</description>
+		<content:encoded><![CDATA[<p>Тут описан способ увеличения дисков с 1ГБ до 4ГБ<br />
+<a href="http://www.wooditwork.com/2012/01/04/installing-maximising-the-netapp-ontap-8-1-simulator/" rel="nofollow">http://www.wooditwork.com/2012/01/04/installing-maximising-the-netapp-ontap-8-1-simulator/</a></p>
+<p>Проверил, работает (как минимум на 8.1 7-Mode sim).<br />
+Основная сложность - менять нужно на VMWare Workstation, т.к. ESXi не даёт увеличить ide-диски. Потом уже заливать отредактированную виртуалку в ESXi.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

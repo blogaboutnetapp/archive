@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: ACP &#8211; Alternative Control Path в DS4243</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/701/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/701</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:59 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Radja</title>
+		<link>http://blog.aboutnetapp.ru/archives/701#comment-8589</link>
+		<dc:creator>Radja</dc:creator>
+		<pubDate>Wed, 24 Jul 2013 08:27:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=701#comment-8589</guid>
+		<description>А почему надо подключать именно как на схеме? Почему в начале и в конце цепи стоят контроллеры мне понятно. А почему надо подключать блоками (стеками)? ?? почему обходятся сначала все первые контроллеры полок стека, а пото все вторые? Ведь, по сути, можно же подключать, например так:
+
+Контроллер - полка 1 контр А - полка 1 контр Б - полка 3 контр Б - полка 2 контр А - полка 3 контр А - полка 2 контр Б - контроллер
+
+От этого же ничего не изменится?</description>
+		<content:encoded><![CDATA[<p>А почему надо подключать именно как на схеме? Почему в начале и в конце цепи стоят контроллеры мне понятно. А почему надо подключать блоками (стеками)? ?? почему обходятся сначала все первые контроллеры полок стека, а пото все вторые? Ведь, по сути, можно же подключать, например так:</p>
+<p>Контроллер - полка 1 контр А - полка 1 контр Б - полка 3 контр Б - полка 2 контр А - полка 3 контр А - полка 2 контр Б - контроллер</p>
+<p>От этого же ничего не изменится?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/701#comment-776</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Mon, 13 Sep 2010 18:57:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=701#comment-776</guid>
+		<description>Спасибо!</description>
+		<content:encoded><![CDATA[<p>Спасибо!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

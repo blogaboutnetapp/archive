@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Почему &#8220;ынтерпрайз&#8221; не использует &#8220;самое свежее&#8221;?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1332/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1332</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:16 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12865</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 28 Mar 2014 11:40:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12865</guid>
+		<description>navion:
+
+Еще раз: что такое в вашем понимании "обычный x86"?
+Покажите мне "обычный сервер" в котором часть памяти на материнской плате - энергонезависима, сливается на flash при потере питания, в котором используются Unified Target адаптеры на системной шине PCIe Gen3, у которых архитектура памяти - один DIMM на канал?
+Найдете такой у кого-то стороннего, чем NetApp - покажите,иначе я не понимаю, что вы понимаете под "обычным сервером".</description>
+		<content:encoded><![CDATA[<p>navion:</p>
+<p>Еще раз: что такое в вашем понимании &#8220;обычный x86&#8243;?<br />
+Покажите мне &#8220;обычный сервер&#8221; в котором часть памяти на материнской плате - энергонезависима, сливается на flash при потере питания, в котором используются Unified Target адаптеры на системной шине PCIe Gen3, у которых архитектура памяти - один DIMM на канал?<br />
+Найдете такой у кого-то стороннего, чем NetApp - покажите,иначе я не понимаю, что вы понимаете под &#8220;обычным сервером&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12864</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Fri, 28 Mar 2014 11:21:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12864</guid>
+		<description>Обычный x86, у вас же был обзор - глобально от блейда он отличается лишь батарейкой для NVMEM.</description>
+		<content:encoded><![CDATA[<p>Обычный x86, у вас же был обзор - глобально от блейда он отличается лишь батарейкой для NVMEM.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12863</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 28 Mar 2014 10:18:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12863</guid>
+		<description>navion:
+
+Откуда у вас такие интересные сведения, расскажите? ;)
+&gt; а у NetApp в контроллерах самые обычные серваки.
+
+Тогда вы, наверняка, даже сможете назвать, какой "самый обычный сервак" соответствует моделям FAS8000, FAS2240, FAS3200/6200?</description>
+		<content:encoded><![CDATA[<p>navion:</p>
+<p>Откуда у вас такие интересные сведения, расскажите? ;)<br />
+> а у NetApp в контроллерах самые обычные серваки.</p>
+<p>Тогда вы, наверняка, даже сможете назвать, какой &#8220;самый обычный сервак&#8221; соответствует моделям FAS8000, FAS2240, FAS3200/6200?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12861</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Fri, 28 Mar 2014 09:14:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12861</guid>
+		<description>Не врёт, а немного приукрашивает, так как конкуренты хвастаются собственными ASIC, а у NetApp в контроллерах самые обычные серваки.
+По поводу процессоров: каждая серия серверных процессоров выходит на предыдущей архитектуре, которую успели обкатать и выловить львиную долю багов. ?? в каждой серии есть несколько моделей для встроенных систем (Embedded Options в ARK) с увеличенным жизненным циклом, про которые и идёт речь в статье.
+
+Намного интересней читать про их использование:
+http://www.ntapgeek.com/2014/03/better-raid-through-software.html</description>
+		<content:encoded><![CDATA[<p>Не врёт, а немного приукрашивает, так как конкуренты хвастаются собственными ASIC, а у NetApp в контроллерах самые обычные серваки.<br />
+По поводу процессоров: каждая серия серверных процессоров выходит на предыдущей архитектуре, которую успели обкатать и выловить львиную долю багов. ?? в каждой серии есть несколько моделей для встроенных систем (Embedded Options в ARK) с увеличенным жизненным циклом, про которые и идёт речь в статье.</p>
+<p>Намного интересней читать про их использование:<br />
+<a href="http://www.ntapgeek.com/2014/03/better-raid-through-software.html" rel="nofollow">http://www.ntapgeek.com/2014/03/better-raid-through-software.html</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12841</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 26 Mar 2014 07:00:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12841</guid>
+		<description>navion:
+
+Ну конечно, человек, в должности &lt;i&gt;Senior Technical Director and Platform Architect&lt;/i&gt; все врет, и ничего не понимает, один вы знаете, как на самом деле и что тут "маркетинг".
+Откуда в вас такое безграничное самомнение, чем оно подкреплено?</description>
+		<content:encoded><![CDATA[<p>navion:</p>
+<p>Ну конечно, человек, в должности <i>Senior Technical Director and Platform Architect</i> все врет, и ничего не понимает, один вы знаете, как на самом деле и что тут &#8220;маркетинг&#8221;.<br />
+Откуда в вас такое безграничное самомнение, чем оно подкреплено?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12677</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Fri, 14 Mar 2014 10:11:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12677</guid>
+		<description>??нженерные образцы доступны задолго до официального выхода, иначе производители серверов не могли бы представлять обновления линеек параллельно с Intel.
+А модели с "расширенной доступностью" бывают и среди новинок - это больше маркетинг, нежели реальная перестраховка.</description>
+		<content:encoded><![CDATA[<p>??нженерные образцы доступны задолго до официального выхода, иначе производители серверов не могли бы представлять обновления линеек параллельно с Intel.<br />
+А модели с &#8220;расширенной доступностью&#8221; бывают и среди новинок - это больше маркетинг, нежели реальная перестраховка.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Aaz</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12557</link>
+		<dc:creator>Aaz</dc:creator>
+		<pubDate>Fri, 07 Mar 2014 10:58:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12557</guid>
+		<description>Я перечитываю. У них(постов), к сожалению, картинки теряются. А без них совсем скучно :-)</description>
+		<content:encoded><![CDATA[<p>Я перечитываю. У них(постов), к сожалению, картинки теряются. А без них совсем скучно :-)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12555</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 07 Mar 2014 10:09:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12555</guid>
+		<description>Александр:
+Да, вполне возможно, но так, как все равно никто не читает тут старые посты, я уже подумываю просто начинать заново постить старые тексты, четырех-пятилетней давности, из этого же блога.</description>
+		<content:encoded><![CDATA[<p>Александр:<br />
+Да, вполне возможно, но так, как все равно никто не читает тут старые посты, я уже подумываю просто начинать заново постить старые тексты, четырех-пятилетней давности, из этого же блога.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12553</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Fri, 07 Mar 2014 09:47:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12553</guid>
+		<description>Роман, где-то ты уже это расписывал - это я точно помню :)</description>
+		<content:encoded><![CDATA[<p>Роман, где-то ты уже это расписывал - это я точно помню :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Gera</title>
+		<link>http://blog.aboutnetapp.ru/archives/1332#comment-12540</link>
+		<dc:creator>Gera</dc:creator>
+		<pubDate>Thu, 06 Mar 2014 13:29:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1332#comment-12540</guid>
+		<description>Спасибо! ??нтересная статья.
+У меня никогда не возникало вопросов на счет почему не взяли передовой процессор, но объяснения такие красочные, что в голове родился вопрос "Как же они умудряются поспевать за прогрессом при такой скорости изменений в мире?" :-)</description>
+		<content:encoded><![CDATA[<p>Спасибо! ??нтересная статья.<br />
+У меня никогда не возникало вопросов на счет почему не взяли передовой процессор, но объяснения такие красочные, что в голове родился вопрос &#8220;Как же они умудряются поспевать за прогрессом при такой скорости изменений в мире?&#8221; :-)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; VMware на NFS: не только NetApp</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../165/trackback.html">Скоро на экранах ваших мониторов!</a></div>
+			<div class="alignright"><a href="../167/trackback.html">VMware и протоколы. Любопытная аналитика.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-163">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to VMware на NFS: не только NetApp">VMware на NFS: не только NetApp</a></h2>
+			<div class="postmetadata">15 Сентябрь 2008, 12:57 <!-- от  --></div>
+			<div class="postentry">
+				<p>Еще несколько деталей о NFS, чаще неспецифических для NetApp, но не менее важных и интересных.</p>
+<p><strong>Очереди Ввода-вывода.</strong></p>
+<p>Если вы используете в качестве datastore LUN под VMFS, то ввод-вывод вашего ESX, неважно FC или iSCSI, <strong>будет ограничен одной очередью ввода-вывода на LUN</strong>, для всех VM хранящих свои виртуальные диски в VMFS data store на нем. Ведь ESX обращается к одному единственному LUN, с точки зрения ввода-вывода это одно SCSI-устройство, и параллельность ввода-вывода тут невозможна или очень ограничена.<br />
+В случае NFS вы можете использовать произвольное количество очередей ввода-вывода. Каждая VM, хранящая свои виртуальные диски на data store на NFS-шаре, <strong>будет иметь индивидуальную и независимую от других очередь ввода-вывода </strong>(IO queue).   </p>
+<p><img src="/pics/VMFS-LUN.jpg" alt="VMFS LUN. Одна очередь ввода-вывода ко всем VM на data store" /><br />
+<em>VMFS LUN. Одна очередь ввода-вывода ко всем VM на data store.</em></p>
+<p><img src="/pics/NFS-DataStore.jpg" alt="NFS Data Store. Каждая VM имеет собственную очередь ввода-вывода." /><br />
+<em>NFS Data Store. Каждая VM имеет собственную очередь ввода-вывода.</em></p>
+<p><strong>Bandwidth Is not a Speed</strong></p>
+<p>В значительном количестве случаев при переходе с FC на NFS вы, как ни странно, можете даже выиграть в скорости.<br />
+&#8220;Как же так?&#8221; - наверняка спросите вы, &#8220;Ведь всем известно, что скорость FC это 4 GB/s, а NFS в случае 1GB Ethernet работает на 1GB/s, значит NFS просто обязана работать вчетверо медленнее!&#8221;<br />
+Ответить нетрудно. &#8220;Полоса пропускания&#8221; (англ. &#8220;bandwidth&#8221;) не равно &#8220;Скорость&#8221; (англ. &#8220;Speed&#8221;). ??, к слову, не всегда равно &#8220;Производительность&#8221; (англ. &#8220;Performance&#8221;). Смешивать эти понятия будет большой ошибкой.<br />
+Я уже <a href="<br />
+http://blog.aboutnetapp.ru/archives/38">писал</a> об этой &#8220;смысловой коллизии&#8221; <a href="<br />
+http://blog.aboutnetapp.ru/archives/38">раньше</a>, процитирую себя вкратце:</p>
+<blockquote><p>&#8220;Скорость&#8221; интерфейса передачи данных зависит прежде всего от приложения, с ним работающего, а вовсе не от его &#8220;пропускной способности&#8221; в гигабайтах в секунду, до тех пор, пока мы не достигаем предела производительности интерфейса.</p></blockquote>
+<p>Ввод-вывод VMware ESX производится мелким блоками (4-8kb), и при этом предельно рандомно (что неудивительно для системы, хостящей множество независимых процессов множества виртуальных машин). <strong>При таком характере ввода-вывода роль играет не bandwith интерфейса, а его латентность и производительность в IOPS.</strong> А вот тут уже NFS имеет очень хорошие показатели, за счет чего и выигрывает в этих гонках. Так что, если при переходе с 4Gb/s FC на 1Gb/s NFS вы еще и выиграете в производительности, то не ищите, где же вы ошиблись. Это вполне вероятный поворот дела.</p>
+<p><strong>Увеличивать и уменьшать datastore без необходимости ковырять приложения и ESX. </strong></p>
+<p>??нтересной особенностью использования datastore на NFS-томе NetApp является то, что вы можете не только увеличивать его размер, но, при необходимости и уменьшать, причем и то и другое без какого-либо колдовства с сервером ESX или виртуальными машинами, чтобы они могли это увидеть и использовать.<br />
+Если увеличение это частая и в целом довольно обычная процедура, то вот уменьшение для LUN задача не из простых, а порой и вовсе нерешаемая.<br />
+Зато для NFS-тома NetApp вы вольны делать изменение в обе стороны.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/nfs/index.html" rel="tag">nfs</a>, <a href="../tag/techtalk/index.html" rel="tag">techtalk</a>, <a href="../tag/vmware/index.html" rel="tag">vmware</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (18)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-51">
+		<div id="div-comment-51">
+		<div class="comment-author">
+			<cite>Ildarych:<cite></div>
+			<p>Роман, ты же сам знаешь, как можно отлично работать с луном. Создать 1Тб лун с -o noreserve, на томе autosize, и все отлично работает.<br />
+Причем, авторасширение тома работает корректно, в случае с nfs/cifs не корректно (вернее не так как надо).</p>
+						<div class="comment-meta"><a href="trackback.html#comment-51" title="">16 Сентябрь 2008, 10:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-52">
+		<div id="div-comment-52">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Не-не. Вот смотри, у нас есть LUN. Мы на него, на весь размер, создали файловую систему VMFS. Теперь нам понадобилось его увеличить. Увеличить - без проблем. Увеличиваем LUN, потом добавив Extent увеличиваем до нового размера VMFS.<br />
+А теперь - уменьшить?<br />
+А? Э&#8230; :)<br />
+Никак.</p>
+<p>А в случае NFS share - пожалуйста, в обе стороны.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-52" title="">16 Сентябрь 2008, 10:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-53">
+		<div id="div-comment-53">
+		<div class="comment-author">
+			<cite>Ildarych:<cite></div>
+			<p>Я понял. Первый вопрос зачем уменьшать?<br />
+Второй вопрос как ты забьешь 1 Тб?<br />
+Можно конечно использовать asis, оно уменьшить данные на томе, но это как говориться, выдергивание гланд через з..</p>
+						<div class="comment-meta"><a href="trackback.html#comment-53" title="">16 Сентябрь 2008, 10:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-54">
+		<div id="div-comment-54">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>1. Ну мало ли, не всегда же потребность в пространстве увеличивается :) Удобно, когда можно изменять занимаемое пространство в обе стороны, а освобожденное отдавать более нуждающемуся.</p>
+<p>2. Не понял вопроса. Что именно забью?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-54" title="">16 Сентябрь 2008, 10:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-55">
+		<div id="div-comment-55">
+		<div class="comment-author">
+			<cite>Ildarych:<cite></div>
+			<p>&#8220;Мы на него, на весь размер, создали файловую систему VMFS.&#8221;, т.е. на 1 тбайт ты создал ФС VMFS, я так понимаю ее надо же забить полностью данными?<br />
+Не забывай Vmware видит 1Тбайт. Реально на массиве это будет столько сколько реально занимают данные, причем оно АВТОМАТ??ЧЕСК?? будет увеличиться, если место на томе, где находиться лун, будет кончаться.<br />
+Обратно уменьшить том (на котором лун) беспроблембно не получиться, в отличии от NFS, с этим согласен. Но мне трудно представить, насколько часто это может понадобиться, возможно когда везде уже предел по свободному месту.<br />
+В качестве восстановления через snapshot, NFS/CIFS конечно гораздо лучше.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-55" title="">16 Сентябрь 2008, 10:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-56">
+		<div id="div-comment-56">
+		<div class="comment-author">
+			<cite>Alex:<cite></div>
+			<p>Роман, поясните плз несколько вещей:<br />
+1. Я правильно понимаю, что сам по себе NFS особо не причем и любая сетевая ФС даст прирост в производительности (по сравнению с локальной ФС), засчет возможности работать с хранилищен через отдельные коннекции?<br />
+2. В посте сказано, что каждая виртуалка использует свою коннекцию. Означает ли это, что каждая виртуалка должна коннектиться к &#8220;своему&#8221; LUN&#8217;у? Ведь если несколько VM будут соединяться с одним луном, то чем это отличается от локального стореджа с одним луном?<br />
+3. ??нтересно, что внутри серверов NetApp, т.е. какие там используются мамка/контроллеры/диски?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-56" title="">16 Сентябрь 2008, 17:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-57">
+		<div id="div-comment-57">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Alex: А у нас большой набор сетевых файловых систем вообще? 8-) Я так вот, если честно, даже в Википедию за этим слазил. <a href="http://en.wikipedia.org/wiki/Network_file_system" rel="nofollow">http://en.wikipedia.org/wiki/Network_file_system</a></p>
+<p>Да нет, при чем. Дело в том, что, во первых, он, в реализации, довольно прост и имеет минимум накладных расходов и &#8220;оверхеда&#8221;.<br />
+Например с CIFS такое не прокатывает, чаще всего.<br />
+Во вторых ESX поддерживает только NFS и больше ничего.<br />
+То есть может и с каким-нибудь AFS (для примера название) тоже что-то получилось, но ESX о нем не знает, так что это теоретический вопрос.</p>
+<p>Что же касается преимущества в скорости, то оно обеспечивается далеко не столько ограничением в одну очередь ввода-вывода, не зря я об этом только в самом крайнем посте темы упомянул. Хотя среди всего прочего - да, это тоже свою роль играет, наверное, особенно в случае _реально очень большого_ потока ввода-вывода, заполняющего всю очередь. Но это надо стараться.<br />
+Прежде всего, как я понимаю, роль играет низкая латентность, присущая протоколу, и вызванные этим лучшие показатели по IOPS.</p>
+<p>2. Нет, там говорится про &#8220;одну очередь ввода-вывода&#8221;. Очередь ввода-вывода это такая структура в OS, куда поступают команды &#8220;считать байт по адресу A, записать байт по адресу Б&#8221;. В случае FC/iSCSI такая очередь будет одна на LUN (где, обычно, несколько VM), а в случае NFS такая очередь будет у каждой VM своя, так каждая VM будет не читать-писать байты на некоем общем LUNе, а будет работать со своим файлом виртуального диска на NFS-шаре самостоятельно.</p>
+<p>3. Там любопытно. Я где-то ранее писал в блоге об этом.<br />
+Раньше было много вариантов. Первый NetApp был вообще на 486-м процессоре. Потом были разные пентиумы, и даже Alpha AXP. Дольше всех продержался MIPS он был еще на FAS250/270. Сейчас только x86(64). Xeon на 3020 и 3050, Opteron на 3040, 3070 и 6000, Celeron на 2000.<br />
+Но собственно цимес там не в железе, на самом деле, а в софте, в Data ONTAP. Ну и в файловой системе WAFL. Это то, что делает NetApp NetApp-ом.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-57" title="">16 Сентябрь 2008, 18:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-58">
+		<div id="div-comment-58">
+		<div class="comment-author">
+			<cite>Alex:<cite></div>
+			<p>romx, спасибо за ответы!</p>
+						<div class="comment-meta"><a href="trackback.html#comment-58" title="">16 Сентябрь 2008, 19:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-65">
+		<div id="div-comment-65">
+		<div class="comment-author">
+			<cite>Alex:<cite></div>
+			<p>еще такой вопрос: нет ли у вас результатов замеров IOPSов для систем NetApp? в архивах блога смотрел, но там статьи про бенчмарки покоцанные..</p>
+						<div class="comment-meta"><a href="trackback.html#comment-65" title="">17 Сентябрь 2008, 19:23</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-66">
+		<div id="div-comment-66">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Я поищу, но политически грамотным будет воспользоваться результатами официальных бенчмарков - SPC-1 и SPEC SFS.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-66" title="">17 Сентябрь 2008, 21:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-67">
+		<div id="div-comment-67">
+		<div class="comment-author">
+			<cite>sanet:<cite></div>
+			<p>Роман, все последние статьи про NFS относятся к Vmware. А есть ли опыт переползания с LUN&#8217;ов на NFS для физических машин? Насколько проседаем по производительности в этом случае, в частности для Оракла?<br />
+У меня задача уменьшения лунов уже встала во весь рост, а SnapDrive для многопроцессорных SPARC&#8217;ов, боюсь, сильно дорог.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-67" title="">18 Сентябрь 2008, 14:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-68">
+		<div id="div-comment-68">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>sanet: сам я не специалист в Оракле, но вот ildarych, тот который не верит, что LUN иногда и уменьшают ;) - как раз оракловый админ с NetApp-ом (правда на FC, как я знаю). Попробуйте спросить у него.</p>
+<p>Далее. Можно для затравки почитать переведенную статью &#8220;Oracle on NFS&#8221; из весеннего выпуска TechONTAP. Там есть и ссылки на тесты производительности, посмотрите.<br />
+<a href="http://www.vd.verysell.ru/files/ie/330_4_DOCUMENT_oracle_on_nfs.pdf" rel="nofollow">http://www.vd.verysell.ru/files/ie/330_4_DOCUMENT_oracle_on_nfs.pdf</a></p>
+<p>Например под Linux.<br />
+<a href="http://www.netapp.com/library/tr/3495.pdf" rel="nofollow">http://www.netapp.com/library/tr/3495.pdf</a></p>
+<p>Вся пополняемая библиотека переводов:<br />
+<a href="http://www.vd.verysell.ru/suppliers/netapp/documentation" rel="nofollow">http://www.vd.verysell.ru/suppliers/netapp/documentation</a></p>
+<p>??меет смысл также посмотрть Best Practices Guide про Oracle<br />
+<a href="http://media.netapp.com/documents/tr-3369.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3369.pdf</a></p>
+<p>Ну а кроме этого в блогах Нетапперов покопаться.<br />
+<a href="http://www.netapp.com/us/communities/communities-blogs.html" rel="nofollow">http://www.netapp.com/us/communities/communities-blogs.html</a></p>
+<p>Блог Санджая давно не обновляется, возможно переехал<br />
+<a href="http://netappdb.blogspot.com/" rel="nofollow">http://netappdb.blogspot.com/</a><br />
+Зато есть живой:<br />
+<a href="http://blogs.netapp.com/databases/" rel="nofollow">http://blogs.netapp.com/databases/</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-68" title="">18 Сентябрь 2008, 15:05</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-69">
+		<div id="div-comment-69">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>А, Sanjay Gulabani теперь Account Manager, судя по LinkedIn :)</p>
+<p>Кстати, на sql.ru в форумах есть Alex Roudnev, он тоже знатный оракловод, и у себя в Америке тоже на NetApp сидит и любит его. Обратите внимание на его посты в форуме sql.ru.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-69" title="">18 Сентябрь 2008, 15:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-70">
+		<div id="div-comment-70">
+		<div class="comment-author">
+			<cite>sanet:<cite></div>
+			<p>romx, спасибо, проштудирую. В принципе, если даже датафайлы оставить на лунах, ничто не мешает лить на NFS файлы экспорта, архивлоги и т.п.</p>
+<p>Ildarych, можете прокомментировать?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-70" title="">18 Сентябрь 2008, 15:32</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-71">
+		<div id="div-comment-71">
+		<div class="comment-author">
+			<cite>Ildarych:<cite></div>
+			<p>Sanet, а можно более подробно?<br />
+Насколько я понял, некий Sun сервер подключён по FC, и у вас кончилось место на массиве, а вы предварительно отдали под него все свободное место, грубо говоря один том, в нем один лун и это все на одну полку?<br />
+Как подключать правильно NFS и какая скорость будет по NFS, есть в ссылках которые давал romx. Сам я лично с Oracle под NFS не работал, не довелось, но идея перспективная, особенно в свете 10G Ethernet.<br />
+Очень советую обратить внимание на  Best Practices Guide, там все есть и как подключать и как разбивать. В частности про разделение датафайлов, темп и т.д.<br />
+В своих системах у меня 3 тома: data, temp, archivelog. Temp не снапшотиться, archivelog советуют ставить snapmirror, но я его пока что на агрегете с sata дисками разместил, места там много и скорость нормальная.<br />
+?? самое главное! В 99% создавайте лун с -o noreserve, т.е. без space reserve. ?? к этому ставьте на томе, где лун, autosize.<br />
+Тем самым в большинстве случаев не будет душить жаба, что реально у нас база 100гиг, а мы под нее терабайтный лун сделали.<br />
+Если много дисков/полок, смысла делать для данных, индексов, темпа и т.д. отдельные агрегейты нет никакого.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-71" title="">18 Сентябрь 2008, 16:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-73">
+		<div id="div-comment-73">
+		<div class="comment-author">
+			<cite>sanet:<cite></div>
+			<p>Ildarych, серверов много, разнообразных, все по FC, все на одном аггрегате. LUN&#8217;ы нарезал с запасом. Первое время после инсталляции системы не был поднят ленточный бэкап и лили на диски. По неопытности - на рабочие луны, а не на отдельные. Ещё момент - частое клонирование баз. ?? прочие операции, когда дисковое пространство занимается на время. Одним словом, в результате имеем изрядно свободного места, про которое Netapp не знает. Проблема только в этом. В плане производительности и защиты данных, тьфу тьфу, вроде всё нормально.</p>
+<p>Хочется послушать русскоязычного человека с опытом работы оракла на NFS. А то в анонсах нетаппа больно радостный тон. Либо покупать NFS и тестить самому. А пока что, наверно, придётся мне пересоздать &#8220;особо отличившиеся&#8221; луны.</p>
+<p>Все луны - с noreserve. Про autosize тома я не в курсах. Это что?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-73" title="">18 Сентябрь 2008, 16:30</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-74">
+		<div id="div-comment-74">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Встряну со своей стороны: имейте ввиду, что почти наверняка можно попросить у NetApp демо-лицензию на NFS, чтобы попробовать его практически на вашей реальной системе, и убедиться в его нужности и работоспособности до собственно покупки.<br />
+Почти всегда идут навстречу, свяжитесь с поставлявшим вам систему партнером, пусть они свяжутся с представительством.<br />
+Это же действует на любую опцию NetApp имеющую лицензию. Не стесняйтесь спрашивать. :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-74" title="">18 Сентябрь 2008, 16:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-75">
+		<div id="div-comment-75">
+		<div class="comment-author">
+			<cite>Ildarych:<cite></div>
+			<p>1. Vol create oradata 100g<br />
+2. vol autosize oradata -m 1t -i 10g on<br />
+3. lun create -s 1t -t solaris -o noreserve /vol/oradata/lun0</p>
+<p>Аутосайз сам расширяет, если кончилось место в томе. Но имейте ввиду, что нормальное расширение, т.е. даже когда что-то пишется работает только с LUN, если на томе сделать NFS шару и поставить авторасширение, то в случае например вы копируете и кончилось место, он ругнется и отвалиться, а потом уже Netapp его расширит и только на инкремент в опции -i.<br />
+Т.е. если вы копировали 100Г и нет места, он сто раз будет говорит, что нет места, и 100 раз будет расширяться, поэтому в случае с NFS придеться за местом следить самому.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-75" title="">18 Сентябрь 2008, 17:23</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="163" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.077 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Техподдержка на русском - выскажи свое мнение!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1245/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1245</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:34 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1245#comment-6131</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Thu, 28 Feb 2013 08:14:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1245#comment-6131</guid>
+		<description>??нженеры есть у IBM, Cisco и VMware.</description>
+		<content:encoded><![CDATA[<p>??нженеры есть у IBM, Cisco и VMware.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry</title>
+		<link>http://blog.aboutnetapp.ru/archives/1245#comment-6072</link>
+		<dc:creator>Dmitry</dc:creator>
+		<pubDate>Mon, 25 Feb 2013 12:50:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1245#comment-6072</guid>
+		<description>Про каких крупных вендоров вы говорите HP\IBM?
+
+Если выкинуть за рамки общение с инженерами московских офисов, которые в принципе не являются частью техничкой поддержки, и партнеров через которых осуществляется сервис:
+- HDS нет русскоговорящей поддержки
+- NetApp ее нет
+- EMC ее нет
+- Symantec по бэкап продуктам и по volume manager нет поддержки на русском</description>
+		<content:encoded><![CDATA[<p>Про каких крупных вендоров вы говорите HP\IBM?</p>
+<p>Если выкинуть за рамки общение с инженерами московских офисов, которые в принципе не являются частью техничкой поддержки, и партнеров через которых осуществляется сервис:<br />
+- HDS нет русскоговорящей поддержки<br />
+- NetApp ее нет<br />
+- EMC ее нет<br />
+- Symantec по бэкап продуктам и по volume manager нет поддержки на русском</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1245#comment-6068</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Mon, 25 Feb 2013 10:05:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1245#comment-6068</guid>
+		<description>Удивительно, что её ещё нет. Почти у всех крупных вендоров тут сидят нормальные инженеры.</description>
+		<content:encoded><![CDATA[<p>Удивительно, что её ещё нет. Почти у всех крупных вендоров тут сидят нормальные инженеры.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP 8.x Cluster-mode</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1113/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1113</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:04 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1113#comment-2160</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Mon, 30 Jan 2012 14:06:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1113#comment-2160</guid>
+		<description>Будет очень интересно увидеть подробное описание работы данной технологии.</description>
+		<content:encoded><![CDATA[<p>Будет очень интересно увидеть подробное описание работы данной технологии.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

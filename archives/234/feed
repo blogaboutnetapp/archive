@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Кризис - время искать оптимальные решения. Часть 2</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/234/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/234</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:22 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/234#comment-131</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Fri, 10 Apr 2009 03:42:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=234#comment-131</guid>
+		<description>В том варианте который я писал, мне NFS не кошерно, мне надо будет забрать LUN через SnapMirror, потом с него несколько FlexClone сделать, потому и iSCSI (на первом этапе пока новые директора не пришли).</description>
+		<content:encoded><![CDATA[<p>В том варианте который я писал, мне NFS не кошерно, мне надо будет забрать LUN через SnapMirror, потом с него несколько FlexClone сделать, потому и iSCSI (на первом этапе пока новые директора не пришли).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/234#comment-130</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 10 Apr 2009 02:11:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=234#comment-130</guid>
+		<description>Сытый голодного не разумеет, а тебе, в том числе, ответил прямо вот отдельным постом сегодня. :)
+
+А на вашем месте, повторюсь как Катон, я бы все же попробовал NFS.</description>
+		<content:encoded><![CDATA[<p>Сытый голодного не разумеет, а тебе, в том числе, ответил прямо вот отдельным постом сегодня. :)</p>
+<p>А на вашем месте, повторюсь как Катон, я бы все же попробовал NFS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/234#comment-129</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Thu, 09 Apr 2009 03:42:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=234#comment-129</guid>
+		<description>MPIO под Windows (только для FC) может обеспечить Veritas Storage Foundation Basic, бесплатно. NetApp DSM стоит отокло 500 евро на сервер.
+MS Windows 2008 кстати уже имеет встроенные средства MPIO для FC, ISCI.
+
+Согласен в том, что если НЕТ инфрастуктуры, то на ПЕРВОМ этапе возможно использование iSCSI на не сильнонагруженных системах.
+
+Сейчас сам пробую по iSCSI зацепить к SUN, терабайтный лун для тестов, но только из-за того, что нет оптики между зданиями. Будет - настрою FC, как-то его легче или привычней настроить.</description>
+		<content:encoded><![CDATA[<p>MPIO под Windows (только для FC) может обеспечить Veritas Storage Foundation Basic, бесплатно. NetApp DSM стоит отокло 500 евро на сервер.<br />
+MS Windows 2008 кстати уже имеет встроенные средства MPIO для FC, ISCI.</p>
+<p>Согласен в том, что если НЕТ инфрастуктуры, то на ПЕРВОМ этапе возможно использование iSCSI на не сильнонагруженных системах.</p>
+<p>Сейчас сам пробую по iSCSI зацепить к SUN, терабайтный лун для тестов, но только из-за того, что нет оптики между зданиями. Будет - настрою FC, как-то его легче или привычней настроить.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Что такое QTree?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1012/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1012</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:31 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1012#comment-2685</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 12 Jun 2012 06:44:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1012#comment-2685</guid>
+		<description>1a&#62; qtree create /vol/vol0/qt1
+1a&#62; qtree create /vol/vol0/qt1/qt12
+qtree create: No '/' allowed in qtree name. Expected /vol//.
+
+Без вложенности, конечно, не удобно.</description>
+		<content:encoded><![CDATA[<p>1a&gt; qtree create /vol/vol0/qt1<br />
+1a&gt; qtree create /vol/vol0/qt1/qt12<br />
+qtree create: No &#8216;/&#8217; allowed in qtree name. Expected /vol//.</p>
+<p>Без вложенности, конечно, не удобно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sergeykim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1012#comment-1784</link>
+		<dc:creator>sergeykim</dc:creator>
+		<pubDate>Tue, 11 Oct 2011 14:42:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1012#comment-1784</guid>
+		<description>а еще qtree нужны для SnapVault</description>
+		<content:encoded><![CDATA[<p>а еще qtree нужны для SnapVault</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/1012#comment-1767</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Thu, 06 Oct 2011 09:09:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1012#comment-1767</guid>
+		<description>"Непосредственно на корень тома назначить квоты пользователям нельзя, а вот на qtree на этом томе – можно."
+Стоило бы разъяснить данную мысль: все корни тома имеют "qtree 0", так что назначить квоту на корень тома можно, просто внутри это будет выглядеть как назначение квоты на qtree0, но это уж совсем внутренняя механика. Пользователю же достаточно знать, что назначить квоту для пользователей на корень МОЖНО, так что отдельный qtree ему в большинстве случаев не нужен. Для организации NAS удобнее symlinks/widelinks - они намного гибче, чем "прибитые" к корню qtree. Плюсом видится разве что общий домен дедубликации для всего раздела с несколькими qtree, если мы не упрёмся при этом в отнюдь не гуманные для нынешних размеров жёстких дисков ограничения макс. размера тома для дедубликации.
+
+"Пример такой структуры: /vol/vol1/homedir и в нем qtree ???/user1’, ???/user2’ и так далее для домашних папок пользователей."
+Тут у Вас ошибка: A qtree can be created only in the root directory of a volume.
+О чем я, собственно, и говорил выше - мало в них на сегодня смысла. Даже Ваш пример на их основе реализовать не получится.</description>
+		<content:encoded><![CDATA[<p>&#8220;Непосредственно на корень тома назначить квоты пользователям нельзя, а вот на qtree на этом томе – можно.&#8221;<br />
+Стоило бы разъяснить данную мысль: все корни тома имеют &#8220;qtree 0&#8243;, так что назначить квоту на корень тома можно, просто внутри это будет выглядеть как назначение квоты на qtree0, но это уж совсем внутренняя механика. Пользователю же достаточно знать, что назначить квоту для пользователей на корень МОЖНО, так что отдельный qtree ему в большинстве случаев не нужен. Для организации NAS удобнее symlinks/widelinks - они намного гибче, чем &#8220;прибитые&#8221; к корню qtree. Плюсом видится разве что общий домен дедубликации для всего раздела с несколькими qtree, если мы не упрёмся при этом в отнюдь не гуманные для нынешних размеров жёстких дисков ограничения макс. размера тома для дедубликации.</p>
+<p>&#8220;Пример такой структуры: /vol/vol1/homedir и в нем qtree ???/user1’, ???/user2’ и так далее для домашних папок пользователей.&#8221;<br />
+Тут у Вас ошибка: A qtree can be created only in the root directory of a volume.<br />
+О чем я, собственно, и говорил выше - мало в них на сегодня смысла. Даже Ваш пример на их основе реализовать не получится.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

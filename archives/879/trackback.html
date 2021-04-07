@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Что такое SnapVault и куда это применить?</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../863/trackback.html">В библиотеку FUD-а ;) HP о дедупликации.</a></div>
+			<div class="alignright"><a href="../871/trackback.html">Смотрим на EMC VNX/VNXe внимательно. Часть 1</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-879">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Что такое SnapVault и куда это применить?">Что такое SnapVault и куда это применить?</a></h2>
+			<div class="postmetadata">14 Апрель 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>В новых Software Bundles, которые приходят новым покупателям систем NetApp часто включены лицензии на SnapVault (пример – Windows Bundle для распродажных FAS2020, о которых я <a href="../831/trackback.html">писал ранее</a>). Однако, к сожалению, всё еще не все хорошо представляют себе как это работает, как может применяться, и чем может быть полезно.</p>
+<p>SnapVault это средство D2D Backup для систем хранения NetApp (а в случае использования Open Systems SnapVault – OSSV – и для обычных серверов), использующее их возможности по созданию и удаленному хранению снэпшотов.</p>
+<p>Как вы знаете, в отличие от всех прочих систем хранения, использующих то, что у них также называется “снэпшоты”, NetApp не только не возражает, но даже поощряет хранить снэпшоты долговременно, непосредственно на дисках. Дело в том, что хранение снэпшотов на дисках, как своеобразной локальной “резервной копии”, вместе с собственно данными, не приводит к падению производительности всей системы хранения, как это происходит с COW (Copy-On-Write) “снэпшотами”. Поэтому на всех системах, кроме NetApp, снэпшоты используются лишь как “временное хранилище” состояния данных. Создали снэпшот в ночной тиши слабозагруженного датацентра, быстро слили на ленты или другое архивное хранилище, и скорее удалить.</p>
+<p><a href="/pics//netapp-emc-snapshots.jpg"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="NetApp-EMC-snapshots" border="0" alt="NetApp-EMC-snapshots" src="/pics//netapp-emc-snapshots-thumb.jpg" width="345" height="262" /></a></p>
+<p>Не все <strike>йогурты</strike> снэпшоты одинаково полезны. :)</p>
+<p>Но в случае NetApp вы можете локально хранить десятки, если не сотни снэпшотов, и почти мгновенно с них восстановиться в случае сбоя. Однако разумные требования безопасности рекомендуют не хранить резервную копию вместе с оригинальными данными, во избежание ее повреждения вместе с оригинальным датасетом (например при физическом повреждении системы хранения).    <br />Это не означает, что ее нельзя там хранить совсем, но локально сохраненная копия по крайней мере не должна быть единственной резервной копией ваших данных!</p>
+<p>Было бы разумно если и хранить копию локально, для максимально быстрого восстановления данных, то отдельный набор – удаленно, на тот нечастый, но возможный случай, когда локальная копия будет повреждена, например вместе со всем хранилищем.</p>
+<p>Однако копирование снэпшотов “наружу”, на внешний массив, обычным образом, лишает нас всех преимуществ механизма снэпшотов. Такая “обычная копия” займет место, равное физической емкости всего набора данных, для каждого скопированного снэпшота, а не привычного нам для снэпшотов “разностного” объема, когда каждый снэпшот, видясь как индивидуальный набор данных, занимает только разницу в измененных блоках, в сравнении с предшествующим ему снэпшотом.</p>
+<p>Было бы неплохо и копировать снэпшоты наружу как-то “по-снэпшотному”, сохраняя эту их эффективность использования места.    <br />??менно это и делает SnapVault.     <br />SnapVault – это способ хранить снэпшоты рабочих данных на внешнем хранилище, но “по-снэпшотному”, экономя пространство хранения.</p>
+<p>Лицензии на SnapVault существуют в двух “ролях”. Одна называется <em>SnapVault Primary</em>, а вторая – <em>SnapVault Secondary</em>.</p>
+<p><strong>SnapVault Primary</strong> – это лицензия, которая нужна для системы, служащей <em>источником данных</em>, это та система хранения, на которой хранятся непосредственно “боевые” данные, копию которых мы хотим сохранить.</p>
+<p><strong>SnapVault Secondary</strong> – это лицензия, устанавливаемая на <em>получателя резервных копий</em>. На систему, которая хранит резервные копии от одной или нескольких SnapVault Primary систем.</p>
+<p>В качестве SnapVault Primary может также работать так называемый <strong>Open Systems SnapVault (OSSV)</strong> – программный продукт (его для NetАpp написала компания Syncsort), устанавливаемый непосредственно на сервера под управлением Windows/Linux/etc и позволяющий им играть роль SnapVault Primary систем, делать на них снэпшоты (разумеется с определенными ограничениями, присущими то или иной OS), передавать их на хранение на систему SnapVault Secondary (В роли SV-Sec может быть только NetApp, нет OSSV Secondary), и восстанавливать их с таких снэпшотов, при необходимости.</p>
+<p>Как и для чего можно применить SnapVault?</p>
+<p>Например можно централизованно хранить резервные копии данных от множества отделений основного бизнеса, где, очень часто, нет достаточного бюджета и ресурсов для организации полноценного бэкап-решения. В случае использования SnapVault вам нужно только раз настроить расписание на удаленных системах и политики хранения резервных копий на центральном хранилище (это может быть выделенная система, или же пространство на основной системе хранения NetApp головной компании, с лицензией SV-Secondary на ней. А с использованием OSSV это можно делать и без систем NetApp в качестве Primary. ?? в дальнейшем резервные копии от всех систем будут автоматически, по расписанию, приходить на ваше хранилище с ролью SV-Secondary в главном датацентре.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="SnapVault1" border="0" alt="SnapVault1" src="/pics//snapvault1.png" width="626" height="436" /></p>
+<p>При этом только в первый раз будет передан полный объем хранения (так называемая baseline copy) для создания первоначального “снимка”, в дальнейшем через каналы передачи данных будет передаваться уже только “разностная” информация, например только измененные за день работы блоки данных.    <br />Допустим, что общий объем данных на вашей удаленной системе хранения равен 100GB. Но в течении суток меняется только около гигабайта.     <br />Тогда при первом, baseline transfer, будет передано все 100GB (это можно сделать, например, локально, перед тем, как отвезти систему хранения в удаленный офис), а затем, при ежедневном копировании, будет передаваться всего 1GB. ?? целый месяц ежедневных резервных копирований полной системы на Secondary-системе в центральном офисе займет всего около 130GB.</p>
+<p>Также можно использовать SnapVault и для организации удаленной копии данных для Primary-системы для “квази-DR” решения. При этом в качестве резервного хранилища для мощной SnapVault Primary может служить недорогая и с невысокой производительностью, достаточной только для приема и хранения реплики данных, система с лицензией SnapVault Secondary.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="SnapVault2" border="0" alt="SnapVault2" src="/pics//snapvault2.png" width="575" height="332" /></p>
+<p>Совместно и интегрированно с NetApp SnapVault могут работать такие программные продукты, как CommVault Sympana Suite и Syncsort Backup Express.</p>
+<p>Настраивать и управлять работой SnapVault можно как из командной строки, так и с помощью отдельного программного продукта NetApp – Protection Manager, который также сейчас поставляется в составе многих бандлов, например в ONTAP Essential для FAS3200/6200.</p>
+<p>Наилучший способ углубиться в тему – прочесть <a href="http://www.netapp.com/us/library/technical-reports/tr-3487.html">TR-3487 SnapVault Best Practices Guide</a>,     <br />и <a href="http://www.netapp.com/us/library/technical-reports/tr-3466.html">TR-3466 Open Systems SnapVault Best Practices Guide</a>.</p>
+<p><i>Я помню, что обещал вам &#8220;исследование&#8221; по истории фрагментации в файловых системах, но что-то у меня пока куражу нет его дописать на нужном уровне, придется подождать. Читайте пока про SnapVault, а на следущих две недели у меня спланирована большая программа по углубленному &#8220;полосканию косточек&#8221; EMC VNX/VNXe. Не переключайте ваши браузеры, будет интересно. :)</i></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/ossv.html" rel="tag">ossv</a>, <a href="../tag/snapshots.html" rel="tag">snapshots</a>, <a href="../tag/snapvault.html" rel="tag">snapvault</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (3)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-13097">
+		<div id="div-comment-13097">
+		<div class="comment-author">
+			<cite>Victor:<cite></div>
+			<p>Роман, хотел уточнить, т.к. немного забыл нюансы - мы копию их хранилища SnapVault (Secondary) можем восстановить на любой сторадж с Primary или только тот, где она была сделана? Допустим у меня два Primary и один Secondary. По идее любой, т.к. изначальный сторадж может элементарно умереть совсем.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13097" title="">26 Апрель 2014, 3:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13099">
+		<div id="div-comment-13099">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Victor:<br />
+Надр проверять, но по идее - да, ведь SnapVault это просто offsite хранение снэпшотов, а так как снэпшот, с точки зрения &#8220;внешнего наблюдателя&#8221; есть &#8220;полная копия&#8221;, то и восстановиться из нее можно целиком.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13099" title="">26 Апрель 2014, 9:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13819">
+		<div id="div-comment-13819">
+		<div class="comment-author">
+			<cite>Жора:<cite></div>
+			<p>В скором будущем SnapVault еще и Veeam будет поддерживать: <a href="http://www.veeam.com/blog/veeam-to-offer-advanced-data-protection-with-netapp.html" rel="nofollow">http://www.veeam.com/blog/veeam-to-offer-advanced-data-protection-with-netapp.html</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-13819" title="">29 Июль 2014, 23:47</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="879" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.070 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

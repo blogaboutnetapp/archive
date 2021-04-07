@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Сборка fio под Windows x64</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1243/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1243</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:28 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1243#comment-8608</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 25 Jul 2013 11:10:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1243#comment-8608</guid>
+		<description>Алексей:
+Вообще-то тут не про IOmeter. :)
+Но отвечу. Возможно ваща программа не умеет обращаться к диску больше чем одним или несколькими тредами, такое бывает. Обычно, в таком случае, максимальную производительность с дисковой подсистемы не снять. Она будет, главным образом, простаивать в ожидании когда отданный блок прожует и порпосит новый прикладная программа. ??зменить это поведение без переписывания логики работы программы обычно невозможно.</description>
+		<content:encoded><![CDATA[<p>Алексей:<br />
+Вообще-то тут не про IOmeter. :)<br />
+Но отвечу. Возможно ваща программа не умеет обращаться к диску больше чем одним или несколькими тредами, такое бывает. Обычно, в таком случае, максимальную производительность с дисковой подсистемы не снять. Она будет, главным образом, простаивать в ожидании когда отданный блок прожует и порпосит новый прикладная программа. ??зменить это поведение без переписывания логики работы программы обычно невозможно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1243#comment-8605</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 25 Jul 2013 09:41:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1243#comment-8605</guid>
+		<description>Я тестирую свой рейд IOMETERом, скорость записи при of Outstanding I/Os=128
+3200МБ/с, но в пользовательской программе, что только не перепробовал, не получается такой скорости.
+Как реализовать этот параметр в пользовательской программе, чтобы скорость запись цифрового потока была бы около 3000МБ/с? 
+С помощью каких операторов?)))
+Помогите, пожалуйста.</description>
+		<content:encoded><![CDATA[<p>Я тестирую свой рейд IOMETERом, скорость записи при of Outstanding I/Os=128<br />
+3200МБ/с, но в пользовательской программе, что только не перепробовал, не получается такой скорости.<br />
+Как реализовать этот параметр в пользовательской программе, чтобы скорость запись цифрового потока была бы около 3000МБ/с?<br />
+С помощью каких операторов?)))<br />
+Помогите, пожалуйста.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Evgeny</title>
+		<link>http://blog.aboutnetapp.ru/archives/1243#comment-6066</link>
+		<dc:creator>Evgeny</dc:creator>
+		<pubDate>Mon, 25 Feb 2013 06:57:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1243#comment-6066</guid>
+		<description>кстати заметил, что 64 битная версия не обращает внимания на выставляемое время тестирования... проверял на двух последних версиях</description>
+		<content:encoded><![CDATA[<p>кстати заметил, что 64 битная версия не обращает внимания на выставляемое время тестирования&#8230; проверял на двух последних версиях</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1243#comment-5885</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 17 Feb 2013 13:28:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1243#comment-5885</guid>
+		<description>Ну, во-первых, можно взять за основу собственно профили IOmeter, и используя их характеристики, написать аналогичные для fio.
+А во-вторых рекомендую ссылку на статью на Хабре, приведенную выше, там хорошо разбираются принципы того, что необходимо измерять.</description>
+		<content:encoded><![CDATA[<p>Ну, во-первых, можно взять за основу собственно профили IOmeter, и используя их характеристики, написать аналогичные для fio.<br />
+А во-вторых рекомендую ссылку на статью на Хабре, приведенную выше, там хорошо разбираются принципы того, что необходимо измерять.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Evgeny</title>
+		<link>http://blog.aboutnetapp.ru/archives/1243#comment-5883</link>
+		<dc:creator>Evgeny</dc:creator>
+		<pubDate>Sun, 17 Feb 2013 12:18:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1243#comment-5883</guid>
+		<description>а нечто типа рекомендованных профилей тестирования, как для iometer'a было, не порекомендуете?</description>
+		<content:encoded><![CDATA[<p>а нечто типа рекомендованных профилей тестирования, как для iometer&#8217;a было, не порекомендуете?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1243#comment-5782</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Fri, 08 Feb 2013 09:59:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1243#comment-5782</guid>
+		<description>Есть готовые сборки от хорошего человека:
+http://www.bluestop.org/fio/</description>
+		<content:encoded><![CDATA[<p>Есть готовые сборки от хорошего человека:<br />
+<a href="http://www.bluestop.org/fio/" rel="nofollow">http://www.bluestop.org/fio/</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FAS6200 &#8211; новые системы для &#8220;больших&#8221;.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/756/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/756</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:53 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/756#comment-937</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 15 Nov 2010 12:23:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=756#comment-937</guid>
+		<description>Официально это не объявлялось (и не объявляется никогда), но если внимательно посмотреть на некие сторонние источники, то эти данные можно извлечь.
+Например, тип процессора публикуется в деталях тестирования SPEC SFS2008:
+http://www.spec.org/sfs2008/results/res2010q4/sfs2008-20101018-00172.html
+2.53GHz Intel Xeon(tm) Processor E5540
+Each storage controller has two physical processors, each with four cores.
+
+На разных типах контроллеров - разные процессоры и разное их количество/ядерность.</description>
+		<content:encoded><![CDATA[<p>Официально это не объявлялось (и не объявляется никогда), но если внимательно посмотреть на некие сторонние источники, то эти данные можно извлечь.<br />
+Например, тип процессора публикуется в деталях тестирования SPEC SFS2008:<br />
+<a href="http://www.spec.org/sfs2008/results/res2010q4/sfs2008-20101018-00172.html" rel="nofollow">http://www.spec.org/sfs2008/results/res2010q4/sfs2008-20101018-00172.html</a><br />
+2.53GHz Intel Xeon(tm) Processor E5540<br />
+Each storage controller has two physical processors, each with four cores.</p>
+<p>На разных типах контроллеров - разные процессоры и разное их количество/ядерность.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Igor Zinovik</title>
+		<link>http://blog.aboutnetapp.ru/archives/756#comment-936</link>
+		<dc:creator>Igor Zinovik</dc:creator>
+		<pubDate>Mon, 15 Nov 2010 12:01:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=756#comment-936</guid>
+		<description>Что за cpu в этих флагманах?</description>
+		<content:encoded><![CDATA[<p>Что за cpu в этих флагманах?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

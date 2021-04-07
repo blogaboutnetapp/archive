@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: SMB vs. iSCSI: как дела у Hyper-V? Результаты неожиданны.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1058/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1058</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:52 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Виктор</title>
+		<link>http://blog.aboutnetapp.ru/archives/1058#comment-8067</link>
+		<dc:creator>Виктор</dc:creator>
+		<pubDate>Sun, 16 Jun 2013 12:58:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1058#comment-8067</guid>
+		<description>На всякий случай, ответ на мой вопрос:
+Надо было установить модуль NetApp для PowerShell</description>
+		<content:encoded><![CDATA[<p>На всякий случай, ответ на мой вопрос:<br />
+Надо было установить модуль NetApp для PowerShell</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1058#comment-7489</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 17 May 2013 10:15:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1058#comment-7489</guid>
+		<description>Такие вопросы куда полезнее задавать на форуме в communities.netapp.com, вон ссылка в шапке блога есть.</description>
+		<content:encoded><![CDATA[<p>Такие вопросы куда полезнее задавать на форуме в communities.netapp.com, вон ссылка в шапке блога есть.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Виктор</title>
+		<link>http://blog.aboutnetapp.ru/archives/1058#comment-7487</link>
+		<dc:creator>Виктор</dc:creator>
+		<pubDate>Fri, 17 May 2013 10:00:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1058#comment-7487</guid>
+		<description>??звините за дурацкий вопрос.
+Хочу проверить загрузку своего FAS2220, проверяю скриптом, который вы посоветовали:Get-NaSysStat
+Получаю в ответ 
+
+Connect-NaController : ??мя "Connect-NaController" не распознано как имя командлета, функции, файла сценария или выполня
+емой программы. Проверьте правильность написания имени, а также наличие и правильность пути, после чего повторите попыт
+ку.
+C:\ps\Get-NaSysStat.ps1:52 знак:10
++ $Filer = Connect-NaController $NaIP -Credential $Creds
++          ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Connect-NaController:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+
+В чём может быть дело?
+??ли проще померять нагрузку как-то ещё?
+Хочу узнать, сколько ещё можно на него навалить.</description>
+		<content:encoded><![CDATA[<p>??звините за дурацкий вопрос.<br />
+Хочу проверить загрузку своего FAS2220, проверяю скриптом, который вы посоветовали:Get-NaSysStat<br />
+Получаю в ответ </p>
+<p>Connect-NaController : ??мя &#8220;Connect-NaController&#8221; не распознано как имя командлета, функции, файла сценария или выполня<br />
+емой программы. Проверьте правильность написания имени, а также наличие и правильность пути, после чего повторите попыт<br />
+ку.<br />
+C:\ps\Get-NaSysStat.ps1:52 знак:10<br />
++ $Filer = Connect-NaController $NaIP -Credential $Creds<br />
++          ~~~~~~~~~~~~~~~~~~~~<br />
+    + CategoryInfo          : ObjectNotFound: (Connect-NaController:String) [], CommandNotFoundException<br />
+    + FullyQualifiedErrorId : CommandNotFoundException</p>
+<p>В чём может быть дело?<br />
+??ли проще померять нагрузку как-то ещё?<br />
+Хочу узнать, сколько ещё можно на него навалить.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

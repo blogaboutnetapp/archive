@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Проблемы и решения Usable Space. Часть 5.</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../354/trackback.html">NetApp и VMware VI 3 Best Practices на русском</a></div>
+			<div class="alignright"><a href="../351/trackback.html">NetApp и Cisco, некоторые подробности</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-341">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Проблемы и решения Usable Space. Часть 5.">Проблемы и решения Usable Space. Часть 5.</a></h2>
+			<div class="postmetadata">17 Август 2009, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Предыдущие посты серии:</p>
+<p><a href="../269/trackback.html">Первый</a><br />
+<a href="../286/trackback.html">Второй</a><br />
+<a href="../338/trackback.html">Третий</a><br />
+<a href="../339/trackback.html">Четвертый</a></p>
+<p>??так, aggregate созданы, а на них созданы, в свою очередь, тома (volumes).<br />
+&#8220;Том&#8221; (Volume) есть основной элемент структуры хранения NetApp.<br />
+Вся информация, и все вышележащие структуры данных, такие как &#8220;сетевые шары&#8221; и LUN-ы располагаются внутри &#8220;тома&#8221;.<br />
+В частности именно на том действуют снэпшоты.</p>
+<p>На каждом томе можно создать 254 снэпшота. С учетом максимального количества томов, возможных на системе, получается суммарно около 51 тысячи. Впрочем это скорее теоретическая величина, поэтому заостряться на ней не будем, что же касается снэпшотов то вам их, я полагаю, хватит в любом случае. Напомню, что решения, называющие себя &#8220;снэпшот&#8221;, у конкурентов обычно заметно ограничивают их количество<del datetime="2009-08-26T08:46:38+00:00"> в 14-30</del> на всю систему в целом (см. комментарии). Такое ограничение вызвано не в последнюю очередь тем, что использование snapshots у таких систем <a href="http://blogs.netapp.com/databases/WindowsLiveWriter/image_19.png">резко влияет на производительность</a>, и, обычно, снэпшоты на них массово просто не применяются, так как весьма <a href="http://blogs.netapp.com/dave/2008/02/controversy-net.html">значительно &#8220;сажают&#8221; производительность системы в целом</a>.</p>
+<p>Раз мы добрались до тома и его снэпшотов, позвольте подробнее остановиться на непростой, и вызывающей множество непонимания теме &#8220;резервирования&#8221; или snapshot reserve.</p>
+<p>Когда-то, давным давно, когда NetApp был только NAS системой, было эмпирическим путем определено количество места, которые отводятся и резервируются под снэпшоты, в 20% от общего объема тома. То есть, для простоты понимания на конкретном примере: из тома в 100MB на блоки, зафиксированные в снэпшоте, мы отводим 20MB (на основные данные остается, соответственно, 80MB).</p>
+<p>Для правильного понимания того, как работает резервирование, стоит нарисовать вот такой рисунок:</p>
+<p><a href="/pics//snapreserve-pic1.png"><img src="/pics//snapreserve-pic1-215x300.png" alt="" title="snapreserve-pic1" width="215" height="300" class="alignnone size-medium wp-image-348" /></a></p>
+<p>В ней, для простоты изображения и понимания, данные, записываемые на том, прирастают снизу.</p>
+<p>Блоки, попавшие в снэпшоты, прирастают сверху.</p>
+<p>Граница &#8220;резерва под снэпшоты&#8221; это линия, отделяющая верхние 20% емкости, в которых прирастают (условно сверху вниз) данные снэпшотов.<br />
+При этом, граница эта &#8220;проходима&#8221; сверху вниз, но не снизу вверх. То есть, если случилось так, что снэпшотов создалось больше, чем на 20% резерва, например на 25, то будет заняты &#8220;сверху&#8221; 20, и плюс еще кусочек на 5% &#8220;сверху&#8221; от активного тома.</p>
+<p><a href="/pics//snapreserve-pic2.png"><img src="/pics//snapreserve-pic2.png" alt="" title="snapreserve-pic2" width="215" height="300" class="alignnone size-medium wp-image-350" /></a></p>
+<p>Однако, когда мы попытаемся записать активных данных больше 80MB на 100MB-том с резервом в 20%, даже если это резерв и не используется снэпшотами, мы получим сообщение о нехватке места. То же самое произойдет и если двигающиеся &#8220;навстречу&#8221; данные &#8220;активной файловой системы&#8221; и снэпшотов встретятся. </p>
+<p><a href="/pics//snapreserve-pic3.png"><img src="/pics//snapreserve-pic3-215x300.png" alt="" title="snapreserve-pic3" width="215" height="300" class="alignnone size-medium wp-image-349" /></a></p>
+<p>Перед этим система будет сыпать алертами о исчерпании места, например в уже рассмотренном случае, когда снэпшоты &#8220;вылезли&#8221; из пространства резерва, в сообщении будет говориться о &#8220;заполненности тома на 105%&#8221;. Проценты свыше 100 это как раз то, насколько из резерва вылез хвост объема снэпшотов.</p>
+<p>Решить проблему можно удалив часть, возможно уже ненужных снэпшотов, при этом блоки, ими занятые, освобождаются, и поступают &#8220;в распоряжение&#8221; активной файловой системы.</p>
+<p><em>Можно ли изменять величину снэпрезерва?</em> Разумеется да.<br />
+<em>Можно ли поставить ее в 0%?</em> Да.<br />
+<em>Отключит ли это возможность создавать снэпшоты на томе?</em> Нет, просто снэпшоты сразу будут занимать место в пространстве &#8220;активной файловой системы&#8221; тома. Представьте, что граница с рисунка поднята до упора вверх, но она по прежнему проходима для снэпшота, растущего сверху вниз.<br />
+<em>Чем это грозит?</em> Да по сути ничем, просто вам надо будет либо не пользоваться снэпшотами (опрометчивый, но имеющий право на существование способ использования стораджа NetApp), либо внимательно контролировать заполнение тома и величину пространства, занятую снэпшотами, чтобы они случайно не исчерпали собой доступное для данных место.<br />
+Зачем вообще нужно это резервирование? Ну это просто удобно. Сисадмин системы хранения знает, что у него всегда есть специальный запас места для создания снэпшотов, что туда никто кроме них не залезет и не займет, и снэпшоты, пока это место не переполнится, всегда на томе будет где создать. То есть это просто такое средство немного облегчить жизнь и снизить количество мест, которые надо контролировать.
+</p>
+<p>Традиционно решение ставить snapreserve в 0% применяется при использовании системы NetApp в качестве чистого SAN, когда на volume создается LUN, равный ему по размерам, а создание снэпшотов не используется, и не планируется.<br />
+Однако чаще для такой конфигурации, в особенности когда планируется _использовать_ снэпшоты, рекомендуется устанавливать резервирование в 100%. Тогда, даже в самом наихудшем случае, когда все блоки LUN-а изменены, то места на снэпшот хватит.</p>
+<p>Я уже писал подробно про этот вопрос в посте про использование <a href="../233/trackback.html">&#8220;Fractional Reserve&#8221;</a>.<br />
+Там же я рассказывал про другой способ решения проблемы снэпшота для тома с LUN - автоматическое увеличение тома, опция &#8220;autogrow&#8221;, в том случае если на aggregate, где он расположен, есть свободное пространство.<br />
+Вы можете не резервировать место при создании тома, а просто в свойствах тома сказать, что, когда понадобится, он может расти, занимая под себя свободное место в aggregate.</p>
+<p>??так, мы создали том, и задали ему snapshot reservation ту, какую захотели, например 20, или 15% в случае планов использования данного тома под хранение файлов (NAS), 0 или 100%, или определили fractional reserve, опции autogrow и autodelete, при использовании его для размещения на нем LUN-а.</p>
+<p>&#8230;и почти добрались до конца. Теперь давайте посмотрим, что же у нас получилось с usable.<br />
+Окончание (надеюсь) в следующий понедельник (надеюсь).</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (5)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-156">
+		<div id="div-comment-156">
+		<div class="comment-author">
+			<cite><a href='http://sas-2.myopenid.com/' rel='external nofollow'>sas-2</a>:<cite></div>
+			<p>А для чего применяется резервирование на уровне агрегата?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-156" title="">25 Август 2009, 21:19</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-160">
+		<div id="div-comment-160">
+		<div class="comment-author">
+			<cite>ivs:<cite></div>
+			<p>На счет кол-ва снапшотов, к примеру для самого &#8220;младшенького&#8221; из HDS AMS:</p>
+<p>Snap per source			32<br />
+Snap source volumes per system	1023<br />
+Snap volume clone per system 	2046</p>
+<p>&#8230;так что на счет 14-30 на систему я бы поостерегся. На счет младшего из CX4 - того самого CX4-120:</p>
+<p>Snap per source			8<br />
+Snap source volumes per system	128<br />
+Snap volume clone per system	512</p>
+						<div class="comment-meta"><a href="trackback.html#comment-160" title="">26 Август 2009, 15:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-161">
+		<div id="div-comment-161">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Да, спасибо, счас поправлю.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-161" title="">26 Август 2009, 15:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-162">
+		<div id="div-comment-162">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> А для чего применяется резервирование на уровне агрегата?</p>
+<p>Про резервирование на софтверном уровне я еще отдельно напишу.<br />
+А что имеется ввиду под &#8220;на уровне агрегата&#8221;?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-162" title="">27 Август 2009, 1:12</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-163">
+		<div id="div-comment-163">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>sas-2:<br />
+Спасибо, кстати, за хороший вопрос про agregate level snap reservation, вещь это так редко упоминаемая, что пришлось покопаться в доках :)</p>
+<p>В двух словах и на пальцах: так как в каком-то смысле aggregate это тоже такой псевдо-volume, то на нем тоже возможны снэпшоты.<br />
+Однако в реальной жизни они почти не применяются, места их использования можно посчитать по пальцам одной руки. Это такие операции, как aggr copy - внутрисистемное копирование содержимого агрегата, а также RAID SyncMirror, используемый, например, в системах MetroCluster, а также можно сделать snapshot (и, соответственно, snap restore) для всего aggr целиком. Также снэпшоты используются при некоторых операциях проверки WAFL, при его неконсистентности.<br />
+При них действительно создаются snapshots на уровне aggregate, но в _реальной_, моей и вашей жизни ;) они не используются, поэтому резервирование на уровне aggregate чаще всего не нужно, и его смело можно обнулить:<br />
+> snap sched -A [aggrname] 0</p>
+<p>Параноики могут оставить процента 2-3. :)</p>
+<p>Напомню также, что _резервирование_ для снэпшотов играет роль только в том случае, если ваш aggregate полностью заполнен (и поэтому места под снэпшот может не найтись), резервирование дает гарантию того, что место найдется в любом случае. Если aggregate не заполняется на все 100% своего объема, беспокоиться о переполнении нечего.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-163" title="">28 Август 2009, 21:13</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="341" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.070 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Еще несколько слов про MPHA: исправления</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1044/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1044</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:32 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1044#comment-1763</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 04 Oct 2011 08:54:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1044#comment-1763</guid>
+		<description>Sergey:
+Нет, это вебсервис, доступный партнерам с уровнем от Gold и выше.</description>
+		<content:encoded><![CDATA[<p>Sergey:<br />
+Нет, это вебсервис, доступный партнерам с уровнем от Gold и выше.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1044#comment-1762</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Tue, 04 Oct 2011 07:10:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1044#comment-1762</guid>
+		<description>Вопрос. Тут все время говорят про конфигуратор.
+Где его можно скачать? Логин на NOW есть.</description>
+		<content:encoded><![CDATA[<p>Вопрос. Тут все время говорят про конфигуратор.<br />
+Где его можно скачать? Логин на NOW есть.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sergeykim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1044#comment-1755</link>
+		<dc:creator>sergeykim</dc:creator>
+		<pubDate>Fri, 30 Sep 2011 15:19:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1044#comment-1755</guid>
+		<description>romx,
+В исправленной версии опять не совсем все верно
+"Сейчас в штатном режиме можно получить от партнера спецификацию 3210 с двумя любыми картами внутри, без MPHA" - не верно
+Должно быть:
+Сейчас в штатном режиме можно получить от партнера спецификацию 3210 с двумя любыми картами внутри и с MPHA</description>
+		<content:encoded><![CDATA[<p>romx,<br />
+В исправленной версии опять не совсем все верно<br />
+&#8220;Сейчас в штатном режиме можно получить от партнера спецификацию 3210 с двумя любыми картами внутри, без MPHA&#8221; - не верно<br />
+Должно быть:<br />
+Сейчас в штатном режиме можно получить от партнера спецификацию 3210 с двумя любыми картами внутри и с MPHA</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

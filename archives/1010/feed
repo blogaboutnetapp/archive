@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: IDC Storage Tracker Q2 2011</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1010/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1010</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:08:02 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1010#comment-1706</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 19 Sep 2011 07:20:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1010#comment-1706</guid>
+		<description>??лья:
+
+Не знаю. Но логично было бы не считать их два раза.
+
+Кстати, IBM утверждает, что она продает, как N-series, примерно 17% от продаж NetApp.</description>
+		<content:encoded><![CDATA[<p>??лья:</p>
+<p>Не знаю. Но логично было бы не считать их два раза.</p>
+<p>Кстати, IBM утверждает, что она продает, как N-series, примерно 17% от продаж NetApp.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ??лья</title>
+		<link>http://blog.aboutnetapp.ru/archives/1010#comment-1703</link>
+		<dc:creator>??лья</dc:creator>
+		<pubDate>Sat, 17 Sep 2011 18:08:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1010#comment-1703</guid>
+		<description>А IBM nSeries в чью пользу считается? В IBM или NetApp?</description>
+		<content:encoded><![CDATA[<p>А IBM nSeries в чью пользу считается? В IBM или NetApp?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1010#comment-1687</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 11:59:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1010#comment-1687</guid>
+		<description>Спасибо, последний коммент (парень из WETA) - прямо ситуация на рынке РФ, плюс к тому же дикий ценник.</description>
+		<content:encoded><![CDATA[<p>Спасибо, последний коммент (парень из WETA) - прямо ситуация на рынке РФ, плюс к тому же дикий ценник.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1010#comment-1685</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 11:26:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1010#comment-1685</guid>
+		<description>Э-э... Ну я ж не Уоррен Бафет, чтобы комментировать все подряд, да еще чтобы мое мнение было интересно :)
+
+А если серьезно, то не секрет, что HDS много лет (пять-шесть?) была основным продавцом систем Bluearc, что Bluearc, вообще говоря, уже и так являлось неформальным подразделением HDS по производству NAS, так что эта покупка есть то, что обычно называется "решили официально оформить отношения".
+Во-вторых, ситуация на рынке, как я уже отметил вверху, сильно "поляризовалась", ситуация, когда топ-5 продает 75% всех стораджей это означает, что мелким производителям просто не пробиться к покупателю, и они стремительно вымываются с рынка, путем их покупки крупными игроками, которые таким образом покупают свежие мозги и рыночные доли.
+Так что это должно было случиться, особенно в свете стремительно растущего веса рынка NAS в обшем объеме сетевых хранилищ, делающего эту покупку тем более выгодной.
+
+Что же касается конкретно Bluearc, то тот мой знакомый из WETA сказал про них так: "Они очень производительные, и мы купили несколько на пробу несколько лет назад, и они нам очень нравятся. Но ситуация, когда поддержка по региону это один парень на телефоне в рабочие часы, где-то в Сиднее, она для нас совершенно неприемлема, поэтому мы в критичном продашкне их теперь не используем".</description>
+		<content:encoded><![CDATA[<p>Э-э&#8230; Ну я ж не Уоррен Бафет, чтобы комментировать все подряд, да еще чтобы мое мнение было интересно :)</p>
+<p>А если серьезно, то не секрет, что HDS много лет (пять-шесть?) была основным продавцом систем Bluearc, что Bluearc, вообще говоря, уже и так являлось неформальным подразделением HDS по производству NAS, так что эта покупка есть то, что обычно называется &#8220;решили официально оформить отношения&#8221;.<br />
+Во-вторых, ситуация на рынке, как я уже отметил вверху, сильно &#8220;поляризовалась&#8221;, ситуация, когда топ-5 продает 75% всех стораджей это означает, что мелким производителям просто не пробиться к покупателю, и они стремительно вымываются с рынка, путем их покупки крупными игроками, которые таким образом покупают свежие мозги и рыночные доли.<br />
+Так что это должно было случиться, особенно в свете стремительно растущего веса рынка NAS в обшем объеме сетевых хранилищ, делающего эту покупку тем более выгодной.</p>
+<p>Что же касается конкретно Bluearc, то тот мой знакомый из WETA сказал про них так: &#8220;Они очень производительные, и мы купили несколько на пробу несколько лет назад, и они нам очень нравятся. Но ситуация, когда поддержка по региону это один парень на телефоне в рабочие часы, где-то в Сиднее, она для нас совершенно неприемлема, поэтому мы в критичном продашкне их теперь не используем&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1010#comment-1683</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 08:21:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1010#comment-1683</guid>
+		<description>Роман, прокомментируете?
+
+HDS приобрела американского производителя NAS-решений BlueArc
+http://www.cnews.ru/news/line/index.shtml?2011/09/08/454536</description>
+		<content:encoded><![CDATA[<p>Роман, прокомментируете?</p>
+<p>HDS приобрела американского производителя NAS-решений BlueArc<br />
+<a href="http://www.cnews.ru/news/line/index.shtml?2011/09/08/454536" rel="nofollow">http://www.cnews.ru/news/line/index.shtml?2011/09/08/454536</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

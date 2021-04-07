@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Подробнее о Data Motion</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/468/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/468</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:33 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/468#comment-2978</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 24 Jul 2012 09:29:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=468#comment-2978</guid>
+		<description>&#62;bbk:
+&#62;Пункт 3
+
+DataMotion for vFiler is supported between same-speed drives, from slower to faster drives, and from faster to slower drives.
+Supported: From a high-availability controller in the FAS6000 or FAS6200 series that has larger NVRAM to a high-availability controller that has smaller NVRAM in the FAS3000 series or FAS3200 series.
+
+&lt;b&gt;June 2012 TR-4072&lt;/b&gt;</description>
+		<content:encoded><![CDATA[<p>&gt;bbk:<br />
+&gt;Пункт 3</p>
+<p>DataMotion for vFiler is supported between same-speed drives, from slower to faster drives, and from faster to slower drives.<br />
+Supported: From a high-availability controller in the FAS6000 or FAS6200 series that has larger NVRAM to a high-availability controller that has smaller NVRAM in the FAS3000 series or FAS3200 series.</p>
+<p><b>June 2012 TR-4072</b></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/468#comment-2723</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 14 Jun 2012 19:20:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=468#comment-2723</guid>
+		<description>SnapMirror sync и semi-sync не поддерживается между разными типами дисков.
+
+SnapMirror Sync &#38; Semi-Sync Supported Configurations
+...
+Systems with mixed disk types not supported
+-Even if replicating between similar disk types
+-Performance degradation with ATA drives
+-Obtain NetApp approval for these configs
+...
+??сточник: SnapMirror SE Training, November 2011, Updated for Data ONTAP 8.1 7-Mode.
+
+Написано весьма странно и не однозначно. Но я понял так, что в 1 системе с разными дисками можно сделать Sync и Semi-Sync. Однако репликация с SATA дб только на SATA. SAS - только на SAS. и т.д. Хотя пункт "-Even if replicating between similar disk types" здорово смущает.
+
+Кстати, romx, мне кажется было бы познавательно и интересно написать подробное описание в вашем стиле по SnapMirror.
+Вопрос актуальный, особенно когда нет денег на MetroCluster. Народ все чаще об этом задумывется. Sync систему можно довольно успешно построить даже на двух дешевых промобандлах FAS2040. (у меня тут архивчик с PE насобирался, готов выслать). 
+
+PS: Заранее пардон, если таковая статья уже имеется, а я ее не увидел.</description>
+		<content:encoded><![CDATA[<p>SnapMirror sync и semi-sync не поддерживается между разными типами дисков.</p>
+<p>SnapMirror Sync &amp; Semi-Sync Supported Configurations<br />
+&#8230;<br />
+Systems with mixed disk types not supported<br />
+-Even if replicating between similar disk types<br />
+-Performance degradation with ATA drives<br />
+-Obtain NetApp approval for these configs<br />
+&#8230;<br />
+??сточник: SnapMirror SE Training, November 2011, Updated for Data ONTAP 8.1 7-Mode.</p>
+<p>Написано весьма странно и не однозначно. Но я понял так, что в 1 системе с разными дисками можно сделать Sync и Semi-Sync. Однако репликация с SATA дб только на SATA. SAS - только на SAS. и т.д. Хотя пункт &#8220;-Even if replicating between similar disk types&#8221; здорово смущает.</p>
+<p>Кстати, romx, мне кажется было бы познавательно и интересно написать подробное описание в вашем стиле по SnapMirror.<br />
+Вопрос актуальный, особенно когда нет денег на MetroCluster. Народ все чаще об этом задумывется. Sync систему можно довольно успешно построить даже на двух дешевых промобандлах FAS2040. (у меня тут архивчик с PE насобирался, готов выслать). </p>
+<p>PS: Заранее пардон, если таковая статья уже имеется, а я ее не увидел.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/468#comment-2388</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 07:31:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=468#comment-2388</guid>
+		<description>bkk:
+
+&gt; Насколько мне известно, SnapMirror уже поддерживает интермикс винтов
+
+1. SnapMirror бывает разный. Бывает Volume SnapMirror, бывает QTree SnapMirror
+
+2. DataMotion это все же не один SnapMirror</description>
+		<content:encoded><![CDATA[<p>bkk:</p>
+<p>> Насколько мне известно, SnapMirror уже поддерживает интермикс винтов</p>
+<p>1. SnapMirror бывает разный. Бывает Volume SnapMirror, бывает QTree SnapMirror</p>
+<p>2. DataMotion это все же не один SnapMirror</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/468#comment-2387</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 07:26:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=468#comment-2387</guid>
+		<description>Пункт 3
+&#62;Также (пока) не поддерживается вариант миграции данных с FC/SAS-дисков на SATA.
+На сколько мне известно, SnapMirror уже поддерживает интермикс винтов, так что по логике, этого ограничения уже нет.
+
+Может и ещё что-то изменилось.</description>
+		<content:encoded><![CDATA[<p>Пункт 3<br />
+&gt;Также (пока) не поддерживается вариант миграции данных с FC/SAS-дисков на SATA.<br />
+На сколько мне известно, SnapMirror уже поддерживает интермикс винтов, так что по логике, этого ограничения уже нет.</p>
+<p>Может и ещё что-то изменилось.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

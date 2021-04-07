@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Петабайт флэша</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/624/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/624</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:06 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/624#comment-533</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 23 Jun 2010 16:03:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=624#comment-533</guid>
+		<description>Да, cпасибо, недосмотр, поправил.</description>
+		<content:encoded><![CDATA[<p>Да, cпасибо, недосмотр, поправил.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pavel Kruchok</title>
+		<link>http://blog.aboutnetapp.ru/archives/624#comment-532</link>
+		<dc:creator>Pavel Kruchok</dc:creator>
+		<pubDate>Wed, 23 Jun 2010 15:38:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=624#comment-532</guid>
+		<description>&#62;&#62;&#62;платы расширения, содержащее 256 или 512MB SLC NAND Flash
+
+Очевидно имелось ввиду 256 или 512 Гб а не Мб</description>
+		<content:encoded><![CDATA[<p>&gt;&gt;&gt;платы расширения, содержащее 256 или 512MB SLC NAND Flash</p>
+<p>Очевидно имелось ввиду 256 или 512 Гб а не Мб</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

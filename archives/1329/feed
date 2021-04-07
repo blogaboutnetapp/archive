@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FAS8000 - новая платформа масштабируемого хранилища</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1329/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1329</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:22 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Евгений</title>
+		<link>http://blog.aboutnetapp.ru/archives/1329#comment-13421</link>
+		<dc:creator>Евгений</dc:creator>
+		<pubDate>Tue, 17 Jun 2014 13:53:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1329#comment-13421</guid>
+		<description>Правильно ли я понимаю, что теперь если хочется два шасси с одним контроллером в каждом, то это сразу расценивается как конфигурация метрокластер? 
+(навеяно из: Техническое описание Серия NetApp FAS8000, пункт Поддерживаемые конфигурации)</description>
+		<content:encoded><![CDATA[<p>Правильно ли я понимаю, что теперь если хочется два шасси с одним контроллером в каждом, то это сразу расценивается как конфигурация метрокластер?<br />
+(навеяно из: Техническое описание Серия NetApp FAS8000, пункт Поддерживаемые конфигурации)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1329#comment-12509</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 04 Mar 2014 06:30:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1329#comment-12509</guid>
+		<description>Dmitry Morozovsky:
+&gt; (Роман, в очередной раз спасибо за этот отличный ресурс)
+
+А не подлизывайтесь :)
+
+На самом деле я понял, про что пойдет речь. ?? вынесу-ка я вновь ответ в отдельный пост, потому что вопрос этот задается довольно часто.</description>
+		<content:encoded><![CDATA[<p>Dmitry Morozovsky:<br />
+> (Роман, в очередной раз спасибо за этот отличный ресурс)</p>
+<p>А не подлизывайтесь :)</p>
+<p>На самом деле я понял, про что пойдет речь. ?? вынесу-ка я вновь ответ в отдельный пост, потому что вопрос этот задается довольно часто.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1329#comment-12508</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 04 Mar 2014 06:26:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1329#comment-12508</guid>
+		<description>А infiniband для кластерного интерконнекта куда подключать?</description>
+		<content:encoded><![CDATA[<p>А infiniband для кластерного интерконнекта куда подключать?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Morozovsky</title>
+		<link>http://blog.aboutnetapp.ru/archives/1329#comment-12502</link>
+		<dc:creator>Dmitry Morozovsky</dc:creator>
+		<pubDate>Mon, 03 Mar 2014 21:58:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1329#comment-12502</guid>
+		<description>romx: 
+
+О, не-не, ничего страшного: лишь в том, что *обычно* энтерпрайз крайне неохотно включает в свои процессы новые наработки и технологии.
+
+Оно и понятно: нужно же в первую очередь поддерживать уже существующую толстую базу толстых заказчиков, а не ориентироваться на т.н. "молодых с безумным блеском в глазах" (кто сказал "красноглазиков"?! ;-P)
+
+Тем радостнее, что NA на этот риск идёт.
+
+(Роман, в очередной раз спасибо за этот отличный ресурс)</description>
+		<content:encoded><![CDATA[<p>romx: </p>
+<p>О, не-не, ничего страшного: лишь в том, что *обычно* энтерпрайз крайне неохотно включает в свои процессы новые наработки и технологии.</p>
+<p>Оно и понятно: нужно же в первую очередь поддерживать уже существующую толстую базу толстых заказчиков, а не ориентироваться на т.н. &#8220;молодых с безумным блеском в глазах&#8221; (кто сказал &#8220;красноглазиков&#8221;?! ;-P)</p>
+<p>Тем радостнее, что NA на этот риск идёт.</p>
+<p>(Роман, в очередной раз спасибо за этот отличный ресурс)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Crow</title>
+		<link>http://blog.aboutnetapp.ru/archives/1329#comment-12499</link>
+		<dc:creator>Crow</dc:creator>
+		<pubDate>Mon, 03 Mar 2014 14:11:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1329#comment-12499</guid>
+		<description>Железки отличные. ?? запуск хороший, с публичными тестами и проч. 
+Единственное, что остается сейчас EMC - это прописывать в ТЗ 384GB RAM.</description>
+		<content:encoded><![CDATA[<p>Железки отличные. ?? запуск хороший, с публичными тестами и проч.<br />
+Единственное, что остается сейчас EMC - это прописывать в ТЗ 384GB RAM.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1329#comment-12495</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 03 Mar 2014 08:10:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1329#comment-12495</guid>
+		<description>Dmitry Morozovsky:
+Поясните, в чем "частичная ирония"?</description>
+		<content:encoded><![CDATA[<p>Dmitry Morozovsky:<br />
+Поясните, в чем &#8220;частичная ирония&#8221;?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Morozovsky</title>
+		<link>http://blog.aboutnetapp.ru/archives/1329#comment-12494</link>
+		<dc:creator>Dmitry Morozovsky</dc:creator>
+		<pubDate>Mon, 03 Mar 2014 08:05:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1329#comment-12494</guid>
+		<description>Потрясающая для энтерпрайза скорость, эээ, adoption (не очень понимаю, какой русскоязычный термин сюда вставить -- разве что "освоения"?) современных технологий.
+
+ирония -- только отчасти ;)</description>
+		<content:encoded><![CDATA[<p>Потрясающая для энтерпрайза скорость, эээ, adoption (не очень понимаю, какой русскоязычный термин сюда вставить &#8212; разве что &#8220;освоения&#8221;?) современных технологий.</p>
+<p>ирония &#8212; только отчасти ;)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; NetApp AFF: All-Flash FAS. Комментарии специалиста.</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1376/trackback.html">NetApp AFF: All-Flash FAS</a></div>
+			<div class="alignright"><a href="../1379/trackback.html">NetApp Russian Usergroup</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1377">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to NetApp AFF: All-Flash FAS. Комментарии специалиста.">NetApp AFF: All-Flash FAS. Комментарии специалиста.</a></h2>
+			<div class="postmetadata">7 Июль 2014, 11:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Автор блога <a href="http://www.ntapgeek.com">NTAPgeek</a> расспросил <a href="http://www.linkedin.com/in/ntriantos">Ника Триантоса</a>, одного из ведущих инженеров NetApp, по поводу All-Flash FAS систем, стоящих за ними технических решений, и чем AFF отличается от других flash-стораджей, в том числе и тех, что производит сам NetApp, например уже известного вам EF550.</p>
+<p>Ник говорит: </p>
+<p>“Наибольшая проблема для нас была не в том, как WAFL пишет; на деле это как раз большой плюс архитектуры. Основные проблемы и задачи при разработке были:</p>
+<p><strong>Оптимизация под многоядерные процессоры</strong> – Долгое время Data ONTAP не умела эффективно использовать многоядерность процессоров. Проект по проведению оптимизации под многоядерность стартовал с версии 7.3 и продолжался вплоть до релиза Data ONTAP 8. Я уверен, что вам доводилось видеть ситуацию, когда один CPU работает с загрузкой 90% и другой - на 20%! Если нагрузка упирается на уровне ONTAP domain, который должен выплняться на одном единственном ядре, то возникает узкое место для роста производительности. ?? при этом неважно, что другие ядра были недозагружены. Эта задача была, в итоге, решена.</p>
+<p><strong>Управление метаданными</strong> – Когда вы используете маленькие блоки данных, например у NetApp это 4K, то при этом вы получаете множество метаданых, которыми нужно управлять. Для того, чтобы получить максимально быстрый доступ к даным, вам нужно сперва максимально быстро получить доступ к их метаданным. А где быстрее всего доступ к метаданым? В оперативной памяти. Вот почему мы используем так много оперативной памяти на контроллерах серий FAS2500 и FAS8000; мы стараемся как можно больше метаданных при работе держать в быстрой памяти контроллера.</p>
+<p><strong>Защита данных</strong> – Это связано с темой выше. Системы AFF имеют больше возможностей по защите данных, чем любая другая система c flash (и, кстати, не только flash) на сегодняшнем рынке. Хотя это и полезная штука, есть определенные недостатки. Недостатки состоят в более динных путях ввода-вывода, так как метаданные размещаются и валидируются отдельно от блоков данных.     <br />Как вы защищаетесь от lost writes? Что случится, если вы торговая компания, и на вашей системе хранения SSD сказал, что данные записаны, а на деле он их не записал, или записал не так или не туда? Вы рискуете огромными финансовыми потерями. Data ONTAP не только обнаруживает такие ситуации, но и защищает, а также помогает восстановить данные, испорченые в результате lost writes (это крайне коварная проблема).”</p>
+<p>Потерянные операции записи, или “Lost writes”, это редкая, но при этом очень трудно обнаруживаемая ошибка, и самое плохое с ней то, что вы не знаете, что она уже произошла, и&#160; обнаруживаете ее только дни или даже месяцы спустя. Но когда она случилась, она повреждает ваши данные! ?? тут можно только пожелать удачи вам, в поисках бэкапа, снэпшота или точки репликации, в котором эта ошибка еще не проявилась и данные еще не повреждены. Конечно же, любые фичи по зашите данных имеют свои побочные эффекты и недостатки.</p>
+<p>Другими словами, хорошая скорость работы и устойчивость к отказам сразу двух дисков – недостаточны для того, чтобы считать, что ваши данные надежно защишены. В особенности, когда flash-хранилища используются для бизнес-критичных приложений. Вам следует проанализировать возможные ситуации отказов, и убедиться, что ваше хранилище устойчиво к ним, а данные - защищены. Более 20 лет мы совершенствеум и развиваем Data ONTAP, и достигли в ней очень высокого уровня надежности и устойчивости против всех видов отказов и различных их комбинаций.”</p>
+<p>Напомним, бандлы NetApp AFF имеют:</p>
+<ol>
+<li><strong>Больше памяти</strong>       <br />Больший объем кэша чтения-записи в FAS8000, что позволяет держать в нем больше метаданных </li>
+<li><strong>Более быстрый NVRAM</strong>       <br />Быстрее отрабатываются ACK, как следствие – ниже отклик и задержки </li>
+<li><strong>Значительно оптимизированную многоядерную эффективность OS        <br /></strong>Проводилась начиная с Data ONTAP 7.3 </li>
+<li><strong>Continuous Segment Size Cleaning (CSS)</strong>       <br />Переменный размер сегмента Data ONTAP&#160; (4K-256K) </li>
+<li><strong>??нтеллектуальные алгоритмы упреждающего чтения, определяющие типовые паттерны операций:</strong>
+<ul>
+<li>Последовательное чтение с тем же (например 32k) и различными размерами блоков (4k,64k,4k,64k) </li>
+<li>Скачущее (strided) чтение: Начнем с блока N и прочитаем, считая с него, блоки 10 и 12, но пропустим блок 11 </li>
+<li>Обратное чтение: Начнем с блока N, и прочитаем –10 блоков, считая от него </li>
+<li>Несколько потоков чтения, читающих из разных точек </li>
+</ul>
+</li>
+</ol>
+<p>Бандлы NetApp AFF доступны к заказу с 23 июня 2014 года.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/aff.html" rel="tag">aff</a>, <a href="../tag/all-flash.html" rel="tag">all-flash</a>, <a href="../tag/fas.html" rel="tag">FAS</a>, <a href="../tag/flash/index.html" rel="tag">flash</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (10)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-13539">
+		<div id="div-comment-13539">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>Меня терзают смутные сомнения насчёт проблемы lost write. Сколько я не искал в интернете, в основном, все источники были либо нетапповские, либо около-нетапповские, что может натолкнуть на мысль, что эта проблема слегка искусственна.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13539" title="">7 Июль 2014, 16:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13540">
+		<div id="div-comment-13540">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nostromo:<br />
+Что значит &#8220;искусственна&#8221;, если ее регистрируют (причем в работах вполне научного уровня). Другое дело, что, скорее всего, другие вендоры, не имея средств этому противодействовать, занимают позицию &#8220;меньше знаешь - крепче спишь&#8221;.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13540" title="">7 Июль 2014, 16:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13542">
+		<div id="div-comment-13542">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>romx:<br />
+Ну, я соглашусь с тем, что она присутствует. Но, тут вопрос в том, насколько она часто встречается? Не является ли это проблемой из области &#8220;заряженная частица пролетела через кристалл процессора и он неправильно посчитал что-то&#8221; и для решения оной требуется приобрести мейнфрейм, так как в вашей x86 сквозного контроля данных нет?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13542" title="">7 Июль 2014, 20:24</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13543">
+		<div id="div-comment-13543">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nostromo:</p>
+<p>Зависит от вас, в конечном счете. Я видел людей, которые считают, что ECC DRAM в серверах - буржуйство и роскошь, несмотря на то, что результаты исследования частоты ошибок в памяти совсем неутешительны и широко доступны:<br />
+<a href="http://research.google.com/pubs/archive/35162.pdf" rel="nofollow">http://research.google.com/pubs/archive/35162.pdf</a><br />
+<a href="http://www.zdnet.com/blog/storage/dram-error-rates-nightmare-on-dimm-street/638" rel="nofollow">http://www.zdnet.com/blog/storage/dram-error-rates-nightmare-on-dimm-street/638</a><br />
+<a href="http://serverfault.com/questions/26483/statistics-on-ram-malfunction" rel="nofollow">http://serverfault.com/questions/26483/statistics-on-ram-malfunction</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-13543" title="">7 Июль 2014, 20:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13552">
+		<div id="div-comment-13552">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>2 nostromo: </p>
+<p>сарказм понятен - однажды был по касательной вовлечен в процесс с проблемами SRAM в процессорах UltraSPARC II , где первоначально объяснения шли на уровне космических лучей. В тот раз &#8220;дело было не в бобине&#8221;</p>
+<p>Что касается lost write. Сам термин действительно NetApp-овский - у них есть даже патент на это. Но если откровенно, то это просто один из характерных патернов сбоев диска(или точнее сбоя на всем пути записи на физический медиа)  и способ защиты от него.  Другие производители могут не выделять этот патерн от других вариантов сбоя, так как они не обеспечивают &#8220;лекарства&#8221; для этой болячки. В чем смысл для них говорить об этом? Для них это просто сбой медиа, вероятно фатальный.</p>
+<p>Случаи с &#8220;лост райт&#8221; есть - они описаны в burt-ах и эти случаи не получится показать на пальцах рук :)  Шит хаппенс в прошлом - и бывает сейчас ( это не научные исследования, а последствия реальных кейсов) . А что будет дальше не понятно  - вот уже-уже диски 6ТБ, а потом еще более емкие с частотой вращения =&lt; 5400.  Диски становятся более емкими, более медленными и более  ненадежными. Клевая конфигурация :)   В этой ситуации &#8220;лост райт&#8221; еще один уровень спокойствия.  </p>
+<p>ВСЕ ??МХО.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13552" title="">8 Июль 2014, 15:20</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13554">
+		<div id="div-comment-13554">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>romx:<br />
+&#8220;А вы так любую стенку убрать можете?&#8221; (ц) :). Мы же вроде о дисках говорим, при чём тут RAM?&#8230;</p>
+<p>Odna Ptichka:<br />
+Я извиняюсь, что это выглядело, как сарказм, я не стремился к этому. Однако, если есть статистика, аналогичная той, что привёл romx для RAM - это уже отличный предмет для разговора! ??, да, прошу прощения за необразованность, а что такое &#8220;burt&#8221;?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13554" title="">8 Июль 2014, 18:48</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13555">
+		<div id="div-comment-13555">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nostromo:</p>
+<p>> Мы же вроде о дисках говорим, при чём тут RAM?</p>
+<p>Мы говорим о людях, для которых все - &#8220;маркетинг&#8221;, и никакие результаты, полученные другими, не убеждают, пока их лично за задницу не укусит. Но тогда обычно бывает уже поздно &#8220;пить боржом&#8221;.<br />
+По &#8220;космические лучи&#8221; заговорили вы. По третьей ссылке: <i>&#8220;In a population of server class 36 machine, I see a correctable failure detected by the ECC circuitry once every 3 months.&#8221;</i> Вам решать, насколько актуален <i>&#8220;вопрос в том, насколько она часто встречается?&#8221;</i></p>
+						<div class="comment-meta"><a href="trackback.html#comment-13555" title="">8 Июль 2014, 19:51</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13564">
+		<div id="div-comment-13564">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>romx:<br />
+Я не из таких людей, вы, по-видимому, меня с кем-то путаете. Бегло погуглив, я особо информации не нашёл, разве что от оракла и чуть-чуть майкрософта и техдоков нетаппа. То есть - статистики, подобной тому, что вы привели по RAM, я не нашёл. ??з чего можно сделать вывод, что lost write происходит, как минимум, реже, чем ecc error. Вопрос в том - насколько? Если у вас есть какая-либо статистика по этому вопросу - давайте обсудим.<br />
+?? да, раз уж пошёл разговор про burt (говорил же - я погуглил :)), можете вот это прокомментировать: <a href="http://mysupport.netapp.com/NOW/cgi-bin/bol?Type=Detail&amp;Display=672232" rel="nofollow">http://mysupport.netapp.com/NOW/cgi-bin/bol?Type=Detail&amp;Display=672232</a>  ?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13564" title="">9 Июль 2014, 0:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13566">
+		<div id="div-comment-13566">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nostromo:<br />
+> Я не из таких людей, вы, по-видимому, меня с кем-то путаете.</p>
+<p>Разве это писали не вы?:<br />
+&#8220;все источники были либо нетапповские, либо около-нетапповские, что может натолкнуть на мысль, что эта проблема слегка искусственна.&#8221;<br />
+&#8220;Не является ли это проблемой из области “заряженная частица пролетела через кристалл процессора и он неправильно посчитал что-то”&#8221;</p>
+<p>Я в ответ, показал вам, что проблема &#8220;пролетела заряженная частица&#8221; совсем не искуственна, несмотря на то, что вам она кажется таковой, что вы даже привели ее в качестве, ха-ха, варианта. Как и другие, считающие, что проблема несущественна, и маловероятна, пока они с ней лично не столкнулись.</p>
+<p>> Бегло погуглив, я особо информации не нашёл</p>
+<p>Плохо &#8220;гуглили&#8221;, даже я в этом блоге писал и давал ссылку<br />
+<a href="../294/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/294</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-13566" title="">9 Июль 2014, 1:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-14587">
+		<div id="div-comment-14587">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Похоже появилась &#8220;онлайн дедубликация нулей&#8221; для AFF.<br />
+<a href="http://alikulov.me/blog/all/chto-novogo-v-data-ontap-8-3/" rel="nofollow">http://alikulov.me/blog/all/chto-novogo-v-data-ontap-8-3/</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-14587" title="">17 Февраль 2015, 18:31</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1377" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.073 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Что такое &#8220;эффективность&#8221; в хранении данных</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1111/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1111</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:23 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1111#comment-2166</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 31 Jan 2012 08:52:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1111#comment-2166</guid>
+		<description>amazi:
+
+Я не помню откуда взял, не нетапповская, точно.
+
+&gt; Кстати, сколько надо заранее резервировать в Нетаппе для, например, снепшотов?:)
+
+"Надо резервировать" не задано. Например, если вы не хотите использовать снэпшоты, или использовать их очень редко, то вы можете вовсе ничего не резервировать.
+
+Snapshot Reserve это же просто для удобства администрирования.
+Вы, кстати, можете продолжать исползовать снэпшоты даже с нулевым резервом (отключенным резервированием, равным 0%), просто при этом вы будете сталкиваться со "странным поведением" тома на диске, по мере перезаписей блоков на томе, будет уменьшаться количество свободного места на нем.
+Обычно это прячется в резервированном пространстве и такое поведение невидимо для админа, в случае 0% reserve это поведение WAFL будет видимо, и может смущать неподготовленных админов.
+
+Но никакого абсолютно точно заданного резервирования в NetApp нет. Значение по умолчанию задано в девятьсотлохматом году в 20%, но сейчас считается более практичным 15%, по статистике объемы перезаписей для тома не превышают 12-15% в подавляющем числе наблюдаемых в Autosupport томов.</description>
+		<content:encoded><![CDATA[<p>amazi:</p>
+<p>Я не помню откуда взял, не нетапповская, точно.</p>
+<p>> Кстати, сколько надо заранее резервировать в Нетаппе для, например, снепшотов?:)</p>
+<p>&#8220;Надо резервировать&#8221; не задано. Например, если вы не хотите использовать снэпшоты, или использовать их очень редко, то вы можете вовсе ничего не резервировать.</p>
+<p>Snapshot Reserve это же просто для удобства администрирования.<br />
+Вы, кстати, можете продолжать исползовать снэпшоты даже с нулевым резервом (отключенным резервированием, равным 0%), просто при этом вы будете сталкиваться со &#8220;странным поведением&#8221; тома на диске, по мере перезаписей блоков на томе, будет уменьшаться количество свободного места на нем.<br />
+Обычно это прячется в резервированном пространстве и такое поведение невидимо для админа, в случае 0% reserve это поведение WAFL будет видимо, и может смущать неподготовленных админов.</p>
+<p>Но никакого абсолютно точно заданного резервирования в NetApp нет. Значение по умолчанию задано в девятьсотлохматом году в 20%, но сейчас считается более практичным 15%, по статистике объемы перезаписей для тома не превышают 12-15% в подавляющем числе наблюдаемых в Autosupport томов.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: amazi</title>
+		<link>http://blog.aboutnetapp.ru/archives/1111#comment-2165</link>
+		<dc:creator>amazi</dc:creator>
+		<pubDate>Tue, 31 Jan 2012 08:32:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1111#comment-2165</guid>
+		<description>Любимая картинка 3PAR-а для иллюстраии преимуществ ThP:) 
+Кстати, сколько надо заранее резервировать в Нетаппе для, например, снепшотов?:)</description>
+		<content:encoded><![CDATA[<p>Любимая картинка 3PAR-а для иллюстраии преимуществ ThP:)<br />
+Кстати, сколько надо заранее резервировать в Нетаппе для, например, снепшотов?:)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1111#comment-2164</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 31 Jan 2012 04:23:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1111#comment-2164</guid>
+		<description>ivs:
+
+Для иллюстрации.
+
+К.О. ;)</description>
+		<content:encoded><![CDATA[<p>ivs:</p>
+<p>Для иллюстрации.</p>
+<p>К.О. ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1111#comment-2163</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 30 Jan 2012 21:10:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1111#comment-2163</guid>
+		<description>Ромх, я только не понял - а картинка тут зачем?</description>
+		<content:encoded><![CDATA[<p>Ромх, я только не понял - а картинка тут зачем?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

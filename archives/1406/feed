@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp приглашает всех !</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1406/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1406</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:04 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1406#comment-14157</link>
+		<dc:creator>odna Ptichka</dc:creator>
+		<pubDate>Tue, 04 Nov 2014 09:21:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1406#comment-14157</guid>
+		<description>NetApp Россия собрался порваться на "тысячу маленьких медвежат"(c)Балу . Но тем действительно очень много. Очень большой, значимый релиз!</description>
+		<content:encoded><![CDATA[<p>NetApp Россия собрался порваться на &#8220;тысячу маленьких медвежат&#8221;(c)Балу . Но тем действительно очень много. Очень большой, значимый релиз!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ??ван</title>
+		<link>http://blog.aboutnetapp.ru/archives/1406#comment-14123</link>
+		<dc:creator>??ван</dc:creator>
+		<pubDate>Tue, 28 Oct 2014 20:59:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1406#comment-14123</guid>
+		<description>Эх вот бы туда попасть.</description>
+		<content:encoded><![CDATA[<p>Эх вот бы туда попасть.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

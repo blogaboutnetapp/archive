@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Новая книга для администраторов VMware vSphere</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/568/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/568</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:12 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/568#comment-425</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 12 May 2010 07:51:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=568#comment-425</guid>
+		<description>Цитата из блога автора:
+http://www.vm4.ru/2010/05/book.html#links
+
+По поводу книги - сегодняшняя переписка с издателем:
+    Михаил, добрый день!
+    Книга напечатана, но еще в типографии. Как получу сигналы – вам напишу. Должны в пятницу привезти тираж.
+    Думаю, что можете высылать список подписчиков на книгу)
+
+так что форма предзаказа закрывается. О возможности приобретения теми, кто предзаказ не оформлял, будет сообщено дополнительно (и, надеюсь, скоро :-) 
+---
+
+ЗЫ. Никогда не надо быть благодарным заранее ;)</description>
+		<content:encoded><![CDATA[<p>Цитата из блога автора:<br />
+<a href="http://www.vm4.ru/2010/05/book.html#links" rel="nofollow">http://www.vm4.ru/2010/05/book.html#links</a></p>
+<p>По поводу книги - сегодняшняя переписка с издателем:<br />
+    Михаил, добрый день!<br />
+    Книга напечатана, но еще в типографии. Как получу сигналы – вам напишу. Должны в пятницу привезти тираж.<br />
+    Думаю, что можете высылать список подписчиков на книгу)</p>
+<p>так что форма предзаказа закрывается. О возможности приобретения теми, кто предзаказ не оформлял, будет сообщено дополнительно (и, надеюсь, скоро :-)<br />
+&#8212;</p>
+<p>ЗЫ. Никогда не надо быть благодарным заранее ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/568#comment-424</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Wed, 12 May 2010 06:51:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=568#comment-424</guid>
+		<description>Добрый день!
+Я сделал предзаказ этой оч полезной, как я с читаю для меня книги!
+Но на данный момент ни кто со мной не связался!
+Как можно быстрее получить эту уникальную книгу?
+Заране еблагодарен!</description>
+		<content:encoded><![CDATA[<p>Добрый день!<br />
+Я сделал предзаказ этой оч полезной, как я с читаю для меня книги!<br />
+Но на данный момент ни кто со мной не связался!<br />
+Как можно быстрее получить эту уникальную книгу?<br />
+Заране еблагодарен!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

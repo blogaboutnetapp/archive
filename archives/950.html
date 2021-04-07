@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Учу матчасть :)</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="940/trackback.html">Некоторые данные о производительности EMC FASTcache и FAST VP</a></div>
+			<div class="alignright"><a href="959/trackback.html">Multi-path High Availaility (MPHA) FAQ</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-950">
+			<h2 class="posttitle"><a href="950/trackback.html" rel="bookmark" title="Permanent Link to Учу матчасть :)">Учу матчасть :)</a></h2>
+			<div class="postmetadata">7 Июль 2011, 7:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Как заповедали старшие – изучаю вооружение потенциального противника :)</p>
+<p>Нашел тут <a href="http://www.emc.com/collateral/hardware/white-papers/h5773-clariion-best-practices-performance-availability-wp.pdf">EMC CLARiiON Best Practices for Performance and Availability</a> (FLARE 30, 01.03.2011) и сижу, читаю.</p>
+<p>Особо примечательные места выделяю. Ничего, что я сегодня без перевода? По-моему, в выделенном все достаточно понятно.</p>
+<p>Уделяю особое внимание storage pool-ам и LUN-ам в них, так как только в pool-ах возможны новые фишечки, такие как FAST и thin provisioning.</p>
+<p>  <span id="more-950"></span>
+<p><em><font color="#a5a5a5">Страница 63 и ниже (специально даю пространное цитирование, чтобы не быть попрекомым в выдирке из контекста.</font></em></p>
+<p>Conceptually, the <font style="background-color: #fff899">storage pool is a file system overlaid onto a traditional RAID group of drives</font>. <font style="background-color: #fff899">This file system adds overhead to performance and capacity utilization for thin and thick LUNs. Thick LUNs have less of a performance overhead than thin LUNs</font> due to the granularity of space allocation and mapping between virtual and physical layers.</p>
+<p>In addition, availability should be considered when implementing pools. A pool with a large number of drives <font style="background-color: #fff899">will be segmented into multiple private RAID groups.</font> Data from many LUNs will be distributed over one or more of the pool’s RAID groups. The availability of the pool includes the availability of all the pool’s RAID groups considered as one. (Availability is at the single RAID group level with traditional LUNs.) <font style="background-color: #fff899">Workloads requiring the highest level of performance, availability, and capacity utilization should continue to use traditional FLARE LUNs.</font> As with traditional LUNs, storage pool drive count and capacity need to be balanced with expected LUN count and workload requirements. To get started quickly, begin with the recommended initial pool size, expand in the recommended increments, and don’t greatly exceed the recommended maximum pool size found in the Quick Guidelines” section below.</p>
+<p><em><font color="#666666">Тут поясню, что в документе под FLARE LUN, здесь и далее, понимаются “классические” LUN-ы, то есть созданные поверх обычных RAID на физических дисках, в противоположность pool LUN.</font></em></p>
+<p><em><font color="#666666"></font></em></p>
+<p><strong>Creating storage pools</strong></p>
+<p>For the most deterministic performance create few homogeneous storage pools with a large number of storage devices. A homogeneous pool has the same type, speed, and size drives in its initial allocation of drives. Heterogeneous pools have more than one type of drive. See the “Fully Automated Storage Tiering (FAST) Virtual Provisioning” section for heterogeneous pool management.</p>
+<p><font style="background-color: #fff899">A single RAID level applies to all the pool’s private RAID groups. Pools may be created to be of RAID types 5, 6, or 10.</font> Use the general recommendations for RAID group provisioning of FLARE LUNs when selecting the provisioning of the storage pool’s RAID types.</p>
+<p><font style="background-color: #fff899">When provisioning a pool with SATA drives with capacities of 1 TB or larger, we <em>strongly</em> <font color="#666666" size="2">(выделение в документе, прим romx)</font> recommend RAID level 6.</font> All other drive types can use either RAID level 5 or 10.</p>
+<p>&#160;</p>
+<p><em><font color="#666666">Там же, страница 66 и далее.</font></em></p>
+<p>EMC recommendations for creating homogeneous pools are as follows:</p>
+<ul>
+<li>We recommend Fibre Channel hard drives for Virtual Provisioning pools with thin LUNs due to their overall higher performance and availability. </li>
+<li>Create pools using storage devices that are the same type, speed and size for the most predictable performance.<font style="background-color: #fff899"> It may be advisable to keep Fibre Channel and SATA hard drives in separate pools to service different workloads with varying performance and storage utilization needs.</font> </li>
+<li>Usually, it is better to use the RAID 5 level for pools. It provides the highest user data capacity per number of pool storage devices and proven levels of availability across all drive types. <font style="background-color: #fff899">Use RAID 6 if the pool is composed of SATA drives and will eventually exceed a total of 80 drives. Use RAID 6 if the pool is made up of any number of large capacity (more 1 TB) SATA drives.</font> </li>
+</ul>
+<ul>
+<li style="margin-top: 0px; margin-bottom: 0px; vertical-align: middle" lang="en-US"><span style="font-family: calibri; font-size: 11pt"><span style="mso-spacerun: yes">&#160;</span>Initially, provision the pool with the largest number of hard drives as is practical within the storage system’s maximum limit. For RAID 5 pools the initial drive allocation should be at least five drives and a quantity evenly divisible by five. RAID 6 pool initial allocations should be evenly divisible by eight. RAID 10 pool initial allocations should be evenly divisible by eight.</span>
+<ul>
+<li>lf you specify 15 drives for a RAID 5 pool - Virtual Provisioning <font style="background-color: #fff899">creates three 5-drive (4+1) RAID groups. This is optimal provisioning.</font> </li>
+<li>lf you specify 18 drives for a RAID 5 pool - Virtual Provisioning creates three 5-drive (4+1) RAID groups and one 3-drive (2+1) RAID group. This provisioning is less optimal. </li>
+<li>lf you specify 10 drives for a RAID 6 pool — Virtual Provisioning creates one 10-drive (8+2) RAID group. This is larger than standard, because an additional group cannot be created. It is acceptable, because the RAID groups are the same size. </li>
+<li>lf you specify 10 drives for a RAID 1/0 pool — Virtual Provisioning creates one 8-drive (4+4) and one 2-drive ( 1+1) RAID group. This is not optimal, because some pool resources will be serviced by a single drive pair. For RAID 10 pools, if the number of drives you specify in pool creation or expansion isn’t divisible by eight, and if the remainder is 2, the recommendation is to add additional drives or remove Iwo drives to that disk count to avoid a private RAID group of two drives being created. </li>
+</ul>
+</li>
+<li>In a storage pool, the subscribed capacity is the amount of capacity that has been assigned to thin and thick LUNs. When designing your system, make sure that the expected subscribed capacity does not exceed the capacity that is provided by maximum number of drives allowed in a storage system’s pool. This ensures that increased capacity utilization of thin LUNs can be catered for by pool expansion as necessary. </li>
+</ul>
+<p>&#160;</p>
+<p><strong></strong></p>
+<p><strong>Expanding homogeneous storage pools</strong></p>
+<p>A homogeneous pool is a storage pool with drives of a single type. <font style="background-color: #fff899">For best performance expand storage pools infrequently, maintain the original character of the pool’s storage devices, and make the largest practical expansions.</font></p>
+<ul>
+<li>Expand the pool using the same type and same speed hard drives used in the original pool. </li>
+<li><font style="background-color: #fff899">Expand the pool in large increments. For RAID leveL 5 pools use increments of drives evenly divisible by five, not Less than five. RAID 6 pools should be expanded using eight-drive evenly divisible increments.</font> Pools may be expanded with any amount of drives. You should expand the pool with the largest practical number of drives. Pools should not be expanded with fewer than a single RAID group’s number of drives. The performance of the private RAID groups within the pool by a smaller, later expansion may be different from the pool’s original RAID groups. Doubling the size of a pool is the optimal expansion. </li>
+</ul>
+<p>&#160;</p>
+<p><strong>Creating pool LUNs</strong></p>
+<p>The general recommendations toward traditional LUNs apply to pool LUNs. (See the ???LUN provisioning” section on page 55.)</p>
+<p><font style="background-color: #fff899">The largest capacity pool LUN that can be created is 14 TB.</font></p>
+<p>&#160;</p>
+<p><font style="background-color: #fff899">Avoid trespassing pool LUNs. Changing a pool LUN’s SP ownership may adversely affect performance.</font> After a pool LUN trespass, a pool LUN’s private information remains under control of the original owning SP. This will cause the trespassed LUN’s lOs to continue to be handled by the original owning SP. This results in both SPs being used in handling the IOs. <font style="background-color: #fff899">Involving both SPs in an I/O increases the time used to complete an I/O</font>. Note that the private RAID groups servicing I/O to trespassed pool LUNs may also be servicing I/O to non-trespassed pool LUNs at the same time. There is the possibility of dual SP access for the period some pool LUNs are trespassed. If a host path failure results in some LUNs trespassing in a shared pool, the failure should be repaired as soon as possible and the ownership of those trespassed LUNs be returned to their default SP.</p>
+<p><em><font color="#666666">SP это дисковый контроллер, Storage Processor.</font></em></p>
+<p><font color="#000000"></font></p>
+<p><strong></strong></p>
+<p><strong>Pools with high bandwidth workloads</strong></p>
+<p><font style="background-color: #fff899">When planning to use a pool LUNs in a high bandwidth workload, the required storage for the LUN should be pre-allocated. For FLARE revision 30.0 and later, thick LUNs should be used</font>. For virtual provisions using earlier versions of FLARE a pre-allocation of the storage should be performed.</p>
+<p>Pre-allocation results in sequential addressing within the pool’s thin LUN ensuring high bandwidth performance. Pre-allocation can be performed in several ways including migrating from a traditional LUN; performing a full format of the file system, performing a file write from within the host file system; or creating a single Oracle table from within the host application. In addition, only one concurrent preallocation per storage pool should be performed at any one time. <font style="background-color: #fff899">More than one thin LUN per pool being concurrently pre-allocated can reduce overall SP performance.</font></p>
+<p>&#160;</p>
+<p><strong>Capacity overhead</strong></p>
+<p><font style="background-color: #fff899">There is a fixed capacity overhead associated with each LUN created in the pool.</font> Take into account the number of LUNs anticipated to be created, particularly with small allocated capacity pools.</p>
+<p>A pool LUN is composed of both metadata and user data. both of which come from the storage pool. A pool LUN’s metadata is a capacity overhead that subtracts from the pool’s user data capacity. Thin and thick LUNs make different demands on available pool capacity when they are created. Note the User Consumed Capacity of a thin LUN is some fraction of the User Capacity of the LUN.</p>
+<p><font style="background-color: #fff899">Any size thin LUN will consume about 3 GB of pool capacity: slightly more than 1 GB of capacity for metadata, an initial 1 GB of pool capacity for user data.</font> An additional 1 GB of pool capacity is prefetched before the first GB is consumed in anticipation of more usage. This totals about 3 GB. The prefetch of 1 GB of metadata remains about the same from the smallest though to the largest (&gt;2 TB host-dependent) LUNs. <font style="background-color: #fff899">Additional metadata is allocated from the first 1 GB of user data as the LUN’s user capacity increases.</font></p>
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">To estimate the capacity consumed for a thin LUN follow this rule of thumb:</p>
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">Consumed capacity = (User Consumed Capacity * 0,02) + 3GB.</p>
+<p>&#160;</p>
+<p><strong>LUN compression</strong></p>
+<p>LUN compression is a separately licensable feature available with FLARE 30.0 and later.</p>
+<p>Compression performs an algorithmic data compression of pool-based LUNs. All compressed LUNs are thin LUNs. Compressed LUNs can be in one or more pools. FLARE LUNs can also be compressed. <font style="background-color: #fff899">If a FLARE LUN is provisioned for compression, it will be converted into a designated pool-based thin LUN.</font> Note that a Virtual Provisioning pool with available capacity is required before a FLARE LUN can be converted to a compressed LUN. The conversion ofa FLARE LUN to a compressed thin LUN is considered a LUN migration.</p>
+<p>&#160;</p>
+<p><strong>Compressed LU N performance characteristics</strong></p>
+<p><font style="background-color: #fff899">Compression should only be used for archival data that is infrequently accessed</font>. Accesses to a compressed LUN may have significantly higher response time accesses to a Virtual Provisioning pool-based LUN. The duration of this response time is dependent on the size and type of the 10, and the degree of compression. Note that at the host Level, with a fully operational write cache, delays for writes to compressed LUNs are mitigated.</p>
+<p>&#160;</p>
+<p><font style="background-color: #fff899">Be aware, that as with many semiconductor-based storage devices. that Flash drive uncached write performance is slower than their read performance.</font> To most fully leverage Flash drive performance, they are recommended for use with workloads having a large majority of read lOs to writes.</p>
+<p>The following I/O type recommendations should be considered in using Flash drives with parity RAID 5 groups using the default settings:</p>
+<ul>
+<li><strong>For sequential reads:</strong> When four or greater threads can be guaranteed, Flash drives have up to twice the bandwidth of Fibre Channel hard drives with large-block, sequential reads. This is because the Flash drive does not have a mechanical drive’s seek time. </li>
+<li><strong>For random reads:</strong> Flash drives have the best random read performance of any CLARiiON storage device. Throughput is particularly high with the ideal block size of 4 KB or less. Throughput decreases as the block size increases from the maximum. </li>
+<li><strong>For sequential writes:</strong> <font style="background-color: #fff899">Flash drives are somewhat slower than Fibre Channel hard drives with single threaded write bandwidth. They are somewhat higher in bandwidth to Fibre Channel when high concurrency is guaranteed.</font> </li>
+<li><strong>For random writes:</strong> Flash drives have superior random write performance over Fibre Channel hard drives.<font style="background-color: #fff899"> Throughput is particularly high with highly concurrent access using a 4 KB block size. Throughput decreases with increasing block size.</font> </li>
+</ul>
+<p>&#160;</p>
+<p><em>Продолжаю читать…</em></p>
+<p>Как и ранее, готов обсуждать тему со специалистами в EMC CLARiiON, если они, в свою очередь, готовы соблюдать правила данного блога: вести дискуссию спокойно, аргументированно и вежливо к ее участникам, даже если они и придерживаются иных взглядов.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/clariion.html" rel="tag">clariion</a>, <a href="tag/emc/index.html" rel="tag">emc</a>, <a href="tag/fast.html" rel="tag">fast</a>, <a href="tag/pool.html" rel="tag">pool</a>, <a href="tag/matchast.html" rel="tag">матчасть</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;" rel="category tag">цитаты</a>					&nbsp;|&nbsp;&nbsp;<a href="950/trackback.html#respond">Комментарий</a> (<a href='950/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="950/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (19)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1495">
+		<div id="div-comment-1495">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Могу добавить, что разница в производительности (сам замерял на девственном CX4-240) 10-15% между LUN&#8217;ом на пуле и LUN&#8217;ом на рейдгруппе. Вообщем пул делался на таком же рейде и на тех же дисках так что эксперимент получился без примесей.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1495" title="">7 Июль 2011, 15:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1496">
+		<div id="div-comment-1496">
+		<div class="comment-author">
+			<cite>Евгений:<cite></div>
+			<p>Скоро надо будет второй блог открывать aboutemc.ru bkb aboutvnx.ru =)</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1496" title="">7 Июль 2011, 16:15</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1497">
+		<div id="div-comment-1497">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Александр:</p>
+<p>Спасибо, а что за профиль нагрузки был, OLTP-like?</p>
+<p>Евгений:</p>
+<p>Надеюсь, что до этого дело не дойдет. Опять же, блог называется &#8220;системы хранения данных как объект разговора&#8221;, не уточняя, что именно системы хранения NetApp, хотя я говорю, в первую очередь, о них.</p>
+<p>Тут же откуда все это богатство? Начав рыть какую-то тему, я, порой, закапываюсь в материал и источники довольно глубоко. Часто пост уже опубликован, а я продолжаю интересоваться темой, находить все новые. Ну и жалко было бы как-то интересной добычей не поделиться.<br />
+EMC компания большая, технологий в ней много, есть в чем копаться. Ну и, потом, как уже сказано выше: &#8220;Воин - знай тактико-технческие характеристики техники вероятного противника!&#8221; :)</p>
+<p>Когда возникает спор с EMC-шниками, хорошо бы темой владеть, опять же, по отношению к высказываемому в дискуссии применимо старинное правило: &#8220;Доверяй - но проверяй!&#8221; ;)</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1497" title="">7 Июль 2011, 17:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1498">
+		<div id="div-comment-1498">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>Я подозреваю, что в NetApp FAS производительность на Flexible Volume и на Traditional Volume тоже должна отличаться. Правда тестировать нет времени, да коробки свободной тоже нет.<br />
+По крайней мере я встречал описание что сам OnTap стал чуть медленнее, когда в нем появилась поддержка FlexVol. Как утверждалось - просто из за большого размера кода. На современных процессорах это наверное уже не важно :)</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1498" title="">8 Июль 2011, 5:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1499">
+		<div id="div-comment-1499">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>firehunter:</p>
+<p>Вряд ли. Я не вижу, какие за этим могут быть физические основания. Я понимаю, очего возможно падение в случае перехода от FLARE LUN к Pool LUN у CLARiiON, добавляется довольно непростой сам по себе слой с оверхедом, которого нет у FLARE LUN.</p>
+<p>Но у NetApp <strong>??</strong> под Traditional Vol, <strong>??</strong> под FlexVol лежит _одна и та же_ WAFL. То есть она, может быть, и добавляет какой-то оверхед, но один и тот же, что для Traditional, что для FlexVol.<br />
+В пользу этого также говорит и то, что нет ни одной рекомендации предпочитать Traditional Vol при повышенных требованиях к производительности, как, например, это написано в цитируемом документе. Он остается только для legacy systems.</p>
+<p>С физической точки зрения (опуская некоторые малозначащие подробности), aggregate во FlexVol это и есть тот же самый Traditional Vol! Просто поверх этого &#8220;псевдо-vol, traditional type&#8221; созданы логические &#8220;партиции&#8221;. Но разбиение на партиции не ухудшает производительность, так как не добавляет дополнительной сложности или оверхеда.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1499" title="">8 Июль 2011, 13:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1500">
+		<div id="div-comment-1500">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx: надо тестировать, если действительно интересно, есть ли разница в производительности. Думаю что и читателям блога будет это интересно. Вряд ли цифры будут отличаться больше чем на один-два процента.<br />
+Оверхед есть, его не может не быть :) ?? речь не про WAFL, а именно про дополнительный уровень абстракции, появившийся с FlexVol.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1500" title="">8 Июль 2011, 15:50</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1501">
+		<div id="div-comment-1501">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx: кстати, мне в голову пришло, что на современных версиях OnTap FlexVol могут быть быстрее по сравнению с Traditional. Наверняка код FlexVol последние годы улучшался с точки зрения производительности, его переписывали, оптимизировали и пр. А код, который относится у Traditional скорее всего не подвергался никаким изменениям. ??ли может быть, что сейчас код общий для обоих типов томов.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1501" title="">8 Июль 2011, 16:03</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1502">
+		<div id="div-comment-1502">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Оверхед есть, его не может не быть :) ?? речь не про WAFL, а именно про дополнительный уровень абстракции, появившийся с FlexVol.</p>
+<p>Так в том-то и дело, что нету там нового уровня абстракции. Оттого, что вы кладете свои файлы не в C:\, а в C:\folder ведь не появляется &#8220;новый уровень абстракции&#8221;?</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1502" title="">8 Июль 2011, 17:21</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1503">
+		<div id="div-comment-1503">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>&gt;Так в том-то и дело, что нету там нового уровня абстракции. Оттого, что вы кладете свои файлы не в C:\, а в C:\folder ведь не появляется “новый уровень абстракции”?<br />
+С точки зрения программного кода - да, появляется, если раньше не было дерева каталогов и был только один.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1503" title="">9 Июль 2011, 8:18</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1504">
+		<div id="div-comment-1504">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> firehunter:</p>
+<p>Не совсем так. Корневая директория - тоже директория. Механизмы работы файловой системы от того, лежит файл в корневой директории, или в поддиректории в ней, не изменяются.<br />
+С точки зрения кода это просто у файла чуть более длинное имя, не c:\filename.ext, а c:\folder\filename.ext<br />
+Возможно чуть больше времени занимает конкретная операция seek, если мы делаем просмотр директории с неизвестным содержимым, но, для NetApp, это не наш случай, к нашим томам для доступа к их данным мы всегда обращаемся по конкретному имени (пути).</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1504" title="">9 Июль 2011, 9:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1506">
+		<div id="div-comment-1506">
+		<div class="comment-author">
+			<cite>Firehunter:<cite></div>
+			<p>romx:</p>
+<p>Собственно дискурсия носит теоритеческий характер. На практике надо сравнивать на каком либо старом оборудовании оба типа томов на современной версии ontap и плюс к этому на версии ontap где еще не было FlexVol.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1506" title="">10 Июль 2011, 0:18</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1507">
+		<div id="div-comment-1507">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx: Когда код становится сложнее, обычно он дольше выполняется. Не всегда, но обычно. Вы с этим согласны?<br />
+В любом случае, чтобы расставить точки на &#8220;и&#8221;, надо тестировать. Без теста - это теоретическая полемика, которая к реальности имеет опосредованное отношение.<br />
+Тест, на мой взгляд имеет смысл проводить на достаточно старой системе, которая будет способна работать под старой версией Ontap, где еще не было Flexvol. ?? проводить три теста: два на достаточно новой OnTap, с FlexVol и Traditional и отдельный тест на старой версии Ontap, в которой еще не было FlexVol. При этом желательно иметь достаточно кол-во шпинделей, чтобы центральный процессор был бы узким местом.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1507" title="">10 Июль 2011, 4:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1508">
+		<div id="div-comment-1508">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>firehunter:</p>
+<p>Ну можно проще, взять какую-нибудь версию из ранних 7.0, какую-нибудь массовую 7.0.5, например, где только появился FlexVol, и сравнить.<br />
+Я ни разу не слышал ничего о значительной разнице в производительности, даже при первом появлении 7.0 (я еще вовсю 6.х в продакшне застал).</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1508" title="">10 Июль 2011, 8:30</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1509">
+		<div id="div-comment-1509">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx:</p>
+<p>Я не утверждаю, что разница в производительности обязательно должна быть значительная. Как мне кажется, наоборот, речь скорее всего будет идти о долях процента или чуть больше.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1509" title="">10 Июль 2011, 11:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1526">
+		<div id="div-comment-1526">
+		<div class="comment-author">
+			<cite>Freedom:<cite></div>
+			<p>Вышла новая дока, уже по VNX - EMC Unified Storage Best Practices for Performance and Availability </p>
+<p><a href="http://www.emc.com/collateral/hardware/white-papers/h8268-vnx-block-best-practices.pdf" rel="nofollow">http://www.emc.com/collateral/hardware/white-papers/h8268-vnx-block-best-practices.pdf</a></p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1526" title="">19 Июль 2011, 0:55</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1528">
+		<div id="div-comment-1528">
+		<div class="comment-author">
+			<cite>Антон:<cite></div>
+			<p>Ребята, помогите перевести предложение, плиз!<br />
+MirrorView/A does NOT have any checks to consider Thin Pool space on secondary array<br />
+Я не имею представление, что значит Thin Pool space и все такое, т.к. не программист&#8230;<br />
+Буду оч. благодарен за ответ и возможные пояснения на примитивном уровне.<br />
+Спасибо.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1528" title="">20 Июль 2011, 4:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1539">
+		<div id="div-comment-1539">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Антон:</p>
+<p>Вы не по адресу вопросы задаете. Это вам надо специалистам по EMC задавать, тут таких нет, мы другими стораджами занимаемся, и говорим о них. EMC тут изредка, и с дилетантской позиции обсуждается.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1539" title="">22 Июль 2011, 22:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1553">
+		<div id="div-comment-1553">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>romx:</p>
+<p>по поводу профиля нагрузки. Времени было в обрез (как всегда вообщем) поэтому тестил на скорую руку все подряд на заморачиваясь на профилях чтоб просто понять что лучше выбрать для задач, как случайный доступ так и последовательный разными блоками (4K 16K 64K). К сожалению, не скажу в каком случае пул меньше теряют производительности, а 10-15% это общая картина&#8230; &#8220;средняя температура по поликлинике&#8221;</p>
+<p>P.S. В отпуске был поэтому затянул с ответом.</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1553" title="">25 Июль 2011, 1:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1573">
+		<div id="div-comment-1573">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>To Антон:</p>
+<p>MirrorView/A does NOT have any checks to consider Thin Pool space on secondary array<br />
+Это значит, что массив с primary mirror image не проверяет, хватает ли места в storage pool для secondary mirror image и админ клариона должен проверить это сам</p>
+						<div class="comment-meta"><a href="950/trackback.html#comment-1573" title="">31 Июль 2011, 14:37</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="950" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.081 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

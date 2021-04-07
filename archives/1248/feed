@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Striped Volume &#8211; необходимые дополнения</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1248/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1248</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:02 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-13193</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 08 May 2014 09:57:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-13193</guid>
+		<description>Похоже именно эта проблема с младшими моделями дошла до верхушки нетапа. 
+Как вы помните с появлением фичи ARL в C-Mode обязательно иметь _root_Aggregate_ на контроллер. Так в младших (новых) сериях 25хх разрешили использовать технологию позволяющую иметь один выделенный root Agregate на HA пару. В старших моделях это не поддерживается.
+Похоже теперь это называется "disk slicing". http://www.4-traders.com/NETAPP-INC-4889/news/NetApp-Inc--Patent-Issued-for-Creating-Logical-Disk-Drives-for-Raid-Subsystems-17729826/</description>
+		<content:encoded><![CDATA[<p>Похоже именно эта проблема с младшими моделями дошла до верхушки нетапа.<br />
+Как вы помните с появлением фичи ARL в C-Mode обязательно иметь _root_Aggregate_ на контроллер. Так в младших (новых) сериях 25хх разрешили использовать технологию позволяющую иметь один выделенный root Agregate на HA пару. В старших моделях это не поддерживается.<br />
+Похоже теперь это называется &#8220;disk slicing&#8221;. <a href="http://www.4-traders.com/NETAPP-INC-4889/news/NetApp-Inc--Patent-Issued-for-Creating-Logical-Disk-Drives-for-Raid-Subsystems-17729826/" rel="nofollow">http://www.4-traders.com/NETAPP-INC-4889/news/NetApp-Inc&#8211;Patent-Issued-for-Creating-Logical-Disk-Drives-for-Raid-Subsystems-17729826/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-11757</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Wed, 25 Dec 2013 11:26:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-11757</guid>
+		<description>Вот как раз сейчас для моих нужд это была б отличная функция. ??бо мне и нужно - файловая единая шара на порядка 80 Тб  для многих дизайнеров и 2-х рендер ферм. ?? иметь равномерно нагруженные HA-ноды для меня - хорошо.</description>
+		<content:encoded><![CDATA[<p>Вот как раз сейчас для моих нужд это была б отличная функция. ??бо мне и нужно - файловая единая шара на порядка 80 Тб  для многих дизайнеров и 2-х рендер ферм. ?? иметь равномерно нагруженные HA-ноды для меня - хорошо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-6888</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Tue, 16 Apr 2013 08:13:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-6888</guid>
+		<description>Олег :
+"кстати, у NetApp снепшот консистентной группы возможен только если все LU из этой группы на одном aggregate? или и на разных aggregate? на разных кластерах?
+
+В кластерном  ONTAP ( c 8.2RC1)  
+- Тома на одном агрегате - да
+- Тома на разных агрегатах - да
+- Тома на разных узлах (разных D-Blade) - да 
+
+Команды подается в рамках vServer:
+
+node::&#62;* volume snapshot create -vserver vs0 -volume vol1,vol2,vol3,vol4,vol5,vol6 -snapshot cg_snap_1</description>
+		<content:encoded><![CDATA[<p>Олег :<br />
+&#8220;кстати, у NetApp снепшот консистентной группы возможен только если все LU из этой группы на одном aggregate? или и на разных aggregate? на разных кластерах?</p>
+<p>В кластерном  ONTAP ( c 8.2RC1)<br />
+- Тома на одном агрегате - да<br />
+- Тома на разных агрегатах - да<br />
+- Тома на разных узлах (разных D-Blade) - да </p>
+<p>Команды подается в рамках vServer:</p>
+<p>node::&gt;* volume snapshot create -vserver vs0 -volume vol1,vol2,vol3,vol4,vol5,vol6 -snapshot cg_snap_1</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-6887</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Tue, 16 Apr 2013 08:08:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-6887</guid>
+		<description>Диагноз правильный :
+"Я думаю причина там та же, что и в случае выпиливания FilerView. "
+Объяснение не совсем: 
+FilerView + ups   - работали на  java. "Выпилили" в первую очередь java, что, наверное, хорошо. То что замену, для ups не включили плохо.
+В оправдание  ссылаются, что по отчетам автосапорта свойство было крайне редко используемое на практике.    Но понятно, что вам от этого не легче.</description>
+		<content:encoded><![CDATA[<p>Диагноз правильный :<br />
+&#8220;Я думаю причина там та же, что и в случае выпиливания FilerView. &#8221;<br />
+Объяснение не совсем:<br />
+FilerView + ups   - работали на  java. &#8220;Выпилили&#8221; в первую очередь java, что, наверное, хорошо. То что замену, для ups не включили плохо.<br />
+В оправдание  ссылаются, что по отчетам автосапорта свойство было крайне редко используемое на практике.    Но понятно, что вам от этого не легче.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Олег</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-6542</link>
+		<dc:creator>Олег</dc:creator>
+		<pubDate>Fri, 22 Mar 2013 21:15:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-6542</guid>
+		<description>"Как результат, это делает невозможность миграцию такого тома в пределах кластера, например если вам нужно выполнить обслуживание или отключение одного из кластеров, содержащих striped volume."
+то есть при offline одного контроллера из кластера не будет файловера на второй? и потеряется доступ к striped volume? накроются данные на нем?
+
+кстати, у NetApp снепшот консистентной группы возможен только если все LU из этой группы на одном aggregate? или и на разных aggregate? на разных кластерах?</description>
+		<content:encoded><![CDATA[<p>&#8220;Как результат, это делает невозможность миграцию такого тома в пределах кластера, например если вам нужно выполнить обслуживание или отключение одного из кластеров, содержащих striped volume.&#8221;<br />
+то есть при offline одного контроллера из кластера не будет файловера на второй? и потеряется доступ к striped volume? накроются данные на нем?</p>
+<p>кстати, у NetApp снепшот консистентной группы возможен только если все LU из этой группы на одном aggregate? или и на разных aggregate? на разных кластерах?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Vitaly Filatov</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-6321</link>
+		<dc:creator>Vitaly Filatov</dc:creator>
+		<pubDate>Sat, 09 Mar 2013 14:27:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-6321</guid>
+		<description>romx:
+На последней конференции NetApp в 2012 году я слышал, что кластерное направление теперь является приоритетным, но так же слышал, что в Data ONTAP 8.2 или чуть более поздней версии, для кластерных конфигураций будет реализован аналог технологии MetroCluster в 7-Mode, для реализации кластерных катастрофоустойчивых решений, с названием технологии еще не определились. Если эти "официальные слухи" верны, то удаление команды управления контроллерами при пропадании питания выглядит как минимум странно. К тому же аналогия с  FilerView, не совсем корректная, т.к. вместо него была представлена другая аналогичная оснастка в виде System Manager и его дальнейших инкарнаций, а замены функционалу команды ups пока что то не видно...</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+На последней конференции NetApp в 2012 году я слышал, что кластерное направление теперь является приоритетным, но так же слышал, что в Data ONTAP 8.2 или чуть более поздней версии, для кластерных конфигураций будет реализован аналог технологии MetroCluster в 7-Mode, для реализации кластерных катастрофоустойчивых решений, с названием технологии еще не определились. Если эти &#8220;официальные слухи&#8221; верны, то удаление команды управления контроллерами при пропадании питания выглядит как минимум странно. К тому же аналогия с  FilerView, не совсем корректная, т.к. вместо него была представлена другая аналогичная оснастка в виде System Manager и его дальнейших инкарнаций, а замены функционалу команды ups пока что то не видно&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-6295</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 08 Mar 2013 18:29:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-6295</guid>
+		<description>Vitaly Filatov:
+
+Я думаю причина там та же, что и в случае выпиливания FilerView. Он не укладывается в "кластерную парадигму", которая вот уже совсем скоро будет главной, а не "дополнительным и редко используемым режимом".
+Хотя, конечно, с узкочастной "сисадминской" позиции и мне кажется этот подход неправильным. Но... Доктор сказал "в морг" :)</description>
+		<content:encoded><![CDATA[<p>Vitaly Filatov:</p>
+<p>Я думаю причина там та же, что и в случае выпиливания FilerView. Он не укладывается в &#8220;кластерную парадигму&#8221;, которая вот уже совсем скоро будет главной, а не &#8220;дополнительным и редко используемым режимом&#8221;.<br />
+Хотя, конечно, с узкочастной &#8220;сисадминской&#8221; позиции и мне кажется этот подход неправильным. Но&#8230; Доктор сказал &#8220;в морг&#8221; :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Vitaly Filatov</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-6281</link>
+		<dc:creator>Vitaly Filatov</dc:creator>
+		<pubDate>Thu, 07 Mar 2013 16:41:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-6281</guid>
+		<description>Alexey Marushchenko:
+Позвольте, какая же это непрофильная функция? Обеспечение высокой доступности, при штатной ситуации отключения питания, является непрофильной функцией? Т.е. если я покупал Symetra LX для того что бы обеспечить данный функционал (т.к. поддерживается ограниченное количество UPS), то это деньги выброшенные на ветер. Меня никто не предупреждал, что в будущем этот функционал перестанет поддерживаться. Кстати это был один из критериев выбора СХД, пусть далеко не первый, но достаточно существенный при построении катастрофоустойчивых конфигураций на базе NetApp. Это нонсенс, что СХД не может корректно отследить отключение питания на одном из контроллеров, без привлечения дополнительных средств.</description>
+		<content:encoded><![CDATA[<p>Alexey Marushchenko:<br />
+Позвольте, какая же это непрофильная функция? Обеспечение высокой доступности, при штатной ситуации отключения питания, является непрофильной функцией? Т.е. если я покупал Symetra LX для того что бы обеспечить данный функционал (т.к. поддерживается ограниченное количество UPS), то это деньги выброшенные на ветер. Меня никто не предупреждал, что в будущем этот функционал перестанет поддерживаться. Кстати это был один из критериев выбора СХД, пусть далеко не первый, но достаточно существенный при построении катастрофоустойчивых конфигураций на базе NetApp. Это нонсенс, что СХД не может корректно отследить отключение питания на одном из контроллеров, без привлечения дополнительных средств.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-6278</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Thu, 07 Mar 2013 14:14:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-6278</guid>
+		<description>*в пользу внешнего управления
+
+Читать как: и передают прочие задачи на внешнее управление.</description>
+		<content:encoded><![CDATA[<p>*в пользу внешнего управления</p>
+<p>Читать как: и передают прочие задачи на внешнее управление.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1248#comment-6277</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Thu, 07 Mar 2013 14:12:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1248#comment-6277</guid>
+		<description>Vitaly Filatov:
+
+Логика в действиях производителя присутствует: непрофильные функций убираются в пользу профильных. Хранилка должна хорошо хранить данные, а не мониторить UPS. Для этих целей есть специализированный софт, который можно научить давать команды хранилке.
+
+??МХО, большинство производителей Enterprise оборудования сейчас двигаются по генеральной линии максимального упрощения и "вылизывания" ключевых набортных функций в пользу внешнего управления.</description>
+		<content:encoded><![CDATA[<p>Vitaly Filatov:</p>
+<p>Логика в действиях производителя присутствует: непрофильные функций убираются в пользу профильных. Хранилка должна хорошо хранить данные, а не мониторить UPS. Для этих целей есть специализированный софт, который можно научить давать команды хранилке.</p>
+<p>??МХО, большинство производителей Enterprise оборудования сейчас двигаются по генеральной линии максимального упрощения и &#8220;вылизывания&#8221; ключевых набортных функций в пользу внешнего управления.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

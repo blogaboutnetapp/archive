@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Компрессия данных в WAFL: Как это работает?</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1124/trackback.html">Организация работы с данными в 8.x Cluster-mode</a></div>
+			<div class="alignright"><a href="1126/trackback.html">Обновление NetApp Support Site (ex-NOW)</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1125">
+			<h2 class="posttitle"><a href="1125/trackback.html" rel="bookmark" title="Permanent Link to Компрессия данных в WAFL: Как это работает?">Компрессия данных в WAFL: Как это работает?</a></h2>
+			<div class="postmetadata">5 Март 2012, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Я уже рассказывал о том, что, начиная с ONTAP 8.х, и на 64-bit aggregate, у WAFL есть механизм компрессии хранимых на дисках данных. Механизм онлайн-компрессии сравнительно хорошо знаком пользователям, так как, например, давно поддерживается на NTFS. Однако, по моим наблюдениям, используют его не так часто, боясь его заметного влияния на производительность, и большей нагрузки на процессор сервера. Следует, тем не менее, отметить, что для современных процессоров, производительность которых <em>сильно</em> выросла со времен <em>Stacker</em> и <em>MS DiskDrive</em>, такая дополнительная нагрузка на процессор операций запаковки-распаковки весьма незначительна по абсолютной величине, но при этом значительно уменьшает объемы дискового трафика. Например, если компрессия, вдвое уменьшает “футпринт”, то есть хранимый объем данных, то за счет сравнительно небольшого увеличения (проценты, как правило) нагрузки на процессор, мы можем вдвое увеличить производительность чтения-записи, так как объем данных считываемых и записываемых на диск уменьшается, в нашем случае, вдвое, данные попадают на диск и считываются с него всегда уже сжатыми. </p>
+<p>Так что влияние компрессии на производительность может быть совсем не столь однозначно отрицательным.</p>
+<p>Но любопытно подробнее разобраться с тем, как реализована компрессия у NetApp. Дело в том, что для файловых систем, хранящих данные в фиксированных блоках-“кластерах” файловой системы, компрессия внутри этих кластеров, зачастую, бесполезна. Данные не могут занимать места менее одного блока (для WAFL – 4KB), то есть экономия места внутри блока никак не может быть использована. Сложность вызывает также работа с большим файлами. Например, в случае “обычной” компрессии файла архиватором типа ZIP, и прочими аналогичными, нам, часто, для того, чтобы извлечь, изменить или записать данные в середину большого файла, приходится распаковать и перепаковать его целиком. Это влечет за собой большую затрату времени и занятой памяти RAM. То что годится для оффлайновых архиваторов – не подходит для онлайн-компрессии.</p>
+<p>При создании механизма компрессии инженерам NetApp пришлось решить как эти, так и многие другие проблемы.</p>
+<p>Первый интересный с точки зрения “техники процесса” момент организации работы компрессии состоит в том, что алгоритм компрессии работает не с “файлом” целиком, а бъет его на фиксированные сегменты, под названием “Compression Groups”. Каждая Compression Group содержит 8 секторов WAFL, размером 4KB, и имеет размер 32K. </p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="basics-fig2[1]" border="0" alt="basics-fig2[1]" src="/pics/----WAFL-_96B7/basics-fig21.jpg" width="484" height="169" /></p>
+<p>Каждый файл, размещенный на томе, со включенной компрессией, рассматривается алгоритмом компрессии как разбитый на некоторое количество независимо обрабатываемых Compression Groups (CG). Например файл, размером 60KB будет содержать две CG, одну размером 32KB, и одну неполную, размером 28KB. При этом компрессия не применяется к файлам, размерам 8KB и менее.</p>
+<p>Каждая CG обрабатывается отдельно, а, при необходимости считывания части файла “из середины”, считывается и распаковывается не весь файл, а только необходимая Compression Group в нем.</p>
+<p>Но это еще не все интересное.</p>
+<p>Выглядит довольно очевидным решение как-то определять факт невозможности или низкой эффективности сжатия для данных, и данные, которые не жмутся (например JPEG, ZIP, MP3 или AVI) не жать вовсе, сэкономив на этом ресурсы процессора. Ведь в противном случае процессор будет полноценно занят сжатием-разжатием содержимого Compression Groups ради жалких долей процента результата. ??менно так поступили в NetApp. Перед операцией для Compression Group определяется эффективность сжатия, и, если результат получается ниже 25% (менее четверти содержимого группы, то есть менее 8KB, удается высвободить в результате компрессии), то сжатие для данной группы не прозводится вовсе и она записывается неизменной.</p>
+<p>Наконец, любопытным решением является разделение операций на онлайновые (inline), то есть производящиеся непосредственно “на лету”, по ходу поступления данных, и постпроцессные (postprocess). Постпроцессный метод уже широко применяется в механизме дедупликации, и позволяет свести к минимуму влияние процесса дедупликации на работу системы и ее производительность.</p>
+<p>Несмотря на то, что большинство операций компрессии могут выполнятьcя <em>inlne</em>, в ряде случаев часть операций может оуществляться постпроцессно. Постпроцессная компрессия применяется, в первую очередь, к данным, которые уже лежат на диске, до того, как для содержащего их тома была включена компрессия. Кроме этого, в случае, если инлайновая компрессия не успевает обрабатывать данные, например при большом объеме записей, они также откладываются, записываются несжатыми, и становятся в очередь постпроцессной компрессии.</p>
+<p>Постпроцессная компрессия выполняется по тому же расписанию, что и дедупликация, и запускается после выполнения процесса дедупликации для данного тома. Стоит также отметить, что дедупликация и компрессия возможны на одном и том же томе, прекрасно сосуществуют, и не отменяют одна другую. Более того, компрессия после дедупликации вполне возможна. Представьте себе множество виртуальных машин, которые хорошо дедуплицируются, так как содержат одно и то же содержимое, и дедупликация позволит нам хранить не сто виртуальных машин, а одну (и некоторое количество сохраненной “дельты” между этой VM и сотней индивидуальных VM с дедуплицированным нами содержимым) . Но ведь файлы Program Files или пользовательские файлы этого единственного экземпляра, как правило, можно еще и сжать раза в полтора! ?? эта компрессия будет осуществлена над уже дедуплицированным содержимым.</p>
+<p>Следует также отметить, что компрессия, так как она осуществляется над фиксированными Compression Groups, не мешает работе дедупликации. Два идентичных и хорошо дедуплицируемых файла, будут разбиты на одинаковое количество Compression Groups, и получившиеся 32KB группы после компрессии останутся по-прежнему идентичными и по прежнему дедуплицируемыми.</p>
+<p>Хотя в NetApp предприняли значительные усилия, чтобы повысить эффективность и постараться обеспечить наименьшее влияние на производтельность при работе компрессии, какое-то влияние на производительность (зависящее от множества факторов, как то объемы записей, характер доступа, и так далее) все равно, безусловно, будет иметь место. </p>
+<p>Лаборатория NetApp опубликовала следующие оценки производительности для системы FAS6080 (на сегодня это уровень хорошего такого midrange класса FAS3240, пожалуй). Для такой системы были достигнуты показатели работы постпроцессной компрессии на уровне 140MB/s для одного процесса, и 210MB/s максимальной производительности для нескольких процессов одновременно. На загрузке характера файлового сервера, с нагрузкой на процессор не более 50%, задачи inline-компрессии увеличивали нагрузку на менее чем 20% для датасетов, сжимающихся минимум на 50%.</p>
+<p>Оценочная эффективность компрессии и дедупликации показывается NetApp для разных наборов данных на следующем графике:</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="basics-fig1[2]" border="0" alt="basics-fig1[2]" src="/pics/----WAFL-_96B7/basics-fig12.jpg" width="600" height="420" /></p>
+<p>Я бы хотел также упомянуть, что имеющаяся у партнеров NetApp утилита SSET (Space Savings Estimation Tool) в текущей версии позволяет провести оценку эффекивности дедупликации <strong>??</strong> компрессии на реальных пользовательских данных, вычисляя на них результат работы алгоритма NetApp. Эта утилита запускается на реальных данных пользователя, работая в read-only, и, никак не изменяя и не повреждая эти данные, позволяет оценить результат дедупликации и компрессии даже без использования стораджа NetApp, например до его покупки. Эту утилиту можно просить у партнеров, она имеется для Linux и Windows.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/81-ontap.html" rel="tag">8.1 ontap</a>, <a href="tag/compression.html" rel="tag">compression</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/wafl/index.html" rel="tag">wafl</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="1125/trackback.html#respond">Комментарий</a> (<a href='1125/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1125/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (2)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2220">
+		<div id="div-comment-2220">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Я таки тащусь с нетапа. Единственный сторадж вендор делающий что-то своими мозгами и ничего ни у кого не украли (&#8230; кажися :)) Вот только вопрос:  откуда взять Space Savings Estimation Tool? на support.netapp.com нашел только упоминание в доках про дедупликацию.</p>
+						<div class="comment-meta"><a href="1125/trackback.html#comment-2220" title="">11 Март 2012, 20:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2223">
+		<div id="div-comment-2223">
+		<div class="comment-author">
+			<cite><a href='http://a-systems.ru.com' rel='external nofollow'>Alexey Marushchenko</a>:<cite></div>
+			<p>Александр, Ваш продавец NetApp с радостью ее Вам предоставит, просто выложить утилиту в интернет нельзя по условиям лицензии.</p>
+<p>Если Вы сами продаете чудо хранилки, то ищите утилиту на fieldportal. Версии есть как под Windows, так и под Linux.</p>
+						<div class="comment-meta"><a href="1125/trackback.html#comment-2223" title="">12 Март 2012, 5:25</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1125" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

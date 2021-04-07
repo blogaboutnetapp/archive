@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp VSC 5.0 for VMware vSphere Web Client Now Available</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1349/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1349</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:47 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Кирилл</title>
+		<link>http://blog.aboutnetapp.ru/archives/1349#comment-13482</link>
+		<dc:creator>Кирилл</dc:creator>
+		<pubDate>Wed, 25 Jun 2014 10:41:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1349#comment-13482</guid>
+		<description>А ещё, похоже, что VSC 5.0 не работает в Linked mode. Это ещё не реализовано или убрано целенаправленно?</description>
+		<content:encoded><![CDATA[<p>А ещё, похоже, что VSC 5.0 не работает в Linked mode. Это ещё не реализовано или убрано целенаправленно?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1349#comment-13073</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 21 Apr 2014 17:13:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1349#comment-13073</guid>
+		<description>djet:
+
+Flash Accel решено закрыть, увы.
+32-bit windows, думаю, все менее актуальна в сегодняшнем энтерпрайзе
+mbralign, во-первых, для новых OS перестал быть актуален, так вдобавок, как я понимаю, из под вебклиента его не поставишь.
+Человек, имевший отношение к разработке упоминал, что некоторые фичи оказалось невозможно реализовать в веблкиенте. Посмотрим, возможно что-то будет как-то сделано позже. Возможно причина в этом, может быть человеки из нетапп, тут присутствующие, и имеющие доступ к внутренней кухне, пояснят подробнее.</description>
+		<content:encoded><![CDATA[<p>djet:</p>
+<p>Flash Accel решено закрыть, увы.<br />
+32-bit windows, думаю, все менее актуальна в сегодняшнем энтерпрайзе<br />
+mbralign, во-первых, для новых OS перестал быть актуален, так вдобавок, как я понимаю, из под вебклиента его не поставишь.<br />
+Человек, имевший отношение к разработке упоминал, что некоторые фичи оказалось невозможно реализовать в веблкиенте. Посмотрим, возможно что-то будет как-то сделано позже. Возможно причина в этом, может быть человеки из нетапп, тут присутствующие, и имеющие доступ к внутренней кухне, пояснят подробнее.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: djet</title>
+		<link>http://blog.aboutnetapp.ru/archives/1349#comment-13072</link>
+		<dc:creator>djet</dc:creator>
+		<pubDate>Mon, 21 Apr 2014 15:30:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1349#comment-13072</guid>
+		<description>Открыл Release Notes, и сразу жестокий облом: 
+Features that are no longer supported
+VSC has discontinued support for the following features:
+• Flash Accel
+• 32-bit Windows installations
+• mbralign
+• Single File Restore
+• Datastore Remote Replication
+• VMware Desktop Client
+• Restore Agent
+
+Не понимаю чем им мешал Single File Restore с Restore Agent. Очень удобная была фича. Web Client и так работает в 2.0 раз медленнее чем толстый клиент, так теперь ещё и манипуляций для SFR в 2 раза больше. Печально.
+
+Что нового:
+New features include the following:
+• Support for VASA Provider for clustered Data ONTAP
+• Support for SnapVault integration when you add a backup job
+• Support for adding a virtual machine or datastore to an existing backup job
+
+??з плюсов вижу пока только интеграцию SMVI-SnapVault.
+
+??нтересно, можно ли использовать параллельно 4.2 и 5.0.</description>
+		<content:encoded><![CDATA[<p>Открыл Release Notes, и сразу жестокий облом:<br />
+Features that are no longer supported<br />
+VSC has discontinued support for the following features:<br />
+• Flash Accel<br />
+• 32-bit Windows installations<br />
+• mbralign<br />
+• Single File Restore<br />
+• Datastore Remote Replication<br />
+• VMware Desktop Client<br />
+• Restore Agent</p>
+<p>Не понимаю чем им мешал Single File Restore с Restore Agent. Очень удобная была фича. Web Client и так работает в 2.0 раз медленнее чем толстый клиент, так теперь ещё и манипуляций для SFR в 2 раза больше. Печально.</p>
+<p>Что нового:<br />
+New features include the following:<br />
+• Support for VASA Provider for clustered Data ONTAP<br />
+• Support for SnapVault integration when you add a backup job<br />
+• Support for adding a virtual machine or datastore to an existing backup job</p>
+<p>??з плюсов вижу пока только интеграцию SMVI-SnapVault.</p>
+<p>??нтересно, можно ли использовать параллельно 4.2 и 5.0.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1349#comment-13022</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Fri, 11 Apr 2014 07:56:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1349#comment-13022</guid>
+		<description>Вот только качество работы веб-клиента vmware оставляет желать столько лучшего, что я бы ЭТО не то, что в продакшен не пустил, а вообще пользоваться запретил. Месяца полтора, емнип, тестов в лабе, как результат - только ругань в адрес vmware и отказ от веб-клиента, пока его не поправят наконец. Надеюсь, нетапп не так криво софт пишет :)</description>
+		<content:encoded><![CDATA[<p>Вот только качество работы веб-клиента vmware оставляет желать столько лучшего, что я бы ЭТО не то, что в продакшен не пустил, а вообще пользоваться запретил. Месяца полтора, емнип, тестов в лабе, как результат - только ругань в адрес vmware и отказ от веб-клиента, пока его не поправят наконец. Надеюсь, нетапп не так криво софт пишет :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

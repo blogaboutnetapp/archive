@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: DataMotion for Volumes</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1092/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1092</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:27 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1092#comment-2389</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 08:03:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1092#comment-2389</guid>
+		<description>НетАпу ещё дописать бы DataMotion for Volumes, чтобы fingerprint и change logs копировались на получатель + избавиться от проблем с скомпресированными томами + автоматизировать вопрос с FlexClone + сделать автоматизацию процесса переноса, получится самый настоящий Tiering между разными типами дисков (агрегатами).
+
+Учитывая то, что почти все инструменты уже есть, только заставить всё работать вместе, это было бы не очень сложно реализовать :)
+
+Наверняка НетАпп об этом уже задумывался, интересно они отдали предпочтение, к примеру, гибридным агрегатам, перед этим решением или оно тоже когда-то будет?</description>
+		<content:encoded><![CDATA[<p>НетАпу ещё дописать бы DataMotion for Volumes, чтобы fingerprint и change logs копировались на получатель + избавиться от проблем с скомпресированными томами + автоматизировать вопрос с FlexClone + сделать автоматизацию процесса переноса, получится самый настоящий Tiering между разными типами дисков (агрегатами).</p>
+<p>Учитывая то, что почти все инструменты уже есть, только заставить всё работать вместе, это было бы не очень сложно реализовать :)</p>
+<p>Наверняка НетАпп об этом уже задумывался, интересно они отдали предпочтение, к примеру, гибридным агрегатам, перед этим решением или оно тоже когда-то будет?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

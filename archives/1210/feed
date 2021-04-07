@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP Edge &#8211; виртуальный NetApp в VM</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1210/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1210</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:07 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3437</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Fri, 14 Sep 2012 07:23:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3437</guid>
+		<description>Речь об адекватных скоростях, если das дает пол гигабайта в секунду, а edge его использующий 35 мегабайт это не нормально. Предполагается, что в центр будут делать бэкап РАБОЧ??Х данных, а что может быть рабочим при таком доступе - текстовые файлы? Для их хранения давно используются порталы. Я надеюсь на кривизну своих рук, ибо все очень красиво задумано - кто тестил - поделитесь результатом, там пять минут инсталляции и edge  в систем менеджере.</description>
+		<content:encoded><![CDATA[<p>Речь об адекватных скоростях, если das дает пол гигабайта в секунду, а edge его использующий 35 мегабайт это не нормально. Предполагается, что в центр будут делать бэкап РАБОЧ??Х данных, а что может быть рабочим при таком доступе - текстовые файлы? Для их хранения давно используются порталы. Я надеюсь на кривизну своих рук, ибо все очень красиво задумано - кто тестил - поделитесь результатом, там пять минут инсталляции и edge  в систем менеджере.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Киселев Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3436</link>
+		<dc:creator>Киселев Сергей</dc:creator>
+		<pubDate>Fri, 14 Sep 2012 07:07:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3436</guid>
+		<description>Ни кто не должен ждать от Edge каких-то высоких скоростей на операциях чтения-записи, всё будет определяться RAID контроллером и типом дисков в сервере.
+Edge это прежде всего бэкап данных в центр на FAS.</description>
+		<content:encoded><![CDATA[<p>Ни кто не должен ждать от Edge каких-то высоких скоростей на операциях чтения-записи, всё будет определяться RAID контроллером и типом дисков в сервере.<br />
+Edge это прежде всего бэкап данных в центр на FAS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3418</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Thu, 13 Sep 2012 11:14:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3418</guid>
+		<description>какие-то подозрительно низкие значения на линейных операциях для коммерческого решения, причем операции с хранилища по данным vcenter на порядок ниже, чем оно способно выдать. ?? на запись все очень плохо</description>
+		<content:encoded><![CDATA[<p>какие-то подозрительно низкие значения на линейных операциях для коммерческого решения, причем операции с хранилища по данным vcenter на порядок ниже, чем оно способно выдать. ?? на запись все очень плохо</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Aleksey Sychev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3413</link>
+		<dc:creator>Aleksey Sychev</dc:creator>
+		<pubDate>Thu, 13 Sep 2012 06:46:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3413</guid>
+		<description>romx:
+Значит, как всегда, неразбериха небольшая ;-)
+Видимо, надо подождать некоторое время, пока все устаканится - и тогда будет понятно.
+
+river:
+Жаль, что в данный момент нельзя заказать 1 штуку - минимум 10.
+Для кого-то 10 может быть уже и дорого.</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+Значит, как всегда, неразбериха небольшая ;-)<br />
+Видимо, надо подождать некоторое время, пока все устаканится - и тогда будет понятно.</p>
+<p>river:<br />
+Жаль, что в данный момент нельзя заказать 1 штуку - минимум 10.<br />
+Для кого-то 10 может быть уже и дорого.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: river</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3407</link>
+		<dc:creator>river</dc:creator>
+		<pubDate>Wed, 12 Sep 2012 15:12:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3407</guid>
+		<description>Киселев Сергей:
+&#62; отсутствует (надеюсь временно) поддержка SnapMirror
+у меня снапмиррор на едже активен, вы проверяли или поверили предыдущим комментаторам? 
+
+&#62; отсутствие RAID-DP
+в системе эмулируется всего один физический диск :) зачем ему рейд? главное есть wafl и весь функционал поверх него.
+
+&#62; дешёвый
+понятие дорогой/дешевый у всех разное, я уже видел квоты и мне честно говоря так не показалось :)</description>
+		<content:encoded><![CDATA[<p>Киселев Сергей:<br />
+&gt; отсутствует (надеюсь временно) поддержка SnapMirror<br />
+у меня снапмиррор на едже активен, вы проверяли или поверили предыдущим комментаторам? </p>
+<p>&gt; отсутствие RAID-DP<br />
+в системе эмулируется всего один физический диск :) зачем ему рейд? главное есть wafl и весь функционал поверх него.</p>
+<p>&gt; дешёвый<br />
+понятие дорогой/дешевый у всех разное, я уже видел квоты и мне честно говоря так не показалось :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Киселев Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3394</link>
+		<dc:creator>Киселев Сергей</dc:creator>
+		<pubDate>Wed, 12 Sep 2012 04:42:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3394</guid>
+		<description>Минусы: 
+- работает только на одном сервере и в случае падения сервера данные на Edge становятся недоступны
+- отсутствует (надеюсь временно) поддержка SnapMirror
+- отсутствие RAID-DP
+Плюсы:
+- дешёвый
+- простая интеграция с центром где стоит NetApp FAS
+
+К сожалению не нашёл информации по сравнению Edge с VMware VSA и с HP LeftHand VSA.</description>
+		<content:encoded><![CDATA[<p>Минусы:<br />
+- работает только на одном сервере и в случае падения сервера данные на Edge становятся недоступны<br />
+- отсутствует (надеюсь временно) поддержка SnapMirror<br />
+- отсутствие RAID-DP<br />
+Плюсы:<br />
+- дешёвый<br />
+- простая интеграция с центром где стоит NetApp FAS</p>
+<p>К сожалению не нашёл информации по сравнению Edge с VMware VSA и с HP LeftHand VSA.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: river</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3382</link>
+		<dc:creator>river</dc:creator>
+		<pubDate>Tue, 11 Sep 2012 15:51:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3382</guid>
+		<description>navion:
+&#62;С такими запросами могли бы сделать полноценную СХД, а не обрезок для хранения снапшотов.
+
+запросы не велики, 4гб оперативы на один вирт.сторадж. к слову это и есть полноценная вирт.схд. хранением снапшотов ее функционал не ограничивается.</description>
+		<content:encoded><![CDATA[<p>navion:<br />
+&gt;С такими запросами могли бы сделать полноценную СХД, а не обрезок для хранения снапшотов.</p>
+<p>запросы не велики, 4гб оперативы на один вирт.сторадж. к слову это и есть полноценная вирт.схд. хранением снапшотов ее функционал не ограничивается.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3378</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Tue, 11 Sep 2012 13:02:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3378</guid>
+		<description>С такими запросами могли бы сделать полноценную СХД, а не обрезок для хранения снапшотов.</description>
+		<content:encoded><![CDATA[<p>С такими запросами могли бы сделать полноценную СХД, а не обрезок для хранения снапшотов.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3362</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 10 Sep 2012 11:47:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3362</guid>
+		<description>Чем дальше в лес, тем толще партизан
+Deploy Data ONTAP as a FlexCache-v with 32(96)Gb memory</description>
+		<content:encoded><![CDATA[<p>Чем дальше в лес, тем толще партизан<br />
+Deploy Data ONTAP as a FlexCache-v with 32(96)Gb memory</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1210#comment-3361</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 10 Sep 2012 10:54:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1210#comment-3361</guid>
+		<description>Aleksey Sychev:
+
+&gt; Also, SnapVault secondary and SnapMirror® are not offered with this model of Data ONTAP Edge.
+
+А в лицензиях SnapMirror прислали. ?? про SnapVault тоже нет разделения на primary и secondary, просто SnapVault, и все.</description>
+		<content:encoded><![CDATA[<p>Aleksey Sychev:</p>
+<p>> Also, SnapVault secondary and SnapMirror® are not offered with this model of Data ONTAP Edge.</p>
+<p>А в лицензиях SnapMirror прислали. ?? про SnapVault тоже нет разделения на primary и secondary, просто SnapVault, и все.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

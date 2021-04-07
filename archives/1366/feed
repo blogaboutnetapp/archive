@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp E2700 по спецценам в IT-Град до 27 июля</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1366/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1366</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:19 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1366#comment-13392</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Fri, 13 Jun 2014 17:15:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1366#comment-13392</guid>
+		<description>единый интерфейс ради единого интерфейса.  Нет, таких планов нет. Слишком разные внутренности и создавать сложную систему подключаемых модулей для разных железок будет не просто и это точно утяжелит интерфейс.
+
+Скорее ближе к реальности  единое управление через OpenStack с поддержкой  manilu, cinder  или swift  на разных системах. Ведь у NetApp есть еще и объектный сторадж и новые платформы могут объявить ...</description>
+		<content:encoded><![CDATA[<p>единый интерфейс ради единого интерфейса.  Нет, таких планов нет. Слишком разные внутренности и создавать сложную систему подключаемых модулей для разных железок будет не просто и это точно утяжелит интерфейс.</p>
+<p>Скорее ближе к реальности  единое управление через OpenStack с поддержкой  manilu, cinder  или swift  на разных системах. Ведь у NetApp есть еще и объектный сторадж и новые платформы могут объявить &#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1366#comment-13388</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Fri, 13 Jun 2014 09:58:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1366#comment-13388</guid>
+		<description>romx:
+bbk:
+Ну, объединение я и не подразумевал. Но было бы неплохо хотя бы единый менеджмент-интерфейс иметь. Понятное дело, что реплицировать E и FAS - идея не лучшая.</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+bbk:<br />
+Ну, объединение я и не подразумевал. Но было бы неплохо хотя бы единый менеджмент-интерфейс иметь. Понятное дело, что реплицировать E и FAS - идея не лучшая.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1366#comment-13384</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 12 Jun 2014 13:57:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1366#comment-13384</guid>
+		<description>2 Nostromo
+FAS FlexArray (бывшая V-series) может виртуализировать E-серию.
+Сами СХД между собой не совместимы, но есть решения в которых применяются обе, к примеру для БД Оракл (TR-4145), Lustre FS, некоторых архитектурах FlexPod.</description>
+		<content:encoded><![CDATA[<p>2 Nostromo<br />
+FAS FlexArray (бывшая V-series) может виртуализировать E-серию.<br />
+Сами СХД между собой не совместимы, но есть решения в которых применяются обе, к примеру для БД Оракл (TR-4145), Lustre FS, некоторых архитектурах FlexPod.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1366#comment-13383</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 12 Jun 2014 10:26:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1366#comment-13383</guid>
+		<description>Пока планов как-то объедиять их нет, да и, честно говоря, не вижу предмета объединения. Они, к тому же, и на разные рынки нацелены.</description>
+		<content:encoded><![CDATA[<p>Пока планов как-то объедиять их нет, да и, честно говоря, не вижу предмета объединения. Они, к тому же, и на разные рынки нацелены.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1366#comment-13382</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Thu, 12 Jun 2014 10:25:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1366#comment-13382</guid>
+		<description>Я правильно понимаю, что E и FAS как были никак не совместимы, так и останутся таковыми?</description>
+		<content:encoded><![CDATA[<p>Я правильно понимаю, что E и FAS как были никак не совместимы, так и останутся таковыми?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

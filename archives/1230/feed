@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Обновление в линейке Midrange: FAS3220 и FAS3250</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1230/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1230</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:05 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1230#comment-7410</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 14 May 2013 07:02:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1230#comment-7410</guid>
+		<description>panvartan:
+
+Да там постоянно что-то обновляется, но писать об этом имеет смысле только уж если уже больше вообще не о чем. 
+Я же все ж не Product Bulletin. :)
+
+Ну или когда происходит что-то по настоящему интересное и принципиальное, а не "увеличилось в два раза количество памяти".</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Да там постоянно что-то обновляется, но писать об этом имеет смысле только уж если уже больше вообще не о чем.<br />
+Я же все ж не Product Bulletin. :)</p>
+<p>Ну или когда происходит что-то по настоящему интересное и принципиальное, а не &#8220;увеличилось в два раза количество памяти&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1230#comment-7407</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Tue, 14 May 2013 06:24:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1230#comment-7407</guid>
+		<description>вроде как и линейка 6200 в феврале обновилась http://www.netapp.com/ru/products/storage-systems/fas6200/fas6200-tech-specs.aspx</description>
+		<content:encoded><![CDATA[<p>вроде как и линейка 6200 в феврале обновилась <a href="http://www.netapp.com/ru/products/storage-systems/fas6200/fas6200-tech-specs.aspx" rel="nofollow">http://www.netapp.com/ru/products/storage-systems/fas6200/fas6200-tech-specs.aspx</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1230#comment-4631</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Thu, 08 Nov 2012 09:01:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1230#comment-4631</guid>
+		<description>Спасибо большое!
+
+а состав бандлов еще не известен?</description>
+		<content:encoded><![CDATA[<p>Спасибо большое!</p>
+<p>а состав бандлов еще не известен?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1230#comment-4630</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 08 Nov 2012 08:12:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1230#comment-4630</guid>
+		<description>panvartan:
+
+Поменять, конечно, нельзя.
+
+Дмитрий:
+
+Будет быстрее, а стоить будет ближе к 3210, ага. Будет на нее та же модель распространена, что и на 2240, то есть преконфигурированные бандлы, что снижает затраты вендора.
+
+3240 еще будет продаваться в следующем году, если я помню она еще в End-of-Sale не объявлялась, так что пока будет.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Поменять, конечно, нельзя.</p>
+<p>Дмитрий:</p>
+<p>Будет быстрее, а стоить будет ближе к 3210, ага. Будет на нее та же модель распространена, что и на 2240, то есть преконфигурированные бандлы, что снижает затраты вендора.</p>
+<p>3240 еще будет продаваться в следующем году, если я помню она еще в End-of-Sale не объявлялась, так что пока будет.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1230#comment-4629</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Thu, 08 Nov 2012 08:05:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1230#comment-4629</guid>
+		<description>Да, еще вопрос: 3220, видимо, будет быстрее, чем 3240 (памяти больше, процессор быстрее (?), флэша поддерживает столько же) - а стоить будет, как 3210? или Деда Мороза не существует?:)</description>
+		<content:encoded><![CDATA[<p>Да, еще вопрос: 3220, видимо, будет быстрее, чем 3240 (памяти больше, процессор быстрее (?), флэша поддерживает столько же) - а стоить будет, как 3210? или Деда Мороза не существует?:)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1230#comment-4627</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Thu, 08 Nov 2012 07:58:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1230#comment-4627</guid>
+		<description>А старая линейка - 3240, например, - долго еще поставляться будет?</description>
+		<content:encoded><![CDATA[<p>А старая линейка - 3240, например, - долго еще поставляться будет?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1230#comment-4626</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 08 Nov 2012 07:25:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1230#comment-4626</guid>
+		<description>Только вот аналога 3270 больше нет. Теперь 960 дисков не вставить ни в один сторадж 3200.
+Ещё забавно в написано OS Version Data ONTAP® 8.1.2 and later, но DS14mk2 and DS14mk4 кажется перестали поддерживать в какой-то версии 8-ки? (или я ошибаюсь?)</description>
+		<content:encoded><![CDATA[<p>Только вот аналога 3270 больше нет. Теперь 960 дисков не вставить ни в один сторадж 3200.<br />
+Ещё забавно в написано OS Version Data ONTAP® 8.1.2 and later, но DS14mk2 and DS14mk4 кажется перестали поддерживать в какой-то версии 8-ки? (или я ошибаюсь?)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1230#comment-4623</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Thu, 08 Nov 2012 06:53:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1230#comment-4623</guid>
+		<description>похоже для 3220 поменяли xeon 5220 на 5410 и добавили памяти до 24 гиг, а в 3250 добавили еще один 5410 и еще памяти. ??нтересно, если не обращать внимание на гарантию, можно такое проделать самостоятельно или существуют проверки при загрузке ос на соответствие аппаратных средств и модели?</description>
+		<content:encoded><![CDATA[<p>похоже для 3220 поменяли xeon 5220 на 5410 и добавили памяти до 24 гиг, а в 3250 добавили еще один 5410 и еще памяти. ??нтересно, если не обращать внимание на гарантию, можно такое проделать самостоятельно или существуют проверки при загрузке ос на соответствие аппаратных средств и модели?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

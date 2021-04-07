@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp EF540 Flash Array</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1244/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1244</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:50 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1244#comment-5966</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 20 Feb 2013 09:05:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1244#comment-5966</guid>
+		<description>anvarich:
+
+Он пока доступен на fieldportal, сам EF540 только зарелизен, думаю что нужно время, прежде чем партнерские документы перекочуют в паблик.
+Его номер - TR-4126
+
+Sybase Adaptive Server Enterprise V ersion 
+15.7 on NetApp EF540 Flash Array and FAS 
+Storage 
+Bobby Oommen, Jeffrey Steiner, NetApp 
+February 2013 &#124; TR-4126</description>
+		<content:encoded><![CDATA[<p>anvarich:</p>
+<p>Он пока доступен на fieldportal, сам EF540 только зарелизен, думаю что нужно время, прежде чем партнерские документы перекочуют в паблик.<br />
+Его номер - TR-4126</p>
+<p>Sybase Adaptive Server Enterprise V ersion<br />
+15.7 on NetApp EF540 Flash Array and FAS<br />
+Storage<br />
+Bobby Oommen, Jeffrey Steiner, NetApp<br />
+February 2013 | TR-4126</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: anvarich</title>
+		<link>http://blog.aboutnetapp.ru/archives/1244#comment-5964</link>
+		<dc:creator>anvarich</dc:creator>
+		<pubDate>Wed, 20 Feb 2013 08:52:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1244#comment-5964</guid>
+		<description>TR по Sybase не могу найти, можете указать ссылку</description>
+		<content:encoded><![CDATA[<p>TR по Sybase не могу найти, можете указать ссылку</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1244#comment-5938</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 19 Feb 2013 16:58:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1244#comment-5938</guid>
+		<description>Bakset:
+
+Ну откуда же я вам могу назвать другие цены, я же не партнер и не продавец, конечно листпрайс.</description>
+		<content:encoded><![CDATA[<p>Bakset:</p>
+<p>Ну откуда же я вам могу назвать другие цены, я же не партнер и не продавец, конечно листпрайс.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Bakset</title>
+		<link>http://blog.aboutnetapp.ru/archives/1244#comment-5937</link>
+		<dc:creator>Bakset</dc:creator>
+		<pubDate>Tue, 19 Feb 2013 16:52:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1244#comment-5937</guid>
+		<description>to romx: 200-250 в прайсе или? :)</description>
+		<content:encoded><![CDATA[<p>to romx: 200-250 в прайсе или? :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1244#comment-5936</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 19 Feb 2013 16:22:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1244#comment-5936</guid>
+		<description>Alexsar:
+
+Тысяч 200-250, не меньше. Обычно люди, для которых критичны показатели производительности на уровне 300 тысяч IOPS при субмиллисекундных latency не страдают от недостатка денег :), тем более что система аналогичных показателей на дисках выйдет в разы дороже.</description>
+		<content:encoded><![CDATA[<p>Alexsar:</p>
+<p>Тысяч 200-250, не меньше. Обычно люди, для которых критичны показатели производительности на уровне 300 тысяч IOPS при субмиллисекундных latency не страдают от недостатка денег :), тем более что система аналогичных показателей на дисках выйдет в разы дороже.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexsar</title>
+		<link>http://blog.aboutnetapp.ru/archives/1244#comment-5923</link>
+		<dc:creator>Alexsar</dc:creator>
+		<pubDate>Tue, 19 Feb 2013 05:58:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1244#comment-5923</guid>
+		<description>?? сколько стоит такое чудо техники на 24 диска? Просто ради интереса.</description>
+		<content:encoded><![CDATA[<p>?? сколько стоит такое чудо техники на 24 диска? Просто ради интереса.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

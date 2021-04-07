@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp System Manager</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/267/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/267</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:28 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/267#comment-12681</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Fri, 14 Mar 2014 12:51:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=267#comment-12681</guid>
+		<description>Ром, что за чудо продукт такой Provisioning Manager у NetApp и где его можно скачать?
+На него ссылаются какие-только можно TR (например TR-3563,TR-3965)... В now.netapp.com я не могу найти место для его скачивания (((</description>
+		<content:encoded><![CDATA[<p>Ром, что за чудо продукт такой Provisioning Manager у NetApp и где его можно скачать?<br />
+На него ссылаются какие-только можно TR (например TR-3563,TR-3965)&#8230; В now.netapp.com я не могу найти место для его скачивания (((</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/267#comment-133</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 20 Apr 2009 04:21:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=267#comment-133</guid>
+		<description>Да, спасибо что заметил. Пока только 2000, 3100 и 3000. Думаю что скоро и для 6000 заточат, так как это совершенно нелогично, на мой взгляд.</description>
+		<content:encoded><![CDATA[<p>Да, спасибо что заметил. Пока только 2000, 3100 и 3000. Думаю что скоро и для 6000 заточат, так как это совершенно нелогично, на мой взгляд.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/267#comment-132</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Mon, 20 Apr 2009 04:07:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=267#comment-132</guid>
+		<description>6xxx серию не поддерживает</description>
+		<content:encoded><![CDATA[<p>6xxx серию не поддерживает</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

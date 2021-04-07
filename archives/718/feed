@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP 7G Cookbook</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/718/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/718</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:07 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/718#comment-1232</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 17 Mar 2011 10:49:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=718#comment-1232</guid>
+		<description>Artur Alikulov:
+
+Вы имеете ввиду для 8.0 7-Mode? В законченном виде не встречалось, но, несмотря на некоторые небольшие изменения в синтаксисе команд, можно, в значительной степени, использовать и этот.</description>
+		<content:encoded><![CDATA[<p>Artur Alikulov:</p>
+<p>Вы имеете ввиду для 8.0 7-Mode? В законченном виде не встречалось, но, несмотря на некоторые небольшие изменения в синтаксисе команд, можно, в значительной степени, использовать и этот.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur Alikulov</title>
+		<link>http://blog.aboutnetapp.ru/archives/718#comment-1231</link>
+		<dc:creator>Artur Alikulov</dc:creator>
+		<pubDate>Thu, 17 Mar 2011 10:43:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=718#comment-1231</guid>
+		<description>А нет ли аналогичных рецептов для Data ONTAP 8?</description>
+		<content:encoded><![CDATA[<p>А нет ли аналогичных рецептов для Data ONTAP 8?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/718#comment-891</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Fri, 15 Oct 2010 12:33:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=718#comment-891</guid>
+		<description>Я что-то тоже не могу сходу сказать, почему на ходу нельзя лун расширить...</description>
+		<content:encoded><![CDATA[<p>Я что-то тоже не могу сходу сказать, почему на ходу нельзя лун расширить&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/718#comment-890</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 15 Oct 2010 04:34:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=718#comment-890</guid>
+		<description>Ну мой опыт говорит, что если в официальной документации написано нечто, не согласующееся с личной практикой, то у них были на это основания, и причина расхождения не в их ошибке, а в моей. Возможно существует ряд случаев, когда расширять LUN "на ходу" нельзя, а "не на ходу" можно всегда, поэтому описан более безопасный и общий случай. 
+Так что я в этом смысле стою на ортодоксальной позиции. :)</description>
+		<content:encoded><![CDATA[<p>Ну мой опыт говорит, что если в официальной документации написано нечто, не согласующееся с личной практикой, то у них были на это основания, и причина расхождения не в их ошибке, а в моей. Возможно существует ряд случаев, когда расширять LUN &#8220;на ходу&#8221; нельзя, а &#8220;не на ходу&#8221; можно всегда, поэтому описан более безопасный и общий случай.<br />
+Так что я в этом смысле стою на ортодоксальной позиции. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/718#comment-889</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 14 Oct 2010 14:31:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=718#comment-889</guid>
+		<description>Единственное, что не понравилось, в этой кулинарной книжке, так это как они увеличивают размер луна переводя его в оффлайн - бред ибо это делается в онлайн и переводить в офлайн продуктивный лун это не нужный геморой с простоем.</description>
+		<content:encoded><![CDATA[<p>Единственное, что не понравилось, в этой кулинарной книжке, так это как они увеличивают размер луна переводя его в оффлайн - бред ибо это делается в онлайн и переводить в офлайн продуктивный лун это не нужный геморой с простоем.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Павлов Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/718#comment-887</link>
+		<dc:creator>Павлов Дмитрий</dc:creator>
+		<pubDate>Thu, 14 Oct 2010 06:45:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=718#comment-887</guid>
+		<description>Спасибо, Роман!</description>
+		<content:encoded><![CDATA[<p>Спасибо, Роман!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: unicast</title>
+		<link>http://blog.aboutnetapp.ru/archives/718#comment-886</link>
+		<dc:creator>unicast</dc:creator>
+		<pubDate>Thu, 14 Oct 2010 06:10:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=718#comment-886</guid>
+		<description>Суперская штука - как раз искал мини хауту по кластеру!</description>
+		<content:encoded><![CDATA[<p>Суперская штука - как раз искал мини хауту по кластеру!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

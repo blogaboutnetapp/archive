@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: EMC VNX5100 &#8211; &#8220;не совсем VNX&#8221;</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/982/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/982</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:18 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1815</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 19 Oct 2011 07:20:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1815</guid>
+		<description>Nimdan:
+
+У людей никакая система хранения не использовалась.
+Туда заходил NetApp, против него играл EMC с VNX5100. Это было замечено в двух разных местах, в двух разных организациях, с которыми работали два разных партнера EMC.
+
+PS. У меня такое ощущение, что вы меня пытаетесь "подловить" на какой-то злонамеренности. Вы это бросьте.</description>
+		<content:encoded><![CDATA[<p>Nimdan:</p>
+<p>У людей никакая система хранения не использовалась.<br />
+Туда заходил NetApp, против него играл EMC с VNX5100. Это было замечено в двух разных местах, в двух разных организациях, с которыми работали два разных партнера EMC.</p>
+<p>PS. У меня такое ощущение, что вы меня пытаетесь &#8220;подловить&#8221; на какой-то злонамеренности. Вы это бросьте.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1814</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Wed, 19 Oct 2011 07:15:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1814</guid>
+		<description>Каким именно заказчикам? Может быть у этих заказчиков та самая модель используется, на замену которой и выпустили VNX5100?</description>
+		<content:encoded><![CDATA[<p>Каким именно заказчикам? Может быть у этих заказчиков та самая модель используется, на замену которой и выпустили VNX5100?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1811</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 18 Oct 2011 17:10:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1811</guid>
+		<description>Nimdan:
+
+&gt; А ничего, что VNX5100 позиционируется, как замена вполне конкретной модели СХД?
+
+Без малейшего понятия для чего она там "позиционируется" у вас, а у нас - вот:
+
+&lt;i&gt;Дело в том, что я уже не в первый раз сталкиваюсь с попытками сейлов партнеров EMC продавать EMC VNX5100 клиентам, не указывая ясно им на ряд ограничений конкретно этой модели. &lt;/i&gt;
+
+??ли автор не дочитав блог бросился комментировать? ;)</description>
+		<content:encoded><![CDATA[<p>Nimdan:</p>
+<p>> А ничего, что VNX5100 позиционируется, как замена вполне конкретной модели СХД?</p>
+<p>Без малейшего понятия для чего она там &#8220;позиционируется&#8221; у вас, а у нас - вот:</p>
+<p><i>Дело в том, что я уже не в первый раз сталкиваюсь с попытками сейлов партнеров EMC продавать EMC VNX5100 клиентам, не указывая ясно им на ряд ограничений конкретно этой модели. </i></p>
+<p>??ли автор не дочитав блог бросился комментировать? ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1810</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Tue, 18 Oct 2011 17:00:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1810</guid>
+		<description>А ничего, что VNX5100 позиционируется, как замена вполне конкретной модели СХД? ??ли автор не дочитал маркетинговую брошюру?</description>
+		<content:encoded><![CDATA[<p>А ничего, что VNX5100 позиционируется, как замена вполне конкретной модели СХД? ??ли автор не дочитал маркетинговую брошюру?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1615</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Mon, 15 Aug 2011 16:46:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1615</guid>
+		<description>Киселев Сергей:
+
+Вы путаете. Паками продаются диски для VNXe, для 5100 можно купить диски хоть поштучно (Кроме Vault дисков конечное). 
+MSA2000G3 в листе тысяч 15. 5100 - от 25. Так что не совсем они конкуренты, скорее конкурент MSA - VNXe 3100.</description>
+		<content:encoded><![CDATA[<p>Киселев Сергей:</p>
+<p>Вы путаете. Паками продаются диски для VNXe, для 5100 можно купить диски хоть поштучно (Кроме Vault дисков конечное).<br />
+MSA2000G3 в листе тысяч 15. 5100 - от 25. Так что не совсем они конкуренты, скорее конкурент MSA - VNXe 3100.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1610</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 12 Aug 2011 07:07:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1610</guid>
+		<description>Киселев Сергей:
+
+Ну так мешать-то может и можно, а Best Practices по этому поводу что-нибудь говорит?
+
+Дешевая, потому что "замануха", которая продается "ниже себестоимости" ради продвижения бренда.
+Хороший повод зайти с таким в аккаунт, а потом, когда, допустим, выяснится, что (а,б,ц) можно сказать: "Не беда, всего за X$ дороже мы предложим вариант куда лучше - 5300!"</description>
+		<content:encoded><![CDATA[<p>Киселев Сергей:</p>
+<p>Ну так мешать-то может и можно, а Best Practices по этому поводу что-нибудь говорит?</p>
+<p>Дешевая, потому что &#8220;замануха&#8221;, которая продается &#8220;ниже себестоимости&#8221; ради продвижения бренда.<br />
+Хороший повод зайти с таким в аккаунт, а потом, когда, допустим, выяснится, что (а,б,ц) можно сказать: &#8220;Не беда, всего за X$ дороже мы предложим вариант куда лучше - 5300!&#8221;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Киселев Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1609</link>
+		<dc:creator>Киселев Сергей</dc:creator>
+		<pubDate>Fri, 12 Aug 2011 06:54:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1609</guid>
+		<description>Считал недавно 5100 - порадовало, что можно в рамках DPE/DAE мешать SAS/NL-SAS диски. Не понравилось что покупать диски нужно паками. Система ОЧЕНЬ дешевая - аналог HP MSA2000G3.</description>
+		<content:encoded><![CDATA[<p>Считал недавно 5100 - порадовало, что можно в рамках DPE/DAE мешать SAS/NL-SAS диски. Не понравилось что покупать диски нужно паками. Система ОЧЕНЬ дешевая - аналог HP MSA2000G3.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1597</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Thu, 04 Aug 2011 17:07:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1597</guid>
+		<description>Вот, лучше ссылка - http://russia.emc.com/collateral/software/specification-sheet/h8514-vnx-series-ss.pdf
+Макс. общее количество портов в массиве - нет. Грустно.</description>
+		<content:encoded><![CDATA[<p>Вот, лучше ссылка - <a href="http://russia.emc.com/collateral/software/specification-sheet/h8514-vnx-series-ss.pdf" rel="nofollow">http://russia.emc.com/collateral/software/specification-sheet/h8514-vnx-series-ss.pdf</a><br />
+Макс. общее количество портов в массиве - нет. Грустно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1596</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Thu, 04 Aug 2011 17:03:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1596</guid>
+		<description>&#62; Дадите проверяемый источник?
+Постараюсь.
+
+&#62; Разве? В VNX/VNXe _вообще_ нет 10GbE портов?
+Ссылка на сайт ЕМС Россия. http://russia.emc.com/products/series/vnx-series.htm#/1
+Любой документ где есть сравнение серии VNX - там нет iSCSI для 5100, так же в конфигураторе можно добавить только FC порты для 5100. Понятно, что это надуманные ограничения и со временем ситуация может измениться, но пока так.
+FAST VP для меня новость. На днях проверю на реальной системе.
+Вообще не совсем понятен смысл 5100. Было бы логично впихнуть в VNXe 3300 FC, цена у них похожая. Тогда бы вся линейка была  Unified. 
+PS кстати VNXe 3300 и DPE (блочный доступ) VNX 5300 выглядят абсолютно одинаково за исключением портов подключения (FC и Ethernet), и конструктив у старого контроллера Clariion (Блочный доступ) и нынешнего Data Mover (Файловый доступ) идентичный. Унифицируют все, что могут.</description>
+		<content:encoded><![CDATA[<p>&gt; Дадите проверяемый источник?<br />
+Постараюсь.</p>
+<p>&gt; Разве? В VNX/VNXe _вообще_ нет 10GbE портов?<br />
+Ссылка на сайт ЕМС Россия. <a href="http://russia.emc.com/products/series/vnx-series.htm#/1" rel="nofollow">http://russia.emc.com/products/series/vnx-series.htm#/1</a><br />
+Любой документ где есть сравнение серии VNX - там нет iSCSI для 5100, так же в конфигураторе можно добавить только FC порты для 5100. Понятно, что это надуманные ограничения и со временем ситуация может измениться, но пока так.<br />
+FAST VP для меня новость. На днях проверю на реальной системе.<br />
+Вообще не совсем понятен смысл 5100. Было бы логично впихнуть в VNXe 3300 FC, цена у них похожая. Тогда бы вся линейка была  Unified.<br />
+PS кстати VNXe 3300 и DPE (блочный доступ) VNX 5300 выглядят абсолютно одинаково за исключением портов подключения (FC и Ethernet), и конструктив у старого контроллера Clariion (Блочный доступ) и нынешнего Data Mover (Файловый доступ) идентичный. Унифицируют все, что могут.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/982#comment-1595</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 04 Aug 2011 15:18:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/982#comment-1595</guid>
+		<description>Сергей:
+
+&gt; Небольшие корректировки, если можно.
+Нужно, спасибо.
+Дадите проверяемый источник?
+
+&gt; Этого нет даже не в базе.
+Разве? В VNX/VNXe _вообще_ нет 10GbE портов?
+
+&gt; На самом деле не одного, а 3-х.
+Одного эффективного, "действующего", разумеется.
+
+&gt; ?? от куда информация про отсутствие FAST VP у 5100?
+
+??з презентации EMC (EMC Baltic):
+PDF находится по строке: emc_vnx_-the_right_platform_for_vdi_implementations_-_vilnius
+На 14 странице:
+FAST VP (Virtual Pools)* optimizes 
+storage pools automatically, [...]
+
+* Not available for VNX5100.</description>
+		<content:encoded><![CDATA[<p>Сергей:</p>
+<p>> Небольшие корректировки, если можно.<br />
+Нужно, спасибо.<br />
+Дадите проверяемый источник?</p>
+<p>> Этого нет даже не в базе.<br />
+Разве? В VNX/VNXe _вообще_ нет 10GbE портов?</p>
+<p>> На самом деле не одного, а 3-х.<br />
+Одного эффективного, &#8220;действующего&#8221;, разумеется.</p>
+<p>> ?? от куда информация про отсутствие FAST VP у 5100?</p>
+<p>??з презентации EMC (EMC Baltic):<br />
+PDF находится по строке: emc_vnx_-the_right_platform_for_vdi_implementations_-_vilnius<br />
+На 14 странице:<br />
+FAST VP (Virtual Pools)* optimizes<br />
+storage pools automatically, [...]</p>
+<p>* Not available for VNX5100.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

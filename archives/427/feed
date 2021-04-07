@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: DS4243 &#8211; 24TB в 4U!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/427/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/427</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:22 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: minnus</title>
+		<link>http://blog.aboutnetapp.ru/archives/427#comment-262</link>
+		<dc:creator>minnus</dc:creator>
+		<pubDate>Mon, 15 Feb 2010 14:39:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=427#comment-262</guid>
+		<description>Привет, Роман!
+
+Я тут перечитывал тебя и заметил неточность небольшую: коннектор Wide SAS представляет из себя агрегированную шину из 4 каналов по 3Gbs, так что в случае 4 портов SAS на системе мы имеем полосу пропускания в 48 Gbs, а не 12. 
+На данный момент, помимо NetApp, Wide SAS активно используется Hitachi Data Systems в своей линейке AMS 2000 series, которая из-за подобной агрегации показывает очень впечатляющие данные по производительности.</description>
+		<content:encoded><![CDATA[<p>Привет, Роман!</p>
+<p>Я тут перечитывал тебя и заметил неточность небольшую: коннектор Wide SAS представляет из себя агрегированную шину из 4 каналов по 3Gbs, так что в случае 4 портов SAS на системе мы имеем полосу пропускания в 48 Gbs, а не 12.<br />
+На данный момент, помимо NetApp, Wide SAS активно используется Hitachi Data Systems в своей линейке AMS 2000 series, которая из-за подобной агрегации показывает очень впечатляющие данные по производительности.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

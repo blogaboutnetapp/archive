@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; ??з чего складывается величина IOPS отдельного диска?</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../994/trackback.html">Вышел NetApp OnCommand Core Package</a></div>
+			<div class="alignright"><a href="../996/trackback.html">Одинаковые имена томов и аггрегейтов на системе хранения</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-993">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to ??з чего складывается величина IOPS отдельного диска?">??з чего складывается величина IOPS отдельного диска?</a></h2>
+			<div class="postmetadata">18 Август 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Я в этом блоге уже несколько раз <a href="../442/trackback.html">упоминал</a> тот факт, что жесткий диск имеет определенную “конструктивно заданную” величину параметра IOPS – Input-Output Operations per Second – число операций ввода-вывода в секунду для random-операций. Отдельный жесткий диск имеет производительность в IOPS сравнительно небольшую. Так, для дисков SATA говорят о 75 IOPS, то есть отдельный диск может произвести за секунду 75 операций чтения или записи блока данных с “блинов”. Несколько производительнее диски SAS или FC, до 175 IOPS при скорости вращения 15000 оборотов в минуту. Это совсем не грандиозные объемы операций. Ну представьте, <em>75 операций ввода вывода (записи и чтения) в секунду</em>. Всего лишь. Если у вас на компьютере работает примерно 30 процессов (программ и системных сервисов), то на каждый такой процесс приходится всего две с половиной операции чтения или записи в секунду.</p>
+<p>??менно для повышения производительности в дисковых системах хранения данных используется множество дисков. Совсем не ради емкости, по крайней мере сегодня – как правило. Ведь чем на большее число физических дисков (на нашем птичьем языка-жаргоне прижилось калькированное с английского, и отдающее машинным маслом токарного станка словечко “шпиндель” (spindle), означающее физический жесткий диск) мы можем разложить наши данные, чем больше дисков задействовать для обслуживания ввода-вывода, по 75 (или 175) с каждого, тем выше получится суммарная производительность системы хранения на операциях <em>random read/write</em>.</p>
+<p>Но откуда же берется это мистическое число “IOPS со шпинделя”, чем оно так жестко определяется? </p>
+<p>На самом деле формула, определяющая эту величину довольно проста.</p>
+<p><strong>IOPS Estimated = 1 / ((seek time in ms / 1000) + (latency in ms / 1000))</strong></p>
+<p>Как вы видите, двумя основными параметрами диска, задающими величину в IOPS являются величина времени seek, то есть перехода магнитной головки от одной позиции до другой, и latency, то есть величины задержки от момента отправки команды, до получения запрошенного на выходе.</p>
+<p>Возьмем, для примера диск <a href="http://www.seagate.com/www/en-us/products/enterprise-hard-drives/constellation-es/constellation-es-1/#tTabContentSpecifications">Seagate SATA 1TB, 7200RPM</a>:</p>
+<p>Estimated IOPS = 1 / ( ( (average read seek time+average write seek time) / 2) / 1000) + (average latency / 1000) )</p>
+<p>или с указанными в спеках данных для данного диска:</p>
+<p>Estimated IOPS = 1 / ( (9.00 / 1000) + (4.16 / 1000) ) = 1 / ( (0.009) + (0.00416) ) = <strong>75.987</strong> - ~ 75 IOPS</p>
+<p>??ли для диска <a href="http://www.seagate.com/www/en-us/products/enterprise-hard-drives/cheetah-15k#tTabContentSpecifications">Seagate SAS 600GB 15KRPM</a>:</p>
+<p>Estimated IOPS = 1 / ( (3.65 / 1000) + (2.0 / 1000) ) = 1 / ( (0.00365) + (0.002) ) = <strong>176.99</strong> - ~ 175 IOPS</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/iops.html" rel="tag">iops</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (8)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1617">
+		<div id="div-comment-1617">
+		<div class="comment-author">
+			<cite>Andrew Ivanov:<cite></div>
+			<p>Я бы только &#8220;1000&#8243; вынес куда-нибудь наверх (или еще лучше размерность указать), а то некоторое время тупо смотрел на изначальную формулу, пока ниже не увидел что все времена в мс указаны :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1617" title="">18 Август 2011, 11:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1618">
+		<div id="div-comment-1618">
+		<div class="comment-author">
+			<cite>EGarbuzov:<cite></div>
+			<p>Всегда было интересно, как получают &#8220;номинальные&#8221; IOPS&#8217;ы одного диска. Только фигня со скобками. Во всех четырёх формулах не хватает по одной-две :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1618" title="">18 Август 2011, 15:00</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1620">
+		<div id="div-comment-1620">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Еще один шаг в техпроцессе ssd  и 10k&amp;15k уйдут в историю - единственный их плюс - высокая маржа производителя). 15k они уже обогнали по емкости - <a href="http://servernews.ru/news/Hitachi-anonsirovala-proizvoditelniy-SSD-na-mikroshemah-pamyati-MLC" rel="nofollow">http://servernews.ru/news/Hitachi-anonsirovala-proizvoditelniy-SSD-na-mikroshemah-pamyati-MLC</a>. ??нтересно, этоха DataOntap = эпоха hdd?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1620" title="">19 Август 2011, 17:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1626">
+		<div id="div-comment-1626">
+		<div class="comment-author">
+			<cite><a href='http://mazday.wordpress.com/' rel='external nofollow'>Pavel Kruchok</a>:<cite></div>
+			<p>??нтересно, я правильно понимаю что кроме очевидной разницы в IOPS между SATA 7200 и SAS 15k есть еще и разница во времни отклика.<br />
+Т.е. SAS примерно в 2.5 раза больше операций делает, и при этом время отклика в 2,5 разм меньше чем у SATA.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1626" title="">23 Август 2011, 20:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1627">
+		<div id="div-comment-1627">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Pavel Kruchok:</p>
+<p>Несмотря на то, что в теории может быть некоторая разница во времени отклика между протоколами, на практике, как я понимаю, в основном решает RPM. То есть 15000 это в 2 с чутью раза быстрее доезжает сектор до головки, вот эти два раза и дают основную разницу между SAS 15K и SATA 7.2K</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1627" title="">23 Август 2011, 20:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2207">
+		<div id="div-comment-2207">
+		<div class="comment-author">
+			<cite>Toka:<cite></div>
+			<p>В формулах есть определенная неточность. В знаменателе стоит 1 только когда расчитывается диск с 10K RPM. Однако, для диков 15K, в знаменателе правильнее будет поставить 1,5.т.е IOPS= 1,5/( (3.65 / 1000) + (2.0 / 1000) )= 265 IOPS. Также для дисков с 7200 оборотов, в знаменателе ставят 0,72. Так уже становится более понятно откуда берется большая разница в IOPS между 10K (max 150 IOPS) и 15K (250 IOPS) дисков.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2207" title="">7 Март 2012, 6:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2231">
+		<div id="div-comment-2231">
+		<div class="comment-author">
+			<cite>Toka:<cite></div>
+			<p>Поправка, не в знаменателе, а в числителе имелось в виду менять значения в зависимости от RPM.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2231" title="">15 Март 2012, 6:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11645">
+		<div id="div-comment-11645">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Напомните, правильно ли я понимаю, что получаемая величина &#8220;Estimated IOPS&#8221; соблюдается при условии оперирования случайными (не последовательными) операциями чтения/записи минимального зазмера в 4KB, с величиной латенси равной &#8220;average latency&#8221;?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11645" title="">20 Декабрь 2013, 17:26</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="993" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

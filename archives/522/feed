@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Warranty и onsite-доставка в NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/522/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/522</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:15 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Как получать поддержку: Часть 0 &#124; about NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-13918</link>
+		<dc:creator>Как получать поддержку: Часть 0 &#124; about NetApp</dc:creator>
+		<pubDate>Mon, 25 Aug 2014 14:59:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-13918</guid>
+		<description>[...] по записям логов в Autosupport, и показывал, что – да, даже не в Москве эти сроки [...]</description>
+		<content:encoded><![CDATA[<p>[...] по записям логов в Autosupport, и показывал, что – да, даже не в Москве эти сроки [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-1261</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 08 Apr 2011 18:16:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-1261</guid>
+		<description>navion:
+Точно также, все же везется с того же склада (склад на Россию, конечно, не один), где лежат запчасти на все проданные в Россию системы, так что разницы никакой нет, диски взяты просто как пример наиболее "расходного" материала, в базе кейсов такие случаи проще найти.</description>
+		<content:encoded><![CDATA[<p>navion:<br />
+Точно также, все же везется с того же склада (склад на Россию, конечно, не один), где лежат запчасти на все проданные в Россию системы, так что разницы никакой нет, диски взяты просто как пример наиболее &#8220;расходного&#8221; материала, в базе кейсов такие случаи проще найти.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-1260</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Fri, 08 Apr 2011 18:04:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-1260</guid>
+		<description>С дисками всё понятно, а как обстоят дела с остальным запчастями? Как быстро меняют контроллеры, БП и т.д.?</description>
+		<content:encoded><![CDATA[<p>С дисками всё понятно, а как обстоят дела с остальным запчастями? Как быстро меняют контроллеры, БП и т.д.?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-917</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 29 Oct 2010 08:15:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-917</guid>
+		<description>Leonid: Проблемы доставки, связаные с пересечением границы и таможенными процедурами, к сожалению, вне ведения NetApp, а объемы продаж в Украине недостаточны, чтобы держать на ней растаможенный сервисный склад, как, например, в России (и, как ни удивительно, в Казахстане).
+Так что долгая доставка это уже проблема доставщиков и государства больше, чем NetApp.</description>
+		<content:encoded><![CDATA[<p>Leonid: Проблемы доставки, связаные с пересечением границы и таможенными процедурами, к сожалению, вне ведения NetApp, а объемы продаж в Украине недостаточны, чтобы держать на ней растаможенный сервисный склад, как, например, в России (и, как ни удивительно, в Казахстане).<br />
+Так что долгая доставка это уже проблема доставщиков и государства больше, чем NetApp.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Leonid</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-914</link>
+		<dc:creator>Leonid</dc:creator>
+		<pubDate>Fri, 29 Oct 2010 07:11:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-914</guid>
+		<description>Я наверное тот заказчик из Донецка. Да, действительно, автосапорт работает очень хорошо.
+Но скалада нет и доставка идет очень долго в Украину</description>
+		<content:encoded><![CDATA[<p>Я наверное тот заказчик из Донецка. Да, действительно, автосапорт работает очень хорошо.<br />
+Но скалада нет и доставка идет очень долго в Украину</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-320</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 04 Mar 2010 14:06:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-320</guid>
+		<description>У меня есть другие данные и я их привел. Данные не выбраны, взял два первых попавшихся в логах кейса этой тематики.
+Не могли бы вы привести свои данные, например номера кейсов и подробности?</description>
+		<content:encoded><![CDATA[<p>У меня есть другие данные и я их привел. Данные не выбраны, взял два первых попавшихся в логах кейса этой тематики.<br />
+Не могли бы вы привести свои данные, например номера кейсов и подробности?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: rpochta.ru</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-319</link>
+		<dc:creator>rpochta.ru</dc:creator>
+		<pubDate>Thu, 04 Mar 2010 11:59:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-319</guid>
+		<description>?? все же это скорее исключение, нежели правило. Часто доставки приходится ждать неделями.</description>
+		<content:encoded><![CDATA[<p>?? все же это скорее исключение, нежели правило. Часто доставки приходится ждать неделями.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-280</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 19 Feb 2010 10:53:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-280</guid>
+		<description>Нет, я понимаю, что мой совет вылядит странным, но это говорится в том числе и по результатам четырехмесячного путешествия по ??ндии ;). Вот не знаю почему, но "говорить голосом" там есть гораздо более приоритетный способ общения, чем что-то другое. Можно несколько дней писать безрезультатные (и безответные, чаще всего) письма,  потом разозлиться, позвонить, и пробившись через "хиндглиш" сделать все за 10 минут.</description>
+		<content:encoded><![CDATA[<p>Нет, я понимаю, что мой совет вылядит странным, но это говорится в том числе и по результатам четырехмесячного путешествия по ??ндии ;). Вот не знаю почему, но &#8220;говорить голосом&#8221; там есть гораздо более приоритетный способ общения, чем что-то другое. Можно несколько дней писать безрезультатные (и безответные, чаще всего) письма,  потом разозлиться, позвонить, и пробившись через &#8220;хиндглиш&#8221; сделать все за 10 минут.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-279</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Fri, 19 Feb 2010 10:38:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-279</guid>
+		<description>Голосом имеет смысл звонить, если что-то срочно нужно. Если неправильно в автосаппорте отображается название организации - тут уже можно не спешить... 
+Кроме того, всякие индусы попадаются - у некоторых очень тяжело с устным английским... Плюс имеет смысл после e-mail общения или, тем более, голосового отображать в кейсе комментарием результаты переговоров - следующая смена индусов будет абсолютно не в курсе ваших переговоров с предыдущей. Бывает, их обязывают самих это писать, но был у меня реальный случай (не с нетап), когда после телефонного разговора появилась в кейсе запись: "Dialed to client by phone. He told me that.".</description>
+		<content:encoded><![CDATA[<p>Голосом имеет смысл звонить, если что-то срочно нужно. Если неправильно в автосаппорте отображается название организации - тут уже можно не спешить&#8230;<br />
+Кроме того, всякие индусы попадаются - у некоторых очень тяжело с устным английским&#8230; Плюс имеет смысл после e-mail общения или, тем более, голосового отображать в кейсе комментарием результаты переговоров - следующая смена индусов будет абсолютно не в курсе ваших переговоров с предыдущей. Бывает, их обязывают самих это писать, но был у меня реальный случай (не с нетап), когда после телефонного разговора появилась в кейсе запись: &#8220;Dialed to client by phone. He told me that.&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/522#comment-273</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 18 Feb 2010 16:18:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=522#comment-273</guid>
+		<description>По опыту общения с "индусами" (не только с нетаповским саппортом, но и по жизни) могу только посоветовать звонить к ним "голосом". Обратил внимание на то, что "голосовой" метод коммуникацй у них как-то принципиально выше приоритезируется :)
+Это кажется дичью полной, в 21 веке звонить по телефону, при наличии почты, кейсовой системы и прочих интернетов, но вот такое вот наблюдение. Придать движение в нужном направлении "индусу" можно либо очно, либо голосом. :)</description>
+		<content:encoded><![CDATA[<p>По опыту общения с &#8220;индусами&#8221; (не только с нетаповским саппортом, но и по жизни) могу только посоветовать звонить к ним &#8220;голосом&#8221;. Обратил внимание на то, что &#8220;голосовой&#8221; метод коммуникацй у них как-то принципиально выше приоритезируется :)<br />
+Это кажется дичью полной, в 21 веке звонить по телефону, при наличии почты, кейсовой системы и прочих интернетов, но вот такое вот наблюдение. Придать движение в нужном направлении &#8220;индусу&#8221; можно либо очно, либо голосом. :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

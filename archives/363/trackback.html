@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Про Usable Space на примере NetApp FAS2050A</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../351/trackback.html">NetApp и Cisco, некоторые подробности</a></div>
+			<div class="alignright"><a href="../366/trackback.html">Много новостей.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-363">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Про Usable Space на примере NetApp FAS2050A">Про Usable Space на примере NetApp FAS2050A</a></h2>
+			<div class="postmetadata">24 Август 2009, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Мой любимый нетапповский автор, Костадис Руcсос, который в своем блоге на днях закончил длиииинную десятичастную тему, тоже говорил, что в принципе это bad taste in blogging, устраивать такие “сериалы”, так как внимание даже искушенного и лояльного читателя теряется. Надо как-то стараться писать коротко и ясно. Вот всякий раз, как я начинаю в блоге травить анекдоты, сразу налетает толпа, так, на недавний пост с “автопроизводителями”, за три дня пришло почти треть обычной месячной аудитории блога. А то я все умничаю. Во, народу надо доступных зрелищ, это еще древние римляне понимали. ;)</p>
+<p>Поэтому пост будет недлинный, нетрудный, и с картинками :)</p>
+<p>Одной из основных проблем, с которыми сталкивается начинающий пользователь и админ NetApp является большой расход пространства дисков на небольших системах. NetApp в этом часто (и отчасти справедливо) упрекают.</p>
+<p>Давайте рассмотрим это на примере небольшой и относительно недорогой, а потому особенно популярной в России системы начального уровня FAS2050.</p>
+<p><a href="/pics/FAS2050.jpg"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="FAS2050" border="0" alt="FAS2050" src="/pics/FAS2050.jpg" width="500" height="223" /></a> </p>
+<p>Это система уровня low-enterprise, вторая с “нижнего конца” (младше ее есть еще FAS2020, предназначенная для совсем небольших инсталляций и систем).</p>
+<p>Она представляет собой конструктив&#160; высотой 4U, на 20 дисков 3.5”, вставляемых горизонтально “с лица”, и двумя контроллерами (часто мы называем их на жаргоне “головы” или “filer head”), обеспечивающими отказоустойчивую работу в режиме active-active cluster.</p>
+<p><a href="/pics/FAS2050rear.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="FAS2050 rear" border="0" alt="FAS2050 rear" src="/pics/FAS2050rear.png" width="500" height="200" /></a> </p>
+<p>Каждая “голова” несет на себе (слева-направо):</p>
+<ul>
+<li>2 порта 4GB FC, которые могут использоваться как FC-target (по простому – к ним можно подключить сервера SAN-сети, и они смогут использовать LUN-ы на NetApp), а также к ним можно подключать дополнительные дисковые “полки” расширения. Дисковые “полки” едины для всех моделей NetApp, могут нести в себе по 14 дисков SATA или FC (каждый тип полки под свои диски), и подключаются к контроллерам по интерфейсу FC (даже если диски в них SATA). </li>
+<li>Разъем последовательного порта для непосредственного консольного доступа (аналогичен такому же порту например на оборудовании Cisco, и некоторых других устройств), использует разъем RJ-45, и выглядит как сетевой, но не перепутайте. </li>
+<li>Порт сетевого подключения к BMC – Baseboard Management Control, отдельной управляющей подсистеме, с помощью которой можно организовать отдельную “подсеть” управления, если вы, например по соображениям безопасности, не хотите управлять системой из обычной “общей” LAN. Кроме этого, через BMC можно управлять системой на том уровне, когда обычные сетевые контроллеры еще не работают, например при загрузке системы и Mantenance Mode. </li>
+<li>Два независимых порта Gigabit Ethernet. Каждый из этих портов может работать независимо, например можно создать две подсети доступа, или по одному из интерфейсов подключаться как к NAS, по протоколам NFS или CIFS, а ко второму – по iSCSI. Можно также объединить эти порты либо в отказоустойчивую схему, либо в транк, при котором скорость передачи данных удваивается. </li>
+<li>Выше ряда разъемов интерфейсов располагается заглушка слота PCIe, в которую могут быть установлены платы расширения NetApp, такие как: дополнительные порты FC, Ethernet, аппаратный iSCSI HBA, и даже UW-SCSI, с помощью которой можно подключить к FAS ленточный накопитель, и делать автономный бэкап его содержимого на ленту. </li>
+</ul>
+<p>Контроллеры или “головы” полностью автономны, и могут работать независимо, каждая со своим набором дисков. В случае выхода из строя одной из них, или отказа, например, доступа по сети к какому-то из них, система переводит диски такого контроллера, а также все ресурсы (имена файловых шар, IP-адреса для NAS, WWN-ы для SAN) на “выживший” контроллер, и, с точки зрения пользователя, работа в случае такого “cluster takeover” продолжается “прозрачно”, без необходимости ручной перенастройки на серверах и клиентах (хотя, конечно, производительность и падает, ведь теперь один контроллер работает “за двоих”).</p>
+<p>Устанавливаемые в базовый конструктив диски могут быть либо SAS, либо SATA. Системы семейства FAS2000 впервые начали использовать диски SAS, так как ранее системы FAS использовали диски FibreChannel (FC). ??спользование дисков с интерфейсом SAS позволило несколько снизить стоимость системы, однако не в ущерб надежности. Опубликованные данные говорят о том, что применяемые диски SAS и такие же FC отличаются лишь контроллером и типом интерфейсного разъема. Надежность и быстродействие их идентичны.</p>
+<p>Такая система продается в двух вариантах “набивки”, на 12 дисков, и на 20 дисков.</p>
+<p>Предположим, вы выбрали конфигурацию на 12 дисков. К примеру, вы выбрали диски SAS 450GB 15K, и посчитали, что 12 дисков дадут вам 5.4TB пространства, чего вам замечательно как раз на все и хватит, и при этом не обратили внимание на предупреждения продававшего вам систему специалиста NetApp или его партнера.</p>
+<p>“Неприятности” начнутся на этапе первоначальной установки.</p>
+<p>Так как наша система кластерная, и имеет два независимых контроллера, нам надо разделить диски между контроллерами. Если мы делим их поровну, то каждому контроллеру достается по 6 дисков.</p>
+<p>Теперь на этих 6 дисках мы создаем RAID-ы. Допустим мы выбираем тип RAID по умолчанию, так называемый RAID-DP, нетапповский вариант RAID-6, но без потерь производительности и быстродействия, характерных для “обычного” RAID-6. В случае дисков SATA это, на сегодня, единственно приемлемый тип, но и в случае SAS это вполне разумный выбор.</p>
+<p>При создании aggregate и RAID из наших 6 дисков вычтется один (в случае RAID-4) или два (в случае RAID-DP) диска на хранение parity. Кроме этого, каждому контроллеру надо выдать один диск hot spare.</p>
+<p>??того, мы получаем из 12 дисков два RAID по <strong>3</strong> usable диска в каждом. То есть, в случае выбора дисков SAS 450GB: 3&#215;450GB = 1350GB на каждом из контроллеров. Обратите внимание, объединить их, например, чтобы записать на них 2.7TB “одним куском” не получится, только двумя кусками по 1.35TB.</p>
+<p><a href="/pics/RAIDeff1.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="RAID-eff-1" border="0" alt="RAID-eff-1" src="/pics/RAIDeff1.png" width="504" height="319" /></a> </p>
+<p>На рисунке коричневым показаны диски parity для контроллеров A и B, зеленым – hot spare, и синим – диски данных. Обведен красным диски контроллера А, синим – контроллера B.</p>
+<p>Для новичков в NetApp, а именно к таким обычно и попадают обычно младшие модели NetApp с небольшим базовым количеством дисков, результат неожиданный, и, что уж говорить, если начистоту, не особо приятный.</p>
+<p>Тем не менее <em>“Ну ужас, да. Но не “ужас-ужас”</em>, как говорила героиня известного анекдота.</p>
+<p>Говоря начистоту, никто из наши конкурентов не рассматривает иные типы RAID кроме RAID-10 в качестве основы для хранения primary data, то есть активных рабочих данных, будь то базы данных SQL, почтовая база Exchange или хранилища виртуальных машин.</p>
+<p>Поэтому, гипотетический <strike>простой стиральный порошок</strike> сторадж на 12 дисков, какой-нибудь <em>другой компании</em>, при выборе RAID-10, даст ровно тот же результат в 50% usable от общего объема. При этом, прошу отметить, RAID-DP объективно надежнее, практически такой же быстрый, и мы получаем с ним еще и два hotspare диска.</p>
+<p>Но самое интересное получается дальше. </p>
+<p>Если мы захотим теперь расширить емкость нашего FAS2050, добив его дополнительными 8 дисками до 20 штук в базовом конструктиве, то мы сможем <strong>все эти диски</strong> добавить как диски данных. </p>
+<p>В то время как в “обычном сторадже”с RAID-10, в usable будут снова <strong>только половина</strong>.</p>
+<p><a href="/pics/RAIDeff2.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="RAID-eff-2" border="0" alt="RAID-eff-2" src="/pics/RAIDeff2.png" width="504" height="320" /></a> </p>
+<p>Как видите, с увеличением количества дисков в системе, эффективность использования пространства дисков у NetApp возрастает.</p>
+<p>Но это не предел. </p>
+<p>Максимальный размер одного RAID для дисков SAS и FC в системах хранения NetApp допускается до 28 дисков*. Рекомендуемая величина (делать “очень длинный RAID” по разным причинам не самая лучшая идея) – 16 дисков.&#160;&#160;&#160; <br />&#160;<a href="/pics/RAIDeff3.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="RAID-eff-3" border="0" alt="RAID-eff-3" src="/pics/RAIDeff3.png" width="504" height="452" /></a> </p>
+</p>
+<p>Если мы добавим дисковую “полку” расширения к нашей системе, мы сможем довести соотношение usable к raw до <strong>82%</strong>! ??з 34 купленных дисков, мы можем отдать под данные целых 28! При этом не поступившись ни надежностью, ни быстродействием.&#160; <br />Результат более чем впечатляющий.&#160; </p>
+<p><strong>Выводы очевидны</strong>.</p>
+<ul>
+<li>Чем больше дисков в системе у NetApp, тем выше эффективность их использования. </li>
+<li>”Побочный” расход дисков на системах NetApp довольно велик для систем с небольшим количеством дисков, но почти не увеличивается при дальнейшем их добавлении. </li>
+<li>??збегайте покупать системы NetApp с дисками “впритык” (особенно небольшие), обязательно при покупке уточните вопрос, сколько в результате получится usable space, чтобы избежать неприятных сюрпризов на этапе пусконаладки.</li>
+</ul>
+<p>&#160;</p>
+<p>&#8211;<br />
+ <font size=-1>* Один aggregate (и тома на нем) могут располагаться поверх множества независимых RAID-групп (16+16+16…). В пределах заданного при создании aggregate размера RAID, диски добавляются в него, по достижению заданного размера (например 16 дисков) начинается новый. Текущий лимит на размер aggregate/тома для всех систем под ONTAP 7G (кроме 2020) - 16TB</font></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (5)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2743">
+		<div id="div-comment-2743">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Немного портит картину тот факт, что теперь есть рекомендация два хотспера для одного типа дисков на контроллер. Но что поделать - отказоустойчивость.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2743" title="">16 Июнь 2012, 23:28</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2744">
+		<div id="div-comment-2744">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:<br />
+Что значит &#8220;теперь&#8221;? Эта рекомендация была всегда, но она распространяется только на системы с большим числом дисков, и для систем серии FAS2000 написано исключение, и рекомендация иная. Вы читаете техдокументацию, или просто так, от балды ходите и комментируете?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2744" title="">16 Июнь 2012, 23:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2874">
+		<div id="div-comment-2874">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Всё не перечитаешь. Конкретно о том, что вы говорите, похоже не читал.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2874" title="">6 Июль 2012, 14:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2876">
+		<div id="div-comment-2876">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>Но к этому надо стремиться. :)<br />
+Сходите почитайте NetApp Resiliency Guide. Он даже переведенный есть.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2876" title="">6 Июль 2012, 15:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2878">
+		<div id="div-comment-2878">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Стремимся. Скачал, прийдёт и ему черёд. Спасибо.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2878" title="">6 Июль 2012, 19:46</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="363" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.069 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

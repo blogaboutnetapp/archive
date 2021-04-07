@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; VMware на NFS: подробности о плюсах.</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../158/trackback.html">VMware на NFS: экзотика или новый хит?</a></div>
+			<div class="alignright"><a href="../161/trackback.html">VMware на NFS: в жизни</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-159">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to VMware на NFS: подробности о плюсах.">VMware на NFS: подробности о плюсах.</a></h2>
+			<div class="postmetadata">5 Сентябрь 2008, 8:58 <!-- от  --></div>
+			<div class="postentry">
+				<p>Я решил не раздувать прошлый пост, упихивая в него всю тему.<br />
+Сегодня подробнее о том, почему, и как именно вы получите &#8220;больше от того же NetApp&#8221; при использовании VMware на NFS. </p>
+<blockquote><p>Простое и эффективное использование всех фич NetApp, таких как thin provisioning (динамическое выделение пространства тому по мере его потребности в месте, а не сразу в момент нарезки тома или LUN), дедупликация, снэпшоты.</p></blockquote>
+<p>Почему оно хорошо работает с NFS и что ему мешает работать также хорошо на FC/iSCSI?</p>
+<p><img src="/pics/NetappNFS.jpg" alt="Схема работы VMware ESX по NFS с NetApp FAS" /></p>
+<p><strong>Thin Provisioning</strong> (<a href="../36/trackback.html">подробнее было здесь</a>)<br />
+Я уже ранее писал о <a href="../36/trackback.html">thin provisioning</a>. Это любопытная технология, которая позволяет экономить место на дисковой системе хранения за счет того, что, в отличие от традиционного метода, место для занимающего пространство объекта, будь то LUN или файл, например тот же VMDK, выделяется и резервируется не в момент создания, а по мере заполнения его реальным содержимым.</p>
+<p>Простой пример. Вы администратор системы хранения и у вас есть 1TB. Но кроме терабайта пока свободного места у вас есть пользователи со своими проектами. Например к вам пришли трое, каждый желает получить по 500GB под свои базы данных. У вас есть несколько вариантов решения. Вы можете выделить первым двум запрашиваемые 500 и отказать третьему. Вы можете урезать их треования и выдать всем троим по 330GB вместо просимых 500. </p>
+<p>В обоих случаях вы окажетесь с полностью &#8220;занятым&#8221; стораджем, при том, что вы точно знаете, что в ближайший год все три базы едва ли по 50-70GB объема наберут, остальное же выданное место будет лежать &#8220;про запас&#8221;, &#8220;чтобы два раза не ходить&#8221;, распределенным и не доступным другим нуждающимся. Обычное дело, всем знакомо.</p>
+<p>В случае использования thin provisioning-а вы смело выдаете всем троим по просимым 500GB. Все трое видят для себя доступным LUN размером 500GB, ура. Они создают на нем базы, каждая из которых постепенно растет и использует место. С точки зрения же вас, как администратора, свободное пространство на дисках, общей емкостью в 1TB, несмотря на то, что на нем лежит три якобы 500GB LUN, уменьшилось всего на 50*3=150GB, и вы все еще имеете 850GB свободного места, постепенно уменьшающееся по мере роста реального размера баз. Придет к вам четвертый - получит пространство под свои задачи и он.</p>
+<p>Традиционный вопрос и традиционный ответ.<br />
+<strong>Q:</strong> А как же фрагментация? Ведь мы еще со времен Windows 95 привыкли отключать динамически изменяемый своп и фиксировать его для достижения лучшей производительности? Если мы предоставим LUN-у рсти как ему вздумается, то он начнет писаться куда попало, а не подряд?</p>
+<p><strong>A:</strong> Ну наверное для Windows на FAT это действительно верно. Но в случае WAFL это особого смысла не имеет. WAFL как файловая система устроена так, что он в любом случае будет писать &#8220;вразнобой&#8221; (см. статью про устройство WAFL), &#8220;куда попало&#8221; AKA &#8220;Write Anywhere&#8221;. То есть выделили-ли вы фиксированный LUN, или предоставили ему расти самостоятельно (autogrow), хоть так, хоть сяк, оно будет работать, с точки зрения файловой системы, одинаково. ?? если вас устраивало быстродействие в случае традиционного provisioning-а &#8220;одним куском&#8221;, то нисколько не медленнее оно будет и в случае thin provisioning-а.</p>
+<p><strong>Почему это хорошо работает для NAS, и часто не так хорошо для SAN?</strong><br />
+Дело в том, что в случае NAS система хранения обладает полной информацией о хранимых данных. Ведь она создает и поддерживает на своей стороне файловую систему, и знает все о том, что у нее хранится. В случае же хранения LUN, она просто предоставляет внешнему пользователю &#8220;массив байт&#8221;, и далее не знает ничего о том, что и как там на нем происходит.<br />
+Вся информация, которой она располагает, это то, что вот эти байты были &#8220;потроганы&#8221;, и, значит, скорее всего, содержат информацию, а вот эти - нет, и скорее всего они пусты и не используются.</p>
+<p>Простой пример, приведший к созданию опции Space Reclamation в новых версиях <strong>SnapDrive for Windows</strong>.<br />
+Мы создаем LUN размером 500GB и размещаем на нем файловую систему, например NTFS. Мы форматируем ее, создаем на ней некую структуру файловой системы, и начинаем записывать данные. Спустя какое-то время мы записали на данный LUN 90% его емкости и решили его почистить от ненужного, надеясь за счет thin provisioning-а получить больше свободного места на системе хранения. Но, после удаления более ненужной информации, наш LUN на системе хранения продолжает занимать все те же 450GB, как и до чистки. Почему?</p>
+<p>Потому что SAN-сторадж ничего не знает о том, что на нем произошла чистка. Вы знаете, что отличие свободного от занятого блока, с точки зрения файловой системы, это просто наличие специального атрибута блока &#8220;свободен, можно использовать повторно&#8221;. С точки зрения системы хранения все 450GB нашего LUN-а несут какую-то информацию, а таблица &#8220;занято-свободно&#8221; файловой системы для стораджа недоступна.</p>
+<p>??менно для решения такой проблемы и была создана опция <strong>Space Reclamation</strong>. SnapDrive, работая &#8220;послом&#8221; на уровне OS и взаимодействуя с драйвером файловой системы, сообщает &#8220;вниз&#8221;, своему стораджу, что там &#8220;наверху&#8221; происходит, какие из ранее использованных блоков можно опять считать незанятыми и освободить их.<br />
+Но такое доступно, повторюсь, только при использовании нового SnapDrive.</p>
+<p>Зато просто и естественно получается при использовании стораджа как NAS. Веь в данном случае он сам следит за тем, какие блоки занимаются и высвобождаются.<br />
+Следовательно, thin provisioning на NAS получается, обычно, гораздо эффективнее.</p>
+<p><strong>Дедупликация.</strong></p>
+<p>Подробнее и в деталях о дедупликации можно почитать на русском языке в статьях <a href="http://docs.google.com/Doc?id=dcq2fsr4_542jvxt3c5">&#8220;A-SIS: Дедупликация созрела&#8221;</a> и <a href="http://docs.google.com/Doc?id=dcq2fsr4_51c9wq3ndz">&#8220;Насколько безопасна дедупликация?&#8221;</a><br />
+Кроме того, хочу обратить ваше внимание на русскоязычную рассылку, которую проводит российский дистрибутор NetApp - компания <nofollow><a href="http://vd.verysell.ru">Verysell</a></nofollow>. Ссылка на уже вышедшие выпуски находится справа, в колонке &#8220;Ссылки&#8221; - <nofollow><a href="http://www.vd.verysell.ru/suppliers/netapp/documentation/">&#8220;Русскоязычные документы&#8221;</a></nofollow>.</p>
+<p>Это технология, при которой система обнаруживает в хранимых данных идентичные блоки, оставляет один, а на второй ставит своеобразные &#8220;хардлинки&#8221; на уровне файловой системы WAFL. То есть, с точки зрения пользователя, как раньше у него лежал в его домашней папке разосланный всем по компании документ, так и сейчас лежит, также как у сотни его коллег. На деле блоки данных этого документа хранятся в единственном экземпляре, просто логически доступны из множества пользовательских папок системы хранения.</p>
+<p><img src="/pics/dedupe-bg.png" alt="Deduplication" /></p>
+<p>Точно также все обстоит и в случае использования, например, баз данных. Если в базе данных у вас есть, например, пустые поля, или повторяющиеся записи, то эти поля не будут занимать блоки, в которых они расположены, а лишь одну копию, и &#8220;линки&#8221; на этот блок из множества других мест.</p>
+<p>Так как это происходит на уровне файловой системы, то для пользователя, программы или базы данных это полностью прозрачно. Дедуплицированный же объект будет занимать на диске место значительно меньшее своего физического размера.</p>
+<p>Если вы используете &#8220;классический метод&#8221; подключения LUN к ESX-серверу, с созданием на нем VMFS и хранением в ней файлов виртуальных дисков VMDK, то вы тоже можете воспользоваться дедупликацией. Так как она работает на уровне тома WAFL, то она заработает и для LUN-ов. </p>
+<p>Однако вот в чем хитрость. При использовании дедупликации для LUN, экономию места вы увидите на уровне &#8220;администратора системы хранения&#8221;, а не &#8220;администратора VMware&#8221;. То есть после завершения postprocess-цикла дедупликации вы не увидите <em>больше</em> места на LUN. Но вот зато <em>на томе</em> NetApp, где располагается этот LUN, вы действительно <em>получите больше места </em>(например для размещения снэпшотов), так как физический объем LUN-а уменьшился, относительно содержащего его тома.<br />
+А вот если мы дедуплицируем содержимое NFS-шары, то вот прямо свободное место, непосредственно доступное админу VMware на этой шаре, в результате и получаем. Опять же по вышерассмотренной причине.</p>
+<p><strong>Снэпшоты</strong> - один из краеугольных камней системы хранения NetApp и одна из ее самых главных технических фишек. Мгновенные копии состояния системы хранения, не занимают в момент создания места, не ухудшают при использовании производительность системы в целом и весьма просты в применении.</p>
+<p>Традиционный подход это подключение LUN по FC или iSCSI, форматирование его в VMFS и создание на нем datastore, для размещения в datastore файлов виртуальных дисков VMDK.<br />
+Обычно, когда мы не ограничиваемся одной-двумя виртуальным машинами, мы объединяем и группируем диски виртуальных машин по датасторам. Тут у нас Эксченджи, тут файловые сервера, а тут - базы данных. Это облегчает администрирование, увеличивает надежность сервисов, и улучшает производительность, группируя сходную нагрузку в пределах одного потока ввода-вывода.</p>
+<p>Но, как известно бэкап - ничто, без процесса восстановления. А вот с восстановлением все будет непросто. Так как в снэпшоте у нас окажется LUN целиком, то и восстановить его, привычным образом через &#8220;<code>snap restore <vol> <snapshot></code>&#8221; мы можем только целиком, вместе со всеми VMDK от разных машин. Хорошо ли будет из за сбоя на одном сервере откатывать всю группу? Сомневаюсь.<br />
+Конечно есть выходы, можно смонтировать снэпшот как отдельный датастор, и из получившегося &#8220;датастор-прим&#8221; вытащить только нужные нам VMDK, а затем перенести их в основной датастор, заменив ими текушие файлы&#8230;<br />
+Но как-то&#8230; неаккуратненько.</p>
+<p>Какой же выход?<br />
+Можно перейти от LUN/VMFS, рассмотренных выше, к LUN/RDM. То есть каждой виртуальной машине мы цепляем свой, созданный специально для нее LUN (или, чаще, два LUN. Один под систему, второй под swap и temp или /var). Казалось бы, мы решаем проблему с недостаточной гранулярностью восстановления, так как в данном случае мы сможем восстановить любой желаемый виртуальный диск, любой виртуальной машины по выбору.</p>
+<p>Однако это хорошо работает только при сравнительно небольшом количестве виртуальных машин. Во первых, &#8220;датацентр&#8221; VMware, включающий в себя все входящие в него ESX-сервера, объединенные процессом VMotion, ограничен в количестве используемых на нем LUN-ов числом 254 LUN-а.<br />
+Да и управление, например, двумя-тремя десятками виртуальных машин, каждая по два-три LUN в RDM, все эти LUN, как их не документируй, обязательно блудят и путаются. Решение для сильных духом и очень аккуратных админов.</p>
+<p>Во вторых, мы в полный рост столкнемся с проблемой &#8220;заблудившихся LUN-ов&#8221;. Если наша виртуальная машина на одном из ESX-серверов использует LUN/RDM, то _все_ остальные ESX-сервера, входящие в &#8220;датацентр&#8221; будут видеть этот LUN как неиспользуемый, не понимая, что это RDM LUN для виртуальной машины. ?? существует весьма серьезная опасность, что однажды вы его таки отформатируете как незадействованный, в VMFS, вместе со всем его содержимым. Спрятать его нельзя, так как он должен быть доступен всем входящим в &#8220;датацентр&#8221; серверам для работы VMotion и перемещении нашей виртуальной машины между хостами. Это на самом деле серьезная опасность.</p>
+<p>Таким образом при использовании снэпшотов на NFS-томе вы можете получить гораздо более &#8220;гранулярный&#8221; и удобный в использовании результат как при бэкапе, так и при восстановлении.</p>
+<p><em>Как, вы все еще думаете, использовать ли для вашего VMware наш NFS?</em> ;)</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/backup/index.html" rel="tag">backup</a>, <a href="../tag/deduplication/index.html" rel="tag">deduplication</a>, <a href="../tag/nas.html" rel="tag">nas</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/nfs/index.html" rel="tag">nfs</a>, <a href="../tag/restore.html" rel="tag">restore</a>, <a href="../tag/thin-provisioning.html" rel="tag">thin provisioning</a>, <a href="../tag/vmware/index.html" rel="tag">vmware</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (5)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-42">
+		<div id="div-comment-42">
+		<div class="comment-author">
+			<cite>Ildarych:<cite></div>
+			<p>Есть 2 вопроса:<br />
+1. Скорость ограничена 1Гб<br />
+2. Проблемный мультипасинг</p>
+						<div class="comment-meta"><a href="trackback.html#comment-42" title="">5 Сентябрь 2008, 10:13</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-43">
+		<div id="div-comment-43">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>А об этом у нас будет еще третья серия ;)</p>
+<p>Но вкратце:</p>
+<p>1А. Ну строго говоря уже не ограничена. Уже есть 10GB-адаптеры, и даже вот уже года два как NetApp их поддерживает и продает как порты расширения в своих системах. ?? VMware 10GBE поддерживает. ?? даже при желании можно купить эвалюэйшн-кит из пары адаптеров с hardware iSCSI и TOE за 2000$ за пару у Chelsio.<br />
+<a href="http://chelsio.com/products_10g_adapters.html" rel="nofollow">http://chelsio.com/products_10g_adapters.html</a></p>
+<p>1В. Ты традиционно путаешь bandwidth и speed.<br />
+Я об этой проблеме уже писал еще в том блоге.<br />
+Вот эта статья: <a href="../38/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/38</a><br />
+В случае характера нагрузки VMware, то есть предельно random, небольшим блоками, роль играет не bandwith, а IOPS, который зависит прежде всего от латентности, а он у NFS весьма неплох.</p>
+<p>2. Чем же он проблемен? Не более проблемен чем у обычного IP-сервиса. NFS это ведь стандартный сетевой протокол поверх TCP/IP, то есть у него будет не более проблемный мультипасинг чем у FTP или HTTP.<br />
+Транкинг портов же сейчас делать умеют по моему любые смартсвитчи, да еще и не одним способом.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-43" title="">5 Сентябрь 2008, 14:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2390">
+		<div id="div-comment-2390">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>2 Ildarych<br />
+&gt;1. Скорость ограничена 1Гб</p>
+<p>У НетАпа есть агрегация портов (в терминах НетАпа VIF - Virtual InterFace), можно 4-ре гигабита в один VIF собрать, сделать _правильное_ распределение нагрузки и получите, ну не 4 Гб/с, но и не 1.</p>
+<p>Теперь это можно сделать и с 10Gb карточками. А ещё можно в один VIF &#8220;второго уровня&#8221; собрать два VIF&#8217;а, те что из 10-к и те что из 1-ц для пущей отказоустойчивости и настроить JamboFrames %)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2390" title="">28 Апрель 2012, 15:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2392">
+		<div id="div-comment-2392">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>> У НетАпа есть агрегация портов (в терминах НетАпа VIF - Virtual InterFace), </p>
+<p>Там все не так просто. Если вкратце, то в NFS на конкретный IP-destination получается только одна TCP/IP-сессия, то есть в чистом виде по более одному физическому порту в группе трафик не балансируется (одну сессию, имеющую один IP-source и IP-destination нельзя пустить более чем по одному физическому интерфейсу, даже в VIF). Это можно обойти наделав IP-алиасов на конце стораджа, и обращаться к ним со стороны IP-source (сервера) более-менее равномерно. Но это во-первых, не всегда возможно, во-вторых усложняет схему.</p>
+<p>Впрочем, про NFS ухе запланирована статья на следующей неделе. ??ам будет подробнее.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2392" title="">28 Апрель 2012, 16:55</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2592">
+		<div id="div-comment-2592">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>&gt;Это можно обойти наделав IP-алиасов на конце стораджа</p>
+<p>Алиасы нужны только в случае, когда количество интерфейсов в линк-агрегате больше, чем количество ESXi хостов (что большая редкость). ??наче алиасы не нужны, вопрос сводится только к равномерному распределению виртуальных машин по ESXi хостам, что вполне естественно.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2592" title="">29 Май 2012, 19:25</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="159" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.074 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

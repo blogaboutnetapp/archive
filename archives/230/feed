@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp Innovation 2009 - 7 апреля.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/230/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/230</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:32 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/230#comment-328</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 12 Mar 2010 01:00:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=230#comment-328</guid>
+		<description>Не объявляли пока.</description>
+		<content:encoded><![CDATA[<p>Не объявляли пока.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: кирилл</title>
+		<link>http://blog.aboutnetapp.ru/archives/230#comment-327</link>
+		<dc:creator>кирилл</dc:creator>
+		<pubDate>Thu, 11 Mar 2010 20:30:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=230#comment-327</guid>
+		<description>А в этом будет когда?</description>
+		<content:encoded><![CDATA[<p>А в этом будет когда?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

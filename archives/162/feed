@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: SnapVault</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/162/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/162</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:40 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/162#comment-10933</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Tue, 05 Nov 2013 12:58:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=162#comment-10933</guid>
+		<description>Нам тут на курсах тренер сказал, что в 8.2 лицензирование SnapVault более не 2х компонентное )
+Нужна одна лицензия и для source и для destination.
+
+...если  я ничего не путаю...</description>
+		<content:encoded><![CDATA[<p>Нам тут на курсах тренер сказал, что в 8.2 лицензирование SnapVault более не 2х компонентное )<br />
+Нужна одна лицензия и для source и для destination.</p>
+<p>&#8230;если  я ничего не путаю&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/162#comment-2625</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 31 May 2012 14:45:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=162#comment-2625</guid>
+		<description>Вот &lt;a href="http://www.netapp.com/ru/communities/tech-ontap/tot-broome-tioga-case-study-1110-ru.html" rel="nofollow"&gt;здесь&lt;/a&gt; в самом конце раздела &lt;b&gt;Развитие&lt;b&gt;. Говорится, что можно с реплицированных данных делать клоны, правда не упоминают чем именно они реплицированны SnapMirror или SnapVфult, подозреваю и тем и тем можно.
+
+Коллеги?</description>
+		<content:encoded><![CDATA[<p>Вот <a href="http://www.netapp.com/ru/communities/tech-ontap/tot-broome-tioga-case-study-1110-ru.html" rel="nofollow">здесь</a> в самом конце раздела <b>Развитие</b><b>. Говорится, что можно с реплицированных данных делать клоны, правда не упоминают чем именно они реплицированны SnapMirror или SnapVфult, подозреваю и тем и тем можно.</p>
+<p>Коллеги?</b></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/162#comment-2593</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 29 May 2012 13:48:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=162#comment-2593</guid>
+		<description>1. Просто прекратиться резервное копирование. Которое потом можно будет восстановить.
+2. Скопированные данные на Secondary доступны только для чтения, пока есть связь, как только она прервана, можно делать всё, что можно сделать с любым qtree и vol'юмом.</description>
+		<content:encoded><![CDATA[<p>1. Просто прекратиться резервное копирование. Которое потом можно будет восстановить.<br />
+2. Скопированные данные на Secondary доступны только для чтения, пока есть связь, как только она прервана, можно делать всё, что можно сделать с любым qtree и vol&#8217;юмом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/162#comment-84</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 20 Oct 2008 13:44:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=162#comment-84</guid>
+		<description>1. А если я убиваю снапшот на Primary - как это отражается на Secondary?
+2. Что можно делать со снапшотами на Secondary? Можно ли из них создать клон тома (FelxClone)?</description>
+		<content:encoded><![CDATA[<p>1. А если я убиваю снапшот на Primary - как это отражается на Secondary?<br />
+2. Что можно делать со снапшотами на Secondary? Можно ли из них создать клон тома (FelxClone)?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

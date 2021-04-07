@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; FAS2500: долгожданное обновление в low-enterprise</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1367/trackback.html">Почему NetApp E2700 так похож на &#8230;</a></div>
+			<div class="alignright"><a href="../1370/trackback.html">NetApp BreakFASt - 25 июня!</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1369">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to FAS2500: долгожданное обновление в low-enterprise">FAS2500: долгожданное обновление в low-enterprise</a></h2>
+			<div class="postmetadata">17 Июнь 2014, 18:40 <!-- от  --></div>
+			<div class="postentry">
+				<p>Несмотря на то, что многие уже догадались о том, что будет объявлено этим летом, а некоторые даже не удержались от <a href="http://blog.trinitygroup.ru/2014/05/netapp-fas2500-low-enterprise.html">утечек</a>, сегодня, 17 июня, официально объявляется о выходе новой линейки в low-enterprise, систем хранения на замену популярным FAS2200. </p>
+<p><a href="/pics/FAS2500----low-enterprise_AEA8/FAS2500.jpg"><img title="FAS2500" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="FAS2500" src="/pics/FAS2500----low-enterprise_AEA8/FAS2500_thumb.jpg" width="640" height="262" /></a></p>
+<p>Не секрет, что в свете новой стратегии NetApp по переходу на Clustered Data ONTAP для всей своей линейки стораджей, FAS2200 выглядели не очень привлекательными. Несмотря на довольно мощный по процессору контроллер, на нем явственно недоставало портов ввода-вывода. Ведь даже система 2240 с полной набивкой имеет всего 2 портв 10G Ethernet, а это, по сути, минимум для Clustered ONTAP, и все они будут заняты под кластерный интерконнект, оставляя для подключения хостов только Gigabit Ethernet, что не очень круто. Вдобавок, наличие всего одного слота для Mezzanine Card expansion, заставляло выбирать “на старте” систему с 10G Ethernet, или же с FC-портами, и никак не вместе. Наконец, хотя вскоре и самая младшая система FAS2220 получила возможность использовать 10G на Mezzanine card, это были дорогие SFP+ порты, стоимость подключения к которым была ну совсем небюджетной. ?? это все не считая памяти на контроллере, которой было ну совсем впритык по нынешним временам, когда VST-сторадж с flash SSD и Flash Pool становится почти стандартной конфигурацией даже в младших системах.</p>
+<p>Вот все эти недостатки и были призван устранить новые системы, в серии, получившей название <strong>FAS2500</strong>: FAS2520, FAS2552&#160; и FAS2554. Прямо из названия видно, что модели заменяют имеющиеся FAS2200 “одна в одну”, то есть FAS2220 меняется в линейке продуктов на FAS2520, и так далее. По слухам, остающимся без комментариев, FAS2200 ухдит из продажи (EOA) уже этой осенью.</p>
+<p>Таким образом, в “век Clustered Data ONTAP”, начинающийся этой осенью, NetApp въезжает с полностью обновленной линейкой стораджей, линейкой обновленной и упрощенной. Теперь у него есть ровно два семейства: FAS2500 для так называемого low-enterprise, то есть нижнего сегмента энтерпрайз-клиентов, и FAS8000 для всех остальных, в которую входят системы как mid-range, так и high-end. Давайте посмотрим внимательнее на технические особености и детали, тем более, что их много и они интересные.</p>
+<p>Контроллеры FAS2500, хотя и используют те же процессоры Intel Xeon C (dual core x64 1,73 GHz), что и FAS2200, получили <strong>в три раза больше памяти</strong>, чем FAS2200 (по 18GB на контроллер, 16GB RAM + 2GB NVMEM), и, соответствено, <strong>в два раза увеличилась емкость NVMEM</strong>. Увеличение NVMEM, как уже было проверено на FAS8000, крайне положительно сказывается на производительности на линейных, <em>sequental</em>-нагрузках, на которых у NetApp ранее было <em>не все хорошо</em>. Пусть они были не слишком частым профилем использования в реаллайф, но когда они были, на них можно было бы работать и побстрее. Вот сейчас это узкое место устранено. Память нынче дешевая, и теперь не проблема ее ставить побольше. </p>
+<p>Больше памяти, в свою очередь, позволило поднять лимиты на число дисков SSD в Flash Pool, не секрет, что именно емкостью памяти на контроллере объем Flash Pool был так ограничен в FAS2200, так как Virtual Storage Tier во flash <em>крайне любит</em> память при работе. Так что теперь в FAS2500 допустимая емкость SSD в FlashPool <strong>увеличена в пять раз, до 4TB</strong>.</p>
+<p>Память нужна не только для Flash Pool, она нужна и для собственно кластерных операций в Clustered Data ONTAP. Ограниченный объем памяти также ограничивал и размеры кластера по числу нодов-контроллеров, если в нем были “слабые” участники. Теперь допустимый размер кластера с участием FAS2500 <strong>увеличился вдвое</strong>.</p>
+<p>Наконец, самое интересное. в контроллерах FAS2550 (то есть в моделях FAS2552 и FAS2554) установлены уже знакомые по FAS8000, так называемые <strong>UTA2</strong>, или <strong>Unified Target Adapters</strong> (AKA CNA – Converged Network Adapter), по <strong>4 UTA2-порта на контроллер</strong>. Это порты, которые, в зависимости от настройки на стороне OS (и установленного SFP в него) могут быть <em>или</em> портом 10G Ethernet, <em>или</em> же портом FC 16G/8G. Единственное ограничение тут состоит в том, что, так как для CNA используются двухпортовые чипы, изменить его режим можно только для чипа в целом, то есть для пары, двух соседних портов. Таким образом, режим работы “<em>10G Ethernet или FC”</em> меняется на пару портов. Впрочем, это не слишком серьезное ограничение.</p>
+<p><a href="/pics/FAS2500----low-enterprise_AEA8/image.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/FAS2500----low-enterprise_AEA8/image_thumb.png" width="640" height="126" /></a></p>
+<p><a href="/pics/FAS2500----low-enterprise_AEA8/image_3.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/FAS2500----low-enterprise_AEA8/image_thumb_3.png" width="640" height="252" /></a></p>
+<p>Кроме UTA2-портов на контролерах FAS2500 также осталось 2 порта Gigabit Ethernet для данных (e0a и e0b), порт ACP для управления полками и порт управления Service Processor, выделенным микроконтроллером out-of-band управления. Левее этой группы находится порт консоли. На левом краю контроллера – уже знакомые порты SAS для подключения дисковых полок.</p>
+<p><a href="/pics/FAS2500----low-enterprise_AEA8/image_4.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/FAS2500----low-enterprise_AEA8/image_thumb_4.png" width="644" height="127" /></a></p>
+<p>Есть радость и для покупателей FAS2520, самой младшей системы. У нее такой же контроллер по процессору и памяти, что и в FAS2550, но у них тоже есть 4 порта 10G Ethernet на контрллер, правда это порты 10GBase-T, недорогие и пригодные для включенияв столь же <a href="http://www.netgear.com/landing/10gigabit.aspx">недорогие свитчи</a>.</p>
+<p><a href="/pics/FAS2500----low-enterprise_AEA8/image_5.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/FAS2500----low-enterprise_AEA8/image_thumb_5.png" width="640" height="130" /></a></p>
+<p>В остальном – это тот же самый контроллер, с тем же процессором, памятью и возможностями.</p>
+<p><a href="/pics/FAS2500----low-enterprise_AEA8/image_6.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/FAS2500----low-enterprise_AEA8/image_thumb_6.png" width="640" height="158" /></a></p>
+<p>Как и в случае FAS2200, системы FAS2552 и FAS2254 могут быть переделаны в дисковые полки, заменой контроллера на disk enclosure IOM3(IOM6), но также как и ранее, нельзя переделать FAS2520 в такую полку, что связано с иным, неподдерживаемым конструктивом последней.</p>
+<p>Увы, пока нет планов апгрейда уже существующих у клиента FAS2200 в новые FAS2500, заменой контроллера, несмотря на то, что, формально, технически, как я понимаю, такая возможность есть, так как контроллеры и конструктивы системы совместимы. Возможно это будет и пересмотрено, появились же спустя какое-то время Mezzanine cards на FAS2220.</p>
+<p>В Clustered Data ONTAP поддерживаются все возможные конфигурации, то есть dual-node switchless, switched и single-node cluster, а также mixed node configuration, то есть из “разнопородных” контроллеров. Допустимый размер кластера с участием FAS2550 составляет <strong>8 нод</strong>, то есть 4 HA-пары, для FAS2520 – <strong>4 ноды</strong> (2 HA-пары). Поддержка кластерных режимов, кроме switchless dual-node и single node, для FAS2520 объявлена с DOT 8.3.1, то есть к концу года/ первому кварталу 2015.</p>
+<p>FAS2550 поддерживают все имеющиеся у NetApp протоколы, <strong>включая FCoE</strong>, его раньше не было у FAS2200. Однако FAS2520, с другими сетевыми интерфейсами, FCoE на 10G-портах&#160; <strong>не поддерживает</strong>, также, как и FC, по понятной причине. Однако все остальные протоколы на 10G есть, например можно их использовать для 10G iSCSI, или по NFS. <strong>Все лицензии на все протоколы – включены</strong> по умолчанию в поставку.</p>
+<p>Схема лицензий осталась примерной той же, что вам уже знакома по FAS2200. В базовую поставку включены все протколы, а также SyncMirror, FlexShare, OSSV, Snapshots, Thin provisioning, Deduplication, Multistore. За отдельные деньги идут все SnapManager в составе SnapManager Suite, SnapMirror, SnapRestore, FlexClone, SnapVault.</p>
+<p>Ну и, конечно, у FAS2500 теперь новая “морда”-bezel, такая же, как у старших братьев – FAS8000 :)</p>
+<p>&#160;</p>
+<p><a href="/pics/FAS2500----low-enterprise_AEA8/image_7.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/FAS2500----low-enterprise_AEA8/image_thumb_7.png" width="640" height="328" /></a></p>
+<p>&#160;</p>
+<p>Пользуясь случаем, хочу пригласить всех интересующихся за более подробным рассказом на так называемый <a href="http://www.netapp.com/ru/forms/ru-201406-breakfast-update.aspx">NetApp BreakFASt</a>, технический семинар на полдня, с утра, который состоится 25 июня, с 9 до 14 часов в Москве. В <a href="http://communicate.netapp.com/content/ru-201406-breakfast-update">программе</a> не только FAS2500, но и кое-что новое, о чем еще пока не рассказывалось.</p>
+<p>Кстати, буду рад “развиртуализации” и встрече с моими читателями там.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/fas2500.html" rel="tag">fas2500</a>, <a href="../tag/fas2520.html" rel="tag">fas2520</a>, <a href="../tag/fas2550.html" rel="tag">fas2550</a>, <a href="../tag/fas2552.html" rel="tag">fas2552</a>, <a href="../tag/fas2554.html" rel="tag">fas2554</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (27)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-13413">
+		<div id="div-comment-13413">
+		<div class="comment-author">
+			<cite>Георгий:<cite></div>
+			<p>Цитата: &#8220;получили в три раза больше памяти, чем FAS2200 (по 18GB на контроллер, 16GB RAM + 2GB NVMEM)&#8221;</p>
+<p>Роман, а как бы Вы прокомментировали, что на сайте NetApp Hardware Universe для контроллеров серии FAS2500 значение &#8220;NVRAM (Single)&#8221; равно &#8220;1.3 GB (NVMEM)&#8221;? Хотя, да, я читал в документе &#8220;NetApp FAS2500 Technical FAQ&#8221;, что это значение должно быть 2 GB&#8230;</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13413" title="">17 Июнь 2014, 19:03</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13414">
+		<div id="div-comment-13414">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Георгий:</p>
+<p>Не знаю, пусть они сами со всем этим разбираются :) Может скопипастили откуда-то криво :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13414" title="">17 Июнь 2014, 19:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13415">
+		<div id="div-comment-13415">
+		<div class="comment-author">
+			<cite>Евгений:<cite></div>
+			<p>Забыли упомянуть, что теперь появилось дополнительное лицензирование OS Enablement. Это увеличивает стоимость решения в целом да, но меняющее подходы по продвижению продуктов FAS.</p>
+<p>Вот интересно, если потребуется гипотетически поменять дисковую полку, потребуется ли вновь закупать OS Enablement на всю новую дисковую емкость, или закупленные ранее зачтутся? Уточню: допустим, например, дисковая полка стоит $10, из них $4 это OS Enablement и $6 - собственно аппаратное обеспечение (шасси, контроллеры диски и пр.); эта полка отслужила свой век, требуется заменить новой - надо заплатить $6 или все $10 (допустим, емкость не увеличилась)?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13415" title="">17 Июнь 2014, 19:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13416">
+		<div id="div-comment-13416">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Евгений:</p>
+<p>> Это увеличивает стоимость решения в целом </p>
+<p>Это НЕ увеличивает стоимость решения, просто общая сумма, такая, какой она была раньше, поделена на две неравные части. Сумма при этом не увеличилась, но стало понятнее, как распределяются затраты, ранее шедшие спрятанными в общей сумме, внутри цены.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13416" title="">17 Июнь 2014, 19:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13417">
+		<div id="div-comment-13417">
+		<div class="comment-author">
+			<cite>Sergey:<cite></div>
+			<p>А еще сегодня представили NetApp FAS8080 EX. Вот это интересная штукенция получилась :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13417" title="">17 Июнь 2014, 20:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13418">
+		<div id="div-comment-13418">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Sergey:</p>
+<p>Для тех, кто может себе это позволить :)<br />
+Я решил разделить посты, потому что все же сильно разные &#8220;аудитории&#8221;.</p>
+<p>UPD: А, кстати, что вам такого показалось интересным в 8080EX? По-моему это просто &#8220;прокачанная по максимумуму&#8221; 8000-я, ничего принципиально нового в инженерном смысле в ней не появилось. Ну, &#8220;всего больше&#8221;, и только. ??нтересна только для &#8220;любителей сравнивать бенчмарки&#8221;.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13418" title="">17 Июнь 2014, 20:30</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13419">
+		<div id="div-comment-13419">
+		<div class="comment-author">
+			<cite>Евгений:<cite></div>
+			<p>romx:<br />
+Прошу прощения, это как ни странно моя опечатка. OS Enablement НЕ увеличивает стоимость решения (кроме того, в России тут же с сегодняшнего дня на FAS2500 есть промоакции).<br />
+Хотелось бы не применять термин &#8220;лицензирование за емкость&#8221;, поэтому и следующий вопрос все-таки актуален относительно применимости OS Enablement к заменяемым полкам на новые.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13419" title="">17 Июнь 2014, 20:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13420">
+		<div id="div-comment-13420">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Евгений:</p>
+<p>Да, спасибо за поправку, я постараюсь написать про OS Enablement как только сам все пойму и разберусь как следует :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13420" title="">17 Июнь 2014, 20:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13422">
+		<div id="div-comment-13422">
+		<div class="comment-author">
+			<cite><a href='http://www.a-systems.ru.com' rel='external nofollow'>Alexey Marushchenko</a>:<cite></div>
+			<p>OS Enablement составная часть цены дисковой емкости/полок. При покупке новых полок на замену старых, с ранее оплаченным OS Enablement, ее придется покупать заново. Рассматривайте OS Ensblement как право на использование функционала DataOnTap с конкретными дисками.</p>
+<p>Выделение из цены дисков OS Enablement, по моему мнению, связано с тем, что NetApp - это компания производящая ПО, а не железки и им так удобнее отчитываться в IRS/SEC.</p>
+<p>Недисконтированная цена дисковой емкости по факту не изменилась после введения новых правил.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13422" title="">18 Июнь 2014, 0:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13423">
+		<div id="div-comment-13423">
+		<div class="comment-author">
+			<cite>Artur:<cite></div>
+			<p>Несмотря на то, что в FAS2240 нельзя вставить новые контроллеры FAS2552/4, FAS2240 можно переделать в DS2246, а новые контроллеры поставить рядом. Мне кажется вряд ли кому понадобится обновлять FAS2240 без закупа новых дисков.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13423" title="">18 Июнь 2014, 1:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13428">
+		<div id="div-comment-13428">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Артур, подскажи, пожалуйста, откуда информация, что 2240 нельзя проапгрейдить до 25хх?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13428" title="">18 Июнь 2014, 12:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13431">
+		<div id="div-comment-13431">
+		<div class="comment-author">
+			<cite>Artem:<cite></div>
+			<p>Тема интересная, нашел что завтра будет вебинар. Можно будет  задать интересующие вопросы онлайн)<br />
+<a href="http://www.it-grad.ru/meropriyatiya/vebinar-po-teme-vykhod-novoy-lineyki-skhd-netapp-fas2500/" rel="nofollow">http://www.it-grad.ru/meropriyatiya/vebinar-po-teme-vykhod-novoy-lineyki-skhd-netapp-fas2500/</a><br />
+Я уже зарегистрировался, говорят ссылка придет за час до начала!</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13431" title="">18 Июнь 2014, 21:33</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13432">
+		<div id="div-comment-13432">
+		<div class="comment-author">
+			<cite>nikolay_a:<cite></div>
+			<p>Добавлю мааленькую  ложку дегтя в боольшую бочку меда) 4 10 Gbit порта - в младшей серии это хорошо. Но NetApp уже сейчас скажем так &#8220;настойчиво рекомендует&#8221; использовать для организации кластера 4 десятки с контроллера, а не две - это можно увидеть даже на hwu.netapp.com. Думаю что с распространение 8к и 25xx серий в массах рекомендации превратятся в обязательное требование.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13432" title="">19 Июнь 2014, 2:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13433">
+		<div id="div-comment-13433">
+		<div class="comment-author">
+			<cite>nikolay_a:<cite></div>
+			<p>Уточню - рекомендует именно для 8к серии..</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13433" title="">19 Июнь 2014, 2:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13436">
+		<div id="div-comment-13436">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>nikolay_a:</p>
+<p>Не надо паники. Ну зачем вам, при наличии, допустим, всего одного канала к хостам на 10G, даже при условии, что эти хосты такой канал вводом-выводом загрузили, что непросто на практике, особенно для младших систем с их &#8220;незвездолетными&#8221; контроллерами.<br />
+Откуда возьмется трафик, чтобы это потребовало аж четырех каналов?</p>
+<p>??менно потому это и рекомендуется это для 8000-х, потому что сторадж класса FAS8060 с 5-8 полками дисков вполне способен прогрузить трафиком к хостам четыре 10G-канала, а для 2500-то, где тут &#8220;физический смысл&#8221;?<br />
+Думается, вы чересчур оптимистично смотрите на возможности FAS2500 :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13436" title="">19 Июнь 2014, 14:24</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13438">
+		<div id="div-comment-13438">
+		<div class="comment-author">
+			<cite>nikolay_a:<cite></div>
+			<p>Ну какая паника) Так, мысли в слух.. ??спользование 10 Гбит интерфейсов на 2240 - это реальность, народ втыкает мезанины и остается вполне доволен даже если удается снять 200 Мб/сек с интерфейса)<br />
+По поводу загрузки и использования 10 GbE я рассуждаю примерно так:<br />
+- 2240 могла выдавать не более 600 Мб/сек с контроллера при потоковой нагрузке, т. е. примерно 2/3 от макс. пропускной способности одного 10 Гбит порта.<br />
+- 2524 с большим объемом NVRAM должен лучше держать потоковую нагрузку и пропускать через себя от 800 Мб/сек до 1 Гб/сек. (хотя тактовая частота процесса у 2540 поменьше будет, что может вызвать проблемы с нехваткой ресурсов для Kahuna:)).<br />
+- NetApp ведь любезно предоставляет пользователям функционал IFGRP (а-ка bonding) - и пользователь вполне разумно может захотеть объединить две 10-ки для повышения надежности.</p>
+<p>А теперь перейдем к 8к серии. У 8020 - 4 UTA порта на контроллер. Если в DOT 8.3, например, заложат требование на использование 4-х 10 GbE (или кластер не соберется), то порты по прежнему придется докупать((</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13438" title="">19 Июнь 2014, 20:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13440">
+		<div id="div-comment-13440">
+		<div class="comment-author">
+			<cite>nikolay_a:<cite></div>
+			<p>Наврал про порты)<br />
+2 чистых 10 GbE и 2 UTA конечно же..</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13440" title="">20 Июнь 2014, 3:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13445">
+		<div id="div-comment-13445">
+		<div class="comment-author">
+			<cite>IgorT:<cite></div>
+			<p>nikolay_a:</p>
+<p>&#8220;2524 с большим объемом NVRAM должен лучше держать потоковую нагрузку и пропускать через себя от 800 Мб/сек до 1 Гб/сек. (хотя тактовая частота процесса у 2540 поменьше будет, что может вызвать проблемы с нехваткой ресурсов для Kahuna:))&#8221;</p>
+<p>А как больший объем NVRAM поможет 2552/4 лучше переваривать потоковую нагрузку? Помоему такие показатели должны зависеть грубо от количества дисков и характеристик этих дисков&#8230;</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13445" title="">20 Июнь 2014, 13:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13446">
+		<div id="div-comment-13446">
+		<div class="comment-author">
+			<cite>nikolay_a:<cite></div>
+			<p>IgorT<br />
+Если на пальцах - запись идет через NVRAM. При высокой нагрузке NVRAM забивается, начинается активный сброс CP на диски с которым диски либо справляются с трудом, либо вообще не справляются. А если к этому добавить еще и чтение - диски утилизируются на 100% и все..<br />
+Производительность на потоковых чтении/записи не сильно вобщем-то зависят от количества дисков, 200 Мб/сек с одной SATA полки при многопоточной записи по cifs снимается без проблем.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13446" title="">20 Июнь 2014, 16:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13449">
+		<div id="div-comment-13449">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>&gt;IgorT<br />
+Компьютерная программа, обычно, использует постоянную , оперативную память и вычислительные ресурсы последовательно переходя от загрузки одних к загрузке других, оперируя при этом относительно небольшими порциями информации. Крайне выгодно с точки зрения общей производительности программы сбросить обращение к пзу в буфер, получить подтверждение транзакции и идти дальше. До следующей транзакции обычно есть время, когда программа что-либо вычисляет, пользуясь либо оперативной памятью, либо кэшем процессора. За это время можно спокойно разгрузить буфер. Немного задач, которые одной порцией сливают на диск больше 1 гигабайта, при этом характер записи может быть очень даже линейным. FAS лучше (других систем) сбрасывает из буфера на диск рандомные транзакции, хуже (других систем)  линейные. Это не изменить. Однако, если размер буфера достаточен для заливки всей порции данных, то эта особенность обходится, а времени, между транзакциями обычно достаточно для сброса буфера. Увеличили в два раза емкость буфера, количество задач, которые &#8220;влазят&#8221; увеличилось в десять раз, их скорость работы увеличилась в разы = профит.<br />
+&gt; nikolay_a<br />
+кстати да, на активно кэшируемых задачах, 10 гбит может стать узким местом, хотя сценариев, думаю, таких немного.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13449" title="">20 Июнь 2014, 21:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13474">
+		<div id="div-comment-13474">
+		<div class="comment-author">
+			<cite>IgorT:<cite></div>
+			<p>??так, так как понимания сильно не прибавилось, а разобраться в опросе с NVRAM хотелось, решил почитать ??нтернеты, и соответственно сделал собственные выводы. Я не технарь, поэтому, если где ошибся - буду благодарен если поправите. :)</p>
+<p>Архитектура NetApp это по сути x86 - каждый из контроллеров это сервер с процессором, памятью, возможностью подключить большое количество дисков и собственной операционной системой (Data ONTAP). Весь функционал СХД и отказоустойчивость, как раз реализованы на уровне софта. В этом есть и плюсы и минусы. Одним из минусов является то, что RAM не защищен от потери электропитания.</p>
+<p>RAM используется как кеш операций чтения и записи и как оперативная память для самих Data ONTAP в каждом из контроллеров (что-то еще?).<br />
+1. Операции чтения можно не защищать, так как после включения СХД, информацию можно прочитать заново с дисков.<br />
+2. Оперативная память Data ONTAP тоже не защищена. То есть потеря электропитания приводит к холодной перезагрузке. Самому Data ONTAP это не нравится, после перезагрузки даже возможны ошибки, но система поднимается и работает - я лично, информацию о влиянии таких перезагрузок не искал, но думаю, что если бы здесь были проблемы, то о них бы знали все.<br />
+3. Операции записи - отдельная история. Здесь защита критически важна, так как потеря питания может привести к потере информации, работоспособности, консистентности и т.д. Тут у NetApp как раз и используется NVRAM. Причем операции записи проходят не &#8220;через него&#8221;, а дублируются в NVRAM из RAM. Не знаю зачем это сделано, но очень надеюсь, что не для обеспечения лучшей производительности - так как в таком случае в RAM опять же может оказаться очередь операций записи, которые не будут защищены.</p>
+<p>От сюда мои собственные выводы:<br />
+1. NVRAM в NetApp характеризует объем того самого &#8220;честного&#8221; кеш, который защищен.<br />
+2. Единственные потоковые нагрузки, на которые может оказать влияние NVRAM - это операции потоковой записи.<br />
+3. Влияние NVRAM на потоковые операции записи не должно быть большим, так как если образуется очередь, то это говорит о том, что с нагрузкой не справляются диски и необходимо увеличивать их количество/качество(в плане производительности).<br />
+4. Если диски не справляются с нагрузкой при потоковой записи, то увеличение объема NVRAM на 1GB позволит СХД подтверждать операции записи &#8220;в течении еще 1GB&#8221;. То есть, например, если надо записать 200GB, то с меньшей производительностью будут записаны не 199GB, а 198GB.<br />
+5. Наиболее ощутимое влияние увеличение объема NVRAM должно оказать на производительность random-write операций.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13474" title="">24 Июнь 2014, 16:50</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13475">
+		<div id="div-comment-13475">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>IgorT:</p>
+<p>Я бы рекомендовал вам, если вам в самом деле интересны ответы, писать не здесь, а в форуме <a href="https://communities.netapp.com/groups/netapp-ru" rel="nofollow">https://communities.netapp.com/groups/netapp-ru</a><br />
+где много компетентных людей, и обсуждать это там. Комменты в блоге не только не для таких тем, но их, часто, мало кто читает. Не говоря уж о том, что поднятая вами тема вообще оффтопик, так как к теме FAS2500 вообще никак не относится.</p>
+<p>Далее, не советую вам делать &#8220;выводы&#8221; не владея всей информацией, или владея искаженной, гипотезы вас могут довольно далеко завести &#8220;не туда&#8221;.<br />
+Рекомендую, для базового понимания того, как работает WAFL, почитать это:<br />
+<a href="http://www.netwell.ru/docs/netapp/wp3002_wafl.pdf" rel="nofollow">http://www.netwell.ru/docs/netapp/wp3002_wafl.pdf</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-13475" title="">24 Июнь 2014, 17:55</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13479">
+		<div id="div-comment-13479">
+		<div class="comment-author">
+			<cite>ivs:<cite></div>
+			<p>&gt; откуда информация, что 2240 нельзя проапгрейдить до 25хх?<br />
+FAQ FAS2500.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13479" title="">25 Июнь 2014, 6:30</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13507">
+		<div id="div-comment-13507">
+		<div class="comment-author">
+			<cite>IgorT:<cite></div>
+			<p>Если не возражаете, то вопрос по поводу доступности (в плане нажежности) систем FAS2500.</p>
+<p>На официальном портале нашел информацию, по FAS8000 - регламентированы 99,999%.<br />
+<a href="http://www.netapp.com/us/products/storage-systems/fas8000/index.aspx" rel="nofollow">http://www.netapp.com/us/products/storage-systems/fas8000/index.aspx</a></p>
+<p>По FAS2500 такая информация отсутствует.<br />
+<a href="http://www.netapp.com/us/products/storage-systems/fas2500/index.aspx" rel="nofollow">http://www.netapp.com/us/products/storage-systems/fas2500/index.aspx</a></p>
+<p>Кто-то может подсказать где можно найти такую информацию?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13507" title="">30 Июнь 2014, 19:59</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13508">
+		<div id="div-comment-13508">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>IgorT:</p>
+<p>Ну тут надо две вещи принять во внимание.<br />
+Во-первых, как я понимаю, величина надежности она не существует &#8220;сама по себе&#8221;, и сторадж не имеет надежности &#8220;сам по себе&#8221;, а только как компонент отказоустойчивой инфраструктуры. В которой, как известно, надежность, как &#8220;скорость эскадры&#8221;, определяется надежностью наименее надежного элемента. Соответствено указание на &#8220;пять девяток&#8221; означает не надежность самого стораджа, а то, что этот сторадж производителем позиционируется как компонент высоконадежной инфраструктуры, построенной с требованием &#8220;под пять девяток&#8221;.<br />
+Во-вторых, как следствие, отсутствие такого указания в спеках, озачает, что FAS2500 под такие инфраструктуры вендором не позиционируется. Это не значит, что она менее надежна, как не значит и то, что сторадж с &#8220;99,999&#8243; сделает такой надежной вашу IT-систему (если до этого, без стораджа, она такой надежной не была).</p>
+<p>Вот примерно так я бы трактовал это указание. Не как параметр надежности, а как условие, допускающее данную систему использовать в таковых инфраструктурах, но и только.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13508" title="">30 Июнь 2014, 20:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13509">
+		<div id="div-comment-13509">
+		<div class="comment-author">
+			<cite>IgorT:<cite></div>
+			<p>romx:</p>
+<p>Я абсолютно согласен с тем, что только СХД не сделает надежной всю инфраструктуру, и тем более не защитит от криворукости.</p>
+<p>Но всеже, если производитель регламентирует такие параметры, то уверенности в самом продукте как-то больше. Oсобенно тогда, когда документация об архитектурном устройтве не является широкодоступной (даже для партнеров), и сама система является достаточно сложной, чтобы понимать, что самому выводы о ее надежности сделать не получится.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13509" title="">30 Июнь 2014, 20:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13521">
+		<div id="div-comment-13521">
+		<div class="comment-author">
+			<cite><a href='../1376/trackback.html' rel='external nofollow'>NetApp AFF: All-Flash FAS | about NetApp</a>:<cite></div>
+			<p>[...] про который я пишу уже вторую неделю. Если про FAS2500 я написал сразу, и там, в целом, все ясно по прочтении техспек и&#160; [...]</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13521" title="">3 Июль 2014, 15:29</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1369" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.087 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

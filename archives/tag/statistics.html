@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; statistics</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;statistics&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-844">
+				<h2 class="posttitle"><a href="../844/trackback.html" rel="bookmark" title="Permanent Link to Оптимизация производительности. Часть 3. Еще инструменты.">Оптимизация производительности. Часть 3. Еще инструменты.</a></h2>
+				<div class="postmetadata">21 Март 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Но кроме “встроенных” в Data ONTAP средств, есть еще и очень полезные “внешние” утилиты сбора и анализа. Например, для пользователей NetApp на NOW есть скрипт perfstat, собирающий с контроллера разнообразную информацию по производительности в единый “лист”. В дальнейшем этот вывод perfstat можно обрабатывать и анализировать другими утилитами, а также использовать в сайзинге.</p>
+<p>Скрипт существует как для UNIX (в виде bash-скрипта), так и для Windows, оба варианта работают через rsh/ssh.    <br />Запущенный без параметров, он выведет подробную инструкцию по использованию. Рекомендую начать с ее изучения.</p>
+<pre>Perfstat: Version 7.32 12-2008
+    - perfstat.sh is a simple Bourne Shell script that
+      captures performance and configuration statistics.
+    - Output from perfstat is sent to standard out and
+      is typically captured in an output file for
+      later analysis.
+    - perfstat.sh is capable of capturing info from host(s) and
+      NetApp storage controllers simultaneously.
+    - Currently perfstat supports these OS platforms:
+      Solaris, HP-UX, OSF1, Linux, AIX, FreeBSD, OpenBSD, ESX 3.5
+    - perfstat.sh is typically run as root from the host or
+      as a user with root-level permissions
+    - For controller data capture, the user must have RSH or
+      SSH privileges to the controller. Unless instructed otherwise,
+      perfstat will use 'root' as the default username to communicate
+      remotely with storage controllers and hosts.</pre>
+<pre>Usage: (basic options list)
+ perfstat [-f controllername] [-t time] &gt; perfstat.out
+    where:
+    -f controllername - host name (or IP address) of target controller
+    -t time - collect performance data for 'time' minutes
+
+ Simple Examples:
+   Capture data on local host and one controller for 5 minutes:
+     perfstat -f controller1 -t 5 &gt; perfstat.out
+   Capture data on multiple hosts and controllers for 10 minutes:
+     perfstat -h host1,host2 -f controller1,controller2 -t 10 &gt; perfstat.out
+   Capture data for five 1 minute iterations, with 10 minutes between
+   successive iterations:
+     perfstat -f controller1 -t 1 -i 5,10 &gt; perfstat.out
+
+Usage: (more complete options list)
+ perfstat
+          [-f controllername[,controllername1,controllername2,...]]
+          [-h hostname[,hostname1,hostname2,...]]
+          [-t time] (sample time per iteration, default 2)
+          [-i n[,m]] (repeat n times with m minutes between samples,
+                      defaults: n=1, m=0)
+          [-I] (force perfstat to execute all iterations)
+
+          [-r rootcmd] (e.g. sudo)
+          [-l login[:password]] (RSH/SSH login and RSH password)
+          [-S] (use SSH instead of RSH)
+          [-s param1[,value1][:param2[,value2]]...] (optional RSH/SSH
+                                                     arguments)
+
+          [-F] (do not capture information from local host)
+          [-V] (do not capture vfiler data)
+          [-p] (capture performance data only, no config info)
+          [-c] (capture config info only, no performance data)
+          [-L] (capture logs - beware verbose output)
+          [-E cmd[,cmd2,cmd3] (exclude commands)
+          [-P domain1[,domain2,domain3...] (capture profiles,
+              use &quot;-P flat&quot; to capture complete profile)
+
+          [-a app_name -o app_param] (E.g., -a oracle)
+
+          [-v] (print version info only)
+          [-q] (quiet mode - suppress all console output)
+          [-x] (print what commands will be issued without actually
+                issuing them)
+          [-d] (debug mode - beware verbose output)
+
+          [-b] (begin sampling and return immediately)
+          [-e] (end sampling - used in conjunction with -b)
+
+          [-n] (RAM Service Invocation)
+
+          [-k] (disable collection of &quot;stutter&quot; statit; i.e.,
+                collect 1 statit report that covers the entire
+                iteration)
+          [-K] (collect only &quot;stutter&quot; statit reports over
+                the entire iteration)
+
+          [-T default | sk_mod,level[,sk_mod2,level,...]] (collect sktrace)
+          [-B sk_buffer_size] (specify sktrace buffer size)
+
+Notes:
+ -h option adds hosts to be monitored.  By default, the local
+    host is always monitored, unless the -F flag is specified.
+    E.g., executing this command
+      perfstat -h host1 &gt; perfstat.out
+    on machine host0 will result in data captured from both
+    host0 and host1
+    This command:
+      perfstat -F -h host1 &gt; perfstat.out
+    on machine host0 will result in data captured from host1 only
+ -l option is only applied to RSH/SSH commands to the controller.
+    RSH/SSH commands to other hosts do not use the -l information.
+    perfstat.sh does not support password authentication over SSH,
+    so if '-S -l login:password' is specified, the password will
+    be stripped from the subsequent SSH invocations.
+ -S requires passwordless (public key) SSH authentication to be
+    configured for all controllers and hosts
+    An SSH username may prefix a hostname using a '@'
+    E.g.,
+      perfstat -S -h root@host1,user@host2
+    Additionally, the -l option can be used to specify usernames for
+    controller login. E.g.,
+      perfstat -S -f controllername -l user
+ -s arguments to this option use the syntax 'param,value', and param
+    value pairs can be separated by a ':'
+    E.g. the syntax '-S -s p1,22:p2:p3,v3' tells perfstat to build
+    the following SSH invocation string:
+     'SSH -o BatchMode=yes -2 -ax -p1 22 -p2 -p3 v3'
+ -a is limited to these applications currently:
+    oracle: -o specifies sub arguments.  run -o help for details
+ -b|-e are provided for legacy compatibility and can be used to
+    manually perform an iteration. Use -b to start the iteration
+    and after perfstat returns, use -e to stop that iteration.
+ -P saves profiling data in a tar.gz file in the current working
+    directory and deletes any existing gmon files on the controller
+ -E excludes all foreground commands that have at least the cmd as a
+    substring; E.g.
+      -E snap,vol       - excludes all 'snap*' and 'vol*' commands
+      -E &quot;snap list -v&quot; - excludes only the command 'snap list -v'
+ -T used to toggle sktrace collection and specify sk modules and the
+    levels at which trace data should be collected for those modules.
+    Some valid sk modules include SK, WAFL, DISK and SCSITARGET. For
+    default values of 'SK 7 WAFL 4', specify '-T default'. sktrace data
+    will be copied off of the controller(s) and into the current working
+    directory from where perfstat was invoked.
+ -B used to manually set the sktrace buffer size. By default, perfstat
+    will use a default value of '40m' (40MB). Please note that it is
+    required that the units be specified with the size in the format:
+    k (KB), m (MB), or g (GB). This value should only be changed if
+    specifically advised by global support.
+ Early termination of execution: as of v7.00 perfstat will terminate
+   iterations early if a calculated max runtime is met or exceeded.
+   If it is required that perfstat must execute all iterations regardless
+   of the total runtime, please use the '-I' option.</pre>
+<p>Неплохим вариантом использования будет сбор “суточной” статистики, путем регулярного запуска perfstat, и сбора данных, например, каждые полчаса.</p>
+<p>Например, можно поместить в cron на администраторском хосте команду вида:</p>
+<pre>perfstat -f filer1 -t 30 -i 46 &gt; perfstat.$date.out</pre>
+<p>Такая строка запуска делает 46 “снимков” с 30-минутным интервалом, что покрывает примерно 23 часа суток. ??з-за некоторых сложностей, связанных с тем, что выполнение множества команд в rsh при выполнении скрипта может подтормаживать, и за сутки может набежать довольно существенная задержка, NetApp рекомендует делать полный интервал снятия показаний не 24, а 23 часа (46 снимков каждые полчаса), оставив запас между сутками в час,&#160; чтобы быть уверенным, что из-за таких задержек исполнения, не набежит нежелательная погрешность для времени запуска.</p>
+<p>Так как официально perfstat раздается только с NOW, то есть действующим пользователям NetApp, наверное я вам его раздавать не буду, сами скачайте с NOW.</p>
+<p>Для обработки вывода perfstat можо воспользоваться интересной утилитой PerfViewer.</p>
+<p>Она представляет собой несколько java-апплетов, визуализирующих вывод perfstat, и поможет быстро проанализировать и оценить данные, собранные им.</p>
+<p>Берут там же. :)</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="performance/index.html" rel="tag">performance</a>, <a href="statistics.html" rel="tag">statistics</a>, <a href="utilities.html" rel="tag">utilities</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../844/trackback.html#comments" title="Комментарий к записи Оптимизация производительности. Часть 3. Еще инструменты.">Комментарии (2)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.066 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

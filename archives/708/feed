@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Расчет дисковой емкости: Zone и Block Checksums</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/708/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/708</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:57 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-1942</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 24 Nov 2011 09:44:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-1942</guid>
+		<description>Don Serjio:
+
+Вот что по этому поводу пишет Storage Subsystem Technical FAQ за апрель 2011:
+
+Key points about NL-SAS: 
+
+*  Only one single drive manufacturer has currently launched an NL-SAS product (as of February 2011). 
+Other vendors will probably be bringing NL-SAS products to market, but at the moment NL-SAS drives are single source. 
+
+*  Until announced by EMC, there were no major network storage vendors using NL-SAS. They are the first major network storage vendor to ship NL-SAS and currently (February 2011) are single sourced. 
+Single-sourced products for enterprise storage configurations are dangerous because they completely limit the ability of the storage vendor to respond to supply chain and quality issues. 
+
+*  New capacity points for NL-SAS (for example, 2TB) have lagged behind their equivalent SATA capacities in terms of release schedules from the drive manufacturer. 
+
+*  NL-SAS is still a SATA drive internally. It has additional hardware and electronics associated with the built-in SAS interface. 
+
+Key points about the NetApp bridged-SAS (SATA+dongle) solution: 
+
+*  By using an external dongle, we can support any vendor's SATA drive, which makes BSAS more flexible than NL-SAS. This allows NetApp to multisource a drive, which in turn allows NetApp to deliver supply continuity, competitive pricing, and quality. 
+
+*  NL-SAS is still a SATA drive, just like the NetApp BSAS drive is a SATA drive. In both cases, steps have been taken to allow the drive to plug into SAS architectures and mitigate performance implications related to translation of ATA to SCSI. Competitors might claim that NL-SAS performance is better than NetApp’s BSAS solution. A small advantage in performance might be apparent in mircobenchmarks as 
+a result of the integrated nature of the SAS interface. However, this difference would be imperceptible when looking at real-world workloads and system-level performance. 
+
+*  NetApp’s BSAS drives (SATA) use 512-byte sectors, whereas NL-SAS uses 520-byte sectors. This allows NL-SAS drives to present more usable capacity per drive when compared to a NetApp BSAS drive using block checksums (BCS) 8/9 formatting. NetApp will be introducing advanced zone checksums (AZCS) in a future release of Data ONTAP that will eliminate the capacity overhead associated with BSC 8/9. 
+
+Я подозреваю, что NL-SAS просто нет в достаточном количестве на свободном рынке, все производство скупается EMC. :)</description>
+		<content:encoded><![CDATA[<p>Don Serjio:</p>
+<p>Вот что по этому поводу пишет Storage Subsystem Technical FAQ за апрель 2011:</p>
+<p>Key points about NL-SAS: </p>
+<p>*  Only one single drive manufacturer has currently launched an NL-SAS product (as of February 2011).<br />
+Other vendors will probably be bringing NL-SAS products to market, but at the moment NL-SAS drives are single source. </p>
+<p>*  Until announced by EMC, there were no major network storage vendors using NL-SAS. They are the first major network storage vendor to ship NL-SAS and currently (February 2011) are single sourced.<br />
+Single-sourced products for enterprise storage configurations are dangerous because they completely limit the ability of the storage vendor to respond to supply chain and quality issues. </p>
+<p>*  New capacity points for NL-SAS (for example, 2TB) have lagged behind their equivalent SATA capacities in terms of release schedules from the drive manufacturer. </p>
+<p>*  NL-SAS is still a SATA drive internally. It has additional hardware and electronics associated with the built-in SAS interface. </p>
+<p>Key points about the NetApp bridged-SAS (SATA+dongle) solution: </p>
+<p>*  By using an external dongle, we can support any vendor&#8217;s SATA drive, which makes BSAS more flexible than NL-SAS. This allows NetApp to multisource a drive, which in turn allows NetApp to deliver supply continuity, competitive pricing, and quality. </p>
+<p>*  NL-SAS is still a SATA drive, just like the NetApp BSAS drive is a SATA drive. In both cases, steps have been taken to allow the drive to plug into SAS architectures and mitigate performance implications related to translation of ATA to SCSI. Competitors might claim that NL-SAS performance is better than NetApp’s BSAS solution. A small advantage in performance might be apparent in mircobenchmarks as<br />
+a result of the integrated nature of the SAS interface. However, this difference would be imperceptible when looking at real-world workloads and system-level performance. </p>
+<p>*  NetApp’s BSAS drives (SATA) use 512-byte sectors, whereas NL-SAS uses 520-byte sectors. This allows NL-SAS drives to present more usable capacity per drive when compared to a NetApp BSAS drive using block checksums (BCS) 8/9 formatting. NetApp will be introducing advanced zone checksums (AZCS) in a future release of Data ONTAP that will eliminate the capacity overhead associated with BSC 8/9. </p>
+<p>Я подозреваю, что NL-SAS просто нет в достаточном количестве на свободном рынке, все производство скупается EMC. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Don Serjio</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-1913</link>
+		<dc:creator>Don Serjio</dc:creator>
+		<pubDate>Thu, 17 Nov 2011 10:53:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-1913</guid>
+		<description>&#62;Обратите также внимание, что "15%" это только при использовании Zone Checksum на SATA
+
+??нтересно, а в дисках NL-SAS так же применяется Zone Checksum как и на SATA или там Block Checksum как на FC/SAS?
+Если верно второе, то почему NetApp до сих пор не выпускает поддержку дисков NL-SAS?</description>
+		<content:encoded><![CDATA[<p>&gt;Обратите также внимание, что &#8220;15%&#8221; это только при использовании Zone Checksum на SATA</p>
+<p>??нтересно, а в дисках NL-SAS так же применяется Zone Checksum как и на SATA или там Block Checksum как на FC/SAS?<br />
+Если верно второе, то почему NetApp до сих пор не выпускает поддержку дисков NL-SAS?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-820</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 25 Sep 2010 13:26:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-820</guid>
+		<description>&gt; Такие бы статьи почитать некоторым знакомым мне пресейлам )))
+
+Подключайте их, не стесняйтесь :)
+Я тоже таким когда-то был.</description>
+		<content:encoded><![CDATA[<p>> Такие бы статьи почитать некоторым знакомым мне пресейлам )))</p>
+<p>Подключайте их, не стесняйтесь :)<br />
+Я тоже таким когда-то был.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-819</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Sat, 25 Sep 2010 12:41:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-819</guid>
+		<description>Оффтоп
+Такие бы статьи почитать некоторым знакомым мне пресейлам )))</description>
+		<content:encoded><![CDATA[<p>Оффтоп<br />
+Такие бы статьи почитать некоторым знакомым мне пресейлам )))</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-818</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 25 Sep 2010 11:21:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-818</guid>
+		<description>&gt; Я имел в виду, что сектор размером в 512к смог бы вместить информацию о 64 секторах данных, и был бы занят полностью. Т. о. на каждые 64 сектора приходился бы один служебный.
+
+Я понял, но как вы это себе представляете? Мы работаем с блоком WAFL, данные которого не просто лежат в секторе N+1, а лежат где-то в каком-то произвольном секторе на массиве, причем не просто лежат в секторе, а с каким-то произвольным смещением. Где всю эту информацию о поиске этого блока, и смещения в нем для данного набора секторов, входящих в WAFL хранить, как извлекать? 
+Все это видится усложенением на пустом месте, причем усложнением не просто так, а еще и с солидным ухудшением производительности.?? ради чего? Ради 10% места на SATA?</description>
+		<content:encoded><![CDATA[<p>> Я имел в виду, что сектор размером в 512к смог бы вместить информацию о 64 секторах данных, и был бы занят полностью. Т. о. на каждые 64 сектора приходился бы один служебный.</p>
+<p>Я понял, но как вы это себе представляете? Мы работаем с блоком WAFL, данные которого не просто лежат в секторе N+1, а лежат где-то в каком-то произвольном секторе на массиве, причем не просто лежат в секторе, а с каким-то произвольным смещением. Где всю эту информацию о поиске этого блока, и смещения в нем для данного набора секторов, входящих в WAFL хранить, как извлекать?<br />
+Все это видится усложенением на пустом месте, причем усложнением не просто так, а еще и с солидным ухудшением производительности.?? ради чего? Ради 10% места на SATA?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Максим</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-815</link>
+		<dc:creator>Максим</dc:creator>
+		<pubDate>Fri, 24 Sep 2010 18:37:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-815</guid>
+		<description>&#62;Ну а нет туда больше ничего, что можно было бы там...
+Улыбнулся :о)
+&#62;&#62; ??нтеренсто, что мешало дополнительный сектор занимать не на 64, а на полный объем?
+Я имел в виду, что сектор размером в 512к смог бы вместить информацию о 64 секторах данных, и был бы занят полностью. Т. о. на каждые 64 сектора приходился бы один служебный.</description>
+		<content:encoded><![CDATA[<p>&gt;Ну а нет туда больше ничего, что можно было бы там&#8230;<br />
+Улыбнулся :о)<br />
+&gt;&gt; ??нтеренсто, что мешало дополнительный сектор занимать не на 64, а на полный объем?<br />
+Я имел в виду, что сектор размером в 512к смог бы вместить информацию о 64 секторах данных, и был бы занят полностью. Т. о. на каждые 64 сектора приходился бы один служебный.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-813</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Fri, 24 Sep 2010 14:50:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-813</guid>
+		<description>&#62; /а уведомление об ответах на коммент как-то могут в почту приходить? Где это настраивается?
+&#62;&#62; А мне приходит :-P
+&#62;&#62; На самом деле просто до недавних пор такой надобности не было, комментировали мало и редко, но если теперь стало надо, то попробую сделать.
+
+ОЧЕНЬ хочется уведомления. ??наче писать комментарий смысла нет - общение на этом заканчивается (т.к. я не увижу никогда ответов).</description>
+		<content:encoded><![CDATA[<p>&gt; /а уведомление об ответах на коммент как-то могут в почту приходить? Где это настраивается?<br />
+&gt;&gt; А мне приходит :-P<br />
+&gt;&gt; На самом деле просто до недавних пор такой надобности не было, комментировали мало и редко, но если теперь стало надо, то попробую сделать.</p>
+<p>ОЧЕНЬ хочется уведомления. ??наче писать комментарий смысла нет - общение на этом заканчивается (т.к. я не увижу никогда ответов).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-812</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 24 Sep 2010 14:08:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-812</guid>
+		<description>&gt; А другие вендоры как SATA используют?
+
+Ты имеешь ввиду из тех, кто используют сектор 520 байт? Не знаю. Возможно не используют его на SATA. Дело в том, что NetApp использует эти расширенные данные, например, для дедупликации, ибыло бы странно, когда дедупликация есть только на SAS/FC, но нет на SATA.
+
+&gt; /а уведомление об ответах на коммент как-то могут в почту приходить? Где это настраивается?
+
+А мне приходит :-P
+На самом деле просто до недавних пор такой надобности не было, комментировали мало и редко, но если теперь стало надо, то попробую сделать.
+
+&gt; ??нтеренсто, что мешало дополнительный сектор занимать не на 64, а на полный объем?
+
+Ну а нет туда больше ничего, что можно было бы там хранить. Там хранятся CRC секторов, составляющих блок WAFL. Этих секторов в блоке - 8. У каждого по 8 байт расширенной информации, в котором хранится CRC. Нельзя в этом секторе хранить CRC больше чем на один блок WAFL, это логически всю кухню усложняет, и будет влиять и на так неблестящую производительность SATA дисков.</description>
+		<content:encoded><![CDATA[<p>> А другие вендоры как SATA используют?</p>
+<p>Ты имеешь ввиду из тех, кто используют сектор 520 байт? Не знаю. Возможно не используют его на SATA. Дело в том, что NetApp использует эти расширенные данные, например, для дедупликации, ибыло бы странно, когда дедупликация есть только на SAS/FC, но нет на SATA.</p>
+<p>> /а уведомление об ответах на коммент как-то могут в почту приходить? Где это настраивается?</p>
+<p>А мне приходит :-P<br />
+На самом деле просто до недавних пор такой надобности не было, комментировали мало и редко, но если теперь стало надо, то попробую сделать.</p>
+<p>> ??нтеренсто, что мешало дополнительный сектор занимать не на 64, а на полный объем?</p>
+<p>Ну а нет туда больше ничего, что можно было бы там хранить. Там хранятся CRC секторов, составляющих блок WAFL. Этих секторов в блоке - 8. У каждого по 8 байт расширенной информации, в котором хранится CRC. Нельзя в этом секторе хранить CRC больше чем на один блок WAFL, это логически всю кухню усложняет, и будет влиять и на так неблестящую производительность SATA дисков.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Максим</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-810</link>
+		<dc:creator>Максим</dc:creator>
+		<pubDate>Fri, 24 Sep 2010 06:43:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-810</guid>
+		<description>&#62;Таким образом, на каждые 8 секторов по 512 байт на диске SATA, мы занимаем один сектор, размером 512 байт, под хранение 64 байт служебных данных. Не слишком экономично, но у нас нет иного варианта.
+??нтеренсто,  что мешало дополнительный сектор занимать не на 64, а на полный объем?</description>
+		<content:encoded><![CDATA[<p>&gt;Таким образом, на каждые 8 секторов по 512 байт на диске SATA, мы занимаем один сектор, размером 512 байт, под хранение 64 байт служебных данных. Не слишком экономично, но у нас нет иного варианта.<br />
+??нтеренсто,  что мешало дополнительный сектор занимать не на 64, а на полный объем?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/708#comment-808</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Thu, 23 Sep 2010 23:27:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=708#comment-808</guid>
+		<description>А другие вендоры как SATA используют?
+
+/а уведомление об ответах на коммент как-то могут в почту приходить? Где это настраивается?</description>
+		<content:encoded><![CDATA[<p>А другие вендоры как SATA используют?</p>
+<p>/а уведомление об ответах на коммент как-то могут в почту приходить? Где это настраивается?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Обновление timezone на системах хранения NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1065/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1065</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:13 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: На колу мочало - начинай сначала: UTC+3 &#124; about NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-13516</link>
+		<dc:creator>На колу мочало - начинай сначала: UTC+3 &#124; about NetApp</dc:creator>
+		<pubDate>Tue, 01 Jul 2014 21:26:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-13516</guid>
+		<description>[...] по поводу предыдущего каталипсиса, в 2011 году: Обновление timezone на системах хранения NetApp. Помните, что совпадение временных зон и времени на [...]</description>
+		<content:encoded><![CDATA[<p>[...] по поводу предыдущего каталипсиса, в 2011 году: Обновление timezone на системах хранения NetApp. Помните, что совпадение временных зон и времени на [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-2129</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Thu, 19 Jan 2012 17:01:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-2129</guid>
+		<description>Вот сегодня пришлось применить. ??справление для юниксового случая -- по умолчанию в NFS, как мы помним, root мапится в непривилегированный UID (defaults to -2), так что экспортить надо вот так:
+
+&lt;b&gt;exportfs -i -orw,root=[maint WS IP] /&lt;/b&gt;
+
+по завершении хорошо бы ещё не забыть сказать 
+
+&lt;b&gt;exportfs -r&lt;/b&gt;</description>
+		<content:encoded><![CDATA[<p>Вот сегодня пришлось применить. ??справление для юниксового случая &#8212; по умолчанию в NFS, как мы помним, root мапится в непривилегированный UID (defaults to -2), так что экспортить надо вот так:</p>
+<p><b>exportfs -i -orw,root=[maint WS IP] /</b></p>
+<p>по завершении хорошо бы ещё не забыть сказать </p>
+<p><b>exportfs -r</b></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-1976</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 29 Nov 2011 11:02:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-1976</guid>
+		<description>alexandr:
+
+Я даже выделил крупно:
+
+&lt;b&gt;Система хранения НЕ ТРЕБУЕТ перезагрузки для обновления и установки новых значений правил timezone.&lt;/b&gt;
+
+Главное не забудьте в конце сделать указанные два пункта: вывести текушую timezone (для контроля) и &lt;b&gt;ввести команду с указанием текущей таймзоны&lt;/b&gt;, при этом перечитывается новое содержимое файла timezone
+
+Также помните, что вместо перезагрузки, в подавляющем числе случаев (любых других), можно делать cluster takeover. Доступ к данным такая перезагрузка не прерывает, так как ресурсы перезагружающегося соседа принимает на себя его кластерный партнер.</description>
+		<content:encoded><![CDATA[<p>alexandr:</p>
+<p>Я даже выделил крупно:</p>
+<p><b>Система хранения НЕ ТРЕБУЕТ перезагрузки для обновления и установки новых значений правил timezone.</b></p>
+<p>Главное не забудьте в конце сделать указанные два пункта: вывести текушую timezone (для контроля) и <b>ввести команду с указанием текущей таймзоны</b>, при этом перечитывается новое содержимое файла timezone</p>
+<p>Также помните, что вместо перезагрузки, в подавляющем числе случаев (любых других), можно делать cluster takeover. Доступ к данным такая перезагрузка не прерывает, так как ресурсы перезагружающегося соседа принимает на себя его кластерный партнер.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: alexandr</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-1975</link>
+		<dc:creator>alexandr</dc:creator>
+		<pubDate>Tue, 29 Nov 2011 10:40:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-1975</guid>
+		<description>romx, подскажите необходимо ли перезагружать контроллеры и возможны ли перерывы в работе системы в результате инициализации обновления?</description>
+		<content:encoded><![CDATA[<p>romx, подскажите необходимо ли перезагружать контроллеры и возможны ли перерывы в работе системы в результате инициализации обновления?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Николай</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-1904</link>
+		<dc:creator>Николай</dc:creator>
+		<pubDate>Fri, 11 Nov 2011 06:14:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-1904</guid>
+		<description>romx, действительно использование Administrator место root помогло. Обновил timezones успешно. Спасибо!</description>
+		<content:encoded><![CDATA[<p>romx, действительно использование Administrator место root помогло. Обновил timezones успешно. Спасибо!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-1903</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 11 Nov 2011 05:41:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-1903</guid>
+		<description>Николай:
+
+Сложно сказать не видя деталей, но обратите внимание, что машина под Windows, введенная в домен, при попытке логина, всегда начинает логиниться ломенным юзером, в том домене, в котором она находится.
+Если у вас рабочая станция в домене, а файлер, например, нет (выбрана модель аутентификации Workgroup, то есть локальной базой пользователей), то надо логиниться в него явно указывая локального пользователя на этой машине, то есть не просто Administrator, а именно вот 192.168.1.10\Administrator (где 192.168.1.10 это адрес самого файлера).
+
+Также помните, что после активации CIFS для входа по CIFS надо пользоваться не root, а Administrator (он замаплен на root, но именно юзера root в CIFS нет, надо указывать Administrator), вход же в консоль остается root.</description>
+		<content:encoded><![CDATA[<p>Николай:</p>
+<p>Сложно сказать не видя деталей, но обратите внимание, что машина под Windows, введенная в домен, при попытке логина, всегда начинает логиниться ломенным юзером, в том домене, в котором она находится.<br />
+Если у вас рабочая станция в домене, а файлер, например, нет (выбрана модель аутентификации Workgroup, то есть локальной базой пользователей), то надо логиниться в него явно указывая локального пользователя на этой машине, то есть не просто Administrator, а именно вот 192.168.1.10\Administrator (где 192.168.1.10 это адрес самого файлера).</p>
+<p>Также помните, что после активации CIFS для входа по CIFS надо пользоваться не root, а Administrator (он замаплен на root, но именно юзера root в CIFS нет, надо указывать Administrator), вход же в консоль остается root.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Николай</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-1902</link>
+		<dc:creator>Николай</dc:creator>
+		<pubDate>Thu, 10 Nov 2011 13:59:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-1902</guid>
+		<description>&#62; Подключите сетевой ресурс (share) ETC$
+Подскажите, как это сделать? Ему не нравится учетная запись под которой я пытаюсь это сделать. Пытался и под root-ом и под доменным админом. Пробовал через Web-интерфейс отдельно добавлять права Full control для произвольного доменного пользователя - но все равно не могу открыть эту шару.</description>
+		<content:encoded><![CDATA[<p>&gt; Подключите сетевой ресурс (share) ETC$<br />
+Подскажите, как это сделать? Ему не нравится учетная запись под которой я пытаюсь это сделать. Пытался и под root-ом и под доменным админом. Пробовал через Web-интерфейс отдельно добавлять права Full control для произвольного доменного пользователя - но все равно не могу открыть эту шару.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий ??ванов</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-1854</link>
+		<dc:creator>Дмитрий ??ванов</dc:creator>
+		<pubDate>Sun, 30 Oct 2011 16:56:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-1854</guid>
+		<description>А в конце перечитывали содержмое нового timezone?
+Да, неоднократно пробовал:)
+Вводил команду timezone Europe/Moscow -время в 3:01 перескочило на 2:01
+Очень спать хотелось, поэтому поставил gmt-4, проверил доступность инфы в снапшотах и пошел спать</description>
+		<content:encoded><![CDATA[<p>А в конце перечитывали содержмое нового timezone?<br />
+Да, неоднократно пробовал:)<br />
+Вводил команду timezone Europe/Moscow -время в 3:01 перескочило на 2:01<br />
+Очень спать хотелось, поэтому поставил gmt-4, проверил доступность инфы в снапшотах и пошел спать</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-1853</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 30 Oct 2011 14:09:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-1853</guid>
+		<description>Дмитрий ??ванов:
+
+&gt; Роман, это я у Вас спрашивал.
+
+Не, не только вы.
+
+&gt; Проделал все по статье.
+
+А в конце перечитывали содержмое нового timezone? Которое после:
+"ВАЖНО: Обязательно выполните приведенные шаги для успешного обновления информации timezone!"</description>
+		<content:encoded><![CDATA[<p>Дмитрий ??ванов:</p>
+<p>> Роман, это я у Вас спрашивал.</p>
+<p>Не, не только вы.</p>
+<p>> Проделал все по статье.</p>
+<p>А в конце перечитывали содержмое нового timezone? Которое после:<br />
+&#8220;ВАЖНО: Обязательно выполните приведенные шаги для успешного обновления информации timezone!&#8221;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий ??ванов</title>
+		<link>http://blog.aboutnetapp.ru/archives/1065#comment-1852</link>
+		<dc:creator>Дмитрий ??ванов</dc:creator>
+		<pubDate>Sun, 30 Oct 2011 13:53:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1065#comment-1852</guid>
+		<description>Роман, это я у Вас спрашивал.
+Дык вот.
+Проделал все по статье.
+В 3-00 нетапп ПЕРЕВЕЛ время на 2, еще разок забил timezone Europe/Moskow-ничего не дало
+Поставил timezone Etc/GMT-4 и успокоился. Снапшоты доступны, контроллеры не перезагружал</description>
+		<content:encoded><![CDATA[<p>Роман, это я у Вас спрашивал.<br />
+Дык вот.<br />
+Проделал все по статье.<br />
+В 3-00 нетапп ПЕРЕВЕЛ время на 2, еще разок забил timezone Europe/Moskow-ничего не дало<br />
+Поставил timezone Etc/GMT-4 и успокоился. Снапшоты доступны, контроллеры не перезагружал</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

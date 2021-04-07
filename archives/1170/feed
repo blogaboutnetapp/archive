@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: DS4486&#8211;новая сверхъемкая полка</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1170/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1170</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:12 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2898</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 09 Jul 2012 20:25:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2898</guid>
+		<description>Собственно вот http://www.techcolumnist.com/wp/2012/07/03/netapp-ds4486-shelf-released-in-june/
+меняются сразу пара</description>
+		<content:encoded><![CDATA[<p>Собственно вот <a href="http://www.techcolumnist.com/wp/2012/07/03/netapp-ds4486-shelf-released-in-june/" rel="nofollow">http://www.techcolumnist.com/wp/2012/07/03/netapp-ds4486-shelf-released-in-june/</a><br />
+меняются сразу пара</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2776</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Thu, 21 Jun 2012 08:36:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2776</guid>
+		<description>&#62; Уверен, как-то это все сделано “по-человечески”. 
+
+Подозреваю, что эта "слойка" выглядит для контроллера полки как один 6-терабайтный диск. Тогда всё более-менее разумно раскладывается.</description>
+		<content:encoded><![CDATA[<p>&gt; Уверен, как-то это все сделано “по-человечески”. </p>
+<p>Подозреваю, что эта &#8220;слойка&#8221; выглядит для контроллера полки как один 6-терабайтный диск. Тогда всё более-менее разумно раскладывается.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2771</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 20 Jun 2012 13:13:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2771</guid>
+		<description>&gt; Будет мега салазка которая будет выезжать как сервера из стойки и будет возможность отстегнуть один из дисков.
+
+Явно все не просто. Даже несмотря на то, что, в принципе, RAID-DP сохраняет данные при отказе/отключении двух дисков в группе, и даже предположив, что есть механизм, в котором два диска в одном трее принудительно назначаются в разные группы,  устраивать ребилд для RAID из 3TB SATA только потому, что мы дернули его соседа - это как-то совсем не то что принято называть хорошим инженерным рещением. Уверен, как-то это все сделано "по-человечески". Но как - пока данных нет.
+
+&gt; Вообще не понимаю, почему в нетепе ещё не сделали 
+
+Ну не в "нетаппе", а в Xyratex, или кто там нынче ваяет конструкции полок для NetApp. ;)</description>
+		<content:encoded><![CDATA[<p>> Будет мега салазка которая будет выезжать как сервера из стойки и будет возможность отстегнуть один из дисков.</p>
+<p>Явно все не просто. Даже несмотря на то, что, в принципе, RAID-DP сохраняет данные при отказе/отключении двух дисков в группе, и даже предположив, что есть механизм, в котором два диска в одном трее принудительно назначаются в разные группы,  устраивать ребилд для RAID из 3TB SATA только потому, что мы дернули его соседа - это как-то совсем не то что принято называть хорошим инженерным рещением. Уверен, как-то это все сделано &#8220;по-человечески&#8221;. Но как - пока данных нет.</p>
+<p>> Вообще не понимаю, почему в нетепе ещё не сделали </p>
+<p>Ну не в &#8220;нетаппе&#8221;, а в Xyratex, или кто там нынче ваяет конструкции полок для NetApp. ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2769</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 20 Jun 2012 10:31:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2769</guid>
+		<description>panvartan, скорее всего нет. Будет мега салазка которая будет выезжать как сервера из стойки и будет возможность отстегнуть один из дисков. Как мне кажется.
+
+P.S. Вообще не понимаю, почему в нетепе ещё не сделали полку как в SUN - со "стоячими дисками" http://www.c0t0d0s0.org/uploads/k3_storage7210_2.serendipityThumb.jpg</description>
+		<content:encoded><![CDATA[<p>panvartan, скорее всего нет. Будет мега салазка которая будет выезжать как сервера из стойки и будет возможность отстегнуть один из дисков. Как мне кажется.</p>
+<p>P.S. Вообще не понимаю, почему в нетепе ещё не сделали полку как в SUN - со &#8220;стоячими дисками&#8221; <a href="http://www.c0t0d0s0.org/uploads/k3_storage7210_2.serendipityThumb.jpg" rel="nofollow">http://www.c0t0d0s0.org/uploads/k3_storage7210_2.serendipityThumb.jpg</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2767</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Wed, 20 Jun 2012 06:59:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2767</guid>
+		<description>??нтересно, при выходе из строя одного диска будет меняться сразу пара?</description>
+		<content:encoded><![CDATA[<p>??нтересно, при выходе из строя одного диска будет меняться сразу пара?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Киселев Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2760</link>
+		<dc:creator>Киселев Сергей</dc:creator>
+		<pubDate>Tue, 19 Jun 2012 05:54:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2760</guid>
+		<description>Можно упомянуть следующие ограничения:
+1. Число полок в стэке 5
+2. Необходим отдельный стэк</description>
+		<content:encoded><![CDATA[<p>Можно упомянуть следующие ограничения:<br />
+1. Число полок в стэке 5<br />
+2. Необходим отдельный стэк</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2758</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 19 Jun 2012 01:50:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2758</guid>
+		<description>Alexey Marushchenko:
+
+С мордой полки-то понятно, интересна конструкция дисковго трея, прежде всего.</description>
+		<content:encoded><![CDATA[<p>Alexey Marushchenko:</p>
+<p>С мордой полки-то понятно, интересна конструкция дисковго трея, прежде всего.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2757</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 18 Jun 2012 22:46:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2757</guid>
+		<description>?? кабель питания обычный не подходит, ага.</description>
+		<content:encoded><![CDATA[<p>?? кабель питания обычный не подходит, ага.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1170#comment-2756</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Mon, 18 Jun 2012 20:50:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1170#comment-2756</guid>
+		<description>Вид спереди для DS4486 ничем не отличается от DS4243(6), она лишь на 4 дюйма глубже и поддерживается для систем 3240+
+Заказывается только полными полками.</description>
+		<content:encoded><![CDATA[<p>Вид спереди для DS4486 ничем не отличается от DS4243(6), она лишь на 4 дюйма глубже и поддерживается для систем 3240+<br />
+Заказывается только полными полками.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

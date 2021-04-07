@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; root vol</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;root vol&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-922">
+				<h2 class="posttitle"><a href="../922/trackback.html" rel="bookmark" title="Permanent Link to Перенос root volume">Перенос root volume</a></h2>
+				<div class="postmetadata">16 Июнь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Вы уже знаете, что каждая система хранения NetApp, вернее даже каждый ее контроллер, обязательно имеет на подключенных к нему дисках специальный, обычно самый первый, том, так называемый <em>root volume</em> или vol0. На этом томе хранится содержимое настроек и установок внутренней OS Data ONTAP (для знакомых с миром UNIX OS скажу проще – /etc), а также много всего прочего, включая директорию документации и веб-интерфейса, прошивки дисков, конфиг-файлы репликации и прочее жизненно необходимое. Такая схема позволяет легко и просто менять контроллер системы хранения, ведь если все индивидуальные настройки системы находятся на дисковых полках, вместе с данными, а в контроллере только ядро, то подключенный на замену новый (даже другого типа) контроллер загрузится, обнаружит и подключит /etc с дисков, и загрузится в той конфигурации и с теми самыми настройками, которыми обладал старый контроллер.</p>
+<p>Том <em>root vol</em>, обычно vol0, создается при начальной установке системы и очень часто уже никогда не меняется. Но что делать, если нам понадобилось изменить положение root vol, создать новый, на других дисках, например? Каким образом правильно перенести root vol на новый том?</p>
+<p>Допустим, мы мигрируем с 7.x на 8.0.1, и хотим использовать 64-bit aggregate only. Так как в настоящий момент нет средства преобразовать 32-bit, 7.x-style aggregate в новый, 64-bit, нам придется создать на пустых дисках новый 64-bit aggregate, затем перенести в него <em>root vol</em> и другое содержимое старого aggregate, затем убить старый aggregate и добавить его диски в новый.</p>
+<p>??ли, например, наша старая система когда-то создала свой <em>root vol</em> на старых дисках FC 144GB, а теперь мы используем SAS 600GB, и хотим вывести старые полки из эксплуатации, перенеся их содержимое на новые, в том числе и <em>root vol</em>.</p>
+<p>Но как вы догадываетесь, <em>root vol</em> это немного особенный том, недостаточно его просто скопировать, надо чтобы его опознало ядро Data ONTAP как “свое”.</p>
+<p>Посмотрим на имеющуюся картину:</p>
+<p><code>filer&gt; vol status      <br />Volume State Status Options       <br />vol1 online raid_dp create_ucode=on       <br />vol0 online raid4 <font color="#ff0000">root</font>, create_ucode=on</code></p>
+<p>Как вы видите, том vol0 имеет специальный атрибут – <strong>root</strong>.</p>
+<p>Начнем с того, что на нужном aggregate создадим том, который будет в будущем нашим новым <em>root vol</em>.</p>
+<p><code>&gt; vol create &lt;new_root_volname&gt; &lt;aggrname&gt; &lt;size&gt; </code></p>
+<p>Размер тома (size) следует выбрать согласно рекомендациям для используемого типа контроллера (он зависит от используемого в контроллере объема памяти, потому что на нем должно быть место для сброса core dump, “если что-то пошло не так” и дальнейшей диагностики проблем системы, кроме того определенный объем занимают файлы самой OS).</p>
+<p>Рекомендованные значения размеров тома:    <br />Для 7.3.х:     <br />FAS2020 – 10GB, FAS2050 – 12GB, FAS2040, FAS3140 – 16GB, FAS3160 – 23GB, FAS3170, FAS6040 – 37GB, FAS6080 – 69GB. </p>
+<p>Для 8.х.х:    <br />FAS2040, 3040, 3140 – 160GB,&#160; остальные – 250GB.</p>
+<p>Напомню, что размер тома вы можете увеличить и после его создания, но не более, чем на 95% от объема его содержащего aggregate. Проверить доступную емкость aggregate можно командой df -A</p>
+<p>Скопируем содержимое старого тома в новый том, например используя ndmpcopy.</p>
+<p>Убедимся что ndmp daemon включен или включим его, если он выключен.</p>
+<p><code>&gt; ndmpd on </code></p>
+<p>Скопируем содержимое тома в новый том. В отличие от копирования “через хост”, эта операция осуществляется внутренними средствами системы хранения и не нагружает канал передачи данных.</p>
+<p><code>&gt; ndmpcopy /etc /vol/new_root_vol/etc</code></p>
+<p><code>Ndmpcopy: Starting copy [ 2 ] &#8230;      <br />Ndmpcopy: filer: Notify: Connection established       <br />Ndmpcopy: filer: Notify: Connection established       <br />Ndmpcopy: filer: Connect: Authentication successful       <br />Ndmpcopy: filer: Connect: Authentication successful       <br />Ndmpcopy: filer: Log: DUMP: creating &quot;/vol/vol0/../snapshot_for_backup.4&quot; snapshot.       <br />Ndmpcopy: filer: Log: DUMP: Using subtree dump       <br />Ndmpcopy: filer: Log: DUMP: Date of this level 0 dump: Mon Mar 7 10:18:18 2005.       <br />Ndmpcopy: filer: Log: DUMP: Date of last level 0 dump: the epoch.       <br />Ndmpcopy: filer: Log: DUMP: Dumping /etc to NDMP connection       <br />Ndmpcopy: filer: Log: DUMP: mapping (Pass I)[regular files]       <br />Ndmpcopy: filer: Log: DUMP: mapping (Pass II)[directories]       <br />Ndmpcopy: filer: Log: DUMP: estimated 365193 KB.       <br />Ndmpcopy: filer: Log: DUMP: dumping (Pass III) [directories]       <br />Ndmpcopy: filer: Log: RESTORE: Mon Mar 7 10:18:25 2005: Begin level 0 restore       <br />Ndmpcopy: filer: Log: RESTORE: Mon Mar 7 10:18:25 2005: Reading directories from the backup       <br />Ndmpcopy: filer: Log: DUMP: dumping (Pass IV) [regular files]       <br />Ndmpcopy: filer: Log: RESTORE: Mon Mar 7 10:18:28 2005: Creating files and directories.       <br />Ndmpcopy: filer: Log: RESTORE: Mon Mar 7 10:18:32 2005: Writing data to files.       <br />Ndmpcopy: filer: Log: DUMP: dumping (Pass V) [ACLs]       <br />Ndmpcopy: filer: Log: RESTORE: Mon Mar 7 10:19:06 2005: Restoring NT ACLs.       <br />Ndmpcopy: filer: Log: RESTORE: RESTORE IS DONE       <br />Ndmpcopy: filer: Notify: restore successful       <br />Ndmpcopy: filer: Log: DUMP: 365298 KB       <br />Ndmpcopy: filer: Log: DUMP: DUMP IS DONE       <br />Ndmpcopy: filer: Log: DUMP: Deleting &quot;/vol/vol0/../snapshot_for_backup.4&quot; snapshot.       <br />Ndmpcopy: filer: Notify: dump successful       <br />Ndmpcopy: Transfer successful [ 49 seconds ]       <br />Ndmpcopy: Done</code></p>
+<p>Укажем для OS, что созданный том и есть наш новый root vol</p>
+<p><code>&gt; vol options new_root_vol root</code></p>
+<p><code>Mon Mar 7 10:21:24 PST [filer: fmmbx_instanceWorke:info]: Disk 8a.37 removed from primary mailbox set      <br />Mon Mar 7 10:21:24 PST [filer: fmmbx_instanceWorke:info]: Disk 8a.36 removed from primary mailbox set       <br />Mon Mar 7 10:21:24 PST [filer: fmmbx_instanceWorke:info]: Disk 8a.35 is a primary mailbox disk       <br /><font color="#ff0000">volume new_vol_root will become root volume at the next boot</font>.</code></p>
+<p>При необходимости переименуем новый том понятным именем</p>
+<p><code>&gt; vol rename new_root_vol rootvol </code></p>
+<p>Если вы использовали NAS-шары на старом томe (например для доступа к содержимому /etc и корня root vol, автоматически при инсталляции создаются шары etc$ и c$), они будут автоматически переставлены на новые места. Проверьте это, и, при необходимости, поправьте.</p>
+<p><code>&gt; cifs shares </code></p>
+<p><code>&gt; exportfs </code></p>
+<p>Проверьте новые настройки томов</p>
+<p><code>filer&gt; vol status      <br />Volume State Status Options       <br />vol1 online raid_dp create_ucode=on       <br />vol0 online raid4 create_ucode=on       <br />rootvol online raid4 <font color="#ff0000">root</font>, raidsize=4, create_ucode=on </code></p>
+<p>Как вы видите, созданный вами том rootvol теперь является <strong>root</strong>.</p>
+<p>Перезагрузитесь (в кластерной системе вместо перезагрузки можно сделать кластерный takeover/giveback), и убедитесь, что все хорошо.</p>
+<p><code>&gt; reboot </code></p>
+<p>Готово, вы перенесли <em>root volume</em> на новое место.</p>
+</p>
+<p><strong>UPD:</strong> Как правильно заметили в комментариях, я забыл еще одну операцию. Дело в том, что после переноса root vol перестает работать доступ по https в FilerView и System Manager. Поэтому необходимо перегенерировать SSL-сертификаты из командной строки:</p>
+<p><code><br />
+filer> options ssl.enable off<br />
+filer> secureadmin setup ssl<br />
+filer> options ssl.enable on<br />
+</code></p></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="replace.html" rel="tag">replace</a>, <a href="root.html" rel="tag">root</a>, <a href="root-vol.html" rel="tag">root vol</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../922/trackback.html#comments" title="Комментарий к записи Перенос root volume">Комментарии (15)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.067 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

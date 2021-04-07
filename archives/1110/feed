@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: TR-3749 NetApp and VMware vSphere 5 Best Practices</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1110/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1110</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:23 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1110#comment-2159</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 30 Jan 2012 11:44:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1110#comment-2159</guid>
+		<description>Sergey:
+
+Опечатка, скорее всего. Хотелось бы надеяться, что это единственная опечатка в документе. :)</description>
+		<content:encoded><![CDATA[<p>Sergey:</p>
+<p>Опечатка, скорее всего. Хотелось бы надеяться, что это единственная опечатка в документе. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1110#comment-2158</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Mon, 30 Jan 2012 11:30:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1110#comment-2158</guid>
+		<description>а там у вас не опечатка?
+декабрь 2011 должна быть дата.</description>
+		<content:encoded><![CDATA[<p>а там у вас не опечатка?<br />
+декабрь 2011 должна быть дата.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1110#comment-2154</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Fri, 27 Jan 2012 10:35:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1110#comment-2154</guid>
+		<description>Спасибо за оперативность, оригинал появился совсем недавно.</description>
+		<content:encoded><![CDATA[<p>Спасибо за оперативность, оригинал появился совсем недавно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1110#comment-2151</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 27 Jan 2012 05:18:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1110#comment-2151</guid>
+		<description>slu_x3m:
+
+Я про это даже писал:
+http://blog.aboutnetapp.ru/archives/942
+
+С этим сейчас все экспериментируют, даже Dell.</description>
+		<content:encoded><![CDATA[<p>slu_x3m:</p>
+<p>Я про это даже писал:<br />
+<a href="http://blog.aboutnetapp.ru/archives/942" rel="nofollow">http://blog.aboutnetapp.ru/archives/942</a></p>
+<p>С этим сейчас все экспериментируют, даже Dell.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: slu_x3m</title>
+		<link>http://blog.aboutnetapp.ru/archives/1110#comment-2150</link>
+		<dc:creator>slu_x3m</dc:creator>
+		<pubDate>Fri, 27 Jan 2012 05:06:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1110#comment-2150</guid>
+		<description>Привет! Сегодня общаясь с представителями EMC узнал о новинке (точного названия не знаю, знаю только суть) - встраиваемые в сервер кеш контроллеры. Т.е. плата устанавливается в сервер и через драйвер оптимизирует операции чтения (операции записи улетают напрямую на систему хранения). Эти платы EMC только только анонсирует, размер будет 300\900\1500 GB. Совместимость только с продукцией EMC и только на некоторых OS (Windows + RHEL).
+
+Прокомментируйте плиз =)</description>
+		<content:encoded><![CDATA[<p>Привет! Сегодня общаясь с представителями EMC узнал о новинке (точного названия не знаю, знаю только суть) - встраиваемые в сервер кеш контроллеры. Т.е. плата устанавливается в сервер и через драйвер оптимизирует операции чтения (операции записи улетают напрямую на систему хранения). Эти платы EMC только только анонсирует, размер будет 300\900\1500 GB. Совместимость только с продукцией EMC и только на некоторых OS (Windows + RHEL).</p>
+<p>Прокомментируйте плиз =)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

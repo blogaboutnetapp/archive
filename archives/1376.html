@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; NetApp AFF: All-Flash FAS</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1374/trackback.html">NetApp в облачном хостинге, v2.0</a></div>
+			<div class="alignright"><a href="1377/trackback.html">NetApp AFF: All-Flash FAS. Комментарии специалиста.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1376">
+			<h2 class="posttitle"><a href="1376/trackback.html" rel="bookmark" title="Permanent Link to NetApp AFF: All-Flash FAS">NetApp AFF: All-Flash FAS</a></h2>
+			<div class="postmetadata">3 Июль 2014, 15:28 <!-- от  --></div>
+			<div class="postentry">
+				<p>??з всей троицы продуктов, появившихся у NetApp этим летом, а именно: <strong>FAS2500</strong>, <strong>FAS8080EX</strong> и <strong>NetApp AFF</strong>, совершенно неожиданно для меня именно последний стал предметом преткновения, пост про который я пишу уже вторую неделю. Если про FAS2500 я <a href="1369/trackback.html">написал сразу</a>, и там, в целом, все ясно по прочтении техспек и&#160; Technical FAQ / SE Presentation, если c FAS8080ES тоже все ясно, это “больше, выше, сильнее”, вот, в общем, и все что про него можно рассказать, я даже отдельно про него писать не стану, то вот в отношении All-Flash FAS такая ясность долго не наступала. ?? далее я попробую рассказать, в чем, собствено, состоял предмет затруднения.</p>
+<p>  <span id="more-1376"></span>
+<p>Flash-memory, появившаяся на массововом рынке сравнительно недавно, успела не только, крайне стремительно, завоевать его и проникнуть во все области (у кого из нас нет USB-stick в кармане, карты памяти в телефоне и фотоаппарате, SSD в ноутбуке?), но и обрасти огромным числом мифов и заблуждений, непониманий и давно неактуальных сведений. Такое происходит, наверное, с любыми новыми технологиями, но быстрый прорыв в массовый рынок только усугубляет весь этот сопутствующий шлейф. Все мы знаем, что Flash – это энергонезависимая память, в которую что запишешь – то в ней и остается. Что единственный способ ее использовать в компьютерах – это эмулировать из нее жесткий диск, сделать так называемый “SSD”, Solid-state Disk. Что SSD бешено производителен, и превосходит в десятки раз любой “традиционный” жесткий диск. Что диск этот быстр, но не надежен. Что надо любой ценой ограничивать число записей на SSD, потому что его ресурс ограничен, и “<em>кто писал на мой SSD и весь его вЫписал?!</em>” ;). Наконец, что лучшее место для SSD – хост-сервер, а не сетевая система хранения, и что для полноценного, настоящего использования SSD с ним должен работать специально разработанный для этого типа, особо опимизированный контроллер с минимальным оверхедом на data path, иначе не видать нам производительности.</p>
+<p>Так вот, несмотря на то, что все эти утверждения выше кажутся вам совершенно очевидными и чистой правдой, все они являются в той или иной степени заблуждениями (да, я специально их такие подобрал). Удивлены?</p>
+<p>Узнав некоторое время назад новость, что NetApp планирует выпустить на рынок систему FAS, оснащеную только лишь дисками SSD, я был в некоторой растерянности. С одной стороны, Flash, как продукт, для NetApp совсем не новинка, более того, NetApp вообще один из пионеров и лидеров использования Flash, впервые он начал его поставлять в составе модуля <a href="599/trackback.html">Performance Acceleration Module II</a> (PAM-II),более 4 лет назад, раньше кого бы то ни было на рынке энтерпрайз-стораджей. Вслед за этим он поставлял и целые дисковые полки SSD, для традиционных дисковых массивов, продвигал идею <a href="936/trackback.html">Virtual Storage Tiering</a> и <a href="tag/flash-pool.html">Flash Pool</a>, а относительно недавно на рынок была выведена система хранения <a href="1244/trackback.html">EF540</a>, а за ней <a href="1305/trackback.html">EF550</a>, с более мошным контроллером, и это не считая экспериментальных продуктов, таких как <a href="1194/trackback.html">Flash Accel</a> и <a href="1246/trackback.html">Flash Ray</a>. Зачем в этом цветнике еще один продукт? Чего, в данном случае, не хватает, и зачем плодить внутреннюю межлинеечную конкуренцию, ведь как минимум один All-Flash NetApp есть в продуктах в виде очень успешного EF550?</p>
+<p>Для начала, чтобы пояснить то, какое место для NetApp занимает Flash:</p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/NetApp-AFF-All-Flash-FAS_CAD0/image.png" width="640" height="272" /></p>
+<p>Отсюда видно, что Flash для NetApp совсем не “увлечение”. ?? начав с Flash Cace / Flash Pool, он все расширяет “область применимости”.</p>
+<p>В самом начале это был <em>Flash Cache</em>, отдельная плата с Flash, устанавливаемая “кэшем второго уровня” на шину PCIe контроллера, а затем – <em>Flash Pool</em>, диск SSD, помещенные в Hybrid Aggregate, вместе с обычными HDD в полке. Такая система хорошо подходила для большинства general-purpose нагрузок и задач, сравнительно просто устанавливалась и настраивалась, и, за счет использования такой “гибридной” схемы, при которой во flash попадали только активные, “горячие” данные, дорогой flash использовался максимально эффективно. Но у такой схемы есть некоторые, несмертельные недостатки (например, это сравнительно долгий “разогрев” кэша из холодного состояния после включений или тэйковера).</p>
+<p>??дея, что для All-Flash хорошо подойдет специаьный, или хотя бы максимально простой контроллер, с минимальной длиной data path, от порта контроллера, и до порта диска, родила на свет систему EF, базирующуюся на сравнительно простых (по сравнению с FAS) контроллерах E-series и OS SANtricity. Это была крайне быстрая хранилка, достигшая на тестах предельно высоких показателей по IOPS и latency.</p>
+<p>Где же во всей этой, описанной выше картине, с точки зрения NetApp место для такой системы, как All Flash FAS? ??, прежде всего, что же такое – <em>All-Flash FAS</em>? </p>
+<p><em>AFF</em>, <em>Аll-Flash FAS</em>, это НЕ какая-то отдельная железка, или какой-то специальный софт. Это – конфигурация. Так решено называть конфигурацию, состоящую из обычного контроллера FAS, укомплектованого полками с SSD, и только ими. Под названием <strong>NetApp AFF</strong> будут выпускаться несколько готовых бандлов, построенных с использованием топовых контроллеров 8000-й серии: FAS8060 и FAS8080EX. Что, конечно, не исключает, возможности вам построить такой “AFF” самостоятельно с любым контроллером. Но учтите, что слабые контроллеры могут не дать “раскочегариться” большому многодисковому SSD-массиву.</p>
+<p>Кроме того, как удалось понять, на NetApp AFF будет работать самая обычная, <em>vanilla</em> версия Data ONTAP. Конечно, Data ONTAP прошла довольно большой путь оптимизации и тюнинга, прежде чем она хорошо зарботала с SSD, но это, тем не менее, вот прямо вот та самая Data ONTAP, что и на обычных HDD и HDD+SSD хранилищах.</p>
+<p>?? вот, вопреки, казалось бы вполне логичному убеждению в том, что для All-Flash не подходит такая “фичастая” (а следовательно с длинным “путем” данных) OS, как Data ONTAP&#160; в контроллерах FAS, неожиданно выяснилось, что, после некоторых твиков и допиливания, внесенных в mainstream код, она не только вполне справляется с нагрузками SSD и обеспечивает с ними весьма высокое быстродействие, но еще и добавляет много полезных фич к стораджу, от которого привычно ожидать быть “быстрым, но тупеньким”.   <br />Да, она остается медленнее, чем EF550, допустим, но в жизни существует довольно много задач, в которых достигнутое быстродействие на AFF вполне достаточно, и роль начинают играть “фичи”. (<em>По популярной легенде, в техпаспорте автомобиля Роллс-Ройс в графе “Мощность двигателя” написано: “Достаточная”</em>;)</p>
+<p>Я не устаю повторять в этом блоге мысль, что скорость – это еще не все. Что когда некоторый уровень быстродействия для реальной задачи достигнут, то дальнейший рост ее бысродействия уже не дает ощутимого “выхлопа”, что в мире, кроме болидов Формулы-1 еще есть и другие автомобили, и, сюрприз, ездим в жизни мы совсем не на болидах, и покупаем для себя тоже не их.</p>
+<p>Это не значит, что “болиды – не нужны”, нужны. Но – на своем месте. ?? это довольно специальное место (гоночный трек;). Более того, парадоксальным образом, в реальных задачах системы хранения с формально более низкими предельными показателями по IOPS, оказываются производительнее, и позволяют системе достичь более высоких показателей ovеrall.</p>
+<p>На <a href="1370/trackback.html">NetApp BreakFASt</a> специалист московского NetApp, Роман Ройфман, в докладе об AFF, показывал результаты тестирования, в которой All-Flash FAS объективно обыгрывал EF550, прежде всего за счет того, что “умная” хранилка на ряде задач эффективнее “быстрой, но глупой”.</p>
+<p>Если не топовую производительность и сверхнизкую latency, то что же может предложить AFF?</p>
+<p>Прежде всего, это функциональность, знакомую пользователям классических “дисковых” и гибридных (HDD+SSD/Flash Cache), становящихся сегодня “новым мэйнстримом”.</p>
+<p>Это дедупликация и “<em>не-дупликация</em>”, например в форме FlexClone. Это интеграция в кластер Clustered Data ONTAP, и, значит, все плюсы этого решения, включая <em>non-disruptive operations</em>, живую миграцию данных без прерывания к ним доступа. Это защита данных, и это не просто RAID. Это мультипротокольность, unified access, thin by design, и прочее. Flash storage становится при этом не “устройством в себе”, очередным “островом хранения”, а интегрированным компонентом общего IT-решения, и это совершенно беспрецедентная гибкость его использования.</p>
+<p>Где же позиционирует AFF сам NetApp?</p>
+<p>Сегодня видится следующая картина.</p>
+<p>Нишу сверху, <em>быстрых, но тупых</em> железок, с топовыми и предсказуемо предельно высокими значениями IOPS и latency, для задач “<em>производительность любой ценой</em>”, которые, строго говоря, есть узкая ниша (ну, положа руку на сердце, много ли вы знаете задач, в которых “цена решения не важна”?) занимает NetApp EF. Это решение для специальных типов данных и специальных нагрузок. Для людей, которые понимают, что они берут и зачем.</p>
+<p>Над “классическими” дисковыми стораджами располагается “новый мэйнстрим”, с хорошими <strong>средними</strong> показателями latency (я выше показывал, почему, в случае кэширования, мы говорим тут о “хороших средних” показателях), экономически эффективных с точки зрения эффекта от вложенного “погонного доллара”. Высокой и сверхвысокой емкости хранения. Хорошо подходящие для большинства областей применений и большинства типов рабочих нагрузок.</p>
+<p>?? вот как раз между ними двумя расположен <em>gap</em>, зазор, в котором и играют AFF. В тех случаях, когда от функциональность Data ONTAP мы отказаться не хотим, когда есть интерес использовать ее кластерные возможности, интеллектуальные алгоритмы доступа, read-ahead, сериализацию записей, дедупликацию данных и кэша, но при этом нам для наших задач нужна предсказуемость значений latency и IOPS (то есть не <em>среднего</em>, а <em>пикового</em> значения!), с трудом и сложно достигаемых при использовании кэширования во flash. Вот в этот зазор как раз хорошо попадают новые AFF.</p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/NetApp-AFF-All-Flash-FAS_CAD0/image_3.png" width="640" height="338" /></p>
+<p>Остальные продукты также распихиваются по нишам. От развития <em>FlashAccel</em>, то есть чисто софтверного решения для host-side кэширования под виртуальные платформы было решено отказаться, на рынке становится тесно от стартапов, которые занимаются подобными проектами и имеют больше ресурсов для развития этих продуктов.</p>
+<p><em>FlashRay</em>, официально все еще не показанный, сегодня рассматривается как “полигон” и площадка для перспективных исследований, на котором обкатываются решения для “Data ONTAP Next”. Он пока в этой роли в компании остается и так рассматривается.</p>
+<p>Ну, и “чтобы два раза не вставать”, в заключение об объявленной программе <strong>warranty на SSD</strong>. Помните, выше, я в списке распространенных заблуждений написал про всем хорошо известное “исчерпание ресурсов записи на SSD”, все, буквально все “знают”, что <em>на SSD нельзя писать, а если писать, то очень-очень редко, и вообще “SSD – ненадежны”, это аксиома.</em></p>
+<p>NetApp дает для поставляемых ей SSD, неважно, в составе AFF или Flash Pool, пять лет гарантии (3 года стандартных, плюс два года extended, если она приобретается на систему), причем, в отличие от некоторых других вендоров, в условиях отсутствует <em>маленькая серая звездочка</em> и мелкий шрифт внизу страницы, где написано “<em>только при условии не превышения нормированного числа перезаписей</em>”. Этого условия у NetApp нет. Гарантия 3+2 без дополнительных условий для поставляемых SSD. MTBF для SSD у NetApp сегодня прогнозируется равным 2 миллиона часов, то есть фактически равен (или даже превышает) MTBF для жестких дисков. Время не стоит на месте, и технологии во flash развиваются, делая ваши старые “убеждения” невалидными.</p>
+<p><a href="/pics/NetApp-AFF-All-Flash-FAS_CAD0/image_4.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/NetApp-AFF-All-Flash-FAS_CAD0/image_thumb.png" width="226" height="138" /></a></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/aff.html" rel="tag">aff</a>, <a href="tag/all-flash-fas.html" rel="tag">all-flash-fas</a>, <a href="tag/flash/index.html" rel="tag">flash</a>, <a href="tag/flash-cache.html" rel="tag">flash cache</a>, <a href="tag/flash-pool.html" rel="tag">flash pool</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="1376/trackback.html#respond">Комментарий</a> (<a href='1376/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1376/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (4)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-13527">
+		<div id="div-comment-13527">
+		<div class="comment-author">
+			<cite>sanet:<cite></div>
+			<p>&gt; показывал результаты тестирования, в которой All-Flash FAS объективно обыгрывал EF550</p>
+<p>На клонировании VDI или ещё на чём-то? (Проспал я этот момент на брекфесте).</p>
+						<div class="comment-meta"><a href="1376/trackback.html#comment-13527" title="">4 Июль 2014, 2:59</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13529">
+		<div id="div-comment-13529">
+		<div class="comment-author">
+			<cite>Artur:<cite></div>
+			<p>Тоже интересно почитать про кейс когда AFF быстрее EF.</p>
+						<div class="comment-meta"><a href="1376/trackback.html#comment-13529" title="">4 Июль 2014, 15:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13533">
+		<div id="div-comment-13533">
+		<div class="comment-author">
+			<cite>sanet:<cite></div>
+			<p>AFF обгоняет EF на профиле нагрузки VDI вообще, а не только при клонировании, благодаря записи тетрисами. Возможно, дедупликация тоже играет роль.</p>
+						<div class="comment-meta"><a href="1376/trackback.html#comment-13533" title="">5 Июль 2014, 19:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13537">
+		<div id="div-comment-13537">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>Может Рома сделает отдельный пост по теме тестов AFF для VDI, если осталось много вопросов?</p>
+						<div class="comment-meta"><a href="1376/trackback.html#comment-13537" title="">6 Июль 2014, 22:33</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1376" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.073 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Что такое SMI-S и как/зачем его использовать?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1120/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1120</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:56 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1120#comment-2377</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 27 Apr 2012 11:21:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1120#comment-2377</guid>
+		<description>&gt;Так вот раз они LSI, то IBM и предлагает провадера SMI-S брать на сайте LSI.
+
+Нет, ну, конечно, IBM у нас гигант не только большой, но и изрядно голубой, и "закон ему не писан", но, вообще-то, OEM-соглашение обычно предполагает, что поддержку оборудования осуществляет соответствующий брэнд, а не его OEM-поставщик. Так, для N-series, который производит NetApp, поддержка оказывается IBM-ом, а не нетаппом, также как, например, прошивки для дисковых полок NetApp, производимых по OEM-соглашению для NetApp Xyratex-ом, находятся на сайте NetApp, а вовсе не Xyratex. То же самое и с другими парами OEM-supplier / brand, намример DotHill/HP MSA2000.
+Почему IBM считает иначе в отношении DS4000 лично для меня загадка.</description>
+		<content:encoded><![CDATA[<p>>Так вот раз они LSI, то IBM и предлагает провадера SMI-S брать на сайте LSI.</p>
+<p>Нет, ну, конечно, IBM у нас гигант не только большой, но и изрядно голубой, и &#8220;закон ему не писан&#8221;, но, вообще-то, OEM-соглашение обычно предполагает, что поддержку оборудования осуществляет соответствующий брэнд, а не его OEM-поставщик. Так, для N-series, который производит NetApp, поддержка оказывается IBM-ом, а не нетаппом, также как, например, прошивки для дисковых полок NetApp, производимых по OEM-соглашению для NetApp Xyratex-ом, находятся на сайте NetApp, а вовсе не Xyratex. То же самое и с другими парами OEM-supplier / brand, намример DotHill/HP MSA2000.<br />
+Почему IBM считает иначе в отношении DS4000 лично для меня загадка.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Евгений</title>
+		<link>http://blog.aboutnetapp.ru/archives/1120#comment-2376</link>
+		<dc:creator>Евгений</dc:creator>
+		<pubDate>Fri, 27 Apr 2012 11:07:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1120#comment-2376</guid>
+		<description>??звините что неясно выразился.
+Речь про семейство IBM DS4000, которые OEM LSI (3992/3994/E5600 и т.р.).
+Так вот раз они LSI, то IBM и предлагает провадера SMI-S брать на сайте LSI.
+http://www.lsi.com/storage_home/products_home/external_raid/management_software/smis_provider/index.html
+А после покупки NetApp-ом (части) LSI этого провайдера на сайте LSI больше нету и предлагается это брать у NetApp.
+Т.е. нужен SMI-S провайдер LSI (не для NetApp FAS).</description>
+		<content:encoded><![CDATA[<p>??звините что неясно выразился.<br />
+Речь про семейство IBM DS4000, которые OEM LSI (3992/3994/E5600 и т.р.).<br />
+Так вот раз они LSI, то IBM и предлагает провадера SMI-S брать на сайте LSI.<br />
+<a href="http://www.lsi.com/storage_home/products_home/external_raid/management_software/smis_provider/index.html" rel="nofollow">http://www.lsi.com/storage_home/products_home/external_raid/management_software/smis_provider/index.html</a><br />
+А после покупки NetApp-ом (части) LSI этого провайдера на сайте LSI больше нету и предлагается это брать у NetApp.<br />
+Т.е. нужен SMI-S провайдер LSI (не для NetApp FAS).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1120#comment-2261</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 06 Apr 2012 04:15:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1120#comment-2261</guid>
+		<description>Евгений:
+
+Не уверен, что чужая система опознается.
+
+&gt; для системы хранения IBM (т.е. LSI, теперь же NetApp).
+
+Что-то у вас полная каша. Какая именно система?
+Тот NetApp (E-series), который бывший LSI, это отдельная история, и по разным причинам все что я говорю тут в блоге про NetApp не относится к E-series. Это совершенно разные системы хранения, с соверщенно разными облстями применения, несовместимые между собой. SMI-S provider для FAS не подойдет ни для каких других систем, кроме NetApp FAS.</description>
+		<content:encoded><![CDATA[<p>Евгений:</p>
+<p>Не уверен, что чужая система опознается.</p>
+<p>> для системы хранения IBM (т.е. LSI, теперь же NetApp).</p>
+<p>Что-то у вас полная каша. Какая именно система?<br />
+Тот NetApp (E-series), который бывший LSI, это отдельная история, и по разным причинам все что я говорю тут в блоге про NetApp не относится к E-series. Это совершенно разные системы хранения, с соверщенно разными облстями применения, несовместимые между собой. SMI-S provider для FAS не подойдет ни для каких других систем, кроме NetApp FAS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Евгений</title>
+		<link>http://blog.aboutnetapp.ru/archives/1120#comment-2259</link>
+		<dc:creator>Евгений</dc:creator>
+		<pubDate>Thu, 05 Apr 2012 11:58:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1120#comment-2259</guid>
+		<description>Не подскажете, как можно скачать SMI-S provider, не имея логина NetApp Support Site (или с доступом типа Guest)?
+На самом деле провайдет нужен для системы хранения IBM (т.е. LSI, теперь же NetApp).</description>
+		<content:encoded><![CDATA[<p>Не подскажете, как можно скачать SMI-S provider, не имея логина NetApp Support Site (или с доступом типа Guest)?<br />
+На самом деле провайдет нужен для системы хранения IBM (т.е. LSI, теперь же NetApp).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1120#comment-2189</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Fri, 17 Feb 2012 08:18:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1120#comment-2189</guid>
+		<description>Да, знаем такую штуку. Товарищу из Microsoft качал SMI-S для тестирования NetApp + System Center Virtual Machine Manager 2012 :)
+??мея дело с этой штукой ещё ранее, только в связке с EMC, узнал один нюанс - ставить на один хост провайдера для Symmetrix и Clariion нельзя + он у EMC глючный. Вообщем мне этот стандарт не понравился.:)
+
+Вот ещё одна ссылка по теме http://www.hyper-v.nu/archives/hvredevoort/2011/08/installation-of-data-ontap-simulator-in-a-hyper-v-guest-centos-and-using-an-smi-s-provider-to-connect-to-scvmm-2012/</description>
+		<content:encoded><![CDATA[<p>Да, знаем такую штуку. Товарищу из Microsoft качал SMI-S для тестирования NetApp + System Center Virtual Machine Manager 2012 :)<br />
+??мея дело с этой штукой ещё ранее, только в связке с EMC, узнал один нюанс - ставить на один хост провайдера для Symmetrix и Clariion нельзя + он у EMC глючный. Вообщем мне этот стандарт не понравился.:)</p>
+<p>Вот ещё одна ссылка по теме <a href="http://www.hyper-v.nu/archives/hvredevoort/2011/08/installation-of-data-ontap-simulator-in-a-hyper-v-guest-centos-and-using-an-smi-s-provider-to-connect-to-scvmm-2012/" rel="nofollow">http://www.hyper-v.nu/archives/hvredevoort/2011/08/installation-of-data-ontap-simulator-in-a-hyper-v-guest-centos-and-using-an-smi-s-provider-to-connect-to-scvmm-2012/</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

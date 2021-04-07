@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Переход на Clustered Data ONTAP. Часть 1</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1365/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1365</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:12 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Andrey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13826</link>
+		<dc:creator>Andrey</dc:creator>
+		<pubDate>Wed, 30 Jul 2014 16:20:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13826</guid>
+		<description>Можно подробнее об организации c-mode на 2240-2. У нас 10Gb интерфейсы подключены к FI Cisco UCS.
+Вроде можно сделать интерконнект внутри 2240-2.</description>
+		<content:encoded><![CDATA[<p>Можно подробнее об организации c-mode на 2240-2. У нас 10Gb интерфейсы подключены к FI Cisco UCS.<br />
+Вроде можно сделать интерконнект внутри 2240-2.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Переход на Clustered Data ONTAP. Часть 2 &#124; about NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13803</link>
+		<dc:creator>Переход на Clustered Data ONTAP. Часть 2 &#124; about NetApp</dc:creator>
+		<pubDate>Sun, 27 Jul 2014 16:44:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13803</guid>
+		<description>[...] в прошлый раз мы начали трогать тему перехода с Data ONTAP 7-mode, на Clustered Data [...]</description>
+		<content:encoded><![CDATA[<p>[...] в прошлый раз мы начали трогать тему перехода с Data ONTAP 7-mode, на Clustered Data [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13800</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 27 Jul 2014 10:44:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13800</guid>
+		<description>Артём:
+
+"Сеня, жарьте рыбу. Рыба - будет!" (с) Одесса
+
+Продолжение будет. Просто, к сожалению, текущие события и оперативная "текучка" часто оттесняют в блоге фундаментальные темы на периферию.</description>
+		<content:encoded><![CDATA[<p>Артём:</p>
+<p>&#8220;Сеня, жарьте рыбу. Рыба - будет!&#8221; (с) Одесса</p>
+<p>Продолжение будет. Просто, к сожалению, текущие события и оперативная &#8220;текучка&#8221; часто оттесняют в блоге фундаментальные темы на периферию.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Артём</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13728</link>
+		<dc:creator>Артём</dc:creator>
+		<pubDate>Wed, 23 Jul 2014 07:55:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13728</guid>
+		<description>Роман, где же продолжение?
+Нам, кажется, предстоит миграция на cDOT.
+?? у нас FC. Для миграции LUN предвидится какое-нибудь решение?</description>
+		<content:encoded><![CDATA[<p>Роман, где же продолжение?<br />
+Нам, кажется, предстоит миграция на cDOT.<br />
+?? у нас FC. Для миграции LUN предвидится какое-нибудь решение?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13379</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Wed, 11 Jun 2014 16:06:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13379</guid>
+		<description>уточню:
+в 8.3.0 будет упрощение ситуации с root-агрегатоми для младших моделей, где это наиболее чувствительно.  На остальных системах это будет чуть познее. Но пока до осени говорить рано. 
+
+Так же в 8.3.0 будет доступен метрокластер, обеспечивающий RPO=0. Это ответ на требование синхронной репликации. Но тоже надо ждать деталей не ранее середины осени, как минимум.  
+
+Но это все экстремальные случаи. ?? не стоит на этом зацикливаться.</description>
+		<content:encoded><![CDATA[<p>уточню:<br />
+в 8.3.0 будет упрощение ситуации с root-агрегатоми для младших моделей, где это наиболее чувствительно.  На остальных системах это будет чуть познее. Но пока до осени говорить рано. </p>
+<p>Так же в 8.3.0 будет доступен метрокластер, обеспечивающий RPO=0. Это ответ на требование синхронной репликации. Но тоже надо ждать деталей не ранее середины осени, как минимум.  </p>
+<p>Но это все экстремальные случаи. ?? не стоит на этом зацикливаться.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13375</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 11 Jun 2014 08:25:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13375</guid>
+		<description>Андрей:
+
+Про новую схему выделения места под root aggregate я тоже расскажу в одном из следующих постов. Расскажу на пальцах и неофициально, потому что до выхода 8.3 осенью в деталях это рассказывать сложно. Но такая работа ведется.
+Пока же мы идем в теме миграции от общего к частному. Безусловно, для владельцев маленьких малодисковых систем схема с обязательны выделением минимум 3 дисков на контроллер под root aggregate - кажется расточитетьной, но не забывайте, что для владельцев систем с, допустим, пятью полками дискв на контроллер, это будет не настолько критично.
+
+Nostromo:
+
+Официально ожидается метрокластер в кластермоде, синхронная репликация в котором, в общем, является необхдимым компонентом. Как уж это будет реализовано - пока гадаем. Но, думаю, что - да.</description>
+		<content:encoded><![CDATA[<p>Андрей:</p>
+<p>Про новую схему выделения места под root aggregate я тоже расскажу в одном из следующих постов. Расскажу на пальцах и неофициально, потому что до выхода 8.3 осенью в деталях это рассказывать сложно. Но такая работа ведется.<br />
+Пока же мы идем в теме миграции от общего к частному. Безусловно, для владельцев маленьких малодисковых систем схема с обязательны выделением минимум 3 дисков на контроллер под root aggregate - кажется расточитетьной, но не забывайте, что для владельцев систем с, допустим, пятью полками дискв на контроллер, это будет не настолько критично.</p>
+<p>Nostromo:</p>
+<p>Официально ожидается метрокластер в кластермоде, синхронная репликация в котором, в общем, является необхдимым компонентом. Как уж это будет реализовано - пока гадаем. Но, думаю, что - да.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13374</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Wed, 11 Jun 2014 07:33:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13374</guid>
+		<description>А синхронная репликация вообще ожидается?</description>
+		<content:encoded><![CDATA[<p>А синхронная репликация вообще ожидается?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Андрей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13371</link>
+		<dc:creator>Андрей</dc:creator>
+		<pubDate>Wed, 11 Jun 2014 05:25:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13371</guid>
+		<description>Хочу внести небольшое дополнение: для меня Cluster ONTAP будет закрыта пока она будет требовать отдельного root-агрегата на каждую ноду. На системах с одной-двумя дисковыми полками такие траты просто не разумны.
+Надеемся, что в 8.3 сделают возможность размещения root-данных на агрегатах с данными.
+
+Роман, что скажете?</description>
+		<content:encoded><![CDATA[<p>Хочу внести небольшое дополнение: для меня Cluster ONTAP будет закрыта пока она будет требовать отдельного root-агрегата на каждую ноду. На системах с одной-двумя дисковыми полками такие траты просто не разумны.<br />
+Надеемся, что в 8.3 сделают возможность размещения root-данных на агрегатах с данными.</p>
+<p>Роман, что скажете?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13370</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 10 Jun 2014 12:46:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13370</guid>
+		<description>bbk:
+
+Об этом варианте я собирался отдельно рассказать в следующем посте серии :)</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Об этом варианте я собирался отдельно рассказать в следующем посте серии :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1365#comment-13369</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 10 Jun 2014 12:45:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1365#comment-13369</guid>
+		<description>Как вариант тем, кто хочет перейти с 7-Mode: можно попросить "взять в тест" систему хранения у одного из дистрибьюторов и осуществить при её помощи переезд на C-Mode. Говорите вашему дисти прямо: мы хотим переехать на C-Mode. Если система будет свободна и на неё не будет "ажиотажа", то вам конечно же её дадут, тем более нужна она будет не на месяц, а от силы на неделю. А если вы ещё дадите открытый "референс", то могут и помочь в переезде ;)
+
+Желательно это проделывать летом, или сразу после нового года, когда у дистрибьюторов "не сезон", системы хранения лежат и пылятся, не задействованные, на полочках.</description>
+		<content:encoded><![CDATA[<p>Как вариант тем, кто хочет перейти с 7-Mode: можно попросить &#8220;взять в тест&#8221; систему хранения у одного из дистрибьюторов и осуществить при её помощи переезд на C-Mode. Говорите вашему дисти прямо: мы хотим переехать на C-Mode. Если система будет свободна и на неё не будет &#8220;ажиотажа&#8221;, то вам конечно же её дадут, тем более нужна она будет не на месяц, а от силы на неделю. А если вы ещё дадите открытый &#8220;референс&#8221;, то могут и помочь в переезде ;)</p>
+<p>Желательно это проделывать летом, или сразу после нового года, когда у дистрибьюторов &#8220;не сезон&#8221;, системы хранения лежат и пылятся, не задействованные, на полочках.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

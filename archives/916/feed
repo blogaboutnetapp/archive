@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Запускаем новую систему хранения. Часть 1.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/916/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/916</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:14 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: sil</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1901</link>
+		<dc:creator>sil</dc:creator>
+		<pubDate>Thu, 10 Nov 2011 08:29:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1901</guid>
+		<description>Присоединяюсь ко всем! Очень хотелось бы почитать 2ую часть.</description>
+		<content:encoded><![CDATA[<p>Присоединяюсь ко всем! Очень хотелось бы почитать 2ую часть.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur Alikulov</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1827</link>
+		<dc:creator>Artur Alikulov</dc:creator>
+		<pubDate>Thu, 20 Oct 2011 20:38:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1827</guid>
+		<description>На всякий случай тоже отмечюсь с просьбой о выходе второй части гайда.</description>
+		<content:encoded><![CDATA[<p>На всякий случай тоже отмечюсь с просьбой о выходе второй части гайда.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dake</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1785</link>
+		<dc:creator>Dake</dc:creator>
+		<pubDate>Wed, 12 Oct 2011 07:14:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1785</guid>
+		<description>Присоединяюсь к ??вану! Ждем продолжение! Особенно интересно, каким образом происходит первичный soft disk ownership и как система решает, где ей создать root vol'ы. Так же будет очень полезно почитать Ваши бест практисы из опыта, например, есть один остроумный способ изпользования 12 дисков в 2020 (9 дисков на 1 голову, 2 диска на 2 голову и 1 общий spare) - как такая конфигурация работает на практике?</description>
+		<content:encoded><![CDATA[<p>Присоединяюсь к ??вану! Ждем продолжение! Особенно интересно, каким образом происходит первичный soft disk ownership и как система решает, где ей создать root vol&#8217;ы. Так же будет очень полезно почитать Ваши бест практисы из опыта, например, есть один остроумный способ изпользования 12 дисков в 2020 (9 дисков на 1 голову, 2 диска на 2 голову и 1 общий spare) - как такая конфигурация работает на практике?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ??ван</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1766</link>
+		<dc:creator>??ван</dc:creator>
+		<pubDate>Wed, 05 Oct 2011 08:04:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1766</guid>
+		<description>Очень жду! У меня стоит новая 2020 с двумя контролерами, а запускать пока боюсь. Читаю мануалы, но т.к. впервые связался со стораджами, то вопросов миллион, а с ноля все понять тяжеловато. В общем очень полезный был бы документ!</description>
+		<content:encoded><![CDATA[<p>Очень жду! У меня стоит новая 2020 с двумя контролерами, а запускать пока боюсь. Читаю мануалы, но т.к. впервые связался со стораджами, то вопросов миллион, а с ноля все понять тяжеловато. В общем очень полезный был бы документ!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1765</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 04 Oct 2011 11:42:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1765</guid>
+		<description>??ван:
+
+Будет. Но писать оказалось довольно много. К тому же, считайте, что я сейчас "на практике" проверяю текст, запуская систему, и отрабатываю написанное "в реале", для лучшей понятности. :)</description>
+		<content:encoded><![CDATA[<p>??ван:</p>
+<p>Будет. Но писать оказалось довольно много. К тому же, считайте, что я сейчас &#8220;на практике&#8221; проверяю текст, запуская систему, и отрабатываю написанное &#8220;в реале&#8221;, для лучшей понятности. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ??ван</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1764</link>
+		<dc:creator>??ван</dc:creator>
+		<pubDate>Tue, 04 Oct 2011 11:34:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1764</guid>
+		<description>Будет ли продолжение?</description>
+		<content:encoded><![CDATA[<p>Будет ли продолжение?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1613</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 15 Aug 2011 05:13:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1613</guid>
+		<description>Miloshevitch:
+
+Пока не написано, но раз есть интерес, давайте на следующей, или через неделю, постараюсь дописать и опубликовать.</description>
+		<content:encoded><![CDATA[<p>Miloshevitch:</p>
+<p>Пока не написано, но раз есть интерес, давайте на следующей, или через неделю, постараюсь дописать и опубликовать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Miloshevitch</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1612</link>
+		<dc:creator>Miloshevitch</dc:creator>
+		<pubDate>Mon, 15 Aug 2011 05:00:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1612</guid>
+		<description>Подскажите пожалуйста ссылку на ч.2 с продолжением.</description>
+		<content:encoded><![CDATA[<p>Подскажите пожалуйста ссылку на ч.2 с продолжением.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1376</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Tue, 24 May 2011 10:20:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1376</guid>
+		<description>&#62; А вот найти COM-порт все чаще и чаще проблема
+
+Ну, для этого в ящике лежит Prolific ;-P</description>
+		<content:encoded><![CDATA[<p>&gt; А вот найти COM-порт все чаще и чаще проблема</p>
+<p>Ну, для этого в ящике лежит Prolific ;-P</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/916#comment-1375</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 23 May 2011 13:38:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=916#comment-1375</guid>
+		<description>Ну так я и говорю - ретроградствуете :)
+
+Главное, что старый способ, через консоль и командную строку, не отбирают ведь.
+
+А вот найти COM-порт все чаще и чаще проблема, гораздо больше проблема, чем поднять DHCP в сети.</description>
+		<content:encoded><![CDATA[<p>Ну так я и говорю - ретроградствуете :)</p>
+<p>Главное, что старый способ, через консоль и командную строку, не отбирают ведь.</p>
+<p>А вот найти COM-порт все чаще и чаще проблема, гораздо больше проблема, чем поднять DHCP в сети.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

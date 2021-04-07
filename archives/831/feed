@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FAS2020 &#8211; распродажа 2011, УТОЧНЕН??Я!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/831/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/831</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:44 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1241</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 24 Mar 2011 08:05:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1241</guid>
+		<description>alian, написал Вам в почту. Откликнитесь, получили-ли?</description>
+		<content:encoded><![CDATA[<p>alian, написал Вам в почту. Откликнитесь, получили-ли?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1228</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 16 Mar 2011 17:19:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1228</guid>
+		<description>Да нет, просто вы уже две недели вдвоем обсуждаете некую узкочастную задачу, не имеющую отношения к теме топика, вдобавок делать это в вордпрессовых комментах еще и неудобно.
+Вот я и предлагаю перейти с этим в почту, это и удобнее, и проще, и быстрее для всех.</description>
+		<content:encoded><![CDATA[<p>Да нет, просто вы уже две недели вдвоем обсуждаете некую узкочастную задачу, не имеющую отношения к теме топика, вдобавок делать это в вордпрессовых комментах еще и неудобно.<br />
+Вот я и предлагаю перейти с этим в почту, это и удобнее, и проще, и быстрее для всех.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1227</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Wed, 16 Mar 2011 17:12:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1227</guid>
+		<description>romx
+и тут пришел модератор с плюсометом :-)</description>
+		<content:encoded><![CDATA[<p>romx<br />
+и тут пришел модератор с плюсометом :-)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1226</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 16 Mar 2011 14:50:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1226</guid>
+		<description>alian:
+Не то чтобы я вас гоню из комментов, но, уверен, вам удобнее с Алексеем будет говорить напрямую, в почте, а не через комменты, которые не только неудобные для диалога но, как я понимаю, еще и без уведомления написавшему тут постятся.
+
+alian: alian@mail.ru
+Алексей: amarush@a-systems.ru.com
+
+Так что мой совет контачить напрямую.</description>
+		<content:encoded><![CDATA[<p>alian:<br />
+Не то чтобы я вас гоню из комментов, но, уверен, вам удобнее с Алексеем будет говорить напрямую, в почте, а не через комменты, которые не только неудобные для диалога но, как я понимаю, еще и без уведомления написавшему тут постятся.</p>
+<p>alian: <a href="mailto:alian@mail.ru">alian@mail.ru</a><br />
+Алексей: <a href="mailto:amarush@a-systems.ru.com">amarush@a-systems.ru.com</a></p>
+<p>Так что мой совет контачить напрямую.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: alian</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1225</link>
+		<dc:creator>alian</dc:creator>
+		<pubDate>Wed, 16 Mar 2011 14:12:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1225</guid>
+		<description>Алексей:
+&#62;Ориентир по прайс-листу для 1Тб полок можно дать - около $50K за 1 шт.
+за полку с 1тб sata дисками - $50k?
+
+&#62;исследования нагрузок.
+у меня на части массива линейное чтение/запись  - у рабочих данных. у части - пользовательские данные - сильно random.
+измерять не всю систему целиком а по назначению полок? три полки для раб.файлов меряем для линейного, две полке с random?
+но ведь контролер один (в смысле два) через который идет поток данных что первого что второго типа.
+
+или эмулируются нагрузки обоих типом и смотрим как ведет себя система?</description>
+		<content:encoded><![CDATA[<p>Алексей:<br />
+&gt;Ориентир по прайс-листу для 1Тб полок можно дать - около $50K за 1 шт.<br />
+за полку с 1тб sata дисками - $50k?</p>
+<p>&gt;исследования нагрузок.<br />
+у меня на части массива линейное чтение/запись  - у рабочих данных. у части - пользовательские данные - сильно random.<br />
+измерять не всю систему целиком а по назначению полок? три полки для раб.файлов меряем для линейного, две полке с random?<br />
+но ведь контролер один (в смысле два) через который идет поток данных что первого что второго типа.</p>
+<p>или эмулируются нагрузки обоих типом и смотрим как ведет себя система?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1209</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 10 Mar 2011 13:23:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1209</guid>
+		<description>alian:
+Грубая оценка без знания характера доступа к данным:
+Под архив в 20Тб и 5Тбфайлов пользователей взять 2 полки SATA с 1Тб дисками (можно попробовать и 1 с 2, но надо проверять нагрузку от пользователей)
+Под рабочие данные 45Тб + снэпшоты взять 3 полки SATA с 1Тб дисками
+
+Это точно не 2000 серия систем, минимум 3210А.
+
+Точнее можно сказать только после исследования нагрузок. Цена очень сильно зависит от софта и размера скидки, чтобы сказать точнее - надо считать в конфигураторе. Ориентир по прайс-листу для 1Тб полок можно дать - около $50K за 1 шт.</description>
+		<content:encoded><![CDATA[<p>alian:<br />
+Грубая оценка без знания характера доступа к данным:<br />
+Под архив в 20Тб и 5Тбфайлов пользователей взять 2 полки SATA с 1Тб дисками (можно попробовать и 1 с 2, но надо проверять нагрузку от пользователей)<br />
+Под рабочие данные 45Тб + снэпшоты взять 3 полки SATA с 1Тб дисками</p>
+<p>Это точно не 2000 серия систем, минимум 3210А.</p>
+<p>Точнее можно сказать только после исследования нагрузок. Цена очень сильно зависит от софта и размера скидки, чтобы сказать точнее - надо считать в конфигураторе. Ориентир по прайс-листу для 1Тб полок можно дать - около $50K за 1 шт.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: alian</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1201</link>
+		<dc:creator>alian</dc:creator>
+		<pubDate>Wed, 09 Mar 2011 12:26:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1201</guid>
+		<description>Алексей:
+нет :) гисы близко, но у нас там микроскопические объемы по сравнению с основными</description>
+		<content:encoded><![CDATA[<p>Алексей:<br />
+нет :) гисы близко, но у нас там микроскопические объемы по сравнению с основными</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1200</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Wed, 09 Mar 2011 11:22:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1200</guid>
+		<description>alian:
+Если не видео, то Г??С или Метео, угадал?</description>
+		<content:encoded><![CDATA[<p>alian:<br />
+Если не видео, то Г??С или Метео, угадал?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1199</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Wed, 09 Mar 2011 11:15:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1199</guid>
+		<description>alian:
+Хранение снэпшотов в NetApp производится на уровне ФС (WAFL) с помощью "альтернативных структур блоков", т.е. отдельно выделять тома под снэпшоты не надо.</description>
+		<content:encoded><![CDATA[<p>alian:<br />
+Хранение снэпшотов в NetApp производится на уровне ФС (WAFL) с помощью &#8220;альтернативных структур блоков&#8221;, т.е. отдельно выделять тома под снэпшоты не надо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: alian</title>
+		<link>http://blog.aboutnetapp.ru/archives/831#comment-1197</link>
+		<dc:creator>alian</dc:creator>
+		<pubDate>Wed, 09 Mar 2011 03:18:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/831#comment-1197</guid>
+		<description>Алексей:
+1. под архивом понимаются именно архив (не резервные копии).
+то есть информация структурируется в специальной системе и хранится в ней, с обеспечением например поиска данных по атрибутам.
+
+2. нет не видео :) у нас большие наборы данных, которые вычислительные сервера (кластер из smp-машин) лопатят.
+а хранение снепшотов производится как? выделение специального тома под измененные блоки, или просто ведутся альтернативные структуры блоков на уровне ФС? 
+смотрел как устроены снепшоты на IBM DS3400 и DS4700  - там нужно выделять области, аналогично LVM в Linux. а это не хорошо - сложно с прогнозировать нагрузку. ??нтересней система которая обеспечивает снепшоты на уровне блоков файловой системы, как например у Solaris UFS или IBM GPFS - в этом случае более оптимально используется емкость системы.</description>
+		<content:encoded><![CDATA[<p>Алексей:<br />
+1. под архивом понимаются именно архив (не резервные копии).<br />
+то есть информация структурируется в специальной системе и хранится в ней, с обеспечением например поиска данных по атрибутам.</p>
+<p>2. нет не видео :) у нас большие наборы данных, которые вычислительные сервера (кластер из smp-машин) лопатят.<br />
+а хранение снепшотов производится как? выделение специального тома под измененные блоки, или просто ведутся альтернативные структуры блоков на уровне ФС?<br />
+смотрел как устроены снепшоты на IBM DS3400 и DS4700  - там нужно выделять области, аналогично LVM в Linux. а это не хорошо - сложно с прогнозировать нагрузку. ??нтересней система которая обеспечивает снепшоты на уровне блоков файловой системы, как например у Solaris UFS или IBM GPFS - в этом случае более оптимально используется емкость системы.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Производительность в Cluster-mode: опубликованы результаты</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1232/trackback.html">Data ONTAP Simulator 8.1.1 в VirtualBox</a></div>
+			<div class="alignright"><a href="1236/trackback.html">Amazon AWS начал использовать NetApp в &#8220;гибридном облаке&#8221;</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1234">
+			<h2 class="posttitle"><a href="1234/trackback.html" rel="bookmark" title="Permanent Link to Производительность в Cluster-mode: опубликованы результаты">Производительность в Cluster-mode: опубликованы результаты</a></h2>
+			<div class="postmetadata">15 Ноябрь 2012, 7:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Мы уже весь этот год понемногу <a href="tag/cluster-mode/index.html">говорим</a> о новой для пользователей NetApp “классической”, 7-mode архитектуры, схеме <a href="1113/trackback.html">Cluster-mode</a>. В отрасли все еще довлеет определенный груз недоверия, Cluster-mode считается, во-первых,&#160; дорогим (но о  цене и спецпредложении двухузловой cluster-mode по цене HA-пары 7-mode, и о “Cisco Nexus за 1$” мы <a href="1118/trackback.html">уже говорили ранее</a>), сложным в развертывании и установке (но рекомендую сделать поиск по <a href="http://www.netapp.com/us/library/">Techlibrary</a> по слову “cluster-mode”) и имеющим значительный оверхед по производительности, в сравнении с системой 7-mode. ?? вот об этом последнем мы поговорим сегодня.</p>
+<p>К моему глубокому сожалению некоторые такие предрассудки о производительности системы в Cluster-mode&#160; разделяли и отдельные знакомые мне специалисты самого NetApp.</p>
+<p>Поэтому так интересно было посмотреть на официально опубликованный отчет по измерению и сравнению производительности системы Cluster-mode и 7-mode.</p>
+<p>Была протестирована производительность работы системы хранения FAS6240 под задачи четырехнодового Oracle RAC на OLTP нагрузке, под всеми поддерживаемыми протоколами, в конфигурации хранилища как 7-mode, так и Cluster-mode, в максимально идентичной конфигурации OS, базы, настроек оборудования. Для затравки вам картинка, остальное по ссылке на <a href="http://media.netapp.com/documents/tr-4109.PDF">полный отчет</a> с описанием методики тестирования.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/--Cluster-mode--_8D22/image.png" width="783" height="443" /></p>
+<p>Как вы видите, согласно этому тесту производительность Cluster-mode ниже аналогичной системы 7-mode не более чем на 7% в наихудшем случае, при, безусловно, значительно большем количестве возможностей, “фич” и перспективах масштабирования решения Cluster-mode.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/cluster-mode/index.html" rel="tag">cluster-mode</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/oracle/index.html" rel="tag">oracle</a>, <a href="tag/performance/index.html" rel="tag">performance</a>, <a href="tag/rac.html" rel="tag">rac</a>, <a href="tag/testing.html" rel="tag">testing</a><br />					Раздел: <a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>					&nbsp;|&nbsp;&nbsp;<a href="1234/trackback.html#respond">Комментарий</a> (<a href='1234/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1234/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (11)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-4801">
+		<div id="div-comment-4801">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>Я правильно понимаю, что и в 7-mode и в cluster-mode использовалось по два контроллера?<br />
+Т.е. в первом случае два контроллера собирались в HA-пару, а во втором в cluster-mode конфигурацию?</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4801" title="">15 Ноябрь 2012, 20:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4803">
+		<div id="div-comment-4803">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Алексей:</p>
+<p>Да, конечно. Полная конфигурация описана в документе.</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4803" title="">15 Ноябрь 2012, 20:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4864">
+		<div id="div-comment-4864">
+		<div class="comment-author">
+			<cite>Виталий Филатов:<cite></div>
+			<p>Вы забыли описать такой важный недостаток Cluster-mode, как невозможность построения катастрофоустойчивых конфигураций.<br />
+Аналог MetroCluster еще не реализован в Cluster-mode, а для многих это принципиально.<br />
+На мой взгляд, так агресивно продвигать новую технологию без реализации в ней ВСЕЙ функциональности старой технологии, все же не стоит.</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4864" title="">18 Ноябрь 2012, 13:59</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4888">
+		<div id="div-comment-4888">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Виталий Филатов:</p>
+<p>Нет, я не забыл.<br />
+Дело в том, что катастрофоустойчивость это довольно сложный и многосторонний аспект (аппаратная его составляющая, кстати сказать, не только не самая главная, но даже не самая важная, но это отдельный разговор). Metrocluster это, безусловно, отличное решение само по себе. Но оно же и самое дорогое, и, во многих случаях, избыточное.</p>
+<p>Переводя на любимые в этом блоге автомобильные аналогии, это все равно что сказать на какой-то новый автомобиль: &#8220;Но у него же нет полного привода!&#8221; Ну нет, да. Полный привод отличная вещь, сама по себе, но стоит денег, и вообще-то также нужна не всем. Следует ли говорить, что автомобили без полного привода, лебедки самовытаскивания, блокировки межосевого дифференциала, и прочего фарша - &#8220;не нужны&#8221;, и обладание ими для автомобиля и его владельца - &#8220;принципиально&#8221;?<br />
+Надеюсь вы видите, что - нет.</p>
+<p>По поводу &#8220;аггрессивности продвижения новой технологии, без реализации в ней ВСЕЙ&#8221; - во-первых, я думаю, вы все же немного не то слово хотели использовать, да? В чем же вы видите &#8220;агрессивность&#8221;? Вас кто-то ударил?<br />
+Во-вторых - о Метрокластере. ??з нескольких десятков продаж систем NetApp, в которых я участвовал, хотя бы как-нибудь, продаж метрокластера было - две. Можно ли при таком проценте продаж говорить о &#8220;принципиальности&#8221; Метрокластера?<br />
+Мне кажется вы сильно переоцениваете его.</p>
+<p>Еще раз, в заключение: Метрокластер это отличное решение, само по себе. Но само по себе оно не означает катастрофоустойчивости. Катастрофоустойчивость это гораздо более широкое понятие, и ее можно получить множеством способов, среди которых Метрокластер - лучший, но совсем не единственный, и даже не определяющий.</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4888" title="">19 Ноябрь 2012, 7:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4893">
+		<div id="div-comment-4893">
+		<div class="comment-author">
+			<cite>Виталий Филатов:<cite></div>
+			<p>Про агрессивность продвижения, я возможно выразился не совсем корректно, но мое мнение состоит в том, что не стоит переводить разработку всех новых фич на Cluster-mode не реализовав всех возможностей доступных в 7-mode. По поводу не большой &#8220;принципиальности&#8221; Метрокластера, позвольте с вами не согласится. Решения на Cluster-mode сейчас активно продвигаются в верхний сегмент Enterprise, а там эта технология очень востребована. Крупные компании, выбрав СХД NetApp например для работы критически важной БД Oracle (с режимом работы 24&#215;7), очень часто предусматривают катастрофоустойчивые решения. Возможно у нас в России продажи Метрокластера не очень развиты, но например для Германии доля рынка систем с Метрокластером составляет несколько десятков процентов от общего числа (точное число не помню, но достаточно много, слышал по моему от Увкина на одном из NetApp Innovation). Продолжая предложенные вами автомобильные аналогии&#8230; Если машину использовать в городе, то полный привод не нужен (иногда даже вреден, большой расход), но если требуются систематические поездки за город где существуют только направления, то наличие полного привода обязательно, а наличие фич типа лебедки и самоблокирующегося дифференциала очень желательно.</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4893" title="">19 Ноябрь 2012, 16:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4894">
+		<div id="div-comment-4894">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>Виталий,<br />
+&#8220;Вам шашечки или ехать&#8221;? Есть задачи, где нужен Метрокластер, есть задачи где нужны фичи кластеред ОНТАП, а есть задачи где более интересно смотрятся E-Series.  Вместо &#8220;one size fits all&#8221; сейчас &#8220;поливариативность решений&#8221;.</p>
+<p>Пост Ромы был в том( ??МХО), что &#8220;не надо боятся&#8221;. Там где вам нужны фиги кластеред ОНТАП - это работает и скорости при этом вы получаете сопоставимые. Если при этом, у вас в требованиях есть rpo=0, то надо подумать, как можно реализовать на данном оборудовании. Возможно будет другое решение, другой производитель, а может и требование rpo=0 окажется не столь жестким :)</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4894" title="">19 Ноябрь 2012, 18:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4899">
+		<div id="div-comment-4899">
+		<div class="comment-author">
+			<cite>Виталий Филатов:<cite></div>
+			<p>В своем первом посте я просто указал, что Роман перечислил не все недостатки решения на базе Cluster-mode, поэтому акцентировал внимание на том, что данное решение не предоставляет катастрофоустойчивых решений (как правильно говорилось выше &#8220;Есть задачи, где нужен Метрокластер, есть задачи где нужны фичи кластеред ОНТАП, а есть задачи где более интересно смотрятся E-Series&#8221;) и людям которым всетаки нужно это решение, неплохо бы знать об этом &#8220;временном&#8221; недостатке Cluster-mode. Я вообще считаю, что решение на Cluster-mode еще сыровато и использовать его ранее чем через год полтора, я бы не стал. Хотя как говорится &#8220;Хозяин Барин&#8221;, может некоторым нравиться работать со всем новым, а я предпочитаю только хорошо обкатанные технологии (я в продакшен не ставлю даже релиз кандидаты ОС, хотя NetApp и поддерживает их в том числе для промышленного использования).</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4899" title="">19 Ноябрь 2012, 20:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4911">
+		<div id="div-comment-4911">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Виталий, это был бы &#8220;недостаток&#8221;, если бы вам обещали Метрокластер на Cluster-mode, а он бы не работал, или бы работал плохо (хуже). А его просто нет. Ну нет, всегда есть чего-то чего нет. Разве можно говорить, что, дескать, у SAN-стораджей есть недостаток к том, что нельзя к одному LUN, без использования кластерной файловой системы на нем, подключить несколько хостов (а очень хочется), или что на чистом NAS нельзя использовать блочный доступ.<br />
+Я не вижу в том, что чего-то (вдобавок такого нишевого как Метрокластер) нет, какой-то настолько принципиальный &#8220;недостаток&#8221;, что этому стоит посвящать целый третий коммент.<br />
+Да там много чего нет. SnapLock например нет, и IPv6. Что же теперь, считать это &#8220;принципиальным недостатком решения&#8221;?<br />
+Ну да, для использующих SnapLock - вероятно, для остальных, его не использующих - пофиг на это.</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4911" title="">20 Ноябрь 2012, 11:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4922">
+		<div id="div-comment-4922">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>А осуществимо ли технически на двух одноконтроллерных 2220 собрать cluster-mode? Может ли являться подобная конфигурация альтернативой двухконтроллерной системе с полкой?</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4922" title="">20 Ноябрь 2012, 17:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4926">
+		<div id="div-comment-4926">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>panvartan -  такой конструктив не является альтернативой нормальной HA-паре  и более того работать не будет.</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-4926" title="">20 Ноябрь 2012, 18:49</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-5759">
+		<div id="div-comment-5759">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>2 panvartan, Odna Ptichka<br />
+а как на счет впихнуть в корпус первой системы контролер из второй системы, а потом настроить СМ?</p>
+						<div class="comment-meta"><a href="1234/trackback.html#comment-5759" title="">7 Февраль 2013, 0:34</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1234" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.074 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; tips&amp;tricks</title>
+
+<link rel="stylesheet" href="../../../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../../../feed" />
+<link rel="pingback" href="../../../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;tips&amp;tricks&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"><a href="../index.html">Next Entries &raquo;</a></div>
+		</div>
+
+						
+			<div class="post" id="post-321">
+				<h2 class="posttitle"><a href="../../../321/trackback.html" rel="bookmark" title="Permanent Link to Экономим usable space. &#8220;Bad but useful practices&#8221;.">Экономим usable space. &#8220;Bad but useful practices&#8221;.</a></h2>
+				<div class="postmetadata">13 Июль 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Многие пользователи NetApp, в особенности их младших моделей (Low Enterprise Class, FAS2020 и FAS2050) часто жалуются на большие потери при создании usable space. Зачастую usable space может составлять всего 50% от raw, а иногда бывает и того менее.<br />
+Действительно, на системах с малым числом дисков, а зачастую именно такие попадают в сравнительно небольшие компании и проекты, величина пространства, которая отнимается по умолчанию из дискового пространства такой системы довольно велика. Чем больше в системе дисков, тем меньшую роль это играет, однако на небольших системах этот эффект довольно значителен.</p>
+<p>Что с этим делать, и насколько это серьезная проблема?</p>
+<p>Как вы уже знаете, индивидуальные настройки системы хранения NetApp находятся на создаваемом при первом запуске системы томе vol0 в директории /etc. В отличие от решений конкурентов, этот том не какой-то специальный, а самый обыкновенный, и все содержимое его за исключением занятого под /etc мы можем использовать для хранения пользовательских данных.</p>
+<p>Однако такой том нужен для каждого из двух контроллеров, и, в случае использования RAID-4 мы потратим на их создание как минимум 2 диска на parity disks для их RAID-групп (и 4 в случае RAID-DP), плюс еще диски на parity для RAID-групп данных. Плюс hot spare. Вот и убегает, при создании системы с настройками &#8220;по умолчанию&#8221;, половина всех доступных дисков. Хотя, говоря начистоту, при использовании RAID-10 в &#8220;других система хранения&#8221; мы тоже получаем 50% usable от raw, но в данном случае все равно как-то жаба грызет.</p>
+<p>??так, каким хитрым способом можно получить максимально возможное количество usable space на системе типа FAS2020A, с, допустим, дисками SATA 1TB 7200RPM?</p>
+<p>С самого начала скажу, что нижеописанная схема никакой не Best Practices (а скорее даже Bad Practices), но тем не менее позволят получить максимум usable space на небольших системах, типа FAS2020. Если вас угораздило купить такую, да еще с небольшим количеством больших дисков SATA в базе, невзирая на все, что вам говорили при этом при продаже - читайте дальше.</p>
+<p>Можно создать aggr0 из всего пары дисков в RAID-4 (1 диск данных и 1 диск parity), и разместить на нем vol0 для первого контроллера. На этом vol0 находится служебная информация, необходимая для загрузки и работы контроллера, директория /etc, поэтому создавать его придется на &#8220;полностью чистой&#8221; системе из меню Maintenace mode. Служебная директория займет примерно мегабайт 30. Остальное место, почти терабайт, мы можем использовать для хранения каких-нибудь наших данных. По умолчанию на vol0 создается директория home, в которой можно разместить homedir подключенных к NAS пользователей. Однако следует помнить, что быстродействие тома, построеного на RAID из всего двух дисков будет невелико. Так что лучше если это будут какие-нибудь не критичные к быстродействию данные</p>
+<p>Оставшиеся 10 дисков мы распределяем таким образом: 1 диск оставляем в hot spare*, а все оставшиеся 9 помещаем в один большой aggregate, в одну RAID-группу типа RAID-4 или RAID-DP (1 или 2 pariy, 8 или 7 дисков данных). ?? на этой большой группе создаем vol0 для второго контроллера.<br />
+А все оставшееся место, за вычетом 30Mb на содержимое /etc, мы можем занять нашими данными, причем они будут распределены уже по &#8220;длинному&#8221; и, следовательно, более быстродействующему RAID.</p>
+<div id="attachment_323" class="wp-caption alignnone" style="width: 310px"><a href="/pics//ntaplayout1.png"><img src="/pics//ntaplayout1-300x155.png" alt="Disk layout" title="Layout" width="300" height="155" class="size-medium wp-image-323" /></a><p class="wp-caption-text">Disk layout</p></div>
+<p>Отмечу, что, если не ошибаюсь, начиная с ONTAP 7.3, для системы хранения NetApp назначается <strong>2</strong> диска hot spare на каждый контроллер, что для малых систем, на мой взгляд, чересчур расточительно. Это значение можно изменить в системных опциях*.</p>
+<p>Преимущества:</p>
+<ol>
+<li>Мы получаем величину usable space равную 75% от raw (из 12 дисков выпадают 3: 1 на parity на  первом контроллере, 1 на parity на втором контроллере, 1 на общий spare)</li>
+<li>Мы получаем большой раздел &#8220;одним куском&#8221;, и можем, например, создать на нем LUN размером 8TB (больше все равно не поддерживается на 2020)</li>
+<li>Этот большой раздел получается относительно быстродейстующий, так как распределен на максимально возможное в данном случае количество дисков.</li>
+</ol>
+<p>Недостатки:</p>
+<ol>
+<li>Мы, по сути, делаем резко асимметричную систему, в которой контроллер 1 практически не занят, и вся рабочая нагрузка по обслуживанию доступа к данным ложится на второй.</li>
+<li>RAID-4 менее отазоустойчив, чем RAID-DP, в особености на SATA, и обеспечивает более долгое время ребилда в случае сбоя.</li>
+<li>1 spare на 2 контроллера это &#8220;не рекомендованная&#8221; NetApp конфигурация.</li>
+<li>Такая схема разбиения &#8220;не рекомендуется&#8221; NetApp для использования.</li>
+</ol>
+<p>Так что на свой страх и риск.</p>
+<p><em>* Необходимо изменить системный параметр:<br />
+set options raid.min_spare_count 1</em></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../howto/index.html" rel="tag">howto</a>, <a href="../../netapp/index.html" rel="tag">netapp</a>, <a href="../index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../321/trackback.html#comments" title="Комментарий к записи Экономим usable space. &#8220;Bad but useful practices&#8221;.">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-288">
+				<h2 class="posttitle"><a href="../../../288/trackback.html" rel="bookmark" title="Permanent Link to ??спользование команды config">??спользование команды config</a></h2>
+				<div class="postmetadata">21 Май 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Важный элемент работы администратора - регулярно сохранять рабочие настройки оборудования, с тем, чтобы была возможность быстро откатится к ним в случа нештатных ситуаций, ошибок в конфигурировании, а также развертывания типовых конфигураций.</p>
+<p>В системах NetApp, конечно же тоже есть соответствующее средство для создания дампа конфигов средства сравнения различных дампов, и восстановления из них. Они ограничены базовыми настройками, и не обязательно включают в себя различные настройки типа volume setup.<br />
+Но даже это уже хорошее подспорье.</p>
+<p><code>filer01> config<br />
+Usage:<br />
+config clone <filer> <remote_user><br />
+config diff [-o <output_file>] <config_file1> [ <config_file2> ]<br />
+config dump [-f] [-v] <config_file><br />
+config restore [-v] <config_file></code></p>
+<p>Команда простая и понятная. Сперва вы сохраняете (dump) конфигурацию с системы хранения. Это проделывается с содержимым /etc/configs. Далее вы можете клонировать (clone) эту конфигурацию на другую систему, или сравнить ее (diff) с ранее сделанным дампом конфига. Запуск diff это отличный способ сравнить два конфига между двумя моментами времени, если вы не уверены или не помните что вы изменяли. ??, наконец, вы можете воспользоваться средствами восстановления (restore), однако не забудьте, что это потребует перезапуска системы хранения.</p>
+<p>Очень полезная команда в целом. С ее помощью можно делать регулярные копии конфига системы, проводить сравнения, в том числе между системами, например, чтобы отслеживать соответствия в настройках между основной и бэкапной или DR-системой, а также следить за изменениями в конфигах с течением времени, что бывает полезно в больших организациях, и обширной группе админов.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../commands/index.html" rel="tag">commands</a>, <a href="../../netapp/index.html" rel="tag">netapp</a>, <a href="../index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../288/trackback.html#comments" title="Комментарий к записи ??спользование команды config">1 комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-219">
+				<h2 class="posttitle"><a href="../../../219/trackback.html" rel="bookmark" title="Permanent Link to sectrace - отслеживание проблем с правами доступа">sectrace - отслеживание проблем с правами доступа</a></h2>
+				<div class="postmetadata">26 Февраль 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Новая полезная команда для администратора CIFS NAS появилась в версии 7.3 (и новее). Любому win-админу известно, какая катавасия начинается с доступом, когда становится много пользователей и групп безопасности. Юзеру &#8220;Петя&#8221; позволено то, но не позволено это, но когда он входит в группу &#8220;Менеджеры&#8221;, то ему позволяется еще вот это и это, но зато запрещается вон то, что раньше было разрешено индивидуальному пользователю (как известно, в системе безопасности NT DENY всегда перекрывает ALLOW). ?? такое спагетти из прав работает до тех пор, пока однажды не запутается намертво, заставляя админа лезть на стену. ?? вот тут пригодится инструмент, который покажет что не так, не просто access denied, а почему, и отчего.</p>
+<p>Например<br />
+<code>sectrace add -a -path /vol/software</code></p>
+<p>выведет в лог что-то наподобие:</p>
+<p><code>Sun Feb 1 13:10:52 IST [jim: sectrace.filter.allowed:info]: [sectrace index: 2] Access allowed because &#8216;Synchronize, Read Attributes&#8217; permission (0&#215;100080) is granted on file or directory (Access allowed by an explicit access control entry) - Status: 1:58720452:0:0 - 10.1.20.107 - NT user name: support\administrator - UNIX user name: root(0) - Qtree security style is NTFS and NT ACL is set on file/directory - Path: /vol/software/</code></p>
+<p>Возможные опции: <code>sectrace add, sectrace remove, sectrace show, sectrace print-status</code></p>
+<blockquote><p>Подсмотрено у http://filers.blogspot.com/</p>
+</blockquote>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../commands/index.html" rel="tag">commands</a>, <a href="../../console/index.html" rel="tag">console</a>, <a href="../../netapp/index.html" rel="tag">netapp</a>, <a href="../index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../219/trackback.html#respond" title="Комментарий к записи sectrace - отслеживание проблем с правами доступа">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-208">
+				<h2 class="posttitle"><a href="../../../208.html" rel="bookmark" title="Permanent Link to Оптимизация производительности SnapMirror">Оптимизация производительности SnapMirror</a></h2>
+				<div class="postmetadata">4 Февраль 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>По умолчанию, TCP-окно Snapmirror равно 1,994,752 байт. В структурах, где SnapMirror используется для репликации данных через WAN, такое значение может заметно замедлять процесс репликации. Важно правильно вычислить верные настройки TCP-окна, и соответствующим образом их установить. Базовая формула такова:</p>
+<p><code>Window Size = Round Trip Delay X Desired Rate</code></p>
+<p>Таким образом, если у вас используется канал 10Mb/s и средний RTD равен 100ms, то window size должен быть 125,000 байт.</p>
+<p>Несколько замечаний о этом TCP Window size:</p>
+<p>Это теоретически минимальное возможное окно, используемое SnapMirror, и может не быть самым оптимальным. Попробуйте несколько вариантов в районе этой цифры, чтобы выбрать наилучшее.<br />
+Установить размер TCP window size можно в файле <code>/etc/snapmirror.conf</code> в параметре <code>wsize</code>.<br />
+Это надо установить и на системе-получателе репликации. </p>
+<p>Другая возможность, которая должна помочь в тонкой настройке, это установка опции:</p>
+<p><code>options snapmirror.delayed_acks.enable off</code></p>
+<p>Эта установка выключает TCP/IP delayed acknowledgments. В сетях с высоким значением задержки, это может дать выгоду. По умолчанию она включена.</p>
+<blockquote><p>romx: Хочу также обратить внимание, что в речь идет именно о тонкой настройке и оптимизации определенных вариантов конфигурации, так как настройки SnapMirror по умолчаню выбраны для удовлетворительной работы в любых условиях. Если вы не уверены в том, что вы делаете, то лучше оставьте по умолчанию. Помните первое правило профессионала: &#8220;Работает - не трогай!&#8221; :)</p>
+</blockquote>
+<blockquote><p>Оригинал тут:<br />
+http://rajeev.name/blog/2008/03/18/optimizing-snapmirror-performance/<br />
+<em>(будьте внимательны, на хостинге этой страницы сейчас сидит веб-червяк-троян!)</em></p>
+</blockquote>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../netapp/index.html" rel="tag">netapp</a>, <a href="../../optimization.html" rel="tag">optimization</a>, <a href="../../snapmirror.html" rel="tag">snapmirror</a>, <a href="../index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<span>Comments Off</span>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-199">
+				<h2 class="posttitle"><a href="../../../199/trackback.html" rel="bookmark" title="Permanent Link to Средства мониторинга производительности: sysstat">Средства мониторинга производительности: sysstat</a></h2>
+				<div class="postmetadata">26 Январь 2009, 8:30 <!-- от  --></div>
+				<div class="postentry">
+					<p>Команда консоли sysstat похожа на vmstat и iostat свернутые в одну команду. Она сообщает данные производительности систем хранения, такие как CPU utilization, размеры дискового трафика, объемы ввода-вывода, как сетевого, так и по FC, а также трафик передачи данных на ленту, если она используется. При запуске без опций, sysstat печатает новую строку каждые 15 секунд, с базовым набором информации. Вы можете прервать вывод нажав control-C (^c) или установить при запуске определенный интервал работы (-c count ) для автоматической остановки через заданное время.<br />
+Список ключей команды: </p>
+<p><strong>-f</strong> статистика FCP<br />
+<strong>-i</strong> статистика iSCSI<br />
+<strong>-b</strong> расширенная статистика SAN (&#8217;blocks&#8217;)<br />
+<strong>-u</strong> расширенная статистика загрузки системы (&#8217;utilization&#8217;)<br />
+<strong>-x</strong> расширенный (&#8217;extended&#8217;) формат вывода. Включает в себя все доступные поля вывода.</p>
+<p>Обратите внимание, что вывод производится в формате шире чем 80 символов, и предназначен скорее для &#8220;off-line&#8221; анализа, чем для непосредственного чтения с экрана.</p>
+<p><strong>-m</strong> отображает статистику по загрузке CPU на многопроцессорных системах. Применимо только на многопроцессорных системах, не работает на однопроцессорных. </p>
+<p>Описания некоторых колонок вывода команды sysstat.</p>
+<p><strong>Cache age</strong> : возраст в минутах старейшего read-only блока в кэше. Значение в этой колонке показывает, насколько быстро операции чтения проходят через память системы; когда система читает очень большие файлы, значение buffer cache age будет низким. Кроме этого, если чтение преимущественно случайное, то cache age также будет низок. Если вы столкнулись с проблемой низкой производительности на чтении, то значение этого поля сможет помочь определить что вам нужно больше кэша, или нужно проанализировать работу приложения, чтобы снизить уровень &#8220;случайности&#8221; его запросов. </p>
+<p><strong>Cache hit</strong> : Величина в процентах для WAFL cache hit rate. Показывает, в скольки процентах читаемых с WAFL блоков они оказывались при этом уже в кэше. Прочерк в этой колонке, означает, что в измеряемый период данные не читались. </p>
+<p><strong>CP Ty</strong> : Тип (&#8217;type&#8217;) Consistency Point (CP). Показывает, что было причиной создания CP в рассматриваемом интервале. Тип CP может быть: </p>
+<p><strong>-</strong> не было CP в заданный интервал (не было записей на диск в указанный период времени) </p>
+<p><strong>(число)</strong> число CP, созданных в заданном интервале</p>
+<p><strong>B</strong> : Back to back CPs (CP generated CP) (система настолько загружена, что она начинает писать новую CP сразу за окончанием записи предыдущей)</p>
+<p><strong>b</strong> : задержанные back to back CPs (CP generated CP) (условия, вызвавшие состояние back to back стали хуже) </p>
+<p><strong>F</strong> : CP вызван заполнением NVLog (половина nvram log была заполнена, и он был сброшен на диск) </p>
+<p><strong>H</strong> : CP вызван high water mark (редко встречается. Система полностью заполнила одну половину nvram logs, и решила сбросить данные на диск). </p>
+<p><strong>L</strong> : CP вызван low water mark  </p>
+<p><strong>S</strong> : CP вызван операцией создания snapshot </p>
+<p><strong>T</strong> : CP вызван таймером (каждые 10 секунд система хранения сбрасывает данные кэша на диск (flush))</p>
+<p><strong>U</strong> : CP вызван сбросом данных на диск (flush) </p>
+<p><strong>:</strong> продолжение CP с предыдущего интервала (означает, что CP все еще создается, например во время 1-секундного интервала)</p>
+<p>Символ, следующий далее, показывает проходящую фазу создания CP на момент окончания интервала замера. Если CP завершился полностью во время интервала измерения, то второй символ будет пустой. Фазы могут быть следующие: </p>
+<p><strong>0</strong> ??нициализация<br />
+<strong>n</strong> обработка обычных файлов<br />
+<strong>s</strong> обработка специальных файлов<br />
+<strong>f</strong> сброс измененных данных на диск<br />
+<strong>v</strong> сброс измененного суперблока на диск </p>
+<p>Большинство перечисленных выше значений можно увидеть только в случае предельно малых интервалов замеров, или на сильно загруженных системах, так как сброс CP происходит очень быстро. Обычно в поле CP ty вы будете видеть &#8216;T&#8217;, штатный сброс Consistency Point по таймеру.</p>
+<p>Давайте разберем пример.</p>
+<p><a href="/docs/sysstat.txt">sysstat.txt</a> (для более удобного вида отключите в нотепаде word wrap и расширьте окно)</p>
+<p>Что мы можем сказать о данной системе?<br />
+Это малозагруженная, практичеси находящаяся в покое система (параметры CPU, Disk Usage и Total), использующая CIFS и FCP (небольшие ненулевые значения показывают фоновые операции по этим протоколам). Большиство операций в этой покоящейся системе совершается в виде чтения содержимого кэша (значение Cache hit). Кэш практически пуст, на что указывает монотонное возрастание значения Cache age, данные лежат, и ничто их не вытесняет. Consistency Points создаются исключительно сбросом по таймеру, что нормальное поведение для незагруженной системы.<br />
+Довольно высокие значения Disk read write при малой загрузке CPU, практически нулевом сетевом траффике и операциях ввода-вывода по блочным протоколам указывает на работу процесса Disk Scrubbing, фонового процесса контроля целостности данных и дисков, при котором система перечитывает и перезаписывает данные на дисках, возможно также что работает дедупликация, хотя она обычно дает повыше чем 1-3% загрузку, также, возможно, это признак работы дефрагментации WAFL (wafl reallocate).</p>
+<p>Так выглядит типичный вывод sysstat малонагруженной типовой системы NetApp FAS.</p>
+<p>А вот так выглядит система под рабочей нагрузкой: <a href="/docs/sysstat3.txt">sysstat3.txt</a></p>
+<p>Как видите, уже заметно нагружен процессор (это FAS6070, поэтому запас еще весьма существеннен ;), около 20%. Так как система используется как SAN, то весь трафик идет по колонке FCP. Несмотря на заметную нагрузку, ниже приведенный отчет по utilization показывает производительность около 15000 IOPS, и около 23 MB/s чтения с дисков ( и 70-90MB/s по интерфейсам FC), это не перегрузило систему. Большой объем кэша на чтение позволяет 90% операций читаться из кэша, а не с дисков.<br />
+Возраст самого старого блока в кэше составляет примерно 10-12 минут, то есть кэш еще далек от заполнения.<br />
+Здесь уже периодически проскакивают символы, показывающие фазу сброса CP, и само время записи CP увеличилось, так как вырос объем записи, хотя он и составляет всего около 1/10 от объемов чтения.</p>
+<p>Таким образом, используя даже штатные средства контроля и анализа системы, имеющиеся в административной консоли, можно увидеть много интересного.</p>
+<blockquote><p>Оригинал тут:<br /><nofollow><noindex><br />
+<a href="http://unixfoo.blogspot.com/2007/11/netapp-performance-monitoring-sysstat_16.html">http://unixfoo.blogspot.com/2007/11/netapp-performance-monitoring-sysstat_16.html</a></noindex></nofollow><br />
+А вообще это, за исключением моего разбора примера вывода, практически перевод манов к команде из встроенного хелпа.</p>
+</blockquote>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../monitoring.html" rel="tag">monitoring</a>, <a href="../../netapp/index.html" rel="tag">netapp</a>, <a href="../../performance/index.html" rel="tag">performance</a>, <a href="../../sysstat.html" rel="tag">sysstat</a>, <a href="../index.html" rel="tag">tips&amp;tricks</a>, <a href="../../tools.html" rel="tag">tools</a><br />					Раздел: <a href="../../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../199/trackback.html#comments" title="Комментарий к записи Средства мониторинга производительности: sysstat">1 комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-192">
+				<h2 class="posttitle"><a href="../../../192/trackback.html" rel="bookmark" title="Permanent Link to Это любопытно.">Это любопытно.</a></h2>
+				<div class="postmetadata">15 Декабрь 2008, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Очень часто владельцы систем хранения NetApp, читающих тут меня, или слушающих на семинарах про новые фишки этих систем, думают: &#8220;Ну на словах-то они все мастера загибать, пока сам не увижу, сам не пощупаю, пока на своей системе, в моей собственной задаче не увижу как работает - ни в жизнь не поверю!&#8221; ?? тут они по своему правы. Маркетинговые балаболы давно заслужили недобрую славу в нашей отрасли.</p>
+<p>Однако тут у NetApp есть совершенно убойный ответ: вы можете получить временные полнофункциональные лицензии, установить их на свою собственную систему и включить для оценки любой желаемый на ней функционал, с тем, чтобы проверить его работу и применимость в вашей конкретной задаче. А потом уже, не торопясь, с полным владением всеми деталями, убедившись и протестировав все досконально решать, покупать вам такую опцию или нет.<br />
+Хотите посмотреть как работает &#8220;вживую&#8221; FlexClone? SnapMirror? CIFS NAS? NFS с Oracle или VMware?</p>
+<p>На сайте NOW (NetApp on Web), по адресу <a href="http://now.netapp.com/eservice/evallicense">http://now.netapp.com/eservice/evallicense</a> (этот адрес требует авторизации вашим логином, как и весь NOW) можно сгенерировать для вашей системы хранения evaluation licenses на любую опцию систем хранения NetApp.</p>
+<p>Если ваш уровень доступа не позволяет вам зайти на эту страницу, то покажите этот адрес сотруднику вашего поставщика-партнера NetApp, с партнерским уровнем доступа эта странца отрывается точно, однако многие партнеры даже и сами не знают о существовании возможности самостоятельно генерировать evaluation licenses для своих клиентов.</p>
+<p>Внимательно прочтите условия, введите серийный номер вашей системы (для кластерной системы нужны номера обоих контроллеров, так как лицензии для них устанавливаются на обе &#8220;головы&#8221; независимо).<br />
+Лицензия генерируется для каждого серийного номера системы индивидуально.</p>
+<p>Обратите внимание, что установить на систему такую evaluation license можно только три раза, каждый по 90 дней максимум, после чего установка  evaluation license для данной опции блокируется. Установить после этого на ту же систему полнофункциональную лицензию конечно же можно.</p>
+<p>??мейте ввиду, что установленные на систему лицензии передаются в комплекте логов для автосаппорта, и злоупотребление ими на &#8220;боевой системе&#8221; легко отслеживается. Это я так пальцем грожу, если что ;)</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../evaluation.html" rel="tag">evaluation</a>, <a href="../../licensing.html" rel="tag">licensing</a>, <a href="../../netapp/index.html" rel="tag">netapp</a>, <a href="../index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../192/trackback.html#respond" title="Комментарий к записи Это любопытно.">Комментарий</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"><a href="../index.html">Next Entries &raquo;</a></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../../../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../../../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../../../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../../../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../../../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../../../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../../../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../../../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../../../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../../../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../../../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../../../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../../../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../../../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../../../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../../../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../../../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../../../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../../../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../../../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../../../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../../../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../../../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../../../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../../../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../../../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../../../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../../../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../../../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../../../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../../../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../../../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../../../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../../../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../../../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../../../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../../../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../../../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../../../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../../../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../../../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../../../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../../../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../../../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../../../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../../../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../../../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../../../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../../../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../../../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../../../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../../../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../../../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../../../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../../../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../../../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../../../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../../../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../../../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../../../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../../../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../../../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../../../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../../../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../../../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../../../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../../../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../../../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../../../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../../../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../../../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../../../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../../../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../../../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../../../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../../../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../../../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../../../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../../../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../../../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../../../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../../../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../../../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../../../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../../../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../../../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../../../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../../../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../../../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../../../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../../../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../../../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../../../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../../../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../../../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../../../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../../../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../../../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../../../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../../../feed">Entries (RSS)</a> and <a href="../../../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.081 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

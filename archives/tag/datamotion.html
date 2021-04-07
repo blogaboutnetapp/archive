@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; datamotion</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;datamotion&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1092">
+				<h2 class="posttitle"><a href="../1092/trackback.html" rel="bookmark" title="Permanent Link to DataMotion for Volumes">DataMotion for Volumes</a></h2>
+				<div class="postmetadata">17 Ноябрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Хотя эта функциональность появилась еще в Data ONTAP 8.0.1, она все еще не слишком известна и не слишком широко используется, отчасти из-за некоторых ограничений, а, по большей части, все же из-за малознакомости “широкому кругу” юзеров NeApp.</p>
+<p>Слегка сокращенный мной перевод статьи из TechONTAP возможно позволит кому-нибудь повнимательнее присмотреться к этой новой возможности систем хранения NetApp.</p>
+<h4>Что такое DataMotion for Volumes?</h4>
+<p>DataMotion for Volumes это новая возможность, появившаяся в Data ONTAP 8.0.1 7-Mode. Она позволяет вам переносить, не прерывая работы с ними, LUN-ы на томах с одного aggregate на другой, в пределах одного контроллера системы хранения (нельзя перемещать тома между разными контроллерами, например составляющими HA-пару). DataMotion for Volumes может быть использован для миграции томов, содержащих LUN-ы с “блочным” доступом по FC, FCoE, или iSCSI. Не поддерживаются “файловые” тома, с доступом по NFS или CIFS.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="tips-fig1" border="0" alt="tips-fig1" src="/pics/DataMotion-for-Volumes_11280/tips-fig1.jpg" width="399" height="209" /></p>
+<p><em>Рис. 1 NetApp DataMotion for Volumes позволяет вам не прерывая доступа переносить данные LUN и его том на другой aggregate, на том же контроллере NetApp.</em></p>
+<p>Ключевой особенностью DataMotion for Volumes является то, что также переносятся все детали, связанные с томом:</p>
+<ul>
+<li>Снэпшоты и их расписание </li>
+<li>Настроенные отношения SnapMirror®, SnapVault®, и MetroCluster™ </li>
+<li>Настройки Thin provisioning </li>
+<li>Состояние дедупликации (для продолжения работы дедупликации для новых данных необходимо восстановить базу фингерпринтов на новом aggregate путем запуска полного сканирования) </li>
+</ul>
+<p>Вы можете перемещать данные между любыми типами дисков, подключенных к контроллеру. Например, вы можете перемещать данные с aggregate на дисках FC или SAS на aggregate, состоящий из дисков SATA, и наоборот. В текущем релизе (8.0.1) вы не можете перемещать данные между разными типами aggregate (“32-bit” и “64-bit” aggregates).</p>
+<h4>Как работает DataMotion for Volumes?</h4>
+<p>DataMotion for Volumes использует хорошо известную технологию NetApp SnapMirror для миграции данных тома. Весь процесс делится на три фазы:</p>
+<ul>
+<li>Setup </li>
+<li>Data copy </li>
+<li>Cutover </li>
+</ul>
+<p>В фазах <strong>setup</strong> и <strong>data copy</strong>, исходный том продолжает обслуживать операции ввода-вывода без их прерывания.</p>
+<p><a href="/pics/DataMotion-for-Volumes_11280/tips-fig2-lg.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="tips-fig2-lg" border="0" alt="tips-fig2-lg" src="/pics/DataMotion-for-Volumes_11280/tips-fig2-lg_thumb.png" width="450" height="480" /></a></p>
+<p><em>Рис.2 &quot;Циклограмма&quot; процедур DataMotion for Volumes.</em> </p>
+<h4>Фаза Setup</h4>
+<p>В фазе <strong>setup</strong>, производятся важные предварительные проверки, чтобы убедиться, что вся процедура может быть выполнена успешно. Эти проверки проходят каждый раз, когда DataMotion for Volumes запускается, и проходят вторично, когда начинается фаза <strong>cutover</strong>.</p>
+<p>Проверка анализирует состояние всех объектов (исходного тома, aggregate на котором располагается исходный том, и aggregate-получатель) участвующих в перемещении. Если какая-то из проверок пройдет неуспешно, вы будете уведомлены и процесс не будет запущен. Все ошибки, выявленные проверками, будут выведены в консоль и записаны в лог-файл root-тома (/etc/log/ndvm).</p>
+<p>Если все предварительные проверки пройдены успешно, процесс DataMotion for Volumes:</p>
+<ul>
+<li>Создает временный том на aggregate-получателе, с именем, сформированному по следующему правилу: ndm_dstvol_&lt;timestamp&gt; </li>
+<li>Запускает начальную (baseline) передачу, устанавливая репликацию SnapMirror между источником и получателем в виде созданного выше тома. Это самая длительная фаза; длительность ее прямо пропорциональна размеру исходного тома, так как требуется передача всего его содержимого. </li>
+</ul>
+<h4>Фаза Data Copy</h4>
+<p>После того, как будет проведена репликация уровня <em>baseline</em>, начинается фаза <strong>data copy</strong>, during which successive SnapMirror updates are initiated to synchronize the destination volume with the source, which remains active. По завершении каждого успешного обновления репликации SnapMirror, DataMotion for Volumes оценивает так называемый <em>delta lag</em> между двумя томами. Вы получите уведомление о величине <em>delta lag</em>, который будет оценочным временем для следующей операции обновления. DataMotion for Volumes остается в фазе <strong>data copy</strong> так долго, пока величина <em>delta lag</em> остается высокой. Когда величина <em>delta lag</em> уменьшается, система переходит к фазе <strong>cutover</strong>.</p>
+<h4>Фаза Cutover</h4>
+<p>Процесс фазы cutover может быть выполнен вручную, или автоматически ( по умолчанию - автоматически).</p>
+<p><strong>Период Pre-cutover</strong>. DataMotion for Volumes переходит к фазе cutover на томе-получателе, если том-получатель может быть полностью синхронизрован в заданный интервал, называемый “окно cutover”. Фаза pre-cutover это период времени, в который проводятся предварительные проверки описанные выше, и проводятся важные проверки состояния NVLOG и уровня загрузки CPU.</p>
+<p>Вы можете задать пороги использования CPU и диска (в процентах) для выполнения операции DataMotion for Volumes. (по умолчанию порог задан в 100 для обеих опций):</p>
+<p>vol.move.cutover.cpu.busy.limit    <br />vol.move.cutover.disk.busy.limit</p>
+<p><strong>Автоматический Cutover.</strong> Когда все проверки фазы pre-cutover проходят успешно, фаза cutover начинается автоматически. Процесс cutover должен уложиться в окно длительностью 60 секунд. Когда том-получатель полностью синхронизирован, идентификатор тома-источника переносится на том-получатель, и операции ввода-вывода продолжаются с системы-получателя.</p>
+<p>В ходе фазы cutover выполняются следующие действия:</p>
+<ul>
+<li>Все LUN-ы на томе-источнике переводятся в режим задержанных операций ввода-вывода (<em>quiesced</em>). Состояние <em>quiesced</em> препятствует поступлению новых операций ввода-вывода к LUN, при этом опустошается (и не пополняется новыми операциями) текущая очередь операций с данным LUNом. </li>
+<li>Операции на исходный том приостанавливаются (quiesced). Как часть этой операции приостановки, последняя &quot;дельта&quot; (разностная часть) фиксируется в снэпшоте, который называется ndvm_final_&lt;timestamp&gt;. </li>
+<li>Том-получатель полностью синхронизируется с томом-источником с учетом полученной &quot;дельты&quot; из снэпшота ndvm_final_&lt;timestamp&gt;. Это будет последняя порция репликации SnapMirror между двумя томами, перед тем, как операции ввода-вывода будут переданы на том-получатель. </li>
+<li>Временный том на получателе переименовывается в соответствии с именем тома-источника и его file system ID (FSID), и наоборот; то есть идентификаторы тома-источника и временного тома меняются местами. </li>
+<li>Перенесенный на получателя том переводится в онлайн с идентификаторами исходного тома и LUN становятся активными. </li>
+<li>??сходный том удаляется (если вы не задали в параметрах его сохранить). </li>
+</ul>
+<p><strong>Неудачный автоматический Cutover.</strong> Если процесс cutover завершается неудачей, DataMotion for Volumes пытается повторить фазу data copy и пробует еще раз некоторое время спустя (делается три попытки выполнить cutover). Если ничего не удалось, то процесс cutover прекращается, и операции ввода-вывода возобновляются на том-источник. Для продолжения работы DataMotion for Volumes требуется вмешательство оператора.</p>
+<p><strong>Ручной Cutover.</strong> В случае выполнения cutover в ручном режиме, DataMotion for Volumes остается в фазе data copy, продолжая выполнять репликации SnapMirror. В ходе этих репликаций он записывает их результаты в лог, и ориентируясь на эти данные вы можете самостоятельно выбрать момент для проведения ручного cutover.</p>
+<h4>Возможные области применения</h4>
+<p>Существует несколько областей, где может применяться DataMotion for Volumes.</p>
+<ul>
+<li><strong>Балансировка нагрузки.</strong> Переместите том с нагруженного aggregate на менее загруженный. </li>
+<li><strong>Балансировка емкости.</strong> Переместите том с заполненного aggregate на тот, где больше доступного пространства. </li>
+<li><strong>Перенос данных со сторонних дисков на диски NetApp в системе V-series.</strong> Если вы используете NetApp V-Series как front-end к дисковому массиву стороннего производителя, вы можете воспользоваться DataMotion for Volumes для миграции этих данных на диски NetApp на этом контроллере V-series. </li>
+<li><strong>??зменение типа дисков.</strong> Переместите том с дисков одного типа на другие. Например с дисков FC на SAS или SATA. </li>
+</ul>
+<p>??спользование такого способа для непрерывающего работу переноса данных с дисков FC, выходящих из употребления, на диски SAS, может помочь для критически-высокодоступных систем обеспечить нужный SLA при такой миграции. Также это может помочь пользователям шире начать использовать системы с дисками SATA (также SATA + Flash Cache). При этом пользователи будут знать, что, в случае необходимости, они могут быстро и не прерывая работы перенести данные, которым потребуется большая производительность, чем могут обеспечить диски SATA, назад на диски SAS.</p>
+<h4>Рекомендации и наилучшие практики</h4>
+<p>Обратите внимание на следующие рекомендации и наилучшие практики при использовании DataMotion for Volumes:</p>
+<ul>
+<li>Вы можете производить только один процесс миграции DataMotion for Volumes одновременно. </li>
+<li>Не делайте vol rename или изменение атрибутов тома или LUN на томе-источнике, когда выполняется DataMotion for Volumes. </li>
+<li>Не запускайте какую-либо операцию, которая может вызвать конфликт процесса выполнения операций DataMotion for Volumes. Если какие-то действия начинаются до того, как процесс вошел в фазу cutover, DataMotion for Volumes прервет свои операции (abort). В состоянии cutover, DataMotion for Volumes прервет (fence) сторонние операции администрирования. </li>
+<li>При использовании HA-кластера, убедитесь, что обе ноды кластера используют Data ONTAP 8.0.1 7-Mode или новее. </li>
+<li>Проверьте отсутствие вышедших из строя компонентов системы и загрузку ее процессоров, перед запуском DataMotion for Volumes. </li>
+<li>Для того, чтобы предотвратить ситуации с конфликтами в фазе cutover, не планируйте занимающие много времени процессы управления или защиты данных параллельно процессу DataMotion for Volumes. </li>
+<li>Не изменяйте параметры конфигурации исходного тома, во время выполнения процесса DataMotion for Volumes. </li>
+</ul>
+<h4>SNAPMIRROR и SNAPVAULT</h4>
+<ul>
+<li>В период выполнения операций DataMotion for Volumes, не изменяйте конфигурацию SnapMirror, не редактируйте файл snapmirror.conf. </li>
+<li>Пока процесс DataMotion for Volumes не достиг фазы cutover, процессы SnapMirror или SnapVault updates успешно завершаются. </li>
+<li>Если процессы репликации происходят в фазе cutover, то передача данных может быть неуспешной, так как cutover прервет операцию. После того, как cutover будет завершен, репликация продолжит следующий цикл передачи обновлений. </li>
+<li>В случае выполнения ручного cutover, не делайте его, пока не завершены операции передачи реплик SnapMirror и SnapVault. </li>
+</ul>
+<h4>SNAPDRIVE и SNAPMANAGER</h4>
+<p>В фазе <strong>cutover</strong>: </p>
+<ul>
+<li>Не работают процессы LUN provisioning и управления снэпшотами в SnapDrive® for Windows® (SDW). </li>
+<li>Не работают процессы резервного копирования и восстановления данных в продуктах SnapManager® (SME, SMSQL, SMVI, SMHV, SMO, SMSAP, and SMOSS). После окончания фазы cutover, например на следующей запланированной операции создания резервной копии, эти процедуры успешно выполнятся. </li>
+</ul>
+<h4>Настройки таймаутов SCSI</h4>
+<ul>
+<li>NetApp рекомендует устанавливать на OS хост-системы NetApp Host Utilities Kit, для предотвращения ошибок таймаута. Смотрите &quot;NetApp Host Utilities Installation and Setup Guide&quot; для вашей хост-OS <a href="http://now.netapp.com/NOW/cgi-bin/software">http://now.netapp.com/NOW/cgi-bin/software</a>. </li>
+</ul>
+<h4>FLEXVOL и FLEXCLONE</h4>
+<ul>
+<li>DataMotion for Volumes может перемещать только тома FlexVol; Тома FlexClone® не могут быть перемещены.После завершения DataMotion for Volumes, исходный том FlexVol остается в состоянии offline и отношения child-parent не изменяются. </li>
+<li>Тома FlexClone должны быть отделены (split) от породившего их тома FlexVol , перед тем, как вы начнете перенос тома FlexClone. </li>
+</ul>
+<h4>Дедупликация и компрессия</h4>
+<ul>
+<li>Если на томе-источнике идет активный процесс дедупликации, он должен быть остановлен для успешного выполнения фазы cutover. </li>
+<li>DataMotion for Volumes не переносит базу fingerprint и change logs дедуплицированного тома FlexVol. После завершения процесса DataMotion for Volumes, пользователи должны запустить команду sis start -s для того, чтобы перестроить fingerprint DB на томе-получателе. </li>
+<li>Компрессированные тома не перемещаются. </li>
+</ul>
+<p>Дополнительные рекомендации по использованию DataMotion for Volumes для Oracle® Database и Microsoft® Exchange можно найти в <a href="http://media.netapp.com/documents/tr-3881.pdf">TR-3881</a>.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="datamotion.html" rel="tag">datamotion</a>, <a href="netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1092/trackback.html#comments" title="Комментарий к записи DataMotion for Volumes">1 комментарий</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.069 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

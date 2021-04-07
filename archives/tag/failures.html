@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; failures</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;failures&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-434">
+				<h2 class="posttitle"><a href="../434/trackback.html" rel="bookmark" title="Permanent Link to О вероятностях сбоев в серверной DRAM">О вероятностях сбоев в серверной DRAM</a></h2>
+				<div class="postmetadata">8 Октябрь 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Не совсем по тематике блога о системах хранения, но тем не менее весьма любопытный документ был недавно опубликован.<br />
+Те же авторы, Eduardo Pinheiro и Wolf-Dietrich Weber, их работу <a href="http://labs.google.com/papers/disk_failures.pdf">Failure trends in large disk drive population</a> мы разбирали недавно, плюс Bianca Schroeder из Carnegie Mellon University, ныне University of Toronto, за <a href="http://www.usenix.org/events/fast07/tech/schroeder/schroeder_html/">ее отчет</a> я также возьмусь в скором времени, опубликовали анализ сбоев в DRAM серверов Google, наблюдаемых в течении 2,5 лет: <a href="http://www.cs.toronto.edu/~bianca/papers/sigmetrics09.pdf">&#8220;DRAM Errors in the Wild: A Large-Scale Field Study&#8221;</a>.</p>
+<p>Результаты довольно пугающи. В среднем на каждый модуль DRAM приходилось по 3751 ошибке в год. Хороший аргумент за однозначный выбор ECC DRAM в серверах.<br />
+??з неожиданных результатов, как и в случае жестких дисков, выяснилось, что высокая температура также слабо коррелирует с вероятностью появления ошибок в DRAM.<br />
+Подробный 12-страничный документ можно взять по ссылке: <a href="http://www.cs.toronto.edu/~bianca/papers/sigmetrics09.pdf">http://www.cs.toronto.edu/~bianca/papers/sigmetrics09.pdf</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="documents.html" rel="tag">documents</a>, <a href="failures.html" rel="tag">failures</a>, <a href="review.html" rel="tag">review</a><br />					Раздел: <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../434/trackback.html#respond" title="Комментарий к записи О вероятностях сбоев в серверной DRAM">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-402">
+				<h2 class="posttitle"><a href="../402/trackback.html" rel="bookmark" title="Permanent Link to Приводит ли повышенная температура среды к частому выходу дисков из строя?">Приводит ли повышенная температура среды к частому выходу дисков из строя?</a></h2>
+				<div class="postmetadata">24 Сентябрь 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Продолжим внимательное чтение отчета специалистов Google - <a href="http://labs.google.com/papers/disk_failures.pdf">Failure Trends in a Large Disk Drive Population</a> (pdf 242 KB) опубликованный на конференции FAST07, и содержащий статистический анализ отказов &quot;популяции&quot; 100000 дисков consumer-серий примерно за пять лет срока их службы. </p>
+<p>Это четвертая, заключительная статья, предыдущие:    <strong><br /><a href="../394/trackback.html">Насколько можно доверять величине MTBF?</a>      <br /><a href="../397/trackback.html">Приводит ли большая нагрузка к повышению вероятности отказа?</a><br /><a href="../413/trackback.html">Насколько полезен и стоит доверия SMART?</a>       </strong></p>
+<p>Мы обнаружили, что основной параметр отказоустойчивости, приводимый производителями, MTBF - Mean Time Before Failure, бесполезен, и не коррелирует вообще с реальными показателями отказов. Мы узнали, что SMART бесполезен едва ли не более, чем полезен, и что значительная часть отказов происходит без корреляции с показаниями SMART. Наконец, мы с неожиданностью поняли, что общепринятая &quot;аксиома&quot; о том, что высокая нагрузка повышает вероятность выхода из строя дисков - как правило, неверна. </p>
+<p>Но главный сюрприз у нас еще впереди. </p>
+<p>??нженеры Google на протяжении 9 месяцев каждые несколько минут считывали показания встроенных в SMART датчиков температуры жестких дисков, чтобы понять корреляцию между температурой и вероятностью отказов. </p>
+<p><a href="/pics//image2.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image-thumb1.png" width="499" height="325" /></a> </p>
+<p>На приведенном графике в виде столбиков приведено количество дисков, имеющих соответствующую температуру (с шагом в 1 градус, можно рассматривать как &quot;температуру перед сбоем&quot;, так как полученная корреляция просматривается в различных вариантах измерений). Кривая с точками и T-образными символами показывает полученный уровень AFR с зарегистрированным разбросом показателей.</p>
+<p>Как мы видим, повышение рабочей температуры до 40 градусов включительно приводит к снижению уровня отказов, но даже дальнейшее повышение ее до 50 и более поднимает его незначительно (отказы при температуре 50 градусов примерно соответствуют уровню отказов при температуре 30 градусов). Напротив, дальнейшее понижение температуры до 20 и менее, ведет к почти десятикратному росту отказов, относительно оптимальной температуры в 35-40 градусов!   <br />(Большой статистический разброс результатов, показанный T-образными отметками, вызван снижением общего количества “испытуемых” дисков в предельных температурных областях)</p>
+<p>Следующий график показывает величины отказов в зависимости от температур для разных &quot;возрастных групп&quot; (речь, конечно не идет о &quot;трех годах работы&quot; при определенной заданной температуре, так как наблюдение проводилось, как уже было сказано, в течение 9 месяцев) Результаты также подтверждают вышеприведенное наблюдение, расширяя его по &quot;координате возраста&quot;. </p>
+<p><a href="/pics//image3.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image-thumb2.png" width="480" height="308" /></a> </p>
+<p>&quot;Переохлаждение&quot; для дисков, то есть работа при температурах ниже 30 градусов (имеется ввиду, конечно же, температура самого диска как устройства, как ее определяет встроенный температурный датчик SMART), для устройств сроком до двух лет эксплуатации включительно, <strong>в два-три раза</strong> повышает величину отказов, даже по сравнению с ранее считавшимися &quot;перегревом&quot; температурами выше 45! Только для дисков старше 3 лет перегрев становится причиной повышенного выхода из строя. Снова видно, что для дисков, переживших 3 года, вероятность отказа сильно падает. Видимо где-то в районе трех лет проходит какая-то довольно заметная граница работоспособности. </p>
+<p>Выводы приходится делать довольно неожиданные. Возможно установка кондиционирования и поддержание предельно низкой температуры в датацентре, по крайней мере для дисковых систем, не есть такое уж непререкаемое благо? Возможно оно положительно сказывается на работе, например, процессоров и оперативной памяти серверов, так как хорошо известен эффект деградации свойств полупроводников при повышенной температуре, но для жестких дисков, как показывают нам результаты исследования Google, это явно не так. </p>
+<p>Результат, по-видимому, еще стоит осмысления и оценки. </p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="failures.html" rel="tag">failures</a>, <a href="google.html" rel="tag">google</a>, <a href="hdd.html" rel="tag">hdd</a>, <a href="temperature.html" rel="tag">temperature</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;" rel="category tag">цитаты</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../402/trackback.html#respond" title="Комментарий к записи Приводит ли повышенная температура среды к частому выходу дисков из строя?">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-413">
+				<h2 class="posttitle"><a href="../413/trackback.html" rel="bookmark" title="Permanent Link to S.M.A.R.T &ndash; Self-Monitoring, Analysis and Reporting Tool. Насколько он полезен?">S.M.A.R.T &ndash; Self-Monitoring, Analysis and Reporting Tool. Насколько он полезен?</a></h2>
+				<div class="postmetadata">21 Сентябрь 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Являющиеся частью стандарта ATA, средства мониторинга и предсказания ошибок, носящие название <a href="http://en.wikipedia.org/wiki/S.M.A.R.T.">S.M.A.R.T - Self-Monitoring, Analysis and Reporting Tool</a> присутствуют в контроллерах всех дисков ATA (как PATA, так и SATA) с 90-х годов. По мысли разработчиков этих средств, они должны предотвратить неожиданные выходы из строя, так как SMART оценивает ряд критичных параметров диска, и пытается предсказать вероятность таких сбоев, а также ожидаемое время до сбоя. </p>
+<p>Группа исследователей Google на протяжении 9 месяцев анализировала данные S.M.A.R.T. в 100 тысячах дисков, расположенных в его датацентрах, выявляя взаимосвязи между отказами дисков, и показаниями этой службы. Было выявлено несколько критичных параметров, события которых чаще других вызывали впоследствии отказы таких дисков. </p>
+<p><strong>Scan Errors</strong></p>
+<p>Жесткий диск обычно постоянно проверяет чтение с поверхности физических дисков, и, в случае каких-либо затруднений в этом уведомляет S.M.A.R.T. В рассматриваемой популяции примерно 2% дисков на момент начала исследования имело ненулевые показатели Scan Errors, причем такие диски достаточно равномерно распределились между различными производителями и их моделями, то есть не шла речь о заведомо дефектных партиях. На графике ниже приведены показатели вероятности отказов для дисков, имевших ошибки Scan Error, и не имевших таких, по всем рассмотренным возрастным группам. </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image4.png" width="492" height="340" /></p>
+<p>Также рассматривались вероятности отказа в зависимости от времени, прошедшего с момента регистрации ошибки, и анализировался характер и время сбоев для различных &quot;возрастных групп&quot; дисков и количества таких ошибок.</p>
+<p>Вероятность отказа диска резко вырастала в несколько дней, следующих после регистрации ошибки, и продолжала непрерывно расти на протяжении всех наблюдаемых месяцев. </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image5.png" width="324" height="286" /></p>
+<p>Вероятность отказа по всей наблюдаемой группе, после возникновения первого Scan Error. Пунктиром показаны границы статистически погрешностей.    <br />Видно, что наибольший риск выхода из строя приходится на первые несколько дней после возникновения ошибки Scan Error.</p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image6.png" width="315" height="286" /> </p>
+</p>
+<p>Вероятность отказа после возникновения первого Scan Error, в зависимости от возраста диска. </p>
+<p>В случае &quot;нового&quot; диска (с возрастом до 8 месяцев), если диск пережил первые несколько дней после регистрации Scan Error без сбоя, то вероятность его сбоя в дальнейшем относительно невелика и практически не возрастает. Однако чем &quot;старше&quot; диск на момент возникновения Scan Error, тем выше вероятность того, что на протяжении ближайших месяцев после Scan Error случится отказ. Для дисков возраста от года и старше, прирост такой вероятности за наблюдаемые 8 месяцев близок к линейному, что означает практическую неизбежность отказа, рано или поздно (к концу 8 месяца она дошла до 40%). </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image7.png" width="322" height="288" /></p>
+<p>Вероятность отказа в зависимости от количества ошибок Scan Error. Рассмотрены варианты 1-2 ошибки и больше 2 зарегистрированных S.M.A.R.T. ошибок Scan Error. Множественные Scan Errors сильно увеличивают вероятность отказа, даже по сравнению с относительно высоким уровнем отказов после единичного Scan Error. </p>
+<p>Таким образом, следует считать &quot;пороговым&quot; (threshold) значением для &quot;scan error&quot; - единицу. После первого же зарегистрированного scan error, вероятность отказа диска в следующие 60 дней становится выше <strong>в 39 раз</strong>! </p>
+<p>Рассмотрим другой характерный параметр - <strong>Reallocation Counts</strong> - число реаллокаций, то есть логических перемещений неустойчиво читающихся блоков. Обнаружив такой блок на диске, контроллер диска производит &quot;ремаппинг&quot;, переназначение адреса этого блока со старого, проблемного, на новый, находящийся в специально зарезервированной области блоков для реаллокации. </p>
+<p>В рассматриваемой популяции дисков ненулевое значение reallocation count имело примерно 9% дисков. Хотя некоторые диски имели значительно более высокие значения reallocation count чем другие, но, по утверждениям авторов, наблюдавшийся и описанный тренд был примерно равен для всех рассмотренных моделей и не зависел от производителя и марки дисков. </p>
+<p>Также, как и в случае со scan error, рост этого параметра прямо связан с повышенной вероятностью отказа диска в самое ближайшее время. В среднем зарегистрированное повышение вероятности отказа составляло<strong> 3-6 раз</strong>. Эффект влияния этого параметра S.M.A.R.T. на вероятность выхода из строя хотя и был значительно менее выраженным, чем в случае scan error, но также явно фиксировался. </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image8.png" width="511" height="352" /> </p>
+<p>Графики роста уровней ежегодных отказов, в зависимости от возраста дисков, и наличия или отсутствия у них ошибок Reallocate.</p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image9.png" width="326" height="290" /></p>
+<p>Влияние reallocation на вероятность отказа в ближайшие 8 месяцев (пунктиром показаны статистические отклонения). По горизонтали - месяцы, прошедшие с момента регистрации reallocaion, по вертикали - вероятность отказа (survival probability - &quot;вероятность выживания&quot; - величина обратная вероятности отказа). Через 8 месяцев из популяции, имевшей хотя бы один reallocaton, остаются в строю примерно 85% дисков. </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image10.png" width="314" height="292" /></p>
+<p>Влияние возраста диска в месяцах, на вероятность отказа после reallocation. В зависимости от общего возраста диска, меняется вероятность его отказа после возникновения reallocate.</p>
+<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image11.png" width="317" height="289" /></p>
+<p>Влияние единичных реаллокаций (от 1 до 4), множественных (выше 4) и сравнение с &quot;контрольной группой&quot;. Множественные реаллокации, по сравнению с первой же обнаруженной, уже сравнительно мало влияют на вероятность отказа в целом, в отличие от ситуации с Scan Error. </p>
+<p>В оригинальной работе также рассмотрены влияния на вероятность отказов таких параметров, как Offline Reallocation (вероятность отказа после такого события <strong>в 21 раз</strong> выше нормы в следующие 60 дней), Probational Counts (<strong>в 16 раз</strong> выше нормы, в следующие 60 дней) и ряда других. </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image12.png" width="465" height="384" /></p>
+<p>Сводный график зарегистрированных S.M.A.R.T. событий в наблюдаемой группе. Суммарное количество превышает 100%, так как возможно возникновение нескольких ошибок одновременно. </p>
+<p>Таким образом, очевидно, что, на сегодня, S.M.A.R.T., как средство Self-Monitoring, Analysis and Reporting, выполняет свою работу неудовлетворительно. <strong>Около трети сбоев (36%)</strong> в рассматриваемой дисковой популяции в 100 тысяч дисков не было никак диагностировано его средствами, и произошло внезапно для S.M.A.R.T. Анализ, проведенный группой инженеров Google, также выявил недостатки в текущей, общепринятой настройке &quot;порогов&quot; (threshold) срабатывания средств уведомления о предстоящей аварии, во многих случаях эти пороги следовало бы значительно поднять. </p>
+<p>Бесспорны перспективы средств автоматического мониторинга и предсказания, встроенные в диски, однако, на сегодня, доверять безоглядно нынешним средствам, какими являются S.M.A.R.T. и системы, построенные на его базе, и строить оценку вероятности отказов жестких дисков исключительно на оценке S.M.A.R.T. не следует. </p>
+<p>Продолжение следует.</p>
+<p>Ранее: <a href="../394/trackback.html">О надежности жестких дисков: MTBF &ndash; что это?</a></p>
+<p><a href="../397/trackback.html">Приводит ли большая нагрузка к увеличению вероятности выхода дисков из строя?</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="failures.html" rel="tag">failures</a>, <a href="google.html" rel="tag">google</a>, <a href="hdd.html" rel="tag">hdd</a>, <a href="smart.html" rel="tag">smart</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../413/trackback.html#comments" title="Комментарий к записи S.M.A.R.T &ndash; Self-Monitoring, Analysis and Reporting Tool. Насколько он полезен?">Комментарии (4)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-397">
+				<h2 class="posttitle"><a href="../397/trackback.html" rel="bookmark" title="Permanent Link to Приводит ли большая нагрузка к увеличению вероятности выхода дисков из строя?">Приводит ли большая нагрузка к увеличению вероятности выхода дисков из строя?</a></h2>
+				<div class="postmetadata">17 Сентябрь 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Сегодня мы продолжаем разбирать результаты опубликованной специалистами Google <a href="http://labs.google.com/papers/disk_failures.pdf">научной работы</a>, в которой анализируются причины отказов 100.000 жестких дисков в датацентрах Google на протяжении пяти лет. </p>
+<p>Мы считаем само собой разумеющимся тот факт, что бо’льшая нагрузка на диски вызывает их более ранний выход из строя. Так ли это? Данные Google показывают, что это не так. Более того, результаты сами по себе неожиданны. </p>
+<p><a href="/pics//image1.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image-thumb.png" width="439" height="308" /></a> </p>
+<p>На графике мы также видим уже знакомый нам период &quot;детской смертности&quot; в первые три месяца. Однако если мы разделим диски в зависимости от их рабочей нагрузки, то мы увидим неожиданное. Да, высокая нагрузка (выше 75%) в первые три месяца действительно приводит к высокой &quot;смертности&quot; дисков. В это период диски под высокой нагрузкой, по уровню AFR - Annual Failure Rate - среднегодовому показателю отказов, достигают 12% (при усредненной по всем типам нагрузок - в районе 3%). Однако, что неожиданно, диски с низким уровнем (ниже 25%) нагрузки также имеют довольно высокий уровень, около 4%, а наиболее низкие показатели в этот и 6-месячный период имеют диски со средними (от 25 до 75%) показателями нагрузки. </p>
+<p>Переработка - плохо, но и простой - почти также нехорошо. </p>
+<p>Далее же, в периоды 1 года, 2 и 3 лет, показатель уровня отказов практически не меняется от величины нагрузки на диски. ?? только после 4 года, и на пятый год, наблюдается заметное повышение уровня отказов для сильно нагруженных дисков, которое мы ожидали бы увидеть с самого начала. Таким образом, после первого полугода работы, уровень рабочей нагрузки на диски практически никак не сказывается (доли процента) на количестве их отказов. В ряде же случаев, наоборот, слабо загруженный диск имеет больше шансов вылететь, чем диск с рабочей нагрузкой среднего уровня. Диск, находящийся в Hot Spare вовсе не застрахован от внезапного выхода из строя. </p>
+<p>Если же перед вами стоит задача быстро &quot;выбраковать&quot; диски, то имеет смысл сразу нагрузить их, и получить повод поскорее избавиться от потенциальных &quot;отказников&quot;. </p>
+<p>Продолжение следует.</p>
+<p>Начало: <a href="../394/trackback.html">О надежности жестких дисков: MTBF &ndash; что это?</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="failures.html" rel="tag">failures</a>, <a href="google.html" rel="tag">google</a>, <a href="hdd.html" rel="tag">hdd</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../397/trackback.html#comments" title="Комментарий к записи Приводит ли большая нагрузка к увеличению вероятности выхода дисков из строя?">Комментарии (8)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-394">
+				<h2 class="posttitle"><a href="../394/trackback.html" rel="bookmark" title="Permanent Link to О надежности жестких дисков: MTBF &ndash; что это?">О надежности жестких дисков: MTBF &ndash; что это?</a></h2>
+				<div class="postmetadata">14 Сентябрь 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Давно, <a href="../7/trackback.html">еще в 2007 году</a>, я публиковал в одном из первых постов этого блога, ссылку на исследование группы инженеров Google, которое они обнародовали на одной из конференций исследовательской группы USENIX (USENIX File and Storage Technologies, 2007 - FAST07). На сегодняшний день это самое крупное такое исследование по количеству наблюдавшихся &#8220;в естественной среде&#8221; жестких дисков.  Несмотря на то, что документ этот широко доступен, уверен, что мало кто сел и внимательно прочитал его целиком, а потом еще и подумал над содержимым. Потому что результаты там, подчас, предстают самые неожиданные. </p>
+<p>??нженеры Google собрали статистику по отказам для примерно 100 тысяч дисков в своих датацентрах. Особо интересно нам, смертным, то, что Google использует у себя в серверах широкораспространенные consumer-series диски PATA и SATA (обеспечивая отказоустойчивость и надежность хранения инфраструктурно, за счет распределенной самописанной файловой системы хранения), то есть все те самые диски, которые окружаю нас повседневно, а не какие-то особенные, &quot;энтерпрайзные&quot;. Документ, озаглавленный <a href="http://labs.google.com/papers/disk_failures.pdf">Failure Trends in a Large Disk Drive Population</a> (pdf 242 KB) содержит статистический анализ примерно за пять лет их срока службы, при этом непосредственное наблюдение и снятие показателей заняло 9 месяцев. Несколько интересных, а подчас и неожиданных тем, обнаруженных при прочтении:</p>
+<p><strong>1. MTBF - Mean Time Between Failure - ожидаемый срок службы до сбоя. Что это?</strong> </p>
+<p><a href="http://en.wikipedia.org/wiki/Mean_time_between_failures">MTBF </a>- это традиционно приводимый производителям параметр, долженствующий, по их мнению, характеризовать надежность выпускаемых ими жестких дисков. Это искусственно вычисляемый срок в часах работы, которые ожидаемо должны проходить от одного отказа до другого, в случае соблюдения эксплуатационных норм (в том числе смены диска на новый, при окончании его гарантийного срока!). Эта величина, как очевидно, предполагает некую линейность в вероятности отказов. Так ли это на самом деле? Нет. Результаты Google показывают, что Annual Failure Rate, ежегодный процент отказов, для жестких дисков нелинеен в зависимости от их срока службы. </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image.png" width="436" height="297" /> </p>
+<p>В принципе, приведенный в работе график вероятности отказов не содержит какого-то откровения. Первоначальный пик в первые три месяца достаточно хорошо известен для любой техники, как &quot;период обкатки&quot;. Если оборудование пережило этот неприятный первоначальный период, то в дальнейшем вероятность отказов заметно снижается. Отказы начинают нарастать к окончанию планового срока службы, &quot;гарантийному сроку&quot;, в результате &quot;механического износа&quot;, чем бы он ни вызывался. Но интересно, что диски двух- и трехлетнего возраста имеют вероятность отказа в четыре раза(!) выше, чем диски первого года службы. </p>
+<p>Следует, однако, отметить, что значительный “выброс” в районе 2-3 года, по утверждениям Google, сильно зависит от марок и производителей жестких дисков. В частности, утверждается, что это связано с тем, что более новые модели (следовательно, прослужившие малые сроки), поступающие в датацентры, оказывались объективно более надежными, что вызвало снижение количества отказов в эти периоды. По понятным причинам в работе не называются более или менее надежные марки и производители.</p>
+<p>Тем не менее, 9% AFR означает то, что на системе хранения в сто дисков, купленной три года назад, после окончания трехлетнего гарантийного срока, вы скорее всего получите 8-9 мертвых дисков в течении следующего года. Дисков, которые придется менять уже не по вендорской гарантии, а за свои деньги. </p>
+<p>??нтересен спад отказов в 4 год, возможно вызванный просто &quot;снижением поголовья&quot;. Дальнейший рост, однако, с большим разбросом (значок на верхней границе столбика), говорит уже о простом механическом износе оставшихся экземпляров. </p>
+<p>Практический вывод для администратора систем хранения и серверов не находящихся на вендорской гарантии: Если есть такая возможность, регулярно списывайте и меняйте ваши жесткие диски по прошествии года, или двух лет службы. Замена дисков, во многих случаях, с учетом постоянного снижения их цены, обойдется дешевле, чем постоянно повышающийся риск их отказа. Для оборудования на вендорской гарантии, всерьез рассмотрите необходимость эксплуатации дисковых систем на критичных участках инфраструктуры за пределами их гарантийного трехлетнего срока. Малое число отказов за прошедшие два-три года не означают продолжение такой практики на четвертый год. Возможно имеет смысл всерьез задуматься об обновлении парка, или вложиться в расширенную гарантию. </p>
+<p>Однако же про MTBF. Для consumer-series дисков периода 2002-2007 годов, обычно указывался MTBF равный 300.000 часов. 300.000 часов это 34 года непрерывной работы (300.000/24/365)! Если предположить, что MTBF имеет линейную природу, то это должно было бы означать AFR равный 1,46%, что, очевидно, не выполняется никогда, даже в лучшие периоды. Нетрудно посчитать, что, от партии в 100.000 штук, всего за пять лет, при приведенных в работе Google показателях отказов, останутся в живых только примерно 70% дисков. </p>
+<p>Классический пример параметра &quot;с потолка&quot; и &quot;ни о чем&quot;. Мы видим, что использовать его для реальной оценки надежности дисков нельзя.</p>
+<p>Продолжение следует.</p>
+<p>UPD: Еще одна интересную и содержательную статью о том, что же такое MTBF, как он вычисляется и как правильно его результаты трактовать &#8220;в жизни&#8221; смотрите тут:<br />
+<a href="http://habrahabr.ru/post/122529/">http://habrahabr.ru/post/122529/</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="failures.html" rel="tag">failures</a>, <a href="google.html" rel="tag">google</a>, <a href="hdd.html" rel="tag">hdd</a>, <a href="mtbf.html" rel="tag">mtbf</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../394/trackback.html#comments" title="Комментарий к записи О надежности жестких дисков: MTBF &ndash; что это?">Комментарии (4)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.082 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

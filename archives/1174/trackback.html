@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Еще о тестировании Cluster-mode в SPC-1</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1173/trackback.html">NetApp опубликовал результаты SPC-1 в 8.1.1 C-mode</a></div>
+			<div class="alignright"><a href="../1172/trackback.html">Про настройку NetApp &ndash; новый блог</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1174">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Еще о тестировании Cluster-mode в SPC-1">Еще о тестировании Cluster-mode в SPC-1</a></h2>
+			<div class="postmetadata">27 Июнь 2012, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Я не первый раз рубликую тут переводы постов инженера NetApp – Dimitris Krekoukias, ведущего автономный, и крайне интересный блог <a href="http://recoverymonkey.org/">http://recoverymonkey.org/</a> (другие мои переводы его постов вы можете найти в рубрике “<a href="../category/translations/index.html">переводы</a>”)</p>
+<p>После долгого молчания, Dimitris опубликовал пост, вызванный публикацией отличных результатов кластера FAS6240 в Data ONTAP 8.1.1 Cluster-mode в бенчмарке блочного (FC) доступа – SPC-1, о котором я уже написал в понедельник. Однако вопросу <em>почему</em> он так хорош, и <em>насколько именно</em> он хорош – посвящен сегодняшний перевод.</p>
+<h2>NetApp опубликовал великолепные результаты тестирования Cluster-Mode в бенчмарке SPC-1</h2>
+<p>Опубликовано <a href="http://recoverymonkey.org/2012/06/20/netapp-posts-great-cluster-mode-spc-1-result/">June 20, 2012</a></p>
+<p>Мы тут в NetApp были довольно сильно заняты… заняты совершенствованием единственной в отрасли масштабируемой платформы хранения с универсальным доступом к данным, даже не считая множества разных других имеющихся в ней полезных штук.</p>
+<p>Мы недавно выпустили ONTAP 8.1, которая, в Cluster-Mode, позволяет создать 24-узловой кластер (каждый узел которого может иметь до 8TB кэша) для задач NAS, и 4-узловой кластер для блочного доступа (FC и iSCSI).</p>
+<p>А с выпуском ONTAP 8.1.1 (выпущенного 14 июня), мы увеличили лимит узлов для блочного доступа до 6, плюс добавили ряд дополнительных оптимизаций и возможностей. Между прочим, число узлов в кластере это пока только условный лимит официальной поддержки, это не жестко заданное ограничение.</p>
+<p>После публикации нашего <a href="http://bit.ly/K2FBz1">рекордного результата в бенчмарке NFS</a>, люди спрашивали, как обстоит дело с производительностью блочного ввода-вывода в ONTAP Cluster-Mode, поэтому мы провели тестирование и опубликовали результаты бенчмарка SPC-1, используя часть той же системы, что уже была протестирована на SPEC sfs2008 NFS.</p>
+<p>Для тех кто до сих пор думает, что NetApp не подходит для блочного доступа (это типичный FUD наших конкурентов): <strong>Это, на сегодня, лучший результат SPC-1 среди всех дисковых систем хранения, из расчета на уровень latency при достигнутом уровне IOPS</strong> (то есть возможно получить даже более высокие показатели IOPS на бОльших лимитах по latency, как я покажу далее в этом посте).</p>
+<p>Вот ссылка на <a href="http://bit.ly/Kj3kvP">результаты</a> и еще одна <a href="http://www.storageperformance.org/results/benchmark_results_spc1#a00115">ссылка</a>, на полную версию со всей доступной информацией.</p>
+<p>В этом блоге я уже <a href="http://bit.ly/hs4GMt">говорил</a> о том, что представляет собой бенчмарк SPC-1 . Вкратце: Бенчмарк SPC-1 это общепринятый в индустрии, аудируемый, бенчмарк блочного доступа к системе хранения (по Fiber Channel) который проводит стресс-тестирование дисковой подсистемы большим объемом записей, перезаписей, локальных &quot;хотспотов&quot; и смешанной произвольно/последовательной, чтение-после-записи, запись-после-чтения нагрузкой. Около 60% рабочей нагрузки это операции записи. Размеры используемых в бенчмарке операций ввода-вывода различны, от маленьких до больших (таким образом IOPS в бенчмарке SPC-1 не идентичны и не могут быть сравнены напрямую с классическим тестом IOPS в full random блоками 4KB).</p>
+<p>Если сторадж успешно работает на нагрузке SPC-1,, он, обычно, также крайне производительно работает на сложной, чувствительной к показателям latency, динамично изменяющейся нагрузке типа баз данных, в особенности OLTP. Полная спецификация для смертельно любопытных может быть найдена <a href="http://bit.ly/Kj8Iz7">здесь</a>.</p>
+<p>Трюк с бенчмарками обычно состоит в интерпретации результатов. Сама по себе величина достигнутых IOPS, хотя и полезна, но не показывает всей картины, и того, как данный результат соотносится с реальной жзнью и реальными приложениями. Мы попытаемся помочь расшифровать результаты в этом посте.</p>
+<p>Перед тем, как мы перейдем к анализу и сравнению результатов, несколько замечаний для <a href="http://www.youtube.com/watch?v=3MaJy7LH5js">неверующих</a>:</p>
+<ol>
+<li>В тестах NetApp не используется диски &quot;с коротких ходом&quot; (short-stroking), так часто любимые многими вендорами, проводящими тестирование, при котором используется только внешняя, наиболее быстродействующая часть диска, где сочетается максимальная линейная скорость и малый разбег механики коромысла жесткого диска, на чем можно показать наилучшие результаты. Вместо этого мы используем настройку параметров системы , чтобы использовать всю поверхность дисков, и не зависеть от того, насколько заполнены данными диски. Смотрите полный отчет <a href="http://bit.ly/Kj5lrO">здесь</a>, страница 61. Для любителей распространять FUD: это эффективно &quot;старит&quot; состояние WAFL, приближая его к реальному состоянию реально эксплуатируемой системы. Мы также не используем оптимизацию размещения блоков путем их реаллокации. </li>
+<li>Падения производительности в ходе продолжительного тестирования не наблюдалось. </li>
+<li>Средняя величина latency (“All ASUs” в результатах) была плоской и оставалась ниже уровня 5ms на протяжении нескольких итераций теста, включая sustainability test в течение 10 часов (страница 28 полного отчета). </li>
+<li>Не использовался дополнительный кэш, кроме того, который поставляется в базовой поставке FAS6240 (Контроллеры 6240 поставляются с Flash Cache емкостью 512GB, при максимальной возможной емкости данной модели 3TB на ноду (контроллер), то есть для работы с большими нагрузками есть еще значительный запас). </li>
+<li>Это не &quot;звездолет&quot;, построенный исключительно для завовевания победы и установления рекорда в бенчмарке. Мы использовали сравнительно немного дисков, в сравнении с конфигурациями других вендоров, и это не самая быстрая наша модель контроллера (еще есть 6280). </li>
+</ol>
+<h3>Анализ</h3>
+<p>Когда мы смотрим на результаты бенчмарка, следует сфокусироваться на следующих моментах:</p>
+<ol>
+<li>Высокий уровень установившейся производительности в IOPS (нестабильность показателей показывает на наличие проблем). </li>
+<li>IOPS/диск (это показатель эффективности – 500 IOPS/drive это вдвое лучше и эффективнее, чем 250 IOPS/drive, что, как следствие, означает меньше необходимых дисков в системе, снижает ее стоимость, уменьшает физический занимаемые в датацентре объем, и так далее.) </li>
+<li>Стабильно низкая latency (пики показывают наличие проблем). </li>
+<li>IOPS связан и зависит от latency (Получили ли вы высокие показатели IOPS вместе с высокой latency на максимуме? Это практически используемо?) </li>
+<li>Какой тип RAID использовался (RAID6? RAID10? RAID6 обеспечивает значительно лучшую защиту данных и лучшие результаты эффективности использования дискового пространства, чем зеркалирование, что ведет к снижению стоимость даже более надежного хранилища данных). </li>
+<li>Какие диски использовались? Хотите ли вы покупать такие диски? </li>
+<li>??спользовался ли autotiering? Если нет, то почему нет? Разве он не помог бы в такой сложной ситуации? </li>
+<li>Какое оборудование потребовалось, чтобы получить стабильную производительность (сколько дисков и контроллеров потребовалось для построения системы? Означает ли это более сложную и дорогую систему? Как это все будет управляться?) </li>
+<li>Цена (некоторые вендоры указывают цену уже с учетом дисконта, в то время как другие публикуют цену в list price, так что будьте тут внимательнее). </li>
+<li>Цена/IOPS (наиболее полезная метрика – но следует сравнивать цену list price с list price). </li>
+</ol>
+<p>SPC-1 это бенчмарк НЕ для измерения максимума потока данных; для измерения чистого GB/s смотрите другие бенчмарки. Большинство систем не дает больше 4GB/s в этом бенчмарке, так как много операций в нем рандомные (и 4GB/s это довольно много для рандомного ввода-вывода).</p>
+<h3>Сравнение систем</h3>
+<p>В этой части мы сравним дисковые системы хранения. Предсказуемо &quot;чистые SSD&quot; (или RAM) системы хранения имеют, конечно, очень высокие показатели производительности, и могут подойти, если ваша задача - обеспечивать работу с небольшим объемом данных очень быстро.</p>
+<p>Но мы сосредоточимся на задачах высоконадежных систем общего применения, которые обеспечивают одновременно и высокую производительность, и низкую latency, и большую емкость, за разумную цену, а также, одновременно, большое количество функциональных фич(снэпшоты, репликация, кэширование в flash (megacaching), thin provisioning, дедупликация, компрессия, многопротокольность, включая NAS, и так далее). Опа – оказывается никто из конкурентов не может сделать сразу все что умеет делать NetApp.</p>
+<p>Ниже приведен список систем и ссылки на их полные отчеты тестирования SPC-1, где вы сможете найти всю необходимую информацию. Все эти системы имеют высокие результаты и относительно плоскую кривую latency.</p>
+<ul>
+<li><a href="http://bit.ly/Kj5lrO">NetApp 6240</a> </li>
+<li><a href="http://bit.ly/NUThnK">IBM SVC with V7000</a> </li>
+<li><a href="http://bit.ly/NUTDLb">IBM SVC with DS8700</a> </li>
+<li><a href="http://bit.ly/NUTuHq">HDS VSP</a> </li>
+<li><a href="http://bit.ly/NUTerZ">HP 3Par V800</a> </li>
+<li><a href="http://bit.ly/NUTqrs">Huawei Symantec S8100</a> </li>
+</ul>
+<p>Также есть несколько других дисковых систем хранения, со значительными результатами по IOPS, но если мы посмотрим на их результаты sustained latency (“Sustainability – Average Response Time (ms) Distribution Data” в любом из полных отчетов) мы увидим, что общие показатели latency чересчур высоки и наблюдается значительная неравномерность, в особенности в начальной фазе, с пиками до 30ms (что крайне много), поэтому мы не взяли их в расчет.</p>
+<p>Вот краткий перечень систем и их параметров, отсортированных в соответствии с latency. Кроме этого показана и их стоимость в ценах list price (это можно найти в полном отчете о тестировании) плюс стоимость операции $/IOPS, посчитанная исходя из list price (многие вендоры приводят в отчетах цену с уже введенной скидкой, чтобы цена выглядела пониже):</p>
+<p>&#160;</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/---Cluster-mode--SPC-1_EDD7/image.png" width="954" height="181" /></p>
+<h3>…но ведь тут показано, что некоторые системы быстрее NetApp… Как так?</h3>
+<p>Это зависит от того, насколько важен для вас показатель latency и его низкая величина (и от того, принимаете ли вы в расчет используемый тип RAID). Для подавляющего большинства нагрузок типа баз данных, низкая latency операций ввода-вывода гораздо предпочтительнее высоких показателей latency.</p>
+<p>Вот как это увидеть:</p>
+<ol>
+<li>Выберите один из приведенных выше линков на полные отчеты Допустим это будет 3Par, так как он показывает одновременно и высокие показатели производительности, и высокие значения latency. </li>
+<li>Найдем в отчете главу под названием &quot;Response Time – Throughput Curve&quot;. Например это страница 13 в <a href="http://bit.ly/NUTerZ">отчете по системе 3Par</a>. </li>
+<li>Проследим, как latency резко растет при повышении загрузки системы. </li>
+</ol>
+<p>Например посмотрим на кривую 3Par:</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/---Cluster-mode--SPC-1_EDD7/image_3.png" width="600" height="408" /></p>
+<p>Заметьте то, как latency резко растет после некоей точки.</p>
+<p>Теперь сравним с <a href="http://bit.ly/Kj5lrO">результатом NetApp</a> (страница 13):</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/---Cluster-mode--SPC-1_EDD7/image_4.png" width="600" height="434" /></p>
+<p>Отметьте, что результат NetApp не просто имеет хорошие показатели latency, но, что еще более важно, <em>latency остается хорошей и растет исключительно медленно по мере увеличения нагрузки на систему.</em></p>
+<p>Вот почему колонка“SPC-1 IOPS around 3ms” была добавлена в таблицу. Фактически это ответ на вопрос <strong>что бы было, если бы уровень latency был в тесте одинаков для всех протестированных систем?</strong></p>
+<p>Когда вы примете эту позицию, вы увидите, что система 3Par фактически медленнее, чем NetApp, если сравнить их на одинаково низком желаемом уровне latency.</p>
+<p>Вы можете взять точные показатели latency из графика на странице 13, у NetApp таблица выглядит так (озаглавлено &quot;Response Time – Throughput Data&quot;):</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/---Cluster-mode--SPC-1_EDD7/image_5.png" width="600" height="144" /></p>
+<p>Действительно, при сравнении результатов мы видим, что только IBM SVC (с кучей стораджей V7000 за ним) оказывается быстрее NetApp при столь же хороших показателях latency. Что плавно подводит нас к следующей главе…</p>
+<p>Сколько железа обеспечивает такую производительность?</p>
+<p>Почти любая инженерная задача может быть решена, если дать приложению достаточное количество необходимого оборудования. <a href="http://bit.ly/NUThnK">Результат IBM</a> это как раз хороший пример того, как можно получить хороший результат собрав вместе большую кучу дорогостоящего железа:</p>
+<ul>
+<li>8 SVC контроллеров (virtualization engines) плюс… </li>
+<li>…16 отдельных систем V7000… </li>
+<li>…каждая состоящая из еще 2 контроллеров SVC и 2 контроллеров RAID </li>
+<li>1920 дисков 146GB 15K RPM (не так-то просто такие купить нынче, не так ли?) </li>
+<li>??того 40 контроллеров SVC (8 больших и 32 поменьше), 32 RAID-контроллера, и все это битком наполнено дисками. </li>
+</ul>
+<p>Даже отставив в сторону вопрос того, как это все управляется, сколько это потребляет электричества и как размещается, понятно, что это довольно большая система. Я даже не пытался посчитать, сколько тут процессоров и ядер работают параллельно, уверен, их много.</p>
+<p>Сравним эту кухню с вариантом <a href="http://bit.ly/Kj5lrO">конфигурации NetApp</a>:</p>
+<ul>
+<li>6 контроллеров в одном кластере </li>
+<li>432 диска 450GB 15K RPM (самый распространенный и массовый наш диск по состоянию на июнь 2012). </li>
+</ul>
+<h3>Вопросы (с удовольствие увижу ответы на них от других вендоров):</h3>
+<ol>
+<li>Что произойдет при использовании RAID6 у других вендоров? NetApp всегда тестирует системы с использованием своей версии RAID6 (RAID-DP). RAID6 значительно надежнее, чем зеркалирование, особенно в больших пулах (не говоря уже о более эффективном использовании пространства дисков). Большинство клиентов не хотят покупать большую систему в конфигурации <em>только-RAID10</em>… (пользователи - задавайте вопросы вашим вендорам. Тут нет никакого волшебства – ручаюсь, у них есть внутренние результаты для RAID6, попросите показать их вам). </li>
+<li>Autotiering это одна из самых раскрученных сегодня фич, с признаками того, что это достижение, превосходящее изобретение пенициллина, или даже колеса, а может даже и огня… Однако никто из дисковых массивов не рассматривает использование SSD для autotiering (IBM опубликовала однажды результат – <a href="http://bit.ly/NezCt4">не впечатляет</a>, делайте выводы). Это при том, что бенчмарк, по своей спецификации активно создающий &quot;горячие точки&quot; (hotspots) нагрузки, должен бы быть здесь идеальным кандидатом для демонстрации эффективности… </li>
+<li>Почему EMC и Dell не желают публиковать результаты SPC-1? (Они оба, кстати, члены SPC, Storage Performance Council). Только два этих вендора, из крупных игроков на рынке, кто еще не опубликовали свои результаты. EMC ранее говорила, что SPC-1 это нереалистичный тест – ну, типа <em>только ваше приложение с вашими данными на вашем сторадже может показать по-настоящему реальные результаты</em>. Это так, однако SPC-1 это общепринятый индустрией стандартный бенчмарк для блочного доступа произвольного характера, и отличная &quot;лакмусовая бумажка&quot;. </li>
+<li>Для системы, которая регулярно позиционируется для нагрузки Tier-1, IBM XIV, результаты бенчмарков, увы, отсутствуют также, даже для самой новой ее Gen3. Неужели IBM стесняется показать свои результаты SPC-1 для этой системы? </li>
+<li>Наконец – некоторые наши конкуренты продолжают утверждать, что NetApp, дескать, это &quot;не настоящий SAN&quot;, что это, якобы &quot;эмуляция SAN&quot;, и так далее. Что бы это все ни значило на самом деле – может быть подход NetApp, с такой &quot;эмуляцией&quot; оказывается, по факту, лучше?… Максимальная <em>write latency</em> в этом тесте составила 1.91ms для в основном записываемой нагрузки! </li>
+</ol>
+<h3>??тоговые мысли</h3>
+<p>В накануне опубликованном результате бенчмарка SPC-1, NetApp показала вновь, что Data ONTAP в Cluster-Mode это высокопроизводительная и масштабируемая система, одинаково подходящая как для SAN, так и для NAS задач. Суммируя все вышесказанное, можно сказать, что ONTAP Cluster-Mode:</p>
+<ul>
+<li>Позволяет строить высокопроизводительные и динамически-масштабируемые кластеры хранения для FC, iSCSI, NFS и CIFS. </li>
+<li>Демонстрирует низкую latency при высокой производительности. </li>
+<li>Предлагает исключительно хорошее соотношение price/performance. </li>
+<li>Позволяет доступ к данным одной ноды с любых других нод. </li>
+<li>Перемещает данные между нодами, не прерывая работы с ними (включая CIFS, что ранее не было практически невозможно). </li>
+<li>Поддерживает традиционные для NetApp возможности (оптимизацию процессов записи, взаимодействие с приложениями, снэпшоты, дедупликацию, компрессию, репликацию, thin provisioning, и кэширование во flash (megacaching). </li>
+<li>Может работать на в точности тех же самых контроллерах FAS, что и в 7-mode, что защищает инвестиции. </li>
+<li>Может виртуализовывать системы хранения, расположенные за ними. </li>
+</ul>
+<p>??сточник &lt;<a href="http://recoverymonkey.org/2012/06/20/netapp-posts-great-cluster-mode-spc-1-result/">http://recoverymonkey.org/2012/06/20/netapp-posts-great-cluster-mode-spc-1-result/</a>&gt; </p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/811.html" rel="tag">8.1.1</a>, <a href="../tag/benchmark/index.html" rel="tag">benchmark</a>, <a href="../tag/cluster-mode/index.html" rel="tag">cluster-mode</a>, <a href="../tag/iops.html" rel="tag">iops</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/performance/index.html" rel="tag">performance</a>, <a href="../tag/recoverymonkey.html" rel="tag">recoverymonkey</a>, <a href="../tag/spc-1.html" rel="tag">spc-1</a>, <a href="../tag/testing.html" rel="tag">testing</a><br />					Раздел: <a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (7)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2834">
+		<div id="div-comment-2834">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>&gt; •1920 дисков 146GB 15K RPM (не так-то просто такие купить нынче, не так ли?)<br />
+это 15k SFF диски с самой высокой производительностью среди hdd, процентов на 20 быстрее 450GB 15K RPM  LFF</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2834" title="">28 Июнь 2012, 13:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2839">
+		<div id="div-comment-2839">
+		<div class="comment-author">
+			<cite>Border:<cite></div>
+			<p>Вот только NetApp использовал на своей СХД примерно 40-50% дискового пространства, то есть наиболее оптимальное с точки зрения задачи показать low latency, а 3PAR 80%. Графики просто уверенно подтверждают зависимость latency от степени утилизации дискового пространства.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2839" title="">29 Июнь 2012, 17:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2840">
+		<div id="div-comment-2840">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Border:</p>
+<p>Не, не совсем так.<br />
+У NetApp есть опубликованные тесты с 70-процентной загрузкой, и они все равно лучше по latency. ?? это при том, что 3270 это совсем иного класса система, midrange, и упомянутый 3Par дороже ее раз в 10, и во столько же раз большем числе дисков, а по IOPS быстрее всего раза в 6. ;)</p>
+<p>Также не стоит забывать, что, в отличие от &#8220;других вендоров&#8221;, которые тестируют на RAID-10, то есть, фактически, работают с двумя синхронными копиями данных (сечас все контроллеры RAID-10 умеют для ускорения работы читать и писать на обе половины зеркала данных по-очереди), то есть фактическая величина объема данных на дисках 3Par будет 40,23% (стр.12 full report), против 36,98% у FAS6240 (и 60,51% у FAS3270).</p>
+<p>Еще вот тут в комментариях понятно объясняется: <a href="http://recoverymonkey.org/2012/06/20/netapp-posts-great-cluster-mode-spc-1-result/#comment-683" rel="nofollow">http://recoverymonkey.org/2012/06/20/netapp-posts-great-cluster-mode-spc-1-result/#comment-683</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-2840" title="">29 Июнь 2012, 18:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2845">
+		<div id="div-comment-2845">
+		<div class="comment-author">
+			<cite>Ярослав:<cite></div>
+			<p>ROMX, вы путаете used storage capacity (величина полезного объема данных) и disk utilization (объем данных, записанных на диск). Да, used storage capacity в тесте у 3PAR 40,23%. А вот disk utilization 87% (легко считается на 22 странице full report). Так как RAID-10.</p>
+<p>У NetApp в тесте used storage capacity 36,98%, а disk utilization 37% (страница 12 full report).</p>
+<p>После заполнения дисков на 70 и более процентов latency начинает расти катастрофически, так же катастрофически влияя на IOPS. ?? в этих экстремальных условиях 3PAR показывает 230 IOPS на диск при вполне достойной latency. А NetApp делает тест на low latency объеме диска (при заполнении диска до 40% latency практически не растет) и говорит: смотрите, какая крутая у нас система по сравнению с 3PAR.</p>
+<p>Я сейчас не говорю, что система FAS6240 плохая, я говорю про то, что раз уж сравниваете две системы и утверждаете, что одна из них лучше, то и сравнивайте их работу в одинаковых условиях. 60% утилизации тоже не показатель. Я думаю вы легко сможете найти графики зависимости latency и disk utilization.</p>
+<p>Так что Dimitris прав, надо внимательно читать отчеты и анализировать, что за ними скрывается.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2845" title="">30 Июнь 2012, 17:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2853">
+		<div id="div-comment-2853">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Ярослав:</p>
+<p>> ROMX, вы путаете used storage capacity (величина полезного объема данных) и disk utilization (объем данных, записанных на диск)</p>
+<p>Нет, не путаю.</p>
+<p>> У NetApp в тесте used storage capacity 36,98%, а disk utilization 37% (страница 12 full report).</p>
+<p>А в другом тесте есть и 84% заполнение, причем на 70% это фактические данные, а не &#8220;данные и их еще одна копия&#8221;, и все рвно показатели по latency очень хорошие, лучше многих.</p>
+<p>> После заполнения дисков на 70 и более процентов latency начинает расти катастрофически</p>
+<p>Это ложь, про &#8220;катастрофически&#8221;. Но влияние конечно есть, оно у всех есть, у любой системы хранения, любого вендора, это законы физики. Как нам показывает незавидный результат 3Par. :-}</p>
+<p>> А NetApp делает тест на low latency объеме диска </p>
+<p>А теперь помотрите ранее опубликованный результат для FAS3270A</p>
+<p>> я говорю про то, что раз уж сравниваете две системы и утверждаете, что одна из них лучше, то и сравнивайте их работу в одинаковых условиях.</p>
+<p>Выше я уже привел фрагмент обсуждения про это в комментариях к оригинальному посту. Сходите, почитайте.<br />
+Требование &#8220;всем делать также криво, как сделали мы, потому что у нас же криво!&#8221; довольно нелепо, на мой вгзляд.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2853" title="">2 Июль 2012, 11:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3643">
+		<div id="div-comment-3643">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>Я правильно понял, что нагрузка исходит из группы хостов, которые воспринимают Cluster как Одна схд?<br />
+Распределением нагрузки группы хостов по контроллером кластера занимается ОС кластера?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3643" title="">24 Сентябрь 2012, 20:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3644">
+		<div id="div-comment-3644">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Да, где-то так. Подробное описание того, как был организован доступ есть в документе Full disclosure.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3644" title="">24 Сентябрь 2012, 20:31</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1174" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.078 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

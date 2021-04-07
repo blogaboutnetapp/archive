@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Predictive Cache Statistics (PCS)</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1135/trackback.html">Покупатель всегда прав?</a></div>
+			<div class="alignright"><a href="../1137/trackback.html">WAFL File Folding</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1136">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Predictive Cache Statistics (PCS)">Predictive Cache Statistics (PCS)</a></h2>
+			<div class="postmetadata">2 Апрель 2012, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Наверняка вы уже слышали о том, как NetApp использует flash-память в форме памяти, а не эмуляции диска (SSD), я уже не раз рассказывал о том, что такое <a href="../599/trackback.html">Flash Cache </a>(ранее PAM-II), как он работает и насколько значительное дает преимущество с точки зрения производительности. С использованием обширного кэша во flash-памяти построен также нетапповский метод <a href="../926/trackback.html">Virtual Storage Tiering</a>, по многим своим параметрам <a href="../951/trackback.html">превосходящий “классический” tiering</a>, путем физического переноса данных между разными типами дисков.</p>
+<p>Увы, все это, про “преимущества и производительность”, лишь слова, так как “потрогать руками”, не купив, Flash Cache довольно сложно, ведь ни один из российских партнеров, как я знаю, не держит систему Flash Cache для триала и демонстраций.</p>
+<p>Однако, есть хорошая новость – на любой системе хранения NetApp вы можете оценить эффект от работы Flash Cache даже не имея ее физически, с помощью встроенного средства, под названием PCS – Predictive Cache Statistics.</p>
+<p>  <span id="more-1136"></span></p>
+<p>PCS это компонент, входящий в состав Flexscale, программной подсистемы кэширования, используемой в том числе и Flash Cache. ?? вы можете получить статистику использования Flash Cache даже неустановленного физически в систему (увеличения производительности без физического Flash Cache, конечно, не будет, но вы сможете оценить, скольно блоков при вашей текушей загрузке оказалось бы в кэше данного размера и дало бы cache hit).</p>
+<p>Вот что для этого надо сделать.</p>
+<p>Включим Flexscale на системе:</p>
+<p><code>&gt;options flexscale.enable on </code></p>
+<p>Задать размер “виртуального Flash Cache” можно командой:</p>
+<p><code>&gt;options flexscale.pcs_size 512GB </code></p>
+<p>В приведенном случае будет задан размер кэша, равный 512GB на контроллер, например это одна плата Flash Cache размером 512GB, или две по 256GB. Значение по умолчанию варьируется в зависимости от модели, но для, например, FAS3270 оно составляет 1024GB.</p>
+<p>Показатели кэширования Flash Cache собирает объект счетчиков по имени <code>ext_cache_obj</code>.</p>
+<p>Если в системе нет физического Flash Cache, то тогда Flexscale активизирует PCS, это можно увидеть в ответ на команду:</p>
+<p><code>&gt;options flexscale.enable      <br />flexscale.enable&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <font color="#ff0000">pcs</font> </code></p>
+<p>Чтобы посмотреть данные счетчиков объекта&#160; ext_cache_obj моно спользовать команду stats, традиционно выдающую плохочитаемую портянку данных:</p>
+<p><code>&gt;stats show ext_cache_obj </code></p>
+<p><code>ext_cache_obj:ec0:type:SPCS      <br />ext_cache_obj:ec0:blocks:268435456       <br />ext_cache_obj:ec0:size:1024       <br />ext_cache_obj:ec0:usage:0% </code></p>
+<p>…и так далее    <br />На практике куда практичнее будет смотреть на “мгновенный срез”, “point-in-time view” этих счетчиков, с помощью команды:</p>
+<p><code>&gt;stats show -p flexscale-pcs </code></p>
+<p>Эта команда даст вывод в чуть в более человекочитаемой форме (на примере ниже данных пока нет, поэтому всюду нули):</p>
+<p><code>Instance&#160; Blocks&#160;&#160; GB&#160; Usage&#160;&#160; Hit&#160; Metadata&#160; Miss Hit Evict Invalidate Insert&#160; Reads&#160;&#160; <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Replaced&#160; <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; %&#160;&#160;&#160;&#160;&#160; /s&#160;&#160; /s&#160;&#160;&#160;&#160;&#160;&#160;&#160; /s&#160;&#160; %&#160;&#160;&#160; /s&#160;&#160;&#160; /s&#160;&#160;&#160;&#160;&#160;&#160;&#160; /s&#160;&#160;&#160;&#160;&#160; /s&#160; <br /> ec0&#160;&#160;&#160; 268435456&#160; 1024&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160; 0&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0 </code></p>
+<p>Рекомендую запустить вывод stats и sysstat параллельно в двух разных окнах ssh-терминала и писать вывод на диск, чтобы затем было удобнее разбираться с широкими портянками выводов.</p>
+<p>Вот что означают данные в каждом из ее столбцов:</p>
+<ul>
+<li><strong>Instance</strong>: Его значение всегда ec0 для релизов OS после Data ONTAP 7.3.2 </li>
+<li><strong>Blocks</strong>: Число блоков, эмулируемых в кэше </li>
+<li><strong>GB</strong>: Размер в гигабайтах для эмулируемого кэша </li>
+<li><strong>Usage</strong>: Процент использования эмулируемого кэша </li>
+<li><strong>Hit</strong>: Число cache hit в блоках 4KB в секунду </li>
+<li><strong>Metadata</strong>: Число cache hit в блоках метаданных 4KB в секунду </li>
+<li><strong>Miss</strong>: Число cache miss в блоках 4KB в секунду </li>
+<li><strong>Hit %</strong>: Соотношение суммарного hit/miss </li>
+<li><strong>Evict</strong>: Число блоков 4kB, вытесняемых из кэша в секунду </li>
+<li><strong>Invalidate</strong>: Число блоков 4kB, инвалидируемых в кэше в секунду </li>
+<li><strong>Insert</strong>: Число блоков 4kB, помещаемых в кэш в секунду </li>
+<li><strong>Disk Reads Replaced</strong>: Число операций чтения, которые читаются из кэша, вместо диска, в секунду </li>
+</ul>
+<p>Среди перечисленных параметров самыми важными для нас являются <strong>Usage</strong>, <strong>Hit</strong>, <strong>Hit %</strong>, и <strong>Disk Reads Replaced</strong>.</p>
+<p>Для лучшего понимания работы Flash Cache можно также поиграть с параметрами кэширования. Подробно о них, и о том, как они работают, и какой режим лучше выбрать в случае вашего конкретного характера нарузки, можно посмотреть в руководстве TR-3832, а тут вкратце: для кэширования в NetApp есть три режима. Режим “Только метаданные”, режим “Стандартный”, включенный по умолчанию, и включающий в себя режим “только метаданные”, плюс обычные данные, читаемые с диска, а также режим “Low-prioprity data caching”. В последнем в кэш попадают вообще все данные, даже те, которые обычно игнорируются в “стандартном” режиме. Например, это данные, которые часто перезаписываются, и поэтому быстро инвалидирующиеся, устаревающие в кэше, а также данные, считываемые преимущественно последовательно, большими блоками, на которых кэширование не даст существенного выигрыша (а место в кэше они займут).</p>
+<p>Выбор режима кэширования может быть осуществлен глобально, и уточнен для определенных томов. Глобальные настройки устанавливаются таким образом:</p>
+<p><code>flexscale.enable&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; on      <br />flexscale.lopri_blocks&#160;&#160;&#160;&#160;&#160;&#160; off       <br />flexscale.normal_data_blocks on </code></p>
+<p>Вариант Metadata-only, применяемый, например, для файловых операций, и вообще для операций, с большим количеством запросов метаданных (это могут быть, например, считывание содержимого директории с сотнями и тысячами файлов в нем, активная работа с именами и атрибутами файлов по NFS, работа со сложными ACL для файлов и директориев, и так далее). ??спользование такого режима поможет резко улучшить latency таких операций, так как запросы метаданных часто занимают значительные объемы операций ввода-вывода.</p>
+<p><code>flexscale.enable&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; on      <br />flexscale.lopri_blocks&#160;&#160;&#160;&#160;&#160;&#160; off       <br />flexscale.normal_data_blocks off </code></p>
+<p>??, наконец, Low-priority blocks:</p>
+<p><code>flexscale.enable&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; on      <br />flexscale.lopri_blocks&#160;&#160;&#160;&#160;&#160;&#160; on       <br />flexscale.normal_data_blocks on </code></p>
+<p>Ориентируясь на вывод <code>&gt;stats show -p flexscale-pcs</code> вы сможете оценить то, насколько добавление большого кэша улучшит ситуацию с cache hit% для ваших данных, насколько уменьшится трафик ввода-вывода к дискам, и каково оптимальное количество и размер модулей Flash Cache (PAM-II) для вашей системы.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/flash-cache.html" rel="tag">flash cache</a>, <a href="../tag/flexscale.html" rel="tag">flexscale</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/pam.html" rel="tag">pam</a>, <a href="../tag/pam-ii.html" rel="tag">pam-ii</a>, <a href="../tag/pcs.html" rel="tag">pcs</a>, <a href="../tag/vst.html" rel="tag">vst</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (4)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2255">
+		<div id="div-comment-2255">
+		<div class="comment-author">
+			<cite><a href='http://emailtoid.net/i/d1c4a8d4/29842d99/' rel='external nofollow'>dve</a>:<cite></div>
+			<p>Уточнение, у обоих дистрибьюторов, Netwell и Merlion, есть демо Flash Cache 256Gb и 512Gb.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2255" title="">2 Апрель 2012, 14:55</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2256">
+		<div id="div-comment-2256">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>dve:</p>
+<p>Спасибо, это хорошая новость.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2256" title="">2 Апрель 2012, 15:03</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2429">
+		<div id="div-comment-2429">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Разве можно одновременно две ssh сессии установить к одному контроллеру одному пользователю? У меня вторая сессия отваливается для одного и того же пользователя.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2429" title="">3 Май 2012, 14:59</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-5588">
+		<div id="div-comment-5588">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>В Украине через дисти &#8220;Мегатрейд&#8221; можно получить трехтонник с FlashPool или другой трехтонник с FlashCache ну и ещё несколько 22х0 без акселерации :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5588" title="">25 Январь 2013, 21:59</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1136" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.069 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

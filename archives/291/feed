@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Почему NetApp до сих пор не использует SSD?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/291/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/291</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:28 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/291#comment-165</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 01 Sep 2009 07:19:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=291#comment-165</guid>
+		<description>А уже. PAM-II. PAM на flash, 512GB на карте, до 4TB на систему типа FAS6000.</description>
+		<content:encoded><![CDATA[<p>А уже. PAM-II. PAM на flash, 512GB на карте, до 4TB на систему типа FAS6000.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: rider.myopenid.com/</title>
+		<link>http://blog.aboutnetapp.ru/archives/291#comment-164</link>
+		<dc:creator>rider.myopenid.com/</dc:creator>
+		<pubDate>Tue, 01 Sep 2009 06:54:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=291#comment-164</guid>
+		<description>Кстати, да. Не понятно - почему при сегодняшних ценах на память не сделать кэш контроллера объемом с хороший SSD диск :)
+Ждем про PAM.</description>
+		<content:encoded><![CDATA[<p>Кстати, да. Не понятно - почему при сегодняшних ценах на память не сделать кэш контроллера объемом с хороший SSD диск :)<br />
+Ждем про PAM.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/291#comment-144</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Thu, 04 Jun 2009 08:34:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=291#comment-144</guid>
+		<description>Еще одна проблема в объемах... к примеру для нашей задачи Х производительность нужную могут выдать, к примеру, уже 6 дисков SSD, а usable-объем RAID получается в 5-10 раз меньше нужного :) ?? ничего не остается, как использовать HDD.
+
+К слову flash-диски есть не только у EMC, но и у HDS и IBM.</description>
+		<content:encoded><![CDATA[<p>Еще одна проблема в объемах&#8230; к примеру для нашей задачи Х производительность нужную могут выдать, к примеру, уже 6 дисков SSD, а usable-объем RAID получается в 5-10 раз меньше нужного :) ?? ничего не остается, как использовать HDD.</p>
+<p>К слову flash-диски есть не только у EMC, но и у HDS и IBM.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

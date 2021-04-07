@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Резервное копирование (Backup). Методы и средства. Часть 3.</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="50/trackback.html">Резервное копирование (Backup). Методы и средства. Часть 2.</a></div>
+			<div class="alignright"><a href="52/trackback.html">Резервное копирование (Backup). Методы и средства. Часть 4.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-51">
+			<h2 class="posttitle"><a href="51/trackback.html" rel="bookmark" title="Permanent Link to Резервное копирование (Backup). Методы и средства. Часть 3.">Резервное копирование (Backup). Методы и средства. Часть 3.</a></h2>
+			<div class="postmetadata">30 Сентябрь 2007, 23:07 <!-- от  --></div>
+			<div class="postentry">
+				<p>В хранении информации следует различать <strong>&#8220;резервное копирование&#8221;</strong> (backup) и <strong>&#8220;архивирование&#8221;</strong> (archiving).</p>
+<p>Различие тут в целях. Если резервное копирование совершается для того, чтобы информацию восстановить, то есть конечным результатом бэкапа является восстановление (restore) информации на прежнем месте, то целью архивирования является создание долговременно хранимого экземпляра информации, без цели его возвращения на прежнее место хранения.<br />
+Часто архивирование осуществляется с удалением оригинала на оперативном хранилище (<em>move</em>), в отличие от бэкапа, когда оригинальная информация остается на своем прежнем месте (<em>copy</em>).</p>
+<p>Кроме того, сама задача архивирования, как правило, требует длительного, упорядоченного хранения, сохранения &#8220;версий&#8221; и эффективного поиска среди сохраненной информации.<br />
+Часто &#8220;чистое&#8221; резервное копирование комбинируется в реальной жизни с архивированием, так, например, объектом архивирования могут служить сами резервные копии, если мы, например, храним наши резервные копии, не только последнюю, для целей немедленного восстановления состояния информации, но и состояние на день, два, неделю или месяц назад.</p>
+<p>Несколько лет назад широкую популярность получила концепция <strong>ILM</strong> - <em>Information Lifecycle Management</em> - Управления жизненным циклом информации. Методы резервного копирования и архивации удачно легли в эту концепцию, и сейчас многие IT-проекты разрабатываются с использованием этой идеи.<br />
+Вкратце, ILM - это определение циклического движения информации, которая по мере своей жизни сперва создается, затем обрабатывается, хранится в оперативном доступе, затем переходит в архив, а затем передается на уничтожение в связи с окончанием срока жизни.</p>
+<p>Одной из идей, легших в основу ILM была идея того, что информация, в зависимости от прохождения этапов своей жизни, имеет различные требования к оперативности (и стоимости) своего хранения.<br />
+Так, например, глупо занимать данными, которыми пользуются раз в год, дорогостоящее и быстрое дисковое хранилище. А иную информацию, например личные музыкальные файлы пользователей, может быть, вообще не стоит хранить на корпоративном сторадже.</p>
+<p>Несколько лет назад разработанная идея <strong>&#8220;иерархического хранения&#8221;</strong>, сочетающего в себе системы как дискового, оперативного хранения, так и &#8220;менее оперативное&#8221; хранение на медленных и дешевых дисках, как, затем, и еще более медленные ленточные системы хранения, нашла свое применение в системах &#8220;жизенного цикла информации&#8221;.</p>
+<p>В таких системах данные прозрачно для прикладных систем, в соответствии с определенными администраторами политиками, мигрируют с одних систем хранения на другие, оставаясь при этом доступными для пользователя.<br />
+Хорошими примерами системы иерархического хранения, на базе которого можно построить систему &#8220;жизненного цикла информации&#8221;, является <strong>EMC</strong> (бывший Legato) <strong><a target="_blank" href="http://software.emc.com/products/product_family/diskxtender_family.htm">DiskXtender</a></strong> и компонент <strong>Tivoli</strong> - <strong>HSM</strong> - Hierarchical Storage Manager (ныне <a target="_blank" href="http://www-306.ibm.com/software/tivoli/products/storage-mgr-space/">TSM for Space Management</a>).<br />
+Также заметным игроком в этом сегменте является компания <a target="_blank" href="http://www.filenet.com/">FileNet</a>, в прошлом году приобретенная IBM.</p>
+<p>Для хранения резервных копий традиционно применяются устройства на магнитной ленте - <strong>стримеры</strong>. Если объем информации, подлежащий хранению, превышает стандартную емкость картриджа или кассеты с лентой, то имеет смысл задуматься о покупке устройства для автоматической замены кассеты в стримере - <strong>авточенджера</strong> или <strong>библиотеки</strong>. Дешевые библиотеки на несколько кассет сегодня стоят 6-12 тысяч долларов, а удобство от их использования может быть весьма существенно при регулярной работе бэкапа (а именно регулярным он и должен быть!).<br />
+<em><strong>Обратите внимание</strong></em>, что традиционно для магнитных лент указывается величина &#8220;с компрессией&#8221;, под которой понимается некое условное число, вдвое выше ее физической емкости. Двукратная компрессия достаточно просто достигается при записи текстовых файлов, но если вы намереваетесь записывать уже скомпрессированные данные, например, дистрибутивы программ или фото-видеофайлы, которые уже сами по себе сжаты, то будьте готовы, что емкость ленты при этом уменьшится вдвое и будет равна ее физической емкости.</p>
+<p>??з всего разнообразия лент и форматов записи в живой природе остались только:</p>
+<p><strong><a target="_blank" href="http://en.wikipedia.org/wiki/Digital_Data_Storage">DDS</a></strong> (ныне DAT) - традиционная &#8220;маленькая&#8221; кассета общей емкостью сегодня <strong>72</strong> и <strong>160</strong>GB. Также распространены более старые версии, такие как DDS-3 и 4, меньшей емкости на кассету.<br />
+Под кассету этого формата, вследствие ее хрупкости, весьма редко встречаются авточенджеры и библиотеки. Как правило, это формат для &#8220;персонального бэкапа&#8221; содержимого одного сервера или небольшой организации.</p>
+<p><strong><a target="_blank" href="http://en.wikipedia.org/wiki/Linear_Tape-Open">LTO</a></strong> (2,3,4) ??ногда (в оборудовании HP) носит собственное HP-шное имя Ultrium. HP был одним из разработчиков этого формата.<br />
+Наиболее часто встречающийся в библиотеках формат, вытеснивший в настоящее время всех конкурентов в своем классе (<strong>SDLT</strong>). Кассета традиционно называется &#8220;картридж&#8221;, довольно массивна и прочна. Плотность записи и емкость одного картриджа увеличивается вдвое от поколения к поколению. Довольно дорогостоящий формат сам по себе, но на сегодня единственный выбор для серьезного применения в качестве ленточного носителя уровня предприятия.<br />
+Сегодняшние емкости на один картридж: <strong>LTO-2</strong> - 200GB (некомпрессированной, физической емкости), <strong>LTO-3</strong> - 400GB, <strong>LTO-4</strong> - 800GB. Скорость записи-чтения - до 80MB/s.</p>
+<p>Относительно редко, но все же встречаются:<br />
+<strong><a target="_blank" href="http://en.wikipedia.org/wiki/VXA">VXA</a></strong> - сравнительно недорогой формат со множеством интересных технических решений, но мало распространен. Ориентирован на небольшие компании. ??ногда бывает трудно найти под него кассеты. Емкость кассеты - 160GB.<br />
+<strong><a target="_blank" href="http://en.wikipedia.org/wiki/Advanced_Intelligent_Tape">AIT</a></strong> - формат, продвигавшийся Sony, как многое из оборудования этой компании, &#8220;вещь в себе&#8221;. <strong>SAIT-1</strong> - 500GB, <strong>AIT</strong> - 100GB.</p>
+<p>Несмотря на то, что &#8220;дисковое храненение&#8221; переживает сейчас вполне объяснимый подъем, &#8220;старые добрые&#8221; ленточные библиотеки прекрасно себя чувствуют в своем сегменте - долговременном хранении огромных объемов, ведь по долговременности и стоимости хранения за мегабайт большие ленточные системы все еще непобедимы. Экономическая эффективность ленточных библиотек возрастает с увеличением их размера. Если маленькую ленточную библиотеку на пару десятков терабайт довольно легко заменить стораджем на дешевых SATA-дисках, то с большими ленточными библиотеками на многие петабайты дискам соревноваться все еще трудно.</p>
+<p>Еще одним существенным плюсом лент является возможность просто организовать распределенное, &#8220;оффлайновое&#8221; хранилище информации. Если из ленточной библиотеки достаточно просто вытащить и унести в надежное место один или несколько картриджей, то сделать то же самое с дисковым массивом совсем непросто.</p>
+<p>Поэтому в областях длительного объемного хранения и offsite storage vaulting (хранения данных вне основной площадки обработки) крупные ленточные библиотеки все еще не имеют альтернатив.</p>
+<p>Однако ленточным устройствам хранения присущи и серьезные недостатки, вызвавшие в последние годы подъем интереса к &#8220;дисковому бэкапу&#8221;, то есть резервному копированию с дисков на диски же, т.н. <strong>схема D2D</strong>.<br />
+Наиболее серьезный минус ленточных устройств обусловлен самим принципом записи. Это <em>устройства последовательной записи и последовательного же чтения</em>. Если нам нужен фрагмент данных, находящийся в середине ленты, нам надо вставить ленту, заправить ее в механизм, убедиться, что это правильная лента, прочтя ее заголовок, включить перемотку и домотать до приблизительно нужного места, включить считывание и дойти до нужного фрагмента, и только после этого мы получим наши данные.<br />
+Процесс чтения фрагмента может иметь задержку от момента отдачи команды на чтение до десятка минут. А представим теперь, что нам нужно таких фрагментов размером в пару мегабайт прочитать сотню, да еще из разных кассет?</p>
+<p>Вторым серьезным недостатком является <em>механическая чувствительность ленты</em>.<br />
+Несмотря на то, что производитель обычно гарантирует срок сохранности лент в десятки лет, как правило, эти цифры верны только для архивного режима, вида <em>&#8220;записал и положил в сухое, темное, кондиционированное помещение, защищенное от пыли&#8221;</em>.<br />
+В реальной эксплуатации срок жизни магнитных лент гораздо ниже и зависит от интенсивности ее использования, а также условий работы. Очевидно, что температурные перепады, высокая или, наоборот, низкая влажность, а в особенности избыток пыли в воздухе, существенно повреждают магнитную ленту.<br />
+<a target="_blank" href="http://www.nortek.on.ca/Website%20Images/TapeRecovery_F.jpg">Поврежденный</a> же картридж с магнитной лентой, как правило, восстановлению <a target="_blank" href="http://www.adapto.co.uk/onlinebackup/images/Broken%20Tape%20-%20Web.jpg">не подлежит</a>.</p>
+<p>Резкое удешевление жестких дисков в последние годы возродило интерес к резервному хранению на дисках, <strong>Disk-to-Disk</strong>, <strong>D2D</strong>.<br />
+Преимущества дисков по сравнению с лентами: <em>они быстрые</em>.<br />
+Поскольку диски являются, в отличие от лент, устройствами с &#8220;произвольным доступом&#8221;(random access), то считывание произвольного фрагмента &#8220;из середины&#8221; не требует последовательно добираться до него от самого начала диска.</p>
+<p>Второе преимущество состоит в том, что <em>дисковое хранилище можно сделать более надежным, чем лента</em>, несмотря на то, что один отдельно взятый диск, как правило, менее надежный, чем картридж ленты. Делается это уже известным методом <strong>RAID</strong> - Redundant Array of <strike>Unreliable</strike> Independent Disks.<br />
+Попытки сделать &#8220;RAID на лентах&#8221; были (например, я видел это в CA ARCserve), но, к счастью для нашего мозга, эти попытки не распространились широко. В то же время RAID на дисках есть хорошо разработанное и широко использующееся решение.</p>
+<p>Промежуточным вариантом, объединяющим достоинства (и нивелирующим недостатки), является довольно популярная комбинированная схема <strong>D2D2T</strong>, <strong>Disk-to-Disk-to-Tape</strong>.<br />
+В этой схеме в качестве промежуточного места хранения используется &#8220;дисковый буфер&#8221; на недорогой дисковой системе хранения, к которой, в свою очередь, подключено устройство хранения на ленте.</p>
+<p><img src="http://blog.aboutnetapp.ru/pics/D2D2T.jpg" alt="D2D2T scheme" title="D2D2T scheme" /></p>
+<p>При этом мы имеем гибкость, которую нам дает дисковая система, и долговременную надежность и емкость, которая присуща системам на ленте.<br />
+Наличие промежуточного &#8220;дискового буфера&#8221; позволяет читать недавно заархивированные данные не беспокоя этим медленное ленточное устройство, а когда активный доступ к данным наконец прекращается, они будут перенесены на ленту, откуда при необходимости когда-нибудь смогут быть считаны, если в них будет нужда.<br />
+Одновременно это ускоряет процесс быстрого резервного копирования с диска на диск и возможного быстрого восстановления. Ведь наиболее востребованные данные, сохраненные недавно, находятся на относительно быстром дисковом хранилище.</p>
+<p>Современные системы резервного копирования и архивирования, как правило, умеют использовать схему <strong>D2D2T</strong> без дополнительных усилий.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+										Раздел: Без рубрики					&nbsp;|&nbsp;&nbsp;<a href="51/trackback.html#respond">Комментарий</a> (<a href='51/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="51/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>One Comment</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-720">
+		<div id="div-comment-720">
+		<div class="comment-author">
+			<cite><a href='http://sorokin.in.ua' rel='external nofollow'>Александр</a>:<cite></div>
+			<p>RAID действительно повышает надежность хранилища данных, но каким боком RAID относится к резервным копиям? Резервные копии, если уж на то пошло, запрещено хранить не то что на том же компе, но и в том же датацентре ( да, они горят ).</p>
+						<div class="comment-meta"><a href="51/trackback.html#comment-720" title="">5 Сентябрь 2010, 7:28</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="51" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.073 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

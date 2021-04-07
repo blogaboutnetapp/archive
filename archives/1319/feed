@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Flash Accel v1.3.0</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1319/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1319</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:49 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1319#comment-12242</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 13 Feb 2014 04:23:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1319#comment-12242</guid>
+		<description>Андрей:
+Нет, к сожалению, я просто "передрал" это из офанонсов. Но думаю, что причина в планах увеличивать размеры кэша, а значит можно увеличить размер блока, оставив их количество неизменным.</description>
+		<content:encoded><![CDATA[<p>Андрей:<br />
+Нет, к сожалению, я просто &#8220;передрал&#8221; это из офанонсов. Но думаю, что причина в планах увеличивать размеры кэша, а значит можно увеличить размер блока, оставив их количество неизменным.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Андрей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1319#comment-12241</link>
+		<dc:creator>Андрей</dc:creator>
+		<pubDate>Thu, 13 Feb 2014 04:20:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1319#comment-12241</guid>
+		<description>"Существенно уменьшился объем занимаемый FlashAccel в физической памяти"
+"Увеличился также размер блока кэша по умолчанию, с 4 до 8 KB."
+Мне только кажется или это на самом деле сильно связанные вещи. По крайней мере, в том что касается памяти мод 1ГБ SSD ёмкости - наверняка. Величина примерно 24 байта на 1 блок осталась неизменной.
+??звестно ли чем вызвано изменение размеров блока. Насколько я понимаю, для большинства SSD 4К/8К не сильно принципиально с точки зрения производительности. А для заказчиков с 1ТБ+ кэша двукратное сокращение потребления памяти может быть уже интересным моментом. Пошли на поводу? :)</description>
+		<content:encoded><![CDATA[<p>&#8220;Существенно уменьшился объем занимаемый FlashAccel в физической памяти&#8221;<br />
+&#8220;Увеличился также размер блока кэша по умолчанию, с 4 до 8 KB.&#8221;<br />
+Мне только кажется или это на самом деле сильно связанные вещи. По крайней мере, в том что касается памяти мод 1ГБ SSD ёмкости - наверняка. Величина примерно 24 байта на 1 блок осталась неизменной.<br />
+??звестно ли чем вызвано изменение размеров блока. Насколько я понимаю, для большинства SSD 4К/8К не сильно принципиально с точки зрения производительности. А для заказчиков с 1ТБ+ кэша двукратное сокращение потребления памяти может быть уже интересным моментом. Пошли на поводу? :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1319#comment-12195</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 07 Feb 2014 08:41:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1319#comment-12195</guid>
+		<description>Михаил:
+Спасибо, Михаил, исправил.</description>
+		<content:encoded><![CDATA[<p>Михаил:<br />
+Спасибо, Михаил, исправил.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1319#comment-12151</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Mon, 03 Feb 2014 10:36:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1319#comment-12151</guid>
+		<description>Вот что говорится в документации:
+One or more server SSD drives are supported
+  -Use RAID/SCSI adapter for support of single SATA SSD drive or pooling multiple SSD drives (either
+SAS or SATA)
+  -Adapter must export SCSI block device
+  -For use in vSphere environment, transport type support must be SAS, FC, or Parallel SCSI. Adapter
+must be on VMware’s HCL</description>
+		<content:encoded><![CDATA[<p>Вот что говорится в документации:<br />
+One or more server SSD drives are supported<br />
+  -Use RAID/SCSI adapter for support of single SATA SSD drive or pooling multiple SSD drives (either<br />
+SAS or SATA)<br />
+  -Adapter must export SCSI block device<br />
+  -For use in vSphere environment, transport type support must be SAS, FC, or Parallel SCSI. Adapter<br />
+must be on VMware’s HCL</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1319#comment-12150</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Mon, 03 Feb 2014 08:23:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1319#comment-12150</guid>
+		<description>Вот тут такой момент - он может их показать как два raid-0 массива, а что бы софт "сверху" понял, что имеет дело с SSD, я так думаю, надо перевести контроллер в режим HBA, что бы он тупо показывал всё, что навешано на его SAS-bus. Сам так никогда не делал, потому и не уверен в правильности соображений :)</description>
+		<content:encoded><![CDATA[<p>Вот тут такой момент - он может их показать как два raid-0 массива, а что бы софт &#8220;сверху&#8221; понял, что имеет дело с SSD, я так думаю, надо перевести контроллер в режим HBA, что бы он тупо показывал всё, что навешано на его SAS-bus. Сам так никогда не делал, потому и не уверен в правильности соображений :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Михаил</title>
+		<link>http://blog.aboutnetapp.ru/archives/1319#comment-12146</link>
+		<dc:creator>Михаил</dc:creator>
+		<pubDate>Sun, 02 Feb 2014 19:20:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1319#comment-12146</guid>
+		<description>Хороший вопрос. Точно не помню, но по идее нет - если raid-контроллер в принципе способен показывать отедльные диски ОС, то больше ничего не требуется. esxi автоматически распознает тип диск ssd\hdd.</description>
+		<content:encoded><![CDATA[<p>Хороший вопрос. Точно не помню, но по идее нет - если raid-контроллер в принципе способен показывать отедльные диски ОС, то больше ничего не требуется. esxi автоматически распознает тип диск ssd\hdd.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1319#comment-12118</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Fri, 31 Jan 2014 08:57:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1319#comment-12118</guid>
+		<description>Я правильно понимаю, что, в случае, если мы хотим использовать "обычные" SSD, от вендоров серверов, то надо совершать какие-то телодвижения с raid-контроллером, что бы flash accel понял, что перед ним ssd-диски, которые он может использовать для кеширования?</description>
+		<content:encoded><![CDATA[<p>Я правильно понимаю, что, в случае, если мы хотим использовать &#8220;обычные&#8221; SSD, от вендоров серверов, то надо совершать какие-то телодвижения с raid-контроллером, что бы flash accel понял, что перед ним ssd-диски, которые он может использовать для кеширования?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Михаил</title>
+		<link>http://blog.aboutnetapp.ru/archives/1319#comment-12117</link>
+		<dc:creator>Михаил</dc:creator>
+		<pubDate>Fri, 31 Jan 2014 07:19:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1319#comment-12117</guid>
+		<description>Только в этой области у VMware не VSAN (кстати, каноничное написание - большими буквами ;) ), где ssd-кэширование часть всей концепции, а vFlash - именно и только кэширование для любого стораджа.</description>
+		<content:encoded><![CDATA[<p>Только в этой области у VMware не VSAN (кстати, каноничное написание - большими буквами ;) ), где ssd-кэширование часть всей концепции, а vFlash - именно и только кэширование для любого стораджа.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Это любопытно: NetApp FlexPod</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1251/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1251</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:56 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1251#comment-7017</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 22 Apr 2013 11:51:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1251#comment-7017</guid>
+		<description>ivs:
+
+Ну у меня только картинка, к сожалению, и подпись под ней. По ней можно попробовать найти полный текст исследования.</description>
+		<content:encoded><![CDATA[<p>ivs:</p>
+<p>Ну у меня только картинка, к сожалению, и подпись под ней. По ней можно попробовать найти полный текст исследования.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1251#comment-7015</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 22 Apr 2013 11:34:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1251#comment-7015</guid>
+		<description>А откуда выгрузка долей рынка?</description>
+		<content:encoded><![CDATA[<p>А откуда выгрузка долей рынка?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

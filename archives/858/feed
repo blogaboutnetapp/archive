@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Четыре главных ошибки при конфигурировании дедупликации на NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/858/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/858</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:47 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/858#comment-1255</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Wed, 30 Mar 2011 12:14:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/858#comment-1255</guid>
+		<description>Насчет ошибки #2: не совсем корректно описано поведение дедубликации (это привлекло внимание еще в TR который читали и использовали около года назад). При включенной Lun reserve дедубликация все же отдает освобожденные блоки во free pool. Т.е. например:
+том размером 100ГБ 
+с луном размером 90ГБ на котором занято реально всего 40ГБ (при условии что high watermark на тех же 40ГБ)
+`df -sg` показывает что 20ГБ съэкономлено (50% от реальных данных)
+
+то на томе (при отсутствии снапшотов, снапшот резерва и fractional reserve) будет свободно 30ГБ, а не 10ГБ как утверждают авторы. 
+
+При отключении lun reserve соответственно моментально станет доступно все 80ГБ. Это на Data ONTAP 7.3.1.1P9 (и кажется то же самое было в 7.2.4, но там дедубликация была еще в зачаточном состоянии, даже все метаданные хранились на томе а не большая часть на агрегате и совсем мало на томе как в 7.3.х), возможно что-то подпилили для старших версий.</description>
+		<content:encoded><![CDATA[<p>Насчет ошибки #2: не совсем корректно описано поведение дедубликации (это привлекло внимание еще в TR который читали и использовали около года назад). При включенной Lun reserve дедубликация все же отдает освобожденные блоки во free pool. Т.е. например:<br />
+том размером 100ГБ<br />
+с луном размером 90ГБ на котором занято реально всего 40ГБ (при условии что high watermark на тех же 40ГБ)<br />
+`df -sg` показывает что 20ГБ съэкономлено (50% от реальных данных)</p>
+<p>то на томе (при отсутствии снапшотов, снапшот резерва и fractional reserve) будет свободно 30ГБ, а не 10ГБ как утверждают авторы. </p>
+<p>При отключении lun reserve соответственно моментально станет доступно все 80ГБ. Это на Data ONTAP 7.3.1.1P9 (и кажется то же самое было в 7.2.4, но там дедубликация была еще в зачаточном состоянии, даже все метаданные хранились на томе а не большая часть на агрегате и совсем мало на томе как в 7.3.х), возможно что-то подпилили для старших версий.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/858#comment-1253</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 30 Mar 2011 08:58:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/858#comment-1253</guid>
+		<description>Александр:  Все верно, по моим наблюдениям это также весьма распространенная оплошность.</description>
+		<content:encoded><![CDATA[<p>Александр:  Все верно, по моим наблюдениям это также весьма распространенная оплошность.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/858#comment-1252</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 30 Mar 2011 08:54:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/858#comment-1252</guid>
+		<description>Ещё одна ошибка - дедуплекация после выполнения снапшота. Снапшот "запирает" блоки и не дает их дедеплицировать, следовательно сначало дедупликация, а потом делаем снапшоты. Поправьте, если ошибаюсь.</description>
+		<content:encoded><![CDATA[<p>Ещё одна ошибка - дедуплекация после выполнения снапшота. Снапшот &#8220;запирает&#8221; блоки и не дает их дедеплицировать, следовательно сначало дедупликация, а потом делаем снапшоты. Поправьте, если ошибаюсь.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Chinchilla</title>
+		<link>http://blog.aboutnetapp.ru/archives/858#comment-1251</link>
+		<dc:creator>Chinchilla</dc:creator>
+		<pubDate>Wed, 30 Mar 2011 06:42:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/858#comment-1251</guid>
+		<description>Ошибка №2 - не совсем точно. При опциях volume fractional_reserve=0, guarantee=volume и включенной резервации на LUN сэкономленное пространство вернется в пул volume. То есть LUN размером 600GB будет занимать меньше, если есть сэкономленное дедупликацией пространство.</description>
+		<content:encoded><![CDATA[<p>Ошибка №2 - не совсем точно. При опциях volume fractional_reserve=0, guarantee=volume и включенной резервации на LUN сэкономленное пространство вернется в пул volume. То есть LUN размером 600GB будет занимать меньше, если есть сэкономленное дедупликацией пространство.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/858#comment-1250</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Wed, 30 Mar 2011 06:30:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/858#comment-1250</guid>
+		<description>4-я ошибка (по крайней мере в среде MS SCVMM) - результат работы SCVMM - его GUI-средствами практически невозможно создать VM с несколькими дисками на разных томах. Powershell спасает, но зачем тогда SCVMM?! 
+Кроме того, многие программы более-менее завязаны на стандартную структуру Program Files,ProgramData,AppData и перекидывание данных на D: не всегда тривиально (вплоть до необходимости использовать junctions), плюс проблема разграничения безопасности на новом диске (в местах по умолчанию настройки, как правило, уже есть и довольно адекватны).</description>
+		<content:encoded><![CDATA[<p>4-я ошибка (по крайней мере в среде MS SCVMM) - результат работы SCVMM - его GUI-средствами практически невозможно создать VM с несколькими дисками на разных томах. Powershell спасает, но зачем тогда SCVMM?!<br />
+Кроме того, многие программы более-менее завязаны на стандартную структуру Program Files,ProgramData,AppData и перекидывание данных на D: не всегда тривиально (вплоть до необходимости использовать junctions), плюс проблема разграничения безопасности на новом диске (в местах по умолчанию настройки, как правило, уже есть и довольно адекватны).</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

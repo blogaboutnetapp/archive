@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: «Кластер» - что это значит?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/20/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/20</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:50 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/20#comment-2488</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 09 May 2012 07:56:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/20#comment-2488</guid>
+		<description>&gt; Во-первых из первой части предложения можно заключить, что оба работают.
+
+Он оба работают, просто обслуживаются разными контроллерами.
+
+&gt; Вот и получается впечатление, что работают одновременно оба контроллера.
+
+Так и есть.
+
+&gt; ?? в-третьих если добавить в это предложение явно
+
+Ну лень мне уже править посты почти пятилетней давности. Кроме вас это ни у кого вопросов не вызывает :)</description>
+		<content:encoded><![CDATA[<p>> Во-первых из первой части предложения можно заключить, что оба работают.</p>
+<p>Он оба работают, просто обслуживаются разными контроллерами.</p>
+<p>> Вот и получается впечатление, что работают одновременно оба контроллера.</p>
+<p>Так и есть.</p>
+<p>> ?? в-третьих если добавить в это предложение явно</p>
+<p>Ну лень мне уже править посты почти пятилетней давности. Кроме вас это ни у кого вопросов не вызывает :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/20#comment-2479</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 08 May 2012 13:51:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/20#comment-2479</guid>
+		<description>Меня смущает вот эта фраза:
+&#62;для каждого конкретного дискового раздела один контроллер будет owner-ом, обеспечивающим операции, а второй – резервным, а для другого раздела – наоборот.
+Для ясности лучше перефразировать. Во-первых из первой части предложения можно заключить, что оба работают. Во-вторых из остатка предложения не понятно однозначно таки второй работает или нет, понятно только, что они друг для друга резервные. 
+Вот и получается впечатление, что работают одновременно оба контроллера.
+
+?? в-третьих если добавить в это предложение явно, что оба контроллера работают одновременно - это будет стандартная схема Active-active кластер share nothing.
+
+Получилась какая-то тавтология на уровне описаний кластеров :)</description>
+		<content:encoded><![CDATA[<p>Меня смущает вот эта фраза:<br />
+&gt;для каждого конкретного дискового раздела один контроллер будет owner-ом, обеспечивающим операции, а второй – резервным, а для другого раздела – наоборот.<br />
+Для ясности лучше перефразировать. Во-первых из первой части предложения можно заключить, что оба работают. Во-вторых из остатка предложения не понятно однозначно таки второй работает или нет, понятно только, что они друг для друга резервные.<br />
+Вот и получается впечатление, что работают одновременно оба контроллера.</p>
+<p>?? в-третьих если добавить в это предложение явно, что оба контроллера работают одновременно - это будет стандартная схема Active-active кластер share nothing.</p>
+<p>Получилась какая-то тавтология на уровне описаний кластеров :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/20#comment-2476</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 08 May 2012 11:36:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/20#comment-2476</guid>
+		<description>bbk:
+
+&gt; Что-то больно “Отказоустойчивый кластер (active-passive)” смахивает на работу NetApp’а.
+
+Нет.
+Active-Passive Cluster это что-то типа первого MSCS, времен Windows 2003, когда к одной полке со SCSI-дисками было подключено через Y-образный кабель два сервера, из которых один (active) - работал, а второй (passive) - &lt;strong&gt;стоял&lt;/strong&gt;. В смысле &lt;strong&gt;вообще стоял&lt;/strong&gt;, не обращаясь к дискам и не работая совсем.
+В случае сбоя первого сервера, второй тут-же стартовал, и начинал работать с данными на SCSI-дисках первого сервера.
+http://habrahabr.ru/post/139410/
+
+В отличие от таклй схемы у NetApp кластер именно active-active, работают оба контроллера, пусть и со своими данными, и любой из контроллеров, если, в результате сбоя, выйдет из строя контроллер-партнер, начнет без остановки обслуживать его данные.
+
+Следует отличать Active-active кластер share nothing и Active-active cluster with data sharing, например Oracle RAC (кластер уровня приложения). Они работают несколько по-разному, но и тот и другой является active-active.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> Что-то больно “Отказоустойчивый кластер (active-passive)” смахивает на работу NetApp’а.</p>
+<p>Нет.<br />
+Active-Passive Cluster это что-то типа первого MSCS, времен Windows 2003, когда к одной полке со SCSI-дисками было подключено через Y-образный кабель два сервера, из которых один (active) - работал, а второй (passive) - <strong>стоял</strong>. В смысле <strong>вообще стоял</strong>, не обращаясь к дискам и не работая совсем.<br />
+В случае сбоя первого сервера, второй тут-же стартовал, и начинал работать с данными на SCSI-дисках первого сервера.<br />
+<a href="http://habrahabr.ru/post/139410/" rel="nofollow">http://habrahabr.ru/post/139410/</a></p>
+<p>В отличие от таклй схемы у NetApp кластер именно active-active, работают оба контроллера, пусть и со своими данными, и любой из контроллеров, если, в результате сбоя, выйдет из строя контроллер-партнер, начнет без остановки обслуживать его данные.</p>
+<p>Следует отличать Active-active кластер share nothing и Active-active cluster with data sharing, например Oracle RAC (кластер уровня приложения). Они работают несколько по-разному, но и тот и другой является active-active.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/20#comment-2474</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 08 May 2012 09:21:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/20#comment-2474</guid>
+		<description>Что-то больно "Отказоустойчивый кластер (active-passive)" смахивает на работу NetApp'а.</description>
+		<content:encoded><![CDATA[<p>Что-то больно &#8220;Отказоустойчивый кластер (active-passive)&#8221; смахивает на работу NetApp&#8217;а.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Запускаем новую систему хранения. Часть 2.</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1131/trackback.html">Как изменить пороги для уведомлений SNMP о заполненности тома?</a></div>
+			<div class="alignright"><a href="../1135/trackback.html">Покупатель всегда прав?</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1132">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Запускаем новую систему хранения. Часть 2.">Запускаем новую систему хранения. Часть 2.</a></h2>
+			<div class="postmetadata">26 Март 2012, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Что-то как-то не получилось у меня опубликовать вторую часть &quot;на следующей неделе&quot;, как я было пообещал в конце <a href="../916/trackback.html">части первой</a>. Так получилось, что я понял, что статья получается объемной, многие вещи требуют &quot;экскурса и дискурса&quot;, а объяснить на пальцах понятно их не получается. Но когда я начал регулярно находить в поиске запросы &quot;запускаем новую систему хранения часть 2 site:blog.aboutnetapp.ru&quot;, я понял, что тянуть дальше нельзя.</p>
+<p>Посему, вот вам вторая, а еще, может быть, даже и третья далее часть.</p>
+<p>Остановились мы в прошлый раз на процедуре начального запуска. Железка поставлена в стойку, ей задан IP для конфигурирования, и проведена самая первая, базовая настройка только полученной системы, к ней уже можно подключиться с помощью System Manager, через веб-интерфейс, или же простой консолью по COM-порту или телнетом по сети.</p>
+<p>Далее нам надо сконфигурировать собственно объем хранения. ?? тут есть некоторая сложность, о которой я сейчас попробую в общих чертах рассказать.</p>
+<p>Я уже писал в этом блоге об одной особенности двухконтроллерных систем хранения NetApp, особенности, с которой часто сталкиваются начинающие, особенно если ранее он не имели дела с такими системами, и с такой организацией дисков.</p>
+<p>Дело в том, что системы хранения NetApp в двухконтроллерной конфигурации High Available Cluster (HA-cluster, в дальнейшем) используют модель работы &quot;share nothing&quot;, и, согласно ей, не используют диски совместно. Каждый из двух контроллеров системы хранения <strong>должен</strong> владеть своим набором дисков. То есть имеющееся количество дисков <strong>должно</strong> быть между ними поделено (поровну или нет - об этом далее). Доступ к дискам возможен только через владеющий ими контроллер, и никак иначе.</p>
+<p>Конечно, в случае выхода из строя контроллера, как и полагается для HA-кластера, второй, выживший контроллер, перехватит на себя диски вышедшего из строя, но только в случае неработоспособности, выхода из строя контроллера. Когда контроллер работает нормально, то доступ к дискам, &quot;приписанным&quot; к нему, осуществляется <strong>только через работающий контроллер-владелец</strong> . Это необходимо для правильного диспетчерирования запросов чтения и записи данных с дисков.</p>
+<p>Да, обратившись к &quot;не тому&quot; контроллеру вы, конечно, можете получить данные с дисков, приписанных другому контроллеру, но для этого &quot;ваш&quot; контроллер должен обратиться к &quot;тому&quot; контроллеру, чтобы он прочел и передал &quot;этому&quot; запрошенные данные по внутренней шине, а потом &quot;этот&quot; отдаст их вам. Это <a href="../971/trackback.html">неоптимальный путь доступа</a>, о котором сторадж вам сообщит в логах, и который иногда встречается при неправильной настройке, и о том, что с этим делать и как исправить я уже писал в блоге ранее.</p>
+<p>Так что, в общем случае, вы можете вообразить себе двухконтроллерную систему NetApp как <strong>два</strong> отдельных (пусть и связанных) файловых сервера NAS, например, каждый со своим набором ресурсов, каждый со своим IP-адресом, по которому происходит обращение, и так далее. В случае SAN это также происходит сходным образом.</p>
+<p>??з этого следует, что, по сути, в случае двухконтроллерного NetApp FAS2020 вы получаете не одну систему хранения на 12 дисков, а <strong>две на 6 дисков каждая</strong> (или 3 и 9 дисков, или 5 и 7 дисков, но всегда две). ?? это довольно существенный момент, который требует осознания. Более того, нельзя отдать одному контроллеру все 12 дисков (это можно в случае одноконтроллерной системы, но не двухконтроллерной, в которой второй контроллер <strong>требует</strong> наличия хотя бы одной RAID-группы минимального размера (2 диска в RAID-4) и хотя бы одного hotspare, так как на этой группе он должен записать свои собственные конфигурационные данные, иначе он не сможет загрузиться, просто не с чего.</p>
+<p>Тему с разбиением дисков по контроллерам, и выбором между равным и неравным разбиением дисков я уже <a href="../321/trackback.html">затрагивал в этом блоге</a>, поэтому интересующихся отошлю к более ранним статьям.</p>
+<p>Сейчас же мы перейдем к конфигурированию.</p>
+<p>??так, мы, руководствуясь частью первой установили систему физически и провели первое включение. Теперь, если вы посмотрите на видимые системе диски, вы увидите, что каждому контроллеру доступен свой набор дисков. Скорее всего вы получите с завода систему, сконфгурированую в виде 5 дисков доступных одному контроллеру и 7 - другому (по крайней мере я видел именно такой вариант поставки FAS2020A).</p>
+<p>Если вы читаете этот блог давно, то уже знаете, что такое у NetApp так называемый <a href="../709/trackback.html">aggregate</a>. Это структура, в которую включаются физические диски, приписанные одному контроллеру, и которая объединяет RAID-группы, к созданию которых администратор системы хранения не имеет непосредственного доступа. Поверх структуры aggregate уже располагаются непосредственно тома (volumes типа FlexVol), на томах qtrees и в них, или непосредственно на томах - LUN-ы, если вы используете NetApp как SAN-сторадж, или же network shares, если используете его как NAS. В общем яйцо в утке, утка в зайце, заяц в сундуке :)</p>
+<p>Но в основе всего - aggregate. Несмотря на то, что в системах NetApp осталась legacy-возможность использовать &quot;классические&quot; RAID, это осталось &quot;для совместимости&quot;, и нет совсем никаких причин этим пользоваться сегодня.</p>
+<p>Будем пользоваться FlexVol и aggregates.</p>
+<p>Два основных преимущества aggregate и его использования заключается, во-первых, что при этом операции ввода-вывода распределяются равномерно по всем входящим в него дискам, даже если вы используете маленький том на несколько десятков мегабайт, или несколько таких томов, то все они будут физически &quot;размазаны&quot; по всем дискам aggregate, с соответствующим положительным эффектом на их быстродействие. ??, во-вторых, он позволяет создавать тома произвольного размера, отвязавшись от размеров физических дисков и RAID-групп.</p>
+<p>??з пункта 1 следует естественный вывод, делать как можно большие аггрегейты, из максимально доступного количества дисков. </p>
+<p>В некоторых руководствах NetApp, ориентированных, прежде всего, на большие системы с сотнями дисков, вы можете встретить рекомендации создавать более одного aggregate, например выделять на отдельный aggregate так называемый root volume, на котором находится директория /etc внутренней файловой системы и ее настройки, а также создавать отдельные aggregate для сильно различных видов паттерна нагрузки (например отделять базу данных, с обычно random read/write access, от ее логов, с sequental write), но это рекомендации, повторюсь, для &quot;хайэнда&quot;, для систем с сотнями дисков, когда эти рекомендации действительно дают заметный эффект. Если вы запускаете систему с количеством дисков в пределах пары десятков, безусловно наилучшим выбором будет помещать все диски в один большой aggregate, где будут находиться все тома пользователя, включая и root vol. Дробя диски по нескольким aggregates при небольшом количестве этих дисков, следуя рекомендациям для &quot;старших&quot; систем, вы скорее ухудшите ситуацию, уменьшив количество дисков, по которым удастся размазать ввод-вывод, чем улучшите его изолируя трафики.</p>
+<p>Поэтому решим использовать один aggregate на контроллер (соответственно, два на кластерную пару, по одному на каждый контроллер). Поскольку вы систему уже запустили, этот aggregate у вас уже создан, на нем помещен системой root volume.</p>
+<p>Обычно он называется aggr0, и я предлагаю, если у вас остались невключенные в него диски, добавить их в него командой aggr add (диски). Сделайте то же самое на втором контроллере.</p>
+<p>Сейчас структура данных на вашей системе хранения выглядит так:</p>
+<p>Обычно том vol0, в котором по умолчанию располагается root vol и директория /etc с настройками внутренней OS Data ONTAP делается с большим запасом. Если вам жалко места, то можете безопасно уменьшить размеры тома vol0, например для различных версий Data ONTAP и разных систем рекомендуется его размер от 10GB для FAS2020, 16GB для FAS2040 (для Data ONTAP 7.x), и до 250GB для старших систем под версией 8.х OS Data ONTAP.</p>
+<p>На root vol, кроме настроек, также хранятся прошивки полок и дисков, обновляемые автоматически, а также должно быть место для аварийного сброса kernel dump в случае каких-то нештатных ситуаций.</p>
+<p>Все же остальное место на aggregate, за вычетом примерно 10%, которые рекомендуется не занимать для облегчения жизни внутренних процессов и правильной и беспроблемной работы, например, фонового оптимизатора структур WAFL, можно использовать под хранения ваших данных в одном или нескольких томах. Хотя размер тома можно задать и сразу, во многих случаях имеет смысл настроить его на автоматическое увеличение, тогда том будет автоматически расти, по мере заполнения его данными, пока хватит места на хранящем его aggregate, а свободное место не будет заниматься на &quot;хранение нулей&quot;, если вы можете отдать его более нуждающимся задачам. Эта настройка называется space reservation (none или file), а возможность автоматического роста тома - volume autogrowth, которую можно задать с желаемым шагом приращения.</p>
+<p>Нельзя сказать, что я открыл вам все серветы и тайны конфигурирования NetApp, но, с имеющимся базисом и дружа с документацией, вы уже сможете самостоятельно запустить систему хранения.</p>
+<p>А в следующей части мы рассмотрим как создавать сетевые ресурсы для NAS и LUN-ы для SAN.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/aggregate.html" rel="tag">aggregate</a>, <a href="../tag/configure.html" rel="tag">configure</a>, <a href="../tag/install.html" rel="tag">install</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/setup.html" rel="tag">setup</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (7)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2243">
+		<div id="div-comment-2243">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>Отличная статья, жду следующих =)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2243" title="">26 Март 2012, 15:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2244">
+		<div id="div-comment-2244">
+		<div class="comment-author">
+			<cite>alexandr:<cite></div>
+			<p>Спасибо за статью, долгожданное продолжение. Ждем следующую</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2244" title="">27 Март 2012, 13:05</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2245">
+		<div id="div-comment-2245">
+		<div class="comment-author">
+			<cite>??ван:<cite></div>
+			<p>На самом интересном месте&#8230; :) Присоединяюсь к благодарностям за продолжение!</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2245" title="">27 Март 2012, 20:28</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2257">
+		<div id="div-comment-2257">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>А можно попросить уважаемого эксперта освятить возможность подключения direct pach fcp двух серверов к двухконтроллерной 2020(2040) чз двухпортовые hba, сможет ли mpio переварить переключение контроллеров? Хотелось бы сделать sql кластер таким образом.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2257" title="">2 Апрель 2012, 23:12</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2258">
+		<div id="div-comment-2258">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:</p>
+<p>Не знаю, ни разу не делал.</p>
+<p>Но если сможете описать подробно, то советую спросить в:<br />
+<a href="https://communities.netapp.com/groups/netapp-ru" rel="nofollow">https://communities.netapp.com/groups/netapp-ru</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-2258" title="">2 Апрель 2012, 23:19</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2961">
+		<div id="div-comment-2961">
+		<div class="comment-author">
+			<cite>Олег:<cite></div>
+			<p>Часть 3 еще не появилась ?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2961" title="">23 Июль 2012, 18:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2962">
+		<div id="div-comment-2962">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Олег:</p>
+<p>А какие темы не охвачены? Мне бы не хотелось писать Complete Guide for Dummies :)<br />
+Еще посмотрите недавний пост на ту же тему со ссылкой на человека, также написавшего неплохое руководство &#8220;начального старта&#8221;.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2962" title="">23 Июль 2012, 18:57</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1132" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.072 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

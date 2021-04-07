@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Загадочный fractional reserve (часть 1).</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/233/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/233</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:52 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: murzic</title>
+		<link>http://blog.aboutnetapp.ru/archives/233#comment-645</link>
+		<dc:creator>murzic</dc:creator>
+		<pubDate>Fri, 06 Aug 2010 08:11:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=233#comment-645</guid>
+		<description>ОК, Спасибо. Буду изучать в картинках :)</description>
+		<content:encoded><![CDATA[<p>ОК, Спасибо. Буду изучать в картинках :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/233#comment-643</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 05 Aug 2010 14:41:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=233#comment-643</guid>
+		<description>Нестрашно, разберусь на днях.
+Вы же пока посмотрите вот этот документ, там в главе Fractional Reservation сделана попытка подробно, с картинками объяснить различные ситуации с резервами и LUN
+http://www.netwell.ru/docs/thin_provisioning.pdf</description>
+		<content:encoded><![CDATA[<p>Нестрашно, разберусь на днях.<br />
+Вы же пока посмотрите вот этот документ, там в главе Fractional Reservation сделана попытка подробно, с картинками объяснить различные ситуации с резервами и LUN<br />
+<a href="http://www.netwell.ru/docs/thin_provisioning.pdf" rel="nofollow">http://www.netwell.ru/docs/thin_provisioning.pdf</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: murzic</title>
+		<link>http://blog.aboutnetapp.ru/archives/233#comment-640</link>
+		<dc:creator>murzic</dc:creator>
+		<pubDate>Thu, 05 Aug 2010 05:45:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=233#comment-640</guid>
+		<description>??звините, что выглядит гадко. Оно само.</description>
+		<content:encoded><![CDATA[<p>??звините, что выглядит гадко. Оно само.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: murzic</title>
+		<link>http://blog.aboutnetapp.ru/archives/233#comment-639</link>
+		<dc:creator>murzic</dc:creator>
+		<pubDate>Thu, 05 Aug 2010 05:42:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=233#comment-639</guid>
+		<description>df /vol/ex_logs        
+Filesystem               kbytes     used        avail      capacity  Mounted on
+/vol/ex_logs/            275251200  184290096   90961104   67%       /vol/ex_logs/
+/vol/ex_logs/.snapshot   91750400   35282920    56467480   38%       /vol/ex_logs/.snapshot
+
+df -r /vol/ex_logs
+Filesystem               kbytes     used        avail      reserved  Mounted on
+/vol/ex_logs/            275251200  184290108   90961092   62974440  /vol/ex_logs/
+/vol/ex_logs/.snapshot   91750400   35282920    56467480   0         /vol/ex_logs/.snapshot
+
+df -s /vol/ex_logs
+Filesystem             used         saved       %saved
+/vol/ex_logs/          184290096    5095672     3%</description>
+		<content:encoded><![CDATA[<p>df /vol/ex_logs<br />
+Filesystem               kbytes     used        avail      capacity  Mounted on<br />
+/vol/ex_logs/            275251200  184290096   90961104   67%       /vol/ex_logs/<br />
+/vol/ex_logs/.snapshot   91750400   35282920    56467480   38%       /vol/ex_logs/.snapshot</p>
+<p>df -r /vol/ex_logs<br />
+Filesystem               kbytes     used        avail      reserved  Mounted on<br />
+/vol/ex_logs/            275251200  184290108   90961092   62974440  /vol/ex_logs/<br />
+/vol/ex_logs/.snapshot   91750400   35282920    56467480   0         /vol/ex_logs/.snapshot</p>
+<p>df -s /vol/ex_logs<br />
+Filesystem             used         saved       %saved<br />
+/vol/ex_logs/          184290096    5095672     3%</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/233#comment-637</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 04 Aug 2010 14:42:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=233#comment-637</guid>
+		<description>Такие вопросы все же лучше в почту задавать, потому что уведомление об ответах в комментах тут из рук вон плохое.
+А покажите результаты вывода df, а также df -r и df -s для соответствующего тома.</description>
+		<content:encoded><![CDATA[<p>Такие вопросы все же лучше в почту задавать, потому что уведомление об ответах в комментах тут из рук вон плохое.<br />
+А покажите результаты вывода df, а также df -r и df -s для соответствующего тома.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: murzic</title>
+		<link>http://blog.aboutnetapp.ru/archives/233#comment-635</link>
+		<dc:creator>murzic</dc:creator>
+		<pubDate>Wed, 04 Aug 2010 13:11:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=233#comment-635</guid>
+		<description>Добрый день.
+Я понимаю, что посту очень много времени, но, все же, может удастся получить консультацию здесь?
+
+Есть такая структура:
+Volume Total Size: 350 Gb
+Volume Snap Reserve: 25%
+Volume Usable Space: 262 Gb
+fractional_reserve: 50
+
+На этом разделе создан один LUN
+LUN size: 120 Gb
+
+В свойствах volume указано что
+Used Capacity: 176 Gb
+
+Почему такая цифра?
+Ведь если Used Capacity указывается с fractional reserve, то использовано будет 120G + 50% = 180G, а если без, то использовано будет 120G</description>
+		<content:encoded><![CDATA[<p>Добрый день.<br />
+Я понимаю, что посту очень много времени, но, все же, может удастся получить консультацию здесь?</p>
+<p>Есть такая структура:<br />
+Volume Total Size: 350 Gb<br />
+Volume Snap Reserve: 25%<br />
+Volume Usable Space: 262 Gb<br />
+fractional_reserve: 50</p>
+<p>На этом разделе создан один LUN<br />
+LUN size: 120 Gb</p>
+<p>В свойствах volume указано что<br />
+Used Capacity: 176 Gb</p>
+<p>Почему такая цифра?<br />
+Ведь если Used Capacity указывается с fractional reserve, то использовано будет 120G + 50% = 180G, а если без, то использовано будет 120G</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/233#comment-128</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Mon, 06 Apr 2009 02:34:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=233#comment-128</guid>
+		<description>Думаю ситуацию могла бы пояснить таблица, что и когда появилось в рахных версиях DataOntap.
+Наверно vol auto-grow появился позже. Ведь при указании vol autosize on, как не ставь fractinal reserve, все что на томе будет занимать столько сколько реально будет занимать.
+Не очень понятная опция, видимо с самых первых версий.</description>
+		<content:encoded><![CDATA[<p>Думаю ситуацию могла бы пояснить таблица, что и когда появилось в рахных версиях DataOntap.<br />
+Наверно vol auto-grow появился позже. Ведь при указании vol autosize on, как не ставь fractinal reserve, все что на томе будет занимать столько сколько реально будет занимать.<br />
+Не очень понятная опция, видимо с самых первых версий.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

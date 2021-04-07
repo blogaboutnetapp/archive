@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp AFF: All-Flash FAS. Комментарии специалиста.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1377/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1377</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:21 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-14587</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 17 Feb 2015 14:31:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-14587</guid>
+		<description>Похоже появилась "онлайн дедубликация нулей" для AFF.
+http://alikulov.me/blog/all/chto-novogo-v-data-ontap-8-3/</description>
+		<content:encoded><![CDATA[<p>Похоже появилась &#8220;онлайн дедубликация нулей&#8221; для AFF.<br />
+<a href="http://alikulov.me/blog/all/chto-novogo-v-data-ontap-8-3/" rel="nofollow">http://alikulov.me/blog/all/chto-novogo-v-data-ontap-8-3/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13566</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 08 Jul 2014 18:29:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13566</guid>
+		<description>Nostromo:
+&gt; Я не из таких людей, вы, по-видимому, меня с кем-то путаете.
+
+Разве это писали не вы?:
+"все источники были либо нетапповские, либо около-нетапповские, что может натолкнуть на мысль, что эта проблема слегка искусственна."
+"Не является ли это проблемой из области “заряженная частица пролетела через кристалл процессора и он неправильно посчитал что-то”"
+
+Я в ответ, показал вам, что проблема "пролетела заряженная частица" совсем не искуственна, несмотря на то, что вам она кажется таковой, что вы даже привели ее в качестве, ха-ха, варианта. Как и другие, считающие, что проблема несущественна, и маловероятна, пока они с ней лично не столкнулись.
+
+&gt; Бегло погуглив, я особо информации не нашёл
+
+Плохо "гуглили", даже я в этом блоге писал и давал ссылку
+http://blog.aboutnetapp.ru/archives/294</description>
+		<content:encoded><![CDATA[<p>Nostromo:<br />
+> Я не из таких людей, вы, по-видимому, меня с кем-то путаете.</p>
+<p>Разве это писали не вы?:<br />
+&#8220;все источники были либо нетапповские, либо около-нетапповские, что может натолкнуть на мысль, что эта проблема слегка искусственна.&#8221;<br />
+&#8220;Не является ли это проблемой из области “заряженная частица пролетела через кристалл процессора и он неправильно посчитал что-то”&#8221;</p>
+<p>Я в ответ, показал вам, что проблема &#8220;пролетела заряженная частица&#8221; совсем не искуственна, несмотря на то, что вам она кажется таковой, что вы даже привели ее в качестве, ха-ха, варианта. Как и другие, считающие, что проблема несущественна, и маловероятна, пока они с ней лично не столкнулись.</p>
+<p>> Бегло погуглив, я особо информации не нашёл</p>
+<p>Плохо &#8220;гуглили&#8221;, даже я в этом блоге писал и давал ссылку<br />
+<a href="http://blog.aboutnetapp.ru/archives/294" rel="nofollow">http://blog.aboutnetapp.ru/archives/294</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13564</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 08 Jul 2014 17:42:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13564</guid>
+		<description>romx:
+Я не из таких людей, вы, по-видимому, меня с кем-то путаете. Бегло погуглив, я особо информации не нашёл, разве что от оракла и чуть-чуть майкрософта и техдоков нетаппа. То есть - статистики, подобной тому, что вы привели по RAM, я не нашёл. ??з чего можно сделать вывод, что lost write происходит, как минимум, реже, чем ecc error. Вопрос в том - насколько? Если у вас есть какая-либо статистика по этому вопросу - давайте обсудим. 
+?? да, раз уж пошёл разговор про burt (говорил же - я погуглил :)), можете вот это прокомментировать: http://mysupport.netapp.com/NOW/cgi-bin/bol?Type=Detail&#38;Display=672232  ?</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+Я не из таких людей, вы, по-видимому, меня с кем-то путаете. Бегло погуглив, я особо информации не нашёл, разве что от оракла и чуть-чуть майкрософта и техдоков нетаппа. То есть - статистики, подобной тому, что вы привели по RAM, я не нашёл. ??з чего можно сделать вывод, что lost write происходит, как минимум, реже, чем ecc error. Вопрос в том - насколько? Если у вас есть какая-либо статистика по этому вопросу - давайте обсудим.<br />
+?? да, раз уж пошёл разговор про burt (говорил же - я погуглил :)), можете вот это прокомментировать: <a href="http://mysupport.netapp.com/NOW/cgi-bin/bol?Type=Detail&amp;Display=672232" rel="nofollow">http://mysupport.netapp.com/NOW/cgi-bin/bol?Type=Detail&amp;Display=672232</a>  ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13555</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 08 Jul 2014 12:51:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13555</guid>
+		<description>Nostromo:
+
+&gt; Мы же вроде о дисках говорим, при чём тут RAM?
+
+Мы говорим о людях, для которых все - "маркетинг", и никакие результаты, полученные другими, не убеждают, пока их лично за задницу не укусит. Но тогда обычно бывает уже поздно "пить боржом".
+По "космические лучи" заговорили вы. По третьей ссылке: &lt;i&gt;"In a population of server class 36 machine, I see a correctable failure detected by the ECC circuitry once every 3 months."&lt;/i&gt; Вам решать, насколько актуален &lt;i&gt;"вопрос в том, насколько она часто встречается?"&lt;/i&gt;</description>
+		<content:encoded><![CDATA[<p>Nostromo:</p>
+<p>> Мы же вроде о дисках говорим, при чём тут RAM?</p>
+<p>Мы говорим о людях, для которых все - &#8220;маркетинг&#8221;, и никакие результаты, полученные другими, не убеждают, пока их лично за задницу не укусит. Но тогда обычно бывает уже поздно &#8220;пить боржом&#8221;.<br />
+По &#8220;космические лучи&#8221; заговорили вы. По третьей ссылке: <i>&#8220;In a population of server class 36 machine, I see a correctable failure detected by the ECC circuitry once every 3 months.&#8221;</i> Вам решать, насколько актуален <i>&#8220;вопрос в том, насколько она часто встречается?&#8221;</i></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13554</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 08 Jul 2014 11:48:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13554</guid>
+		<description>romx:
+"А вы так любую стенку убрать можете?" (ц) :). Мы же вроде о дисках говорим, при чём тут RAM?...
+
+Odna Ptichka:
+Я извиняюсь, что это выглядело, как сарказм, я не стремился к этому. Однако, если есть статистика, аналогичная той, что привёл romx для RAM - это уже отличный предмет для разговора! ??, да, прошу прощения за необразованность, а что такое "burt"?</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+&#8220;А вы так любую стенку убрать можете?&#8221; (ц) :). Мы же вроде о дисках говорим, при чём тут RAM?&#8230;</p>
+<p>Odna Ptichka:<br />
+Я извиняюсь, что это выглядело, как сарказм, я не стремился к этому. Однако, если есть статистика, аналогичная той, что привёл romx для RAM - это уже отличный предмет для разговора! ??, да, прошу прощения за необразованность, а что такое &#8220;burt&#8221;?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13552</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Tue, 08 Jul 2014 08:20:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13552</guid>
+		<description>2 nostromo: 
+
+сарказм понятен - однажды был по касательной вовлечен в процесс с проблемами SRAM в процессорах UltraSPARC II , где первоначально объяснения шли на уровне космических лучей. В тот раз "дело было не в бобине"
+
+Что касается lost write. Сам термин действительно NetApp-овский - у них есть даже патент на это. Но если откровенно, то это просто один из характерных патернов сбоев диска(или точнее сбоя на всем пути записи на физический медиа)  и способ защиты от него.  Другие производители могут не выделять этот патерн от других вариантов сбоя, так как они не обеспечивают "лекарства" для этой болячки. В чем смысл для них говорить об этом? Для них это просто сбой медиа, вероятно фатальный.
+
+Случаи с "лост райт" есть - они описаны в burt-ах и эти случаи не получится показать на пальцах рук :)  Шит хаппенс в прошлом - и бывает сейчас ( это не научные исследования, а последствия реальных кейсов) . А что будет дальше не понятно  - вот уже-уже диски 6ТБ, а потом еще более емкие с частотой вращения =&#60; 5400.  Диски становятся более емкими, более медленными и более  ненадежными. Клевая конфигурация :)   В этой ситуации "лост райт" еще один уровень спокойствия.  
+
+ВСЕ ??МХО.</description>
+		<content:encoded><![CDATA[<p>2 nostromo: </p>
+<p>сарказм понятен - однажды был по касательной вовлечен в процесс с проблемами SRAM в процессорах UltraSPARC II , где первоначально объяснения шли на уровне космических лучей. В тот раз &#8220;дело было не в бобине&#8221;</p>
+<p>Что касается lost write. Сам термин действительно NetApp-овский - у них есть даже патент на это. Но если откровенно, то это просто один из характерных патернов сбоев диска(или точнее сбоя на всем пути записи на физический медиа)  и способ защиты от него.  Другие производители могут не выделять этот патерн от других вариантов сбоя, так как они не обеспечивают &#8220;лекарства&#8221; для этой болячки. В чем смысл для них говорить об этом? Для них это просто сбой медиа, вероятно фатальный.</p>
+<p>Случаи с &#8220;лост райт&#8221; есть - они описаны в burt-ах и эти случаи не получится показать на пальцах рук :)  Шит хаппенс в прошлом - и бывает сейчас ( это не научные исследования, а последствия реальных кейсов) . А что будет дальше не понятно  - вот уже-уже диски 6ТБ, а потом еще более емкие с частотой вращения =&lt; 5400.  Диски становятся более емкими, более медленными и более  ненадежными. Клевая конфигурация :)   В этой ситуации &#8220;лост райт&#8221; еще один уровень спокойствия.  </p>
+<p>ВСЕ ??МХО.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13543</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 07 Jul 2014 13:40:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13543</guid>
+		<description>Nostromo:
+
+Зависит от вас, в конечном счете. Я видел людей, которые считают, что ECC DRAM в серверах - буржуйство и роскошь, несмотря на то, что результаты исследования частоты ошибок в памяти совсем неутешительны и широко доступны: 
+http://research.google.com/pubs/archive/35162.pdf
+http://www.zdnet.com/blog/storage/dram-error-rates-nightmare-on-dimm-street/638
+http://serverfault.com/questions/26483/statistics-on-ram-malfunction</description>
+		<content:encoded><![CDATA[<p>Nostromo:</p>
+<p>Зависит от вас, в конечном счете. Я видел людей, которые считают, что ECC DRAM в серверах - буржуйство и роскошь, несмотря на то, что результаты исследования частоты ошибок в памяти совсем неутешительны и широко доступны:<br />
+<a href="http://research.google.com/pubs/archive/35162.pdf" rel="nofollow">http://research.google.com/pubs/archive/35162.pdf</a><br />
+<a href="http://www.zdnet.com/blog/storage/dram-error-rates-nightmare-on-dimm-street/638" rel="nofollow">http://www.zdnet.com/blog/storage/dram-error-rates-nightmare-on-dimm-street/638</a><br />
+<a href="http://serverfault.com/questions/26483/statistics-on-ram-malfunction" rel="nofollow">http://serverfault.com/questions/26483/statistics-on-ram-malfunction</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13542</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Mon, 07 Jul 2014 13:24:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13542</guid>
+		<description>romx:
+Ну, я соглашусь с тем, что она присутствует. Но, тут вопрос в том, насколько она часто встречается? Не является ли это проблемой из области "заряженная частица пролетела через кристалл процессора и он неправильно посчитал что-то" и для решения оной требуется приобрести мейнфрейм, так как в вашей x86 сквозного контроля данных нет?</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+Ну, я соглашусь с тем, что она присутствует. Но, тут вопрос в том, насколько она часто встречается? Не является ли это проблемой из области &#8220;заряженная частица пролетела через кристалл процессора и он неправильно посчитал что-то&#8221; и для решения оной требуется приобрести мейнфрейм, так как в вашей x86 сквозного контроля данных нет?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13540</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 07 Jul 2014 09:58:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13540</guid>
+		<description>Nostromo:
+Что значит "искусственна", если ее регистрируют (причем в работах вполне научного уровня). Другое дело, что, скорее всего, другие вендоры, не имея средств этому противодействовать, занимают позицию "меньше знаешь - крепче спишь".</description>
+		<content:encoded><![CDATA[<p>Nostromo:<br />
+Что значит &#8220;искусственна&#8221;, если ее регистрируют (причем в работах вполне научного уровня). Другое дело, что, скорее всего, другие вендоры, не имея средств этому противодействовать, занимают позицию &#8220;меньше знаешь - крепче спишь&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1377#comment-13539</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Mon, 07 Jul 2014 09:53:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1377#comment-13539</guid>
+		<description>Меня терзают смутные сомнения насчёт проблемы lost write. Сколько я не искал в интернете, в основном, все источники были либо нетапповские, либо около-нетапповские, что может натолкнуть на мысль, что эта проблема слегка искусственна.</description>
+		<content:encoded><![CDATA[<p>Меня терзают смутные сомнения насчёт проблемы lost write. Сколько я не искал в интернете, в основном, все источники были либо нетапповские, либо около-нетапповские, что может натолкнуть на мысль, что эта проблема слегка искусственна.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

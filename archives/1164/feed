@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: VMware и использование NFS: часть 3а &#8211;Балансировка нагрузки по NFS</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1164/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1164</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:41 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1164#comment-2637</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 02 Jun 2012 10:39:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1164#comment-2637</guid>
+		<description>Александр:
+
+Нет, тут вы ошибаетесь. pNFS не дает такой возможности. Строго говоря, это вообще для другого, в первую очередь для задач High-Performance Computing (HPC), когда производительности одного стораджа уже не хватает для обеспечения потоком чтения-записи потребителя. То есть это "конкурент" для Lustre, GPFS, и прочих штук.
+
+&gt; в частности мне всегда доставляло некий дискомфорт
+
+Главное чтобы это не доставляло дискомфорт решаемой задаче ;) А уж душевным дискомфортом сисамина часто можно пожертвовать, я считаю :)
+
+Я упоминал уже в статье про Cluster-mode, разницу между Single Namespace и Single Filesystem. К сожалению организация Single Filesystem на множественных процессорных узлах влечет за собой значительный оверхед на general purpose задачах, как это демонстрирует, например, EMC Isilon (там же).
+
+Cluster-mode в Data ONTAP, как и pNFS, как средство доступа к нему, это все Single Namespace, но НЕ Single Filesystem.
+
+Опять же, уже в завершение, вопрос: а у вас есть задача, которая нереализуема иначе, чем через Single Filesystem? А если нет, то не запрягаете ли вы телегу впереди лошади? Решение должно решать какую-то задачу, а не существовать само по себе, для удовлетворения эстетического чувства админа. ;)</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>Нет, тут вы ошибаетесь. pNFS не дает такой возможности. Строго говоря, это вообще для другого, в первую очередь для задач High-Performance Computing (HPC), когда производительности одного стораджа уже не хватает для обеспечения потоком чтения-записи потребителя. То есть это &#8220;конкурент&#8221; для Lustre, GPFS, и прочих штук.</p>
+<p>> в частности мне всегда доставляло некий дискомфорт</p>
+<p>Главное чтобы это не доставляло дискомфорт решаемой задаче ;) А уж душевным дискомфортом сисамина часто можно пожертвовать, я считаю :)</p>
+<p>Я упоминал уже в статье про Cluster-mode, разницу между Single Namespace и Single Filesystem. К сожалению организация Single Filesystem на множественных процессорных узлах влечет за собой значительный оверхед на general purpose задачах, как это демонстрирует, например, EMC Isilon (там же).</p>
+<p>Cluster-mode в Data ONTAP, как и pNFS, как средство доступа к нему, это все Single Namespace, но НЕ Single Filesystem.</p>
+<p>Опять же, уже в завершение, вопрос: а у вас есть задача, которая нереализуема иначе, чем через Single Filesystem? А если нет, то не запрягаете ли вы телегу впереди лошади? Решение должно решать какую-то задачу, а не существовать само по себе, для удовлетворения эстетического чувства админа. ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1164#comment-2600</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 30 May 2012 09:28:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1164#comment-2600</guid>
+		<description>Роман, пока скорее нет, но я хочу знать о технологии до того как задача появится :)
+в частности мне всегда доставляло некий дискомфорт, что имея HA пару их пространство нельзя было объединить в одно "логическое целое". Надеюсь корректно выразился и ни в чем не заблуждаюсь. ?? как мне кажется pNFS может помочь в этом частном случае. 
+
+Документы зачетные и свежие, буду читать. Спасибо!</description>
+		<content:encoded><![CDATA[<p>Роман, пока скорее нет, но я хочу знать о технологии до того как задача появится :)<br />
+в частности мне всегда доставляло некий дискомфорт, что имея HA пару их пространство нельзя было объединить в одно &#8220;логическое целое&#8221;. Надеюсь корректно выразился и ни в чем не заблуждаюсь. ?? как мне кажется pNFS может помочь в этом частном случае. </p>
+<p>Документы зачетные и свежие, буду читать. Спасибо!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1164#comment-2595</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 29 May 2012 14:39:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1164#comment-2595</guid>
+		<description>Александр:
+&gt; А как насчет pNFS?
+
+А у вас уже есть задача под _только_ pNFS?
+
+https://communities.netapp.com/docs/DOC-16613
+https://communities.netapp.com/community/netapp-blogs/sanbytes/blog/2012/05/18/pnfs-the-top-hat-for-massively-scalable-nas</description>
+		<content:encoded><![CDATA[<p>Александр:<br />
+> А как насчет pNFS?</p>
+<p>А у вас уже есть задача под _только_ pNFS?</p>
+<p><a href="https://communities.netapp.com/docs/DOC-16613" rel="nofollow">https://communities.netapp.com/docs/DOC-16613</a><br />
+<a href="https://communities.netapp.com/community/netapp-blogs/sanbytes/blog/2012/05/18/pnfs-the-top-hat-for-massively-scalable-nas" rel="nofollow">https://communities.netapp.com/community/netapp-blogs/sanbytes/blog/2012/05/18/pnfs-the-top-hat-for-massively-scalable-nas</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1164#comment-2594</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 29 May 2012 14:27:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1164#comment-2594</guid>
+		<description>А как насчет pNFS?</description>
+		<content:encoded><![CDATA[<p>А как насчет pNFS?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

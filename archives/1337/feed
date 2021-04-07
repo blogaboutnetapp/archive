@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: OnCommand Performance Manager 1.0</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1337/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1337</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:48 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1337#comment-13343</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 03 Jun 2014 10:46:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1337#comment-13343</guid>
+		<description>?? там ещё минимум версия C-Mode 8.2.1 по-моему необходима. К примеру у меня C-Mode 8.1 точно не добавляется.</description>
+		<content:encoded><![CDATA[<p>?? там ещё минимум версия C-Mode 8.2.1 по-моему необходима. К примеру у меня C-Mode 8.1 точно не добавляется.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1337#comment-13034</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 14 Apr 2014 07:06:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1337#comment-13034</guid>
+		<description>GoodSerg:
+А вы точно его с Clustered Data ONTAP крутите? Он только под кластер.</description>
+		<content:encoded><![CDATA[<p>GoodSerg:<br />
+А вы точно его с Clustered Data ONTAP крутите? Он только под кластер.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: GoodSerg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1337#comment-13013</link>
+		<dc:creator>GoodSerg</dc:creator>
+		<pubDate>Wed, 09 Apr 2014 11:05:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1337#comment-13013</guid>
+		<description>Ром, сейчас данное ПО доступно в 1.0RC1.
+Ты пытался ставить это ПО?
+У меня в лабе при попытке его настроить оно так и не начало собирать данные о производительности.</description>
+		<content:encoded><![CDATA[<p>Ром, сейчас данное ПО доступно в 1.0RC1.<br />
+Ты пытался ставить это ПО?<br />
+У меня в лабе при попытке его настроить оно так и не начало собирать данные о производительности.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

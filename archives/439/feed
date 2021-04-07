@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Тебибайты</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/439/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/439</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:50 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/439#comment-2719</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 14 Jun 2012 14:59:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=439#comment-2719</guid>
+		<description>Алексей:
+
+На самом деле этих же инженеров нисколько не пугает, что купив 10 дисков, после сборки RAID-10, от них остается емкость только 5, а тут - испугало.
+При том, что в случае RAID-10 получающаяся емкость, в размер половины физических дисков может далее только уменьшаться, а в случае нетапп - она может затем даже и увеличиваться, например в случае дедупликации или снэпшотов.
+
+Так что это все вопрос привычки. Они привыкли, что за повышение надежности хранения им придется заплатить емкостью, и они воспринимают это само собой разумеющимся, а вот в случае WAFL - почему-то нет.
+
+http://blog.aboutnetapp.ru/archives/661
+http://blog.aboutnetapp.ru/archives/269
+http://blog.aboutnetapp.ru/archives/386
+http://blog.aboutnetapp.ru/archives/648</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>На самом деле этих же инженеров нисколько не пугает, что купив 10 дисков, после сборки RAID-10, от них остается емкость только 5, а тут - испугало.<br />
+При том, что в случае RAID-10 получающаяся емкость, в размер половины физических дисков может далее только уменьшаться, а в случае нетапп - она может затем даже и увеличиваться, например в случае дедупликации или снэпшотов.</p>
+<p>Так что это все вопрос привычки. Они привыкли, что за повышение надежности хранения им придется заплатить емкостью, и они воспринимают это само собой разумеющимся, а вот в случае WAFL - почему-то нет.</p>
+<p><a href="http://blog.aboutnetapp.ru/archives/661" rel="nofollow">http://blog.aboutnetapp.ru/archives/661</a><br />
+<a href="http://blog.aboutnetapp.ru/archives/269" rel="nofollow">http://blog.aboutnetapp.ru/archives/269</a><br />
+<a href="http://blog.aboutnetapp.ru/archives/386" rel="nofollow">http://blog.aboutnetapp.ru/archives/386</a><br />
+<a href="http://blog.aboutnetapp.ru/archives/648" rel="nofollow">http://blog.aboutnetapp.ru/archives/648</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/439#comment-2717</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 14 Jun 2012 14:48:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=439#comment-2717</guid>
+		<description>Пардон: ~15.5Tb</description>
+		<content:encoded><![CDATA[<p>Пардон: ~15.5Tb</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/439#comment-2716</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 14 Jun 2012 14:47:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=439#comment-2716</guid>
+		<description>Где-то у NetApp проходила табличка с актуальным размером дисков. Потерял ее. 
+??нженеров частенько пугает, что, например 1TB диск после снимания маркетинговых бантиков оказывается ~857GB(если не ошибаюсь).
+То есть при расчете полезной ёмкости 24x1Tb дисков на NetApp 2240-4 грубо имеем: (12+12)-3-3 = 9+9 = 18 полезных дисков = ~15.5Gb. Отнять WAFL и прочее = получаем порядка 13-13.5 Tb. Что никак не похоже на 24Tb.</description>
+		<content:encoded><![CDATA[<p>Где-то у NetApp проходила табличка с актуальным размером дисков. Потерял ее.<br />
+??нженеров частенько пугает, что, например 1TB диск после снимания маркетинговых бантиков оказывается ~857GB(если не ошибаюсь).<br />
+То есть при расчете полезной ёмкости 24&#215;1Tb дисков на NetApp 2240-4 грубо имеем: (12+12)-3-3 = 9+9 = 18 полезных дисков = ~15.5Gb. Отнять WAFL и прочее = получаем порядка 13-13.5 Tb. Что никак не похоже на 24Tb.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

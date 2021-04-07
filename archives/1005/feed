@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Выравнивание партиций виртуальных машин с помощью MBRscan/MBRalign</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1005/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1005</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:08:00 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/1005#comment-1768</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Fri, 07 Oct 2011 12:32:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1005#comment-1768</guid>
+		<description>&#62; Можно ли запускать mbrscan при работающих виртуальных машинах? 
+
+похоже, что нет:
+Failed to open /vmfs/volumes/vm-prod13:storage1 (1)/VM-CENTREON/VM-CENTREON-flat.vmdk - [Device or resource busy]</description>
+		<content:encoded><![CDATA[<p>&gt; Можно ли запускать mbrscan при работающих виртуальных машинах? </p>
+<p>похоже, что нет:<br />
+Failed to open /vmfs/volumes/vm-prod13:storage1 (1)/VM-CENTREON/VM-CENTREON-flat.vmdk - [Device or resource busy]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1005#comment-1701</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Fri, 16 Sep 2011 13:12:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1005#comment-1701</guid>
+		<description>Роман, можно несколько дополнений/замечаний? :)
+
+Лицензия NFS на NetApp не обязательна, да и ESX уже становится мало актуален, будущее за ESXi, поэтому ставим (или обновляемся): Virtual Storage Console до версии 2.1.1
+Вот анонс: http://communities.netapp.com/community/netapp-blogs/virtualization/blog/2011/09/08/netapp-virtual-storage-console-211--now-available
+из него кстати сразу и бросается в глаза поддержка выравнивания партиций для ESXi: "The Monitoring and Host Configuration Tools panel now includes two download buttons for MBR tools: one for ESXi hosts and one for ESX hosts. You must download the correct version for your host operating system"
+
+Далее включаем SSH на ESXi хосте (Configuration -&#62; Software -&#62; Security Profile -&#62; Remote Tech Support (SSH)...)
+В vCenter в оснастке NetApp (Tools) скачиваем  MBR Tools "For ESXi 4.x and ESXi 5.0"
+Закидываем его ESXi хост (например по WinSCP)
+Разворачиваем в корень архив: mbrtools_esxi.tgz и все.
+
+После этого доступно сканирование всех vmdk файлов: /opt/ontap/mbrscan --all
+и конечно сама процедура выравнивания партиций, вот пример работы:
+
+# /opt/ontap/mbralign /vmfs/volumes/4e29b013-5af79632-9fca-14feb5160713/vs-x1/vs-x1-flat.vmdk
+
+mbrtools esxi version 1.0
+
+
+ Part    Type          old LBA    New Start LBA      New End LBA     Length in KB
+   P1      07               63               64         31439206         15719571
+
+NOTICE:
+This tool does not check for the existence of Virtual Machine snapshots or linked clones.
+The use of this tool on a vmdk file that has a snapshot or linked clone associated with it
+can result in unrecoverable data loss and/or data corruption.
+Are you sure that no snapshots/linked clones exist for this vmdk? (y/n)y
+Creating a backup of /vmfs/volumes/4e29b013-5af79632-9fca-14feb5160713/vs-x1/vs-x1.vmdk
+Creating a backup of /vmfs/volumes/4e29b013-5af79632-9fca-14feb5160713/vs-x1/vs-x1-flat.vmdk
+Creating a copy the Master Boot Record
+Working on partition P1 (3): Starting to migrate blocks from 32256 to 32768.
+12801 read ops in 1 sec.  13.02% read (55.34 mB/s).  13.02% written (55.34 mB/s)
+....
+....
+12801 read ops in 1 sec.  99.62% read (53.19 mB/s).  99.62% written (53.19 mB/s)
+Working on space not in any partition: Starting to migrate blocks.
+100.00 percent complete.  100.00 percent written. .
+Making adjustments to /vmfs/volumes/4e29b013-5af79632-9fca-14feb5160713/vs-3300/vs-x1-flat.vmdk.
+Adjusting the descriptor file.</description>
+		<content:encoded><![CDATA[<p>Роман, можно несколько дополнений/замечаний? :)</p>
+<p>Лицензия NFS на NetApp не обязательна, да и ESX уже становится мало актуален, будущее за ESXi, поэтому ставим (или обновляемся): Virtual Storage Console до версии 2.1.1<br />
+Вот анонс: <a href="http://communities.netapp.com/community/netapp-blogs/virtualization/blog/2011/09/08/netapp-virtual-storage-console-211--now-available" rel="nofollow">http://communities.netapp.com/community/netapp-blogs/virtualization/blog/2011/09/08/netapp-virtual-storage-console-211&#8211;now-available</a><br />
+из него кстати сразу и бросается в глаза поддержка выравнивания партиций для ESXi: &#8220;The Monitoring and Host Configuration Tools panel now includes two download buttons for MBR tools: one for ESXi hosts and one for ESX hosts. You must download the correct version for your host operating system&#8221;</p>
+<p>Далее включаем SSH на ESXi хосте (Configuration -&gt; Software -&gt; Security Profile -&gt; Remote Tech Support (SSH)&#8230;)<br />
+В vCenter в оснастке NetApp (Tools) скачиваем  MBR Tools &#8220;For ESXi 4.x and ESXi 5.0&#8243;<br />
+Закидываем его ESXi хост (например по WinSCP)<br />
+Разворачиваем в корень архив: mbrtools_esxi.tgz и все.</p>
+<p>После этого доступно сканирование всех vmdk файлов: /opt/ontap/mbrscan &#8211;all<br />
+и конечно сама процедура выравнивания партиций, вот пример работы:</p>
+<p># /opt/ontap/mbralign /vmfs/volumes/4e29b013-5af79632-9fca-14feb5160713/vs-x1/vs-x1-flat.vmdk</p>
+<p>mbrtools esxi version 1.0</p>
+<p> Part    Type          old LBA    New Start LBA      New End LBA     Length in KB<br />
+   P1      07               63               64         31439206         15719571</p>
+<p>NOTICE:<br />
+This tool does not check for the existence of Virtual Machine snapshots or linked clones.<br />
+The use of this tool on a vmdk file that has a snapshot or linked clone associated with it<br />
+can result in unrecoverable data loss and/or data corruption.<br />
+Are you sure that no snapshots/linked clones exist for this vmdk? (y/n)y<br />
+Creating a backup of /vmfs/volumes/4e29b013-5af79632-9fca-14feb5160713/vs-x1/vs-x1.vmdk<br />
+Creating a backup of /vmfs/volumes/4e29b013-5af79632-9fca-14feb5160713/vs-x1/vs-x1-flat.vmdk<br />
+Creating a copy the Master Boot Record<br />
+Working on partition P1 (3): Starting to migrate blocks from 32256 to 32768.<br />
+12801 read ops in 1 sec.  13.02% read (55.34 mB/s).  13.02% written (55.34 mB/s)<br />
+&#8230;.<br />
+&#8230;.<br />
+12801 read ops in 1 sec.  99.62% read (53.19 mB/s).  99.62% written (53.19 mB/s)<br />
+Working on space not in any partition: Starting to migrate blocks.<br />
+100.00 percent complete.  100.00 percent written. .<br />
+Making adjustments to /vmfs/volumes/4e29b013-5af79632-9fca-14feb5160713/vs-3300/vs-x1-flat.vmdk.<br />
+Adjusting the descriptor file.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1005#comment-1700</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 15 Sep 2011 05:44:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1005#comment-1700</guid>
+		<description>evgeny:
+
+Не помню точно, скорее всего можно и так, в любом случае, если не сможет, то не испортит, а просто скажет об этом.</description>
+		<content:encoded><![CDATA[<p>evgeny:</p>
+<p>Не помню точно, скорее всего можно и так, в любом случае, если не сможет, то не испортит, а просто скажет об этом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: evgeny</title>
+		<link>http://blog.aboutnetapp.ru/archives/1005#comment-1699</link>
+		<dc:creator>evgeny</dc:creator>
+		<pubDate>Thu, 15 Sep 2011 05:16:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1005#comment-1699</guid>
+		<description>&#62; Если вы хотите выполнить сканирование сразу множества vmdk, то можно сделать это так:
+&#62; # find /nfs_datastore -name "*-flat.vmdk" -maxdepth 3 -exec /usr/bin/mbrscan {}
+Можно ли запускать mbrscan при работающих виртуальных машинах? 
+
+Принимая во внимание следующее:
+&#62; Обратите внимание, что VM должна находиться в состоянии power off
+Это относится только к mbralign или к mbrscan тоже?</description>
+		<content:encoded><![CDATA[<p>&gt; Если вы хотите выполнить сканирование сразу множества vmdk, то можно сделать это так:<br />
+&gt; # find /nfs_datastore -name &#8220;*-flat.vmdk&#8221; -maxdepth 3 -exec /usr/bin/mbrscan {}<br />
+Можно ли запускать mbrscan при работающих виртуальных машинах? </p>
+<p>Принимая во внимание следующее:<br />
+&gt; Обратите внимание, что VM должна находиться в состоянии power off<br />
+Это относится только к mbralign или к mbrscan тоже?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

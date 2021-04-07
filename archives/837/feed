@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp Data Motion for Volumes</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/837/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/837</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:08:07 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/837#comment-2385</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 07:17:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/837#comment-2385</guid>
+		<description>&#62;Да-а… не торопится IBM :(
+Я так подозреваю, что не в одном IBM'е дело. Ему может сам НетАпп не давать "торопиться".
+
+Кстати пора бы уже новую статейку написать на эту же тему, с обновлённой информацией, наверняка уже многое изменилось в лучшую сторону :)</description>
+		<content:encoded><![CDATA[<p>&gt;Да-а… не торопится IBM :(<br />
+Я так подозреваю, что не в одном IBM&#8217;е дело. Ему может сам НетАпп не давать &#8220;торопиться&#8221;.</p>
+<p>Кстати пора бы уже новую статейку написать на эту же тему, с обновлённой информацией, наверняка уже многое изменилось в лучшую сторону :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/837#comment-1202</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Wed, 09 Mar 2011 12:45:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/837#comment-1202</guid>
+		<description>Data Motion это путаница:
+- для Data Motion for Volume лицензия SnapMirror не требуется.
+- для Data Motion for vFilers лицензия SnapMirror нужна
+- для Data Motion for Files  лицензия SnapMirror не требуется ( само свойство в ограниченом доступе)</description>
+		<content:encoded><![CDATA[<p>Data Motion это путаница:<br />
+- для Data Motion for Volume лицензия SnapMirror не требуется.<br />
+- для Data Motion for vFilers лицензия SnapMirror нужна<br />
+- для Data Motion for Files  лицензия SnapMirror не требуется ( само свойство в ограниченом доступе)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/837#comment-1193</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Fri, 04 Mar 2011 13:21:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/837#comment-1193</guid>
+		<description>А вот еще вопрос - читал твой документ, п. 2.4. Там сказано, что используется асинхронный Snapmirror, который стоит денег. Значит ли это, что без него DMVol не будет работать, или будет использоваться какой-то урезанный нелицензируемый механизм SnapMirror (вроде урезанного CIFS, который появлялся в системе при наличии купленного SnapDrive, т.е. без лицензии CIFS можно было работать с дефолтными шарами)</description>
+		<content:encoded><![CDATA[<p>А вот еще вопрос - читал твой документ, п. 2.4. Там сказано, что используется асинхронный Snapmirror, который стоит денег. Значит ли это, что без него DMVol не будет работать, или будет использоваться какой-то урезанный нелицензируемый механизм SnapMirror (вроде урезанного CIFS, который появлялся в системе при наличии купленного SnapDrive, т.е. без лицензии CIFS можно было работать с дефолтными шарами)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/837#comment-1192</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 04 Mar 2011 12:27:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/837#comment-1192</guid>
+		<description>&gt; Спасибо, прочитал. Видимо, что-то ввело меня в заблуждение, думал, отдельно лицензируемая опция.
+
+Возможно тут путаница. Дело в том, что есть Data Motion for vFilers, которая появилась еще в 8.0, и которой, понятно, для vFiler-ов нужен Multistore, который, до недавних пор, отдельно лицензировался.
+
+&gt; А не знаешь ли ты, когда появится возможность в 8G изменения типа аггрегатов 3264
+
+Официальная позиция такая: "Мы понимаем, насколько это сильно нужно, мы работаем над конвертором аггрегейтов, но пока не готово, а для того, что не объявлено в релизе мы не можем называть сроки".
+
+&gt; а еще до кучи такая удобная вещь, как System Manager. 
+
+Да-а... не торопится IBM :(</description>
+		<content:encoded><![CDATA[<p>> Спасибо, прочитал. Видимо, что-то ввело меня в заблуждение, думал, отдельно лицензируемая опция.</p>
+<p>Возможно тут путаница. Дело в том, что есть Data Motion for vFilers, которая появилась еще в 8.0, и которой, понятно, для vFiler-ов нужен Multistore, который, до недавних пор, отдельно лицензировался.</p>
+<p>> А не знаешь ли ты, когда появится возможность в 8G изменения типа аггрегатов 3264</p>
+<p>Официальная позиция такая: &#8220;Мы понимаем, насколько это сильно нужно, мы работаем над конвертором аггрегейтов, но пока не готово, а для того, что не объявлено в релизе мы не можем называть сроки&#8221;.</p>
+<p>> а еще до кучи такая удобная вещь, как System Manager. </p>
+<p>Да-а&#8230; не торопится IBM :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/837#comment-1191</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Fri, 04 Mar 2011 11:41:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/837#comment-1191</guid>
+		<description>Спасибо, прочитал. Видимо, что-то ввело меня в заблуждение, думал, отдельно лицензируемая опция.
+А не знаешь ли ты, когда появится возможность в 8G изменения типа аггрегатов 3264, и/или возможность онлайн компрессии на 32-битных аггрегатах? Лично для нас, как для заказчиков,этот вопрос достаточно важен, так как у нас много данных CIFS лежит по естественным причинам на SATA, которые, в свою очередь, в 32-битных аггрегатах (так исторически сложилось). Вот и хотелось бы компрессию, для полного счастья :)
+
+Кстати, у тех, кто купил NetApp от IBM, на улице праздник - в середине февраля стала доступна ONTAP 8.0.1, а еще до кучи такая удобная вещь, как System Manager. :)</description>
+		<content:encoded><![CDATA[<p>Спасибо, прочитал. Видимо, что-то ввело меня в заблуждение, думал, отдельно лицензируемая опция.<br />
+А не знаешь ли ты, когда появится возможность в 8G изменения типа аггрегатов 3264, и/или возможность онлайн компрессии на 32-битных аггрегатах? Лично для нас, как для заказчиков,этот вопрос достаточно важен, так как у нас много данных CIFS лежит по естественным причинам на SATA, которые, в свою очередь, в 32-битных аггрегатах (так исторически сложилось). Вот и хотелось бы компрессию, для полного счастья :)</p>
+<p>Кстати, у тех, кто купил NetApp от IBM, на улице праздник - в середине февраля стала доступна ONTAP 8.0.1, а еще до кучи такая удобная вещь, как System Manager. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/837#comment-1190</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 04 Mar 2011 11:13:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/837#comment-1190</guid>
+		<description>Minus:
+
+Я так понял, что это "встроенная" возможность 8.0.1, по крайней мере так я думал до твоего вопроса :)
+&gt; vol move 
+,и поехали.
+
+Подробно вот тут:
+&lt;a href="http://media.netapp.com/documents/tr-3873.pdf" rel="nofollow"&gt;http://media.netapp.com/documents/tr-3873.pdf&lt;/a&gt;
+
+Александр:
+
+Ну не совсем так, как я понял. Если речь про FAST, в сравнении с DMVol, то первое все же "готовый продукт", а второе - пока только инструмент для создания такого же продукта.</description>
+		<content:encoded><![CDATA[<p>Minus:</p>
+<p>Я так понял, что это &#8220;встроенная&#8221; возможность 8.0.1, по крайней мере так я думал до твоего вопроса :)<br />
+> vol move<br />
+,и поехали.</p>
+<p>Подробно вот тут:<br />
+<a href="http://media.netapp.com/documents/tr-3873.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3873.pdf</a></p>
+<p>Александр:</p>
+<p>Ну не совсем так, как я понял. Если речь про FAST, в сравнении с DMVol, то первое все же &#8220;готовый продукт&#8221;, а второе - пока только инструмент для создания такого же продукта.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/837#comment-1189</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Fri, 04 Mar 2011 11:02:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/837#comment-1189</guid>
+		<description>Роман, а можно поподробнее о лицензировании этой опции?</description>
+		<content:encoded><![CDATA[<p>Роман, а можно поподробнее о лицензировании этой опции?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/837#comment-1184</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 03 Mar 2011 10:45:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/837#comment-1184</guid>
+		<description>Круть! В догонку к статье http://www.youtube.com/watch?v=nMg3K4RocQI это правда между контроллерами, но все же тоже круть :)
+
+P.S. по сравнению с конкурирующей фирмой (не будем называть имен) у NetApp реализовано это на порядок лучше :)</description>
+		<content:encoded><![CDATA[<p>Круть! В догонку к статье <a href="http://www.youtube.com/watch?v=nMg3K4RocQI" rel="nofollow">http://www.youtube.com/watch?v=nMg3K4RocQI</a> это правда между контроллерами, но все же тоже круть :)</p>
+<p>P.S. по сравнению с конкурирующей фирмой (не будем называть имен) у NetApp реализовано это на порядок лучше :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

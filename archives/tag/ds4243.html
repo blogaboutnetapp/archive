@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; ds4243</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;ds4243&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-701">
+				<h2 class="posttitle"><a href="../701/trackback.html" rel="bookmark" title="Permanent Link to ACP &ndash; Alternative Control Path в DS4243">ACP &ndash; Alternative Control Path в DS4243</a></h2>
+				<div class="postmetadata">13 Сентябрь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>ACP (Alternate Control Path) это автономная, <em>out-of-band</em>, архитектура управления, которая обеспечивает изоляцию канала управления от канала передачи данных. Ранее использование управления out-of-band использовалось только на некоторых high-end системах хранения. В такой архитектуре состояние дисков и дисковой полки мониторится по выделенному каналу, отдельному от канала данных. Полка DS4243 использует для этого пару портов Ethernet. При использовании традиционной технологии FC-AL, где “канал” управления передается в том же потоке данных, что и “канал” данных, ряд операций или видов ошибок мог вести за собой прерывание соединения между дисками и контроллером. Переход на SAS, и одновременно разделение канала управления от канала передачи данных, позволяет повысить надежность решения.</p>
+<p>В настоящи момент использование ACP и его возможности довольно ограничены, поэтому, скорее всего, это “задел на будущее”.</p>
+<p><strong>Что такое alternate control path и почему он нужен?</strong></p>
+<p>ACP позволяет реализовать:</p>
+<ul>
+<li>Автоматизированное восстановление после сбоев</li>
+<li>Лучшее отлавливание ошибок на уровне полки</li>
+<li>??нфраструктуру для будущих разработок</li>
+</ul>
+<p><strong>??з чего состоит ACP?</strong></p>
+<ul>
+<li>ACPP (ACP Processor); обычно это аппаратное устройство встроенное в контроллер дисковой полки</li>
+<li>ACPA (ACP Administrator); обычно это программное устройство, в случае NetApp - код в Data ONTAP </li>
+</ul>
+<p><strong>Обязательно ли использование ACP в DS4243?</strong></p>
+<p>??спользование ACP настоятельно рекомендуется, но не является обязательным условием. Например у вас могут использоваться с новыми полками старые системы, просто не имеющие свободных портов Ethernet. В настоящий сосент NetApp планирует установить выделенный порт ACP на контроллеры всех новых системем, которые будут доступны в будущем. В настоящий момент выделенный порт ACP имеется у системы FAS2040.</p>
+<p><strong>Сколько портов необходимо для ACP?</strong></p>
+<p>Требуется только один порт Ethernet на контроллер, на все DS4243, подключенные к данному контроллеру.</p>
+<p><strong>Можно ли обновить firmware полки по ACP?</strong></p>
+<p>Нет, shelf firmware обновляется только через контроллер SAS.</p>
+<p><strong>Как обновляется ACP firmware?</strong></p>
+<p>ACP firmware обновляется через сеть ACP (Ethernet).</p>
+<p><strong>Что можно сделать через ACP (в текущей реализации DS4243)?</strong></p>
+<p>Через ACP можно:</p>
+<ul>
+<li>Провести сброс для SAS expander-а внутри модуля IOM3 (SAS expander reset/SAS expander power cycle) </li>
+<li>Считать shelf POST data. </li>
+<li>Записать firmware ACPP (не самой полки!) </li>
+</ul>
+<p><strong>Чем ACP не является?</strong></p>
+<ul>
+<li>ACP это не “точка отказа” для канала передачи данных. Данные с дисков продолжают предаваться и записываться в том числе, если ACP не подключена или не работает </li>
+<li>ACP это не путь передачи данных. Данные, хранящиеся на дисках, в сеть ACP не попадают. </li>
+<li>ACP не требует для своей работы специального выделенного сервера управления </li>
+</ul>
+<p><strong>Что из себя представляет сеть ACP?</strong></p>
+<ul>
+<li>Сеть ACP это специальная выделенная подсеть Ethernet </li>
+<li>IP-адреса для входящих в нее устройств задаются Data ONTAP из специального диапазона адресов </li>
+<li>Сеть имеет топологию “цепочка” (daisy-chain) </li>
+<li>Сеть ACP не соединена с сетью передачи данных </li>
+<li>Будет работать в том числе и при подключении в “общую” сеть (не рекомендуется) </li>
+<li>??спользует для передачи данных специальные порты </li>
+<li>Передаваемые данные шифруются с помощью SSL после начального установления соединения между IP </li>
+</ul>
+<p><strong>Как подключить ACP?</strong>&#160;</p>
+<p><a href="/pics//ds4243acp.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="DS4243-acp" border="0" alt="DS4243-acp" src="/pics//ds4243acp-thumb.png" width="308" height="353" /></a> </p>
+<p>Обратите внимание на то, как и куда подключен левый порт ACP (“квадрат”) на верхней полке.</p>
+<p>Еще один рисунок схемы подключения ACP на полках DS4243 и двух контроллерах.</p>
+<p>&#160;</p>
+<p><a href="/pics//image54.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image-thumb23.png" width="447" height="518" /></a> </p>
+<p>В Data ONTAP появились новые и внесены изменения в ряд некоторых старых команд.</p>
+<p>Обновленные команды:</p>
+<ul>
+<li>sysconfig </li>
+<li>storage show disk </li>
+<li>environment shelf </li>
+</ul>
+<p>Новые команды:</p>
+<ul>
+<li>storage show acp </li>
+<li>storage download acp </li>
+<li>acpadmin list_all </li>
+<li>acpadmin expander_reset </li>
+<li>acpadmin expander_power_cycle </li>
+<li>acpadmin post_data </li>
+<li>acpadmin voltage_status </li>
+</ul>
+<p>Пример вывода команды <strong>storage show acp</strong></p>
+<p><code>Alternate Control Path: enabled      <br />Ethernet Interface: e0b       <br />ACP Status: Active       <br />ACP IP address: 198.15.1.212       <br />ACP domain: 198.15.1.0       <br />ACP netmask: 255.255.255.0       <br />ACP Connectivity Status: Full Connectivity       <br />Shelf Module&#160;&#160;&#160; Reset Cnt&#160;&#160;&#160; IP address&#160;&#160;&#160;&#160;&#160;&#160; FW Version&#160;&#160; Status       <br />&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;       <br />7a.001.A&#160;&#160;&#160;&#160;&#160;&#160;&#160; 002&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 198.15.1.145&#160;&#160;&#160;&#160; 0.6&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; active       <br />7a.001.B&#160;&#160;&#160;&#160;&#160;&#160;&#160; 003&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 198.15.1.146&#160;&#160;&#160;&#160; 0.6&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; active       <br />7c.002.A&#160;&#160;&#160;&#160;&#160;&#160;&#160; 000&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 198.15.1.206&#160;&#160;&#160;&#160; 0.6&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; active       <br />7c.002.B&#160;&#160;&#160;&#160;&#160;&#160;&#160; 001&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 198.15.1.204&#160;&#160;&#160;&#160; 0.6&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; active       <br /></code></p>
+<p>Значения параметров: </p>
+<ul>
+<li>Alternate Control Path: “enabled” или “DISABLED”</li>
+<li>Ethernet Interface: порт, назначенный для ACPA </li>
+<li>ACP status: ”Active” или “Inactive”</li>
+</ul>
+<p>Состояние <strong>ACP Connectivity Status</strong>:</p>
+<ul>
+<li>”No Connectivity” – не подключен ACPP</li>
+<li>”Full Connectivity” – подключен как data path (SAS), так и control path (Ethernet)</li>
+<li>”Partial Connectivity” – у некоторых&#160; IOM подключен только data path (нет соединения с ACP) </li>
+<li>”Additional Connectivity” – у некоторых IOM подключен только ACP (нет соединения с data path) </li>
+<li>&quot;NA” – ACP недоступен или выключен</li>
+</ul>
+<p> Состояние поля <strong>Status</strong> для полок:</p>
+<ul>
+<li>[0x5] “active” </li>
+<li>[0x1] “inactive (initializing)” </li>
+<li>[0x2] “inactive (not ready)” </li>
+<li>[0x3] “inactive (waiting for in-band information)” </li>
+<li>[0x4] “inactive (no in-band connectivity)” </li>
+<li>[0x6] “not-responding (last contact at: &quot;Sat Jan 31 21:40:58 GMT 2010”) </li>
+<li>[0x7] “inactive (upgrading firmware)” </li>
+<li>[0x8] “not-responding (last contact at: &quot;Sat Jan 31 21:40:58 GMT 2010&quot;) </li>
+</ul>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="acp.html" rel="tag">acp</a>, <a href="ds4243.html" rel="tag">ds4243</a>, <a href="netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../701/trackback.html#comments" title="Комментарий к записи ACP &ndash; Alternative Control Path в DS4243">Комментарии (2)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

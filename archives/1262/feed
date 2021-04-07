@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Новинки на EMC World или всегда ли &#8220;рулит софт&#8221;?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1262/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1262</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:38 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Андрей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1262#comment-8565</link>
+		<dc:creator>Андрей</dc:creator>
+		<pubDate>Mon, 22 Jul 2013 09:57:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1262#comment-8565</guid>
+		<description>ЕМС в своем анонсе нового VNX обмолвилось, что реализовала блочную дедубликацию. Есть какая-нибудь информация об этом?</description>
+		<content:encoded><![CDATA[<p>ЕМС в своем анонсе нового VNX обмолвилось, что реализовала блочную дедубликацию. Есть какая-нибудь информация об этом?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: zerg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1262#comment-8309</link>
+		<dc:creator>zerg</dc:creator>
+		<pubDate>Thu, 04 Jul 2013 10:14:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1262#comment-8309</guid>
+		<description>romx:
+
+Растягиваешь удовольствие. :-)</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>Растягиваешь удовольствие. :-)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1262#comment-7827</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 03 Jun 2013 11:42:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1262#comment-7827</guid>
+		<description>Профакапили судя по всему здесь "нынешний VNX7500 имеет 6 ядер на контроллер". Я думал что это ошибка, кто делает один сокет для двухсокетной платформы 5600? Оказывается это фича, наверное что бы с NUMA не заморачиваться. Вот и решили пофиксить платформу.</description>
+		<content:encoded><![CDATA[<p>Профакапили судя по всему здесь &#8220;нынешний VNX7500 имеет 6 ядер на контроллер&#8221;. Я думал что это ошибка, кто делает один сокет для двухсокетной платформы 5600? Оказывается это фича, наверное что бы с NUMA не заморачиваться. Вот и решили пофиксить платформу.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1262#comment-7826</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 03 Jun 2013 11:11:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1262#comment-7826</guid>
+		<description>Александр:
+
+Лично у меня нет особенно никаких других идей, кроме того, что где-то профакапили при разработке аппаратной платформы VNX как таковой, и теперь приходится все переделывать почти с нуля, оттого, что новый софт на нее не встает. 
+У NetApp в этом отношении все же, надо признать, аритектурно таких пролетов не было, ну если не считать довольно таки условный пролет с памятью на 3210, но, строго говоря, это просто вопрос лимитов модели, которые без особенного запаса были посчитаны.
+А так, вот чтобы именно для загрузки многоядерности чтобы надо было делать новую платформу с нуля...
+У 6280 вон тоже не все в порядке с этим было на момент релиза платформы, но какое-то время спустя это все тихонько вошло в норму, именно в виде "софтверного апдейта" (очередной версии ONTAP), починившего недогрузку ядер.</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>Лично у меня нет особенно никаких других идей, кроме того, что где-то профакапили при разработке аппаратной платформы VNX как таковой, и теперь приходится все переделывать почти с нуля, оттого, что новый софт на нее не встает.<br />
+У NetApp в этом отношении все же, надо признать, аритектурно таких пролетов не было, ну если не считать довольно таки условный пролет с памятью на 3210, но, строго говоря, это просто вопрос лимитов модели, которые без особенного запаса были посчитаны.<br />
+А так, вот чтобы именно для загрузки многоядерности чтобы надо было делать новую платформу с нуля&#8230;<br />
+У 6280 вон тоже не все в порядке с этим было на момент релиза платформы, но какое-то время спустя это все тихонько вошло в норму, именно в виде &#8220;софтверного апдейта&#8221; (очередной версии ONTAP), починившего недогрузку ядер.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1262#comment-7825</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Mon, 03 Jun 2013 10:51:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1262#comment-7825</guid>
+		<description>Да, мои зарубежные коллеги тоже принесли с EMC World новости о VNX2 и... VMAX2, которые будут разработаны с нуля. Ни это ли доказательство того, что все эти годы EMC по сути обманывали своих клиентов, что их продукция супер-пупер, перепахивая кривую архитектуру. А теперь нате - мы придумали новый сторадж, забудьте о старом, покупайте новых слонов.</description>
+		<content:encoded><![CDATA[<p>Да, мои зарубежные коллеги тоже принесли с EMC World новости о VNX2 и&#8230; VMAX2, которые будут разработаны с нуля. Ни это ли доказательство того, что все эти годы EMC по сути обманывали своих клиентов, что их продукция супер-пупер, перепахивая кривую архитектуру. А теперь нате - мы придумали новый сторадж, забудьте о старом, покупайте новых слонов.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1262#comment-7819</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 03 Jun 2013 05:16:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1262#comment-7819</guid>
+		<description>Роман, хотелось бы в темах о EMC почитать о технологиях Data Domain - не зря же за них драка была. Тему поста целиком поддерживаю - продали - забыли - полное свинство. С такими "производителями" лучше не связываться вообще. К сожалению, сквозная поддержка продуктов скорее исключение - кроме netapp на ум приходит только cisco.</description>
+		<content:encoded><![CDATA[<p>Роман, хотелось бы в темах о EMC почитать о технологиях Data Domain - не зря же за них драка была. Тему поста целиком поддерживаю - продали - забыли - полное свинство. С такими &#8220;производителями&#8221; лучше не связываться вообще. К сожалению, сквозная поддержка продуктов скорее исключение - кроме netapp на ум приходит только cisco.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Полезные инструменты: UNNOC</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/206/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/206</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:34 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: DepStyle</title>
+		<link>http://blog.aboutnetapp.ru/archives/206#comment-1332</link>
+		<dc:creator>DepStyle</dc:creator>
+		<pubDate>Wed, 04 May 2011 10:08:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=206#comment-1332</guid>
+		<description>Отличная мониторилка срверов по SNMP.
+На мониторинге свитчи, виндовые и линуксовые серваки
+Единственно, что потребовалось мониторить демоны на линуксовых машинах, в отличии от виновых там не отображаются процессы? как это можно исправить?</description>
+		<content:encoded><![CDATA[<p>Отличная мониторилка срверов по SNMP.<br />
+На мониторинге свитчи, виндовые и линуксовые серваки<br />
+Единственно, что потребовалось мониторить демоны на линуксовых машинах, в отличии от виновых там не отображаются процессы? как это можно исправить?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/206#comment-110</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 10 Feb 2009 13:28:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=206#comment-110</guid>
+		<description>Для любых. Он просто собирает и визуализирует отдаваемую по  SNMP из Data ONTAP информацию. Это штатная воможность множества сетевого оборудования, в том числе и нетапповских систем.
+
+Как я понял, это просто набор скриптов на PERL и PHP, формирующие вебстраничку, так что вполне может работать и на Windows, если вебсервер поддерживает PERL и PHP.</description>
+		<content:encoded><![CDATA[<p>Для любых. Он просто собирает и визуализирует отдаваемую по  SNMP из Data ONTAP информацию. Это штатная воможность множества сетевого оборудования, в том числе и нетапповских систем.</p>
+<p>Как я понял, это просто набор скриптов на PERL и PHP, формирующие вебстраничку, так что вполне может работать и на Windows, если вебсервер поддерживает PERL и PHP.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/206#comment-109</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Tue, 10 Feb 2009 12:52:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=206#comment-109</guid>
+		<description>А для каких моделек NetApp подходит этот мониторинговый софт?
+Я так понял пакет только под linux?</description>
+		<content:encoded><![CDATA[<p>А для каких моделек NetApp подходит этот мониторинговый софт?<br />
+Я так понял пакет только под linux?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

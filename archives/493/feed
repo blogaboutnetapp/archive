@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Производительность iSCSI на 10G Ethernet</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/493/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/493</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:15 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-3603</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 22 Sep 2012 12:36:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-3603</guid>
+		<description>Юрий:
+
+Это зависит от множества различных параметров, но попытаться вы, конечно, можете.
+В принципе FAS2240-2 достаточно близка по производительности к midrange 3000 серии.</description>
+		<content:encoded><![CDATA[<p>Юрий:</p>
+<p>Это зависит от множества различных параметров, но попытаться вы, конечно, можете.<br />
+В принципе FAS2240-2 достаточно близка по производительности к midrange 3000 серии.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Юрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-3602</link>
+		<dc:creator>Юрий</dc:creator>
+		<pubDate>Sat, 22 Sep 2012 10:44:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-3602</guid>
+		<description>Верно ли я понимаю, что все это будет справедливо при использовании СХД начального уровня серии FAS2240A, при размещении на нем баз данных?</description>
+		<content:encoded><![CDATA[<p>Верно ли я понимаю, что все это будет справедливо при использовании СХД начального уровня серии FAS2240A, при размещении на нем баз данных?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-2741</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 10:50:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-2741</guid>
+		<description>Алексей:
+
+В первую очередь это свидетельствует о том, что производительность IT-системы в целом совсем не напрямую зависит от производительности канала передачи данных к дискам, и что далеко не для любой задачи расширение полосы пропускания этого канала вдое, вдвое же увеличит производительность этой IT-системы (приложения).
+Только в том случае, если приложение _действтельно_ ограничено этой полосой, а не чем-то другим.</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>В первую очередь это свидетельствует о том, что производительность IT-системы в целом совсем не напрямую зависит от производительности канала передачи данных к дискам, и что далеко не для любой задачи расширение полосы пропускания этого канала вдое, вдвое же увеличит производительность этой IT-системы (приложения).<br />
+Только в том случае, если приложение _действтельно_ ограничено этой полосой, а не чем-то другим.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-2738</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 10:37:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-2738</guid>
+		<description>Убедительно.
+http://media.netapp.com/documents/tr-3916.pdf
+Хорошо.
+П. 2.1 ясно дает понять почему архитекторы проводившие тесты считают, что генерируемая ими нагрузка _универсальна_ в типовой среде.
+Я правильно понимаю, что судя по результатам сего испытания можно смело строить инфраструктуру только с "1Gbe iSCSI", используя Storage серии FAS3200 и выше (в тестах даже 6000-я серия), сугубо для целей создания виртуализованного ЦОД до 128VM. Это ж адская экономия!
+В некоторых графиках 1Gbe iSCSI вообще наибольшую производительность показывает.
+Конечно, если подумать об vMotion, HA, DRS и Storage DRS с этими 128VM, то в этих тестах об этом не говориться. Как я себе представляю: при миграции машин или VMDK 1Gbe может и не хватить. С другой стороны, vmware умеет балансировать нагрузку по нескольким 1Gbe.</description>
+		<content:encoded><![CDATA[<p>Убедительно.<br />
+<a href="http://media.netapp.com/documents/tr-3916.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3916.pdf</a><br />
+Хорошо.<br />
+П. 2.1 ясно дает понять почему архитекторы проводившие тесты считают, что генерируемая ими нагрузка _универсальна_ в типовой среде.<br />
+Я правильно понимаю, что судя по результатам сего испытания можно смело строить инфраструктуру только с &#8220;1Gbe iSCSI&#8221;, используя Storage серии FAS3200 и выше (в тестах даже 6000-я серия), сугубо для целей создания виртуализованного ЦОД до 128VM. Это ж адская экономия!<br />
+В некоторых графиках 1Gbe iSCSI вообще наибольшую производительность показывает.<br />
+Конечно, если подумать об vMotion, HA, DRS и Storage DRS с этими 128VM, то в этих тестах об этом не говориться. Как я себе представляю: при миграции машин или VMDK 1Gbe может и не хватить. С другой стороны, vmware умеет балансировать нагрузку по нескольким 1Gbe.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-2737</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 09:05:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-2737</guid>
+		<description>Алексей:
+
+Вы напрасно считаете, что вы сможете упереться в пропускную способность канала к дискам. Скорее всего вы упретесь во что-то гораздо раньше, и не в него.
+Посмотрите, например, на результаты соответствующего тестирования в документах
+http://media.netapp.com/documents/tr-3916.pdf
+http://media.netapp.com/documents/tr-3846.pdf
+http://media.netapp.com/documents/tr-3476.pdf
+
+Вы заметите, что, строго говоря, даже между 10G и 1G Ethernet тут разница будет невелика. Почему? Потому что производительность в IOPS определяет, преде всего, приложение. Если приложение не в сотстоянии выгребать больше данных с системы хранения, то сколько не увеличивай ее производительность - приложение, если оно системой хранения уже не ограничено, работать быстрей не станет.
+??ли как я уже писал не раз: расширение неиспользуемой части полосы пропускания интерфейса к дискам никак не ускоряет работы приложения. Просто вы расшряете пустынное шоссе с четырех до восьми полос. Машин по нему больше _только от этого_ не поедет, если их неоткуда и некому по этому шоссе послать.</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>Вы напрасно считаете, что вы сможете упереться в пропускную способность канала к дискам. Скорее всего вы упретесь во что-то гораздо раньше, и не в него.<br />
+Посмотрите, например, на результаты соответствующего тестирования в документах<br />
+<a href="http://media.netapp.com/documents/tr-3916.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3916.pdf</a><br />
+<a href="http://media.netapp.com/documents/tr-3846.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3846.pdf</a><br />
+<a href="http://media.netapp.com/documents/tr-3476.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3476.pdf</a></p>
+<p>Вы заметите, что, строго говоря, даже между 10G и 1G Ethernet тут разница будет невелика. Почему? Потому что производительность в IOPS определяет, преде всего, приложение. Если приложение не в сотстоянии выгребать больше данных с системы хранения, то сколько не увеличивай ее производительность - приложение, если оно системой хранения уже не ограничено, работать быстрей не станет.<br />
+??ли как я уже писал не раз: расширение неиспользуемой части полосы пропускания интерфейса к дискам никак не ускоряет работы приложения. Просто вы расшряете пустынное шоссе с четырех до восьми полос. Машин по нему больше _только от этого_ не поедет, если их неоткуда и некому по этому шоссе послать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-2735</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 04:50:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-2735</guid>
+		<description>Я поясню. Понимаю что FC8GB с потенциальной пропускной в 500 тыс IOPS - врядли может стать узким местом на среднем сторадже. Это понятно. Наверное мой вопрос больше относится именно к iSCSI vs FC. Можно ли заменить, если хочется создать инфраструктуру как на FC, но на 10GBe iSCSI.</description>
+		<content:encoded><![CDATA[<p>Я поясню. Понимаю что FC8GB с потенциальной пропускной в 500 тыс IOPS - врядли может стать узким местом на среднем сторадже. Это понятно. Наверное мой вопрос больше относится именно к iSCSI vs FC. Можно ли заменить, если хочется создать инфраструктуру как на FC, но на 10GBe iSCSI.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-2734</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 04:40:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-2734</guid>
+		<description>С этим конечно же согласен. Но если говорить только об интерфейсе, как потенциально узком месте? Например, две одинаковые конфигурации стораджа, одинаковые задачи. Может быть ситуация, когда 8GbFC будет более правильным выбором, нежели 10Gbe iSCSI? (о деньгах за сеть хранения и о преимуществах дешевле/дороже за интерфейс не говорим)
+Если "да" - любой пример частной задачи? Спасибо!</description>
+		<content:encoded><![CDATA[<p>С этим конечно же согласен. Но если говорить только об интерфейсе, как потенциально узком месте? Например, две одинаковые конфигурации стораджа, одинаковые задачи. Может быть ситуация, когда 8GbFC будет более правильным выбором, нежели 10Gbe iSCSI? (о деньгах за сеть хранения и о преимуществах дешевле/дороже за интерфейс не говорим)<br />
+Если &#8220;да&#8221; - любой пример частной задачи? Спасибо!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-2732</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 01:37:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-2732</guid>
+		<description>Алексей:
+
+Это все в значительной мере зависит не от интерфейса, а от задачи, от workload. В общем случае - да. В частном - вы должны сами ответить себе.</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>Это все в значительной мере зависит не от интерфейса, а от задачи, от workload. В общем случае - да. В частном - вы должны сами ответить себе.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-2728</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Fri, 15 Jun 2012 17:01:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-2728</guid>
+		<description>Например, есть хочется купить FAS2240 с интерфейсом 10Gbe вместо 8Gb FC. ?? нужен блочный доступ более отзывчивый, чем 1Gbe iSCSI.</description>
+		<content:encoded><![CDATA[<p>Например, есть хочется купить FAS2240 с интерфейсом 10Gbe вместо 8Gb FC. ?? нужен блочный доступ более отзывчивый, чем 1Gbe iSCSI.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/493#comment-2727</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Fri, 15 Jun 2012 16:55:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=493#comment-2727</guid>
+		<description>А можно ли говорить об сравнимом времени отклика в конфигурациях сугубо блочного доступа: 8Gb FC vs 10Gb iSCSI?
+Другими словами, если требуется низкая задержка при блочном доступе и есть хорошая нагрузка в IOPS - можно ли 8GB FC заменить 10Gb iSCSI?</description>
+		<content:encoded><![CDATA[<p>А можно ли говорить об сравнимом времени отклика в конфигурациях сугубо блочного доступа: 8Gb FC vs 10Gb iSCSI?<br />
+Другими словами, если требуется низкая задержка при блочном доступе и есть хорошая нагрузка в IOPS - можно ли 8GB FC заменить 10Gb iSCSI?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

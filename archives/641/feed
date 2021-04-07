@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Компрессия на WAFL?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/641/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/641</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:05 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/641#comment-633</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 31 Jul 2010 03:24:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=641#comment-633</guid>
+		<description>sanet: Спасибо за информацию. ??сточник сведений я привел, это сотрудник NetApp. Он же пишет в комментах к другой заметке: " general availability of file system compression with NetAp is data ONTAP 8.0.1. But it is in use customers today who had early access to the code with 7.3."
+По видимому вы не &lt;i&gt;had early access the the code&lt;/i&gt; ;)
+Ну и потом PVR это штука такая. Хотят - дадут, не хотят - не дадут. Ждем осени, там будет знатный "урожай" как по харду, так и по софту. :)</description>
+		<content:encoded><![CDATA[<p>sanet: Спасибо за информацию. ??сточник сведений я привел, это сотрудник NetApp. Он же пишет в комментах к другой заметке: &#8221; general availability of file system compression with NetAp is data ONTAP 8.0.1. But it is in use customers today who had early access to the code with 7.3.&#8221;<br />
+По видимому вы не <i>had early access the the code</i> ;)<br />
+Ну и потом PVR это штука такая. Хотят - дадут, не хотят - не дадут. Ждем осени, там будет знатный &#8220;урожай&#8221; как по харду, так и по софту. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sanet</title>
+		<link>http://blog.aboutnetapp.ru/archives/641#comment-624</link>
+		<dc:creator>sanet</dc:creator>
+		<pubDate>Mon, 26 Jul 2010 08:18:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=641#comment-624</guid>
+		<description>Запросил лицензию для 7.3.3.
+Ответ:
+"Такая лицензия будет доступна с осени по процессу FPVR для 8.0.1 и только для архивных данных. 
+В версии 7.х она появилась только в качестве "заглушки".</description>
+		<content:encoded><![CDATA[<p>Запросил лицензию для 7.3.3.<br />
+Ответ:<br />
+&#8220;Такая лицензия будет доступна с осени по процессу FPVR для 8.0.1 и только для архивных данных.<br />
+В версии 7.х она появилась только в качестве &#8220;заглушки&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/641#comment-616</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 23 Jul 2010 14:42:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=641#comment-616</guid>
+		<description>Ну вам и приходится быть осторожными, но я-то в NetApp не работаю ;)
+
+??ли речь о некоторой неоднозначности в формулировке?</description>
+		<content:encoded><![CDATA[<p>Ну вам и приходится быть осторожными, но я-то в NetApp не работаю ;)</p>
+<p>??ли речь о некоторой неоднозначности в формулировке?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/641#comment-614</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Fri, 23 Jul 2010 06:14:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=641#comment-614</guid>
+		<description>я был бы осторожен с фразами "запланирована(запятая) как стандартная опция в 8.0.1, которая выйдет этой осенью"
+удачи.</description>
+		<content:encoded><![CDATA[<p>я был бы осторожен с фразами &#8220;запланирована(запятая) как стандартная опция в 8.0.1, которая выйдет этой осенью&#8221;<br />
+удачи.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

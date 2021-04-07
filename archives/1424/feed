@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp Innovation 2015 - сюрпризы начинаются ;)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1424/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1424</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:02:44 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: besha</title>
+		<link>http://blog.aboutnetapp.ru/archives/1424#comment-15424</link>
+		<dc:creator>besha</dc:creator>
+		<pubDate>Wed, 03 Feb 2016 16:13:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1424#comment-15424</guid>
+		<description>Добрый день! Вопрос не по сабжу.
+Если вы живете и работаете в Москве, можно вас привлечь в действующий краткосрочный проект, в качестве инженера по оборудованию NetApp? Если сами таким не занимаетесь, то может порекомендуете грамотного инженера, которого можно привлечь в частном порядке? подробности по телефону или по эл. почте.</description>
+		<content:encoded><![CDATA[<p>Добрый день! Вопрос не по сабжу.<br />
+Если вы живете и работаете в Москве, можно вас привлечь в действующий краткосрочный проект, в качестве инженера по оборудованию NetApp? Если сами таким не занимаетесь, то может порекомендуете грамотного инженера, которого можно привлечь в частном порядке? подробности по телефону или по эл. почте.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1424#comment-15238</link>
+		<dc:creator>ivan</dc:creator>
+		<pubDate>Thu, 29 Oct 2015 16:52:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1424#comment-15238</guid>
+		<description>Я успел зарегиться)</description>
+		<content:encoded><![CDATA[<p>Я успел зарегиться)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

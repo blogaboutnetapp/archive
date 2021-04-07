@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Flash Pool: некоторые тонкости применения</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1197/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1197</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:10 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-10693</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 23 Oct 2013 03:10:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-10693</guid>
+		<description>Art:
+SSD вообще очень неплохо "живут". По крайней мере те, что используются в энтерпрайз-системах.</description>
+		<content:encoded><![CDATA[<p>Art:<br />
+SSD вообще очень неплохо &#8220;живут&#8221;. По крайней мере те, что используются в энтерпрайз-системах.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Art</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-10685</link>
+		<dc:creator>Art</dc:creator>
+		<pubDate>Tue, 22 Oct 2013 19:02:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-10685</guid>
+		<description>SSD долго живут при использовании для кэша ? :)</description>
+		<content:encoded><![CDATA[<p>SSD долго живут при использовании для кэша ? :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Art</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-10684</link>
+		<dc:creator>Art</dc:creator>
+		<pubDate>Tue, 22 Oct 2013 19:00:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-10684</guid>
+		<description>А где моно посмотреть сколько iops при каком % заполнения выдают гибридные ssd+sas и ssd+sata системы ???</description>
+		<content:encoded><![CDATA[<p>А где моно посмотреть сколько iops при каком % заполнения выдают гибридные ssd+sas и ssd+sata системы ???</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-6069</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 25 Feb 2013 10:16:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-6069</guid>
+		<description>Fas2240 Tech FAQ&#62; In Data ONTAP 8.1.2 the maximum Flash Pool cache size increases to 400GB.</description>
+		<content:encoded><![CDATA[<p>Fas2240 Tech FAQ&gt; In Data ONTAP 8.1.2 the maximum Flash Pool cache size increases to 400GB.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-4897</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 19 Nov 2012 11:24:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-4897</guid>
+		<description>В версии DataOntap 8.2 рейд группа в FlashPool агрегате для SSD не обязана быть такого же типа, как и группа из HDD :)</description>
+		<content:encoded><![CDATA[<p>В версии DataOntap 8.2 рейд группа в FlashPool агрегате для SSD не обязана быть такого же типа, как и группа из HDD :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-3625</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Sun, 23 Sep 2012 18:43:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-3625</guid>
+		<description>спасибо</description>
+		<content:encoded><![CDATA[<p>спасибо</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-3416</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 13 Sep 2012 10:31:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-3416</guid>
+		<description>??звесно ведь, что можно в экстренном случае когда есть агрегат из SAS дисков, а под рукой для замены только SATA (боьшего объёма), то можно его подсунуть ситеме (понятное дело с непредсказуемой производительностью и т.д.). Типа чтобы протянуть до приезда "правильного диска".
+
+А вот интересно, можно сделать тоже самое с FlashPool'ом и заменить SSD на SAS (к примеру), в последствии заменить все SSD и получить как результат FlashPool из SATA и SAS?
+
+Что-то у меня фантазия разыгралась %)</description>
+		<content:encoded><![CDATA[<p>??звесно ведь, что можно в экстренном случае когда есть агрегат из SAS дисков, а под рукой для замены только SATA (боьшего объёма), то можно его подсунуть ситеме (понятное дело с непредсказуемой производительностью и т.д.). Типа чтобы протянуть до приезда &#8220;правильного диска&#8221;.</p>
+<p>А вот интересно, можно сделать тоже самое с FlashPool&#8217;ом и заменить SSD на SAS (к примеру), в последствии заменить все SSD и получить как результат FlashPool из SATA и SAS?</p>
+<p>Что-то у меня фантазия разыгралась %)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-3291</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 06 Sep 2012 14:35:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-3291</guid>
+		<description>bbk:
+
+Вариант работы без spare на midrange не поддерживается.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Вариант работы без spare на midrange не поддерживается.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-3290</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 06 Sep 2012 13:38:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-3290</guid>
+		<description>Я имею ввиду, система даже не даст создать Flash Pool если нет одного Spare диска, или даст но будет ругаться, что его нет?</description>
+		<content:encoded><![CDATA[<p>Я имею ввиду, система даже не даст создать Flash Pool если нет одного Spare диска, или даст но будет ругаться, что его нет?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1197#comment-3285</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 06 Sep 2012 10:08:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1197#comment-3285</guid>
+		<description>bbk:
+
+Все написано, как вы вообще меня читаете?
+Ровно следующий абзац начинается со слов: "&lt;b&gt;Для midrange spare для SSD нужны по-прежнему:&lt;/b&gt;"</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Все написано, как вы вообще меня читаете?<br />
+Ровно следующий абзац начинается со слов: &#8220;<b>Для midrange spare для SSD нужны по-прежнему:</b>&#8220;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

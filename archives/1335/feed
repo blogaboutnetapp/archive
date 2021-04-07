@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Четыре порта 10G в Cluster Interconnect</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1335/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1335</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:21 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1335#comment-13485</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 25 Jun 2014 13:32:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1335#comment-13485</guid>
+		<description>Sl0n:
+
+Есть &lt;b&gt;рекомендация&lt;/b&gt;. Все.</description>
+		<content:encoded><![CDATA[<p>Sl0n:</p>
+<p>Есть <b>рекомендация</b>. Все.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1335#comment-13484</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Wed, 25 Jun 2014 13:11:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1335#comment-13484</guid>
+		<description>Еще такая информация: для FAS8040 и выше это обязательное условие использовать 4 встроенных порта, 2 - вообще не вариант.</description>
+		<content:encoded><![CDATA[<p>Еще такая информация: для FAS8040 и выше это обязательное условие использовать 4 встроенных порта, 2 - вообще не вариант.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1335#comment-13483</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Wed, 25 Jun 2014 10:48:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1335#comment-13483</guid>
+		<description>Вопрос: на сколько разумно использовать только e0* интерфесы? Правильно ли я понимаю, что в этом используется единственный контроллер и, если он "сгорит", то весь контроллер будет недоступен для остальных нод кластера?</description>
+		<content:encoded><![CDATA[<p>Вопрос: на сколько разумно использовать только e0* интерфесы? Правильно ли я понимаю, что в этом используется единственный контроллер и, если он &#8220;сгорит&#8221;, то весь контроллер будет недоступен для остальных нод кластера?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Бесплатные Flash Cache для FAS6240/80</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/997/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/997</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:33 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1645</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Fri, 26 Aug 2011 08:23:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1645</guid>
+		<description>Принято конечное. Вот сейчас ЕМС дарит 2-йное дисковое пространство для своих старых систем. :)</description>
+		<content:encoded><![CDATA[<p>Принято конечное. Вот сейчас ЕМС дарит 2-йное дисковое пространство для своих старых систем. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1644</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 26 Aug 2011 08:03:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1644</guid>
+		<description>Сергей:
+
+Нет, все равно не вырисовывается логика.
+Вот, допустим покупаете вы дорогой автомобиль, и салон вам бонусом дарит на него ксеноновый свет вместо штатного. Означает ли, что ксеноновые лампочки снимаются с производства?
+Очевидно что нет. Это просто стимул выбрать, допустим, 6240 вместо 6210, или же дополнительно продвинуть на рынок Flash Cache, который хорошо работает для больших нагрузок "старших" систем, где его цена в общей цене решения сравнительно невелика, и тем самым поднять лояльность покупателя, который получает еще больше производительности за свои деньги.
+
+У вас в Украине не принято делать подарки покупателям, и так хорошо продается все? ;)</description>
+		<content:encoded><![CDATA[<p>Сергей:</p>
+<p>Нет, все равно не вырисовывается логика.<br />
+Вот, допустим покупаете вы дорогой автомобиль, и салон вам бонусом дарит на него ксеноновый свет вместо штатного. Означает ли, что ксеноновые лампочки снимаются с производства?<br />
+Очевидно что нет. Это просто стимул выбрать, допустим, 6240 вместо 6210, или же дополнительно продвинуть на рынок Flash Cache, который хорошо работает для больших нагрузок &#8220;старших&#8221; систем, где его цена в общей цене решения сравнительно невелика, и тем самым поднять лояльность покупателя, который получает еще больше производительности за свои деньги.</p>
+<p>У вас в Украине не принято делать подарки покупателям, и так хорошо продается все? ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1643</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Fri, 26 Aug 2011 07:30:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1643</guid>
+		<description>Логика такая же как и при продаже со скидками СХД снимаемых с производства.</description>
+		<content:encoded><![CDATA[<p>Логика такая же как и при продаже со скидками СХД снимаемых с производства.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1642</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 26 Aug 2011 07:23:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1642</guid>
+		<description>Сергей:
+
+Снова задам вопрос: не могли бы вы пояснять логикуу вывода, приведшую вас к такой гипотезе?</description>
+		<content:encoded><![CDATA[<p>Сергей:</p>
+<p>Снова задам вопрос: не могли бы вы пояснять логикуу вывода, приведшую вас к такой гипотезе?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1641</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 26 Aug 2011 07:21:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1641</guid>
+		<description>Киселев Сергей:
+
+Ну тут такая ситуация, пока официальной публикации прессрелиза нет, я могу писать о какой-то внутренней новости тольуо ссылаясь на кого-то, кто "утек" информацию в паблик раньше меня, чтобы не ссориться на этой почве с Нетаппом. В данном случае источник у меня вот такой вот &lt;i&gt;желтый&lt;/i&gt;. :)
+
+Да, в сентябре, традиционно, много новинок объявляют. Вот, ждем 8.1, например.</description>
+		<content:encoded><![CDATA[<p>Киселев Сергей:</p>
+<p>Ну тут такая ситуация, пока официальной публикации прессрелиза нет, я могу писать о какой-то внутренней новости тольуо ссылаясь на кого-то, кто &#8220;утек&#8221; информацию в паблик раньше меня, чтобы не ссориться на этой почве с Нетаппом. В данном случае источник у меня вот такой вот <i>желтый</i>. :)</p>
+<p>Да, в сентябре, традиционно, много новинок объявляют. Вот, ждем 8.1, например.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1640</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Fri, 26 Aug 2011 07:19:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1640</guid>
+		<description>А не значит ли это, что НетАпп хочет отказаться от плат PAM II в пользу Flash Cache на обычных SSD дисках?</description>
+		<content:encoded><![CDATA[<p>А не значит ли это, что НетАпп хочет отказаться от плат PAM II в пользу Flash Cache на обычных SSD дисках?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Киселев Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1639</link>
+		<dc:creator>Киселев Сергей</dc:creator>
+		<pubDate>Fri, 26 Aug 2011 06:53:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1639</guid>
+		<description>Официальная информация есть. ??зменения вступят с 12 сентября.</description>
+		<content:encoded><![CDATA[<p>Официальная информация есть. ??зменения вступят с 12 сентября.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1634</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 25 Aug 2011 08:32:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1634</guid>
+		<description>Алексей:
+
+Дайте угадаю. Вы не продавец? ;)</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>Дайте угадаю. Вы не продавец? ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1633</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 25 Aug 2011 08:17:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1633</guid>
+		<description>Это надо быть очень глупым продавцом, чтобы бесплатно отдавать то, что хорошо продаётся. Особенно, если это недешёвое устройство.</description>
+		<content:encoded><![CDATA[<p>Это надо быть очень глупым продавцом, чтобы бесплатно отдавать то, что хорошо продаётся. Особенно, если это недешёвое устройство.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/997#comment-1632</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 25 Aug 2011 07:28:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/997#comment-1632</guid>
+		<description>Minus:
+Алексей:
+
+Да, конечно, внимательные вы мои :) Поправил.
+
+Время? А фиг знает. Скорее всего - да, по бангкокскому времени ;), GMT+7.
+
+О количестве Flash Cache: справочник (в котором пока указаны, правда, только 512GB карты.)
+говорит, что максимальное количество карт Flash Cache 512GB:
+6280 - 8 карт, 6240 - 6, 6210 - 3 карты на контроллер.
+
+&gt; ?? второе, если такую популярную вещь, что, по словам представителей NetApp, ставится практически в каждый второй массив, продают бесплатно, не говорит ли о весьма плохом мнении NetApp о своём положении на рынке?
+
+Э-э-э... Не понял логики вывода, поясните.
+По моему наоборот, NetApp настолько устойчиво себя чувствует, что готова дарить довольно недешевое устройство покупателям своих систем, потому что считает, что оно себя окупает и так.</description>
+		<content:encoded><![CDATA[<p>Minus:<br />
+Алексей:</p>
+<p>Да, конечно, внимательные вы мои :) Поправил.</p>
+<p>Время? А фиг знает. Скорее всего - да, по бангкокскому времени ;), GMT+7.</p>
+<p>О количестве Flash Cache: справочник (в котором пока указаны, правда, только 512GB карты.)<br />
+говорит, что максимальное количество карт Flash Cache 512GB:<br />
+6280 - 8 карт, 6240 - 6, 6210 - 3 карты на контроллер.</p>
+<p>> ?? второе, если такую популярную вещь, что, по словам представителей NetApp, ставится практически в каждый второй массив, продают бесплатно, не говорит ли о весьма плохом мнении NetApp о своём положении на рынке?</p>
+<p>Э-э-э&#8230; Не понял логики вывода, поясните.<br />
+По моему наоборот, NetApp настолько устойчиво себя чувствует, что готова дарить довольно недешевое устройство покупателям своих систем, потому что считает, что оно себя окупает и так.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: DS2246 &#8211; внешний вид и подробности</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/730/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/730</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:56 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/730#comment-901</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 21 Oct 2010 10:01:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=730#comment-901</guid>
+		<description>Нет, все тот же ;)</description>
+		<content:encoded><![CDATA[<p>Нет, все тот же ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrew</title>
+		<link>http://blog.aboutnetapp.ru/archives/730#comment-900</link>
+		<dc:creator>Andrew</dc:creator>
+		<pubDate>Thu, 21 Oct 2010 09:29:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=730#comment-900</guid>
+		<description>Судя по внешнему виду, сменился производитель железа? Не поделили его с IBM? :)</description>
+		<content:encoded><![CDATA[<p>Судя по внешнему виду, сменился производитель железа? Не поделили его с IBM? :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: SnapCreator вблизи. Часть 1.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1345/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1345</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:21 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1345#comment-13232</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Wed, 14 May 2014 16:19:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1345#comment-13232</guid>
+		<description>Odna Ptichka:
+&#62;А вот с интерацией со snapmirror и особенно с SnapVault в с-mode я был был осторожен. 
+Соглашусь. У меня до сих пор, кстати, стоит в шорт-листе тест взаимодействия SnapMirror+SRM и бэкапами через VSC :). Ну, лишний раз повод проверить всё в лабе, благо технически всё достаточно просто.</description>
+		<content:encoded><![CDATA[<p>Odna Ptichka:<br />
+&gt;А вот с интерацией со snapmirror и особенно с SnapVault в с-mode я был был осторожен.<br />
+Соглашусь. У меня до сих пор, кстати, стоит в шорт-листе тест взаимодействия SnapMirror+SRM и бэкапами через VSC :). Ну, лишний раз повод проверить всё в лабе, благо технически всё достаточно просто.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1345#comment-13209</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Sun, 11 May 2014 16:43:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1345#comment-13209</guid>
+		<description>2 Nostromo
+-----
+ 
+я говорил про заявленый фунционал интеграции  Veeam Backup &#38; Replication и функционала NetApp. В том, что сам продукт B&#38;R  выполняет свои базовые функции соменения нет. Штука понятная и широкоиспользуемая. Но вот глубина интерации требует исследований. Пока все на уровне рекламных проспектов.  Думаю, что в части мгновенный копий скорее все работает, чем нет. А вот с интерацией со snapmirror и особенно с SnapVault в с-mode  я был был осторожен.  
+
+надеюсь, что не запутал. :)</description>
+		<content:encoded><![CDATA[<p>2 Nostromo<br />
+&#8212;&#8211;</p>
+<p>я говорил про заявленый фунционал интеграции  Veeam Backup &amp; Replication и функционала NetApp. В том, что сам продукт B&amp;R  выполняет свои базовые функции соменения нет. Штука понятная и широкоиспользуемая. Но вот глубина интерации требует исследований. Пока все на уровне рекламных проспектов.  Думаю, что в части мгновенный копий скорее все работает, чем нет. А вот с интерацией со snapmirror и особенно с SnapVault в с-mode  я был был осторожен.  </p>
+<p>надеюсь, что не запутал. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: comotoza</title>
+		<link>http://blog.aboutnetapp.ru/archives/1345#comment-13177</link>
+		<dc:creator>comotoza</dc:creator>
+		<pubDate>Tue, 06 May 2014 11:45:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1345#comment-13177</guid>
+		<description>как с помощью SC обеспечить бекап приложений внутри ВМ в среде сервис провайдера, когда sc не будет иметь прямого доступа к ВМ и приложениям внутри их?
+спрашиваю потому, что раньше была поддержка vmware vcloud director, но вроде как могло бекапить только vapp без консистентности приложения</description>
+		<content:encoded><![CDATA[<p>как с помощью SC обеспечить бекап приложений внутри ВМ в среде сервис провайдера, когда sc не будет иметь прямого доступа к ВМ и приложениям внутри их?<br />
+спрашиваю потому, что раньше была поддержка vmware vcloud director, но вроде как могло бекапить только vapp без консистентности приложения</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1345#comment-13176</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 06 May 2014 10:22:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1345#comment-13176</guid>
+		<description>romx:
+&#62;Informix for Solaris/SPARC?
+По-моему, это как раз гораздо более нишевый продукт, чем veeam :). Да и они уже 8 лет на рынке, тогда уж скорее какой-нибудь Nutanix "уйдёт" :D (уж простите, за оффтопик).
+
+Odna ptichka:
+Я не совсем понял, какие обещания вы имеете ввиду. Я говорил с veeam-овскими пресейлами и у меня сложилось впечатление, что у них весьма зрелый продукт для виртуальных сред, на большее они и не претендуют.</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+&gt;Informix for Solaris/SPARC?<br />
+По-моему, это как раз гораздо более нишевый продукт, чем veeam :). Да и они уже 8 лет на рынке, тогда уж скорее какой-нибудь Nutanix &#8220;уйдёт&#8221; :D (уж простите, за оффтопик).</p>
+<p>Odna ptichka:<br />
+Я не совсем понял, какие обещания вы имеете ввиду. Я говорил с veeam-овскими пресейлами и у меня сложилось впечатление, что у них весьма зрелый продукт для виртуальных сред, на большее они и не претендуют.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1345#comment-13149</link>
+		<dc:creator>Odna ptichka</dc:creator>
+		<pubDate>Sat, 03 May 2014 05:34:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1345#comment-13149</guid>
+		<description>Veeam пока только обещания и беты, или что-то упустил?.Притом они обещают реализацию поддержки snap vault на Cdot начиная с 8.1:) А это немного странно, не 
+
+А так альтернатив sc достаточно. Simpana/snapProtect, NBU ...но дальше нужно нудно смотреть в матрицы, что на самом деле работает и с  какими ограничениями...
+
+SC интересен, так как обещают, что следующее поколение snap manager будет реализовано на его основе.</description>
+		<content:encoded><![CDATA[<p>Veeam пока только обещания и беты, или что-то упустил?.Притом они обещают реализацию поддержки snap vault на Cdot начиная с 8.1:) А это немного странно, не </p>
+<p>А так альтернатив sc достаточно. Simpana/snapProtect, NBU &#8230;но дальше нужно нудно смотреть в матрицы, что на самом деле работает и с  какими ограничениями&#8230;</p>
+<p>SC интересен, так как обещают, что следующее поколение snap manager будет реализовано на его основе.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1345#comment-13139</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 02 May 2014 10:03:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1345#comment-13139</guid>
+		<description>Не вижу связи. Veeam это продукт для узкой ниши, который, вдобавок, приходит и, возможно, уходит. Как Veeam поможет вам забыкапить, например, базу Informix for Solaris/SPARC?</description>
+		<content:encoded><![CDATA[<p>Не вижу связи. Veeam это продукт для узкой ниши, который, вдобавок, приходит и, возможно, уходит. Как Veeam поможет вам забыкапить, например, базу Informix for Solaris/SPARC?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1345#comment-13138</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Fri, 02 May 2014 09:51:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1345#comment-13138</guid>
+		<description>В свете интеграции Veeam с DOT, по-моему, SnapCreator выглядит как-то не особо, как вы считаете?</description>
+		<content:encoded><![CDATA[<p>В свете интеграции Veeam с DOT, по-моему, SnapCreator выглядит как-то не особо, как вы считаете?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: ??зменения в схеме лицензирования Data ONTAP 8.2</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1252/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1252</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:01 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Артур</title>
+		<link>http://blog.aboutnetapp.ru/archives/1252#comment-6876</link>
+		<dc:creator>Артур</dc:creator>
+		<pubDate>Mon, 15 Apr 2013 10:41:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1252#comment-6876</guid>
+		<description>"На практике, для честного приобретателя, это означает, что теперь, при замене контроллера (head swap), вам также потребуется получит под его серийник новый набор ключей. Соответственно усложняется и удлиняется эта, ранее довольно простая, процедура." - все не так плохо. Можно будет менять голову сразу, не дожидаясь получения ключей. Будет 90 дней на получение новых лицензионных ключей.
+
+"For Data ONTAP 8.2 7-mode HA-Pairs that experience a failover, Data ONTAP 8.2 will automatically enable a 90 day grace period on any replacement controller (when installed) for all the features licensed on the failed controller."</description>
+		<content:encoded><![CDATA[<p>&#8220;На практике, для честного приобретателя, это означает, что теперь, при замене контроллера (head swap), вам также потребуется получит под его серийник новый набор ключей. Соответственно усложняется и удлиняется эта, ранее довольно простая, процедура.&#8221; - все не так плохо. Можно будет менять голову сразу, не дожидаясь получения ключей. Будет 90 дней на получение новых лицензионных ключей.</p>
+<p>&#8220;For Data ONTAP 8.2 7-mode HA-Pairs that experience a failover, Data ONTAP 8.2 will automatically enable a 90 day grace period on any replacement controller (when installed) for all the features licensed on the failed controller.&#8221;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1252#comment-6870</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 15 Apr 2013 05:48:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1252#comment-6870</guid>
+		<description>Odna Ptichka:
+
+Спасибо за комментарий, сейчас я добавлю отсылку с соответствующего пункта сюда.
+</description>
+		<content:encoded><![CDATA[<p>Odna Ptichka:</p>
+<p>Спасибо за комментарий, сейчас я добавлю отсылку с соответствующего пункта сюда.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1252#comment-6869</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Mon, 15 Apr 2013 05:27:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1252#comment-6869</guid>
+		<description>Ром,  ты можешь ввести в заблуждение : 
+"Наконец, лицензи могут существовать “не-cluster-wide”, например часть узлов в кластере может иметь один набор лицензий, а часть – другой, оставаясь при этом единым кластером. "
+
+Да, Data ONTAP  не проверяет лицензирование на разных HA парах. Но вопрос стоит так: 
+- можно  ли установить разные лицензии на разных узлах - ответ, да, теоретически. 
+- а будет ли поддерживаться конфигурация с разным набором функционала  на разных узлах - ответ, нет.
+
+О чем тогда мы говорим?  Просто речь идет о  том, что нет обязательств по покупке одинаковых лицензий, если часть лицензий уже была куплена. У нас ведь динамическая система, можно узлы добавлять и выводить из кластера.   А лицензии привязаны к узлам.  В этом случае, есть желание избежать навязывания ненужных лицензий. 
+
+Так у нас есть кластер с 4 узлами, где лицензирован только NFS. ?? мы добавляем еще пару узлов с premium bundle  ( аналог complete bundle, где включены все лицензии). В этом случае покупать ненужные лицензии на первые четыре контроллера не надо, но  на всех 6 узлах кластера  должен использоваться только NFS.  Тогда это будет поддерживаемой конфигурацией. 
+
+#uniform entitlement policy</description>
+		<content:encoded><![CDATA[<p>Ром,  ты можешь ввести в заблуждение :<br />
+&#8220;Наконец, лицензи могут существовать “не-cluster-wide”, например часть узлов в кластере может иметь один набор лицензий, а часть – другой, оставаясь при этом единым кластером. &#8221;</p>
+<p>Да, Data ONTAP  не проверяет лицензирование на разных HA парах. Но вопрос стоит так:<br />
+- можно  ли установить разные лицензии на разных узлах - ответ, да, теоретически.<br />
+- а будет ли поддерживаться конфигурация с разным набором функционала  на разных узлах - ответ, нет.</p>
+<p>О чем тогда мы говорим?  Просто речь идет о  том, что нет обязательств по покупке одинаковых лицензий, если часть лицензий уже была куплена. У нас ведь динамическая система, можно узлы добавлять и выводить из кластера.   А лицензии привязаны к узлам.  В этом случае, есть желание избежать навязывания ненужных лицензий. </p>
+<p>Так у нас есть кластер с 4 узлами, где лицензирован только NFS. ?? мы добавляем еще пару узлов с premium bundle  ( аналог complete bundle, где включены все лицензии). В этом случае покупать ненужные лицензии на первые четыре контроллера не надо, но  на всех 6 узлах кластера  должен использоваться только NFS.  Тогда это будет поддерживаемой конфигурацией. </p>
+<p>#uniform entitlement policy</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1252#comment-6868</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 15 Apr 2013 01:55:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1252#comment-6868</guid>
+		<description>panvartan:
+
+Да даже и между разными. ??наче как можно было взять голову и поменять ее в процессе "data in place" upgrade, загрузившись с root volume, то есть, фактически, с полным identity от другой системы.
+Но не "были", а "могли бы быть", потому что ключи разных аккаунтов все же разные. Но контроировалось это, как я понимаю, только саппортом.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Да даже и между разными. ??наче как можно было взять голову и поменять ее в процессе &#8220;data in place&#8221; upgrade, загрузившись с root volume, то есть, фактически, с полным identity от другой системы.<br />
+Но не &#8220;были&#8221;, а &#8220;могли бы быть&#8221;, потому что ключи разных аккаунтов все же разные. Но контроировалось это, как я понимаю, только саппортом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1252#comment-6825</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Thu, 11 Apr 2013 19:32:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1252#comment-6825</guid>
+		<description>те раньше лицензионные ключи были одинаковыми в рамках одной модели?</description>
+		<content:encoded><![CDATA[<p>те раньше лицензионные ключи были одинаковыми в рамках одной модели?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

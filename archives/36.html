@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Thin Provisioning</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="27/trackback.html">Тестирование производительности, part 2</a></div>
+			<div class="alignright"><a href="37/trackback.html">Тестирование с помощью IOmeter</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-36">
+			<h2 class="posttitle"><a href="36/trackback.html" rel="bookmark" title="Permanent Link to Thin Provisioning">Thin Provisioning</a></h2>
+			<div class="postmetadata">7 Август 2007, 19:25 <!-- от  --></div>
+			<div class="postentry">
+				<p>Серьезной проблемой при эксплуатации систем хранения является непроизводительный расход распределенного места на дисковом томе.</p>
+<p>Одной из причин, приведших к использованию &#8220;сетей хранения&#8221; - SAN - было стремление уйти от жестко &#8220;распределеного&#8221; по серверам пространства хранения. Сервер с двумя дисками 144GB в RAID1 обладает пространством хранения в 144GB, даже если использует для своей работы значительно меньше (например 5GB OS + 15GB DB = 20GB, остаток неиспользуемого пространства - 124GB).<br />
+Но, к сожалению, использовать там где оно нужно это неиспользуемое место на локальных дисках DAS (Direct Attached Storage) для работы практически невозможно. Сейчас мы не рассматриваем разные попытки выхода из положения, например путем создания на свободном месте пространства дисков архивной &#8220;файлопомойки&#8221; с помощью DFS или просто в виде множества shares.</p>
+<p>Причем необходимость повышения производительности дисковой группы, которая часто возможна только путем увеличения количества задействованных &#8220;шпинделей&#8221;, только усугубляет ситуацию.<br />
+Прорывом в этой области явилось использование SAN, то есть объединения пространства всех &#8220;байтов&#8221; на дисках в некое единое поле, из которого можно нарезать столько, сколько необходимо конкретному серверу.</p>
+<p>Однако довольно скоро использующие SAN столкнулись с другим вариантом непроизводительного расхода простанства.</p>
+<p>Представим себе реальную практическую ситуацию в компании, использующей централизованный SAN-storage.<br />
+DB-админ создает новую базу данных, для размещения которой ему нужен новый дисковый раздел (LUN - Logical Unit Number - логический &#8220;диск&#8221; в SAN-сети). Текущий объем базы 10GB. Однако чтобы в случае необходимости была возможность роста объемов DB-админ намеревается просить больше. <em>&#8220;Рост в течении года будет ну например вдвое. Ну хорошо, значит 20GB минимум, ну на всякие непредвиденные расходы попрошу еще 10. ??того 30GB. Как говорится &#8216;проси больше - дадут меньше&#8217;, напишу в заявке 50 GB. Должно хватить.&#8221;</em></p>
+<p>Заявка попадает к администратору SAN, которому всегда есть чем заняться кроме как высчитывать место.<br />
+<em>&#8220;Ох уж эти мне DB-админы. Куда они столько места расходуют? ?? все ходят, все просят еще и еще. Сколько там? 50GB? ?? через месяц опять придут просить увеличить? Такая морока. Ладно, нарежу им по 75GB, или даже по 100GB, чтобы два раза не вставать, может так хоть оставят в покое подольше?&#8221;</em></p>
+<p>??так, реально используемые 10GB данных вольготно расположились на пространстве вдесятеро большем (ну или впятеро, если следовать заявке dbadmin). Беда заключается в том, что, несмотря на все технологические достижения SAN в области экономии пространства, то пространство хранения, которое &#8220;нарезано&#8221; на LUN-ы уже недоступно для использования, кроме как той системой, которой принадлежит LUN, даже в том случае, если оно физически не используется внутри этого LUN-а.<br />
+Дорогостоящее пространство на FC-дисках занято, хотя и не используется, и не может быть использовано там, где оно, вдруг может понадобиться. ?? так на каждом из десятков, возможно сотен, LUN-ов.</p>
+<p>То есть мы получаем ситуацию, описанную выше с DAS, но на новом технологическом уровне и за значительно б<em>О</em>льшие деньги. ;)<br />
+??сследования показывают, что на современных системах хранения степень заполнения LUN-ов данными как правило от четверти до половины его общего объема. ?? это еще достаточно оптимистическая оценка.</p>
+<p>??менно решению этой проблемы посвящена концепция <a target="_blank" href="http://en.wikipedia.org/wiki/Thin_provisioning">thin provisioning</a>-а. К сожалению термин этот достаточно новый, и адекватного перевода на русский для него пока не устоялось, я предпочитаю использовать словосочетание &#8220;экономное распределение&#8221;.</p>
+<p><a target="_blank" href="http://en.wikipedia.org/wiki/Thin_provisioning">Суть его</a> заключается в том, что в системе хранения пространство, даже если оно выделено какому-то LUN-у, не исключается окончательно из общего пространства &#8220;свободных байтов&#8221; системы хранения, а занимается (и вычитается из него) только по мере реального заполнения этих байтов пользовательскими данными.</p>
+<p><img width="517" src="http://blog.aboutnetapp.ru/pics/thinpro.gif" height="270" /></p>
+<p>Это некий аналог &#8220;кредитной карточки&#8221; в системах хранения. Ваш &#8220;виртуальный бюджет&#8221;, выделенный &#8220;в кредит&#8221;, обеспеченный массивом свободных денег банка, больше чем физический объем ваших денег на счету банка. А за счет того, что пользователь &#8220;кредитной карточки&#8221; не вычерпывает свой &#8220;кредитный лимит&#8221; немедленно, возникает возможность более гибкого его распределения между всеми пользователями банка.</p>
+<p>??спользование thin provisioning-а позволяет эффективно расходовать имеющееся пространство системы хранения, а экономия места на SAN-сторадже может выражаться во вполне осязаемых тысячах долларов, которые пожирает ежегодно бюджет IT-подразделения на неизбежное расширение емкостей хранения. При этом, прошу отметить, вы отнюдь не принуждены экономить и затягивать пояс. Нет, просто в рассмотренном выше случае про базу данных и ее админа, dbadmin получит свои 50GB, по крайней мере размер выделенного LUN-а ему будет такой. Однако из свободного пространства системы хранения вычтется те 10GB, которые он займет своей базой. Ну а когда через год она у него подрастет до 20, вот тогда и вычтется 20. То есть несмотря на выделение вашей кредитной карточке банка &#8216;SAN Bank&#8217; ;) лимита в 20 тысяч долларов, которые вы вправе при необходимости потратить, общий объем доступных банку в этот момент для операций средств отнюдь не уменшается на 20K$.</p>
+<p>Если не брать во внимание &#8220;динозавров иных эпох&#8221; типа IBM MVS и прочих мэйнфреймов, первой эту идею реализовала &#8220;в железе&#8221; компания <a target="_blank" href="http://3par.com/products/thinprovisioning.php">3PAR</a> (и следом ряд других столь же малоизвестных пока компаний: Compellent, EqualLogic, Pillar Data), а уж затем о технологии thin provisioning-а заговорили все.</p>
+<p>Одной из первых среди крупных вендоров &#8220;первого эшелона&#8221; thin provisioning для своих систем реализовала также и <strong>NetApp</strong>, причем, как и ранее, возможности thin provisioning-а стали доступны в том числе и для ранее выпущенных систем NetApp после обновления внутренней OS.<br />
+Это стало возможным не только за счет реализации многих ключевых особенностей систем хранения Network Appliance как встроенных функций внутренней OS, но и за счет продуманной и эффективной внутренней файловой системы WAFL и структур &#8221;виртуализованных томов&#8221; FlexVol в OS Data ONTAP G7, которые позволяют реализовать возможности концепции thin provisioning просто, &#8220;бесшовно&#8221; и с минимальным возможным ущербом для производительности.</p>
+<p>??з известных вендоров систем хранения безусловно стоит упомянуть также системы Hitachi Tagmastore USP, в которых этим летом также, в той или иной степени, наконец была реализована идея &#8220;экономного распределения&#8221; емкости с использованием их методов виртуализации (хотя, <a target="_blank" href="http://thestorageanarchist.typepad.com/weblog/2007/07/0014-beware-of-.html">как оказалось</a>, и со множеством ограничений по использованию).<br />
+Для NAS эту технологию в какой-то степени реализовала и EMC в своих системах Celerra.</p>
+<p>Так или иначе, но идея экономного распределения емкости и эффективной экономии дискового пространства с ее помощью отчеливо захватила вендоров систем хранения данных, и по праву называется сейчас одним из &#8220;хитов сезона&#8221;. ??меет смысл обратить внимание на это решение.</p>
+<p><strong>Еще почитать:</strong></p>
+<p><a target="_blank" href="http://www.netapp.com/ftp/wp-thin-provisioning.pdf">NETAPP THIN PROVISIONING: BETTER FOR BUSINESS</a><br />
+Paul Feresten and Quinn Summers, Network Appliance, Inc.<br />
+March 2007 | WP-7017-0307</p>
+<p><a target="_blank" href="http://www.netapp.com/library/tr/3483.pdf">Thin Provisioning in a NetApp SAN or IP SAN Enterprise Environment</a><br />
+Richard Jooss, Network Appliance, Inc.<br />
+June 2006, TR-3483</p>
+<p><a target="_blank" href="http://searchstorage.techtarget.com/originalContent/0,289142,sid5_gci1025747,00.html">NetApp eases storage provisioning pain</a><br />
+By Jo Maitland, News Director<br />
+15 Nov 2004 | SearchStorage.com</p>
+<p><a target="_blank" href="http://www.eweek.com/article2/0,1895,2155586,00.asp">Deduplication, Thin Provisioning: Top Storage Trends</a><br />
+By Chris Preimesberger July 6, 2007</p>
+<p><a target="_blank" href="http://www.3par.com/documents/ESG_Report_Thin_Provisioning_0406.pdf">ESG group analysis: Thin Provisioning</a><br />
+By Tony Asaro Senior Analyst April 2006</p>
+<p><a target="_blank" href="http://www.3par.com/documents/3PAR-tp-wp-01.2.pdf">3PAR Thin Provisioning</a><br />
+By: Geoffrey Hough, Sr. Marketing Manager with Sandeep Singh, Product Manager</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+										Раздел: <a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="36/trackback.html#respond">Комментарий</a> (<a href='36/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="36/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (2)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-41">
+		<div id="div-comment-41">
+		<div class="comment-author">
+			<cite><a href='159/trackback.html' rel='external nofollow'>VMware на NetApp NFS - подробности о плюсах, детальный разбор | about NetApp</a>:<cite></div>
+			<p>[...] Provisioning (подробнее было здесь) Я уже ранее писал о thin provisioning. Это любопытная [...]</p>
+						<div class="comment-meta"><a href="36/trackback.html#comment-41" title="">5 Сентябрь 2008, 8:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-72">
+		<div id="div-comment-72">
+		<div class="comment-author">
+			<cite><a href='http://blogs.sysfaq.ru/minus/thin-provisioning/' rel='external nofollow'>Блог Минуса:кратко обо всем в ??Т &raquo; Blog Archive &raquo; Концепция Thin Provisioning</a>:<cite></div>
+			<p>[...] в системах SAN. Оригинал статьи расположен по этой ссылке, в очень интересном блоге, посвященном системам [...]</p>
+						<div class="comment-meta"><a href="36/trackback.html#comment-72" title="">18 Сентябрь 2008, 16:10</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="36" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.070 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

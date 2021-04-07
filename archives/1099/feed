@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Настраиваем Data Ontap Simulator 8</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1099/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1099</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:25 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: ??горь</title>
+		<link>http://blog.aboutnetapp.ru/archives/1099#comment-10631</link>
+		<dc:creator>??горь</dc:creator>
+		<pubDate>Sun, 20 Oct 2013 11:45:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1099#comment-10631</guid>
+		<description>Не пойму, а как правильно выполнять команды приведенные в статье ?
+
+
+hm-dontap-01::&#62; options autosupport.enable off
+
+ERROR: "options" is not a recognized command
+
+hm-dontap-01::&#62;
+
+Синтаксис который сработал:
+
+hm-dontap-01::&#62; autosupport modify -node hm-dontap-01 -state disable
+  (system node autosupport modify)
+
+hm-dontap-01::&#62; autosupport show
+  (system node autosupport show)
+Node                  State     From          To            Mail Hosts
+--------------------- --------- ------------- ------------- ----------
+hm-dontap-01          disable   Postmaster    -             mailhost
+
+hm-dontap-01::&#62;</description>
+		<content:encoded><![CDATA[<p>Не пойму, а как правильно выполнять команды приведенные в статье ?</p>
+<p>hm-dontap-01::&gt; options autosupport.enable off</p>
+<p>ERROR: &#8220;options&#8221; is not a recognized command</p>
+<p>hm-dontap-01::&gt;</p>
+<p>Синтаксис который сработал:</p>
+<p>hm-dontap-01::&gt; autosupport modify -node hm-dontap-01 -state disable<br />
+  (system node autosupport modify)</p>
+<p>hm-dontap-01::&gt; autosupport show<br />
+  (system node autosupport show)<br />
+Node                  State     From          To            Mail Hosts<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212; &#8212;&#8212;&#8212; &#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-<br />
+hm-dontap-01          disable   Postmaster    -             mailhost</p>
+<p>hm-dontap-01::&gt;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1099#comment-5582</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 25 Jan 2013 09:10:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1099#comment-5582</guid>
+		<description>&#62;при количестве дисков более 16 поставить 0 система не даст
+В каком документе можно об спардисках поподробней почитать?</description>
+		<content:encoded><![CDATA[<p>&gt;при количестве дисков более 16 поставить 0 система не даст<br />
+В каком документе можно об спардисках поподробней почитать?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Gera</title>
+		<link>http://blog.aboutnetapp.ru/archives/1099#comment-2121</link>
+		<dc:creator>Gera</dc:creator>
+		<pubDate>Fri, 13 Jan 2012 14:39:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1099#comment-2121</guid>
+		<description>"Тогда вам нужно будет создать из имеющихся дисков новый aggregate, перенести root volume на него, затем удалить старый том и aggregate, и освободившиеся 3 диска добавить к созданному вами “большому” aggregate"
+Сегодня только "развлекался" с установкой симулятора. Правда 8.1.
+Не пришлось создавать новый агрегат и переносить на него. Просто увеличил существующий до 28 и включил оставшиеся диски. Пока все работает. :-)</description>
+		<content:encoded><![CDATA[<p>&#8220;Тогда вам нужно будет создать из имеющихся дисков новый aggregate, перенести root volume на него, затем удалить старый том и aggregate, и освободившиеся 3 диска добавить к созданному вами “большому” aggregate&#8221;<br />
+Сегодня только &#8220;развлекался&#8221; с установкой симулятора. Правда 8.1.<br />
+Не пришлось создавать новый агрегат и переносить на него. Просто увеличил существующий до 28 и включил оставшиеся диски. Пока все работает. :-)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

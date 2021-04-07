@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Резервное копирование (Backup). Методы и средства. Часть 1.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/49/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/49</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:47 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/49#comment-1912</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 15 Nov 2011 07:49:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/49#comment-1912</guid>
+		<description>Вадим:
+
+Это терминологческий спор. Я счтаю, что если &lt;i&gt;нечто&lt;/i&gt; позволяет создать резервную копию данных, из которой в дальнейшем можно восстановить данные, то это - бэкап.</description>
+		<content:encoded><![CDATA[<p>Вадим:</p>
+<p>Это терминологческий спор. Я счтаю, что если <i>нечто</i> позволяет создать резервную копию данных, из которой в дальнейшем можно восстановить данные, то это - бэкап.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Вадим</title>
+		<link>http://blog.aboutnetapp.ru/archives/49#comment-1911</link>
+		<dc:creator>Вадим</dc:creator>
+		<pubDate>Tue, 15 Nov 2011 07:40:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/49#comment-1911</guid>
+		<description>Репликация для mysql - это ни разу не бэкап. Скорее это вспомогательное средство для производства бэкапа без необходимости блокировки основного сервера mysql</description>
+		<content:encoded><![CDATA[<p>Репликация для mysql - это ни разу не бэкап. Скорее это вспомогательное средство для производства бэкапа без необходимости блокировки основного сервера mysql</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/49#comment-719</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Sun, 05 Sep 2010 00:23:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/49#comment-719</guid>
+		<description>Когда файл большой, нужно искать кастомный способ последовательного бэкапа, и только если такого нет - обращаться к инструментам общего применения.
+
+В частности, для MySQL давно используется репликация - весьма гибкий механизм, который позволяет держать актуальную копию данных на другой или других машинах. У репликации много плюсов, в том числе горячая замена, если главная машина выходит из строя.
+
+А касательно резервной копии обычных файлов - меня более чем устраивает Bacula, обзор по его настройке и использованию можно почитать у меня в блоге - http://sorokin.in.ua/?p=100</description>
+		<content:encoded><![CDATA[<p>Когда файл большой, нужно искать кастомный способ последовательного бэкапа, и только если такого нет - обращаться к инструментам общего применения.</p>
+<p>В частности, для MySQL давно используется репликация - весьма гибкий механизм, который позволяет держать актуальную копию данных на другой или других машинах. У репликации много плюсов, в том числе горячая замена, если главная машина выходит из строя.</p>
+<p>А касательно резервной копии обычных файлов - меня более чем устраивает Bacula, обзор по его настройке и использованию можно почитать у меня в блоге - <a href="http://sorokin.in.ua/?p=100" rel="nofollow">http://sorokin.in.ua/?p=100</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/49#comment-347</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 30 Mar 2010 03:33:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/49#comment-347</guid>
+		<description>Да и еше про пару десятков названий ничего не сказано, что же с того?</description>
+		<content:encoded><![CDATA[<p>Да и еше про пару десятков названий ничего не сказано, что же с того?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: user</title>
+		<link>http://blog.aboutnetapp.ru/archives/49#comment-346</link>
+		<dc:creator>user</dc:creator>
+		<pubDate>Mon, 29 Mar 2010 23:42:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/49#comment-346</guid>
+		<description>Ни слова не сказано об amanda!</description>
+		<content:encoded><![CDATA[<p>Ни слова не сказано об amanda!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

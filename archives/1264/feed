@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: SnapVault</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1264/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1264</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:00 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Pavel Kosachev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1264#comment-8206</link>
+		<dc:creator>Pavel Kosachev</dc:creator>
+		<pubDate>Wed, 26 Jun 2013 09:31:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1264#comment-8206</guid>
+		<description>Я конечно же буду говорить только за себя, но документация на современные продукты MS сообщает, что нет никаких доп. расходов на виртуализацию, а это в свою очередь подталкивает использовать приложения поверх слоя виртуализации. Тем временем ПО SnapManager к этому не совсем готово. Т.е. либо вы делаете application aware backup со стороны гипервизора, не имеет значения hyper-v или Vmware, тогда состояния VSS синхронизируются с помощью компонент интеграции, в этом случае приложение не узнало, что его забэкапили. Либо с помощью SnapManager  для конкретного продукта, который позволит дернуть snapvault и закоммитить логи транзакции, но на лунах или Raw Device.  Хочется конечно же всего и сразу, может быть у тебя есть информация, будет ли это делать и когда? Получается вы перед выбором или мобильность виртуальных машин или резервную копию на соседней системе. как видите выбор не очень очевиден.</description>
+		<content:encoded><![CDATA[<p>Я конечно же буду говорить только за себя, но документация на современные продукты MS сообщает, что нет никаких доп. расходов на виртуализацию, а это в свою очередь подталкивает использовать приложения поверх слоя виртуализации. Тем временем ПО SnapManager к этому не совсем готово. Т.е. либо вы делаете application aware backup со стороны гипервизора, не имеет значения hyper-v или Vmware, тогда состояния VSS синхронизируются с помощью компонент интеграции, в этом случае приложение не узнало, что его забэкапили. Либо с помощью SnapManager  для конкретного продукта, который позволит дернуть snapvault и закоммитить логи транзакции, но на лунах или Raw Device.  Хочется конечно же всего и сразу, может быть у тебя есть информация, будет ли это делать и когда? Получается вы перед выбором или мобильность виртуальных машин или резервную копию на соседней системе. как видите выбор не очень очевиден.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1264#comment-8194</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 25 Jun 2013 11:25:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1264#comment-8194</guid>
+		<description>В самом SnapManager, нет, но это делает SnapDrive, которым управляет SnapManager.
+
+Вот как пример кусок из документации по SnapManager for Exchange:
+SnapDrive for Windows: This application helps with storage provisioning and managing disks in both physical and virtual environments. SnapDrive for Windows manages the LUNs on the storage system, making them available as local disks on Windows hosts.
+Here are the key features of SnapDrive for Windows:
+* Enhances online storage configuration, LUN expansion, and shrinking; provides streamlined management
+* Works in conjunction with NetApp SnapMirror software to facilitate disaster recovery from either asynchronously or synchronously mirrored destination volumes
+* Enables NetApp SnapVault updates of qtrees to a SnapVault destination
+* Enables management of SnapDrive for Windows on multiple hosts
+* Enhances support on Microsoft cluster configurations
+* Simplifies iSCSI session management
+* Enables technology for SnapManager for Exchange products</description>
+		<content:encoded><![CDATA[<p>В самом SnapManager, нет, но это делает SnapDrive, которым управляет SnapManager.</p>
+<p>Вот как пример кусок из документации по SnapManager for Exchange:<br />
+SnapDrive for Windows: This application helps with storage provisioning and managing disks in both physical and virtual environments. SnapDrive for Windows manages the LUNs on the storage system, making them available as local disks on Windows hosts.<br />
+Here are the key features of SnapDrive for Windows:<br />
+* Enhances online storage configuration, LUN expansion, and shrinking; provides streamlined management<br />
+* Works in conjunction with NetApp SnapMirror software to facilitate disaster recovery from either asynchronously or synchronously mirrored destination volumes<br />
+* Enables NetApp SnapVault updates of qtrees to a SnapVault destination<br />
+* Enables management of SnapDrive for Windows on multiple hosts<br />
+* Enhances support on Microsoft cluster configurations<br />
+* Simplifies iSCSI session management<br />
+* Enables technology for SnapManager for Exchange products</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1264#comment-8193</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Tue, 25 Jun 2013 10:20:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1264#comment-8193</guid>
+		<description>Есть ли встроенная поддержка волта в SnapManager? Т.е. можно ли сделать снимок SM и перенести его на удалённую систему волтом в автоматическом режиме.</description>
+		<content:encoded><![CDATA[<p>Есть ли встроенная поддержка волта в SnapManager? Т.е. можно ли сделать снимок SM и перенести его на удалённую систему волтом в автоматическом режиме.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1264#comment-8178</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Mon, 24 Jun 2013 13:25:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1264#comment-8178</guid>
+		<description>Консистентность либо соответствующим SnapManager'ом осуществляется, либо Snap Creator Framework, если под аппликуху нет своего Snapmanager'а</description>
+		<content:encoded><![CDATA[<p>Консистентность либо соответствующим SnapManager&#8217;ом осуществляется, либо Snap Creator Framework, если под аппликуху нет своего Snapmanager&#8217;а</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1264#comment-8174</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 24 Jun 2013 10:13:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1264#comment-8174</guid>
+		<description>??рония в том, что когда мы данные копировали с корня вольюма, назад востанавливаются они только в Qtree.
+Наука - всё по максимуму сразу держать на Qtree, иначе потом геморой с восстановлением (ручками на прежнее место) или перекконфигурированием.</description>
+		<content:encoded><![CDATA[<p>??рония в том, что когда мы данные копировали с корня вольюма, назад востанавливаются они только в Qtree.<br />
+Наука - всё по максимуму сразу держать на Qtree, иначе потом геморой с восстановлением (ручками на прежнее место) или перекконфигурированием.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1264#comment-8170</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 24 Jun 2013 06:51:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1264#comment-8170</guid>
+		<description>Сергей:
+
+&lt;i&gt;"?? сельского хозяйства!" (с)&lt;/i&gt;
+
+Консистентностью чему?</description>
+		<content:encoded><![CDATA[<p>Сергей:</p>
+<p><i>&#8220;?? сельского хозяйства!&#8221; (с)</i></p>
+<p>Консистентностью чему?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1264#comment-8169</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Mon, 24 Jun 2013 06:47:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1264#comment-8169</guid>
+		<description>Удалённые снэпшоты это конечно хорошо.
+Но как обстоит дело с их консистентностью?</description>
+		<content:encoded><![CDATA[<p>Удалённые снэпшоты это конечно хорошо.<br />
+Но как обстоит дело с их консистентностью?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

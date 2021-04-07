@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Еще один интересный курс для технарей</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1414/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1414</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:02:46 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: goodserg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1414#comment-14299</link>
+		<dc:creator>goodserg</dc:creator>
+		<pubDate>Tue, 02 Dec 2014 11:37:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1414#comment-14299</guid>
+		<description>Это мероприятие в Москве.</description>
+		<content:encoded><![CDATA[<p>Это мероприятие в Москве.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1414#comment-14296</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Tue, 02 Dec 2014 06:08:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1414#comment-14296</guid>
+		<description>Не понял, а это вебинар или в Москве надо быть?</description>
+		<content:encoded><![CDATA[<p>Не понял, а это вебинар или в Москве надо быть?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: pLuto</title>
+		<link>http://blog.aboutnetapp.ru/archives/1414#comment-14294</link>
+		<dc:creator>pLuto</dc:creator>
+		<pubDate>Tue, 02 Dec 2014 02:09:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1414#comment-14294</guid>
+		<description>Добавили бы веб-камеру с микрофоном докладчику - и собрали бы большую аудиторию еще и по стране.</description>
+		<content:encoded><![CDATA[<p>Добавили бы веб-камеру с микрофоном докладчику - и собрали бы большую аудиторию еще и по стране.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: goodserg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1414#comment-14292</link>
+		<dc:creator>goodserg</dc:creator>
+		<pubDate>Mon, 01 Dec 2014 21:46:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1414#comment-14292</guid>
+		<description>Только не компания HBC, а компания Гелиос ??Т.</description>
+		<content:encoded><![CDATA[<p>Только не компания HBC, а компания Гелиос ??Т.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: AlektroNik</title>
+		<link>http://blog.aboutnetapp.ru/archives/1414#comment-14290</link>
+		<dc:creator>AlektroNik</dc:creator>
+		<pubDate>Mon, 01 Dec 2014 16:11:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1414#comment-14290</guid>
+		<description>Спасибо за инфу, отписался на почту :)</description>
+		<content:encoded><![CDATA[<p>Спасибо за инфу, отписался на почту :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

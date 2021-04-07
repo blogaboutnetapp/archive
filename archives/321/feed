@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Экономим usable space. &#8220;Bad but useful practices&#8221;.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/321/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/321</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:20 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/321#comment-12661</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Thu, 13 Mar 2014 09:44:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=321#comment-12661</guid>
+		<description>А еще в недостатки можно отнести:
+ - без RAID-DP второй контроллер (который содержит только /vol/vol0 на RAID4) невозможно будет произвести nondisruptive обновление прошивок дисков.</description>
+		<content:encoded><![CDATA[<p>А еще в недостатки можно отнести:<br />
+ - без RAID-DP второй контроллер (который содержит только /vol/vol0 на RAID4) невозможно будет произвести nondisruptive обновление прошивок дисков.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Mc.Sim</title>
+		<link>http://blog.aboutnetapp.ru/archives/321#comment-12657</link>
+		<dc:creator>Mc.Sim</dc:creator>
+		<pubDate>Thu, 13 Mar 2014 05:49:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=321#comment-12657</guid>
+		<description>При этом, второй контроллер, которому не достался spare будет безбожно ругаться на отсутствие оного и пытаться слать CALL HOME в AutoSupport )
+Хотя документация говорит, что сообщения об ошибках можно отключить (но сделать RAID-DP вместо RAID4)
+&lt;code&gt;Setting the raid.min_spare_count option to 0 disables low spare warnings. You might want to
+do this if you do not have enough disks to provide hot spares (for example if your storage system
+does not support external disk shelves). You can disable the warnings only if the following
+requirements are met:
+• Your system has 16 or fewer disks.
+• You have no RAID groups that use RAID4.
+Note: You cannot create aggregates that use RAID4 protection while the
+raid.min_spare_count option is set to 0. If either of these requirements is no longer met
+after this option has been set to 0, the option is automatically set back to 1.&lt;/code&gt;</description>
+		<content:encoded><![CDATA[<p>При этом, второй контроллер, которому не достался spare будет безбожно ругаться на отсутствие оного и пытаться слать CALL HOME в AutoSupport )<br />
+Хотя документация говорит, что сообщения об ошибках можно отключить (но сделать RAID-DP вместо RAID4)<br />
+<code>Setting the raid.min_spare_count option to 0 disables low spare warnings. You might want to<br />
+do this if you do not have enough disks to provide hot spares (for example if your storage system<br />
+does not support external disk shelves). You can disable the warnings only if the following<br />
+requirements are met:<br />
+• Your system has 16 or fewer disks.<br />
+• You have no RAID groups that use RAID4.<br />
+Note: You cannot create aggregates that use RAID4 protection while the<br />
+raid.min_spare_count option is set to 0. If either of these requirements is no longer met<br />
+after this option has been set to 0, the option is automatically set back to 1.</code></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

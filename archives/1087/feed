@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FAS2240 - новинка модельного ряда NetApp этого года.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1087/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1087</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:28 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-5181</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 13 Dec 2012 09:39:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-5181</guid>
+		<description>Dmitriy:
+
+Да в общем ничего особенно сложного. Поставить в корпус, подключить диски новой полки, при загрузке назначить disk ownership и создать root volume (Maintenance boot menu - 4a), указать друг другу System ID (или Serial) в качестве партнеров, затем ввести лиценизию CF (Cluster Failover) и, наконец, активировать кластер.
+
+Наверняка есть соответствующая бумага с процедурой среди PDF-ов field engineer's library, можно попробовать попросить у партнера.
+
+Самое сложное тут будет, по моему опыту, проапгрейдить вашу запись в Support-е. Тут, боюсь, без помощи и участия партнера не обойтись.</description>
+		<content:encoded><![CDATA[<p>Dmitriy:</p>
+<p>Да в общем ничего особенно сложного. Поставить в корпус, подключить диски новой полки, при загрузке назначить disk ownership и создать root volume (Maintenance boot menu - 4a), указать друг другу System ID (или Serial) в качестве партнеров, затем ввести лиценизию CF (Cluster Failover) и, наконец, активировать кластер.</p>
+<p>Наверняка есть соответствующая бумага с процедурой среди PDF-ов field engineer&#8217;s library, можно попробовать попросить у партнера.</p>
+<p>Самое сложное тут будет, по моему опыту, проапгрейдить вашу запись в Support-е. Тут, боюсь, без помощи и участия партнера не обойтись.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-5180</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Thu, 13 Dec 2012 09:20:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-5180</guid>
+		<description>Мы покупали систему 2240-4 с одним контроллером, а теперь второй контроллер и набор дисков для HA хотим докупить.
+
+Там Plug and play, или нужна будет серьезная поддержка для такого апгрейда?</description>
+		<content:encoded><![CDATA[<p>Мы покупали систему 2240-4 с одним контроллером, а теперь второй контроллер и набор дисков для HA хотим докупить.</p>
+<p>Там Plug and play, или нужна будет серьезная поддержка для такого апгрейда?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-2624</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 31 May 2012 14:29:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-2624</guid>
+		<description>bbk:
+
+Запросите у вашего партнера.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Запросите у вашего партнера.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-2623</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 31 May 2012 14:26:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-2623</guid>
+		<description>На странице нетапа &lt;a href="http://www.netapp.com/us/products/storage-systems/fas2000/fas2000-product-comparison.html" rel="nofollow"&gt;по 2000 серии&lt;/a&gt; ничего об этом не сказано. Как можно получить пруф?</description>
+		<content:encoded><![CDATA[<p>На странице нетапа <a href="http://www.netapp.com/us/products/storage-systems/fas2000/fas2000-product-comparison.html" rel="nofollow">по 2000 серии</a> ничего об этом не сказано. Как можно получить пруф?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-2618</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 31 May 2012 10:39:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-2618</guid>
+		<description>bbk:
+
+Для встренных - нет FCoE, для них нужен DCE, который возможен только на 10G Ethernet, а встроенные - Gigabit Ethernet. Для той пары портов 10G, что на мезанинной карте - да, есть FCoE.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Для встренных - нет FCoE, для них нужен DCE, который возможен только на 10G Ethernet, а встроенные - Gigabit Ethernet. Для той пары портов 10G, что на мезанинной карте - да, есть FCoE.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-2616</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 31 May 2012 10:13:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-2616</guid>
+		<description>Никак не пойму: мезанинная карточка на 10ГБс и embedded Ethernet порты онb Unified или нет, т.е. есть в 2240 поддержка FCoE?</description>
+		<content:encoded><![CDATA[<p>Никак не пойму: мезанинная карточка на 10ГБс и embedded Ethernet порты онb Unified или нет, т.е. есть в 2240 поддержка FCoE?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-2120</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Tue, 10 Jan 2012 12:28:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-2120</guid>
+		<description>Вы пишите:
+"FAS2240 будет поставляться как ранее FAS2020, со всеми возможными протоколами доступа в базовой поставке, то есть FC, iSCSI, FCoE, NFS и CIFS разом."
+Она не поддерживает FCoE.</description>
+		<content:encoded><![CDATA[<p>Вы пишите:<br />
+&#8220;FAS2240 будет поставляться как ранее FAS2020, со всеми возможными протоколами доступа в базовой поставке, то есть FC, iSCSI, FCoE, NFS и CIFS разом.&#8221;<br />
+Она не поддерживает FCoE.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-2119</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 10 Jan 2012 10:56:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-2119</guid>
+		<description>Алексей:
+
+О чем речь?</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>О чем речь?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-2118</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Tue, 10 Jan 2012 10:55:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-2118</guid>
+		<description>Выяснил, в общем официальный дистрибьютор говорит, что не поддерживает.
+В Нетапп уклончиво говорят, что возможно будет поддержка в дальнейшем, по просьбам “трудящихся”.
+Но именно возможно, а не точно.</description>
+		<content:encoded><![CDATA[<p>Выяснил, в общем официальный дистрибьютор говорит, что не поддерживает.<br />
+В Нетапп уклончиво говорят, что возможно будет поддержка в дальнейшем, по просьбам “трудящихся”.<br />
+Но именно возможно, а не точно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1087#comment-2117</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Tue, 10 Jan 2012 10:16:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1087#comment-2117</guid>
+		<description>romx:
+не нашел в вендорских описаниях по FAS2240(презы с now), что она поддерживает FCoE. Не подскажете, на что ссылаетесь?
+(Например:
+http://www.netapp.com/ru/products/storage-systems/fas2000/fas2000-product-comparison-ru.html
+http://www.netapp.com/ru/products/storage-systems/fas3200/fas3200-product-comparison-ru.html)
+??щем "fcoe".</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+не нашел в вендорских описаниях по FAS2240(презы с now), что она поддерживает FCoE. Не подскажете, на что ссылаетесь?<br />
+(Например:<br />
+<a href="http://www.netapp.com/ru/products/storage-systems/fas2000/fas2000-product-comparison-ru.html" rel="nofollow">http://www.netapp.com/ru/products/storage-systems/fas2000/fas2000-product-comparison-ru.html</a><br />
+<a href="http://www.netapp.com/ru/products/storage-systems/fas3200/fas3200-product-comparison-ru.html" rel="nofollow">http://www.netapp.com/ru/products/storage-systems/fas3200/fas3200-product-comparison-ru.html</a>)<br />
+??щем &#8220;fcoe&#8221;.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

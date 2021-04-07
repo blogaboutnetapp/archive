@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Мерлион проводит лабы по cDOT и E-Series</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1413/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1413</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:04 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1413#comment-14328</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Tue, 09 Dec 2014 15:14:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1413#comment-14328</guid>
+		<description>Все в силе.</description>
+		<content:encoded><![CDATA[<p>Все в силе.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1413#comment-14326</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Tue, 09 Dec 2014 07:14:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1413#comment-14326</guid>
+		<description>Мероприятие в силе? на сайте мерлиона ничего про данное мероприятие нету, на почту от них упало письмо только "регистрация пройдена" без подробностей :)</description>
+		<content:encoded><![CDATA[<p>Мероприятие в силе? на сайте мерлиона ничего про данное мероприятие нету, на почту от них упало письмо только &#8220;регистрация пройдена&#8221; без подробностей :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1413#comment-14275</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Fri, 28 Nov 2014 12:50:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1413#comment-14275</guid>
+		<description>По 8.3 еще не успели подготовить виртуальную лабораторную работу. Но без проблем обсудим нововведения, которые появились в 8.3 :)</description>
+		<content:encoded><![CDATA[<p>По 8.3 еще не успели подготовить виртуальную лабораторную работу. Но без проблем обсудим нововведения, которые появились в 8.3 :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1413#comment-14271</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Thu, 27 Nov 2014 09:19:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1413#comment-14271</guid>
+		<description>"Intro Lab for cDOT 8.2" ?
+Пора уже Intro в 8.3 проводить. :)</description>
+		<content:encoded><![CDATA[<p>&#8220;Intro Lab for cDOT 8.2&#8243; ?<br />
+Пора уже Intro в 8.3 проводить. :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

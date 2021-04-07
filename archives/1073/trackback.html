@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Производительность на NFS: эксперимент</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1004/trackback.html">SAN boot</a></div>
+			<div class="alignright"><a href="../1060/trackback.html">SnapMirror Progress Monitor Tool 3.0</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1073">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Производительность на NFS: эксперимент">Производительность на NFS: эксперимент</a></h2>
+			<div class="postmetadata">19 Октябрь 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Уже цитировавшийся в этом блоге специалист по Oracle и блоггер NetApp с ником Neto (ранее из Бразилии, а теперь сотрудник датацентра NetApp в Triangle Park, USA), опубликовал результаты интересного эксперимента, демонстрирующие возможности и производительность NFS на системах хранения NetApp. Ниже перевод его заметки.</p>
+<p>&#160;</p>
+<h3><a href="http://communities.netapp.com/community/netapp-blogs/databases/blog/2011/10/07/i-cannot-believe-there-still-exists-people-today-that-do-not-believe-about-nfs-performance">Не могу поверить&#8230; Еще остались люди, которые не верят в производительность на NFS</a></h3>
+<p>Posted by <a href="http://communities.netapp.com/people/neto">neto</a> on Oct 8, 2011 5:23:41 AM </p>
+<p>Многие годы я получаю много вопросов и FUD на тему того, что, якобы, NFS не обеспечивает достаточно&#160; хорошую производительность.</p>
+<p>Давайте смотреть.</p>
+<p>Linux CentOS 6 с двумя портами 10Gb Ethernet (Jumbo Frames ON)</p>
+<p>NFS v3</p>
+<p>NetApp Cluster – каждый с одним интерфейсом 10Gb Ethernet (Jumbo Frames ON)</p>
+<p>Cisco Nexus Switch</p>
+<p>Я создал&#160; 4 файла на каждой mountpoint:</p>
+<p>&#160;</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image157.png" width="408" height="308" /></p>
+<p><strong>Запускаем ORION…</strong></p>
+<p><a href="http://www.oracle.com/technetwork/topics/index-089595.html">http://www.oracle.com/technetwork/topics/index-089595.html      <br /></a></p>
+<blockquote><p>ORION (Oracle I/O Calibration Tool) это инструмент для тестирования и калибровки показателей производительность ввода-вывода системы хранения, намеченной для использования под базы Oracle. Результаты полезны для понимания возможностей системы хранения по производительности, а таже для поиска проблем, которые могут отражаться на производительности базы Oracle, или же для сайзинга нвой инсталляции. Так как ORION это отдельный инструмент, то для проведения измерений пользователям не требуется создавать и запускать базу Oracle.      <br />ORION генерирует синтетичекую нагрузку ввода-вывода максмально приближенную к работе базы данных Oracle, и использует тот же I/O software stack, что и Oracle. ORION может быть сконфигурирован на генерирование широкого диапазона нагрузки ввода-вывода, включая нагрузки характерные для OLTP и data warehouse.</p>
+</blockquote>
+<p><code>./orion_linux_x86-64 -run advanced -testname disk1 -num_disks 64 -matrix point -num_small 0 -num_large 1 -size_large 1024 -type seq -num_streamIO 8 -write 0 -simulate raid0 -cache_size 0 -duration 60 &amp;</code></p>
+<p><code>./orion_linux_x86-64 -run advanced -testname disk2 -num_disks 64 -matrix point -num_small 0 -num_large 1 -size_large 1024 -type seq -num_streamIO 8 -write 0 -simulate raid0 -cache_size 0 -duration 60 &amp;</code></p>
+<p><code>./orion_linux_x86-64 -run advanced -testname disk3 -num_disks 64 -matrix point -num_small 0 -num_large 1 -size_large 1024 -type seq -num_streamIO 8 -write 0 -simulate raid0 -cache_size 0 -duration 60 &amp;</code></p>
+<p><code>./orion_linux_x86-64 -run advanced -testname disk4 -num_disks 64 -matrix point -num_small 0 -num_large 1 -size_large 1024 -type seq -num_streamIO 8 -write 0 -simulate raid0 -cache_size 0 -duration 60 &amp;</code></p>
+<p>&#160;</p>
+<p>Копируем скриншоты&#8230;</p>
+<p><strong>Controller 1</strong></p>
+<p><a href="/pics//image158.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image-thumb51.png" width="640" height="376" /></a></p>
+<p><strong>Controller 2</strong></p>
+<p><a href="/pics//image159.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image-thumb52.png" width="640" height="376" /></a></p>
+<p><strong>Server</strong></p>
+<p><a href="/pics//image160.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image-thumb53.png" width="640" height="406" /></a></p>
+<p>&#160;</p>
+<p>Я полагаю, что <strong>2 гигабайта (БАЙТА!) в секунду</strong>, этого должно хватить! Так-то. :-)</p>
+<p>NFS это хорошо (на NetApp, конечно же).</p>
+<p>Всех благ!</p>
+<p>Neto</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/nfs/index.html" rel="tag">nfs</a>, <a href="../tag/oracle/index.html" rel="tag">oracle</a>, <a href="../tag/orion.html" rel="tag">orion</a>, <a href="../tag/performance/index.html" rel="tag">performance</a><br />					Раздел: <a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (18)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1855">
+		<div id="div-comment-1855">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Как известно overhead of NFS до 80% off overall operation medatata. </p>
+<p>Следовательно проверка будет коректна  когда мы работаем с реалистичным количеством файлов . </p>
+<p>Стоит проверить открытие tar file  через NAS and SAN .</p>
+<p>В работе с большим количеством файлов NFS медленей в разы чем SAN .</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1855" title="">31 Октябрь 2011, 6:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1856">
+		<div id="div-comment-1856">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>motl:</p>
+<p>То есть вы, как в анекдоте про сибирских мужиков, которые тестировали новую японскую бензопилу, считаете, что обязательно надо найти ту редкую задачу, с которой NFS не справится, и именно на ней его тестировать, пусть бы она и не была применима к реальному использованию, да? ;)</p>
+<p>Не думаю, что &#8220;открытие tar&#8221;, как и &#8220;работа с большим количеством файлов&#8221; есть показательные и применимые области для сегодняшнего использования NFS в базах данных Oracle или для хранения датасторов VMware.</p>
+<p>Но, безусловно, если ваша работа заключается в постоянном открытии tar-ов, то вам следует поискать другое решение ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1856" title="">31 Октябрь 2011, 9:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1859">
+		<div id="div-comment-1859">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Мне кажется что все фирмы использующие  eda tools то есть весь semiconductor (Freescale ,TI,Marvell,etc&#8230;).</p>
+<p>??менно работают с большим колочеством файлов, иногда с милионами в одном volume .</p>
+<p>?? тут известна слабость NFS и не только на   NetApp. </p>
+<p>Пытаются бороться с этой слабостью с помощью  PAM и разных оптимизаций но далеко не всегда успешно , сказывается ушербность протокола .</p>
+<p>Metadata просто душит NetApp .</p>
+<p>Посмотрите в NetApp Manegment Console (DFM насадка) OPS by OPtype NFS3 и увидите что 80% идет на metadata.  </p>
+<p>Что до tar файлов то это просто  пример для проверки где NFS real flop  .</p>
+<p>Overall NetApp достаточно ультимативный NAS но имеет болезни свойственные NFS . </p>
+<p>?? проверка с двумй файлами просто не интиресна .</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1859" title="">1 Ноябрь 2011, 21:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1860">
+		<div id="div-comment-1860">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>motl:</p>
+<p>Э-э-э. Еще раз. Видимо был неправильно понят.:)<br />
+Оттого, что NFS плохо работает в каком-то одном случае его использования, не следует, что он плохо работает во всех случаях.</p>
+<p>Просто не нужно пытаться пилить рельсу бензопилой. :)<br />
+То что она ее плохо пилит - это не проблема бензопилы.</p>
+<p>Если вам не интересно как работает NFS &#8220;с двумя файлами&#8221; не значит, что это не интересно database admins, которые юзают Oracle 11 over dNFS, и которые именно так его и используют.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1860" title="">1 Ноябрь 2011, 21:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1861">
+		<div id="div-comment-1861">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Это имено то что я говорю .</p>
+<p>Нет уневерсальной бензопилы . :)</p>
+<p>The dNFS только для Oracle правильно  ?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1861" title="">1 Ноябрь 2011, 22:21</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1862">
+		<div id="div-comment-1862">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Кстати имеите опыт работы с NFSv4 on NetApp ?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1862" title="">1 Ноябрь 2011, 22:26</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1863">
+		<div id="div-comment-1863">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>motl:</p>
+<p>dNFS - для Oracle, kernel NFS для других баз, например для mySQL.<br />
+NFS сейчас также очень широко применяется для подключения датасторов VMware и Xen.</p>
+<p>NFS это уже давно не только &#8220;протокол подключения хоумдиров для юзеров на UNIX-машинах&#8221;, область его применения куда шире.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1863" title="">1 Ноябрь 2011, 22:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1864">
+		<div id="div-comment-1864">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Безусловно , NFS имеет очень широкое приминение в NetApp storage .</p>
+<p>Я понимаю почему работа с  data store of VMware over NFS не хуже чем через SAN . </p>
+<p>Там одиночные файлы и NFS с ними хорошо справляется .</p>
+<p>Я далеко не фанат SAN но как мы согласились выше, нет уневерсальной бензопилы .</p>
+<p>?? снова весь  semiconductor mostly Unix based  отсюда NFS узкое место очень часто.</p>
+<p>Вопрос можно ли получить advantage от перехода на NFSv4 ?!</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1864" title="">1 Ноябрь 2011, 23:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1865">
+		<div id="div-comment-1865">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>motl:</p>
+<p>Я плохо помню, увы, что из возможностей NFSv4 реализовано и применимо в NetApp.<br />
+Точно пока нет v4.1, то есть &#8216;pNFS&#8217;, он появится(лся) в G8 Cluster Mode.</p>
+<p>Что же касается применимости в предприятиях semiconductor design, то в success stories есть упоминание о успешном использовании NetApp в таких компаниях, как Xilinx (45 систем хранения как NAS, так и SAN), CSR (Cambridge Silicon Radio) системы многоузлового кластера NetApp GX, к сожалению, подробностей не очень много, но как зацепку можете использовать, чтобы найти какие-то детали.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1865" title="">2 Ноябрь 2011, 0:10</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1866">
+		<div id="div-comment-1866">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Спасибо .</p>
+<p>Сайт просто отличный . </p>
+<p>Но хотелось бы больше оригинальных статей с техническими деталями (О том какие имплементации есть в России). </p>
+<p>Кстати насколько распостронён NetApp России ?</p>
+<p>Is it mainstream in NAS ?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1866" title="">2 Ноябрь 2011, 3:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1867">
+		<div id="div-comment-1867">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>motl:</p>
+<p>Ответ получится довольно длинный.<br />
+Хотя NetApp и был одной из тех компаний, которые начали прицельно и активно заниматься именно NAS (другие - Auspex, Sun и, отчасти, 3Сom, уже не существуют на рынке, по разным причинам), тем не менее сегодня крупнейшую рыночную долю держит все же EMC, NetApp второй.</p>
+<p>Однако специфика России (возможно когда-нибудь я об этом напишу статью) в том, что здесь исторически не было рынка для NAS, а российский IT &#8220;ультра-право консервативен&#8221; выражаясь языком политики.</p>
+<p>По этой причине под словом NAS в России массово понимается &#8220;китайский платиковый бокс на два диска, под линуксом с самбой, умеющий качать торренты&#8221; и &#8220;ведущие вендоры рынка NAS&#8221; не EMC и NetApp, а Nеtgeаr и Synоlоgy. :)<br />
+Досаточно посмотреть насколько отличаются объемом и качеством статья &#8220;NAS&#8221; на русскоязычной и англоязычной Википедии, чтобы понять масштаб пропасти в области NAS у России и остального мира.</p>
+<p>Относительно success stories на российском рынке.<br />
+Не секрет, надеюсь, ни для кого, что success stories это товар, который вендор покупает, тем или иным путем, у соответствующей компании.<br />
+К сожалению, маретинговый бюджет российского NetApp не позволяет заинтересовать клиентов публиковать свои Success Stories, именно этим объясняется то, что, несмотря на очень успешные продажи в России в самых разных областях, как таковые истории внедрений и технические их детали почти не встречаются в прессе.</p>
+<p>Обычно некоторые Success Stories NetApp обнародует на ежегодной конференции NetApp Innovation. Но, в общем, публикуемое это капля в море.<br />
+Публикации о зарубежных инсталляциях встречаются чаще, но и там, увы, совсем на глубокотехнический уровень не лезут. Отчасти потому, что success stories это все же документ воздействия на уровень топов и CIO, которым малоинтересны уж совсем &#8220;иопсы&#8221;, а не deployment guide для сисадминов, отчасти оттого, что некоторые вещи могут считаться компаниями конфиденциальными.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1867" title="">2 Ноябрь 2011, 11:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1868">
+		<div id="div-comment-1868">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Спасибо за детальный ответ .<br />
+Очень интиресно о представлении NAS в Росси.<br />
+Сам не живу в Росси под 2 десятка лет и было очень интиресно прочитать ваш коментарий .<br />
+В фирме где я работаю несколко кластеров 6240 и в силу того что все в основном UNIX , ищу способы оптимизации NFS .<br />
+Конечно мы получаем помощь от локального NetApp .<br />
+Но HPC растет очень быстро и требует соответствия от storage .<br />
+В силу того что cluster mode  ещё очень сырой приходится искать оптимальные вещи в 7 mode .<br />
+Думали даже проверить GPFS solution  но побоялись из за слабой представлености на нашем рынке .<br />
+Вобщем scale out не хватает NetApp.<br />
+Надеюсь нормальный cluster mode  не за горами.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1868" title="">2 Ноябрь 2011, 12:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1871">
+		<div id="div-comment-1871">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>motl:</p>
+<p>Я бы в вашей ситуаци все же еще раз посмотрел на 8.0 Cluster-mode.<br />
+Оно довольно активно развивается, и, судя по всему, в ближайшеее время станет мэйнстримом, по крайней мере для самого NetApp и его разработчиков, все силы будут брошены на него.<br />
+В 8.1RC2, о котором объявят на днях уже сделали и SnapMirror, и дедупликацию, и SAN-протоколы. А цену на двухнодовую Cluster-mode обещали как на HA-cluster 7-Mode, и вообще собираются продвигать его куда активнее, чем раньше.<br />
+Так что оно растет, и довольно шустро, и ситуация с ним меняется довольно быстро. Посмотрите, может быть уже вам подходит.</p>
+<p>С кэшированием метаданных должен очень хорошо справляться Flash Cache, и может быть даже и PAM (тот, что с DRAM). Эффективность можно посмотреть на результатах SPECsfs2008, который, как тест, очень и очень нагружен работой с метаданными. Если у вас нет Flash Cache или PAM, то я бы для 7-Mode и NFS в первую очередь на них бы посмотрел.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1871" title="">2 Ноябрь 2011, 21:20</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1872">
+		<div id="div-comment-1872">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Начну с конца.<br />
+Мы конечно же используем PAM   иначе бы давно задохнулись.<br />
+Кстати я думал что PAM и Flash Cache это тоже самое .<br />
+Будьте добры объясните разницу .<br />
+К сожалению именно из за отсутствия snapmirror 8.0 Cluster-mode даже не расматривался. (RS2 will change the situation if so ).<br />
+Теперь будем ждать GA.<br />
+Послушаем что скажут на конференции в Риме в конце этого месяца .( Our reseller should be there ) .<br />
+Надеюсь вы тоже будете там и привезете много интиресных статей .</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1872" title="">2 Ноябрь 2011, 22:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1873">
+		<div id="div-comment-1873">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>motl:</p>
+<p>Официально PAM (Performance Acceleration Module) это устройство со сравнительно небольшой памятью на DRAM, &#8220;первое поколение&#8221;. Позже появился аналогичный модуль, но с использованием гораздо большего объема (256GB/512GB/1TB) на Flash. Некоторое время он назывался PAM-II, позже был переименован для ясности в Flash Cache.</p>
+<p>8.1 Cluster-mode правда &#8220;подрос&#8221;, вот буквально на днях NetApp выкатил целую серию результатов в SPEC sfs2008 NFS на нем, на разном количестве нод. Может быть интересно, посмотрите. Там такой же как у вас 6240.<br />
+??нтересно, что результаты показывают практически линейную масштабируемость производительности от 4 до 24 нод.</p>
+<p>В Риме не буду, к сожалению, я на другом конце мира, так сказать в APAC ;), но буду следить, безусловно, и контачить с человеком, который поедет.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1873" title="">2 Ноябрь 2011, 23:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1874">
+		<div id="div-comment-1874">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Понял, историю я в принципе знал (worked with PAMI and 3160 ) но маркетенговые названия запутали, спасибо за объяснение.</p>
+<p>Надеюсь что для миграции на  Cluster-mode не нужно будет переходить как с  trad to flex or aggr 32bit to 64bit. </p>
+<p>Кстати насколько понял переход to 8.1 aggr 64bit можно будет делать  VSM а не QSM как мы сдалали (~1000 qtree) :)</p>
+<p>Я нахожусь на middle east и здесь более чем распространен  NetApp.</p>
+<p>На следуюшей неделе начинаем большой план по миграции VMware to NetApp.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1874" title="">3 Ноябрь 2011, 0:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1879">
+		<div id="div-comment-1879">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Я нахожусь на middle east и здесь более чем распространен NetApp.</p>
+<p>Да, я вижу Безек по IP :) Ну в ??зраиле традиционно весьма большое лобби у NetApp, это известный факт.</p>
+<p>> Надеюсь что для миграции на Cluster-mode не нужно будет переходить как с trad to flex or aggr 32bit to 64bit. </p>
+<p>Disruptive, к сожалению, связанный с полной сменой структуры данных на дисках от 7-mode к Cluster-mode. :(<br />
+GX имеет возможность data-in-place upgrade на 8.0/8.1 Cluster-mode.</p>
+<p>> Кстати насколько понял переход to 8.1 aggr 64bit можно будет делать VSM а не QSM как мы сдалали (~1000 qtree) :)</p>
+<p>Сейчас на 8.1 реализована data-in-place конверсия из 32-bit в 64-bit. Просто при росте размеров aggregate выше 16TB он автоматически преобразуется в 64-bit.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1879" title="">3 Ноябрь 2011, 22:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1880">
+		<div id="div-comment-1880">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Это не лоби это fan club :))</p>
+<p>Я познакомился с NetApp  в 1998 когда фирма в которой работал первая начала продавать его в ??зраиле .</p>
+<p>Так что NetApp прописался тут давно и надолго . </p>
+<p>Меня очень интересуют темы performance and deep analises .</p>
+<p>Такие вещи как глубокое понимание: stats, statit , etc..</p>
+<p>Вы планируете написать на эту тему не для новичков ?</p>
+<p>Было бы очень интиресно .</p>
+<p>Так как нет курсов на эту тему для клиентов .</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1880" title="">4 Ноябрь 2011, 0:17</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1073" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.078 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp MetroCluster в Германии</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1290/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1290</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:53 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Amazi</title>
+		<link>http://blog.aboutnetapp.ru/archives/1290#comment-10780</link>
+		<dc:creator>Amazi</dc:creator>
+		<pubDate>Mon, 28 Oct 2013 15:14:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1290#comment-10780</guid>
+		<description>Это особенность европы, особенно Германии, там очень любят технологии стретчед кластер, транспарент фейловер и т.д. Т.к. расстояния небольшие, а требования к непрерывности бизнеса - высокие. Большинство аналогичных предложений от конкурентов тоже реализовано в Германии.</description>
+		<content:encoded><![CDATA[<p>Это особенность европы, особенно Германии, там очень любят технологии стретчед кластер, транспарент фейловер и т.д. Т.к. расстояния небольшие, а требования к непрерывности бизнеса - высокие. Большинство аналогичных предложений от конкурентов тоже реализовано в Германии.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1290#comment-9903</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Fri, 20 Sep 2013 05:56:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1290#comment-9903</guid>
+		<description>Да и цены там, говорят, тоже передовые, в хорошем смысле</description>
+		<content:encoded><![CDATA[<p>Да и цены там, говорят, тоже передовые, в хорошем смысле</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1290#comment-9881</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 19 Sep 2013 07:57:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1290#comment-9881</guid>
+		<description>Как мне кажется, немцы очень инженерно-технологичная нация и там меньше менеджеров мешающих технарям работать. Как следствие высокая концентрация техно-фэншуя.</description>
+		<content:encoded><![CDATA[<p>Как мне кажется, немцы очень инженерно-технологичная нация и там меньше менеджеров мешающих технарям работать. Как следствие высокая концентрация техно-фэншуя.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

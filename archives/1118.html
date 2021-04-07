@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Data ONTAP 8.x Cluster-mode: подробнее</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1116/trackback.html">??звлечение данных о Busy Spindles из вывода stats</a></div>
+			<div class="alignright"><a href="1117/trackback.html">Снэпшоты в DOT8.x Cluster-mode</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1118">
+			<h2 class="posttitle"><a href="1118/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP 8.x Cluster-mode: подробнее">Data ONTAP 8.x Cluster-mode: подробнее</a></h2>
+			<div class="postmetadata">6 Февраль 2012, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>??так, в прошлом посте этой темы я вкратце остановился на предыстории Data ONTAP 8.x Cluster-mode.</p>
+<p>Еще в прошлом году я перестал в этом блоге называть “классическую” структуру из двух контроллеров в системах хранения NetApp “кластером”, с тем, чтобы вам было проще “переключиться”. Пару контроллеров под управлением Data ONTAP 7.x и Data ONTAP 8.x 7-mode следует правильно называть HA-pair (HA – High Availability), HA-парой, или, в крайнем случае, HA-кластером, ясно отделяя это от “кластера” в 8.x Cluster-mode. Словом “кластер” у NetApp теперь называется совсем иная структура. Дабы не путаться, буду следовать этому правилу именования и я.</p>
+<p>В настоящий момент можно построить кластер, работающий как NAS-сервер (NFS или CIFS) из 24 узлов-контроллеров (nodes), то есть из 12 <strong>HA-пар</strong> контроллеров.</p>
+<p>В версии Data ONTAP 8.1 появлась также поддержка блочных протоколов (iSCSI, FC, FCoE). Однако при использовании блочных протоколов (только их одних, или в комбинации с NAS) максимальный размер кластера на сегодня поддерживается в размере <strong>четырех нод</strong>, или <strong>двух HA-пар</strong>. Эта величина, как я думаю, будет расти, как только будет все отлажено и обеспечена надежность, все же 8.1 это первая версия с такой функциональностью, но пока – имейте это ввиду. Связано это, прежде всего, с тем, что файловые протоколы, такие как NFS или CIFS, по сути, полностью управляются и контролируются на стороне стораджа, и проще обеспечить все необходимые процедуры работы и синхронизацию процессов между узлами кластера.</p>
+<p>Прежде всего, следует осознать разницу, между понятиями <strong>Global Filesystem</strong> и <strong>Global Namespace</strong>.&#160; Data ONTAP 8.1 Cluster-mode это Global Namespace, но <strong><font color="#ff0000">НЕ</font></strong> Global Filesystem.     <br />Global Namespace позволяет вам видеть кластер и его пространство, как совокупность нодов его составляющих, как единую “сущность”, целостное пространство, вне зависимости от того где и как хранятся ваши данные. Однако с точки зрения хранения, каждый нод-контроллер, по-прежнему оперирует данными, хранящимися на его aggregates и томах. Один единственный файл <strong>не может</strong> располагаться более чем на одном aggregate/ноде-контроллере. Также он не может мигрировать, распределяясь частью на одном, частью на другом ноде-контроллере. </p>
+<p>Это, как мне кажется, очень важно понимать, поэтому на этом я так заостряюсь.</p>
+<p>Безусловно, устройства, реализующие Global Filesystem, имеют в этом месте меньше ограничений (например EMC Isilon с его OneFS это как раз Global Filesystem), однако, в нашем мире, как вы помните, ничего не дается бесплатно, и реализация Global Filesystem влечет за собой ряд весьма неприятных побочных негативных эффектов, в первую очередь для производтельности. Isilon весьма хорош, но он хорош на определенных типах рабочей нагрузки (преимущественно последовательном доступе). Насколько в вашем конкретном случае важна возможность хранить огромного размера файл(ы), превосходящие по размерам емкость дисков, подключенных к одному контроллеру, и распределенные на несколько узлов кластера, и готовы ли вы за такую возможность заплатить ухудшением характеристик рандомного доступа к ним – решать вам. На сегодня на рынке имеется как тот, так и другой вариант.</p>
+<p>Преимущество же в производительности довольно убедительно показал NetApp в недавнем тестировании SPECsfs2008 на протоколе NFS, где 24-нодовая система FAS6240 под управлением Data ONTAP 8.1, почти в полтора раза превзошла 140-нодовую систему EMC Isilon S200.</p>
+<p>При этом, следует отметить, что, в случае NetApp, тестировался <em>worst case</em>, “наихудший случай” то есть только 1/24 часть всех операций шла на контроллер-owner, 23 из каждых 24 операций шли через “неродные” контроллеры, через cluster network, и не использовались никакие существующие у NetApp средства оптимизации, такие как, например, <em>Load Sharing Mirrors</em> (RO-копии) на “неродных” узлах кластера, которые, безусловно, увеличат производительность в реальной жизни.</p>
+<p>Напомню, что тест SPECsfs2008 это классический и авторитетный тест, имитрирующий усредненный типовой файловый доступ по протоколам NFS (и CIFS), сгенерированной смесью операций соответствующего протокола, и там, понятное дело, много операций с метаданными и, преимущественно, рандомный доступ.</p>
+<p>??так – Data ONTAP 8.1 Cluster-mode это Global Storage Namespace, но <strong>НЕ</strong> Global Storage Filesystem. Несмотря на то, что вы видите кластер как единую сущность, отдельный файл, на нем хранимый <strong>не может</strong> превышать емкость аггрегейта одного контроллера. Однако вы <strong>можете</strong> получать доступ к данным этого файла через любой из контроллеров кластера. В этом заключается разница между Global Filesystem и Global Namespace.</p>
+<p>Второй момент, на котором мне хочется подробнее остановится, это то, как именно строится кластер физически. </p>
+<p>Несмотря на то, что, формально, “единицей измерения” размера кластера является одна нода, представляющая собой один физический контроллер, ноды эти всегда включены в HA-пары. По этой причине количество нодов в кластере NetApp Data ONTAP 8.x Cluster-mode всегда четное. Таким образом обеспечивается надежность и высокая доступность (High Availability) ноды, тем же методом, как это делалось для контроллеров в 7.x.</p>
+<p>Поэтому вы не можете сделать 5- или 15-нодовый кластер, а 4-, 6- или 16-нодовый можете.</p>
+<p>Третий момент, который мне бы хотелось подробнее осветить, есть то, что в настоящий момент NetApp предъявляет довольно строгие требования к оборудованию для реализации кластерных коммуникаций. Для построения Cluster network, то есть внутренней сети самого кластера, в настоящий момент поддерживаются только две модели 10-Gigabit коммутаторов, это Cisco Nexus 5010 (20 портов, кластер до 12/18 нодов) и Cisco Nexus 5020 (40 портов, кластер более 18 нодов), их продает NetApp со своими партномерами, в составе общей квотации такой системы. Причем использовать эти коммутаторы можно <strong>только под задачи внутренней кластерной сети</strong>, совмещать их с другими задачами, например для подключения в них клиентской сети – <strong>нельзя</strong>. Даже если там еще остались порты.</p>
+<p>Однако есть и хорошая новость. Сейчас NetApp и Cisco, в качестве time-limited promotion, при заказе cluster-mode стораджа у NetApp, отдает необходимое инфраструктурное оборудование за символическую цену 1$ за Cisco Nexus для Cluster network и Cisco Catalyst 2960 для Cluster management network, плюс необходимые SFP и кабеля. При этом цена на систему Data ONTAP 8.1 Cluster-mode из двух нодов, для промоушна, уравнена с ценой аналогичной конфигурации 7-mode, а инфраструктурная часть придет по цене 5$, за пять девайсов (два Nexus 5010, два Catalyst 2960, сет кабелей), плюс сервисные платежи. </p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/Data-ONTAP-8.x-Cluster-mode-_A656/image.png" width="716" height="278" /></p>
+<p>Прежде чем у вас как следуют загорятся глаза и затрясутся руки “купить Нексус 5010 за один бакс”, я бы хотел отдельной строкой уточнить, что это предложение действует <strong>только для покупки системы cluster-mode, и, по условиям покупки, не может использоваться ни для чего другого</strong>.</p>
+<p>Купленную по промоушну систему на две ноды можно расширить до 12 нодов (6 HA-pair) докупая только SFP и кабеля.</p>
+<p>Структура cluster-mode кластера такова (на рисунке, для примера, показана двухузловая система):</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="cluster-mode scheme" border="0" alt="cluster-mode scheme" src="/pics/Data-ONTAP-8.x-Cluster-mode-_A656/cluster-mode-scheme.png" width="614" height="458" /></p>
+<p>В качестве <strong>коммутаторов клиентской сети</strong> можно использовать любые коммутаторы, Ethernet или FC, в зависимости от потребностей пользователя.</p>
+<p>В качестве <strong>коммутаторов Cluster network switch</strong> могут использоваться только Cisco Nexus 5010 (для кластеров с числом нод до 12/18) или 5020 (для большего числа нод).</p>
+<p>В качестве <strong>Cluster Management Switch</strong> NetApp рекомендует Cisco Catalyst 2960, но, в настоящее время, не обязывает покупать именно эту модель, при необходимости использовать имеющуюся у клиента иную модель, это может быть оформлено через заведение PVR, специального запроса на проверку и аппрув конфигурации у NetApp. NB: SMARTnet для такого свитча – обязателен!</p>
+<p>Cluster Network это выделенная только под эту задачу сеть 10Gb Ethernet. Единственное исключение – FAS2040, которая может использоваться в Cluster-mode с использованием Gigabit Ethernet, но не рекомендуется ее использование с другими контроллерами. Обратите внимание, что даже для 2040 и ее Gigabit Ethernet, <strong>другие коммутаторы, кроме Nexus 5010/5020, не поддерживаются!</strong></p>
+<p>Ноды кластера <strong>могут</strong> быть различными по модели. Вы можете объединить в единый кластер любые контроллеры, для которых объявлена совместимость с cluster-mode (с единственным исключением в виде FAS2040, использование которого с контроллерами другого типа не рекомендуется (хотя и возможно), по вышеописанной причине отсутствия портов 10G)</p>
+<p>Вы также можете объединить в кластер и системы с дисками различных типов, например вы можете построить систему с дисками SAS, SATA и SSD в рамках одного единого кластера, и организовывать миграцию данных между разными колнтроллерами-нодами и дисками разных типов.</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/Data-ONTAP-8.x-Cluster-mode-_A656/image_3.png" width="480" height="348" /></p>
+<p>&#160;</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/Data-ONTAP-8.x-Cluster-mode-_A656/image_4.png" width="451" height="353" /></p>
+<p>Далее кратко и бегло:</p>
+<p><strong>Какие контроллеры в настоящее время поддерживаются для работы в Cluster-mode?</strong></p>
+<p>FAS/V62&#215;0, FAS60&#215;0, FAS/V32&#215;0, FAS31&#215;0, FAS3070, FAS3040, FAS2240, и FAS2040.    <br />Для 2040 есть ограничения, связанные с отсутствием 10G Ethernet, для 3040 и 3070 ограничено максимальное количество нодов в использующих их кластеров. Помните, что для работы Cluster-mode <strong>нужна</strong> пара портов 10G Ethernet и несколько дополнительных портов для сетевых интерфейсов cluster management и сети собственно доступа к данных с клиентов.</p>
+<p><strong>Какие возможности “традиционной” Data ONTAP 7-mode поддерживаются, и какие – не поддерживаются?</strong></p>
+<p><strong><font color="#008000">Поддерживаются:</font></strong></p>
+<ul>
+<li>Доступ к данным по:
+<ul>
+<li>файловым протоколам (NFSv3, NFSv4, NFSv4.1/pNFS, CIFS(SMB1.0), SMB2.0 и SMB2.1), c размером кластера до 24 нодов. </li>
+<li>по блочным протоколам (iSCSI, FC, FCoE), с размером кластера до 4 нодов (кроме FAS2040, FAS3040/3070 и FAS6030/6070, для них SAN в cluster-mode не поддерживается) . </li>
+</ul>
+</li>
+<li>Репликация SnapMirror – только асинхронная и только Volume SnapMirror. Репликация совместима только между системами Cluster-mode. </li>
+<li>Снэпшоты </li>
+<li>Компрессия и дедупликация </li>
+<li>FlexClone </li>
+<li>NDMP </li>
+</ul>
+<p><strong><font color="#ff0000">Не поддерживаются:</font></strong></p>
+<ul>
+<li>Синхронный SnapMirror, Qtree SnapMirror (сами qtree как объект иерархии поддерживаются), SnapMirror между системами 7-mode и cluster-mode </li>
+<li>SyncMirror </li>
+<li>Metrocluster </li>
+<li>SnapVault </li>
+<li>SnapLock </li>
+<li>IPv6 </li>
+</ul>
+<p><strong>Каковы основные преимущества и цели системы Cluster-mode?</strong></p>
+<ul>
+<li>Балансировка и масштабирование для больших нагрузок </li>
+<li>Непрерывающее работу наращивание производительности и миграция данных </li>
+<li>Единая, с точки зрения управления и администрирования “сущность” – кластер нодов. </li>
+<li>Поддержка привычных средств и фич NetApp – RAID-DP, FlexClone, Snapshots, SnapMirror Async, дедупликация, компрессия. </li>
+</ul>
+<p><strong>Что такое Vserver?</strong></p>
+<p>Оставайтес с нами, об этом – в следующих постах :)</p>
+<p><strong>Есть/будет ли FlexPod под Cluster-mode?</strong></p>
+<p>Пока – нет, но, возможно, будет.</p>
+<p><strong>Какие диски и полки поддерживаются?</strong></p>
+<p>Все, любые существующие на сегодня в продаже (не поддерживается интерфейсный модуль ESH2 и еще более старые).</p>
+<p><strong>Можно ли включать в кластер системы V-series и сторонние стораджи через них?</strong></p>
+<p>Да, можно V3200/6200 c EMC DMX4, CX4 и HP EVA. Остальные, может быть, через PVR. Однако даже для перечисленных систем нужна полка с дисками NetApp для хранения root volume.</p>
+<p><strong>Каков максимальный размер aggregate?</strong></p>
+<ul>
+<li>2040/3040/3070 – 50TiB </li>
+<li>2240 – 60TiB </li>
+<li>3210/3140 – 75TiB </li>
+<li>6030/6040/3270/3170 – 105TiB </li>
+<li>6070/6080/6210/6240/6280 – 162TiB </li>
+</ul>
+<p><strong>Каков максимальный размер тома?</strong></p>
+<p>Как максимальный размер 64-bit aggregate в 7-mode для соответствующих контроллеров</p>
+<p><strong>Каково максимальное расстояние “разноса” нодов кластера?</strong></p>
+<p>Максимальное допустимое расстояние от ноды до коммутатора cluster network – 300 метров.   <br />Расстояние между redundant коммутаторами cluster network – 300 метров.    <br />Расстояние между двумя нодами в HA-паре – то же, что и для 7-mode.</p>
+<p><strong>FlashCache поддерживается?</strong></p>
+<p>Да!</p>
+<p><strong>Есть ли <em>non-disruptive upgrade</em> для систем 7-Mode?</strong></p>
+<p>К сожалению – нет. Только через полную разборку-сборку.</p>
+<p><strong>Есть ли <em>non-disruptive expand</em> или <em>reduce </em>для кластера новыми нодами?</strong></p>
+<p>Да.</p>
+<p><strong>Можно ли слить вместе два кластера?</strong></p>
+<p><em>В настоящий момент</em> нет, только через копирование, разборку второго и добавление его нод.</p>
+<p><strong>Нужен ли коммутатор для Cluster network в случае использования всего двух нод в кластере?</strong></p>
+<p>Да, все равно нужен даже для всего двух нод.</p>
+<p><strong>Работают-ли на Cluster-mode системах дедупликация, компрессия, thin provisioning, снэпшоты?</strong></p>
+<p>Да, все это работает.</p>
+<p><strong>Каким образом можно управлять кластером в Cluster-mode?</strong></p>
+<ul>
+<li>GUI: NetApp System Manager 2.0 </li>
+<li>CLI: SSH к кластеру, ноде или Vserver </li>
+<li>OnCommand 5.0 </li>
+<li>NetApp Management SDK </li>
+</ul>
+<p>FilerView (web-интерфейс, встроенный в контроллер) начиная с 8.1 <em>не поддерживается</em>.</p>
+<p><strong>Должен ли я управлять каждой нодой в отдельности?</strong></p>
+<p>Нет, кластер управляется как целостная сущность, без разделения на ноды. Каждая нода, при включении в кластер, получает и наследует глобальные настройки данного кластера.</p>
+<p><strong>Как обеспечивается антивирусная защита хранимых данных для кластера?</strong></p>
+<p>Тадааам! Теперь у Data ONTAP есть встроенный в OS движок антивирусного контроля и защиты. В настоящий момент лицензированы продукты Sophos и McAfee</p>
+<p>&#160;</p>
+<p>Больше о работе и управлении в кластере – в следующем посте этой серии.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/81.html" rel="tag">8.1</a>, <a href="tag/cluster-mode/index.html" rel="tag">cluster-mode</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="1118/trackback.html#respond">Комментарий</a> (<a href='1118/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1118/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (5)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2173">
+		<div id="div-comment-2173">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Для сопряжения 2040 и 5010 используется специальные SFP-модули под RJ45 ? ?? к кластеру на 2040 тоже дарят нексусы, имеющие сопоставимую с 2040 стоимость?</p>
+						<div class="comment-meta"><a href="1118/trackback.html#comment-2173" title="">8 Февраль 2012, 0:05</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2176">
+		<div id="div-comment-2176">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:</p>
+<p>Возможность работать на 1Gb/s есть только у первых 8 портов 5010/5020, в этом состоит ограничение 2040 с 5010.<br />
+Насчет распространяется ли предложение Cluster Express на 2040 сказать точно не могу, спрашивайте у вашего партнера NetApp. Я не видел явно указанных ограничений.<br />
+Вообще же покупать 2040 под Cluster-mode это не самая лучшая и дальновидная идея.</p>
+						<div class="comment-meta"><a href="1118/trackback.html#comment-2176" title="">10 Февраль 2012, 8:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2263">
+		<div id="div-comment-2263">
+		<div class="comment-author">
+			<cite>Fedor:<cite></div>
+			<p>Доброго времени суток!</p>
+<p>Каким образом будет проходить миграция с Data ONTAP 8.x на Data ONTAP 8.x Cluster-mode?<br />
+Я так понимаю что переход на Data ONTAP 8.x Cluster-mode не возможен без перерыва сервиса?</p>
+						<div class="comment-meta"><a href="1118/trackback.html#comment-2263" title="">10 Апрель 2012, 17:21</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2264">
+		<div id="div-comment-2264">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Fedor:</p>
+<p>Никак. Слишком велики архитектурные различия.<br />
+Миграция происходт путем полной &#8220;разборки&#8221; старой системы, и сборки из ее (и дополнительных) частей новой системы хранения. Данные, к сожалению, также придется восстановить на новую систему из резервной копии.</p>
+						<div class="comment-meta"><a href="1118/trackback.html#comment-2264" title="">10 Апрель 2012, 17:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-14264">
+		<div id="div-comment-14264">
+		<div class="comment-author">
+			<cite>AlektroNik:<cite></div>
+			<p>Подскажите пожалуйста несколько вопросов.<br />
+Это моя первая система NetApp.</p>
+<p>??меем:<br />
+FAS 2240-2 (2 контроллера), 20 дисков SAS по 500 ГБ и 4 диска SSD по 128 ГБ, двух портовый модуль 10Gb на каждом контроллере. Режим работы 7 mode.</p>
+<p>Вопросы:<br />
+1) Обновление системы с 7-mode на cluster mode требует только обновления системы или нужно что-то из физики докупать/менять.<br />
+2) Мы планировали использовать эту хранилку в качестве файлового сервера и начать тестировать и внедрять в дальнейшем потихоньку VMware View (бывший VDI). Для этих целей собственно и планировали выпустить 10Gb адаптеры в DATA сеть. На сколько я вижу из инструкций и статьи 10GB в cluster режиме используются чисто под синхронизацию между нодами. Дейтсвительно ли 10Gb адаптеры нельзя использовать в cluster режиме под сеть данных как в режиме 7 mode? ?? хватит ли мне ресурсов сети (по идее 8 портов по 1Гб) для реализации виртуальных десктопов без привлечения 10Gb сетевые адаптеры?<br />
+3) Какую схему моглибы порекомендовать Вы исходя из &#8220;??меем&#8221; + нужна отказоустойчивость и высокодоступность?</p>
+						<div class="comment-meta"><a href="1118/trackback.html#comment-14264" title="">26 Ноябрь 2014, 17:11</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1118" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.076 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

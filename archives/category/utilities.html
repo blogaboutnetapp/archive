@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; utilities</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Archive for the &#8216;utilities&#8217; Category.</p>
+
+ 				
+		<div class="navigation">
+			<div class="alignleft"><a href="utilities/page/2.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1345">
+				<h2 class="posttitle"><a href="../1345/trackback.html" rel="bookmark" title="Permanent Link to SnapCreator вблизи. Часть 1.">SnapCreator вблизи. Часть 1.</a></h2>
+				<div class="postmetadata">28 Апрель 2014, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Вот уже несколько лет, как среди программных продуктов NetApp есть такая штука, как SnapCreator. К сожалению, как я обратил внимание, он не только очень плохо известен пользователям, но даже те, кто знает про него, используют его крайне редко. А ведь это штука, которая, благодаря своей гибкости, может решить многие задачи, связанные с защитой данных на системе хранения и в прикладных системах, ее использующих.</p>
+<p>SnapCreator первоначально был разработан в 2007 году как &#8220;служебный&#8221;, внутренний продукт, внутри подразделения Professional Services и Rapid Responce Engineering Group, для того, чтобы облегчить построение систем защиты данных в снэпшоты системы хранения для пользовательских прикладных систем, не входящих в список поддерживаемых &#8220;официальным&#8221; продуктом NetApp - SnapManager.<br />
+То есть, если у вас используется MS SQL Server, MS Exchange, Sharepoint, Oracle, SAP, Hyper-V или vSphere (и у вас есть деньги на лицензию SnapManager), то все относительно просто. Вы устанавливаете SnapManager для соответствующего программного продукта, и дальше он делает все сам.</p>
+<p>Зачем нужен SnapManager, и почему нельзя обойтись просто командой snap create из консоли, или переданной через ssh или rsh? Ну, например потому, что некоторые программы требуют некоей согласованной последовательности действий на своей стороне, чтобы состояние данных, записанных на дисках системы хранения, было корректным, или еще говорят &#8220;консистентным&#8221;. Ведь, например, какие-то данные могут оказаться в буферах кэша сервера, как на стороне программы, так и файловой системы, базы SQL могут иметь незавершенные транзакции, и так далее. Все это требует, чтобы перед тем, как будет сделан &#8220;снимок&#8221;, снэпшот состояния данных, эти данные на дисках уже находились какое-то время в некоем стабильном, непротиворечивом состоянии, то есть все равно нужен некий &#8220;агент&#8221; на стороне программного продукта, умеющий с ним взаимодействовать.</p>
+<p>Таким образом, если у вас используется какой-нибудь MySQL, Sybase, Xen, KVM или что-то подобное, вам <em>нельзя так просто взять и сделать снэпшот</em>. Нужно написать какую-то систему-посредник, между вашим софтом, и софтом Data ONTAP. Вот для того, чтобы облегчить такую задачу для специалистов Professional Services и был написан SnapCreator.</p>
+<p>SnapCreator - это платформа, или, иначе говоря, фреймворк, для написания скриптов и агентов, взаимодействующих с вашей прикладной программной системой, с системой хранения, обеспечивающий автоматизацию взятия корректных, консистентных снэпшотов для данных этой программной системы. Вначале, первые несколько своих версий, это была закрытая внутренняя разработка, начиная с версии 3 она стала ограниченно доступна всем желающим. В настоящий момент для скачивания и использования доступна уже версия 4.1</p>
+<p>Официально в настоящее время существуют две линейки, официальная, и так называемая Community Edition. Последняя это, так сказать, unstable, developers edition, где обкатываются все мульки, которые потом деплоятся в официальную поддерживаемую компанией ветку.</p>
+<p>Архитектурно SnapCreator является клмент-серверным приложением. Существует так называемый SnapCreator Server, выполняющий код компонента Workflow Engine, который многопоточно обрабатывает поступающие от Агентов и собственного GUI и/или CLI запросы. Так как API открыт, то использовать SnapCreator могут любые внешние системы, например это могут быть коммандлеты PowerShell, другие продукты NetApp, такие как Unified Manager (для него есть свой собственный API), и даже собственные самописанные системы клиентов.</p>
+<p><a href="/pics//snapcreatorserverarch.png"><img src="/pics//snapcreatorserverarch.png" alt="" title="snapcreatorserverarch" width="500" height="247" class="alignnone size-full wp-image-1346" /></a></p>
+<p>&#8220;Другим концом&#8221; Snap Creator Server взаимодействует с внутренним API Data ONTAP, обеспечивая все нужные вызовы и отдачу команд.<br />
+Конфигурации, jobs, и метаданные плагинов хранятся в специальной структуре - Репозитории (Repository / Extended Repository). Расписания задач, сами задачи (jobs), пользователи и их права доступа (RBAC) хранятся в базе данных (Database).</p>
+<p>Наконец, специальный API есть для &#8220;клиентов&#8221;, агентов SnapCreator.</p>
+<p>Посмотрим теперь подробнее на систему SnapCreator со стороны Агента.</p>
+<p><a href="/pics//snapcreatoragentarch.png"><img src="/pics//snapcreatoragentarch.png" alt="" title="snapcreatoragentarch" width="500" height="242" class="alignnone size-full wp-image-1347" /></a></p>
+<p>Агент - это программный продукт, написанный на Java, чтобы многопоточно выполняться на всех поддерживаемых OS. В ранних версиях в качестве транспорта использовался обычный HTTP, начиная с версии 4.1 взаимодействие Агента и Сервера полностью шифруется в HTTPS.<br />
+Основным компонентом, ядром SC Agent является Operation/Execution Manager.<br />
+Ядро выполняет запросы от плагинов, которые могут быть как нативными на Джава, так и поддерживаться ранее написанные плагины &#8220;не-Java&#8221; (значительное их количество для разных программных систем было написано для версий SC 3.6 и 4.0, существовавших ранее), в том числе и на разных скриптовых языках, Perl, PowerShell, даже на UNIX Shell. </p>
+<p>В следующих постах разберем то, как пишутся собственно плагины для SnapCreator.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/snapcreator.html" rel="tag">snapcreator</a><br />					Раздел: <a href="techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1345/trackback.html#comments" title="Комментарий к записи SnapCreator вблизи. Часть 1.">Комментарии (7)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1313">
+				<h2 class="posttitle"><a href="../1313/trackback.html" rel="bookmark" title="Permanent Link to pktt: встроенный сборщик ethernet dump">pktt: встроенный сборщик ethernet dump</a></h2>
+				<div class="postmetadata">16 Декабрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Внутри Data ONTAP зачастую находится много полезных штук, к сожалению, часто малоизвестных &#8220;рядовому админу&#8221;, особенное если &#8220;все и так работает&#8221;.<br />
+Одна из таких архиполезных для траблшутинга сети штук - встроенный сборщик дампа пакетов на сетевом интерфейсе. Особенно полезно то, что формат собираемого дампа позволяет напрямую открывать его в популярнейшем инструменте анализа дампов - Wireshark.<br />
+Если вы настроили CHAP authentification в iSCSI, и <em>что-то пошло не так</em>, или <em>что-то странное творится</em> при доступе к файлам по SMB, то лучший способ - собрать дамп и посмотреть что происходит в сети на стороне стораджа.</p>
+<p>Для этого выясним сперва, на каком интерфейсе нас будет интересовать ethernet-трафик.</p>
+<p><code>netapp> ifconfig -a</p>
+<p>e0a: flags=0xe48867<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500<br />
+inet 10.10.10.140 netmask 0xffffff00 broadcast 10.10.10.255<br />
+ether 00:0c:29:89:3f:3c (auto-1000t-fd-up) flowcontrol full<br />
+e0b: flags=0xe08866<BROADCAST,RUNNING,MULTICAST> mtu 1500<br />
+ether 00:0c:29:89:3f:46 (auto-1000t-fd-up) flowcontrol full<br />
+e0c: flags=0xe08866<BROADCAST,RUNNING,MULTICAST> mtu 1500<br />
+ether 00:0c:29:89:3f:50 (auto-1000t-fd-up) flowcontrol full<br />
+e0d: flags=0xe08866<BROADCAST,RUNNING,MULTICAST> mtu 1500<br />
+ether 00:0c:29:89:3f:5a (auto-1000t-fd-up) flowcontrol full<br />
+lo: flags=0&#215;1b48049<UP,LOOPBACK,RUNNING,MULTICAST,TCPCKSUM> mtu 9188<br />
+inet 127.0.0.1 netmask 0xff000000 broadcast 127.0.0.1<br />
+losk: flags=0&#215;40a400c9<UP,LOOPBACK,RUNNING> mtu 9188<br />
+inet 127.0.20.1 netmask 0xff000000 broadcast 127.0.20.1</code></p>
+<p>Запустим команду pktt, указав ей собирать дамп на заданном интерфейсе, и маркировать файл дампа датой сбора.</p>
+<p><code>netapp> pktt start e0a -d /etc/log<br />
+e0a: started packet trace</code></p>
+<p><code>netapp> pktt status<br />
+e0a: Packet tracing enabled; packets truncated at 1514 bytes.<br />
+e0a: Trace buffer utilization = 2% of 1048320 bytes, 258 packets<br />
+e0a: 0 bytes written to file /etc/log/e0a_20131108_173928.trc<br />
+e0a: Currently tracing to file /etc/log/e0a_20131108_173928.trc<br />
+e0a: 258 packets seen; 0 packets dropped; 24936 total bytes seen</code></p>
+<p><code>lo: Packet tracing enabled; packets truncated at 1514 bytes.<br />
+lo: Trace buffer utilization = 99% of 130816 bytes, 1011 packets<br />
+lo: 1387 packets seen; 0 packets dropped; 160568 total bytes seen</code></p>
+<p><code>losk: Packet tracing enabled; packets truncated at 1514 bytes.<br />
+losk: Trace buffer utilization = 99% of 130816 bytes, 282 packets<br />
+losk: 40901 packets seen; 0 packets dropped; 21761277 total bytes seen</code></p>
+<p>Когда нужный интервал сбора пройден, остановим pktt. </p>
+<p><code>netapp> pktt stop e0a<br />
+e0a: Tracing stopped and packet trace buffers released.<br />
+Fri Nov  8 17:42:25 EST [sim81:cmds.pktt.write.info:info]: pktt: 280 packets seen, 0 dropped, 32046 bytes written to /etc/log/e0a_20131108_173928.trc.</code></p>
+<p>У нас по заданному пути окажется файл с дампом, который мы можем скопировать на машину с Wireshark.</p>
+<p><a href="/pics//pktt02.jpg"><img src="/pics//pktt02.jpg" alt="" title="pktt02" width="443" height="186" class="alignnone size-full wp-image-1315" /></a></p>
+<p>Теперь откроем файл .trc, прямо в Wirrshark, и приступим к знакомому процессу разбора в этом замечательном инструменте.</p>
+<p><a href="/pics//pktt03.jpg"><img src="/pics//pktt03-300x167.jpg" alt="" title="pktt03" width="300" height="167" class="alignnone size-medium wp-image-1314" /></a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/pktt.html" rel="tag">pktt</a>, <a href="../tag/tools.html" rel="tag">tools</a><br />					Раздел: <a href="commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1313/trackback.html#respond" title="Комментарий к записи pktt: встроенный сборщик ethernet dump">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1301">
+				<h2 class="posttitle"><a href="../1301/trackback.html" rel="bookmark" title="Permanent Link to NetApp Hardware Universe">NetApp Hardware Universe</a></h2>
+				<div class="postmetadata">11 Ноябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>У NetApp есть такой подсайт, который называется <a href="http://hwu.netapp.com">Hardware Universe</a>. На нем собраны разнообразные материалы по аппаратной части систем, например матрицы совместимости контроллеров и плат расширения, и прочие такие же полезные штуки. К сожалению, для доступа туда нужен, как я понимаю, партнерский аккаунт. На этом сайте можно найти, например, PDF с таблицами характеристик контроллеров и их максимумов. Например, какого размера данный контроллер поддерживает том для дедупликации, сколько LUN-ов можно создать максимально, какая минимальная версия Data ONTAP для этого контроллера нужна, или какое его тепловыделение в BTU, и так далее.</p>
+<p>??нформация полезная, и не закрытая, поэтому я вытащил эти таблички с HWU для общего пользования. Скачивая их у меня имейте ввиду, что они у меня не обновляются, и свежие только на момент публикации, а иногда они все же меняются, так что для абсолютно точной уверенности найдите способ получить их актуальными.</p>
+<p><a href="https://app.box.com/s/ao2rv1rzxkbuwqzcy1l4">Maximums for 8.2 7-Mode</a></p>
+<p><a href="https://app.box.com/s/a6jrh7yjk7d3opd2nfgz">Maximums for 8.2 Cluster-mode</a></p>
+<p><a href="https://app.box.com/s/10h7opbwgiwzajz8b2wt">Maximums for 7.86 SANtricity (E-series)</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/hardware.html" rel="tag">hardware</a>, <a href="../tag/hwu.html" rel="tag">hwu</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1301/trackback.html#comments" title="Комментарий к записи NetApp Hardware Universe">Комментарии (8)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1287">
+				<h2 class="posttitle"><a href="../1287/trackback.html" rel="bookmark" title="Permanent Link to RAID &amp; IOPS calculator">RAID &amp; IOPS calculator</a></h2>
+				<div class="postmetadata">12 Сентябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Полезная онлайн-утилитка обнаружилась <a href="http://www.wmarow.com/strcalc/raidslider.html">тут</a>. Многим работающим с RAID и системами хранения приходится оценивать призводительность и прочие параметры RAID разных типов. В помошь такому может послужить онлайновый калькулятор, из всех видимых – максимально подробный.</p>
+<p><a href="/pics/RAID--IOPS-calculator_9F0C/image.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/RAID--IOPS-calculator_9F0C/image_thumb.png" width="494" height="480" /></a></p>
+<p>Находится он по адресу: <a href="http://www.wmarow.com/strcalc/strcalc.html"><u><font color="#0066cc">http://www.wmarow.com/strcalc/strcalc.html</font></u></a></p>
+<p>Обратите внимание, там же есть еще два калькулятора, не меньшей полезности, <a href="http://www.wmarow.com/strcalc/raidslider.html">RAID calculator</a> и <a href="http://www.wmarow.com/strcalc/goals.html">Array estimator</a>.</p>
+<p>NB!: Особо отмечу для новичков: RAID-DP <strong><font color="#ff0000">не</font></strong> является в терминах данного калькулятора “RAID-6”, и нельзя оценивать его производительность, приравняв RAID-DP к “RAID-6”, принципы его работы – иные, по производительности он близок скорее к RAID-10. Это калькулятор <strong>только</strong> для “классических” RAID!</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/raid.html" rel="tag">raid</a><br />					Раздел: <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1287/trackback.html#comments" title="Комментарий к записи RAID &amp; IOPS calculator">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1285">
+				<h2 class="posttitle"><a href="../1285/trackback.html" rel="bookmark" title="Permanent Link to Новые версии SnapDrive Win 7.0, SnapManager for SQL 7.0 и Hyper-V 2.0">Новые версии SnapDrive Win 7.0, SnapManager for SQL 7.0 и Hyper-V 2.0</a></h2>
+				<div class="postmetadata">9 Сентябрь 2013, 11:02 <!-- от  --></div>
+				<div class="postentry">
+					<p>Тем временем, на прошлй неделе NetApp обновил несколько своих важных утилит “стороны хоста”. Как вы знаете, и многие, уверен, пользуетесь, средствами работы со стораджем на стороне хост-системы. С выходом Server 2012 и 2012 R2, и их новых возможностей, насущно встала необходимость обновления набора хост-инструментов NetApp.</p>
+<p>Появилась новая версия <strong>SnapDrive</strong>, инструмента для создания снэпшотов, LUN-ов и управления ими со стороны сервера. Также этот инструмент предоставляет API для работы многим другим программным хост-средствам NetApp.</p>
+<p>Основные новинки это:</p>
+<ul>
+<li>Поддержка Cluster-mode (наконец-то)</li>
+<li>Поддержка SMB 3.0</li>
+<li>Sub-LUN cloning</li>
+<li>Поддержка командлетов PowerShell 2.0+ для SMB 3.0</li>
+<li>Virtual Fibre Channel</li>
+<li>Поддержка gMSA – group Managed Service Account в Windows Server 2012</li>
+</ul>
+<p>Опубликован TR-4000: &quot;<a href="http://media.netapp.com/documents/tr-4000.pdf">SnapDrive 7.0 for Windows Best Practices for Clustered Data ONTAP</a>&quot;.</p>
+<p><strong>SnapManager for Hyper-V</strong> обновился до долгожданной версии 2.0</p>
+<p>Среди новинок:</p>
+<ul>
+<li>??нтеграция со SnapVault</li>
+<li>Поддержка не только SAN (FC, iSCSI, FCoE), но и SMB 3.0, в частности теперь поддерживается remote VSS hardware providers</li>
+<li>Для SMB 3.0 и CSV 2.0 также поддерживаются SnapInfo</li>
+<li>Поддерживаются gMSA</li>
+<li>Наконец-то поддерживается восстановление по альтернативному пути (например для DR-сайтов) и восстановление удаленных (deleted) VM из бэкапов типа crash-consistent.</li>
+<li>Поддерживается установка на remote-хост.</li>
+</ul>
+<p>Вместе со всеми обновился и третий важный компонент win-хост инструментов: <strong>SnapManager for SQL Server</strong>.</p>
+<p>Новинки:</p>
+<ul>
+<li>Поддержка SMB 3.0 (напомню, что пока SMB 3.0 есть <strong>только на Cluster-mode</strong>!)</li>
+<li>??нтеграция со SnapVault (archived backup могут отправляться на secondary SnapVault на clustered-системе)</li>
+<li>Восстановление базы данных в другое расположение того же инстанса MS SQL Server</li>
+<li>Поддержка gMSA и возможность запуска SMSQL из него</li>
+<li>Улучшена производительность работы для ряда сценариев использования</li>
+</ul>
+<p>Все версии опубликованы и доступны пользователям NetApp для скачивания на сайте NetApp Support.</p>
+<p>Не забывайте внимательно читать Release Notes перед установкой или обновлением!</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/70.html" rel="tag">7.0</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/smb-30.html" rel="tag">smb 3.0</a>, <a href="../tag/snapdrive.html" rel="tag">snapdrive</a>, <a href="../tag/snapmanager.html" rel="tag">snapmanager</a><br />					Раздел: <a href="techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>,  <a href="news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1285/trackback.html#comments" title="Комментарий к записи Новые версии SnapDrive Win 7.0, SnapManager for SQL 7.0 и Hyper-V 2.0">1 комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1267">
+				<h2 class="posttitle"><a href="../1267/trackback.html" rel="bookmark" title="Permanent Link to OnCommand System Manager 3.0 RC1">OnCommand System Manager 3.0 RC1</a></h2>
+				<div class="postmetadata">15 Июль 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Вышла и опубликована новая версия System Manager, но радоваться погодите. Существенных изменений с 2.2 не так много, более того, она 3.0 <strong>только для Clustered ONTAP.</strong> При работе с 7-mode запускается 2.2 (она называется 2.2.0.1), которая в 3.0 включена как подсистема. Так что если у вас <strong>не</strong> Clustered Data ONTAP, то погодите <em>бежать-качать-ставить</em>, особой разницы вы не увидите, разве что багфиксы.</p>
+<p>Новые возможности 3.0: поддержка SnapVault на clustered-системах, поддержка и управление локальными пользователями SMB внутри VServer, поддержка Hyper-V по SMB 3.0 для C-mode систем, некоторые визуальные улучшения и упрощения в интерфейсе.</p>
+<p>А вот интересно, среди читающих меня есть хоть один, в реальной жизни эксплуатирующий уже Clustered Data ONTAP? Насколько интересно публике читать новости про фичи Cluster-mode?</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/software.html" rel="tag">software</a>, <a href="../tag/system-manager.html" rel="tag">system manager</a>, <a href="../tag/update.html" rel="tag">update</a><br />					Раздел: <a href="review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1267/trackback.html#comments" title="Комментарий к записи OnCommand System Manager 3.0 RC1">Комментарии (5)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1243">
+				<h2 class="posttitle"><a href="../1243/trackback.html" rel="bookmark" title="Permanent Link to Сборка fio под Windows x64">Сборка fio под Windows x64</a></h2>
+				<div class="postmetadata">4 Февраль 2013, 13:49 <!-- от  --></div>
+				<div class="postentry">
+					<p>Одним из самых перспективных средств тестирования дискового перформанса на сегодняшний день является утилита <a href="http://git.kernel.dk/?p=fio.git;a=summary">fio</a>.<br />
+??сторически я пользовался много лет для этого популярным IOmeter, и даже писал несколько подробных <a href="../../index.html%3Fs=iometer.html">постов </a>о нем, неизменно приводящих в этот блог читателей с поисковиков.</p>
+<p>Однако IOmeter достаточно давно затормозился в развитии, и на сегодняшний день имеет <a href="http://iometer.org/doc/downloads.html">stable </a>в версии аж 2006(!) года, а <a href="http://sourceforge.net/projects/iometer/?source=directory">собираемый community</a> имеет версию 1.1RC1 и обновлялся аж летом 2011 года, что никак нельзя назвать приемлемым. К тому же отдельные версии (Linux x64, например) имеют крайне досадные баги, сводящие на нет его применимость под эти платформы.</p>
+<p>Поэтому все больше людей для тестирования производительности ищут более современные инструменты. По этой причине несколько месяцев назад мне попался на глаза очень активно развивающийся проект такой утилиты измерения производительности - <a href="http://freecode.com/projects/fio">fio </a>(flexible input-output tester).<br />
+О тестировании дисковой подсистемы с помощью fio можно почитать например вот <a href="http://habrahabr.ru/post/154235/">в этой статье</a>.</p>
+<p>К сожалению до недавних пор fio существовал только под Linux, поэтому было очень любопытно обнаружить в блоге нетапповского инженера Neto статью <a href="https://communities.netapp.com/community/netapp-blogs/databases/blog/2013/01/31/compiling-fio-flexible-io-tester-on-windows-64-bits">о сборке fio под Windows x64</a>.</p>
+<p>Нет смысла перепощивать ее сюда, там коротенько и совершенно понятно как и что делать, даже без перевода, так что просто сошлюсь на нее <a href="https://communities.netapp.com/community/netapp-blogs/databases/blog/2013/01/31/compiling-fio-flexible-io-tester-on-windows-64-bits">здесь</a>.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/benchmark/index.html" rel="tag">benchmark</a>, <a href="../tag/fio.html" rel="tag">fio</a>, <a href="../tag/iometer.html" rel="tag">iometer</a>, <a href="../tag/performance/index.html" rel="tag">performance</a><br />					Раздел: <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1243/trackback.html#comments" title="Комментарий к записи Сборка fio под Windows x64">Комментарии (6)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1127">
+				<h2 class="posttitle"><a href="../1127/trackback.html" rel="bookmark" title="Permanent Link to NetApp Storage Security Editor">NetApp Storage Security Editor</a></h2>
+				<div class="postmetadata">8 Март 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Не все обращают внимание, что на сайте NetApp Support, недавно подвергшемуся “фейслифтингу” есть любопытная <a href="http://support.netapp.com/eservice/toolchest">директория </a>с разнообразными “тулзами” для администратора. Эти программы и утилиты, официально не поддерживаемые NetApp, размещены там в помощь администраторам систем хранения и, несмотря на официальную “неподдержку”, могут оказаться очень полезными.</p>
+<p>Так, например, как-то я там обнаруживал <a href="../555/trackback.html">NetApp System Analyzer for CIFS</a>, а также <a href="../725/trackback.html">архиполезный набор утилит na_stats</a>. А на днях автор блога <a href="http://www.ntapgeek.com/2012/02/netapp-updates-storage-security-editor.html">Geek ONTAP</a> показал еще одну интересную утилитку – <a href="http://support.netapp.com/NOW/download/tools/secedit/">NetApp Storage Security Editor</a>.</p>
+<p>Если вы используете системы NetApp как CIFS-сервер, и вынуждены часто строить сложные ACL для разграничения доступа, то вам должно быть такое интересно. Этот инструмент позволяет создавать описания настроек доступа для ресурса на языке SDDL.</p>
+<p><a href="http://blogs.technet.com/b/askds/archive/2008/04/18/the-security-descriptor-definition-language-of-love-part-1.aspx">SDDL – Security Descriptor Definition Language – язык описания дескрипторов доступа</a>, позволяющий создавать строки, описывающие права доступа на ресурсы. Язык этот лишь слегка проще конфигурационного файла sendmail, поэтому наличие хорошего инструмента, позволяющего на нем писать совершенно необходимо.</p>
+<p>Записанную в файл строку на SDDL можно импортировать в NetApp с помошью консольной команды fsecurity apply.</p>
+<p>В случае, если вам приходится регулярно управлять разграничением доступа сотен пользователей в десятках групп, для множества совместно используемых ресурсов в компании, наличие такого инструмента в арсенале администратора будет очень полезным.</p>
+<p>К сожалению утилита находится в крайне ранней стадии развития, поддерживает пока только NTFS-security, а в нем storage-level и file/directory-level security, также не поддерживаются не-ASCII символы во вводе.</p>
+<p>Подробнее смотрите на <a href="http://now.netapp.com/NOW/download/tools/secedit/">странице инструмента</a> (нужен логин в NetApp Support (NOW)).</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/fsecurity.html" rel="tag">fsecurity</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/sddl.html" rel="tag">sddl</a><br />					Раздел: <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1127/trackback.html#respond" title="Комментарий к записи NetApp Storage Security Editor">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1097">
+				<h2 class="posttitle"><a href="../1097/trackback.html" rel="bookmark" title="Permanent Link to NDMPCOPY">NDMPCOPY</a></h2>
+				<div class="postmetadata">15 Декабрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Несмотря на то, что протокол NDMP, о котором я тут уже, было дело, <a href="../238/trackback.html">пару</a> раз <a href="../518/trackback.html">рассказывал</a>, и не слишком популярен, да и вообще <em>стагнирует</em>, он, даже в имеющемся виде, может быть полезен и интересен.</p>
+<p>Например с помощью встроенной в Data ONTAP команды ndmpcopy можно внутренними средствами контроллеров системы хранения копировать данные как внутри одной системы хранения, так и между ними (то есть не гоняя их “через внешний хост”, а непосредствено с контроллера на контроллер). ??ногда это бывает очень удобно. Некоторое время назад я показывал использование ndmpcopy для <a href="../922/trackback.html">переноса root volume</a> системы хранения, там мы копировали по ndmp содержимое root vol на новый том, который потом делали новым root.</p>
+<p>К сожалению, существующая на сайте <a href="http://ndmp.org">ndmp.org</a> программа <a href="http://www.ndmp.org/download/ndmpcopy/index.shtml">ndmpcopy</a> отличается по функциональности от встроенной в DOT, не умеет междевайсное копирование, и работает со старой версией протокола, что значтельно сужает область ее использования.</p>
+<p>Однако доброволец-энтузиаст недавно переписал ndmpcopy на java, реализовал NDMPv4, и ряд дополнительных возможностей.</p>
+<p>Версию его программы можно скачать тут: <a href="http://cronsult.com/jndmpcopy_man.aspx" target="_blank"><u><font color="#0066cc">http://cronsult.com/jndmpcopy_man.aspx</font></u></a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/ndmp.html" rel="tag">ndmp</a>, <a href="../tag/ndmpcopy.html" rel="tag">ndmpcopy</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1097/trackback.html#comments" title="Комментарий к записи NDMPCOPY">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1060">
+				<h2 class="posttitle"><a href="../1060/trackback.html" rel="bookmark" title="Permanent Link to SnapMirror Progress Monitor Tool 3.0">SnapMirror Progress Monitor Tool 3.0</a></h2>
+				<div class="postmetadata">20 Октябрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Я уже писал, что в разделе Toolchest на NOW можно, порой, найти какие-нибудь интересные и полезные утилитки, про которых, часто, никто не знает. Вот и в этот раз там обнаружилась любопытная утилита <a href="http://now.netapp.com/NOW/download/tools/smpm/">SnapMirror Progress Monitor Tool</a>.</p>
+<p>Это, что явствует из названия, инструмент для слежения за процессом репликации SnapMirror.</p>
+<p>Если в вашей системе хранения используется SnapMirror, а в особенности, если SnapMirror передает достаточно объемные репликации по сравнительно узким WAN-каналам, то, безусловно, такая утилитка будет в вашей практике весьма применима и полезна.</p>
+<p>Среди прочего, она, например, позволяет оценить время на репликацию в текущих условиях и для имеющегося объема данных, без фактической репликации.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../tag/monitoring.html" rel="tag">monitoring</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/snapmirror.html" rel="tag">snapmirror</a>, <a href="../tag/tools.html" rel="tag">tools</a><br />					Раздел: <a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1060/trackback.html#respond" title="Комментарий к записи SnapMirror Progress Monitor Tool 3.0">Комментарий</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="utilities/page/2.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95 current-cat"><a href="utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.091 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

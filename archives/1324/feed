@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FAS8020 - результаты SPEC sfs2008 NFS benchmark</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1324/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1324</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:15 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Сколько денег можно сэкономить на электроэнергии используя Flash в СХД? &#124; FNIT.RU</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-14753</link>
+		<dc:creator>Сколько денег можно сэкономить на электроэнергии используя Flash в СХД? &#124; FNIT.RU</dc:creator>
+		<pubDate>Wed, 15 Apr 2015 22:40:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-14753</guid>
+		<description>[...] прочтения коротенькой статьи про сравнение двух моделей NetApp FAS3250 и FAS8020, подумал «А на сколько Flash дешевле по потреблению [...]</description>
+		<content:encoded><![CDATA[<p>[...] прочтения коротенькой статьи про сравнение двух моделей NetApp FAS3250 и FAS8020, подумал «А на сколько Flash дешевле по потреблению [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12437</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 28 Feb 2014 08:53:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12437</guid>
+		<description>bbk:
+Формально - да, но полученный результат будет не слишком показателен для той нагрузки, которая, собственно, и требует throughput. Потому что, повторю, sfs2008 это, по преимушеству, рандомный доступ со сравнительно небольшими блоками, и где-то 35-45% в них - это операции с метаданными, а не просто read или write.
+Так что взять IOPS в sfs2008, помножить их на размер блока, и получить "результат для DSS (SPC-2)" - нельзя.</description>
+		<content:encoded><![CDATA[<p>bbk:<br />
+Формально - да, но полученный результат будет не слишком показателен для той нагрузки, которая, собственно, и требует throughput. Потому что, повторю, sfs2008 это, по преимушеству, рандомный доступ со сравнительно небольшими блоками, и где-то 35-45% в них - это операции с метаданными, а не просто read или write.<br />
+Так что взять IOPS в sfs2008, помножить их на размер блока, и получить &#8220;результат для DSS (SPC-2)&#8221; - нельзя.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12436</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 28 Feb 2014 08:35:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12436</guid>
+		<description>2 &lt;b&gt;Nostromo&lt;/b&gt;
+Если нужен трупут, можно количество I/o per second умножить на "средний размер блока" (KByte), получим MByte/second.</description>
+		<content:encoded><![CDATA[<p>2 <b>Nostromo</b><br />
+Если нужен трупут, можно количество I/o per second умножить на &#8220;средний размер блока&#8221; (KByte), получим MByte/second.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12428</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 27 Feb 2014 13:00:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12428</guid>
+		<description>Nostromo:
+
+Почему вы так думаете? Типичный файлсервер это совсем не "хранить и раздавать BD-рипы", ровно наоборот, в профиле SPEC sfs2008 добрая половина - операции с метаданными, а это рандомные операции сравнительно мелкими блоками.</description>
+		<content:encoded><![CDATA[<p>Nostromo:</p>
+<p>Почему вы так думаете? Типичный файлсервер это совсем не &#8220;хранить и раздавать BD-рипы&#8221;, ровно наоборот, в профиле SPEC sfs2008 добрая половина - операции с метаданными, а это рандомные операции сравнительно мелкими блоками.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12421</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Thu, 27 Feb 2014 10:48:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12421</guid>
+		<description>??нтересно, сколько там мегабайт в секунду он показывал? iops для файл-сервера как-то не особо актуальны, на мой взгляд.</description>
+		<content:encoded><![CDATA[<p>??нтересно, сколько там мегабайт в секунду он показывал? iops для файл-сервера как-то не особо актуальны, на мой взгляд.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12358</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 25 Feb 2014 07:29:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12358</guid>
+		<description>Кстати обратите внимение на то, что в тесте 
+3250 использовалось &lt;b&gt;14&lt;/b&gt; полок с 24 дисками 450 &lt;b&gt;15 тыс оборотов в минуту&lt;/b&gt;
+8020 использовалось &lt;b&gt;6&lt;/b&gt;  полок с 24 дисками 600 &lt;b&gt;10 тыс оборотов в минуту&lt;/b&gt;</description>
+		<content:encoded><![CDATA[<p>Кстати обратите внимение на то, что в тесте<br />
+3250 использовалось <b>14</b> полок с 24 дисками 450 <b>15 тыс оборотов в минуту</b><br />
+8020 использовалось <b>6</b>  полок с 24 дисками 600 <b>10 тыс оборотов в минуту</b></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12347</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 24 Feb 2014 11:45:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12347</guid>
+		<description>производительность показалось похожей, таки один ноль не заметил -) получатся что не серьезно.</description>
+		<content:encoded><![CDATA[<p>производительность показалось похожей, таки один ноль не заметил -) получатся что не серьезно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12344</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Mon, 24 Feb 2014 10:45:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12344</guid>
+		<description>Вы серьезно?
+8 полок, 1 ТБ флеша, 
+56 полок, 38 ТБ флеша и 8 пар контроллеров.
+
+Нет, вы правда серьезно?</description>
+		<content:encoded><![CDATA[<p>Вы серьезно?<br />
+8 полок, 1 ТБ флеша,<br />
+56 полок, 38 ТБ флеша и 8 пар контроллеров.</p>
+<p>Нет, вы правда серьезно?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12343</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 24 Feb 2014 10:32:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12343</guid>
+		<description>&#62; Есть уже SPC-1 на 8040 
+Дааа, а теперь сравните с этим чудовищем http://www.storageperformance.org/benchmark_results_files/SPC-1/Huawei/A00140_Huawei_OceanStor-18800/a00140_Huawei_OceanStor-18800_SPC-1_full-disclosure-report-r1.pdf</description>
+		<content:encoded><![CDATA[<p>&gt; Есть уже SPC-1 на 8040<br />
+Дааа, а теперь сравните с этим чудовищем <a href="http://www.storageperformance.org/benchmark_results_files/SPC-1/Huawei/A00140_Huawei_OceanStor-18800/a00140_Huawei_OceanStor-18800_SPC-1_full-disclosure-report-r1.pdf" rel="nofollow">http://www.storageperformance.org/benchmark_results_files/SPC-1/Huawei/A00140_Huawei_OceanStor-18800/a00140_Huawei_OceanStor-18800_SPC-1_full-disclosure-report-r1.pdf</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1324#comment-12342</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Mon, 24 Feb 2014 09:15:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1324#comment-12342</guid>
+		<description>Aaz, и да и нет. Раньше плата за DOT лежала в стоимости полок, теперь же её показывают отдельно. Цена на системы в целом не поменялась.</description>
+		<content:encoded><![CDATA[<p>Aaz, и да и нет. Раньше плата за DOT лежала в стоимости полок, теперь же её показывают отдельно. Цена на системы в целом не поменялась.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

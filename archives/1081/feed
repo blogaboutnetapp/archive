@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Vox Populi: Что мешает жить пользователю NetApp?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1081/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1081</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:35 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Miloshevitch</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1906</link>
+		<dc:creator>Miloshevitch</dc:creator>
+		<pubDate>Mon, 14 Nov 2011 10:19:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1906</guid>
+		<description>Что радует, так производительность и качество на высоте.
+Но вот софт и настройка немного не продуманы. Достаточно даже взять простейшую операцию - переназначение дисков от контроллера к контроллеру. Везде описан порядок с переводом томов в оффлайн, а оказывается можно все на лету сделать. ??з System Manager нельзя управлять всеми функциями. Короче еще есть над чем работать. CIFS работает немного странно.</description>
+		<content:encoded><![CDATA[<p>Что радует, так производительность и качество на высоте.<br />
+Но вот софт и настройка немного не продуманы. Достаточно даже взять простейшую операцию - переназначение дисков от контроллера к контроллеру. Везде описан порядок с переводом томов в оффлайн, а оказывается можно все на лету сделать. ??з System Manager нельзя управлять всеми функциями. Короче еще есть над чем работать. CIFS работает немного странно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1889</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Sun, 06 Nov 2011 17:08:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1889</guid>
+		<description>Я бы отметил довольно странную работу поиска на now
+Ну и саппорт иногда откровенно тормозит и ошибается.</description>
+		<content:encoded><![CDATA[<p>Я бы отметил довольно странную работу поиска на now<br />
+Ну и саппорт иногда откровенно тормозит и ошибается.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1851</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Sun, 30 Oct 2011 13:19:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1851</guid>
+		<description>&#62; Будет “Dual-core with Hyperthreading 1,73GHz Xeon C3528″
+Производительность архитектуры  должна быть на уровне старшей линейки (pcie и memory контроллеры в процессоре), с поправкой на масштаб, конечно. Так что есть надежда на аппаратно современное решение.</description>
+		<content:encoded><![CDATA[<p>&gt; Будет “Dual-core with Hyperthreading 1,73GHz Xeon C3528″<br />
+Производительность архитектуры  должна быть на уровне старшей линейки (pcie и memory контроллеры в процессоре), с поправкой на масштаб, конечно. Так что есть надежда на аппаратно современное решение.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1849</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 28 Oct 2011 12:35:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1849</guid>
+		<description>Azat:
+
+Результаты большого редизайна будут выкачены вот прямо в ноябре.</description>
+		<content:encoded><![CDATA[<p>Azat:</p>
+<p>Результаты большого редизайна будут выкачены вот прямо в ноябре.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Azat</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1848</link>
+		<dc:creator>Azat</dc:creator>
+		<pubDate>Fri, 28 Oct 2011 12:32:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1848</guid>
+		<description>??з плохого - NOW.NETAPP.COM  периодически отваливается, иногда "глючит".</description>
+		<content:encoded><![CDATA[<p>??з плохого - NOW.NETAPP.COM  периодически отваливается, иногда &#8220;глючит&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1846</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 28 Oct 2011 05:17:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1846</guid>
+		<description>panvartan:
+
+С железом все не так просто. Причины выбора объяснялись в одной из статей, которую писал "Главный Конструктор" FAS.
+Дело в том, что, например, у производителей процессоров существуют модели для массового рынка, которые характеризуются малым циклом от начала продаж до смены линейки, и так называемые "LTS" говоря языком Убунты.
+
+Нельзя сделать систему на процессоре, который через два года перестанет производиться. Ведь надо его иметь в бесперебойном наличии, нужно обеспечивать запчастями сервис, и так далее. Срок жизни стораджа в линейке NetApp куда длиннее, чем десктопа или даже сервера-самосбора. Он сперва проектируется, затем несколько лет производится, затем должен еще минимум пять лет поддерживаться в рамках Hardware Warranty, даже если производиться перестал. Все это время процессоры должны быть бесперебойно доступны, что значит почти 7-8 летний цикл их производства. Не любая модель на конвейере производителя процессоров выпускается так долго. Но есть специальные модели, которые производитель гарантирует для долговременной доступности. ??менно этим определяется выбор модели процессора.
+
+&gt; но ведь найдут же
+
+Будет "Dual-core with Hyperthreading 1,73GHz Xeon C3528"</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>С железом все не так просто. Причины выбора объяснялись в одной из статей, которую писал &#8220;Главный Конструктор&#8221; FAS.<br />
+Дело в том, что, например, у производителей процессоров существуют модели для массового рынка, которые характеризуются малым циклом от начала продаж до смены линейки, и так называемые &#8220;LTS&#8221; говоря языком Убунты.</p>
+<p>Нельзя сделать систему на процессоре, который через два года перестанет производиться. Ведь надо его иметь в бесперебойном наличии, нужно обеспечивать запчастями сервис, и так далее. Срок жизни стораджа в линейке NetApp куда длиннее, чем десктопа или даже сервера-самосбора. Он сперва проектируется, затем несколько лет производится, затем должен еще минимум пять лет поддерживаться в рамках Hardware Warranty, даже если производиться перестал. Все это время процессоры должны быть бесперебойно доступны, что значит почти 7-8 летний цикл их производства. Не любая модель на конвейере производителя процессоров выпускается так долго. Но есть специальные модели, которые производитель гарантирует для долговременной доступности. ??менно этим определяется выбор модели процессора.</p>
+<p>> но ведь найдут же</p>
+<p>Будет &#8220;Dual-core with Hyperthreading 1,73GHz Xeon C3528&#8243;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1845</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Thu, 27 Oct 2011 18:55:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1845</guid>
+		<description>Нельзя не отменить страсть к винтажному железу, сейчас, наверное, невозможно найти процессор слабее xeon 5220 (fas3210) для ожидаемой линейки 2240 - но ведь найдут же)</description>
+		<content:encoded><![CDATA[<p>Нельзя не отменить страсть к винтажному железу, сейчас, наверное, невозможно найти процессор слабее xeon 5220 (fas3210) для ожидаемой линейки 2240 - но ведь найдут же)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1844</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 27 Oct 2011 14:30:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1844</guid>
+		<description>Да, уж точно и не поспоришь. :)
+
+Ещё вспомнил. Было бы круто чтобы на vFiler'е работал FC. Сейчас на сколько я знаю только CIFS, NFS и iSCSI могут работать на виртуалке. Ну и конечно же ждем когда все ограничения для C-mode, по сравнению с 7-mode, будут преодолены.</description>
+		<content:encoded><![CDATA[<p>Да, уж точно и не поспоришь. :)</p>
+<p>Ещё вспомнил. Было бы круто чтобы на vFiler&#8217;е работал FC. Сейчас на сколько я знаю только CIFS, NFS и iSCSI могут работать на виртуалке. Ну и конечно же ждем когда все ограничения для C-mode, по сравнению с 7-mode, будут преодолены.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1842</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 27 Oct 2011 10:46:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1842</guid>
+		<description>Александр:
+
+Софт управления, написанный индусами на Java ПОСЛАН НАМ ЗА ГРЕХ?? НАШ??! %-)</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>Софт управления, написанный индусами на Java ПОСЛАН НАМ ЗА ГРЕХ?? НАШ??! %-)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1081#comment-1841</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 27 Oct 2011 06:26:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1081#comment-1841</guid>
+		<description>Да с ходу так и не скажешь что плохого в нетапе (ни одного пункта неотметил в опросе :) )... Мне бы хотелось чтобы было как можно меньше даунтаймов для при выполнении настроек. К примеру при изменении кодировки на томе (vol lang) или при изменении target/initiator на FC порту (когда конфигурируешь NDMP нужно порт перевести в initiator) для всего этого нужно что выключать. В первом случае вообще контроллер перегружать, а во втором, по-моему, достаточно FCP перезапустить. Ну может ещё мне бы хотелось чтобы можно было как в EMC делать trespass, хотя често можно и без этого пролжить. Ну чтобы NetApp Н??КОГДА!! СЛЫШ??ТЕ!! Н ?? К О Г Д А!!! НЕ ДЕЛАЛ СОФТ НА JAVA!! Вот.. как-то так.. что успел сходу вспомнить.</description>
+		<content:encoded><![CDATA[<p>Да с ходу так и не скажешь что плохого в нетапе (ни одного пункта неотметил в опросе :) )&#8230; Мне бы хотелось чтобы было как можно меньше даунтаймов для при выполнении настроек. К примеру при изменении кодировки на томе (vol lang) или при изменении target/initiator на FC порту (когда конфигурируешь NDMP нужно порт перевести в initiator) для всего этого нужно что выключать. В первом случае вообще контроллер перегружать, а во втором, по-моему, достаточно FCP перезапустить. Ну может ещё мне бы хотелось чтобы можно было как в EMC делать trespass, хотя често можно и без этого пролжить. Ну чтобы NetApp Н??КОГДА!! СЛЫШ??ТЕ!! Н ?? К О Г Д А!!! НЕ ДЕЛАЛ СОФТ НА JAVA!! Вот.. как-то так.. что успел сходу вспомнить.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

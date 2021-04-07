@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; EMC Storage Pools &ndash; как это работает &ldquo;под крышкой&rdquo;.</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../975/trackback.html">RAID-5, RAID-6 или RAID-10?</a></div>
+			<div class="alignright"><a href="../981/trackback.html">Аутентификация в админской консоли по заранее сконфигурированному ключу SSH</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-969">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to EMC Storage Pools &ndash; как это работает &ldquo;под крышкой&rdquo;.">EMC Storage Pools &ndash; как это работает &ldquo;под крышкой&rdquo;.</a></h2>
+			<div class="postmetadata">27 Июль 2011, 7:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Продолжаю свои изыскания в теме технологий EMC. На этот&#160; раз я заинтересовался механизмом, лежащим в основе всех новых фишечек EMC CLARiiON/VNX – так называемым Storage Pool. Самым интересным и понятным для меня объяснением оказалась статья блоггера <a href="http://virtualeverything.wordpress.com">virtualeverything</a> (он не сотрудник EMC, а, как я понял, работает в партнере-интеграторе, и имеет довольно широкое поле зрения, в котором и продукты EMC, и NetApp, и, например, Hitachi). Незначительно сокращенный перевод этой его заметки я предлагаю вашему вниманию.</p>
+<h2>Глубокое погружение в тему EMC Storage Pool.</h2>
+<p>Posted by <a href="http://virtualeverything.wordpress.com">veverything</a> on March 5, 2011</p>
+<p>??спользование Storage Pools это довольно частая тема для дискуссии с моими коллегами и пользователями. Многая информация о устройстве и механизмах работы не слишком распространена или известна, поэтому я решил провести мое собственное исследование на этот счет, и поделиться его результатами.</p>
+<p>Некоторое время назад EMC представила в своей линейке систем хранения CLARiiON новый принцип так называемого Virtual Provisioning и Storage Pools. Основная идея заключалась в упрощении администрирования системы хранения. Традиционный метод управления хранилищем это взять дисковый массив, наполненный дисками, создать из них дискретные группы RAID, и затем нарезать из этих групп LUNы, которые, затем, предоставляются хостам. Дисковый массив, в зависимости от своего размера, при этом может содержать до нескольких сотен таких групп, и часто превращается в архипелаг разрозненных &quot;островков хранения&quot; на этих RAID-группах. Это может вызывать серьезные затруднения при планировании пространства хранилища, чтобы устранить проблему нерационально потраченного при таком разбиении места, так как у большинства пользователей их потребности к хранилищу, и планы как разбить под задачи, меняются со временем, и, обычно, еще не ясны до конца в &quot;день 1&quot;. Нужны были средства гибкого и простого администрирования, и родилась идея Storage Pools.</p>
+<p>Storage pools, как следует из его имени, позволяет администраторам создавать &quot;общий массив&quot; (pool) хранения. В ряде случаев вы даже можете создать один большой, общий пул, куда входят все диски системы хранения, что значительно упрощает процессы администрирования. Больше нет отдельных пространств, не нужно углубляться в &quot;тонкие материи&quot; устройства и организации RAID group, схем разбиения, и так далее. Кроме того, появилась также технология FAST VP, которая позволяет перемещать блоки данных в соответствии с их активностью, по уровням хранения, например на более емкие и дешевые, или более быстрые и дорогие диски. Просто выделите и назначьте пространство из такого &quot;пула&quot; вашей задаче, динамически, гибко, и при этом еще и позволяя использовать auto tiering. Звучит здорово так? По крайней мере так утверждает маркетинг. Давайте разберемся с тем, как это работает &quot;физически&quot;, и нет ли не вполне очевидных &quot;подводных камней&quot;.</p>
+<p>  <span id="more-969"></span>
+<p>Сперва давайте посмотрим вкратце на разницу, между архитектурным подходом с традиционными RAID-группами и Storage Pools.</p>
+<p>&#160;</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="clip_image001" border="0" alt="clip_image001" src="/pics//clip-image0012.png" width="350" height="190" /></p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image111.png" width="371" height="376" /></p>
+<p>&#160;</p>
+<p>На первом рисунке - архитектура традиционной RAID-группы. Вы назначаете диск RAID-группе, затем нарезаете ее пространство на LUN-ы, и назначаете хостам. Вы, на массиве в целом, используете множество RAID-групп, основываясь на ваших требованиях по уровню защиты данных, емкости, производительности, и так далее. На картинке ниже приведен подход с использованием пулов. На приведенном примере использованы так называемые &quot;гомогенные пулы&quot;, из дисков одинакового типа. Вы просто назначаете диски в пул, и берете LUN-ы из пула. Когда вам нужно больше пространства, вы можете расширить пул, добавив в него дисков. Процессы администрирования и сложность устройства и организации системы хранения значительно сокращаются. Но чем вы платите за это, и о каких особенностях при проектировании, создании и использовании вы должны помнить?</p>
+<p>Давайте подробнее посмотрим на то, как устроен внутри storage pool…</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image112.png" width="538" height="403" /></p>
+<p>Картинка выше показывает, что скрывается &quot;под капотом&quot; у механизма storage pool. В приведенном примере создан storage pool типа RAID-5 из 5 дисков. FLARE создает из 5 специальную &quot;внутреннюю&quot; Private RAID-5 4+1 группу. Далее на этой группе создается 10 специальных Private LUN равного размера. В моем эксперименте я использовал диски, размером 143GB (133GB usable), и массив создал 10 Private LUN-ов, каждый размером 53.5GB, что дало мне размер пула ~530GB. Это столько, сколько вы могли бы ожидать от RAID5 4+1 RAID group (133*4 = 532GB).</p>
+<p>Когда вы создаете LUN в таком пуле, и назначаете его хосту, ввод-вывод происходит несколько иным, чем обычно, способом во FLARE LUN. В традиционном (оставим в стороне Meta-LUNs чтобы упростить изложение) FLARE LUN, операции ввода-вывода поступают на один LUN на дисковой системе хранения, которые затем пишутся на набор дисков, составляющий RAID-группу.</p>
+<p>Однако, когда хост записывает на Pool LUN, пространство на RAID-группе распределяется фрагментами (slice) по 1GB. Для Thick LUNs, это пространство последовательно и полностью заранее зарезервировано. Поэтому если некто создает 10GB Thick Pool LUN, его фрагменты по 1GB распределяются равномерно по 10 внутренним Private LUNs, то есть общим счетом 10x 1GB фрагментов. Когда хост пишет на Pool LUN, то LBA (Local Block Address) сообщает хосту непосредственное 1:1 соотношение с Pool LUN; то есть, LBA сопоставляет фрагменту 0-1GB для хоста фрагмент внутреннего LUN0, который содержит этот первый кусок, размером 1GB; LBA 1-2GB пишется на внутренний Private LUN1, LBA 2-3GB пишет на внутренний Private LUN3…. ?? так далее, как показано ниже:</p>
+<p>&#160;</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image113.png" width="634" height="475" /></p>
+<p>Все эти LUN-ы нагружают одну и ту же Private RAID group, поверх которой они созданы, следовательно - одни и те же диски. Я полагаю, что EMC создает эти внутренние LUN-ы для равномерного распределения очереди ввода-вывода по устройствам.</p>
+<p><strong>Засада #1:</strong> Очень важный аспект - это понять смысл рекомендации EMC создавать пул, использующий диски в RAID-5, количеством дисков кратным пяти (5, 10, 15, 20, 25, 30, и так далее). Повторяю, это ОЧЕНЬ важный момент, не следование ему и не полное понимание его, может привести к неожиданным результатам Алгоритм создания пулов в FLARE пытается создавать Private RAID-5 groups в конфигурации 4+1, когда это возможно. Как пример, если вы проигнорировали рекомендации про &quot;кратность пяти&quot; при добавлении, например создали пул из 14 дисков, вы можете не получить ту емкость, на которую вы рассчитывали. FLARE создаст 2x 4+1 R5 Private RGs, и на оставшихся дисках - 1x 3+1 Private RG, НЕ одну 13+1 Private RG, как вы, возможно, думали. В результате вы получите заметно меньше места, чем рассчитывали.</p>
+<p>В моем случае, используя диски 143GB (133GB usable), в 14-дисковом пуле R5 я получу (4*133)+(4*133)+(3*133)=~1460GB. А не ожидаемые (13*133)=1730GB. Разница порядка 300GB; довольно заметно! Наилучшим вариантом будет взять еще диск, и создать пул из 15 дисков в R5 pool, получив 3x 4+1 RG. Важно это понимать, если вы не хотите разбираться с разозленным клиентом, у которого пропало неизвестно куда дисковое пространство при конфигурировании массива</p>
+<p>Далее давайте посмотрим на некоторые моменты, относящиеся к дисковой производительности для данных в пуле, при его расширении.</p>
+<p>В случае пула, состоящего из 5 дисков, все довольно просто для понимания, потому что пул располагается на всего одной внутренней RAID-группе 4+1, которая и обслуживает ввод-вывод, но что получается в случае, если мы расширим пул? Помните, что вы должны расширять этот пул дисками, в количестве кратном пяти, давайте добавим еще 5 дисков, что даст нам общую емкость 530*2 = ~1060GB. &quot;Под капотом&quot; этот пул теперь выглядит так:</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image114.png" width="634" height="475" /></p>
+<p>После добавления второго набора из 5 дисков, FLARE создает еще одну внутреннюю RAID-группу 4+1, и еще 10 внутренних LUN-ов на этой RAID-группе. На момент создания этих внутренних LUN-ов, они пусты и не содержат никаких данных.</p>
+<p><strong>Засада #2:</strong> Отметьте, что если Storage Pool расширен, существующие данные не &quot;ре-страйпятся&quot; по новым дискам. Чтения с исходного Pool LUN по-прежнему будут идти с первых 5 дисков, это также останется так при перезаписывании в LUN данных, уже записанных на момент расширения пула. Таким образом не ожидайте значительного увеличения производительности для уже созданных LUN-ов, расширяя пул дополнительными дисками.</p>
+<p>В моих экспериментах я назначил такой Pool LUN в VMware поместил на него одну VM, а потом расширил пул, и поместил на него другую VM. Перед размещением второй VM на LUN, данные располагались так, как показано на картинке выше. Данные распределились по группе Private LUN, созданных на первой Private RAID group, на группе Private LUN второй RAID-группы. Когда я клонирую другую VM на LUN, это выглядит так:</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image115.png" width="634" height="475" /></p>
+<p>Данные VM1 по прежнему распределены по первой внутреннней RG и первым 10 внутренним LUN-ам, как и предполагалось, но данные VM2 распределены по обоим внутренним RAID-групам, по всем 20 внутренним LUN-ам! Подумайте также вот еще о чем: 2 VM, на ОДНОЙ VMFS, в ОДНОМ Storage Pool, одна распределяет ввод-вывод по 5 дискам, а другая - по 10 дискам! Вторая VM будет иметь отличную производительность, так как распределяет свои данные по 10 дискам, но первая VM при этом по прежнему работает только с 5 дисками. Обе эти VM размером 100GB (как я сделал при своем эксперименте), так что на картинке не показаны все фрагменты-слайсы, но в целом картина именно такая. Действительное размещение должно было изобразить 100 фрагментов (1 фрагмент (slice) = 1GB как было указано ранее) распределенных по Private LUNs 0-9 для VM1, и 50 фрагментов по Private LUNs 0-9 и 50 фрагментов по Private LUNs 10-19 для VM2. Если я по прежнему буду держать эти VM на Pool LUN, они будут продолжать использовать равномерный страйпинг по 10 дискам, ДО ТЕХ ПОР, ПОКА не будет заполнена данными первая Private RAID group, после этого любые операции записи обоих VM будут снова использовать только страйпинг на 5 дисков второй Private RAID grop.</p>
+<p>Такой дисбаланс возникает оттого, что у вас, на момент расширения, по прежнему есть место на первой RAID группе, алгоритм распределения слайсов по внутренним LUN использует простой алгоритм round robin. Если место на пуле заполнено, перед тем, как пул был расширен, то происходить будет что-то подобное следующему (не проверялось, экстраполировано из ранее проанализированного поведения):</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image116.png" width="634" height="475" /></p>
+<p>На этом рисунке синие сегменты соответствуют &quot;прочим&quot; данным, заполняющим пул. Если пул близок к заполнению, и после этого расширяется, а затем вторая VM помещается на него, то вторая VM не может быть рассредоточена на пространство первой Private RAID Group (так как она уже полна) поэтому фрагменты-слайсы будут помещены ТОЛЬКО на вторую Private RAID group, и распределены только по 5 дискам, вместо 10, как в варианте ранее. Теперь представим себе ситуацию, когда VM создана до того, как первая внутренняя RAID Group заполнилась. Часть из операций ввода-вывода этих VM будет распределена по всем 10 дискам, а остальные по оставшимся 5 дискам, когда первая Private RAID group заполнится доверху.</p>
+<p><strong>Засада #3:</strong> Как показано выше, если вы расширяете storage pool когда он окончательно заполнен, или непосредственно перед этим, вы можете получить непредсказуемую производительность, зависящую от того, как расширяется пул, распределение по физическим дискам ввода-вывода для данных, расположенных в пуле, и их страйпинг, будет зависеть от того, как, когда и в каком порядке эти данные были записаны на пул. Все становится еще более сложным, если вы проигнорируете рекомендацию добавлять в пул диски в количестве, кратном пяти. Если вы имеете только 4 диска, и хотите расширить пул ими, то вы получите комбинацию 2x 4+1 RG, и 1x 3+1 RG. При этом, некоторые из операций ввода-вывода будут распределены по всего 3 дискам, вместо 5 или 10.</p>
+<p>Таким образом, наилучшим решением использовать storage pools является завести в него сразу, в момент создания все диски, которые вы планируете использовать под pool. То есть, допустим, если у вас есть полная полка дисков в Clariion или VNX, используйте под pool все 15 дисков из нее. Это даст вам 3x 4+1 RAID-группы, а данные, которые вы на нее будете записывать, будут равномерно распределены между всеми 15 дисками. Хорошей мыслью будет не создавать пулы из небольшого количества дисков, собираясь потом часто расширять их добавлением новых дисков, так как вы столкнетесь с уже описанными выше проблемами.</p>
+<p>Существует еще одна проблема с расширением пулов. Допустим, мы создали пул из 15 дисков, и начали размещать в него данные. Все ваши операции ввода-вывода равномерно распределены на все 15 дисков. Но вот вам понадобилось место, и вы решили расширить пул. Следуя правилу добавлять диски в количестве кратном пяти, казалось бы, никаких сложностей не возникнет. Однако, хотя вы можете их добавить, вы рискуете получить неожиданный результат.</p>
+<p>Перед расширением, ваш 15-дисковый R5 pool выглядит так:</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image117.png" width="634" height="475" /></p>
+<p>Все данные распределены по 15 дискам, но пул практически полон; если пул в такой ситуации будет расширен, то вот как будут размещаться на нем любые новые VM (в общем случае - любые данные):</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image118.png" width="634" height="475" /></p>
+<p>Когда пул расширен, новые данные будут распределены всего по 5 дискам, вместо исходных 15! Так что если вы помещаете новую VM а систему хранения, ожидая что она будет страйпиться на множество дисков, и иметь высокую производительность по вводу-выводу, вы будете сильно огорчены тем, что, на самом деле, данные, записанные после расширения, окажутся распределены всего по 5 добавленным дискам, и только.</p>
+<p><strong>Засада #4:</strong> С этой точки зрения понятна рекомендация расширять пулы таким количеством дисков, из скольки они были изначально созданы. То есть, если у вас используется 15-дисковый пул, то следует расширять его еще 15 дисками, чтобы новые записываемые на пул данные, могли воспользоваться всеми преимуществами распределения ввода-вывода по множеству дисков (читай: чтобы добавляемый после такого расширения пула LUN имел производительность не хуже, чем уже созданные на нем). Я слышал про такие рекомендации при расширении удваивать количество дисков, но они мне представляются все же чрезмерными. В качестве примера: если у вас имеется 15-дисковый пул, и вы добавляете в него 15 дисков, вы, теоретически, получите некоторые операции ввода-вывода распараллеленные на 30 дисков; а в следующий раз вам понадобится для расширения по такой модели 30 дисков? А в следующий - 60? Всегда понимайте и здраво оценивайте влияние выбранной модели использования и требования по производительности, прежде чем выберете тот или иной вариант..</p>
+<p>Надеюсь, что EMC объявит в будущем возможность ребаланса для пулов, такую, например, как в последних версиях микрокода для VMAX, что решит большинство этих проблем. Но пока, вам следует иметь ввиду и побеспокоиться об этих проблемах заранее, на этапе дизайна и развертывания базовой конфигурации, использующей возможности Storage Pool.</p>
+<p>Еще один момент, которым стоит озаботиться, это необходимость следить за изменением default SP owner для Pool LUN. Так как LUN организован поверх внутренних Private LUN-ов, могут возникнуть проблемы с производительностью, так как используется драйвер перенаправления для доступа к LUN-ам с другого SP; убедитесь, что правильно сбалансировали pool LUN-ы между SP, в момент их создания.</p>
+<p>??спользование Thin LUNs требует принятие во внимание дополнительного, особого уровня оценки, так как они не используют предраспределение емкости сегментами, размером 1GB, вместо этого они пишут экстенты, размером 8K. Это может вызвать даже более значительную непредсказуемость, чем описана в случаях выше. При использовании Thin Provisioning на хосте добавляется еще один уровень сложности, как-нибудь позже я напишу пост о особенностях работы пулов при использовании thin provisioning. Кроме того, как вы видите, я не касался ряда тем, относящихся к работе пулов на RAID10, возможно я продолжу эту тему позднее</p>
+<p>В общем случае, если требуется предсказуемый уровень производительности, по прежнему лучше предпочесть традиционные RAID-группы (<em>но не забывайте, что множество новых фич EMC будут тогда вам недоступны, они работают только на пулах, прим romx.</em>). У пользователей могут быть задачи с рабочей нагрузкой, требующие использования выделенных дисков и классических RAID-групп, и я не вижу причин для того, чтобы как и раньше использовать для них традиционные RAID-группы (<em>причины - все новые фичи, перечисленные выше, которые требуют для своей работы использования пулов, при romx</em>.). Речь идет в данном случае о понимании требований и переводе их в правильный дизайн системы хранения; хорошая новость тут в том что EMC дает необходимую гибкость. Несомненно, использование пулов дисков это способ снять множество проблем у администраторов системы хранения, но архитектор системы всегда должен видеть и понимать все ограничения и возможности того или иного дизайна. Уровень FAST VP поверх storage pools это отличное решение для большинства пользователей, и важно отметить, что ЕД??НСТВЕННЫЙ способ получить автоматизированный storage tiering - это именно использовать Pool-based LUNs.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/emc/index.html" rel="tag">emc</a>, <a href="../tag/fast.html" rel="tag">fast</a>, <a href="../tag/fast-vp.html" rel="tag">fast vp</a>, <a href="../tag/storage-pool.html" rel="tag">storage pool</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (11)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1566">
+		<div id="div-comment-1566">
+		<div class="comment-author">
+			<cite>Dmitriy:<cite></div>
+			<p>Спасибо за перевод Роман, очень интересно!<br />
+Но неужто, в VNX/CLARiiON нету аналога комманды: reallocate ? Может местные знатоки по EMC это как-то прокомментируют.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1566" title="">27 Июль 2011, 14:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1568">
+		<div id="div-comment-1568">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Dmitriy: неа, нету на FLARE 04.30.000.5.509 по карйней мере нет. Последняя доступная на powerlink 04.30.000.5.517 и к ней приписано следующее: New features in 04.30.000.5.517 There were no new features in this release. The Fixed problems section<br />
+on page 7 contains changes made in this version.</p>
+<p>На VMax&#8217;e есть reallocate для VP пулов т.к. там те же самые грабли с &#8220;размазыванием&#8221;, там так и написано: если хотите расширить VP пул, то расширяйте его на такой же размер&#8230; :( глупость конечно, но главное в маркетинговых проспектах фича VP есть! :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1568" title="">28 Июль 2011, 18:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1569">
+		<div id="div-comment-1569">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Это называется ирония и жестокая шутка судьбы. EMC всю дорогу щемил NetApp за &#8220;файловую систему поверх RAID&#8221;, за фрагментацию, за виртуализацию SAN, и вот теперь так жизнь повернулась, что EMC приходится делать то же самое, за что онга столько шпыняла NetApp. Но только у NetApp уже 7 лет опыта в этой области, большинство &#8220;детских болезней&#8221; решения уже пройдено и вылечено, накоплен опыт, а EMC во все это счас влетает полной мордой, с самого, так сказать, начала. Что ж остается делать терпевшему насмешки от EMC все эти годы NetApp, только зло посмеиваться над тем, как поворачивает ситуацию жизнь. :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1569" title="">28 Июль 2011, 19:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1570">
+		<div id="div-comment-1570">
+		<div class="comment-author">
+			<cite>villain:<cite></div>
+			<p>Можно будет поглядеть на 05.31.000.5.011 - но судя по best practices для 31-ой FLARE - там тоже нет ничего.<br />
+По памяти в графическом интерфейсе ничего нет, может в cli что-нть есть?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1570" title="">28 Июль 2011, 20:11</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1575">
+		<div id="div-comment-1575">
+		<div class="comment-author">
+			<cite>Nikolay:<cite></div>
+			<p>Мда.. про reallocate (засада №2)- позабавило.. Получается что даже старая EVA еще времен Compaq умела это делать. А новые железяки от EMC - нет.<br />
+Romx, скажите, а это действительно так? Может это так сказать &#8220;нативный механизм&#8221;, который не надо включать руками или задавать какие-либо опции при создании StoragePool?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1575" title="">31 Июль 2011, 17:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1576">
+		<div id="div-comment-1576">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nikolay:</p>
+<p>Ну так я ж не специалист по EMC, я не знаю. Вот что перевел - то перевел, или что вычитал в Best Practices в прошлом посте.<br />
+Но судя по всему да, таки нет, надеюсь что только пока. В Симметриксах, как говорят, есть, но это, понятно, совсем другая игра.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1576" title="">31 Июль 2011, 17:23</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1577">
+		<div id="div-comment-1577">
+		<div class="comment-author">
+			<cite>Nikolay:<cite></div>
+			<p>Согласен. В доках ничего с ходу не нашел. Грустно.. 21 век все-таки на дворе..</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1577" title="">31 Июль 2011, 20:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1813">
+		<div id="div-comment-1813">
+		<div class="comment-author">
+			<cite>Aigor:<cite></div>
+			<p>Непонятный момент - как работает fast vp в случае если Каждую субботу например все содержимое массива будет резервно копироваться, как это повлияет на перемешивание slice ов после копирования.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1813" title="">19 Октябрь 2011, 14:12</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-7267">
+		<div id="div-comment-7267">
+		<div class="comment-author">
+			<cite><a href='http://blog.cade.su' rel='external nofollow'>Cade</a>:<cite></div>
+			<p>To Aigor: Блоки которые бэкапяться, будут помечены как более горячие и в результате могут переехать, но, например для субботы, сбор статистики и переезд можно отключать.</p>
+<p>To romx, Nikolay:<br />
+1. FAST VP это не файловая система поверх RAID<br />
+2. reallocate не сильно здесь нужен. Пул предназначен для раскладывания часто используемых блоков на более быстрые диски (SSD, SAS), редко используемых блоков на медленные диски (SATA), тем самым и достигается эффект reallocat&#8217;а.<br />
+Особого смысла в пуле из одинаковых дисков нет.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7267" title="">6 Май 2013, 10:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-7268">
+		<div id="div-comment-7268">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Cade: </p>
+<p>> 1. FAST VP это не файловая система поверх RAID<br />
+Это зависит от того, что именно вы понимаете под &#8220;файловой системой&#8221;. Если то, что можно смонтировать командой mount, то - да, не является. Если как то, что позволяет адресовать блоки данных уровнем выше, чем команды SCSI, то - является.<br />
+Да полно вам, нет ничего стыдного в использовании той или иной файловой системы поверх raw, это только пусть Чак стыдится за свой блогобред, нормальным людям уже давно понятно, насколько это на практике выгодно. Даже EMC. :)</p>
+<p>Утверждение про reallocate и его &#8220;ненужность&#8221; оставлю на вашей совести.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7268" title="">6 Май 2013, 11:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-7309">
+		<div id="div-comment-7309">
+		<div class="comment-author">
+			<cite>Просто проходил:<cite></div>
+			<p>Все эти &#8220;засады&#8221; устарели в 2012 году - с появлением прошивки VNX OE 5.32. Теперь при добавлении в пул новых дисков (а так же и в то время, когда работает перемещение данных по уровням) данные &#8220;переразмазываются&#8221; и узкие места, которые описаны в этой статье, больше не возникают. Процесс можно запустить и вручную в любой момент.</p>
+<p><a href="http://www.slideshare.net/emcacademics/emc-vnx-fast-vp" rel="nofollow">http://www.slideshare.net/emcacademics/emc-vnx-fast-vp</a>, страница 10</p>
+<p>Да и про fast vp &#8220;каждую субботу&#8221; - fast vp считает количество обращений к блокам и именно так определяет наиболее горячие участки. Бекап трогает блоки один раз и на общую статистику не влияет - так что не надо ничего отключать, все и так работать будет нормально.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7309" title="">8 Май 2013, 23:26</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="969" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.080 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

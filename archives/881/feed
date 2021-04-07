@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Откуда вообще берется фрагментация?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/881/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/881</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:53 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-2622</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 31 May 2012 13:52:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-2622</guid>
+		<description>bbk:
+
+На самом деле там еще роль играет аббревиатура, которой хотели пошутить. Ну знаете все эти гну-линуксные аббревиатурные шутки, типа GNU is Not UNIX, и прочее.
+
+??сторически устройства хранения NetApp стали называться Appliance. Наиболее популярный домашний Appliance в США это "тостер", причем у них тостером называется не только знакомый нам, но еще довольно эндемичное устройство, скорее долженсвующее называться "вафельница", это такой нагревательный девайс, пекущий рубчатые лепешки из теста, которые называются у них "вафли" - Waffle.
+Отсюда технокаламбур - внутри "тостера" (toaster) наодятся "вафли" (WAFL).
+Поэтому название файловой системы подгоняли под уже готовую аббревиатуру. :) Поэтому она, кстати, не WAFS, а WAFL.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>На самом деле там еще роль играет аббревиатура, которой хотели пошутить. Ну знаете все эти гну-линуксные аббревиатурные шутки, типа GNU is Not UNIX, и прочее.</p>
+<p>??сторически устройства хранения NetApp стали называться Appliance. Наиболее популярный домашний Appliance в США это &#8220;тостер&#8221;, причем у них тостером называется не только знакомый нам, но еще довольно эндемичное устройство, скорее долженсвующее называться &#8220;вафельница&#8221;, это такой нагревательный девайс, пекущий рубчатые лепешки из теста, которые называются у них &#8220;вафли&#8221; - Waffle.<br />
+Отсюда технокаламбур - внутри &#8220;тостера&#8221; (toaster) наодятся &#8220;вафли&#8221; (WAFL).<br />
+Поэтому название файловой системы подгоняли под уже готовую аббревиатуру. :) Поэтому она, кстати, не WAFS, а WAFL.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-2615</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 31 May 2012 05:35:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-2615</guid>
+		<description>По большому счёту я хотел разобраться только с названием. А именно с "Write Anywhere" - эта часть названия вносила неоднозначности. Теперь всё ясно.</description>
+		<content:encoded><![CDATA[<p>По большому счёту я хотел разобраться только с названием. А именно с &#8220;Write Anywhere&#8221; - эта часть названия вносила неоднозначности. Теперь всё ясно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-2610</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 30 May 2012 13:28:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-2610</guid>
+		<description>bbk:
+
+&gt; Почему это так?
+
+Потому что так лучше работает :) Разве это плохо?
+
+&gt; Почему в названии есть “запись повсюду”, но её по-факту нет?
+
+А чем не устраивает объяснение "может писать "повсюду", но пишет так, чтобы было оптимальнее для работы и производительности"?
+
+&gt; Несколько раз вчитался в WP3002 про WAFL
+
+WP3002 описывает устройство WAFL по состоянию на 1993 год. Учитывайте это. Например там совсем не отражены особенности работы с aggregate и FlexVol.
+
+&gt; когда говорят про запись “повсюду” имеют ввиду возможность записи метаданных повсюду (т.е. хранение метаданных в файле), а не записи повсюду самих данных.
+
+Это тоже верно.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> Почему это так?</p>
+<p>Потому что так лучше работает :) Разве это плохо?</p>
+<p>> Почему в названии есть “запись повсюду”, но её по-факту нет?</p>
+<p>А чем не устраивает объяснение &#8220;может писать &#8220;повсюду&#8221;, но пишет так, чтобы было оптимальнее для работы и производительности&#8221;?</p>
+<p>> Несколько раз вчитался в WP3002 про WAFL</p>
+<p>WP3002 описывает устройство WAFL по состоянию на 1993 год. Учитывайте это. Например там совсем не отражены особенности работы с aggregate и FlexVol.</p>
+<p>> когда говорят про запись “повсюду” имеют ввиду возможность записи метаданных повсюду (т.е. хранение метаданных в файле), а не записи повсюду самих данных.</p>
+<p>Это тоже верно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-2609</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 30 May 2012 13:03:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-2609</guid>
+		<description>Меня долго терзало это выражение:
+&lt;i&gt;WAFL может писать куда угодно, НЕ значит, что она в самом деле пишет куда угодно.&lt;/i&gt;
+Почему это так? Почему в названии есть "запись повсюду", но её по-факту нет? ??ли же она таки там есть?!
+
+Несколько раз вчитался в WP3002 про WAFL, пункт 3.2. В то время как многие другие ФС пишут метаданные только в выделенное место под них, у WAFL ситуация другая. Похоже, что в названии WAFL, когда говорят про запись "повсюду" имеют ввиду возможность записи &lt;i&gt;метаданных&lt;/i&gt; повсюду (т.е. хранение метаданных в файле), а не записи повсюду &lt;i&gt;самих данных&lt;/i&gt;.
+
+После такого заключения становится понятна логика приведённого выражения и все вопросы снимаются.</description>
+		<content:encoded><![CDATA[<p>Меня долго терзало это выражение:<br />
+<i>WAFL может писать куда угодно, НЕ значит, что она в самом деле пишет куда угодно.</i><br />
+Почему это так? Почему в названии есть &#8220;запись повсюду&#8221;, но её по-факту нет? ??ли же она таки там есть?!</p>
+<p>Несколько раз вчитался в WP3002 про WAFL, пункт 3.2. В то время как многие другие ФС пишут метаданные только в выделенное место под них, у WAFL ситуация другая. Похоже, что в названии WAFL, когда говорят про запись &#8220;повсюду&#8221; имеют ввиду возможность записи <i>метаданных</i> повсюду (т.е. хранение метаданных в файле), а не записи повсюду <i>самих данных</i>.</p>
+<p>После такого заключения становится понятна логика приведённого выражения и все вопросы снимаются.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-1738</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Mon, 26 Sep 2011 15:48:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-1738</guid>
+		<description>Ну villain, ну красавчик. А где же ответ Александра?</description>
+		<content:encoded><![CDATA[<p>Ну villain, ну красавчик. А где же ответ Александра?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: villain</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-1322</link>
+		<dc:creator>villain</dc:creator>
+		<pubDate>Thu, 28 Apr 2011 03:19:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-1322</guid>
+		<description>Александр?
+При чем здесь EMC? Вы путаете теплое с зеленым. Внешнюю и внутреннюю фрагментацию и их взаимосвязь в блочных системах хранения и системах хранения эээ "на файлах/файловой системе". Вы в большинстве блочных систем даже LUN создать не сможете больше чем непрерывное пространство на блочных устройствах (сюда даже можно включить всякие raid контроллеры 8-)).</description>
+		<content:encoded><![CDATA[<p>Александр?<br />
+При чем здесь EMC? Вы путаете теплое с зеленым. Внешнюю и внутреннюю фрагментацию и их взаимосвязь в блочных системах хранения и системах хранения эээ &#8220;на файлах/файловой системе&#8221;. Вы в большинстве блочных систем даже LUN создать не сможете больше чем непрерывное пространство на блочных устройствах (сюда даже можно включить всякие raid контроллеры 8-)).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-1314</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 26 Apr 2011 08:20:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-1314</guid>
+		<description>Так, давайте поспокойнее. :-/</description>
+		<content:encoded><![CDATA[<p>Так, давайте поспокойнее. :-/</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-1313</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 26 Apr 2011 07:53:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-1313</guid>
+		<description>villain:
+
+За себя я как-раз рад, что могу фильтровать то, что мне говорит EMC про NetApp и фильтровать то, что мне говорит NetApp про EMC и то, что ни тем ни тем мне не получится навешать лапши на уши. А также понимать что в EMC не договаривает... а именно EMC ну очень любят не договаривать...
+
+Да, у блочных устройств она тоже есть, но почему-то они про это не говорят когда чмырят NetApp, за эту самую фрагментацию.</description>
+		<content:encoded><![CDATA[<p>villain:</p>
+<p>За себя я как-раз рад, что могу фильтровать то, что мне говорит EMC про NetApp и фильтровать то, что мне говорит NetApp про EMC и то, что ни тем ни тем мне не получится навешать лапши на уши. А также понимать что в EMC не договаривает&#8230; а именно EMC ну очень любят не договаривать&#8230;</p>
+<p>Да, у блочных устройств она тоже есть, но почему-то они про это не говорят когда чмырят NetApp, за эту самую фрагментацию.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: villain</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-1310</link>
+		<dc:creator>villain</dc:creator>
+		<pubDate>Sun, 24 Apr 2011 08:01:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-1310</guid>
+		<description>Александр:
+Вам можно смеяться лишь на собой, но она всегда там была
+Это другая "фрагментация" ...
+У любых "блочных" устройств она тоже есть.
+Для примера:
+Допустим есть рейд группа  - мы создаем несколько LUN-ов, а потом удаляем в "серединке" LUN - появилась фрагментация рейд группы ...</description>
+		<content:encoded><![CDATA[<p>Александр:<br />
+Вам можно смеяться лишь на собой, но она всегда там была<br />
+Это другая &#8220;фрагментация&#8221; &#8230;<br />
+У любых &#8220;блочных&#8221; устройств она тоже есть.<br />
+Для примера:<br />
+Допустим есть рейд группа  - мы создаем несколько LUN-ов, а потом удаляем в &#8220;серединке&#8221; LUN - появилась фрагментация рейд группы &#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/881#comment-1305</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Fri, 22 Apr 2011 14:34:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=881#comment-1305</guid>
+		<description>FLARE 30... чисто поржать... есть дефрагментация :))))
+
+&#62;./naviseccli -h CX4 getall&#124;grep -i per
+Name of the software package:        FLARE-Operating-Environment
+Percent defragmented:                      100
+Percent expanded:                          100
+Percent defragmented:                      100
+Percent expanded:                          100
+Percent defragmented:                      100
+Percent expanded:                          100
+Percent defragmented:                      100
+Percent expanded:                          100
+Percent defragmented:                      100
+Percent expanded:                          100
+Percent defragmented:                      100
+Percent expanded:                          100
+Percent defragmented:                      100
+Percent expanded:                          100
+Percent Complete : 100</description>
+		<content:encoded><![CDATA[<p>FLARE 30&#8230; чисто поржать&#8230; есть дефрагментация :))))</p>
+<p>&gt;./naviseccli -h CX4 getall|grep -i per<br />
+Name of the software package:        FLARE-Operating-Environment<br />
+Percent defragmented:                      100<br />
+Percent expanded:                          100<br />
+Percent defragmented:                      100<br />
+Percent expanded:                          100<br />
+Percent defragmented:                      100<br />
+Percent expanded:                          100<br />
+Percent defragmented:                      100<br />
+Percent expanded:                          100<br />
+Percent defragmented:                      100<br />
+Percent expanded:                          100<br />
+Percent defragmented:                      100<br />
+Percent expanded:                          100<br />
+Percent defragmented:                      100<br />
+Percent expanded:                          100<br />
+Percent Complete : 100</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

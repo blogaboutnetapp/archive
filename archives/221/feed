@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Классика &#8220;говнилок&#8221;: серия 1 - фрагментация WAFL</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/221/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/221</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:59 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/221#comment-2608</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 30 May 2012 12:52:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=221#comment-2608</guid>
+		<description>bbk:
+
+Спасибо. Но многое зависит также от соотношения random/sequental. На random ухудшение должно быть минимальным, на sequental - максимальным.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Спасибо. Но многое зависит также от соотношения random/sequental. На random ухудшение должно быть минимальным, на sequental - максимальным.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/221#comment-2606</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 30 May 2012 12:19:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=221#comment-2606</guid>
+		<description>Ответ на мой же вопрос в следующем же посте ...
+
+&lt;b&gt;romx%3E&lt;/b&gt; &lt;i&gt;ухудшение производительности на фрагментированном с величной rate: 10 (bbk: том имеет 1/10 свободных блоков)[...] составило примерно 15 процентов.&lt;/i&gt;</description>
+		<content:encoded><![CDATA[<p>Ответ на мой же вопрос в следующем же посте &#8230;</p>
+<p><b>romx%3E</b> <i>ухудшение производительности на фрагментированном с величной rate: 10 (bbk: том имеет 1/10 свободных блоков)[...] составило примерно 15 процентов.</i></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/221#comment-2275</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 13 Apr 2012 14:55:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=221#comment-2275</guid>
+		<description>Дмитрий:
+
+На самом деле есть еще и вот такая статья:
+http://blog.aboutnetapp.ru/archives/1083</description>
+		<content:encoded><![CDATA[<p>Дмитрий:</p>
+<p>На самом деле есть еще и вот такая статья:<br />
+<a href="http://blog.aboutnetapp.ru/archives/1083" rel="nofollow">http://blog.aboutnetapp.ru/archives/1083</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/221#comment-2274</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Fri, 13 Apr 2012 13:03:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=221#comment-2274</guid>
+		<description>2 rider.myopenid.com
+Блин исходя из другой статьи romx'a http://blog.aboutnetapp.ru/archives/881 я именно такой вывод и сделал: “При заполнении дисков нетаппа до уровня 80-90% система начинает жестоко тормозить”...
+Что-то не сходится.</description>
+		<content:encoded><![CDATA[<p>2 rider.myopenid.com<br />
+Блин исходя из другой статьи romx&#8217;a <a href="http://blog.aboutnetapp.ru/archives/881" rel="nofollow">http://blog.aboutnetapp.ru/archives/881</a> я именно такой вывод и сделал: “При заполнении дисков нетаппа до уровня 80-90% система начинает жестоко тормозить”&#8230;<br />
+Что-то не сходится.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/221#comment-167</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 01 Sep 2009 10:53:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=221#comment-167</guid>
+		<description>Ну так не зря эта тема идет у меня почетным первым номером :)
+
+Но как видите, все не так просто.
+Точнее это просто для того, чтобы сочинить говнилку, но совсем не так просто для того, чтобы разобраться как все обстоит не самом деле.
+
+Кстати говоря, никто из создателей "настоящих Fibre Channel"-систем не отвечает прямо на вопрос, а что же происходии с их системами, "при заполнении до 80-90%"? Догадайтесь почему ;)</description>
+		<content:encoded><![CDATA[<p>Ну так не зря эта тема идет у меня почетным первым номером :)</p>
+<p>Но как видите, все не так просто.<br />
+Точнее это просто для того, чтобы сочинить говнилку, но совсем не так просто для того, чтобы разобраться как все обстоит не самом деле.</p>
+<p>Кстати говоря, никто из создателей &#8220;настоящих Fibre Channel&#8221;-систем не отвечает прямо на вопрос, а что же происходии с их системами, &#8220;при заполнении до 80-90%&#8221;? Догадайтесь почему ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: rider.myopenid.com/</title>
+		<link>http://blog.aboutnetapp.ru/archives/221#comment-166</link>
+		<dc:creator>rider.myopenid.com/</dc:creator>
+		<pubDate>Tue, 01 Sep 2009 10:33:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=221#comment-166</guid>
+		<description>Пару лет назад на каком-то мероприятии EMC именно этот аргумент закладывался в неокрепшие умы заказчиков, а именно "При заполнении дисков нетаппа до уровня 80-90% система начинает жестоко тормозить, это обусловлено их уникальной файловой системой, которая пишет когда-хочет-куда-хочет, тем самым вызывая сильнейщую фрагментацию"</description>
+		<content:encoded><![CDATA[<p>Пару лет назад на каком-то мероприятии EMC именно этот аргумент закладывался в неокрепшие умы заказчиков, а именно &#8220;При заполнении дисков нетаппа до уровня 80-90% система начинает жестоко тормозить, это обусловлено их уникальной файловой системой, которая пишет когда-хочет-куда-хочет, тем самым вызывая сильнейщую фрагментацию&#8221;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

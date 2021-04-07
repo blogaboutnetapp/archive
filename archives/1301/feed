@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp Hardware Universe</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1301/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1301</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:26 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1301#comment-11132</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Thu, 14 Nov 2013 09:56:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1301#comment-11132</guid>
+		<description>я понимаю, что у тебя с нетвеллом теперь новая игрушка, но все же...
+
+There is a node limit for maximum FlexVol Volumes per Controller and as of 8.2, this limit is platform specific and varies from 500 to 1,000. Also, the maximum limit for  flexvol volumes/cluster is 12,000.  
+ 
+это в cDOT</description>
+		<content:encoded><![CDATA[<p>я понимаю, что у тебя с нетвеллом теперь новая игрушка, но все же&#8230;</p>
+<p>There is a node limit for maximum FlexVol Volumes per Controller and as of 8.2, this limit is platform specific and varies from 500 to 1,000. Also, the maximum limit for  flexvol volumes/cluster is 12,000.  </p>
+<p>это в cDOT</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1301#comment-11122</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 14 Nov 2013 02:35:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1301#comment-11122</guid>
+		<description>Odna Ptichka:
+Это на пару контроллеров наверное (то есть по 500 на каждый один).</description>
+		<content:encoded><![CDATA[<p>Odna Ptichka:<br />
+Это на пару контроллеров наверное (то есть по 500 на каждый один).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1301#comment-11116</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Wed, 13 Nov 2013 18:09:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1301#comment-11116</guid>
+		<description>2 Free4ert 
+для больших железок сейчас 1000 томов</description>
+		<content:encoded><![CDATA[<p>2 Free4ert<br />
+для больших железок сейчас 1000 томов</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1301#comment-11115</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Wed, 13 Nov 2013 18:04:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1301#comment-11115</guid>
+		<description>интересный вопрос:  
+- производит ли железки компания netApp на своих заводах? - нет
+- можно ли купить такие же железки на свободном рынке и получить свое решение? - только частично.  Определенные железные компоненты доступны только в системах NetApp - например, модули FlashCache, модули NVRAM, некоторые материнские платы  и т.д. 
+
+
+Но все таки основное производство - это Дата ОНТАП, что бы не говорили про Сантрисити.</description>
+		<content:encoded><![CDATA[<p>интересный вопрос:<br />
+- производит ли железки компания netApp на своих заводах? - нет<br />
+- можно ли купить такие же железки на свободном рынке и получить свое решение? - только частично.  Определенные железные компоненты доступны только в системах NetApp - например, модули FlashCache, модули NVRAM, некоторые материнские платы  и т.д. </p>
+<p>Но все таки основное производство - это Дата ОНТАП, что бы не говорили про Сантрисити.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1301#comment-11112</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 13 Nov 2013 12:26:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1301#comment-11112</guid>
+		<description>Alexey:
+
+Привет, Алексей. Это очень непростой вопрос в наше время "глобализации и международной кооперации", что можно называть "своим производством", а что - нет, почти как, "из скольки орехов начинается куча?"
+
+Нужно ли для этого выплавлять свой кремний? Самостоятельно травить и паять платы? Мотать конденсаторы? Клепать корпуса и отливать пластиковые "морды"? А если нет, то с какого момента начинается, на ваш взгляд "собственное производство"?
+
+Если отвечать серьезно, то "наличие собственного производства" это если и достоинство, то скорее даже не из прошлого, и из позапрошлого века ;) Качество техники Apple, также как серверов HP, например, не подвергается сомнению, хотя, например, ни у первых, ни у вторых нет "собственного производства". ?? тем и другим их оборудование собирают контрактные сборщики, так называемые ODM (Original Device Manufacturer). Сегодня это общепринятое "разделение труда". Есть компании, умеющие паять конденсаторы, есть компании, умеющие делать жесткие диски, а есть компании, которые умеют спроектировать систему хранения, из этих конденсаторов, плат и жестких дисков, надежную и с использованием всех новейших технологий, и отдать ее чертежи и спецификации на производство тем, кто по этим чертежам умеет качественно заказанное произвести. 
+Времена, когда компания полностью самостоятельно занималась всем технологическим процессом в IT закончились примерно с мэйнфреймами IBM. :) 
+?? это - замечательно, на мой взгляд, вспомните хотя бы их цены и сравните с тем, что вы получаете за сотую долю этого - сегодня. Среди прочего это стало возможно за счет оптимизации затрат на производство, в том числе и отказом от "своего производства".</description>
+		<content:encoded><![CDATA[<p>Alexey:</p>
+<p>Привет, Алексей. Это очень непростой вопрос в наше время &#8220;глобализации и международной кооперации&#8221;, что можно называть &#8220;своим производством&#8221;, а что - нет, почти как, &#8220;из скольки орехов начинается куча?&#8221;</p>
+<p>Нужно ли для этого выплавлять свой кремний? Самостоятельно травить и паять платы? Мотать конденсаторы? Клепать корпуса и отливать пластиковые &#8220;морды&#8221;? А если нет, то с какого момента начинается, на ваш взгляд &#8220;собственное производство&#8221;?</p>
+<p>Если отвечать серьезно, то &#8220;наличие собственного производства&#8221; это если и достоинство, то скорее даже не из прошлого, и из позапрошлого века ;) Качество техники Apple, также как серверов HP, например, не подвергается сомнению, хотя, например, ни у первых, ни у вторых нет &#8220;собственного производства&#8221;. ?? тем и другим их оборудование собирают контрактные сборщики, так называемые ODM (Original Device Manufacturer). Сегодня это общепринятое &#8220;разделение труда&#8221;. Есть компании, умеющие паять конденсаторы, есть компании, умеющие делать жесткие диски, а есть компании, которые умеют спроектировать систему хранения, из этих конденсаторов, плат и жестких дисков, надежную и с использованием всех новейших технологий, и отдать ее чертежи и спецификации на производство тем, кто по этим чертежам умеет качественно заказанное произвести.<br />
+Времена, когда компания полностью самостоятельно занималась всем технологическим процессом в IT закончились примерно с мэйнфреймами IBM. :)<br />
+?? это - замечательно, на мой взгляд, вспомните хотя бы их цены и сравните с тем, что вы получаете за сотую долю этого - сегодня. Среди прочего это стало возможно за счет оптимизации затрат на производство, в том числе и отказом от &#8220;своего производства&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1301#comment-11093</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Tue, 12 Nov 2013 13:06:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1301#comment-11093</guid>
+		<description>Строка описания необходимого уровня доступа гласит что Заказчики с активированной поддержкой имеют доступ:
+
+Access to Hardware Universe is provided to NetApp  customers with full Support Site access.</description>
+		<content:encoded><![CDATA[<p>Строка описания необходимого уровня доступа гласит что Заказчики с активированной поддержкой имеют доступ:</p>
+<p>Access to Hardware Universe is provided to NetApp  customers with full Support Site access.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1301#comment-11089</link>
+		<dc:creator>Alexey</dc:creator>
+		<pubDate>Tue, 12 Nov 2013 04:58:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1301#comment-11089</guid>
+		<description>Спасибо, очень полезный ресурс. Скажите, пожалуйста, а как можно найти "пруф", что у NetApp есть собственное производство hardware или используются только готовые платформы других производителей?</description>
+		<content:encoded><![CDATA[<p>Спасибо, очень полезный ресурс. Скажите, пожалуйста, а как можно найти &#8220;пруф&#8221;, что у NetApp есть собственное производство hardware или используются только готовые платформы других производителей?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Free4ert</title>
+		<link>http://blog.aboutnetapp.ru/archives/1301#comment-11076</link>
+		<dc:creator>Free4ert</dc:creator>
+		<pubDate>Mon, 11 Nov 2013 13:49:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1301#comment-11076</guid>
+		<description>Спасибо искал Max Volume Count, оказалось 500.</description>
+		<content:encoded><![CDATA[<p>Спасибо искал Max Volume Count, оказалось 500.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

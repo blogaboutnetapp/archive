@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Aggregate Relocate в Clustered Data ONTAP</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1312/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1312</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:50 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Gera</title>
+		<link>http://blog.aboutnetapp.ru/archives/1312#comment-11581</link>
+		<dc:creator>Gera</dc:creator>
+		<pubDate>Mon, 16 Dec 2013 08:09:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1312#comment-11581</guid>
+		<description>Небольшая поправка. В консоли команда управляющая дедупликацией называется sis. А вот среди списка лицензий есть такая: a_sis</description>
+		<content:encoded><![CDATA[<p>Небольшая поправка. В консоли команда управляющая дедупликацией называется sis. А вот среди списка лицензий есть такая: a_sis</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1312#comment-11482</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 10 Dec 2013 02:01:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1312#comment-11482</guid>
+		<description>Yaroslav:
+Да нет, это вы неправильно помните, никогда не делал. Вероятно у вас вспомнились EMC Celerra и Clariion, но, строго говоря, и для них это неверно, Windows там не использовалась в качестве файлового сервиса.
+
+Что же касается ASIS, то, вероятнее всего это была попытка "указать" на SIS в Exchange, рынок хостинга MS Exchange у NetApp довольно значительный. Но это только лишь гипотеза.</description>
+		<content:encoded><![CDATA[<p>Yaroslav:<br />
+Да нет, это вы неправильно помните, никогда не делал. Вероятно у вас вспомнились EMC Celerra и Clariion, но, строго говоря, и для них это неверно, Windows там не использовалась в качестве файлового сервиса.</p>
+<p>Что же касается ASIS, то, вероятнее всего это была попытка &#8220;указать&#8221; на SIS в Exchange, рынок хостинга MS Exchange у NetApp довольно значительный. Но это только лишь гипотеза.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Yaroslav</title>
+		<link>http://blog.aboutnetapp.ru/archives/1312#comment-11476</link>
+		<dc:creator>Yaroslav</dc:creator>
+		<pubDate>Mon, 09 Dec 2013 15:54:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1312#comment-11476</guid>
+		<description>А я кажется знаю, почему ASIS. В Windows есть файловая дедупликация, называлась она Single Instance Storage. Насколько я помню, когда-то давно NetApp делал NAS-ы с ОС Windows в основе. Отсюда и название разработки NetApp изначально Advanced Single Instance Storage.</description>
+		<content:encoded><![CDATA[<p>А я кажется знаю, почему ASIS. В Windows есть файловая дедупликация, называлась она Single Instance Storage. Насколько я помню, когда-то давно NetApp делал NAS-ы с ОС Windows в основе. Отсюда и название разработки NetApp изначально Advanced Single Instance Storage.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1312#comment-11471</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Mon, 09 Dec 2013 07:39:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1312#comment-11471</guid>
+		<description>Это свойство называется ARL :)</description>
+		<content:encoded><![CDATA[<p>Это свойство называется ARL :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

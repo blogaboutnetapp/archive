@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Компрессия или дедупликация?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/787/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/787</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:32 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/787#comment-988</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 23 Dec 2010 13:38:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/787#comment-988</guid>
+		<description>Ну вот так получается, что в Африке какая-то другая сейсмика ;)</description>
+		<content:encoded><![CDATA[<p>Ну вот так получается, что в Африке какая-то другая сейсмика ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: alex nop</title>
+		<link>http://blog.aboutnetapp.ru/archives/787#comment-982</link>
+		<dc:creator>alex nop</dc:creator>
+		<pubDate>Thu, 23 Dec 2010 09:43:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/787#comment-982</guid>
+		<description>Как раз таки наоборот получается. Сейсмика - она и в Африке сейсмика и суть этих данных такова, что они не жмутся. А в материале используется слово Geoseismic, т.е. ничего другого тут подозревать нельзя. ?? на основе одного частного случая сжатия _петрофизических_ и _гидродинамических_ данных, которые на самом деле являются только моделями, дополняющими сейсмику, маркетологи сделали вывод, что жмётся вся сейсмика, т.е. перешли от частного к общему без зазрения совести.
+
+Дело в том, что такие материалы потом используют продавцы NetApp-а и они свято уверены в том, что там нет ошибок. После чего приходится долго и муторно рассказывать где они ошибаются и почему это не будет работать.
+
+По большому счёту мне всё равно... пусть думают, что сейсмика жмётся как текст, мне не жалко.</description>
+		<content:encoded><![CDATA[<p>Как раз таки наоборот получается. Сейсмика - она и в Африке сейсмика и суть этих данных такова, что они не жмутся. А в материале используется слово Geoseismic, т.е. ничего другого тут подозревать нельзя. ?? на основе одного частного случая сжатия _петрофизических_ и _гидродинамических_ данных, которые на самом деле являются только моделями, дополняющими сейсмику, маркетологи сделали вывод, что жмётся вся сейсмика, т.е. перешли от частного к общему без зазрения совести.</p>
+<p>Дело в том, что такие материалы потом используют продавцы NetApp-а и они свято уверены в том, что там нет ошибок. После чего приходится долго и муторно рассказывать где они ошибаются и почему это не будет работать.</p>
+<p>По большому счёту мне всё равно&#8230; пусть думают, что сейсмика жмётся как текст, мне не жалко.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/787#comment-980</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 20 Dec 2010 13:29:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/787#comment-980</guid>
+		<description>alex nop: странные вы вещи пишете. Вы совершенно верно подметили, что тип данных зачастую мало говорит о содержимом, и, следовательно, эффективности компрессии, но делаете следом ровно ту же ошибку, выводя из _частного_ случая каких-то ваших данных, в каком-то вашем формате, общий вывод по всей "сейсмике".
+??з того, что _конкретно ваши_ данные сейсмики не жмутся, совсем не следует, что _никакие_, _ни у кого_ данные сейсмики не сожмутся.
+А вот у NetApp есть клиент, у которого жмется. :)</description>
+		<content:encoded><![CDATA[<p>alex nop: странные вы вещи пишете. Вы совершенно верно подметили, что тип данных зачастую мало говорит о содержимом, и, следовательно, эффективности компрессии, но делаете следом ровно ту же ошибку, выводя из _частного_ случая каких-то ваших данных, в каком-то вашем формате, общий вывод по всей &#8220;сейсмике&#8221;.<br />
+??з того, что _конкретно ваши_ данные сейсмики не жмутся, совсем не следует, что _никакие_, _ни у кого_ данные сейсмики не сожмутся.<br />
+А вот у NetApp есть клиент, у которого жмется. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: alex nop</title>
+		<link>http://blog.aboutnetapp.ru/archives/787#comment-979</link>
+		<dc:creator>alex nop</dc:creator>
+		<pubDate>Mon, 20 Dec 2010 12:55:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/787#comment-979</guid>
+		<description>По-поводу Geoseismic есть очень большие сомнения: что-то странное имели в виду маркетологи NetApp-а. Скорее это не сейсмические данные, а данные для моделирования резервуаров, которые идут практически в текстовых файлах. Сама сейсмика не жмется, точнее жмутся только заголовки, а сами данные жать бесполезно потому что выигрыш не в разы, как тут указано, а в десятых долях процента. Соответственно, при больших объемах в 5-7Tb морских съемок 3D выигрывать 20-30Gb совершенно бессмысленно.
+
+P.S. Не ради флэйма, а только чтобы не было лишних иллюзий.</description>
+		<content:encoded><![CDATA[<p>По-поводу Geoseismic есть очень большие сомнения: что-то странное имели в виду маркетологи NetApp-а. Скорее это не сейсмические данные, а данные для моделирования резервуаров, которые идут практически в текстовых файлах. Сама сейсмика не жмется, точнее жмутся только заголовки, а сами данные жать бесполезно потому что выигрыш не в разы, как тут указано, а в десятых долях процента. Соответственно, при больших объемах в 5-7Tb морских съемок 3D выигрывать 20-30Gb совершенно бессмысленно.</p>
+<p>P.S. Не ради флэйма, а только чтобы не было лишних иллюзий.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/787#comment-970</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 16 Dec 2010 11:42:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/787#comment-970</guid>
+		<description>Цитата:
+"Data compression requires 64-bit aggregates, which were introduced in Data ONTAP 8.0. As all aggregates created on Data ONTAP 7.x are 32-bit, this requirement may limit the use of compression to new data sets or existing data sets that have been migrated to a 64-bit aggregate. Trust me, we are working to eliminating the need for the later. I can’t say anymore at this time but stay tuned for updates on this subject."
+http://blogs.netapp.com/virtualstorageguy/2010/12/introducing-data-compression-in-ontap-801.html</description>
+		<content:encoded><![CDATA[<p>Цитата:<br />
+&#8220;Data compression requires 64-bit aggregates, which were introduced in Data ONTAP 8.0. As all aggregates created on Data ONTAP 7.x are 32-bit, this requirement may limit the use of compression to new data sets or existing data sets that have been migrated to a 64-bit aggregate. Trust me, we are working to eliminating the need for the later. I can’t say anymore at this time but stay tuned for updates on this subject.&#8221;<br />
+<a href="http://blogs.netapp.com/virtualstorageguy/2010/12/introducing-data-compression-in-ontap-801.html" rel="nofollow">http://blogs.netapp.com/virtualstorageguy/2010/12/introducing-data-compression-in-ontap-801.html</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/787#comment-966</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 13 Dec 2010 10:05:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/787#comment-966</guid>
+		<description>Боюсь, что сложно сказать однозначно. В "пререлизе", насколько я понимаю, была мысль, что она будет доступна как в ветке 8, так и в очередном релизе ветки 7 (после PVR, то есть анализа вашей конфигурации в NetApp, если по простому).
+Однако в "релизе", в prerequisites, прямо указано не просто "8.0.1", а еще и "64-bit aggregate".</description>
+		<content:encoded><![CDATA[<p>Боюсь, что сложно сказать однозначно. В &#8220;пререлизе&#8221;, насколько я понимаю, была мысль, что она будет доступна как в ветке 8, так и в очередном релизе ветки 7 (после PVR, то есть анализа вашей конфигурации в NetApp, если по простому).<br />
+Однако в &#8220;релизе&#8221;, в prerequisites, прямо указано не просто &#8220;8.0.1&#8243;, а еще и &#8220;64-bit aggregate&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: murzic</title>
+		<link>http://blog.aboutnetapp.ru/archives/787#comment-965</link>
+		<dc:creator>murzic</dc:creator>
+		<pubDate>Mon, 13 Dec 2010 05:46:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/787#comment-965</guid>
+		<description>Добрый день.
+Существует ли возможность включить компрессию на DataONTAP 7 или придется переходить на DataONTAP 8 в обязательном порядке?</description>
+		<content:encoded><![CDATA[<p>Добрый день.<br />
+Существует ли возможность включить компрессию на DataONTAP 7 или придется переходить на DataONTAP 8 в обязательном порядке?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

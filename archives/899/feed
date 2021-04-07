@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: ??нструменты админа: Perfviewer 1.5.1</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/899/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/899</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:54 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/899#comment-2375</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 27 Apr 2012 10:17:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=899#comment-2375</guid>
+		<description>bbk:
+
+&gt; Роман, дайте пожалуйста ссылку на “некий веб-сервис”
+
+Это доступно только с партнерским уровнем доступа, к сожалению.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> Роман, дайте пожалуйста ссылку на “некий веб-сервис”</p>
+<p>Это доступно только с партнерским уровнем доступа, к сожалению.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/899#comment-2374</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 27 Apr 2012 09:47:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=899#comment-2374</guid>
+		<description>Роман, дайте пожалуйста ссылку на "некий веб-сервис" или хотя бы на ветку где обсуждается вопрос с альтернативой Perfviewer’у для систем старше 7.3.x ( в моём случае 8.1.х).</description>
+		<content:encoded><![CDATA[<p>Роман, дайте пожалуйста ссылку на &#8220;некий веб-сервис&#8221; или хотя бы на ветку где обсуждается вопрос с альтернативой Perfviewer’у для систем старше 7.3.x ( в моём случае 8.1.х).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/899#comment-1359</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 16 May 2011 15:48:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=899#comment-1359</guid>
+		<description>Vetal:
+Нет, увы, не работает, я нашел это обсуждение на communities :(
+В качестве альтернативы там предлагается некий веб-сервис, но он недоступен пользователям, только партнерам :(
+Ну или DFM, да. :(</description>
+		<content:encoded><![CDATA[<p>Vetal:<br />
+Нет, увы, не работает, я нашел это обсуждение на communities :(<br />
+В качестве альтернативы там предлагается некий веб-сервис, но он недоступен пользователям, только партнерам :(<br />
+Ну или DFM, да. :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Vetal</title>
+		<link>http://blog.aboutnetapp.ru/archives/899#comment-1358</link>
+		<dc:creator>Vetal</dc:creator>
+		<pubDate>Mon, 16 May 2011 15:33:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=899#comment-1358</guid>
+		<description>Проверяли ли вы уже сбор данных с версий старше 7.2.3. ??нтересует работоспособность на 7.3.3
+??ли возможно подскажете альтернативу Perfviewer'у? Спасибо.</description>
+		<content:encoded><![CDATA[<p>Проверяли ли вы уже сбор данных с версий старше 7.2.3. ??нтересует работоспособность на 7.3.3<br />
+??ли возможно подскажете альтернативу Perfviewer&#8217;у? Спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/899#comment-1353</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 12 May 2011 08:56:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=899#comment-1353</guid>
+		<description>Dmitry Gorokhov:
+
+Да, действительно, у меня те данные, что приведены в посте, собраны с 7.2.3
+Проверю, спасибо.</description>
+		<content:encoded><![CDATA[<p>Dmitry Gorokhov:</p>
+<p>Да, действительно, у меня те данные, что приведены в посте, собраны с 7.2.3<br />
+Проверю, спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/899#comment-1352</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Thu, 12 May 2011 08:54:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=899#comment-1352</guid>
+		<description>Роман,
+
+попытался попользовать Perfviewer, но он у меня отказался строить графики. Дальше немного гугла и выяснилось, что вроде как он не умеет анализировать вывода собранные с ontap 7.3 и выше. Можете как-то это прокомментировать? :)</description>
+		<content:encoded><![CDATA[<p>Роман,</p>
+<p>попытался попользовать Perfviewer, но он у меня отказался строить графики. Дальше немного гугла и выяснилось, что вроде как он не умеет анализировать вывода собранные с ontap 7.3 и выше. Можете как-то это прокомментировать? :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/899#comment-1338</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 06 May 2011 16:19:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=899#comment-1338</guid>
+		<description>Dmitriy:
+Почти уверен, что данные те же самые, откуда взяться другим.
+Но, к стыду своему должен признаться, ни разу не видел DFM в работе. Никто из моих знакомых клиентов NetApp его не покупал, штука все же для весьма больших инсталляций, большая по объему и стоит (стоила?) очень существенно.
+
+Плюс же PerfViewer в том, что это полностью бесплатное, и сравнительно "легкое" решение. То есть чтобы "посмотреть графики" его вполне достаточно, DFM ведь покуают не столько для этого, покупать DFM чтобы просто смотреть статистику в нем это "оверкилл", хотя Performance Advisor в нем, как я слышал, весьма хорош.</description>
+		<content:encoded><![CDATA[<p>Dmitriy:<br />
+Почти уверен, что данные те же самые, откуда взяться другим.<br />
+Но, к стыду своему должен признаться, ни разу не видел DFM в работе. Никто из моих знакомых клиентов NetApp его не покупал, штука все же для весьма больших инсталляций, большая по объему и стоит (стоила?) очень существенно.</p>
+<p>Плюс же PerfViewer в том, что это полностью бесплатное, и сравнительно &#8220;легкое&#8221; решение. То есть чтобы &#8220;посмотреть графики&#8221; его вполне достаточно, DFM ведь покуают не столько для этого, покупать DFM чтобы просто смотреть статистику в нем это &#8220;оверкилл&#8221;, хотя Performance Advisor в нем, как я слышал, весьма хорош.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/899#comment-1335</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Fri, 06 May 2011 11:39:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=899#comment-1335</guid>
+		<description>Роман, а разве в DFM - Operation Manager - не теже графики перфоманса?</description>
+		<content:encoded><![CDATA[<p>Роман, а разве в DFM - Operation Manager - не теже графики перфоманса?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

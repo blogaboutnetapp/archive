@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Юбилей</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1148/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1148</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:17 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Igor Zinovik</title>
+		<link>http://blog.aboutnetapp.ru/archives/1148#comment-2343</link>
+		<dc:creator>Igor Zinovik</dc:creator>
+		<pubDate>Tue, 24 Apr 2012 15:45:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1148#comment-2343</guid>
+		<description>Ещё один интересный факт.  Предпосылкой названия операционной системы Data ONTAP послужило пиво :)
+https://communities.netapp.com/community/netapp-blogs/dave/blog/2012/01/23/what-does-data-ontap-stand-for</description>
+		<content:encoded><![CDATA[<p>Ещё один интересный факт.  Предпосылкой названия операционной системы Data ONTAP послужило пиво :)<br />
+<a href="https://communities.netapp.com/community/netapp-blogs/dave/blog/2012/01/23/what-does-data-ontap-stand-for" rel="nofollow">https://communities.netapp.com/community/netapp-blogs/dave/blog/2012/01/23/what-does-data-ontap-stand-for</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

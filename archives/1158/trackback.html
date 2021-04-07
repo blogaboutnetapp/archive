@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Hybrid Aggregate теперь Flash Pool!</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1153/trackback.html">NetApp как Software vendor по оценке Gartner</a></div>
+			<div class="alignright"><a href="../1157/trackback.html">NetApp TechTalk Live в Москве, 24 мая 2012г.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1158">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Hybrid Aggregate теперь Flash Pool!">Hybrid Aggregate теперь Flash Pool!</a></h2>
+			<div class="postmetadata">14 Май 2012, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Ну, так как до выхода 8.1.1 уже совсем немного времени, давайте я уже расскажу вам, что же такое Flash Pool, который появится у NetApp начиная с этой версии.</p>
+<p>Я ранее уже несколько раз упоминал о новой идее NetApp – включении нескольких SSD непосредственно в дисковый aggregate системы хранения, и использования их под кэш “уровня aggregate”, в том числе и для записи. Эта конструкция дополняет возможности Flash Cache, может работать как с ним вместе, так и сама по себе, причем, отметьте, также и для систем, на которых Flash Cache, по тем или иным причинам, использовать <strike>уже</strike> нельзя, например FAS3210, 3140, и даже 2240.</p>
+<p>К моменту выпуска, реализация <a href="../1096/trackback.html">Hybrid Aggregate</a> в системах NetApp получила собственное, коммерческое имя-торговую марку Flash Pool, и далее я буду пользоваться именно им. Вы же знайте, что Flash Pool это название реализации NetApp Hybrid Aggregate в Data ONTAP 8.1.1 и новее.</p>
+<p>К сожалению, вокруг Hybrid Aggregate/Flash Pool уже начало образовываться облако недопониманий и мифов, а моя задача в очередной раз внести ясность в тему.</p>
+<p>??так, начнем.</p>
+<p>Прежде всего, я бы хотел сказать, что, вопреки домыслам, Flash Pool это <strong>НЕ</strong> <strong>tiering</strong>, в классическом его понимании (например в том виде, в каком он представлен в EMC FAST), это кэш. Этот момент понятен? НЕ disk tiering, not, nicht, nie. :) <strong>Это КЭШ</strong>.</p>
+<p>Появление Flash Pool также не означает отказа от Flash Cache. Это независимое, но дополняющее решение. Он может работать с Flash Cache, может работать сам по себе. В случае работы с Flash Cache, кэширование не дублируется. Тома, работающие с Flash Pool (находящиеся в аггрегейте с SSD) не кэшируются в Flash Cache. Помните, что Flash Cache может работать со всеми aggregates и volumes системы в целом, а кэширование Flash Pool распространяется только на тома одного aggregate. Если у вас несколько aggregates, вам понадобится добавлять SSD для создания Flash Pool в каждый aggregate, который вы хотите кэшировать в Flash.</p>
+<p>В гибридный aggregate, то есть Flash Pool вы можете преобразовать любой 64-bit aggregate, добавив в него несколько SSD NetApp, объединенных в RAID-группу, и указав для aggregate соответстующую опцию, также его можно создать “с нуля” обычным способом, как любой aggregate. Но в создании Flash Pool есть несколько тонких моментов, именно на них я хочу остановится подробнее.</p>
+<p>Так как Flash Pool это кэш, то есть SSD, как таковые, не доступны для непосредственного хранения на них каких-то конкретных данных, а лишь кэшируют поступаюшие на и считываемые с томов aggregate данные, добавление в aggregate SSD <strong>не увеличивает его емкость</strong>. Есть и “побочный эффект” – если вы имеете aggregate, достигший максимального возможного для данного типа контроллеров размера, например 50TB для FAS3210, то вы все равно можете добавить в этот 50TB-аггрегейт диски SSD для Flash Pool.</p>
+<p>Тип RAID-группы для дисков, добавляемых в aggregate должен быть одинаков для всего aggregate. Если вы используете RAID-DP, то добавляемые SSD тоже должны быть в RAID-DP. Нельзя в aggregate из HDD в RAID-DP добавить SSD в RAID-4, например.</p>
+<p>Обратите внимание, что возможность добавления в aggregate дисков SSD <strong>НЕ</strong> означает возможности добавления в aggregate дисков HDD другого типа. Flash Pool може быть (по вашему выбору) из SAS/FC и SSD, или из SATA и SSD, но НЕ из SAS и SATA.</p>
+<p>После добавления SSD в aggregate вы, как и в случае обычных дисков, добавленных в aggregate, не можете “вынуть” их оттуда (например чтобы использовать их позже в другом, более нуждающемся aggregate) не уничтожив aggregate. </p>
+<p>Наверняка у многих уже вертится на языке вопрос: “Как же нам воспользоваться Flash Pool, если NetApp продает SSD только в составе полки на 24 диска?” Отвечаем: С появлением Flash Pool SSD NetApp будут продаваться паками по 4 штуки, что дает вам во Flash Pool 142GB кэша из 4 SSD. Диски имеют размер 100GB [84574 MiB], и когда они включаются в aggregate, построенный на RAID-DP, вы получите из 4 дисков два диска parity и два – data. Конечно, вы можее включить в Flash Pool и больше SSD.</p>
+<p>Однако помните, что SSD имеют интерфейс SATA. Это значит, что вы <strong>НЕ МОЖЕТЕ</strong> добавить SSD непосредственно в полку с дисками SAS. Но <strong>можете</strong> – в полку с дисками SATA. Смешивать физические интерфейсы дисков в составе одной полки нельзя. Таким образом, если у вас система с “только-SAS/FC”, вам понадобится для установки SSD, даже всего 4 штук, например, дополнительная полка “только-SATA”. Не забывайте об этой сложности.</p>
+<p>Вопрос, который я уже тоже слышу :) “Вы говорите – SSD работает на запись? А как же <em>с исчерпанием ресурса на перезапись для SSD</em>?”</p>
+<p>Ну, это тема. Да, безусловно, с этой точки зрения Flash Cache был принципиально более надежен, так как работал только на чтение, а записи (заполнение кэша) в него делались сравнительно (по меркам компьютера) редко, и большими “порциями”, которые flash memory как раз обрабатывает довольно хорошо, это не random write мелкими блоками. Однако <a href="../669/trackback.html">практика использования SSD enterprise-class показывает</a>, что проблема пресловутого “исчерпания ресурсов SSD при записи” в значительной мере надумана, преувеличена, и присуща, в основном, “бытовым” SSD. Тем не менее, эта проблема возможна, так как Flash Pool действительно пишется, работая на запись (хотя, вы не забыли, записи в WAFL не рандомны, а секвентальны). Для защиты данных в случае выхода SSD из строя вы как раз и используете объединение SSD в RAID, а сами SSD, как устройства, покрыты общей трехлетней warranty на систему.</p>
+<p>На самом деле в отношении записи вы можете столкнуться с другой, более важной, чем мифическое “<em>исчерпание ресурса на запись</em>” неприятностью. Дело в том, что устройство flash таково (это так для любого flash-устройства”), что его производительность на запись падает, по мере активной записи (и пере-записи) данных на нем. Производительность SSD на запись максимальна, когда он полностью пуст и только пришел с завода.&#160; После того, как данные на SSD записываются, перезаписываются, и он постепенно заполняется данными, его производительность постепенно снижается, и стабилизируется на более низком, чем начальный, уровне, после того, как все его ячейки будут перезаписаны. С этим эффектом знакомы все владельцы SSD. Так что не экстраполируйте результаты первого испытания пустых SSD на всю его работу.</p>
+<p>Отвечая на третий вопрос ;) : Да, <a href="http://en.wikipedia.org/wiki/TRIM">TRIM</a> для SSD поддерживается Data ONTAP на уровне системы. </p>
+<p>Напомню, Flash Pool, новое название Hybrid Aggregate, появится в Data ONTAP 8.1.1, которая ожидается к выпуску в ближайшем месяце.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/811.html" rel="tag">8.1.1</a>, <a href="../tag/flash/index.html" rel="tag">flash</a>, <a href="../tag/flash-pool.html" rel="tag">flash pool</a>, <a href="../tag/hybrid-aggregate.html" rel="tag">hybrid aggregate</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (22)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2518">
+		<div id="div-comment-2518">
+		<div class="comment-author">
+			<cite>Dima:<cite></div>
+			<p>1. Планируются ли выпускать SSD Диски больше чем 100Гб?<br />
+2. Flash Pool включается для всех томов аггрегата? ??ли будет возможность выборочно включать/выключать для нужных томов, как в случае Flash Cache?<br />
+3. если Flash Pool, это &#8220;КЕШ&#8221; то в случае его выхода из строя (да отказ больше 2х дисков) данные основного агрегатаа (sata/sas) теряются?<br />
+4. Почему пак только на 4 диска? Ведь если мы из SSD начинаем делать рейд-группу, то по рекомендациям нужно как минимум 1 диск в hot spare? (т.е. 5ый диск, т.к. врядли кто-то держит продуктивные аггрегаты под Raid-4)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2518" title="">14 Май 2012, 14:12</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2519">
+		<div id="div-comment-2519">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Dima:</p>
+<p>1. Ну это вопрос не к NetApp, он же не сам эти диски производит, а к кому там, к STEC наверное?</p>
+<p>2. Он включается для всех томов на aggregate, но степень использования отдельным томом ресурсов кэша управляется отдельной командой priority hybrid-cache. FlexCache для этого не используется.</p>
+<p>3. It depends, как я понимаю, но скорее всего да. А какие есть еще варианты? ;)<br />
+По крайней мере потеря write cache заметно повредит WAFL.</p>
+<p>4. Он не &#8220;только на 4&#8243;, он просто &#8220;кратен 4&#8243;. Минимальное количество - 4 а также 8, 12, 16, и так далее.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2519" title="">14 Май 2012, 17:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2520">
+		<div id="div-comment-2520">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>&gt;Эта конструкция дополняет возможности Flash Cache, может работать как с ним вместе, так и сама по себе, причем, отметьте, также и для систем, на которых Flash Cache, по тем или иным причинам, использовать уже нельзя, например FAS3210, 3140, и даже 2240.<br />
+??з предложения не ясно: для FAS3210, 3140, 2240 Flash Pool будет работать или нет?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2520" title="">14 Май 2012, 17:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2521">
+		<div id="div-comment-2521">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>Для любых систем, поддерживаемых в версии 8.1.1</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2521" title="">14 Май 2012, 17:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2523">
+		<div id="div-comment-2523">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Как на счёт кеша для чтения, ведь для томов с FlashPool агрегатами, FlashCache не работает?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2523" title="">14 Май 2012, 18:19</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2525">
+		<div id="div-comment-2525">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>SSD в Flash Pool работают ?? на чтение, ?? на запись.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2525" title="">14 Май 2012, 18:26</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2527">
+		<div id="div-comment-2527">
+		<div class="comment-author">
+			<cite><a href='http://a-systems.ru.com' rel='external nofollow'>Alexey Marushchenko</a>:<cite></div>
+			<p>romx:<br />
+&gt; 4. Он не “только на 4″, он просто “кратен 4″. Минимальное количество - 4 а также 8, 12, 16, и так далее.<br />
+Можно заказать полку с любым кол-вом дисков, хоть с 1, хоть с 23. Только это будет не готовая полка-решение, а набор запчастей, которые надо будет собрать на месте. Только что ради интереса сквотировал полку на 5 SSD. Очень странная экзотика, но доступная к размещению.</p>
+<p>?? прямо сейчас еще до выхода Flash Pool доступны к заказу полки с 6 SSD.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2527" title="">14 Май 2012, 21:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2528">
+		<div id="div-comment-2528">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Alexey Marushchenko:</p>
+<p>Первоначально я слышал как раз про 6.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2528" title="">14 Май 2012, 21:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2529">
+		<div id="div-comment-2529">
+		<div class="comment-author">
+			<cite><a href='http://a-systems.ru.com' rel='external nofollow'>Alexey Marushchenko</a>:<cite></div>
+			<p>Уточню, что заказать полку с 1-3 SSD дисками можно, но работать оно скорее всего не будет, т.к. надо минимум 4 диска для правильной нагрузки блоков питания.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2529" title="">14 Май 2012, 23:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2533">
+		<div id="div-comment-2533">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>&gt;Alexey Marushchenko:Можно заказать полку с любым кол-вом дисков<br />
+Заказать то можно, но у трёх дисков с полкой, наверняка, цена получится как у всех 6-ти с полкой %)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2533" title="">15 Май 2012, 13:50</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2534">
+		<div id="div-comment-2534">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>А &#8220;счастья даром&#8221; никто не обещал. &#8220;Хотите странного&#8221; - готовьтесь за эти странности заплатить.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2534" title="">15 Май 2012, 13:55</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2535">
+		<div id="div-comment-2535">
+		<div class="comment-author">
+			<cite><a href='http://a-systems.ru.com' rel='external nofollow'>Alexey Marushchenko</a>:<cite></div>
+			<p>bbk:<br />
+Не все так печально с ценами, я сам удивился.</p>
+<p>Но как я уже говорил, официально поддерживается от 4-х дисков, т.к. есть условия по нагрузке блоков питания полки.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2535" title="">15 Май 2012, 15:51</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2545">
+		<div id="div-comment-2545">
+		<div class="comment-author">
+			<cite>Grigoriy:<cite></div>
+			<p>Alexey, а раньше где то пробегала информация что нетапп диски продает только шельфами по 12шт.<br />
+То есть сейчас можно сделать заказ на полку 18х2Т(3т уже доступны?) Sata и 6 SSD Sata ?<br />
+про сейчас я имею ввиду когда появится таки 8.1.1 и тд.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2545" title="">16 Май 2012, 13:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2546">
+		<div id="div-comment-2546">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Grigoriy:</p>
+<p>> Alexey, а раньше где то пробегала информация что нетапп диски продает только шельфами по 12шт.</p>
+<p>Вы путаете диски HDD, которые NetApp продавал и продает только полками, и SDD.<br />
+Продает полками, да, и это, поверьте, очень правильное решение. (а вот IBM в N-series продает поштучно, и я уже три раза объяснял владельцам N-series с проблемами &#8220;Ой, а мы промахнулись, неправильно посчитали нужное число дисков, а что же нам теперь делать?&#8221;).</p>
+<p>> То есть сейчас можно сделать заказ на полку 18х2Т(3т уже доступны?) Sata и 6 SSD Sata ?</p>
+<p>Нет.</p>
+<p>PS. Настоятельно рекомендую с дискуссионными темами перемещаться из комментов на форум в NetApp-RU. Не потому что я вас тут не рад видеть, а потому что там это просто удобнее.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2546" title="">16 Май 2012, 14:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2548">
+		<div id="div-comment-2548">
+		<div class="comment-author">
+			<cite><a href='http://a-systems.ru.com' rel='external nofollow'>Alexey Marushchenko</a>:<cite></div>
+			<p>Grigory:<br />
+Можно купить хоть 1 диск (3Тб уже доступны). Цена Вам не понравится.</p>
+<p>Про заказы основанные на 8.1.1 что-то можно будет говорить в июне, пока все вилами на воде.</p>
+<p>romx:<br />
+Как-то плавно течет здесь дискуссия, я даже не поленился поставить в коммьюнити аватарку. Но, заводить на площадке NetApp тему о тонкостях продуктового конфигуратора, интересную по сути только специалистам с ним работающим, не знаю, надо подумать :-)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2548" title="">16 Май 2012, 20:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2549">
+		<div id="div-comment-2549">
+		<div class="comment-author">
+			<cite><a href='http://a-systems.ru.com' rel='external nofollow'>Alexey Marushchenko</a>:<cite></div>
+			<p><a href="https://communities.netapp.com/polls/1356" rel="nofollow">https://communities.netapp.com/polls/1356</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-2549" title="">16 Май 2012, 21:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2895">
+		<div id="div-comment-2895">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>romx&gt;Для любых систем, поддерживаемых в версии 8.1.1<br />
+Question: Any plans to give some boost to 3210 through Flash Cache? Especially since they won&#8217;t support Flash Cache either?<br />
+[bbk]Здесь похоже опечатка, вместо первого слова Flash Cache, имелось ввиду Flash Pool.<br />
+Answer: Flash Pool is not supported on a FAS3210.</p>
+<p>Отсюда:<br />
+<a href="https://communities.netapp.com/servlet/JiveServlet/download/16082-8-34839/Chat%20from%20April%2011%20Morning%20SIW%20-%20Final.docx" rel="nofollow">Final Chat from the April 11, 2012 SIW:  Technical Overview of Flash Pool (formerly Hybrid Aggregates)</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-2895" title="">9 Июль 2012, 13:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2896">
+		<div id="div-comment-2896">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>Конечно, такие веши надо смотреть не в транскрипте чата, а в официальном Technical FAQ на fieldportal.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2896" title="">9 Июль 2012, 13:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-8771">
+		<div id="div-comment-8771">
+		<div class="comment-author">
+			<cite><a href='http://pluto.pw/' rel='external nofollow'>pLuto</a>:<cite></div>
+			<p>Сорри, что поднимаю тему годичной давности, но ближе нигде ничего не находится :)</p>
+<p>Встал вопрос выбора младшей СХД для собственной фермы виртуализации (пока 8 сокетов vmware, планируется рост до 20) и как-то я не смог пока вычитать из документов, насколько эффективен flash pool в подобных случаях.</p>
+<p>Сначала я положил глаз на типичную fas2240-2a 24*600 SAS 10k, но мне дьявол нашептывает &#8220;возьми 2240-4а 4*200 SSD + 20*2T SATA&#8221; (стыки наружу в обоих случаях - 10G, iSCSI/NFS). Полезного места, конечно, будет существенно больше, но даст ли 400GB полезной емкости flash pool&#8217;а более эффективный прирост скорости для ~14TB-ного aggregate, чем банальное построение решения на большем количестве более быстрых шпинделей.</p>
+<p>Т.е. предполагаю разбиение 20 SATA следующим образом - 2 уходят в spare, оставшиеся 18 пилю пополам, по 9 на контроллер, 7+2p, соответственно на один из aggregate навешиваю flash pool. Этот aggregate пойдет под горячие данные (диски VM, дазы банных), второй, соответственно, под всякое медленное и неважное.</p>
+<p>Также держу в голове вариант из bad practices, когда 1 spare, 2 на первый контроллер, остальные 17 (15+2p) на второй. ?? места больше, и шпинделей - т.е. родная скорость будет выше, но тогда-то flash pool будет работать на весь объем данных и, предполагаю, будет еще менее эффективен.</p>
+<p>Если не сложно, был бы рад услышать советы и комментарии опытных товарищей.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-8771" title="">2 Август 2013, 10:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-8772">
+		<div id="div-comment-8772">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>pLuto:</p>
+<p>На самом деле куда проще спрашивать такое, &#8220;внетемное&#8221; в форуме NetApp, который я некоторое время назад создал, адрес его в &#8220;шапке&#8221; блога.</p>
+<p>Что касается эффективности FlashPool, то он безусловно будет работать под workload виртуализации, насколько именно хорошо - сможете определить только вы сами, но на прошлой неделе был опубликован документ о тестировании Flash Pool под задачу OLTP на Oracle, характер нагрузки на OLTP в общем довольно близок к тому, как работает большинство серверов виртуализации сами по себе (практически 100% random, чтений больше, чем записей, блоки мелкие).</p>
+<p>> но даст ли 400GB полезной емкости flash pool’а более эффективный прирост скорости для ~14TB-ного aggregate, чем банальное построение решения на большем количестве более быстрых шпинделей.</p>
+<p>Поэтому ответ тут будет - безусловно &#8220;да&#8221;, конечно же, и куда больший, чем даже в теории может дать несколько дополнительных щпинделей SAS.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-8772" title="">2 Август 2013, 11:23</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-9533">
+		<div id="div-comment-9533">
+		<div class="comment-author">
+			<cite>Валентин:<cite></div>
+			<p>Хотелось бы уточнить: Вы пишите &#8220;SSD работает и на чтение и на запись&#8221; - имеется ввиду, что flash pool используется для кэширования операций и на чтение и на запись или все же то, что данные просто в flash pool на SSD диски пишуться для кэширования операций чтения?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-9533" title="">3 Сентябрь 2013, 19:19</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-9534">
+		<div id="div-comment-9534">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Валентин:</p>
+<p>Во Flash Pool на SSD операции попадают и при чтении и при записи данных на aggregate, в который включены SSD.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-9534" title="">3 Сентябрь 2013, 19:29</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1158" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.079 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

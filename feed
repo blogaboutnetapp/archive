@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+
+<channel>
+	<title>about NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Tue, 30 Jan 2018 09:31:25 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+	<language>en</language>
+			<item>
+		<title>Новый канал в Telegram!</title>
+		<link>http://blog.aboutnetapp.ru/archives/1425</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1425#comments</comments>
+		<pubDate>Tue, 30 Jan 2018 09:11:31 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1425</guid>
+		<description><![CDATA[До нас дошли известия, что в сети появился новый источник интересной технической информации.
+http://t.me/storagetalks
+Рекомендую подписаться на этот канал, его ведет известный в узких кругах специалист, который может рассказать много интересных фактов о решениях NetApp. 
+Лично я планирую его всячески отслеживать :)
+]]></description>
+			<content:encoded><![CDATA[<p>До нас дошли известия, что в сети появился новый источник интересной технической информации.</p>
+<p><a href="http://t.me/storagetalks">http://t.me/storagetalks</a></p>
+<p>Рекомендую подписаться на этот канал, его ведет известный в узких кругах специалист, который может рассказать много интересных фактов о решениях NetApp. </p>
+<p>Лично я планирую его всячески отслеживать :)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1425/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>NetApp Innovation 2015 - сюрпризы начинаются ;)</title>
+		<link>http://blog.aboutnetapp.ru/archives/1424</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1424#comments</comments>
+		<pubDate>Thu, 29 Oct 2015 06:43:07 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1424</guid>
+		<description><![CDATA[Меньше двух недель остается до конференции NetApp Innovation, программа которой, казалось бы, уже сверстана.
+Но NetApp был бы не NetApp, если бы наши инженеры обошлись без сюрпризов. ;)
+?? вот у нас новая программа, главным гвоздем которой станет рассказ о том, что такое Data Fabric, о которой все так много говорят. ?? не просто рассказ, а техническая [...]]]></description>
+			<content:encoded><![CDATA[<p>Меньше двух недель остается до конференции NetApp Innovation, программа которой, казалось бы, уже сверстана.<br />
+Но NetApp был бы не NetApp, если бы наши инженеры обошлись без сюрпризов. ;)<br />
+?? вот у нас новая программа, главным гвоздем которой станет рассказ о том, что такое Data Fabric, о которой все так много говорят. ?? не просто рассказ, а техническая презентация.<br />
+Участники NetApp Innovation первыми в России увидят то, как работают и какие возможности несут в себе технологии Data Fabric.<br />
+Если вы еще не зарегистрировались на NetApp Innovation, <a href="http://www.netapp.com/ru/forms/ru-201508-launch-innovation-reg.aspx">самое время это сделать!</a><br />
+Если уже зарегистрировались, мы вам обязательно пришлем напоминание 9 ноября. </p>
+<p><a href="http://www.netapp.com/ru/forms/ru-201508-launch-innovation-reg.aspx">Регистрация на конференцию</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1424/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>NetApp Innovation 2015</title>
+		<link>http://blog.aboutnetapp.ru/archives/1421</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1421#comments</comments>
+		<pubDate>Fri, 23 Oct 2015 08:11:20 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1421</guid>
+		<description><![CDATA[NetApp приглашает всех на свою ежегодную конференцию NetApp Innovation !
+Программа в этом году обещает быть еще более насыщенной, чем в прошом. Роман Ройфман со своей командой специалистов создали очень интересную и содержательную программу выступлений, и гарантируют, что скучать не придется :)
+Конференция будет проходить 10 ноября 2015г. в Lotte Hotel Moscow
+по адресу Новинский бульвар, 8 стр. [...]]]></description>
+			<content:encoded><![CDATA[<p>NetApp приглашает всех на свою ежегодную конференцию NetApp Innovation !</p>
+<p>Программа в этом году обещает быть еще более насыщенной, чем в прошом. Роман Ройфман со своей командой специалистов создали очень интересную и содержательную программу выступлений, и гарантируют, что скучать не придется :)<br />
+Конференция будет проходить 10 ноября 2015г. в Lotte Hotel Moscow<br />
+по адресу Новинский бульвар, 8 стр. 2<br />
+Начало в 9:00</p>
+<p><a href="http://www.netapp.com/ru/forms/ru-201508-launch-innovation-reg.aspx">Зарегистрироваться можно по этой ссылке</a><br />
+Не опаздывайте, нас ждет много интересных новостей, докладов и сюрпризов :)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1421/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>Еще один интересный блог о NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/1420</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1420#comments</comments>
+		<pubDate>Wed, 08 Apr 2015 08:41:05 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1420</guid>
+		<description><![CDATA[Блог о технологиях NetApp и системах хранения данных в целом
+Добавьте себе в закладки !
+]]></description>
+			<content:encoded><![CDATA[<p><a href="http://alikulov.me/blog/">Блог о технологиях NetApp и системах хранения данных в целом</a></p>
+<p>Добавьте себе в закладки !</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1420/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>Технический семинар MERLION и NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/1419</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1419#comments</comments>
+		<pubDate>Wed, 08 Apr 2015 08:38:25 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1419</guid>
+		<description><![CDATA[Компании MERLION и NetApp приглашают на технический тренинг для заказчиков -
+NetApp Storage Engineering Club 
+Мероприятие состоится 17 апреля
+Программа:
+9:30   – 9:45   приветственный кофе – брейк
+9:45   – 13:00 бизнес-часть
+13:00 – 14:00 обед
+На тренинге эксперты расскажут об особенностях операционной системы NetApp Clustered Data ONTAP версия 8.3.
+В том числе:
+·     [...]]]></description>
+			<content:encoded><![CDATA[<p>Компании MERLION и NetApp приглашают на технический тренинг для заказчиков -<br />
+NetApp Storage Engineering Club </p>
+<p>Мероприятие состоится 17 апреля</p>
+<p>Программа:</p>
+<p>9:30   – 9:45   приветственный кофе – брейк<br />
+9:45   – 13:00 бизнес-часть<br />
+13:00 – 14:00 обед</p>
+<p>На тренинге эксперты расскажут об особенностях операционной системы NetApp Clustered Data ONTAP версия 8.3.<br />
+В том числе:<br />
+·         Работа с Advanced Disk Partitioning<br />
+·         Создание агрегатов<br />
+·         Создание Storage Virtual Machine<br />
+·         Создание томов на Storage Virtual Machine<br />
+·         Создание LUN для доступа по iSCSI<br />
+·         Обзор концепции LIF (logical interface)<br />
+·         Миграция LIF<br />
+·         Настройка правил миграции LIF<br />
+·         DataMotion for Volumes/LUNs (миграция томов)<br />
+·         ??спользование QoS<br />
+·         Обсуждение способов миграции на Clustered Data ONTAP</p>
+<p>Место проведения: отель Холидей ??нн Сущевский (ул. Сущевский Вал, 74), зал «Ледум»</p>
+<p><a href="http://merlion.com/promo/2015/netapp_club/">Для участия нужно зарегистрироваться по ссылке</a></p>
+<p>Ждем вас!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1419/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>7MTT vs OCUM</title>
+		<link>http://blog.aboutnetapp.ru/archives/1418</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1418#comments</comments>
+		<pubDate>Tue, 31 Mar 2015 11:09:44 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1418</guid>
+		<description><![CDATA[При установке 7-Mode Transition Tool на тот же хост, где запущен OnCommand Unified Manager,
+7MTT не запускается, а ругается на то, что 
+This page can’t be displayed
+•Make sure the web address https://127.0.0.1:8443 is correct.
+Это происходит из-за того, что OCUM и 7MTT конкурируют за один и тот же порт - 8443
+Обойти эту ситуацию можно, поменяв порт для [...]]]></description>
+			<content:encoded><![CDATA[<p>При установке 7-Mode Transition Tool на тот же хост, где запущен OnCommand Unified Manager,<br />
+7MTT не запускается, а ругается на то, что </p>
+<p>This page can’t be displayed<br />
+•Make sure the web address https://127.0.0.1:8443 is correct.</p>
+<p>Это происходит из-за того, что OCUM и 7MTT конкурируют за один и тот же порт - 8443</p>
+<p>Обойти эту ситуацию можно, поменяв порт для 7MTT в файле transition-tool.conf<br />
+Файл лежит в каталоге C:\Program Files\NetApp\7-Mode Transition Tool\etc\conf<br />
+а параметр, который нам нужен, называется tool.https.port<br />
+После этого нужно перезапустить сервис 7MTT, и можно заходить браузером на новый порт, все будет работать.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1418/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>Data ONTAP 8.3 - GA релиз</title>
+		<link>http://blog.aboutnetapp.ru/archives/1417</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1417#comments</comments>
+		<pubDate>Thu, 19 Mar 2015 08:18:53 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1417</guid>
+		<description><![CDATA[На сайте NetApp  доступен для скачивания релиз cDOT 8.3 GA (General Availability)
+Всем, кто использовал 8.3 RC1 и RC2 предлагается обновиться на новую версию.
+А чтобы апгрейд прошел проще, сгенерируйте подробный план апгрейда с помощью Upgrade Advisor на странице Autosupport&#8217;a. 
+cDOT 8.3 Release Notes
+]]></description>
+			<content:encoded><![CDATA[<p>На сайте NetApp  доступен для скачивания релиз cDOT 8.3 GA (General Availability)<br />
+Всем, кто использовал 8.3 RC1 и RC2 предлагается обновиться на новую версию.<br />
+А чтобы апгрейд прошел проще, сгенерируйте подробный план апгрейда с помощью Upgrade Advisor на странице Autosupport&#8217;a. </p>
+<p><a href="https://library.netapp.com/ecm/ecm_get_file/ECMP1636023">cDOT 8.3 Release Notes</a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1417/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>Selective LUN Map в 8.3</title>
+		<link>http://blog.aboutnetapp.ru/archives/1416</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1416#comments</comments>
+		<pubDate>Fri, 13 Mar 2015 12:25:28 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1416</guid>
+		<description><![CDATA[Новая фича DataONTAP 8.3 может ввести админов в замешательство.
+В этой версии для LUN&#8217;ов автоматически включена функция SLM - Selective LUN Map.
+Что это означает ?
+Если раньше LUN был виден по всем мыслимым путям до кластера, то теперь, с этой функцией, клиентам видны только пути, ведущие на ноду, где живет LUN, и на ее HA-партнера.
+Это снижает сложность [...]]]></description>
+			<content:encoded><![CDATA[<p>Новая фича DataONTAP 8.3 может ввести админов в замешательство.<br />
+В этой версии для LUN&#8217;ов автоматически включена функция SLM - Selective LUN Map.<br />
+Что это означает ?<br />
+Если раньше LUN был виден по всем мыслимым путям до кластера, то теперь, с этой функцией, клиентам видны только пути, ведущие на ноду, где живет LUN, и на ее HA-партнера.<br />
+Это снижает сложность работы мультипасинга и упрощает схему подключения.<br />
+Если вы проапгрейдите систему с 8.2 на 8.3, то вы заметите, что старые LUN&#8217;ы видны по всем путям, а новые, созданные в 8.3, только по ограниченному количеству.<br />
+Это лечится с помощью команды lun mapping remove-reporting-nodes</p>
+<p>cluster1::> lun mapping remove-reporting-nodes -vserver vs1 -path /vol/vol1/lun1 -igroup ig1</p>
+<p>После применения этой команды в списке путей будут видны только текущая нода и ее HA-партнер.</p>
+<p>Что же делать, если мы хотим смигрировать том на другой контроллер ?<br />
+Нужно перед началом миграции внести новую ноду в список (партнер добавляется автоматически) командой</p>
+<p>cluster1::> lun mapping add-reporting-nodes -vserver vs1 -volume vol1 -lun * -igroup ig1 -destination-aggregate aggr2</p>
+<p>А после окончания миграции рекомендуется опять убрать лишние ноды из списка</p>
+<p>cluster1::> lun mapping remove-reporting-nodes -vserver vs1 -path /vol/vol1/lun1 -igroup ig1</p>
+<p>Для понимания что и откуда видно, и общего траблшутинга поможет команда</p>
+<p>cluster1::> lun mapping show -fields reporting-nodes</p>
+<p>Если SLM не включен, то в списке нод будет стоят символ &#8220;-&#8221;,<br />
+а если включен, то там будут перечислены ноды, через которые можно добраться до LUN.<br />
+Как обычно, доступ к LUN&#8217;ам будет осуществляться по оптимальным путям,<br />
+которые идут через ноду, на которой LUN живет.<br />
+А остальные пути будут в статусе active/unoptimized.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1416/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>С Новым Годом !</title>
+		<link>http://blog.aboutnetapp.ru/archives/1415</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1415#comments</comments>
+		<pubDate>Thu, 01 Jan 2015 13:05:31 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1415</guid>
+		<description><![CDATA[Удачи и счастья в Новом Году !
+Пусть он принесет нам всем много новых интересных дел, возможностей и приятных сюрпризов.
+:)
+]]></description>
+			<content:encoded><![CDATA[<p>Удачи и счастья в Новом Году !<br />
+Пусть он принесет нам всем много новых интересных дел, возможностей и приятных сюрпризов.<br />
+:)</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1415/feed</wfw:commentRss>
+		</item>
+		<item>
+		<title>Еще один интересный курс для технарей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1414</link>
+		<comments>http://blog.aboutnetapp.ru/archives/1414#comments</comments>
+		<pubDate>Mon, 01 Dec 2014 14:29:50 +0000</pubDate>
+		<dc:creator></dc:creator>
+		
+		<category><![CDATA[новости]]></category>
+
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1414</guid>
+		<description><![CDATA[Компания HBC собирает технических специалистов на бесплатный курс «Знакомство с технологиями и оборудованием NetApp». Курс будет проходить в Москве 4 декабря 2014 года, рассчитан на целый день - с 10:00 до 18:00.
+Обещают рассказать про:
+- NetApp – позиции на рынке СХД, стратегическое видение
+- Системы хранения данных (Обзорно):
+Системы хранения FAS Series
+Системы хранения E-Series
+Системы хранения EF-Series
+Диски и дисковые [...]]]></description>
+			<content:encoded><![CDATA[<p>Компания HBC собирает технических специалистов на бесплатный курс «Знакомство с технологиями и оборудованием NetApp». Курс будет проходить в Москве 4 декабря 2014 года, рассчитан на целый день - с 10:00 до 18:00.<br />
+Обещают рассказать про:</p>
+<p>- NetApp – позиции на рынке СХД, стратегическое видение<br />
+- Системы хранения данных (Обзорно):<br />
+<em>Системы хранения FAS Series<br />
+Системы хранения E-Series<br />
+Системы хранения EF-Series<br />
+Диски и дисковые полк<br />
+??спользование Flash - Flash Cache/Flash Pool<br />
+Модули расширения</em></p>
+<p>- Технологии, заложенные в NetApp FAS Series (Обзорно):<br />
+<em>Clustered Data ONTAP<br />
+RAID-DP<br />
+Aggregate<br />
+WAFL<br />
+FlexVol, InfiniVol<br />
+Snapshots - SnapRestore, FlexClone, SnapManager<br />
+Connectivity – FC, iSCSI, FCoE, CIFS, NFS<br />
+DR &#038; Archiving – MetroCluster, SnapMirror, SnapVault<br />
+Hypervisors integration (ESX, Hyper-V, XenServer)</em></p>
+<p>- Новые возможности операционной системы NetApp Data ONTAP 8.3.<br />
+- Новости с NetApp Insight 2014.<br />
+- Новые возможности Veeam Backup and Replication v8 и его возможности интеграции с СХД NetApp FAS Series.</p>
+<p>Точное место проведения, пароли и явки организаторы обещают выслать всем, кто зарегистрируется :)<br />
+А зарегистрироваться можно, выслав заявку на адрес<br />
+a_kuznetsova@hbc.ru<br />
+с указанием Ф??О, названия организации, должности, контактного телефона и E-Mail. </p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.aboutnetapp.ru/archives/1414/feed</wfw:commentRss>
+		</item>
+	</channel>
+</rss>

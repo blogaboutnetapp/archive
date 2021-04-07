@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: FAS2020 &#8211; распродажа 2011</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/824/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/824</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:49 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1718</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 02:41:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1718</guid>
+		<description>panvartan:
+
+Э-э... Есть значительные подвижки. Думаю, что на следующей неделе скажу точнее.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Э-э&#8230; Есть значительные подвижки. Думаю, что на следующей неделе скажу точнее.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1717</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Thu, 22 Sep 2011 17:33:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1717</guid>
+		<description>Акция дошла и до России? В четвертом квартале будет работать - есть информация?</description>
+		<content:encoded><![CDATA[<p>Акция дошла и до России? В четвертом квартале будет работать - есть информация?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1655</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 29 Aug 2011 17:30:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1655</guid>
+		<description>panvartan:
+
+Да, конечно, но пока никаких известий нет, к сожалению. Дистрибуторы занимаются рядом интересных инициатив в этом направлении, но не все в России легко делается, особенно связанное с апгрейдом :(
+
+PS Нехорошо выкладывать internal и NDA документ, поэтому позволю себе ссылку отсюда убрать.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Да, конечно, но пока никаких известий нет, к сожалению. Дистрибуторы занимаются рядом интересных инициатив в этом направлении, но не все в России легко делается, особенно связанное с апгрейдом :(</p>
+<p>PS Нехорошо выкладывать internal и NDA документ, поэтому позволю себе ссылку отсюда убрать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1654</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 29 Aug 2011 17:09:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1654</guid>
+		<description>А можно осторожно поинтересоваться о судьбе этой акции в России (ссылка)</description>
+		<content:encoded><![CDATA[<p>А можно осторожно поинтересоваться о судьбе этой акции в России (ссылка)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Георгий</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1608</link>
+		<dc:creator>Георгий</dc:creator>
+		<pubDate>Tue, 09 Aug 2011 15:22:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1608</guid>
+		<description>В догонку...
+Кстати, забыл еще обратить внимание, что если используются (судя по заданному размеру в 1ТБ) SATA диски, то есть еще засада с "Zone checksum". То есть 5336*8/9=4743ГБ. За вычетом рутового тома остается около 4,5ТБ. ?? становится совсем грустно... :-(</description>
+		<content:encoded><![CDATA[<p>В догонку&#8230;<br />
+Кстати, забыл еще обратить внимание, что если используются (судя по заданному размеру в 1ТБ) SATA диски, то есть еще засада с &#8220;Zone checksum&#8221;. То есть 5336*8/9=4743ГБ. За вычетом рутового тома остается около 4,5ТБ. ?? становится совсем грустно&#8230; :-(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Георгий</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1607</link>
+		<dc:creator>Георгий</dc:creator>
+		<pubDate>Tue, 09 Aug 2011 14:43:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1607</guid>
+		<description>Цитата: "...что купив двухконтроллерную систему с 12 дисками “на 1TB” ... получите примерно 6TB"
+У меня получилось меньше 6ТБ. Я считаю так:
+1. Минус минимум 2 диска на агрегат одного контролера с RAID-4.
+2. Минус минимум 1 диск на hot spare
+3. Минус 2 диска четности агрегата второго контроллера.
+??того у нас остается 12-2-1-2=7 дисков под данные. 7*847ГБ - 10% (wafl) = 5336ГБ. Отсюда вычитаем размер рутового тома (скажем 100 ГБ, хотя для 8-ки 250 и даже не шипи!) и у нас остается 5,11ТБ. Оно, конечно, около 6-ти, но не примерно. :-) Я прав?</description>
+		<content:encoded><![CDATA[<p>Цитата: &#8220;&#8230;что купив двухконтроллерную систему с 12 дисками “на 1TB” &#8230; получите примерно 6TB&#8221;<br />
+У меня получилось меньше 6ТБ. Я считаю так:<br />
+1. Минус минимум 2 диска на агрегат одного контролера с RAID-4.<br />
+2. Минус минимум 1 диск на hot spare<br />
+3. Минус 2 диска четности агрегата второго контроллера.<br />
+??того у нас остается 12-2-1-2=7 дисков под данные. 7*847ГБ - 10% (wafl) = 5336ГБ. Отсюда вычитаем размер рутового тома (скажем 100 ГБ, хотя для 8-ки 250 и даже не шипи!) и у нас остается 5,11ТБ. Оно, конечно, около 6-ти, но не примерно. :-) Я прав?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1240</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Wed, 23 Mar 2011 19:07:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1240</guid>
+		<description>romx:
+&#62; По какому параметру сравнимая?
+По характеристикам, по фичастости и объему P2000 проигрывает, но не всем и не всегда эти фичи нужны.
+
+&#62; Эту тоже можно добить чем угодно, при такой необходимости.
+В P2000 изначально можно воткнуть 24 диска, а к FAS2020 ведь надо покупать внешние полки, так?</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+&gt; По какому параметру сравнимая?<br />
+По характеристикам, по фичастости и объему P2000 проигрывает, но не всем и не всегда эти фичи нужны.</p>
+<p>&gt; Эту тоже можно добить чем угодно, при такой необходимости.<br />
+В P2000 изначально можно воткнуть 24 диска, а к FAS2020 ведь надо покупать внешние полки, так?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1238</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 23 Mar 2011 12:43:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1238</guid>
+		<description>navion:
+
+Цены лучше спрашивать непосредственно у компаний-партнеров, я не продавец, я просто не знаю.
+
+&gt; Сравнимая с ним MSA2000
+
+По какому параметру сравнимая?
+
+&gt; но её можно добить дисками при необходимости.
+
+Эту тоже можно добить чем угодно, при такой необходимости.</description>
+		<content:encoded><![CDATA[<p>navion:</p>
+<p>Цены лучше спрашивать непосредственно у компаний-партнеров, я не продавец, я просто не знаю.</p>
+<p>> Сравнимая с ним MSA2000</p>
+<p>По какому параметру сравнимая?</p>
+<p>> но её можно добить дисками при необходимости.</p>
+<p>Эту тоже можно добить чем угодно, при такой необходимости.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1237</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Wed, 23 Mar 2011 11:13:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1237</guid>
+		<description>А какова примерная стоимость 5-го варианта?
+Сравнимая с ним MSA2000 (BV920A) cтоит около 600 тысяч рублей, но её можно добить дисками при необходимости.</description>
+		<content:encoded><![CDATA[<p>А какова примерная стоимость 5-го варианта?<br />
+Сравнимая с ним MSA2000 (BV920A) cтоит около 600 тысяч рублей, но её можно добить дисками при необходимости.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/824#comment-1124</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 17 Feb 2011 16:04:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/824#comment-1124</guid>
+		<description>&gt; А апгрейд 2020 -&gt; 2040 предполагает какой-то зачет лицензий 2020 или просто покупку новых?
+
+Если я правильно помню, покупается специальный партномер "upgrade", стоит разницу в цене между лицензиями 2040 и 2020, то есть все честно, именно апгрейд.
+
+&gt; ?? второй вопрос, насколько удачно для общей производительности 2020 повесить сата диски (из полки) на один контроллер, а сас диски из головы на другой контроллер. Просто получается два относительно больших агрегата с сата и сас дисками под разные задачи, подумалось, что это разумно.
+
+Согласен. В таком случае у вас получается два aggregate (один SAS, один SATA, так как по aggregate вам обязательно придется разнести по типам дисков), а если вы поделите диски по конроллерам, то агрегейтов получится четыре: по два aggregate SAS на каждом из контроллеров, и по два - SATA, соответственно вдве меньшего размера и вдвое меньшей производительности по IOPS.
+А еще каждому контроллеру придется выделить тогда по hotspare каждого типа.
+
+Так что первый (ваш) вариант одозначно лучше на сравнительно небольшой системе. Максимально длинные aggregate это всегда плюс с точки зрения перформанса.</description>
+		<content:encoded><![CDATA[<p>> А апгрейд 2020 -> 2040 предполагает какой-то зачет лицензий 2020 или просто покупку новых?</p>
+<p>Если я правильно помню, покупается специальный партномер &#8220;upgrade&#8221;, стоит разницу в цене между лицензиями 2040 и 2020, то есть все честно, именно апгрейд.</p>
+<p>> ?? второй вопрос, насколько удачно для общей производительности 2020 повесить сата диски (из полки) на один контроллер, а сас диски из головы на другой контроллер. Просто получается два относительно больших агрегата с сата и сас дисками под разные задачи, подумалось, что это разумно.</p>
+<p>Согласен. В таком случае у вас получается два aggregate (один SAS, один SATA, так как по aggregate вам обязательно придется разнести по типам дисков), а если вы поделите диски по конроллерам, то агрегейтов получится четыре: по два aggregate SAS на каждом из контроллеров, и по два - SATA, соответственно вдве меньшего размера и вдвое меньшей производительности по IOPS.<br />
+А еще каждому контроллеру придется выделить тогда по hotspare каждого типа.</p>
+<p>Так что первый (ваш) вариант одозначно лучше на сравнительно небольшой системе. Максимально длинные aggregate это всегда плюс с точки зрения перформанса.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; RAID-5 - must die!</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="332/trackback.html">Специалист подобен флюсу - полнота его односторонняя. (с)</a></div>
+			<div class="alignright"><a href="344/trackback.html">Если бы вендоры систем хранения были бы производителями автомобилей</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-345">
+			<h2 class="posttitle"><a href="345/trackback.html" rel="bookmark" title="Permanent Link to RAID-5 - must die!">RAID-5 - must die!</a></h2>
+			<div class="postmetadata">10 Август 2009, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Да уже и не must, а почти что almost.</p>
+<p>Еще несколько слов аргументации за переход к RAID-6, тем, у кого он не тормозит, не будем показыват пальцем, но: &#8220;Есть такие вендоры!&#8221; ;).<br />
+Да, согласен, RAID-10 тоже вполне может пережить отказ двух дисков, если вам повезет, что это произойдет в разных половинах &#8220;зеркала&#8221;. Но только в этом случае.</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;<br />
+RAID 5 появился в 1987 году, и был вполне адекватен решаемым задачам на протяжении следующих 15 лет непрерывного роста. Обычный размер диска в 1987 был всего 21MB, да, именно МЕГАбайта, и скорость вращения была 3600 RPM. На протяжении следующих 20 лет, диски выросли до 1TB (в 50 тысяч раз больше, но только вдвое-вчетверо в скорости вращения). Этот огромный рост привел к проблеме и продемонстрировал ущербность данного уровня RAID. </p>
+<p>Проблема заключается во времени, которое уходит на перестроение большого по объему RAID, которое может исчисляться днями. Это может привести вас к проблеме выхода из строя второго диска на том же RAID, в то время, как процесс ребилда еще не завершился. Величина под названием Annual Failure rate (AFR) для дисков становится лучше год от года, но это не устраняет проблему продолжающегося роста времени ребилда. Другая проблема состоит в том, что в процессе ребилда нагрузка на диски существенно возрастает, что, в свою очередь, увеличивает вероятность отказа, так что процесс ребилда сам по себе может быть для дисков еще опаснее<strong>*1</strong> (до 2.5 раз). </p>
+<p>Допустим, AFR (Annual Failure Rate, &#8220;вероятность отказа&#8221;) равен 5%<strong>*2</strong>, и время ребилда равно 1 дню. Мы используем 9-дисковый RAID-5 (8+1). Шансы получить второй дисковый отказ за это время равен 1/365 x 5% x 8 x 2.5= 0.25%. Допустим, у нас используется 100 таких групп по 9 дисков в RAID 5 в системе (900 дисков). Я могу ожидать, что получу 45 отказавших дисков в течении года. Во время прохождения ребилда я &#8220;бросаю кости&#8221;. У меня есть 1 шанс из 400 получить за время ребилда отказ второго диска, приводящий к потере данных, и я &#8220;бросаю&#8221; эти кости 45 раз в год. В течении 5 лет срока службы это означает вероятность 225 из 400 получить катастрофический сбой с потерей данных. </p>
+<p>Давайте рассмотрим теперь тот же сценарий, но удвоим размер дисков, и понизим  AFR (Annual Failure Rate, &#8220;вероятность отказа&#8221;) с 5% до 4% (имитировав развитие рынка HDD и выход новых боле емких моделей дисков). Теперь у нас уходит два дня на ребилд, так как удвоился объем, и формула выглядит так: 2/365 x 4% x 8 x 2.5= 0.4%. Те же 100 RAID-групп, те же цифры предположений, но риск двойной ошибки вырос до 1 к 200, хотя я &#8220;бросаю кости&#8221; только 36 раз в год. На протяжении пятилетнего срока службы это означает шанс 180 из 200 получить катастрофический отказ. </p>
+<p><a href="/pics//raid-failure-rate.jpg"><img src="/pics//raid-failure-rate-300x141.jpg" alt="" title="raid-failure-rate" width="300" height="141" class="alignnone size-medium wp-image-346" /></a></p>
+<p>Это выглядит противоречащим здравому смыслу, но тем не менее это так. Да, диски становятся надежнее, но при этом, тем не менее, риск аварии возрастает.</p>
+<p>Примечания:<br />
+<em><strong>*1</strong>: http://www.snia.org/education/tutorials/2007/fall/storage/WillisWhittington_Deltas_by_Design.pdf, см. слайд 50<br />
+<strong>*2</strong>: Официально опубликованный вендорский AFR для дисков всегда ниже 1%Однако множество источников называют размер этой величины вплоть до 12%, Можно считать, что величина &#8220;консенсуса&#8221; в данном вопросе находится обычно между 3% и 5%.</em><br />
+&#8212;&#8212;&#8212;&#8212;-<br />
+Найдено и переведено там:<br />
+<a href="http://blogs.netapp.com/msenviro/2009/08/the-raid-10-upsell-fudbeast.html ">http://blogs.netapp.com/msenviro/2009/08/the-raid-10-upsell-fudbeast.html </a></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/raid.html" rel="tag">raid</a>, <a href="tag/techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="345/trackback.html#respond">Комментарий</a> (<a href='345/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="345/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (8)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2503">
+		<div id="div-comment-2503">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>У вас на картинке Raid 6/DP=8+1, это ошибка?</p>
+						<div class="comment-meta"><a href="345/trackback.html#comment-2503" title="">10 Май 2012, 21:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2505">
+		<div id="div-comment-2505">
+		<div class="comment-author">
+			<cite>Дима:<cite></div>
+			<p>Найти бы такой сайт, но посвященный НР:)</p>
+						<div class="comment-meta"><a href="345/trackback.html#comment-2505" title="">11 Май 2012, 14:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2506">
+		<div id="div-comment-2506">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Дима:</p>
+<p>Бросайте HP, айдате к нам :)</p>
+						<div class="comment-meta"><a href="345/trackback.html#comment-2506" title="">11 Май 2012, 14:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2516">
+		<div id="div-comment-2516">
+		<div class="comment-author">
+			<cite>Дима:<cite></div>
+			<p>Нет, русские на войне своих не бросают))<br />
+Кстати, скажите пжл-та, почему в одной из статей Вы говорили, что стораджи НР - Sic transit gloria mundi?</p>
+						<div class="comment-meta"><a href="345/trackback.html#comment-2516" title="">14 Май 2012, 10:03</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2517">
+		<div id="div-comment-2517">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Дима:</p>
+<p>> <i>Нет, русские на войне своих не бросают))</i></p>
+<p>Перефразируя Талейрана: &#8220;В бизнесе (как и в политике) нет предательства, а есть дальновидность&#8221; :)</p>
+<p>> <i>Кстати, скажите пжл-та, почему в одной из статей Вы говорили, что стораджи НР - Sic transit gloria mundi?</i></p>
+<p>Sic transit gloria mundi - &#8220;Так проходит слава мирская&#8221;. ??ли вам не перевод нужен? ;)</p>
+<p>Потому что на протяжении нескольких лет HP откровенно разбазарил свое лидерство в стораджах, и несколько лет подряд теряет долю рынка, на фоне роста всех остальных вендоров Top5  (см. отчеты IDC).<br />
+У HP наблюдается откровенный lack of vision, &#8220;потеря ориентации&#8221;. Обладая в свое время одним из лучших, и самым инновационным продуктом, ставшим EVA, HP забила на развитие, и дождалась его морального и технического устаревания и потери интереса рынка, решив вернуть его затем собиранием &#8220;лоскутного одеяла&#8221; брендов и технологий, чем только окончательно запутала потребителя.</p>
+<p>Так что приходите &#8220;Это будет мудро, мой друг!&#8221; (голосом Сарумана;).</p>
+<p>Те же отчеты по рынку показывают, что рост NetApp происходит в значительно мере за счет переориентации на него бывших клиентов HP:<br />
+<a href="http://www.computerwoche.de/hardware/data-center-server/2500678/" rel="nofollow">http://www.computerwoche.de/hardware/data-center-server/2500678/</a></p>
+<p><a href="http://www.computerwoche.de/assets/galleries/detail-1849343.html?i=KC-DataCente&#038;p=hardware.data-center-server.2500678.marktanalyse-von-ama-hp-muss-im-storage.p1&#038;t=Wanderungsanalyse%20Storage-Installationen%20%u2013%20HP" rel="nofollow">http://www.computerwoche.de/assets/galleries/detail-1849343.html?i=KC-DataCente&#038;p=hardware.data-center-server.2500678.marktanalyse-von-ama-hp-muss-im-storage.p1&#038;t=Wanderungsanalyse%20Storage-Installationen%20%u2013%20HP</a></p>
+						<div class="comment-meta"><a href="345/trackback.html#comment-2517" title="">14 Май 2012, 13:18</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2708">
+		<div id="div-comment-2708">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>&gt;Я могу ожидать, что получу 45 отказавших дисков в течении года.<br />
+А как это у вас получилось 45 ?</p>
+						<div class="comment-meta"><a href="345/trackback.html#comment-2708" title="">14 Июнь 2012, 18:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2709">
+		<div id="div-comment-2709">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>Задайте вопрос автору, сам я в математике не силен:</p>
+<p><i>Найдено и переведено там:<br />
+<a href="http://blogs.netapp.com/msenviro/2009/08/the-raid-10-upsell-fudbeast.html" rel="nofollow">http://blogs.netapp.com/msenviro/2009/08/the-raid-10-upsell-fudbeast.html</a> </i><i></i></p>
+						<div class="comment-meta"><a href="345/trackback.html#comment-2709" title="">14 Июнь 2012, 19:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2745">
+		<div id="div-comment-2745">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Я так понял оригинал уже не доступен в полном виде. Там только один абзац текста.<br />
+У вас нет случайно полного варианта?</p>
+						<div class="comment-meta"><a href="345/trackback.html#comment-2745" title="">16 Июнь 2012, 23:59</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="345" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.069 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

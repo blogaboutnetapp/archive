@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Data ONTAP 8.2.1 - что нового?</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1332/trackback.html">Почему &#8220;ынтерпрайз&#8221; не использует &#8220;самое свежее&#8221;?</a></div>
+			<div class="alignright"><a href="../1334/trackback.html">Flash и энергопотребление. Какова экономия в деньгах?</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1331">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP 8.2.1 - что нового?">Data ONTAP 8.2.1 - что нового?</a></h2>
+			<div class="postmetadata">10 Март 2014, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Обсуждая и отмечая выход FAS8000 как аппаратных устройств, мы совсем выпустили из внимания их &#8220;программную&#8221; часть. 19 февраля вышла Data ONTAP 8.2.1, и новые контроллеры будут поставляться с самой новой ее версией - 8.2.1RC2.<br />
+Напомню, вновь, что в номенклатуре NetApp версия RC, хотя и расшифровывается как &#8220;Release Candidate&#8221;, тем не менее не является какой-то там недопроверенной и неготовой &#8220;бетой&#8221;, это официальная production-ready версия, пригодная и устанавливаемая на продакшн-системы, просто вот такая вот схема нумерации версий принята. С этим разобрались, пойдем теперь deeper. :) </p>
+<p>Что нового появилось в Data ONTAP 8.2.1</p>
+<ul>
+<li>Дальнейшее улучшение и развитие NDO - Non-Disruptive Operations, процедур, выполняющихся без прерывания работы системы. В перспективе _все_ операции с Cluster Environment будут NDO. Пока же идет планомерное улучшение и расширение.</li>
+</ul>
+<ol>
+<li>Таковой стала операция удаления из системы дисковых полок. Теперь доступ к данным системы хранения не прерывается даже в процессе замены или удаления дисковых полок (конечно, не с дисков на этих полках, но тем не менее). Удаление, а также замена дисков и полок на другие, например более новые, теперь может осуществляться &#8220;на ходу&#8221; кластера.</li>
+<li>Замена контроллеров в кластере ранее требовала некоторых ручных процедур. Теперь, с помощью инструмента NetApp OnCommand Workflow Automation (WFA), эти шаги могут быть автоматизированы. Это ускоряет процедуру и снижает возможность операторских ошибок в процессе.</li>
+<li>Поддерживается MS SQL Server, работающий по SMB3.0 с шарами в CA (Continuous Available) режиме.</li>
+</ol>
+<ul>
+<del datetime="2014-03-19T04:35:25+00:00"></p>
+<li>Вернулся встроенный антивирус.</li>
+<p>Вы помните, возможно, что встроенный антивирус в DOT 8.x уже был в ранних версиях ее, но потом был удален для доработки. Доработка проведена, и вот теперь, надеюсь окончательно, в Data ONTAP 8.2.1 появился встроенный антивирусный сервис. Это крайне важно для всяческих &#8220;файловых&#8221;  применений и крупных NAS. До сих пор такие системы строились с внешним антивирусным сервером, возможность подключения которого существовала у систем хранения NetApp всегда. Теперь появилась возможность, в дополнение или же как замена такому, использовать антивирусный сервис внутри контроллера.</p>
+<p></del>
+</ul>
+<p>Спасибо читающим и комментирующим за важную поправку, действительно, я неправильно прочитал, это не встроенный, а внешний антивирус, просто улучшили некоторые моменты его работы, но антивирус по-прежнему является внешним по отношению к процессору контроллера системы хранения.</p>
+<ol>
+<li>Поддерживаются антивирусные службы, разработанные специально для NetApp несколькими антивирусными вендорами, в частности это McAfee, TrendMicro и Symantec.</li>
+<li>Служба поддерживает интеграцию с приложениями корпоративного менеджмента, например McAfee ePO</li>
+<li>Поддерживается сканирование в памяти, с использованием кэша, что существенно ускоряет проверку и снижает нагрузку на диски при повторной проверке одних и тех же файлов.</li>
+<li>Появились средства мониторинга процесса антивирусной проверки.</li>
+<li>Теперь сканирование может осуществляться несколькими сканерами одновременно, во много потоков.</li>
+</ol>
+<ul>
+<li>Automated Workflow Analyzer (AWA) теперь умеет анализировать и сайзить Flash Pool.</li>
+</ul>
+<ul>
+<li>Data ONTAP Edge, &#8220;NetApp в виде виртуальной машины&#8221;, в среде vSphere, предназначенный, в первую очередь, для инфраструктур remote and btach offices, то есть филиалов и распределенных офисов (ROBO), умеет теперь работать в режиме single-node cluster. Это сравнительно новый режим cluster-mode, в котором можно включить его для одного отдельного контроллера. Это применяется, в первую очередь, для систем-получателей репликации, бэкапов через SnapVault, и прочих таких же применений, где не требуется &#8220;доступность пять девяток&#8221;, и это позволяет снизить затраты на систему в целом. Теперь вы можете использовать DOT-Edge как компонент в Clustered-системе, включенный туда как single-node cluster, например реплицировать в нее бэкапы.</li>
+</ul>
+<ul>
+<li>Некоторые изменения и улучшения в NFS и CIFS/SMB. Кому важно - смотрите в release notes.</li>
+</ul>
+<ul>
+<li>Обновились программы семейства OnCommand</li>
+</ul>
+<ul>
+<li>Появилось новый инструмент - Performance Manager 1.0, <del datetime="2014-04-05T06:08:29+00:00">выделенный, как понимаю, из Unified Manager</del>.</li>
+</ul>
+<ul>
+<li>Появилась впервые поддержка UTA2 - Unified Target Adapter, что это такое мы уже рассматривали в статьях о FAS8000 ранее, это таргет-порты, которыми штатно оснащены все контроллеры 8000-серии, которые программно могут быть включены и настроены в системе или как FC 16G, или как 10G Ethernet.</li>
+</ul>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/821.html" rel="tag">8.2.1</a>, <a href="../tag/data-ontap.html" rel="tag">data ontap</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/whatsnew.html" rel="tag">whatsnew</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (9)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-12611">
+		<div id="div-comment-12611">
+		<div class="comment-author">
+			<cite>Crow:<cite></div>
+			<p>Роман! Можно поподробнее вот про это: Performance Manager 1.0</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12611" title="">11 Март 2014, 10:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12613">
+		<div id="div-comment-12613">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>По поводу встроенного антивируса NetApp как-то не определился т.к. зарубежный NetApp заявлял о том, что не будет больше развивать этот функционал. В свете данной информации мои зарубежные коллеги сделали ставку на решения с внешними антивирусами. Хотя я буду очень рад, если NetApp в этом плане устаканится т.к. со внешними антивирусами часто возникают проблемы :(<br />
+Performance Manager будет халявный? :)))</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12613" title="">11 Март 2014, 13:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12615">
+		<div id="div-comment-12615">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Про Performance manager будет отдельная статья в следующий понедельник. Да, это virtual appliance, внутри VM, бесплатный, и это отдельный продукт, я ошибся про выделение его из unified manager.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12615" title="">11 Март 2014, 14:15</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12668">
+		<div id="div-comment-12668">
+		<div class="comment-author">
+			<cite>Andrey:<cite></div>
+			<p>Вроде как больше нет on-board антивируса?<br />
+По-крайней мере ветка команд antivirus больше нет, зато есть коннектор к внешнему антивирусу.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12668" title="">14 Март 2014, 0:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12676">
+		<div id="div-comment-12676">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Andrey:<br />
+Начиная с 8.2.1 - возвращается, с модификациями и доделками.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12676" title="">14 Март 2014, 11:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12692">
+		<div id="div-comment-12692">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>2 romx:  не вводи в заблуждение -  это внешний антивирус.  Можно прочитать в релиз ноутах.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12692" title="">15 Март 2014, 17:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12694">
+		<div id="div-comment-12694">
+		<div class="comment-author">
+			<cite>Igor Litvinov:<cite></div>
+			<p>Нет встроенного антивируса. Только внешний. Я специально почитал официальные релизы, да и сами нетаперы не подтверждают.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12694" title="">15 Март 2014, 20:55</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12750">
+		<div id="div-comment-12750">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>А синхронной репликации cmode всё нет и нет :(</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12750" title="">19 Март 2014, 15:51</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12760">
+		<div id="div-comment-12760">
+		<div class="comment-author">
+			<cite>Odna ptichka:<cite></div>
+			<p>Планов о sync snap mirror никто не объявлял - вы сами все придумали. Но были планы по метрокластеру в 8.3.  Ждать то осталось совсем не долго.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12760" title="">20 Март 2014, 10:32</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1331" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.069 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

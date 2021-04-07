@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Amazon AWS начал использовать NetApp в &#8220;гибридном облаке&#8221;</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1236/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1236</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:04 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1236#comment-5045</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Thu, 29 Nov 2012 12:14:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1236#comment-5045</guid>
+		<description>что выберет конечный пользователь, то и будет :) А вот серверы выбрать уже не получится....</description>
+		<content:encoded><![CDATA[<p>что выберет конечный пользователь, то и будет :) А вот серверы выбрать уже не получится&#8230;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1236#comment-5039</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 29 Nov 2012 06:09:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1236#comment-5039</guid>
+		<description>1. На картинке написано "&lt;b&gt;FAS&lt;/b&gt;/V-series". Это стандартное обозначение всех новых контроллеров 3200/6200.
+
+2. Ну, строго говоря, какая разница?</description>
+		<content:encoded><![CDATA[<p>1. На картинке написано &#8220;<b>FAS</b>/V-series&#8221;. Это стандартное обозначение всех новых контроллеров 3200/6200.</p>
+<p>2. Ну, строго говоря, какая разница?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1236#comment-5038</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 29 Nov 2012 06:01:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1236#comment-5038</guid>
+		<description>На картинках NetApp V-series. Это значит, что под ними будет что-нибудь другое?</description>
+		<content:encoded><![CDATA[<p>На картинках NetApp V-series. Это значит, что под ними будет что-нибудь другое?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Эффект от использования VAAI</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1309/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1309</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:50 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Magic</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11717</link>
+		<dc:creator>Magic</dc:creator>
+		<pubDate>Mon, 23 Dec 2013 13:29:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11717</guid>
+		<description>Пробовал года 2 назад включать VAAI на HP P2000G3 (включается установкой vaai-плагина на esxi) в результате время например миграции виртуалки с раздела на раздел увеличилось, но из плюсов - трафик не пошел через SAN. Кому критично ненагрузить SAN - вариант.</description>
+		<content:encoded><![CDATA[<p>Пробовал года 2 назад включать VAAI на HP P2000G3 (включается установкой vaai-плагина на esxi) в результате время например миграции виртуалки с раздела на раздел увеличилось, но из плюсов - трафик не пошел через SAN. Кому критично ненагрузить SAN - вариант.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11573</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Sun, 15 Dec 2013 22:32:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11573</guid>
+		<description>Основной прирост она даёт на традиционных массивах, когда бутылочным горлышком является сеть или процессор сервера.
+А на младших системах с небольшим количеством дисков некоторые операции попросту опасны, например, CTS2600 встаёт колом во время клонирования ВМ.</description>
+		<content:encoded><![CDATA[<p>Основной прирост она даёт на традиционных массивах, когда бутылочным горлышком является сеть или процессор сервера.<br />
+А на младших системах с небольшим количеством дисков некоторые операции попросту опасны, например, CTS2600 встаёт колом во время клонирования ВМ.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11416</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 03 Dec 2013 10:12:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11416</guid>
+		<description>Artur:
+Да, конечно. Дело в том, что, строго говоря, нет никакого специального "VAAI" для блочных протоколов, есть стандартный набор команд протокола SCSI, в который, с некоторых пор включены команды, которые принято называть "VAAI" на блочных протоколах, всякие там WRITE SAME и прочее. Таким образом "поддержка VAAI на FC и iSCSI" это просто реализация recent набора стандартизованных группой T10 команд протокола SCSI, и никакого дополнительного "плагина" это не требует, просто или отвечает на них сторадж, и тогда "VAAI поддерживается", или - нет, тогда "не поддерживается".</description>
+		<content:encoded><![CDATA[<p>Artur:<br />
+Да, конечно. Дело в том, что, строго говоря, нет никакого специального &#8220;VAAI&#8221; для блочных протоколов, есть стандартный набор команд протокола SCSI, в который, с некоторых пор включены команды, которые принято называть &#8220;VAAI&#8221; на блочных протоколах, всякие там WRITE SAME и прочее. Таким образом &#8220;поддержка VAAI на FC и iSCSI&#8221; это просто реализация recent набора стандартизованных группой T10 команд протокола SCSI, и никакого дополнительного &#8220;плагина&#8221; это не требует, просто или отвечает на них сторадж, и тогда &#8220;VAAI поддерживается&#8221;, или - нет, тогда &#8220;не поддерживается&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11415</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Tue, 03 Dec 2013 09:46:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11415</guid>
+		<description>А у NetApp VAAI для FC поддерживается? А то среди доступных плагинов на now встречал только плагин для NFS.</description>
+		<content:encoded><![CDATA[<p>А у NetApp VAAI для FC поддерживается? А то среди доступных плагинов на now встречал только плагин для NFS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: IgorT</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11413</link>
+		<dc:creator>IgorT</dc:creator>
+		<pubDate>Tue, 03 Dec 2013 08:26:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11413</guid>
+		<description>Под хитачевским хай-эндом понимается VSP? Что по Вашему с ним не так?</description>
+		<content:encoded><![CDATA[<p>Под хитачевским хай-эндом понимается VSP? Что по Вашему с ним не так?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11407</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Mon, 02 Dec 2013 14:31:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11407</guid>
+		<description>Плюс, на мой взгляд, тут ещё играет роль своеобразие хитачевского хай-энда. Уж очень он, хм, не от мира сего :)</description>
+		<content:encoded><![CDATA[<p>Плюс, на мой взгляд, тут ещё играет роль своеобразие хитачевского хай-энда. Уж очень он, хм, не от мира сего :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11406</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 02 Dec 2013 13:59:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11406</guid>
+		<description>Что, в общем, логично.
+По-видимому минимальный эффект от VAAI будет в двух крайних случаях.
+1. Слабый и уже загруженный контроллер, на который мы перекладываем дополнительно storage offload
+2. Мощный контроллер с большим кэшем и могучим вводом-выводом, который и без оффлоада справляется неплохо.
+
+Плюс есть еще подозрение, что иногда поддержка VAAI реализуется "для галочки".</description>
+		<content:encoded><![CDATA[<p>Что, в общем, логично.<br />
+По-видимому минимальный эффект от VAAI будет в двух крайних случаях.<br />
+1. Слабый и уже загруженный контроллер, на который мы перекладываем дополнительно storage offload<br />
+2. Мощный контроллер с большим кэшем и могучим вводом-выводом, который и без оффлоада справляется неплохо.</p>
+<p>Плюс есть еще подозрение, что иногда поддержка VAAI реализуется &#8220;для галочки&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11405</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Mon, 02 Dec 2013 13:43:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11405</guid>
+		<description>??мхо, от типа массива тоже многое зависит. Сам был свидетелем того, как на хитачевском хайэнде включение VAAI практически ничего не дало.</description>
+		<content:encoded><![CDATA[<p>??мхо, от типа массива тоже многое зависит. Сам был свидетелем того, как на хитачевском хайэнде включение VAAI практически ничего не дало.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11400</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 02 Dec 2013 05:37:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11400</guid>
+		<description>Ну, было вот что написано. Сейчас да, нет ничего. Там был дохлый в настоящее время блог, обновлявшийся года полтора назад. Вполне возможно что он просто умер в период от момента, когда я на нем нашел пост, до момента, когда запостилась моя заметка тут.
+Я попозже из RSS или кэша достану и перепощу.</description>
+		<content:encoded><![CDATA[<p>Ну, было вот что написано. Сейчас да, нет ничего. Там был дохлый в настоящее время блог, обновлявшийся года полтора назад. Вполне возможно что он просто умер в период от момента, когда я на нем нашел пост, до момента, когда запостилась моя заметка тут.<br />
+Я попозже из RSS или кэша достану и перепощу.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1309#comment-11399</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Mon, 02 Dec 2013 05:26:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1309#comment-11399</guid>
+		<description>что это было, то хоть?  По ссылке 401 ошибка.</description>
+		<content:encoded><![CDATA[<p>что это было, то хоть?  По ссылке 401 ошибка.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

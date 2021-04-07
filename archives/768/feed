@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Служебное: посещаемость</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/768/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/768</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:56 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/768#comment-923</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 01 Nov 2010 07:51:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/768#comment-923</guid>
+		<description>Ну, в принципе, в сентябре всегда активность повышается, но в данном случае виден довольно линейный рост и летом. Так что, по видимому, просто общий интерес рынка растет.
+Ну и работаем, и я, и официальный NetApp в виде их PR-службы.</description>
+		<content:encoded><![CDATA[<p>Ну, в принципе, в сентябре всегда активность повышается, но в данном случае виден довольно линейный рост и летом. Так что, по видимому, просто общий интерес рынка растет.<br />
+Ну и работаем, и я, и официальный NetApp в виде их PR-службы.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Максим</title>
+		<link>http://blog.aboutnetapp.ru/archives/768#comment-922</link>
+		<dc:creator>Максим</dc:creator>
+		<pubDate>Mon, 01 Nov 2010 07:48:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/768#comment-922</guid>
+		<description>люди из отпусков вышли - соскучились :о)</description>
+		<content:encoded><![CDATA[<p>люди из отпусков вышли - соскучились :о)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/768#comment-919</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 01 Nov 2010 02:03:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/768#comment-919</guid>
+		<description>Нет, просто оба раза были ссылки на блог на ресурсах с очень высокой посещаемостью (Habrahabr, в данном случае, если правильно помню).</description>
+		<content:encoded><![CDATA[<p>Нет, просто оба раза были ссылки на блог на ресурсах с очень высокой посещаемостью (Habrahabr, в данном случае, если правильно помню).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/768#comment-918</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Sun, 31 Oct 2010 19:43:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/768#comment-918</guid>
+		<description>Сентябрь - месяц осенних обострений :)</description>
+		<content:encoded><![CDATA[<p>Сентябрь - месяц осенних обострений :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

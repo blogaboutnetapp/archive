@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Oracle на NetApp &#8211; вся библиотека techlibrary</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/519/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/519</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:15 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/519#comment-2762</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 19 Jun 2012 11:39:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=519#comment-2762</guid>
+		<description>Документы ниже уже устарели и более не доступны ни в гугле ни в техюиблиотеке.
+
+tr-3413 Oracle 10g RAC on SUSE
+tr-3479 Oracle 10g RAC on AIX 
+tr-3527 Oracle 10g with Power Linux (RHEL AS4 U3) 
+tr-3365 SAP Data Protection on Unix and NFS 
+tr-3366 SAP Data Protection on Oracle on Windows 
+tr-3520 SAP Data Protection for Unix on Fibre Channel 
+tr-3495 Storage Protocol Performance on Linux
+tr-3426 SnapManager with 10g RAC Grid 
+
+Документы ниже ещё доступны по новым ссылкам (возможно устаревшие версии):
+tr-3614 &lt;a href="http://www.tallard.com/marketing/brands/netapp/009_docs_EBC/tr3614OracleDatabase.pdf" rel="nofollow"&gt;HA for Oracle with DNFS on NetApp MetroCluster&lt;/a&gt;
+tr-3575 Oracle 10g with Decru DataFort on RHEL 4 on FCP
+tr-3189 &lt;a href="http://www.linuxforum.net/forum/files/343691-11.pdf" rel="nofollow"&gt;Oracle 9i RAC on Red Hat 3&lt;/a&gt;
+
+dNFS
+tr-4012 &lt;a href="http://media.netapp.com/documents/tr-4012.pdf" rel="nofollow"&gt;NetApp Snapshot Technology Combined
+with Oracle dNFS CloneDB for Efficient Database Cloning&lt;/a&gt;</description>
+		<content:encoded><![CDATA[<p>Документы ниже уже устарели и более не доступны ни в гугле ни в техюиблиотеке.</p>
+<p>tr-3413 Oracle 10g RAC on SUSE<br />
+tr-3479 Oracle 10g RAC on AIX<br />
+tr-3527 Oracle 10g with Power Linux (RHEL AS4 U3)<br />
+tr-3365 SAP Data Protection on Unix and NFS<br />
+tr-3366 SAP Data Protection on Oracle on Windows<br />
+tr-3520 SAP Data Protection for Unix on Fibre Channel<br />
+tr-3495 Storage Protocol Performance on Linux<br />
+tr-3426 SnapManager with 10g RAC Grid </p>
+<p>Документы ниже ещё доступны по новым ссылкам (возможно устаревшие версии):<br />
+tr-3614 <a href="http://www.tallard.com/marketing/brands/netapp/009_docs_EBC/tr3614OracleDatabase.pdf" rel="nofollow">HA for Oracle with DNFS on NetApp MetroCluster</a><br />
+tr-3575 Oracle 10g with Decru DataFort on RHEL 4 on FCP<br />
+tr-3189 <a href="http://www.linuxforum.net/forum/files/343691-11.pdf" rel="nofollow">Oracle 9i RAC on Red Hat 3</a></p>
+<p>dNFS<br />
+tr-4012 <a href="http://media.netapp.com/documents/tr-4012.pdf" rel="nofollow">NetApp Snapshot Technology Combined<br />
+with Oracle dNFS CloneDB for Efficient Database Cloning</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

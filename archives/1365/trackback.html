@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Переход на Clustered Data ONTAP. Часть 1</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1364/trackback.html">IT-мифология</a></div>
+			<div class="alignright"><a href="../1366/trackback.html">NetApp E2700 по спецценам в IT-Град до 27 июля</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1365">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Переход на Clustered Data ONTAP. Часть 1">Переход на Clustered Data ONTAP. Часть 1</a></h2>
+			<div class="postmetadata">10 Июнь 2014, 15:25 <!-- от  --></div>
+			<div class="postentry">
+				<p>Несколькими месяцами ранее я уже <a href="../1351/trackback.html">проводил опрос</a>, на тему перспектив перехода пользователей на Clustered Data ONTAP на их стораджах. Опрос это обозначил несколько основных групп пользователей по отношению к Clustered Data ONTAP.</p>
+<p>Если с примерно третью, теми, кто ответил, что они уже перешли, или переходят до конца этого года (ну или в обозримое время, главное, что решение уже принято), все понятно, я могу их только поздравить с их решением, то вот с оставшимися двумя третями все сложнее. Конечно, я трезво понимаю, что среди оставшхся некоторое (значительное) количество составляют владельцы младших и старых систем, для которых переход на Clustered Data ONTAP закрыт по техническим причинам (например – старости, слабости и непригодности контроллеров предшествующих поколений стораджей). Но наверняка среди них также есть и люди, которые, возможно, могли бы перейти на Clustered Data ONTAP, но либо не понимают как и когда это проделать, либо недостаточно осведомлены о том, от каких плюшек они, в результате, отказываются. Мне бы хотелось, в серии постов, котрые я запланировал и написал для ближайших нескольких недель, детально разобрать эти новые и полезные возможности Clustered Data ONTAP.</p>
+<p>  <span id="more-1365"></span>
+<p>??так, вкратце, для тех, кто совсем все проспал, или же только подключился к чтению этого блога, например собираясь купить сторадж NetApp, или разбираясь с уже купленным:</p>
+<p>Системы хранения NetApp это устройства, в значительной мере предвосхитившие идею Software-defined Storage, так как практически все их функцональные возможности реализованы внутри и посредством их собственной OS, носящей название Data ONTAP. Эта OS развивается с 1992 года, и, на сегодня, несмотря на некоторую внешнюю похожесть, не является ни одной из знакомых вам опенсорсных платформ (хотя когда-то, в самом начале и началась с допиливания BSD 4.2 UNIX, а сегодня частично использует в некоторых “небоевых” областях отдельные модули из FreeBSD). Я хочу на этом отдельно остановится, так как, по-прежнему, некоторые люди, плохо разбирающиеся в деталях работы Data ONTAP, считают и утверждают (голословно), что, де, “это все Linux (или FreeBSD)”. Нет, это не так. Кратко на этом остановившись, пойдем дальше.</p>
+<p>OS Data ONTAP позволила построить систему хранения, в которой добавление новой функциональности сводится, по сути, к дописыванию нового кода в этой OS, что позволяет быстро и широко модернизировать их системы хранения. Такой подход существено отличается от подхода “аппаратной реализации”, при котором любое расширение или изменение функционала крайне болезненно и занимает у разработчика много сил и средств (поскольку функциональность оказывается “захардкожена” в “микросхемах”), и, часто, практически невозможно в уже проданных и установленных системах. Когда-то “аппаратность”, следует уточнить, обеспечивала лучшие показатели производительности и надежности, но сегодня, с современными процессорами, архитектурами и хорошо отлаженным программным кодом такой Software-defined Storage уже мало отличается по этим параметрам от “аппаратных” решений, но существенно в лучшую сторону отличается в гибкости и способности расширять функциональность просто обновлением OS.</p>
+<p>Поэтому нет ничего удивительного в том, что несколько лет назад NetApp, с выходом Data ONTAP версии 8, начала, почти с нуля, развивать новую “ветку” своей OS Data ONTAP, которая позвляет строить системы хранения в виде многоузловых кластерных систем. Однако, так как многие пользователи были на тот момент не готовы к переходу на новую, полностью обновленную архитектуру и OS, то NetApp, здраво рассудив, продолжила поддержку и развитие своей “классической” OS, которая получила название 7-mode, так как продолжала внури 8.x линейку ветки 7.х. При этом, кроме Data ONTAP 7-mode, существовала Data ONTAP, “новая”, получившая название c-mode, или Cluster-mode, сейчас же она стала называться короче и понятнее: <strong>Clustered Data ONTAP</strong>.</p>
+<p><img src="https://communities.netapp.com/servlet/JiveServlet/showImage/38-12934-23215/cDOT_architecture.png" width="640" height="447" /></p>
+<p>Такая двойственость “переходного периода” существовала на сегодня уже довольно долгое время, однако у всего есть конец, и вот, наконец, было принято решение, что Data ONTAP 7-mode больше не будет развиваться. Сперва, вот уже вроде пару лет как, в нее перестали добавляться новые фичи, ограничиваясь поддержкой и отладкой уже существовавших, то есть переведя ее в frozen/stable, а вот теперь, наконец, было решено сделать следующий шаг, и что следующий мажорный релиз, выходящий в RC уже этой осенью, будет уже <strong>только</strong> <strong>Clustered Data ONTAP</strong>, так что в v8.3 кода 7-mode уже <strong>не будет</strong>.</p>
+<p>Что это означает для всех нас? Ну, тут есть два варианта. Если у вас уже работающая в Data ONTAP 7-mode система из старых серий, то есть ранее FAS2240 и FAS3200, и вас в том, как она работает все устраивает, то тогда нет повода беспокоиться, просто продолжаете жить и работать, как жили и работали до этого. Силой вас никто никуда переезжать не заставит. В период пяти лет с момента продажи такие сторажи продолжают полностью и официально поддерживаться компанией. При этом, фактически, стораджи NetApp часто живут очень долгую жизнь, я лично встречался с по прежнему работавшим старым устройством, жившим на аж на какой-то 6.5.х, то есть свыше десятилетней давности выпуска. Ну, коптило, тарахтело, обслуживала свох пару десятков пользователей NFS в университете. Но работало.</p>
+<p>Но если у вас сторадж относительно новый, купленный в пределах последних года-двух, в особенности если это системы midrange, то есть FAS3200, то, наверняка, вам будет интересно посмотреть на то, что же есть сегодня в Clustered Data ONTAP, и чего у вас нет в Data ONTAP 7-mode.</p>
+<p>Прежде всего, в Clustered Data ONTAP теперь присутствует концепция, под названием <strong>NDO – Non-Disruptive Operations</strong>. Практически все операции, которые вы можете выполнить на сторадже, например обслуживания его, обновления OS, замены контроллеров, миграции данных, переноса томов и даже виртуальных файлеров, SVM, с контроллера на контроллер, и так далее, могут выполняться без прерывания идущей работы с данными. В небольшой список исключений входят, например, операции с сетевыми шарами SMB, где, по свойствам самого протокола, при миграции SVM разрывается сессия, которую приложение должно заново инициировать, например заново ранее открытый открыть файл. При этом любые операции NFS или блочных протоколов, iSCSI, FCP, FCoE, происходят без прерывания работы с данными, даже если при этом том с этими данными переезжает с контроллера на контроллер.</p>
+<p>Наличие в сторадже NDO обеспечивает сразу существенный рост “готовности”, или же, иначе, availability. Хотя ряд операций можно было выполнять онлайн и в случае классической 7-mode, например с помощью Cluster Failover, и они тоже могли быть выполнены с минимальным влиянием на доступность, все же были операции, требовавшие даунтайма. Теперь их не будет. Даже отключить дисковую полку на работающем сторадже теперь можно “на ходу”.</p>
+<p>Только в Clustered Data ONTAP появились новые фичи, добавленные за последние несколько лет, например это <strong>SMB 3.0, pNFS</strong> (NFS 4.1) и некоторые другие возможности.</p>
+<p>В Clustered Data ONTAP теперь есть нормальный <strong>multipathing и</strong> <strong>ALUA для iSCSI</strong>. А также <strong>QoS</strong>, <strong>BranchCache</strong>, <strong>Access-based Enumeration</strong> для SMB, <strong>SSL-secured LDAP</strong>, <strong>IPv6</strong>.</p>
+<p>При этом сохранилась большая часть фич, за которые мы знаем и любим “классический” Data ONTAP, такие как <strong>снэпшоты, дедупликация, thin provisioning, клоны, IP-based репликация, RAID-DP, FlashCache и FlashPool</strong>. Правда пока еше некоторые фичи остаются в списке <em>work in process</em>, из наиболее заметных это <strong>Metrocluster</strong> и <strong>синхронная репликация</strong>, а также всякие нишевые штучки, типа <strong>SnapLock</strong> (если вы этм не пользуетесь, то вам это не надо). Metrocluster ожидается уже осенью, в уже упомянутой Data ONTAP 8.3.</p>
+<p>В кластере, в отличие от HA-пары контроллеров в 7-mode, у вас имеется <strong>глобальное пространство имен</strong> для NAS, а не два отдельных файлера, каждый с отдельным IP-адресом и своим набором ресурсов, например сетевыми шарами. Даже несмотря на то, что файловая система при этом все равно остается “controller-bound”, и, допустим, один файл не может лежать одновременно, кусками, на нескольких контроллерах (почему это так, и что мешает сделать по-другому я уже как-то <a href="../1118/trackback.html">писал</a>), такая штука сильно упрощает работу с большими NAS-системами.</p>
+<p>Вы можете строить <strong>многоузловые кластеры из разных контроллеров, с разными дисками</strong> на них, и, тем самым, создавать сложные инфраструктуры хранения. Без прерывания работы кластера и обслуживания ресурсов <strong>мигрирвать данные по кластеру с контроллера на контроллер, с одного типа дисков на другой</strong>, при этом с сохранением к ним доступа даже во время миграции. Кластер может обслуживать как NAS, так и SAN, в том числе и одновременно, unified, как привычно это для 7-mode пользователей.</p>
+<p>Долгое время одной из основных проблем была высокая цена инфраструктуры, так, до известных пор, поддерживалась только switched конфигурация кластера, при которой ноды кластера были соединены вместе кластерным интерконектом через довольно дорогой сам по себе 10G Ethernet коммутатор Cisco Nexus 5000, причем коммутатор был нужен в любом случае, даже если у вас в кластере было всего две ноды. С тех пор многое изменилось, во-первых у NetApp появился недорогой 10G switch специально для cluster interconnect, во-вторых стала поддерживаться конфигурация, называемая dual-node switchless cluster, которая позволяет перевести в cluster-mode без использования коммутатора, прямым включением “порта в порт” 10G кабеля cluster network обычную пару контроллеров, как раньше она работала в привычном, классическом 7-mode. Такая конфигурация может быть хорошим стартом для тех, кто хотел бы перейти на Clustered Data ONTAP прямо сейчас, “по-быстрому”, без дополнительных инфраструктурных расходов на тот же коммутатор. Причем, что интересно, этот вариант ничуть не лишает вас возможности в будущем перейти на switched cluster, и добавлять к кластеру новые ноды.</p>
+<p>“Ну хорошо”, скажете вы мне на это, “но как же нам перейти на Clustered Data ONTAP?”. Ну вот тут-то и скрывается основая закавыка, которая заставила NetApp уже несколько лет тянуть две верси своей OS. Дело в том, что прямого и легкого “однокнопочного” пути миграции из 7-mode в Clustered Data ONTAP на сегодня все еще нет. Да, есть те или иные тулзы, например так называемый <a href="https://support.netapp.com/documentation/productlibrary/index.html?productID=61584">7MMT</a> – <a href="http://www.cosonok.com/2013/07/notes-on-7-mode-transition-tool-7mtt.html">7-mode Migration Tool</a>, но и он решает только часть задач. Даже не считая того, что он мигрирует только файловые, NAS-данные,&#160; не мигрирует LUN-ы, которые приходится переносить вручную, это в любом случае предполагает, что у вас ест еще NetApp, сконфигурированный в кластер, и на который собствено и происходит перенос. Нет data-in-place миграции. То есть вам надо все ваши данные куда-то смигрировать или забэкапить, потом имеющийся сторадж убить, разобрать, переконфигурировать, создать заново уже в Cluster-mode, и вернуть на него все ваши данные уже в его новой ипостаси.</p>
+<p>Почему это так? Дело в том, что несмотря на то, что, как я уже написал выше, у NetApp в Clustered Data ONTAP сохранилось большинство фич “классической” DOT, внутри она сильно и радикально другая. ??зменения были слишком революционны, чтобы иметь возможность делать data-in-place. У NetApp это происходит не слишком часто, впрочем, последний раз такой радикальный переход был, пожалуй, с выходом 7.0 и появлением так называемых FlexVol и aggregate, вместо того, что сейчас носит название Traditional Volumes, и с которыми вы, готов спорить, никогда не встречались в реальной жизни (при этом оно, к слову, до сих пор существует в системе).</p>
+<p>Если вы не клиент NetApp и покупаете первый свой сторадж, то у вас все просто на самом деле. Вы можете заказать сразу систему в Cluster-mode, получить ее, и начинать работать, уже не думая ни о каких миграциях. </p>
+<p>Сложнее обстоит дело, если у вас уже есть работающая развернутая система с данными. Причем, как часто бывает, для миграции нет ни времени ни средств. Для таких пользователей у NetApp в России есть интересное предложение, и о нем мы поговорим в одном из следующих постов.</p>
+<p>А пока о том, что же стоит сделать, если вы все же решитесь на миграцию. До осени есть еще целое лето, которое, впрочем пройдет, как обычно, не успеете оглянуться. Зато это, обычно, время пониженной активности, и, вполне возможно, у вас получится выкроить время для того, чтобы все правильно подготовить.</p>
+<p>Во-первых, NetApp подготовил <a href="https://forums.netapp.com/community/support/cfor7">специальный сайт</a>, ориентированный на администраторов, знакомых с системами 7-mode, и собирающихся переходить на c-mode. Это прекрасная стартовая страница, на которой собрано множество линков на документацию по всем аспектам миграции.</p>
+<p><a href="/pics/b54750c05684_BED9/image.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/b54750c05684_BED9/image_thumb.png" width="483" height="484" /></a></p>
+<p>Во-вторых, стоит начать с установки на виртуальную машину так называемого <a href="http://support.netapp.com/NOW/download/tools/simulator/ontap/8.X/">NetApp Simulator</a> в Cluster-mode. <a href="http://support.netapp.com/NOW/download/tools/simulator/ontap/8.X/">NetApp Simulator</a> – это код Data ONTAP, выполняющийся в виртуальной машине как Virtual Appliance. Он несколько ограничен, чтобы не было нездорового соблазна использовать его для продакшна, но при этом внешне, со стороны интерфейса управления и логики работы, полностью выглядит как система хранения. К симулятору можно подключать System Manager и любой прочий софт, он имеет полноценную админскую консоль, выполняет все действия также, как реальный сторадж, на нем, например, сейчас проводят авторизованные учебные курсы в учебных центрах. Поэтому развернуть Simulator и посмотреть, как выглядит “внутри” Clustered Data ONTAP, будет очень полезно. Тем более, что именно консоль администратора изменилась радикально.</p>
+<p>Дело в том, что “классическая” консоль 7-mode, она, все же, привычная, родная, но довольно примитивная, по факту. Мы, админы NetApp, с ней сроднились, но, откровенно говоря, консоль без автодополнения, без иерарихической структуры команд, это какой-то примитив. </p>
+<p>Однако хорошие новости. Новая консоль админа в Clustered Data ONTAP полностью переписана. Автодополнение по табу, wildcards, глобальные команды, иерарихическая структура команд – все это теперь есть.</p>
+<p>Плохие новости: многие команды поменялось. Да, в чем-то стало более логично, и, вскоре, вы эту логику поймете, и будете удивляться тому, как вы могли работать в “старой” консоли. Однако для облегченя перехода NetApp подготовил “розеттский камень”, <a href="https://library.netapp.com/ecm/ecm_download_file/ECMP1196780">документ</a>, в котором каждой старой команде в консоли 7-mode соответствует команда в Clustered Data ONTAP.</p>
+<p>&#160;<a href="https://library.netapp.com/ecm/ecm_download_file/ECMP1196780"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/b54750c05684_BED9/image_3.png" width="644" height="298" /></a></p>
+<p>Этот документ поможет разобраться с новой консолью для опытных 7-mode админов.</p>
+<p>В третьих, рекомендую внимательно изучить сайт <a href="https://learningcenter.netapp.com/content/public/production/learning_maps/customer/lm_customer_t4.html">NetApp University</a> на предмет курсов, среди которых есть даже бесплатные web-курсы, которые можно посмотреть в браузере. Например есть бесплатный часовой курс, под названием: <a href="https://learningcenter.netapp.com/content/public/production/course_descriptions/CRS-002697-01-A_CourseDescription.pdf"><strong>Introduction to Cluster-Mode for 7-Mode Administrators</strong></a>, есть пятичасовой, но уже платный <a href="https://learningcenter.netapp.com/content/public/production/course_descriptions/STRSW-WBT-D8CFNDREV1_CourseDescription.pdf"><strong>Data ONTAP Cluster-Mode Fundamentals</strong></a>. По ссылкам выше, в обоих случаях – описания курсов.</p>
+<p><a href="/pics/b54750c05684_BED9/image_4.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/b54750c05684_BED9/image_thumb_3.png" width="644" height="373" /></a></p>
+<p>Посмотрев курсы, начинайте крутить консоль и System Manager на симуляторе, пробуйте конфигурировать, привыкайте к новому виду системы хранения. В следующих постах я постараюсь рассказать, что NetApp придумал для облегчений миграции на Clustered Data ONTAP для пользователей, и о том, какие подводные камни в плане конфигураций вы можете встретить на этом пути.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/8x.html" rel="tag">8.x</a>, <a href="../tag/c-mode.html" rel="tag">c-mode</a>, <a href="../tag/cluster/index.html" rel="tag">cluster</a>, <a href="../tag/clustered-data-ontap.html" rel="tag">clustered data ontap</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (10)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-13369">
+		<div id="div-comment-13369">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Как вариант тем, кто хочет перейти с 7-Mode: можно попросить &#8220;взять в тест&#8221; систему хранения у одного из дистрибьюторов и осуществить при её помощи переезд на C-Mode. Говорите вашему дисти прямо: мы хотим переехать на C-Mode. Если система будет свободна и на неё не будет &#8220;ажиотажа&#8221;, то вам конечно же её дадут, тем более нужна она будет не на месяц, а от силы на неделю. А если вы ещё дадите открытый &#8220;референс&#8221;, то могут и помочь в переезде ;)</p>
+<p>Желательно это проделывать летом, или сразу после нового года, когда у дистрибьюторов &#8220;не сезон&#8221;, системы хранения лежат и пылятся, не задействованные, на полочках.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13369" title="">10 Июнь 2014, 19:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13370">
+		<div id="div-comment-13370">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>Об этом варианте я собирался отдельно рассказать в следующем посте серии :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13370" title="">10 Июнь 2014, 19:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13371">
+		<div id="div-comment-13371">
+		<div class="comment-author">
+			<cite>Андрей:<cite></div>
+			<p>Хочу внести небольшое дополнение: для меня Cluster ONTAP будет закрыта пока она будет требовать отдельного root-агрегата на каждую ноду. На системах с одной-двумя дисковыми полками такие траты просто не разумны.<br />
+Надеемся, что в 8.3 сделают возможность размещения root-данных на агрегатах с данными.</p>
+<p>Роман, что скажете?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13371" title="">11 Июнь 2014, 12:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13374">
+		<div id="div-comment-13374">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>А синхронная репликация вообще ожидается?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13374" title="">11 Июнь 2014, 14:33</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13375">
+		<div id="div-comment-13375">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Андрей:</p>
+<p>Про новую схему выделения места под root aggregate я тоже расскажу в одном из следующих постов. Расскажу на пальцах и неофициально, потому что до выхода 8.3 осенью в деталях это рассказывать сложно. Но такая работа ведется.<br />
+Пока же мы идем в теме миграции от общего к частному. Безусловно, для владельцев маленьких малодисковых систем схема с обязательны выделением минимум 3 дисков на контроллер под root aggregate - кажется расточитетьной, но не забывайте, что для владельцев систем с, допустим, пятью полками дискв на контроллер, это будет не настолько критично.</p>
+<p>Nostromo:</p>
+<p>Официально ожидается метрокластер в кластермоде, синхронная репликация в котором, в общем, является необхдимым компонентом. Как уж это будет реализовано - пока гадаем. Но, думаю, что - да.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13375" title="">11 Июнь 2014, 15:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13379">
+		<div id="div-comment-13379">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>уточню:<br />
+в 8.3.0 будет упрощение ситуации с root-агрегатоми для младших моделей, где это наиболее чувствительно.  На остальных системах это будет чуть познее. Но пока до осени говорить рано. </p>
+<p>Так же в 8.3.0 будет доступен метрокластер, обеспечивающий RPO=0. Это ответ на требование синхронной репликации. Но тоже надо ждать деталей не ранее середины осени, как минимум.  </p>
+<p>Но это все экстремальные случаи. ?? не стоит на этом зацикливаться.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13379" title="">11 Июнь 2014, 23:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13728">
+		<div id="div-comment-13728">
+		<div class="comment-author">
+			<cite>Артём:<cite></div>
+			<p>Роман, где же продолжение?<br />
+Нам, кажется, предстоит миграция на cDOT.<br />
+?? у нас FC. Для миграции LUN предвидится какое-нибудь решение?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13728" title="">23 Июль 2014, 14:55</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13800">
+		<div id="div-comment-13800">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Артём:</p>
+<p>&#8220;Сеня, жарьте рыбу. Рыба - будет!&#8221; (с) Одесса</p>
+<p>Продолжение будет. Просто, к сожалению, текущие события и оперативная &#8220;текучка&#8221; часто оттесняют в блоге фундаментальные темы на периферию.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13800" title="">27 Июль 2014, 17:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13803">
+		<div id="div-comment-13803">
+		<div class="comment-author">
+			<cite><a href='../1382/trackback.html' rel='external nofollow'>Переход на Clustered Data ONTAP. Часть 2 | about NetApp</a>:<cite></div>
+			<p>[...] в прошлый раз мы начали трогать тему перехода с Data ONTAP 7-mode, на Clustered Data [...]</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13803" title="">27 Июль 2014, 23:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13826">
+		<div id="div-comment-13826">
+		<div class="comment-author">
+			<cite>Andrey:<cite></div>
+			<p>Можно подробнее об организации c-mode на 2240-2. У нас 10Gb интерфейсы подключены к FI Cisco UCS.<br />
+Вроде можно сделать интерконнект внутри 2240-2.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13826" title="">30 Июль 2014, 23:20</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1365" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.078 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

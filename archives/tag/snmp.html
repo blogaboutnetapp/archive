@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; snmp</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;snmp&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1178">
+				<h2 class="posttitle"><a href="../1178/trackback.html" rel="bookmark" title="Permanent Link to Настройка SNMP v3 для DFM/OnCommand Core">Настройка SNMP v3 для DFM/OnCommand Core</a></h2>
+				<div class="postmetadata">9 Июль 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как вы знаете, в состав ПО для стораджа, которое доступно вам для новых систем NetApp, входит полезный инструмент наблюдения, управления, диагностики и <em>рисования красивых графиков</em> –&#160; OnCommand Core 5 (ранее – DFM, Data Fabric Manager). Для его работы необходимо использовать протокол SNMP. NetApp Data ONTAP поддерживает SNMP вплоть до версии 3. Вот как включить и настроить использование аутентифицируемого SNMPv3 для работы с DFM/OnCommand Core.</p>
+<p>Начнем с того, что в админской консоли NetApp включим отключенный по умолчанию в сторадже протокол SNMP.</p>
+<p><code>&gt; options snmp.enable on</code></p>
+<p>Хотя с NetApp и можно работать под root-ом, но тут это такая же “плохая практика” как и в обычном <em>UNIX-like</em>. Поэтому сразу начнем учиться жить “по-правильному”. Воспользуемся имеющимися средсвам RBAC – Role-based Access Control (кстати про использовани RBAC вы можете почитать перевод руководства на сайте Netwell в переводах Best Practices).</p>
+<p>Создадим роль (snmpv3role), которой назначим определенную доступную ей функцию (login-snmp). Затем создадим группу, которой присвоим созданную роль с функцией, а затем добавим в эту группу созданного пользователя, которому назначена роль, с присвоенной роли функцией (<em>“…в доме, который построил Джек”</em>). Вот в таком порядке это создается:</p>
+<p><code>&gt; useradmin role add snmpv3role -a login-snmp</code></p>
+<p><code>&gt; useradmin group add snmpv3group -r snmpv3role</code></p>
+<p><code>&gt; useradmin user add snmpv3user -g snmpv3group</code></p>
+<p><code>&gt; Enter password:</code></p>
+<p>Введем, в заключение процесса, пароль на пользователя snmpv3user. Это будет наш пользователь для операций SNMPv3. Протокол v3 отличается от традиционного и привычного v1 как раз наличием средств аутентификации.</p>
+<p>Включим трапы SNMP.</p>
+<p><code>&gt; snmp traps enable</code></p>
+<p><code>&gt; snmp init 1</code></p>
+<p>?? разрешим аутентификацию.</p>
+<p><code>&gt; snmp authtrap 1</code></p>
+<p>А затем добавим хост, с которого будут происходить обращения к SNMP. В нашем случае это хост с установленным DFM или OnCommand Core 5.0, или же любым другим средством, работающим по SNMP, например собирающем со стораджа статистику. Можно добавить и несколько хостов.</p>
+<p><code>&gt; snmp traphost add &lt;DFM server hostname&gt;</code></p>
+<p>Укажем расположение стораджа, для административных нужд, чтобы можно было легко его обнаружить и идентифицировать, в случае необходимости.</p>
+<p><code>&gt; snmp location &lt;filer location&gt;</code> (если в строке есть пробелы – окружите строку кавычками; snmp location “ДЦ2, комн.5, стойка 8”)</p>
+<p>Все готово на стороне стораджа. Переходим на сторону хоста DFM/OnCommand 5.0</p>
+<ul>
+<li><font color="#0000ff">Если вы настраиваете из GUI, то проследуйте сюда:</font> </li>
+</ul>
+<p><strong>Control Center tab | Setup | Options | SNMP Trap Listener</strong>. Щелкните Yes для включения листенера и щелкнитеk Update.</p>
+<p><strong>Control Center tab | Setup | Network Credentials</strong>.</p>
+<p>Если вы использовали SNMPv1, найдите сеть вашего стораджа, которую вы хотите изменить на использование SNMPv3 в списке внизу страницы, и щелкните <strong>Edit</strong> справа.</p>
+<p>В <strong>Edit Network Credentials</strong>, выберем <strong>SNMPv3</strong>.</p>
+<p>В <strong>SNMPv1 Settings</strong>, убираем все, что указано в этом поле.</p>
+<p>В <strong>SNMPv3 Settings</strong>, введем имя пользователя и пароль, созданные выше (snmpv3user) и щелкнем <strong>Update</strong>. НЕ ВВОД??ТЕ ничего в поле <strong>Privacy password</strong>. Это пока не используется, если вы туда что-то напишете, то получите сообщение об ошибке “<em>snmpd:error Encryption not enabled</em>” на стороне стораджа.</p>
+<ul>
+<li><font color="#0000ff">Если вы настраиваете из командной строки:</font> </li>
+</ul>
+<p><code>C:\&gt; cd c:\Program Files\Network Appliance\DataFabric\DFM\bin</code></p>
+<p><code>&gt; dfm host list</code> (чтобы посмотреть ID стораджа и его IP)</code></p>
+<p><code>&gt; dfm host set &lt;storage ip&gt; prefsnmpVersion=3</code></p>
+<p><code>&gt; dfm host get -q &lt;ID стораджа, который вы подключаете по v3&gt;</code> (для проверки версии snmp)</p>
+<p><code>&gt; dfm host diag &lt;имя хоста стораджа&gt;</code></p>
+<p>Вы получите следующий диагностический вывод:</p>
+<p><code>SNMP Version in use <strong>SNMPv3</strong></code></p>
+<p><code>SNMPv1 <strong>Failed</strong></code> (это правильно)</p>
+<p><code>SNMP Community <strong>&lt;пусто&gt;</strong></code> (так и должен быть пустой, см. ниже)</p>
+<p><code>SNMPv3 <strong>Passed (297ms)</strong></code></p>
+<p><code>SNMPv3 Auth Protocol <strong>MD5</strong></code></p>
+<p><code>SNMPv3 Privacy Enabled <strong>No</strong></code> (Так и должно быть, это зарезервировано для будущего использования Privacy password, и сейчас не работает)</p>
+<p><code>SNMPv3 Username <strong>root</strong></code> (OK, диагностика использует <code>root</code>, а не нашего созданного <code>snmpv3user</code>)</p>
+<p><code>SNMP sysName <strong>&lt;…&gt; </strong></code>(какие-то значения, указанные в настройках)</p>
+<p><code>SNMP sysObjectID <strong>&lt;…&gt;</strong></code></p>
+<p><code>SNMP productID <strong>&lt;…&gt;</strong></code></p>
+<p>&#160;</p>
+<p>Диагностика использует выполнение от пользователя root, поэтому мы видим выше упоминание root.</p>
+<p>Если вы не очистите строку <em>read only community</em> в DFM GUI, то DFM будет использовать SNMPv1 в том случае, если строка&#160; <em>ro community</em> определена на сторадже. Для ее удаления выполните команду в консоли стораджа:</p>
+<p><code>&gt; snmp community delete ro &lt;community ro string&gt;</code></p>
+<p>??мейте ввиду, что System Manager v1.x и 2.x пока не поддерживают SNMPv3. Это означает, что если вы отключите использование SNMPv1, у вас перестанет работать функция обнаружения стораджей в сети, однако вы сможете добавить их вручную по IP-адресу (не Discover, а Add, затем введите IP-адрес стораджа, затем щелкните на иконку стрелки вниз, следующей за More, и введите логин и пароль административного аккаунта). Ели вам нужно продолжать использовать System Manager вместе с DFM, то оставьте&#160; строку <em>ro community</em> на сторадже, удалив ее в DFM. DFM будет работать по v3, а System Manager по v1, без аутентификации.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="dfm.html" rel="tag">dfm</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="oncommand.html" rel="tag">oncommand</a>, <a href="snmp.html" rel="tag">snmp</a>, <a href="snmpv3.html" rel="tag">snmpv3</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1178/trackback.html#comments" title="Комментарий к записи Настройка SNMP v3 для DFM/OnCommand Core">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1131">
+				<h2 class="posttitle"><a href="../1131/trackback.html" rel="bookmark" title="Permanent Link to Как изменить пороги для уведомлений SNMP о заполненности тома?">Как изменить пороги для уведомлений SNMP о заполненности тома?</a></h2>
+				<div class="postmetadata">22 Март 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>По умолчанию, Data&#160; ONTAP генерирует уведомление (trap) в SNMP, а также записывает сообщение в логах, когда заполненность тома превышает пороговую величину. По умолчанию существует два порога: “Nearly Full” и “Full”. Первый по умолчанию установлен на значение 95%, а второй – на 98% от емкости тома.</p>
+<p>Вы можете изменить эти значения, или же вовсе выключить их. Например, иногда это бывает полезным, если у вас на томе располагается один space-reserved SAN LUN, и он занимает практически все пространство тома, но не растет, поэтому уведомление о том, что ваш том “всегда полон” не несет полезной информации, а только загромождает логи.</p>
+<p>Для того, чтобы именить значения порогов на нужные вам, надо сделать следующее:</p>
+<p>Войдем в режим повышенных привилегий:</p>
+<p><code>netapp&gt; priv set advanced      <br />netapp*&gt;</code></p>
+<p><strong>Будьте внимательны, в режиме повышенных привилегий вам становятся доступны некоторые команды, потенциально способные серьезно повредить данные! </strong>Нахождение в повышенному уровне привилегий индицирут звездочка в системном “промпте”.</p>
+<p>Установим нужные нам значения. Например, пусть это будут 85% и 99%. <strong>Помните, что баловаться с системным реестром в Data ONTAP также опасно, как и с реестром Windows!</strong></p>
+<p><code>netapp*&gt; registry set options.thresholds.fsFull 99      <br />netapp*&gt; registry set options.thresholds.fsNearlyFull 85</code></p>
+<p>Можно и вовсе выключить эти уведомления, задав заведомо недостижмый уровень заполнения, больше 100%, например – 101%</p>
+<p><code>netapp*&gt; registry set options.thresholds.fsFull 101      <br />netapp*&gt; registry set options.thresholds.fsNearlyFull 101</code></p>
+<p>Обратите внимание, что парамеры fsFull и fsNearlyFull – чувствительны к регистру.</p>
+<p>Проверим, что все установилось так, как мы хотели:</p>
+<p><code>netapp*&gt; registry walk options.thresholds </code></p>
+<p>Вернемся в стандартный уровень привилегий:</p>
+<p><code>netapp*&gt; priv set      <br />netapp&gt;</code></p>
+<p>Готово. Теперь Data ONTAP будет генерировать SNMP traps о заполнении тома по достижении заданных нами величин (или не генерировать их вовсе, если мы их установили на 101%).</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="registry.html" rel="tag">registry</a>, <a href="snmp.html" rel="tag">snmp</a>, <a href="threshold.html" rel="tag">threshold</a>, <a href="trap.html" rel="tag">trap</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1131/trackback.html#comments" title="Комментарий к записи Как изменить пороги для уведомлений SNMP о заполненности тома?">1 комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-207">
+				<h2 class="posttitle"><a href="../207/trackback.html" rel="bookmark" title="Permanent Link to Полезные инструменты: NAGIOS">Полезные инструменты: NAGIOS</a></h2>
+				<div class="postmetadata">16 Февраль 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Аналогичный рассмотренному ранее UNNOC инструмент мониторинга - NAGIOS (<noindex><nofollow><a href="http://www.nagios.org">http://www.nagios.org</a></nofollow></noindex>). Довольно популярная сама по себе штука.</p>
+<p>К нему также существует модуль, специально разработанный для наблюдения систем NetApp<br />
+<noindex><nofollow><a href="http://people.teamix.net/~svelt/check_netappfiler">http://people.teamix.net/~svelt/check_netappfiler</a></nofollow></noindex></p>
+<p>В отличие от UNNOC, который обновлялся аж в 2007 году, этот модуль активно пишется, и автор приветствует feature requests и bug reports.</p>
+<p>Смотри также: <noindex><nofollow><a href="http://www.nagiosexchange.org/cgi-bin/page.cgi?g=Check_Plugins%2FHardware%2FStorage%2FNetApp%2Findex.html;d=1">nagiosexchange.org</a></nofollow></noindex></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="monitoring.html" rel="tag">monitoring</a>, <a href="nagios.html" rel="tag">nagios</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="snmp.html" rel="tag">snmp</a><br />					Раздел: <a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../207/trackback.html#comments" title="Комментарий к записи Полезные инструменты: NAGIOS">Комментарии (3)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-206">
+				<h2 class="posttitle"><a href="../206/trackback.html" rel="bookmark" title="Permanent Link to Полезные инструменты: UNNOC">Полезные инструменты: UNNOC</a></h2>
+				<div class="postmetadata">9 Февраль 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Если вам приелся довольно таки спартанский и непритязательный вид штатного мониторинга FilerView, то по адресу unnoc.org находится опенсорсный пакет мониторинга с веб-мордой, для множества разного железа, включая специальные модули под NetApp, а также под множество другого разнообразного железа и софта.</p>
+<p>Есть демо-сайт. <noindex><nofollow><a href="http://unnoc.org/demo/">http://unnoc.org/demo/</a></nofollow></noindex></p>
+<p>Так выглядит авторский FAS3020<br />
+<noindex><nofollow><a href="http://unnoc.org/demo/display.php?host=slide">http://unnoc.org/demo/display.php?host=slide</a></nofollow></noindex></p>
+<p>а так - сервера VMware (VCMS)<br />
+<noindex><nofollow><a href="http://unnoc.org/demo/display.php?host=odysseus">http://unnoc.org/demo/display.php?host=odysseus</a></nofollow></noindex></p>
+<p>или даже файрволл<br />
+<noindex><nofollow><a href="http://unnoc.org/demo/display.php?host=skyhammer">http://unnoc.org/demo/display.php?host=skyhammer</a></nofollow></noindex></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="monitoring.html" rel="tag">monitoring</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="snmp.html" rel="tag">snmp</a>, <a href="unnoc.html" rel="tag">unnoc</a><br />					Раздел: <a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../206/trackback.html#comments" title="Комментарий к записи Полезные инструменты: UNNOC">Комментарии (3)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-205">
+				<h2 class="posttitle"><a href="../205/trackback.html" rel="bookmark" title="Permanent Link to Полезные инструменты: MRTG">Полезные инструменты: MRTG</a></h2>
+				<div class="postmetadata">2 Февраль 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Популярное среди сетевых админов средство визуализации SNMP-данных - MRTG (Multi Router Traffic Grapher) можно использовать и для наблюдения за системами хранения NetApp.<br />
+На <noindex><nofollow><a href="http://now.netapp.com">NOW</a></nofollow></noindex> в ToolChest лежит <noindex><nofollow><a href="http://now.netapp.com/NOW/download/tools/filer-mrtg/"><strong>filer-MRTG</strong></a></nofollow></noindex>, пакет, настроенный под использование с системами NetApp.</p>
+<p>Будет строить что-то похожее на такое:<br />
+<img src="http://www.netapp.jp/techontap/newsletter/0607/images/0506mrtgscreens.jpg" alt="MRTG for FAS" /></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="monitoring.html" rel="tag">monitoring</a>, <a href="mrtg.html" rel="tag">mrtg</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="snmp.html" rel="tag">snmp</a>, <a href="tools.html" rel="tag">tools</a><br />					Раздел: <a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../205/trackback.html#comments" title="Комментарий к записи Полезные инструменты: MRTG">Комментарии (2)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.074 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

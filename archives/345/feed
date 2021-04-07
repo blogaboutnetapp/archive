@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: RAID-5 - must die!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/345/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/345</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:36 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/345#comment-2745</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 16:59:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=345#comment-2745</guid>
+		<description>Я так понял оригинал уже не доступен в полном виде. Там только один абзац текста.
+У вас нет случайно полного варианта?</description>
+		<content:encoded><![CDATA[<p>Я так понял оригинал уже не доступен в полном виде. Там только один абзац текста.<br />
+У вас нет случайно полного варианта?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/345#comment-2709</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 14 Jun 2012 12:06:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=345#comment-2709</guid>
+		<description>bbk:
+
+Задайте вопрос автору, сам я в математике не силен:
+
+&lt;i&gt;Найдено и переведено там:
+http://blogs.netapp.com/msenviro/2009/08/the-raid-10-upsell-fudbeast.html &lt;i&gt;</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Задайте вопрос автору, сам я в математике не силен:</p>
+<p><i>Найдено и переведено там:<br />
+<a href="http://blogs.netapp.com/msenviro/2009/08/the-raid-10-upsell-fudbeast.html" rel="nofollow">http://blogs.netapp.com/msenviro/2009/08/the-raid-10-upsell-fudbeast.html</a> </i><i></i></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/345#comment-2708</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 14 Jun 2012 11:56:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=345#comment-2708</guid>
+		<description>&#62;Я могу ожидать, что получу 45 отказавших дисков в течении года.
+А как это у вас получилось 45 ?</description>
+		<content:encoded><![CDATA[<p>&gt;Я могу ожидать, что получу 45 отказавших дисков в течении года.<br />
+А как это у вас получилось 45 ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/345#comment-2517</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 14 May 2012 06:18:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=345#comment-2517</guid>
+		<description>Дима:
+
+&gt; &lt;i&gt;Нет, русские на войне своих не бросают))&lt;/i&gt;
+
+Перефразируя Талейрана: "В бизнесе (как и в политике) нет предательства, а есть дальновидность" :)
+
+&gt; &lt;i&gt;Кстати, скажите пжл-та, почему в одной из статей Вы говорили, что стораджи НР - Sic transit gloria mundi?&lt;/i&gt;
+
+Sic transit gloria mundi - "Так проходит слава мирская". ??ли вам не перевод нужен? ;)
+
+Потому что на протяжении нескольких лет HP откровенно разбазарил свое лидерство в стораджах, и несколько лет подряд теряет долю рынка, на фоне роста всех остальных вендоров Top5  (см. отчеты IDC).
+У HP наблюдается откровенный lack of vision, "потеря ориентации". Обладая в свое время одним из лучших, и самым инновационным продуктом, ставшим EVA, HP забила на развитие, и дождалась его морального и технического устаревания и потери интереса рынка, решив вернуть его затем собиранием "лоскутного одеяла" брендов и технологий, чем только окончательно запутала потребителя.
+
+Так что приходите "Это будет мудро, мой друг!" (голосом Сарумана;).
+
+Те же отчеты по рынку показывают, что рост NetApp происходит в значительно мере за счет переориентации на него бывших клиентов HP:
+http://www.computerwoche.de/hardware/data-center-server/2500678/
+
+http://www.computerwoche.de/assets/galleries/detail-1849343.html?i=KC-DataCente&#038;p=hardware.data-center-server.2500678.marktanalyse-von-ama-hp-muss-im-storage.p1&#038;t=Wanderungsanalyse%20Storage-Installationen%20%u2013%20HP</description>
+		<content:encoded><![CDATA[<p>Дима:</p>
+<p>> <i>Нет, русские на войне своих не бросают))</i></p>
+<p>Перефразируя Талейрана: &#8220;В бизнесе (как и в политике) нет предательства, а есть дальновидность&#8221; :)</p>
+<p>> <i>Кстати, скажите пжл-та, почему в одной из статей Вы говорили, что стораджи НР - Sic transit gloria mundi?</i></p>
+<p>Sic transit gloria mundi - &#8220;Так проходит слава мирская&#8221;. ??ли вам не перевод нужен? ;)</p>
+<p>Потому что на протяжении нескольких лет HP откровенно разбазарил свое лидерство в стораджах, и несколько лет подряд теряет долю рынка, на фоне роста всех остальных вендоров Top5  (см. отчеты IDC).<br />
+У HP наблюдается откровенный lack of vision, &#8220;потеря ориентации&#8221;. Обладая в свое время одним из лучших, и самым инновационным продуктом, ставшим EVA, HP забила на развитие, и дождалась его морального и технического устаревания и потери интереса рынка, решив вернуть его затем собиранием &#8220;лоскутного одеяла&#8221; брендов и технологий, чем только окончательно запутала потребителя.</p>
+<p>Так что приходите &#8220;Это будет мудро, мой друг!&#8221; (голосом Сарумана;).</p>
+<p>Те же отчеты по рынку показывают, что рост NetApp происходит в значительно мере за счет переориентации на него бывших клиентов HP:<br />
+<a href="http://www.computerwoche.de/hardware/data-center-server/2500678/" rel="nofollow">http://www.computerwoche.de/hardware/data-center-server/2500678/</a></p>
+<p><a href="http://www.computerwoche.de/assets/galleries/detail-1849343.html?i=KC-DataCente&#038;p=hardware.data-center-server.2500678.marktanalyse-von-ama-hp-muss-im-storage.p1&#038;t=Wanderungsanalyse%20Storage-Installationen%20%u2013%20HP" rel="nofollow">http://www.computerwoche.de/assets/galleries/detail-1849343.html?i=KC-DataCente&#038;p=hardware.data-center-server.2500678.marktanalyse-von-ama-hp-muss-im-storage.p1&#038;t=Wanderungsanalyse%20Storage-Installationen%20%u2013%20HP</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дима</title>
+		<link>http://blog.aboutnetapp.ru/archives/345#comment-2516</link>
+		<dc:creator>Дима</dc:creator>
+		<pubDate>Mon, 14 May 2012 03:03:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=345#comment-2516</guid>
+		<description>Нет, русские на войне своих не бросают))
+Кстати, скажите пжл-та, почему в одной из статей Вы говорили, что стораджи НР - Sic transit gloria mundi?</description>
+		<content:encoded><![CDATA[<p>Нет, русские на войне своих не бросают))<br />
+Кстати, скажите пжл-та, почему в одной из статей Вы говорили, что стораджи НР - Sic transit gloria mundi?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/345#comment-2506</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 11 May 2012 07:07:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=345#comment-2506</guid>
+		<description>Дима:
+
+Бросайте HP, айдате к нам :)</description>
+		<content:encoded><![CDATA[<p>Дима:</p>
+<p>Бросайте HP, айдате к нам :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дима</title>
+		<link>http://blog.aboutnetapp.ru/archives/345#comment-2505</link>
+		<dc:creator>Дима</dc:creator>
+		<pubDate>Fri, 11 May 2012 07:02:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=345#comment-2505</guid>
+		<description>Найти бы такой сайт, но посвященный НР:)</description>
+		<content:encoded><![CDATA[<p>Найти бы такой сайт, но посвященный НР:)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/345#comment-2503</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 10 May 2012 14:17:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=345#comment-2503</guid>
+		<description>У вас на картинке Raid 6/DP=8+1, это ошибка?</description>
+		<content:encoded><![CDATA[<p>У вас на картинке Raid 6/DP=8+1, это ошибка?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

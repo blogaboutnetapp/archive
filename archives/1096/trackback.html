@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Hybrid Aggregate</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1094/trackback.html">Новые цены на FAS2020</a></div>
+			<div class="alignright"><a href="../1095/trackback.html">Время RAID recovery для разных дисков</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1096">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Hybrid Aggregate">Hybrid Aggregate</a></h2>
+			<div class="postmetadata">26 Ноябрь 2011, 9:37 <!-- от  --></div>
+			<div class="postentry">
+				<p>Некоторые новости с прошедшего в Риме NetApp Insight 2011, главного мирового мероприятия NetApp, на котором, обычно, представляются все новинки года. На этот раз я обратил внимание на объявленную любопытную технологию, которая появится в Data ONTAP 8.1.1, под названием Hybrid Aggregate.    <br />Вот что это такое.</p>
+<p>Как вы знаете, NetApp использует flash, прежде всего, в форме “расширения кэш-памяти”, а не как “эмуляцию диска” – SSD – <em>Solid State Disk</em>, у такого решения множество преимуществ на практике, и широкий успех Flash Cache, устройства для систем хранения NetApp, представляющего собой плату с 256/512/1024GB flash на ней, и устанавливаемую внутрь контроллера FAS3200/6200, тому подтверждение.</p>
+<p>Однако у NetApp есть и “классические” SSD, а теперь появилась и новая интересная разработка в области работы с “традиционными” SSD. Ведь не секрет, что не существует волшебной “серебряной пули”, разом решающей абсолютно все проблемы пользователя, что бы там по этому поводу ни утверждали в отделе маркетинга. Вот для областей, где Flash Cache работает недостаточно эффективно, и предназначены новые разработки.</p>
+<p>Hybrid Aggregate это, как нетрудно догадаться из названия, “составной” aggregate, состоящий из обычных “врашающихся” дисков и SSD. В такой структуре диски SSD обеспечивают “кэш на запись” для традиционных, “вращающихся” дисков в составе этого aggregate. </p>
+<p>Основные отличия Hybrid Aggregate от Flash Cache следующие:</p>
+<ul>
+<li>Работает в том числе и на запись. В тех случаях, когда характер нагрузки системы пользователя представляет собой, преимущественно, большое количество операций записи сравнительно небольшими блоками, Flash Cache неэффективен, так как практически не ускоряет записи (в определенной степени он их ускоряет, но только за счето того, что, высвобождая ресурсы дисков за счет кэширования чтения, оставляет больше на обработку операций записи). Следует отметить, что рабочая нагрузка, представляющая собой, главным образом, объемный random write мелкими блоками, это довольно специфическая и не слишком массовая задача.</li>
+<li>Hybrid Aggregate может быть несколько на одной системе, каждый из них может быть настроен индивидуально и независимо от других. Flash Cache работает на все aggregate разом, хотя и можно политиками FlexCache настроить приоритеты и политики кэширования для разных томов.</li>
+</ul>
+<p>Как мне видится, преимущества от Hybrid Aggregate получат прежде всего большие и очень большие системы, с сотнями дисков, с большими aggregates и <em>очень большим</em> трафиком ввода-вывода, или же системы со специфической рабочей нагрузкой (большой объем преимущественно записей мелкими блоками), кроме того следует помнить, что Hybrid Aggregate не исключает использование и Flash Cache, он вполне может использоваться вместе с Hybrid Aggregate на той же системе. Таким образом, появление Hybrid Aggregate не стоит трактовать как “отказ от Flash Cache” (я специально делаю это замечание для “паникеров” ;) или признание его неэффективности, это, скорее дополнение в ранее незакрытом сегменте рабочих нагрузок и специфических решений.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/flash/index.html" rel="tag">flash</a>, <a href="../tag/hybrid-aggregate.html" rel="tag">hybrid aggregate</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (10)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1972">
+		<div id="div-comment-1972">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>В свете того, что ssd продается полками, решение действительно для очень больших систем (полка кэша - звучит) Хотя, если понимать название Hybrid Aggregate буквально, то ssd будет добавляться в классический агрегат raid-dp отдельным диском(дисками) и не будут организованы в собственном агрегате. В этом случае, технически ничего не мешает продавать то же 2240 с дисками 2+22, как это делает ibm с v7000. Те технически это больше похоже на DataMotion горячих данных или на Flash Cache с записью (типа создается копия данных на ssd с отложенным обновлением основных данных)?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1972" title="">28 Ноябрь 2011, 17:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2430">
+		<div id="div-comment-2430">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Дано пора. Несмотря на то что у EMC tiering работает крайне специфически (к примеру размер чанков), в общем идея стоящая. Учитывая то, что WAFL и так _правильно_ работает, у НетАппа не было _правильной_ альтернативы для дополнительной акселерации на запись.</p>
+<p>Будет интересно узнать дальнейшую судьбу этой технологии, бэстпрактисы, схемы роботы, ну и дополнительные аргументы, почему Hybrid Aggregate &#8220;не_замена&#8221; Flash Cache.</p>
+<p>Кстати, в свете добавления технологии Hybrid Aggregate в DataOntap 8.1.1, направленной на большие системы, странно было отказываться от поддержки Flash Cache для систем начального mid-range 3210/3140 в DataOntap 8.1.<br />
+Учитывая, что 3240 это и так чуть-ли не High-End, получается как в анекдоте про официанта и клиента:<br />
+-вы что будете чай или кофе?<br />
+-пожалуй кофе.<br />
+-не угадали, чай!<br />
+Акселерация доступна в High-End или в High-End&#8230;<br />
+Получается: или поддержку Flash Cache для 3210/3140 должны будут добавить или НетАпп планирует вывести эти системы из линейки.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2430" title="">3 Май 2012, 15:33</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2432">
+		<div id="div-comment-2432">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Учитывая, что 3240 это и так чуть-ли не High-End</p>
+<p>Ой, да вы бросьте какой же 3240 - High-End&#8230;<br />
+Тут давеча вот мне в комментах чуть ли не убедили, что highend это поддержка FICON и мэйнфреймов ;D</p>
+<p>> у НетАппа не было _правильной_ альтернативы для дополнительной акселерации на запись.</p>
+<p>Правильная акселерация записи - это использование WAFL ;) (&#8221;лучшая рыба - это колбаса&#8221;(с)<br />
+На самом деле ситуация такова, и я об этом писал, что, в отличие от других систем, у NetApp не стоит так остро необходимость кэшировать (ускорять) запись. Если для других это абслютно и насущно необходимо, то в случае WAFL это не так уж остро нужно. Скорее это дополнительная фича, такое к тому и отношение.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2432" title="">3 Май 2012, 15:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2444">
+		<div id="div-comment-2444">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>&gt;Если для других это абслютно и насущно необходимо, то в случае WAFL это не так уж остро нужно. Скорее это дополнительная фича, такое к тому и отношение.<br />
+Не в духе нетапа делать &#8220;просто фичи&#8221;. Если сделали, то наверняка добились намного лучших показателей на запись. Никто и не говорил, что WAFL плохо работает на запись, но придела совершенства нет, даже еслди она работает лучше чем у кого-либо  :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2444" title="">4 Май 2012, 14:51</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2495">
+		<div id="div-comment-2495">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Закралась мне в голову мысль, НетАпп задумал отказаться от Flash Cache в пользу Hybrid Aggregate.<br />
+В общем, результаты тестирований Hybrid Aggregate, всё нам прояснят, ждёмс их с нетерпением.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2495" title="">10 Май 2012, 0:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2496">
+		<div id="div-comment-2496">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>Нет, вы неправы. Hybrid Aggregate не замена, а дополнение для Flash Cache, в тех случаях, когда Flash Cache недостаточно, или когда использовать его невозможно (пример: 2240).<br />
+Hybrid Aggregate может (и работает) вместе с Flash Cache (но может работать и сам по себе).</p>
+<p>Fibre Channel не заменяет Ethernet, SAS не заменяет SATA, у них свои области использования, и они, и те и другие, могут использоваться вместе, в одной системе, улучшая ее свойства.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2496" title="">10 Май 2012, 1:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2507">
+		<div id="div-comment-2507">
+		<div class="comment-author">
+			<cite>koliama:<cite></div>
+			<p>Гм.. Пример про 2240 невалиден. Вряд ли кто-то будет покупать полку под SSD для этого массива. ??мхо НетАпп наконец-то понял что Tiering - это кулл :) ?? предложил довольно интересную реализацию его на своем хайенде (по сравнению с другими вендорами). А FlashCaсhe - он и в Африке кэш. Два параллельных друг другу решения предназначенные для решения разных задач.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2507" title="">11 Май 2012, 18:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2508">
+		<div id="div-comment-2508">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>koliama:</p>
+<p>> Вряд ли кто-то будет покупать полку под SSD для этого массива. </p>
+<p>Логично было бы предположить, что с появлением Hybrid Aggregate SSD будут продаваться не полками ;)</p>
+<p>> ??мхо НетАпп наконец-то понял что Tiering - это кулл</p>
+<p>Может и так, только Hybrid Aggregate это не Tiering, а кэш :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2508" title="">11 Май 2012, 19:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2513">
+		<div id="div-comment-2513">
+		<div class="comment-author">
+			<cite><a href='http://a-systems.ru.com' rel='external nofollow'>Alexey Marushchenko</a>:<cite></div>
+			<p>Кстати, минимально возможный объем ssd полки к заказу - 4 диска.</p>
+<p>Особую прелесть добавляет то, что у SSD наружу выходит интерфейс SATA. Что намекает на очень интересную конфигурацию использования полок.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2513" title="">12 Май 2012, 19:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2514">
+		<div id="div-comment-2514">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Alexey Marushchenko:</p>
+<p>> Кстати, минимально возможный объем ssd полки к заказу - 4 диска.</p>
+<p>Спасибо, в понедельник будет подробный пост про Flash Pool.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2514" title="">12 Май 2012, 19:36</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1096" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

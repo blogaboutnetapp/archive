@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: &#8220;Терабайты&#8221; &#8211; мегапиксели сегодня</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1003/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1003</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:32 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-2621</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 31 May 2012 13:44:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-2621</guid>
+		<description>bbk:
+
+&gt; Соответственно в реальной жизни, многих деталей мы можем просто не знать, чтобы (правильно) считать RPO/RTO.
+
+А кто говорил, что будет легко? ;) Если требования RPO/RTO не знает клиент, ему должен помочь их сформулировать интегратор/партнер, в конце концов получает он свой процент  разницы между партнерской ценой, и тем, что появляется в инвойсе, отправленном клиенту, совсем не за красивые глаза. ??менно эти услуги и оплачивает конечный клиент этим процентом, да, я понимаю, что многие из партнеров уже это какбыэтосказать &lt;i&gt;забыли&lt;/i&gt; про эту функцию интегратора.
+Ну пусть не обижаются, что у клиентов все шире представление о интеграторах, как о бездельниках и ненужных мироедах. Оно, зачастую, справедливо. К сожалению.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> Соответственно в реальной жизни, многих деталей мы можем просто не знать, чтобы (правильно) считать RPO/RTO.</p>
+<p>А кто говорил, что будет легко? ;) Если требования RPO/RTO не знает клиент, ему должен помочь их сформулировать интегратор/партнер, в конце концов получает он свой процент  разницы между партнерской ценой, и тем, что появляется в инвойсе, отправленном клиенту, совсем не за красивые глаза. ??менно эти услуги и оплачивает конечный клиент этим процентом, да, я понимаю, что многие из партнеров уже это какбыэтосказать <i>забыли</i> про эту функцию интегратора.<br />
+Ну пусть не обижаются, что у клиентов все шире представление о интеграторах, как о бездельниках и ненужных мироедах. Оно, зачастую, справедливо. К сожалению.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-2619</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 31 May 2012 13:00:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-2619</guid>
+		<description>Про RPO/RTO это конечно же хорошая идея. Но как это считать &lt;i&gt;заказчику&lt;/i&gt; &lt;b&gt;и&lt;/b&gt; как считать &lt;i&gt;интегратору/партёру&lt;/i&gt; на конкретное решение/систему?
+
+Я нарочно поставил через чёрточку "систему". Так как на практике конечный покупатель выбирает  "решение" по СХД, но в целом для его инфраструктуры, это только часть решения. Соответственно в реальной жизни, многих деталей мы можем просто не знать, чтобы (правильно) считать RPO/RTO.</description>
+		<content:encoded><![CDATA[<p>Про RPO/RTO это конечно же хорошая идея. Но как это считать <i>заказчику</i> <b>и</b> как считать <i>интегратору/партёру</i> на конкретное решение/систему?</p>
+<p>Я нарочно поставил через чёрточку &#8220;систему&#8221;. Так как на практике конечный покупатель выбирает  &#8220;решение&#8221; по СХД, но в целом для его инфраструктуры, это только часть решения. Соответственно в реальной жизни, многих деталей мы можем просто не знать, чтобы (правильно) считать RPO/RTO.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: slu_x3m</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-1697</link>
+		<dc:creator>slu_x3m</dc:creator>
+		<pubDate>Wed, 14 Sep 2011 08:18:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-1697</guid>
+		<description>Почитал спецификацию на Intel X 25-E http://download.intel.com/design/flash/nand/extreme/319984.pdf и действительно 35kIOPS на чтение и 3,3 kIOPS на запись. Поменял своё мнение. =)</description>
+		<content:encoded><![CDATA[<p>Почитал спецификацию на Intel X 25-E <a href="http://download.intel.com/design/flash/nand/extreme/319984.pdf" rel="nofollow">http://download.intel.com/design/flash/nand/extreme/319984.pdf</a> и действительно 35kIOPS на чтение и 3,3 kIOPS на запись. Поменял своё мнение. =)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-1696</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 14 Sep 2011 07:46:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-1696</guid>
+		<description>slu_x3m:
+
+Сложно сказать однозначно, они, SSD, ведь разные бывают.
+А почему вы чувствуете недоверие к данным EMC, по вашему сколько должно быть, больше или меньше?
+Вы еще не забывайте, что на запись у SSD, по крайней мере у тех, что сейчас используются в энтерпрайз-системах, все совсем не радужно при random &lt;b&gt;write&lt;/b&gt;, и при наличии в паттерне ввода-вывода случайной &lt;b&gt;записи&lt;/b&gt; мелкими блоками на SSD, вы сразу сильно, в десятки раз просядете.
+
+C 2040 вы в 20-25 тысяч не уложитесь :(
+Хотя 2040 с дисками, допустим, SAS 300GB, возможно, будет довольно близка к вашему решению.
+
+Если нет необходимости решить вот прям счас, то я бы посоветовал вам подождать некоторых событий в ноябре, о которых я пока не могу говорить, но которые для вашей задачи могут быть интересны.</description>
+		<content:encoded><![CDATA[<p>slu_x3m:</p>
+<p>Сложно сказать однозначно, они, SSD, ведь разные бывают.<br />
+А почему вы чувствуете недоверие к данным EMC, по вашему сколько должно быть, больше или меньше?<br />
+Вы еще не забывайте, что на запись у SSD, по крайней мере у тех, что сейчас используются в энтерпрайз-системах, все совсем не радужно при random <b>write</b>, и при наличии в паттерне ввода-вывода случайной <b>записи</b> мелкими блоками на SSD, вы сразу сильно, в десятки раз просядете.</p>
+<p>C 2040 вы в 20-25 тысяч не уложитесь :(<br />
+Хотя 2040 с дисками, допустим, SAS 300GB, возможно, будет довольно близка к вашему решению.</p>
+<p>Если нет необходимости решить вот прям счас, то я бы посоветовал вам подождать некоторых событий в ноябре, о которых я пока не могу говорить, но которые для вашей задачи могут быть интересны.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: slu_x3m</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-1695</link>
+		<dc:creator>slu_x3m</dc:creator>
+		<pubDate>Wed, 14 Sep 2011 05:55:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-1695</guid>
+		<description>Подскажите какой средний показатель IOPS full random для SSD диска. 
+Совсем недавно в беседе с сотрудниками компании EMC они упомянули, что в своих расчётах принимают этот показатель равный 1000 (при "пессимистичной" оценке) и 5000 (при оценке "оптимистичной"), но сдаётся мне, что они лукавят на этот счёт. 
+
+Моя задачка: 6000 IOPS full random; 2TB места в 6 RAID (RAID-DP); бюджет 20-25 k$
+??меет ли мне смысл рассматривать FAS 2040 или лучше сразу смотреть более "взрослые" версии? 
+
+Спасибо огромное за ответ.</description>
+		<content:encoded><![CDATA[<p>Подскажите какой средний показатель IOPS full random для SSD диска.<br />
+Совсем недавно в беседе с сотрудниками компании EMC они упомянули, что в своих расчётах принимают этот показатель равный 1000 (при &#8220;пессимистичной&#8221; оценке) и 5000 (при оценке &#8220;оптимистичной&#8221;), но сдаётся мне, что они лукавят на этот счёт. </p>
+<p>Моя задачка: 6000 IOPS full random; 2TB места в 6 RAID (RAID-DP); бюджет 20-25 k$<br />
+??меет ли мне смысл рассматривать FAS 2040 или лучше сразу смотреть более &#8220;взрослые&#8221; версии? </p>
+<p>Спасибо огромное за ответ.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-1690</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 14:54:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-1690</guid>
+		<description>2romx: большое спасибо, на данный момент то что надо! изучаю ...</description>
+		<content:encoded><![CDATA[<p>2romx: большое спасибо, на данный момент то что надо! изучаю &#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-1689</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 12:16:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-1689</guid>
+		<description>sl0n:
+
+&gt; Есть какие-то best practices может быть на этот счет?
+Рекомендую вот это:
+http://media.netapp.com/documents/tr-3705.pdf
+
+8 глава там как раз про сайзинг.
+Я его даже перевожу, и даже где-то в следующем месяце он будет опубликован в библиотеке Netwell. Там же, в библиотеке, есть уже и про Xen Desktop, если интересно.
+
+Также вот имеет смысл посмотреть блог автора Best Practices 
+http://communities.netapp.com/community/netapp-blogs/virtualization/blog
+?? вот этот документ может дать полезную пищу подумать.
+http://media.netapp.com/documents/tr-3949.pdf 
+
+Насчет подписаться на комменты - ну... я попробую что-нибудь придумать :)</description>
+		<content:encoded><![CDATA[<p>sl0n:</p>
+<p>> Есть какие-то best practices может быть на этот счет?<br />
+Рекомендую вот это:<br />
+<a href="http://media.netapp.com/documents/tr-3705.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3705.pdf</a></p>
+<p>8 глава там как раз про сайзинг.<br />
+Я его даже перевожу, и даже где-то в следующем месяце он будет опубликован в библиотеке Netwell. Там же, в библиотеке, есть уже и про Xen Desktop, если интересно.</p>
+<p>Также вот имеет смысл посмотреть блог автора Best Practices<br />
+<a href="http://communities.netapp.com/community/netapp-blogs/virtualization/blog" rel="nofollow">http://communities.netapp.com/community/netapp-blogs/virtualization/blog</a><br />
+?? вот этот документ может дать полезную пищу подумать.<br />
+<a href="http://media.netapp.com/documents/tr-3949.pdf" rel="nofollow">http://media.netapp.com/documents/tr-3949.pdf</a> </p>
+<p>Насчет подписаться на комменты - ну&#8230; я попробую что-нибудь придумать :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-1688</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 12:00:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-1688</guid>
+		<description>2romx: спасибо, почитаю.
+
+Моя реальная задача - это спланировать как раз VDI на ~ 400 рабочих мест, на данный момент я лишь знаю что одна вирт. машина "генерит" порядка 20 IOPS. Есть какие-то best practices может быть на этот счет?
+
+Еще выпорос: допусим я знаю, что NFS volume - vdi, на которой лежат VDI машины находится на aggr из 14 SAS дисков. Предполагая, что 200 IOPS на диск мы получаем 2800 IOPS. В реальности я наблюдаю что vdi генерит в пиках 3400 IOPS. Вопрос: откуда беруться 3400 - 2800 = 600 IOPS еще? Я догадываюсь, что это RAM cash моего filer'a влияет, но мне хотелось быть иметь четкую формулу, по которой я могу расчитать число IOPS, которое я получу скажем на 2 полках с SAS дисками.
+
+PS: как подписаться на комменты?</description>
+		<content:encoded><![CDATA[<p>2romx: спасибо, почитаю.</p>
+<p>Моя реальная задача - это спланировать как раз VDI на ~ 400 рабочих мест, на данный момент я лишь знаю что одна вирт. машина &#8220;генерит&#8221; порядка 20 IOPS. Есть какие-то best practices может быть на этот счет?</p>
+<p>Еще выпорос: допусим я знаю, что NFS volume - vdi, на которой лежат VDI машины находится на aggr из 14 SAS дисков. Предполагая, что 200 IOPS на диск мы получаем 2800 IOPS. В реальности я наблюдаю что vdi генерит в пиках 3400 IOPS. Вопрос: откуда беруться 3400 - 2800 = 600 IOPS еще? Я догадываюсь, что это RAM cash моего filer&#8217;a влияет, но мне хотелось быть иметь четкую формулу, по которой я могу расчитать число IOPS, которое я получу скажем на 2 полках с SAS дисками.</p>
+<p>PS: как подписаться на комменты?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-1686</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 11:31:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-1686</guid>
+		<description>sl0n:
+
+Ну, прежде всего это зависит от того, что у вас за OS. В разных OS есть разные инструменты. Например в Windows можно воспользоваться стандартным perfmon, с достаточной степенью точности он дает представление и цифры. Я как-то об этом даже писал.
+http://blog.aboutnetapp.ru/archives/13
+
+Померяв и просуммировав показатели имеющихся серверов, можно получить оценочное, приблизительное, но все же более-менее понятное значение ориентировочной нагрузки на диски.</description>
+		<content:encoded><![CDATA[<p>sl0n:</p>
+<p>Ну, прежде всего это зависит от того, что у вас за OS. В разных OS есть разные инструменты. Например в Windows можно воспользоваться стандартным perfmon, с достаточной степенью точности он дает представление и цифры. Я как-то об этом даже писал.<br />
+<a href="http://blog.aboutnetapp.ru/archives/13" rel="nofollow">http://blog.aboutnetapp.ru/archives/13</a></p>
+<p>Померяв и просуммировав показатели имеющихся серверов, можно получить оценочное, приблизительное, но все же более-менее понятное значение ориентировочной нагрузки на диски.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1003#comment-1684</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Mon, 12 Sep 2011 09:36:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1003#comment-1684</guid>
+		<description>&#62; для текущих наших задач, около 7-15 тысяч IOPS в steady random read/write
+
+Мне вот этот момент очень интересен, каким образом я могу изменирить предполагаемую "нагрузку"?</description>
+		<content:encoded><![CDATA[<p>&gt; для текущих наших задач, около 7-15 тысяч IOPS в steady random read/write</p>
+<p>Мне вот этот момент очень интересен, каким образом я могу изменирить предполагаемую &#8220;нагрузку&#8221;?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

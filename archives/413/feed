@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: S.M.A.R.T &#8211; Self-Monitoring, Analysis and Reporting Tool. Насколько он полезен?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/413/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/413</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:22 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/413#comment-180</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 22 Sep 2009 17:28:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=413#comment-180</guid>
+		<description>Я не ставил себе целью сделать полный перевод, скорее заинтересовать возможных читателей, тем более сама работа относительно невелика и достаточно просто читается.</description>
+		<content:encoded><![CDATA[<p>Я не ставил себе целью сделать полный перевод, скорее заинтересовать возможных читателей, тем более сама работа относительно невелика и достаточно просто читается.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: alex nop</title>
+		<link>http://blog.aboutnetapp.ru/archives/413#comment-179</link>
+		<dc:creator>alex nop</dc:creator>
+		<pubDate>Tue, 22 Sep 2009 17:06:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=413#comment-179</guid>
+		<description>Если я правильно помню этот отчет, то Google упоминал еще один параметр "Spin up time" и его корреляции. ??ли это будет в "следующей серии"?</description>
+		<content:encoded><![CDATA[<p>Если я правильно помню этот отчет, то Google упоминал еще один параметр &#8220;Spin up time&#8221; и его корреляции. ??ли это будет в &#8220;следующей серии&#8221;?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/413#comment-178</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 22 Sep 2009 13:18:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=413#comment-178</guid>
+		<description>Я тоже обратил на это внимание. Судя по описанию того, за что отвечает это параметр, имелся ввиду ID01 Read Error Rate
+http://en.wikipedia.org/wiki/S.M.A.R.T.</description>
+		<content:encoded><![CDATA[<p>Я тоже обратил на это внимание. Судя по описанию того, за что отвечает это параметр, имелся ввиду ID01 Read Error Rate<br />
+<a href="http://en.wikipedia.org/wiki/S.M.A.R.T" rel="nofollow">http://en.wikipedia.org/wiki/S.M.A.R.T</a>.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/413#comment-177</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Tue, 22 Sep 2009 13:06:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=413#comment-177</guid>
+		<description>romx, у вас нет мыслей, что гугл имел в виду под параметрами "Scan Errors" и "Reallocation Counts"? вот вывод smartctl - 1-й найти вообще не смог, а второй - неясно какое из двух:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  1 Raw_Read_Error_Rate     0x000f   100   100   051    Pre-fail  Always       -       9
+  3 Spin_Up_Time            0x0007   100   100   025    Pre-fail  Always       -       5888
+  4 Start_Stop_Count        0x0032   100   100   000    Old_age   Always       -       53
+  5 Reallocated_Sector_Ct   0x0033   253   253   010    Pre-fail  Always       -       0
+  7 Seek_Error_Rate         0x000f   253   253   051    Pre-fail  Always       -       0
+  8 Seek_Time_Performance   0x0025   253   253   015    Pre-fail  Offline      -       0
+  9 Power_On_Hours          0x0032   100   100   000    Old_age   Always       -       26160
+ 10 Spin_Retry_Count        0x0033   253   253   051    Pre-fail  Always       -       0
+ 11 Calibration_Retry_Count 0x0012   253   253   000    Old_age   Always       -       0
+ 12 Power_Cycle_Count       0x0032   100   100   000    Old_age   Always       -       53
+187 Unknown_Attribute       0x0032   253   253   000    Old_age   Always       -       0
+190 Unknown_Attribute       0x0022   169   145   000    Old_age   Always       -       23
+194 Temperature_Celsius     0x0022   169   145   000    Old_age   Always       -       23
+195 Hardware_ECC_Recovered  0x001a   100   100   000    Old_age   Always       -       101407516
+196 Reallocated_Event_Count 0x0032   253   253   000    Old_age   Always       -       0
+197 Current_Pending_Sector  0x0012   253   253   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0030   253   253   000    Old_age   Offline      -       0
+199 UDMA_CRC_Error_Count    0x003e   200   200   000    Old_age   Always       -       0
+200 Multi_Zone_Error_Rate   0x000a   100   100   000    Old_age   Always       -       0
+201 Soft_Read_Error_Rate    0x000a   100   100   000    Old_age   Always       -       0
+202 TA_Increase_Count       0x0032   100   100   000    Old_age   Always       -       2</description>
+		<content:encoded><![CDATA[<p>romx, у вас нет мыслей, что гугл имел в виду под параметрами &#8220;Scan Errors&#8221; и &#8220;Reallocation Counts&#8221;? вот вывод smartctl - 1-й найти вообще не смог, а второй - неясно какое из двух:<br />
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE<br />
+  1 Raw_Read_Error_Rate     0&#215;000f   100   100   051    Pre-fail  Always       -       9<br />
+  3 Spin_Up_Time            0&#215;0007   100   100   025    Pre-fail  Always       -       5888<br />
+  4 Start_Stop_Count        0&#215;0032   100   100   000    Old_age   Always       -       53<br />
+  5 Reallocated_Sector_Ct   0&#215;0033   253   253   010    Pre-fail  Always       -       0<br />
+  7 Seek_Error_Rate         0&#215;000f   253   253   051    Pre-fail  Always       -       0<br />
+  8 Seek_Time_Performance   0&#215;0025   253   253   015    Pre-fail  Offline      -       0<br />
+  9 Power_On_Hours          0&#215;0032   100   100   000    Old_age   Always       -       26160<br />
+ 10 Spin_Retry_Count        0&#215;0033   253   253   051    Pre-fail  Always       -       0<br />
+ 11 Calibration_Retry_Count 0&#215;0012   253   253   000    Old_age   Always       -       0<br />
+ 12 Power_Cycle_Count       0&#215;0032   100   100   000    Old_age   Always       -       53<br />
+187 Unknown_Attribute       0&#215;0032   253   253   000    Old_age   Always       -       0<br />
+190 Unknown_Attribute       0&#215;0022   169   145   000    Old_age   Always       -       23<br />
+194 Temperature_Celsius     0&#215;0022   169   145   000    Old_age   Always       -       23<br />
+195 Hardware_ECC_Recovered  0&#215;001a   100   100   000    Old_age   Always       -       101407516<br />
+196 Reallocated_Event_Count 0&#215;0032   253   253   000    Old_age   Always       -       0<br />
+197 Current_Pending_Sector  0&#215;0012   253   253   000    Old_age   Always       -       0<br />
+198 Offline_Uncorrectable   0&#215;0030   253   253   000    Old_age   Offline      -       0<br />
+199 UDMA_CRC_Error_Count    0&#215;003e   200   200   000    Old_age   Always       -       0<br />
+200 Multi_Zone_Error_Rate   0&#215;000a   100   100   000    Old_age   Always       -       0<br />
+201 Soft_Read_Error_Rate    0&#215;000a   100   100   000    Old_age   Always       -       0<br />
+202 TA_Increase_Count       0&#215;0032   100   100   000    Old_age   Always       -       2</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

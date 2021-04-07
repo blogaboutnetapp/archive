@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; 2011 &raquo; Сентябрь</title>
+
+<link rel="stylesheet" href="../../../../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../../../../feed" />
+<link rel="pingback" href="../../../../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../../../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../../../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../../../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Archive for Сентябрь 2011</p>
+
+				
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"><a href="../index.html">Next Entries &raquo;</a></div>
+		</div>
+
+						
+			<div class="post" id="post-1005">
+				<h2 class="posttitle"><a href="../../../../1005/trackback.html" rel="bookmark" title="Permanent Link to Выравнивание партиций виртуальных машин с помощью MBRscan/MBRalign">Выравнивание партиций виртуальных машин с помощью MBRscan/MBRalign</a></h2>
+				<div class="postmetadata">15 Сентябрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Некоторое время назад NetApp разработал и начал распространять в составе своего набора полезных утилит под ESX (ESX Host Utilities) специальные утилитки mbrscan и mbralign (в самой последней версии остался один mbralign, который же и scan делает, запускаясь с другим ключом).</p>
+<p>Описание процесса выравнивания партиций освещена в документах NetApp не раз. Для примера могу указать на главу 6.3 в переведенном TR-3749 <a href="http://www.netwell.ru/docs/netapp/TR-3749_Rus_NetApp_and_VMware_vSphere_v4.1_BP.htm">Руководство по наилучшим способам использования систем NetApp с VMware vSphere v4.1 </a>, главу 4.4.8 в TR-3702 <a href="http://www.netwell.ru/docs/netapp/tr-3702_rus_hyper-v_on_netapp.pdf">Наилучшие методы использования систем хранения NetApp для решений виртуализации Microsoft Hyper-V</a>, а также отдельный документ TR-3747 <a href="http://media.netapp.com/documents/tr-3747.pdf">File System Alignment in Virtual Environments</a></p>
+<p>Отдельной строкой хочу отметить, что проблема с корректным выравниванием партиций виртуальных машин по границам блоков нижележащих структур <strong>НЕ есть проблема, характерная только для NetApp!</strong> Это общая, “платформонезависимая” проблема, требующая решения вне зависимости от того, что за система хранения у вас используется, даже если используются только лишь локальные диски сервера. Влияние ее на производительность (и загрузку процессора контроллера системы хранения) варьируется в зависимости от характера доступа к данным, и обычно все же не слишком велика (обычно оценивается в 10-15% снижения общей производительности от величины оптимально выравненной партиции), иногда меньше, иногда, в особо критичных редких случаях – больше. Тем не менее, это вполне реальная причина, могущая вызвать заметное на глаз снижение производительности, с которым вы вполне можете столкнуться в практике вашей работы, и которое можно поправить достаточно просто и легко.</p>
+<p>Кроме того неверное выравнивание может значительно ухудшить показатели дедупликации.</p>
+<p>Почти наверняка с проблемой выравнивания вы столкнетесь для виртуальных машин под Windows XP и 2003(R2), а также для старых (не-текущих) версий Linux. В Windows Vista/7/2008(R2) и новых Linux (RHEL6, например) уже выбраны значения смещения партиции по умолчанию, которые не требуют выравнивания, так как обычно уже удовлетворительно выравнены в большинстве случаев использования.</p>
+<p>К сожалению, такая полезная утилитка идет сейчас в составе огромного пакета Virtual Storage Console, и отдельно не отдается.    <br />Посему я и решил их выковырять и положить отдельно. Может кому пригодится.</p>
+<p>Еще одна сложность заключается в том, что утилиты эти предназначены для ESX, но НЕ для ESXi, так как устанавливаются в хост-систему ESX, и запускаются из консоли.</p>
+<p>Но тут можно сделать вот какой финт. Если у вас есть на нетаппе протокол NFS, то вы можете смонировать датастор по NFS на Linux-машину, и на этой Linux-машине запустить это выравнивание, также, как оно работало из консоли ESX.</p>
+<p>Получится что-то типа:&#160; <br /># <code>mkdir /nfs_esx_export</code>     <br /><code># mount IP_adress_of_NFS_Server:/vol/nfs_datastore&#160; /nfs_esx_export&#160; <br /># /usr/bin/mbrscan &lt;path to the -flat.vmdk&gt;</code></p>
+<p>Если вы хотите выполнить сканирование сразу множества vmdk, то можно сделать это так:</p>
+<p># <code>find /nfs_datastore -name &quot;*-flat.vmdk&quot; -maxdepth 3 -exec /usr/bin/mbrscan {}</code></p>
+<p>Затем можно выполнить выравнивание для файлов vmdk, которые mbrscan указал как невыравненные:</p>
+<p><code>[root@rhel1 WinXp2]# /usr/bin/mbralign WinXp2-flat.vmdk</code></p>
+<p>Выравнивание выполняется отдельно для каждого vmdk, которому эта процедура может понадобиться.</p>
+<p>Обратите внимание, что VM должна находиться в состоянии <em>power off</em>, и выравнивание невозможно для виртуальных машин со снэпшотами средствами VMware:</p>
+<p><code>Error: WinXp2.vmdk has a snapshot (WinXp2-000001.vmdk).&#160; All snapshots must be removed before using this tool.</code></p>
+<p>Обратите внимание, что если были выравнены партиции Linux с загрузчиком GRUB, понадобится восстановить GRUB обычным для Linux образом.</p>
+<p>После окончания процедур не забудьте отмонтировать датастор от Linux-машины, на которой вы проделывали эти операции. </p>
+<p>Помните, что, хотя официально mbrscan/mbralign и бесплатны, но требуют, для своего использования, чтобы вы были пользователем NetApp, с действующим контрактом саппорта, и иное есть формальное нарушение правил их использования.</p>
+<p><a href="http://www.box.net/shared/p7xahthek35arzrtolkf">MBRscan/MBRalign из ESX Host Utilities 5.1</a></p>
+<p>Чуть более <a href="http://www.box.net/shared/6y8gfiyrak33grefmi4i">новый MBRalign</a> (уже с встроенным scan), но чуть глючной, из состава 5.2 и VSC 2.1</p>
+<p>При обнаружении глюков вида сообщений при выравнивании &#8216;cannot find mbralign.pl at line 1667&#8242; в новом, рекомендуется пользоваться предыдущей версией из ESXHU5.1</p>
+<p>Если у вас есть логин в NOW с доступом к загружаемыми продуктам NetApp, то вы можете воспользоваться ссылкой:</p>
+<p><a href="http://now.netapp.com/NOW/download/software/sanhost_esx/ESX/">http://now.netapp.com/NOW/download/software/sanhost_esx/ESX/</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../../tag/align.html" rel="tag">align</a>, <a href="../../../../tag/esx.html" rel="tag">esx</a>, <a href="../../../../tag/mbralign.html" rel="tag">mbralign</a>, <a href="../../../../tag/mbrscan.html" rel="tag">mbrscan</a>, <a href="../../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../../tag/partition.html" rel="tag">partition</a>, <a href="../../../../tag/vmware/index.html" rel="tag">vmware</a><br />					Раздел: <a href="../../../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../../../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../../1005/trackback.html#comments" title="Комментарий к записи Выравнивание партиций виртуальных машин с помощью MBRscan/MBRalign">Комментарии (4)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1010">
+				<h2 class="posttitle"><a href="../../../../1010/trackback.html" rel="bookmark" title="Permanent Link to IDC Storage Tracker Q2 2011">IDC Storage Tracker Q2 2011</a></h2>
+				<div class="postmetadata">12 Сентябрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Очередной IDC Storage Tracker Q2 2011 опубликован. К сожалению у меня пока нет собственно текста, а только <a href="http://marketingstorage.wordpress.com/2011/09/06/are-emc-ibm-netapp-hp-and-hitachi-the-only-vendors-at-the-storage-party/">выдержки и интерпретации</a>.</p>
+<p>Поставлено за квартал 5353 петабайта емкостей хранения. Рост 10,2% процента относительно того же периода прошлого года. Все вендоры “топа” выросли, кроме Dell и <em>Other</em>, и на сегодня топовая группа вендоров поставляет около 74% всего рынка стораджей. В топ5 впервые вошла HDS, поравнявшись с Dell, и с очень хорошим ростом (HP начинать бояться и грести сильнее;). NetApp с IBM продолжают играть в Ахиллеса и черепаху ;)</p>
+<p><strong>Top 5 Vendors, Worldwide External Disk Storage Systems Factory Revenue, Second Quarter of 2011 (Revenues are in Millions) </strong></p>
+<table border="1" cellpadding="0">
+<tbody>
+<tr>
+<td valign="bottom" width="91">
+<p align="center"><strong>Vendor</strong></p>
+</td>
+<td valign="bottom" width="76">
+<p align="center"><strong>2Q11 Revenue</strong></p>
+</td>
+<td valign="bottom">
+<p align="center"><strong>2Q11                <br />Market Share</strong></p>
+</td>
+<td valign="bottom">
+<p align="center"><strong>2Q10 Revenue</strong></p>
+</td>
+<td valign="bottom">
+<p align="center"><strong>2Q10                <br />Market Share</strong></p>
+</td>
+<td valign="bottom" width="129">
+<p align="center"><strong>2Q11/2Q10                <br />Revenue Growth</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="91">1. EMC</td>
+<td valign="bottom" width="76">
+<p align="right">$1,621</p>
+</td>
+<td valign="bottom">
+<p align="right">28.7%</p>
+</td>
+<td valign="bottom">
+<p align="right">$1,287</p>
+</td>
+<td valign="bottom">
+<p align="right">25.6%</p>
+</td>
+<td valign="bottom" width="129">
+<p align="right">26.0%</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="91">2. IBM</td>
+<td valign="bottom" width="76">
+<p align="right">$771</p>
+</td>
+<td valign="bottom">
+<p align="right">13.7%</p>
+</td>
+<td valign="bottom">
+<p align="right">$680</p>
+</td>
+<td valign="bottom">
+<p align="right">13.5%</p>
+</td>
+<td valign="bottom" width="129">
+<p align="right">13.4%</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="91">3. NetApp</td>
+<td valign="bottom" width="76">
+<p align="right">$720</p>
+</td>
+<td valign="bottom">
+<p align="right">12.8%</p>
+</td>
+<td valign="bottom">
+<p align="right">$572</p>
+</td>
+<td valign="bottom">
+<p align="right">11.4%</p>
+</td>
+<td valign="bottom" width="129">
+<p align="right">25.7%</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="91">4. HP</td>
+<td valign="bottom" width="76">
+<p align="right">$619</p>
+</td>
+<td valign="bottom">
+<p align="right">11.0%</p>
+</td>
+<td valign="bottom">
+<p align="right">$567</p>
+</td>
+<td valign="bottom">
+<p align="right">11.3%</p>
+</td>
+<td valign="bottom" width="129">
+<p align="right">9.1%</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="91">5. Hitachi</td>
+<td valign="bottom" width="76">
+<p align="right">$459</p>
+</td>
+<td valign="bottom">
+<p align="right">8.1%</p>
+</td>
+<td valign="bottom">
+<p align="right">$372</p>
+</td>
+<td valign="bottom">
+<p align="right">7.4%</p>
+</td>
+<td valign="bottom" width="129">
+<p align="right">23.3%</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="91">6. Dell</td>
+<td valign="bottom" width="76">
+<p align="right">$444</p>
+</td>
+<td valign="bottom">
+<p align="right">7.9%</p>
+</td>
+<td valign="bottom">
+<p align="right">$472</p>
+</td>
+<td valign="bottom">
+<p align="right">9.4%</p>
+</td>
+<td valign="bottom" width="129">
+<p align="right">-5.9%</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="91">Others</td>
+<td valign="bottom" width="76">
+<p align="right">$1,009</p>
+</td>
+<td valign="bottom">
+<p align="right">17.9%</p>
+</td>
+<td valign="bottom">
+<p align="right">$1,080</p>
+</td>
+<td valign="bottom">
+<p align="right">21.5%</p>
+</td>
+<td valign="bottom" width="129">
+<p align="right">-6.6%</p>
+</td>
+</tr>
+<tr>
+<td valign="bottom" width="91">All Vendors</td>
+<td valign="bottom" width="76">
+<p align="right">$5,643</p>
+</td>
+<td valign="bottom">
+<p align="right">100.0%</p>
+</td>
+<td valign="bottom">
+<p align="right">$5,031</p>
+</td>
+<td valign="bottom">
+<p align="right">100.0%</p>
+</td>
+<td valign="bottom" width="129">
+<p align="right">12.2%</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Source</strong>: IDC Worldwide Disk Storage Systems Quarterly Tracker, September 2, 2011</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../../tag/idc.html" rel="tag">idc</a>, <a href="../../../../tag/storage-tracker.html" rel="tag">storage tracker</a><br />					Раздел: <a href="../../../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>,  <a href="../../../../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../../1010/trackback.html#comments" title="Комментарий к записи IDC Storage Tracker Q2 2011">Комментарии (5)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1003">
+				<h2 class="posttitle"><a href="../../../../1003/trackback.html" rel="bookmark" title="Permanent Link to &ldquo;Терабайты&rdquo; &ndash; мегапиксели сегодня">&ldquo;Терабайты&rdquo; &ndash; мегапиксели сегодня</a></h2>
+				<div class="postmetadata">8 Сентябрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Уже можно считать что прошли времена, когда на рынке фототехники правили бал ”мегапиксели”. Сегодня совсем немногие люди, покупающие фотоаппарат, покупают “мегапиксели”, также как, чуть раньше, производители процессоров перестали продавать им “гигагерцы”. Все больше людей стали осознавать, что этот единственный параметр не является ни определяющим, ни исчерпывающим для того, чтобы выбрать лучший продукт, да и вообще сделать выбор. Но по прежнему я сталкиваюсь с тем, что покупающий систему хранения, покупает “терабайты”. ??ли, по крайней мере, считает, что хочет их купить.</p>
+<p>Что на самом деле хочет купить пользователь, пришедший за системой хранения?</p>
+<ul>
+<li><strong>Производительность в random IOPS</strong>. Это, пожалуй, определяющий фактор, который по праву занимает первое место в списке. Производительность – решает. В наше время трехтерабайтных дисков на рынке, емкость, как я уже и <a href="../../../../388/trackback.html">писал</a>, зачастую, получается как “побочный эффект” достижения определенного уровня производительности в IOPS. Сперва надо удовлетворить требованию по производительности в random IOPS, читай по количеству физических дисков в системе, а там, глядишь, емкость и так получилась порядочная. Опять же, системы хранения, где емкость является определяющим фактором, когда производительность не важна совсем, это довольно узкая ниша архивных хранилищ. Уверен ли спрашивающий про “терабайты”, что ему совсем не нужна производительность в random IOPS на получившемся? Не дал ли он себя заморочить величинами “паспортной” производительности интерфейса SATA-II или Fibre Channel? Что это за задача, где производительность работы на получившемся сторадже не нужна?</li>
+<li><strong>“Фичи”, возможности использования системы хранения.</strong> Современные системы хранения уже давно не просто “банки с байтами”. “Хранение” в них всего лишь одна из множества возможностей. Даже сама пресловутая емкость хранилища может сильно зависеть от того, какие возможности системы хранения пользователем задействуются. Дедупликация, снэпшоты, клоны, unified-концепция хранения, thin provisioning, storage tiering, очень часто эти функциональные возможности, позволяет значительно снизить так называемый data footprint, то есть занимаемый данными объем на хранилище. То, что без использования “фич” заняло бы куда больший объем, с “фичами” поместится в куда меньший. Что уж говорить про многие новые возможности использования хранилища, которые эти фичи дают, и о которых пользователь, покупающий “объем” часто еще просто не задумывался?</li>
+<li><strong>Надежность хранения данных и их защиту.</strong> Что толку от производительной и <em>фичастой</em> системы хранения, если она при этом ненадежна, если жить с ней вы будете как на пороховой бочке? RAID-0 это, наверное, очень быстро. Но недолго :) <em>“Жить быстро, умереть молодым”</em> это для <em>рокенрола</em> хорошо. Но вряд ли это хорошо для данных вашей компании. А сегодня уже и RAID-5, судя по всему, уже стоит рассматривать в ряду ненадежных (в отличие от RAID-0, который ненадежный, но, хотя бы, быстрый, RAID-5 при этом еще и не быстрый;). Диски SATA, особенно большого размера, уже просто в обязательном порядке должны предполагать использование их в RAID-6. ?? не забывайте – надежность IT инфраструктуры компании, как и скорость эскадры, которая определяется скоростью самого медленного корабля, определяется надежностью наименее надежного ее компонента. ??ли как говорил один мой знакомый: <em>“Неважно, насколько быстра ваша система хранения, если в данный момент она не работает”</em>. Но надежность и защита данных это не только RAID, часто она не исчерпывается локальными возможностями стораджа. Это может быть и репликация, это и средства резервного копирования и восстановления данных, например снэпшоты уровня стораджа или приложения, и так далее. А как насчет гарантийного сервиса в вашем регионе и его стоимости?</li>
+<li><strong>??нтеграцию с используемым софтом.</strong> Несмотря на то, что “настоящий сисадмин пользуется исключительно консолью” на практике все гораздо сложнее. ?? выбор между тремя ничего не успевающими сисадминами, ежемесячно еще и требующими за свою напряженную работу прибавки зарплаты, и одним, который все успевает, пользуясь удобными инструментами, предоставляемыми вендором системы хранения, может также заметно повлиять на итоговую стоимость решения. ??нтеграция это не просто красивые маркетинговые слова. Поддержка специфических возможностей программного решения, в качестве примера могу привести поддержку VAAI для продуктов VMware, или “аппаратную” поддержку deploy/redeploy виртуальных машин на уровне возможностей стораджа, может напрямую отразиться и на производительности, и, в конечном счете, на цене решения.</li>
+<li><strong>Поддержку и совместимость с используемыми софтовыми решениями.</strong> Важный аспект – наличие поддержки использования покупаемой системы хранения со стороны производителя программного решения, присутствия в Hardware Compatibility Lists (HCL), Support Matrix, существования описанных Best Practices применения, и так далее. В противном случае вы рискуете остаться со своими проблемами один на один, и пользоваться “помощью” только различных форумов. Наличие подтвержденной поддержки как со стороны разработчика софта данной модели стораджа, так и со стороны производителя стораджа – данного софта, обычно гарантирует минимальные проблемы на этапе внедрения. Также не забывайте, что supported (поддерживаемое) это не то же самое, что functional (работающее).</li>
+<li><strong>Экономические аспекты.</strong> <strong>Долгосрочные затраты на эксплуатацию, поддержку, администрирование.</strong> Несмотря на то, что TCO (Total Cost of Ownership – “совокупная стоимость владения”) в России традиционно игнорируется, все больше пользователей начинает осмыслять тот факт, что заплатить за покупку – это еще не все затраты на систему хранения. Часто это только самое начало трат. Стораджем надо не только “завладеть”, но и “содержать” его. ??, часто, стоимость содержания (куда входят эксплуатационные расходы, сервис и прочее)бывает для пользователя очень неприятным сюрпризом. Это вам подтвердит любой владелец, например, дорогого и редкого (в вашей местности) автомобиля. Не забывайте также, что в сегодняшних датацентрах примерно половина потребляемого ими электричества, это потребление не связанное напрямую с IT-оборудованием. Это потребление кондиционеров и прочих “инфраструктурных элементов”. Половина! Снижение затрат на электропитание, охлаждение, затрат на инсталляцию, сервис, эксплуатационное обслуживание и warranty, отличающихся у разных вендоров и разных моделей, может отлиться во вполне полновесные доллары экономии. </li>
+</ul>
+<p>Покупать систему хранения исходя из единственного аспекта – ее емкости, сегодня также нелепо, как покупать автомобиль в автосалоне, исходя из его максимальной скорости. “Мне нужен автомобиль, который может ехать со скоростью 140 километров в час” говорит покупатель в салоне. Даже если оставить в стороне то, что сегодня любой новый автомобиль может ехать со скоростью 140 километров в час, очевидно, что это не является для покупателя основным критерием покупки (даже если он сам, по непониманию темы, пока еще и не догадывается об этом). ??, разумеется, грамотный пресейл сегодня знает, что когда покупатель говорит, что хочет “сторадж на двадцать терабайт”, на самом деле он хотел сказать совсем не это. Он хотел сказать, что:</p>
+<p><em>“Мы хотим развернуть виртуальную серверную инфраструктуру, ориентировочно на 20 серверов. Задачи переносимых в виртуальную инфраструктуру серверов сегодня это два файловых сервера, почта MS Exchange 2010, сервера баз данных MS SQL Server 2005 для бизнес-задач и девелоперский PostgreSQL, контроллер домена и около десятка разнообразных серверов для веб-разработчиков и тестировщиков. Ожидаемая нагрузка на хранилище по вводу-выводу, на этапе запуска, для текущих наших задач, около 7-15 тысяч IOPS в steady random read/write, при оценочном профиле read/write – 75%/25%. Мы ожидаем, в ближайшие год-два, минимум двукратный рост нагрузки по вводу-выводу и примерно 50-75% рост по емкости. Мы планируем использовать гипервизор VMware vSphere, и, возможно Xen Desktop или VMware View для планируемого VDI на 300 рабочих мест. В следующем году мы хотим также развернуть резервный датацентр, куда будем реплицировать данные с основного датацентра, для обеспечения отказоустойчивости и непрерывности бизнеса. Достаточные требования по RPO/RTO для наших бизнес-задач 4 часа RPO и 30 минут RTO.”</em></p>
+<p>Но, против воли, у него вырвалось про “20 терабайт”. :) </p>
+<p>&#160;</p>
+<p>PS. Вы должно быть заметили, что ни разу в этом посте я не сказал слово “NetApp”? :)</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../../tag/capacity.html" rel="tag">capacity</a>, <a href="../../../../tag/storage.html" rel="tag">storage</a>, <a href="../../../../tag/vybor.html" rel="tag">выбор</a>, <a href="../../../../tag/sistema-xraneniya.html" rel="tag">система хранения</a><br />					Раздел: <a href="../../../../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;" rel="category tag">whoisho</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../../1003/trackback.html#comments" title="Комментарий к записи &ldquo;Терабайты&rdquo; &ndash; мегапиксели сегодня">Комментарии (15)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1007">
+				<h2 class="posttitle"><a href="../../../../1007/trackback.html" rel="bookmark" title="Permanent Link to NetApp Innovation 2011 - 4 октября 2011">NetApp Innovation 2011 - 4 октября 2011</a></h2>
+				<div class="postmetadata">6 Сентябрь 2011, 10:10 <!-- от  --></div>
+				<div class="postentry">
+					<p>Вот и почти год прошел с предыдущей ежегодной конференции NetApp Innovation Russia 2011. На носу, меньше чем через месяц, очередная, третья, если мне память не изменяет, конференция, главное live-событий для российского Netapp.</p>
+<p><a href="http://www.netapp.com/ru/forms/ru-201110-innovation-regform.html"><img style="display: inline" title="netapp-2011-468х60" alt="netapp-2011-468х60" src="/pics//netapp-2011-46860.gif" width="468" height="60" /></a></p>
+<p>Адрес проведения: <a href="http://maps.google.com/maps/place?q=Lotte+Hotel+Moscow&amp;hl=en&amp;cid=13276878101902407556">Lotte Hotel, Moscow</a></p>
+<p>Если вы пользуетесь для организации своих дел электронным календарем, будь то iCalendar, или Google Calendar, или MS Outlook, то можете импортировать в него напоминалку о событии из этого файла: <a href="/docs/NetApp-Innovation-2011.ics">NetApp-Innovation-2011.ics</a></p>
+<p>Зарегистрироваться можно на сайте NetApp: <a href="http://www.netapp.com/ru/forms/ru-201110-innovation-regform.html">Регистрация на NetApp Innovation 2011</a></p>
+<p>Уже в общих чертах сформирована программа, из которой можно определить для себя интересные темы. По состоянию на сегодня позволю себе ее прямо здесь и опубликовать.</p>
+<p><strong><a href="http://communicate.netapp.com/content/ru-201110-innovation-agenda">Программа конференции</a>       <br /></strong>    <br /> <br />
+<table border="0" cellspacing="0" cellpadding="0" width="385">
+<tbody>
+<tr>
+<td valign="top" width="23">&#160;</td>
+<td valign="top" width="339">&#160;</td>
+<td valign="top" width="23">&#160;</td>
+</tr>
+<tr>
+<td width="23">&#160;</td>
+<td>
+<table class="agenda" border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 0px" width="100"><strong>Время&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </strong></td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 0px" valign="top"><strong>Действие</strong></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">9:00–9:30</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Регистрация, приветственный кофе, работа выставки</strong></td>
+</tr>
+<tr style="border-top: #eeeeee 1px solid"></tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">9:30–9:40</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Приветственное слово </strong>                    <br />Роман Волков, Глава представительства NetApp в России и СНГ</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">9:40–10:10</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Приветственное слово </strong>                    <br />Rob Salmon, NetApp Executive Vice President, Field Operations</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">10:10–10:40</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Стратегическая презентация</strong>                     <br />Matt Watts, EMEA Technical Strategy and Alliances</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">10:40–11:10</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Выступление VMware</strong></td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">11:10–11:40</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Выступление Citrix</strong></td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">11:40–12:00</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Кофе-брейк</strong></td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">12:00–12:30</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Выступление заказчика - Technicolor </strong>                    <br />Chris Saito, Senior VP Worldwide Marketing Digital, Technicolor</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">12:30–13:00</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Организация хранилищ для СУБД Oracle (новые подходы и возможности)</strong>                     <br />Дмитрий Гачко, Петер-Сервис, Директор департамента ??Т</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">13:00–13:30</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>SAP Center of Excellence and Cloud Management Solution</strong>                     <br />Lindenlaub Ralf, SAP, Vice President Cloud Solution Services </td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">13:30–14:30</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Обед, работа выставки</strong></td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">14:30–17:20</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Технические секции                      <br />Зал 1: ??нтегрированные решения                       <br />Зал 2: ??стории успешного внедрения</strong>                     <br /> <br />
+<table width="477">
+<tbody>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="80">14:30–15:00</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="395"><strong>Зал 1: FlexPod for VMware</strong>                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Выступление Cisco                             <br /><strong>Зал 2: На пути к эффективному ??Т: практические                              <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; результаты Test Drive на примере проектов для                               <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Банка «Открытие» и Еврофинанс Моснарбанка</strong>                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Сергей Буш, Лаборатория Систем 321, Директор                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Антон Прямиков, Банк «Открытие», Нач. отдела                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; технического обеспечения Алексей Лакеев,                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Еврофинанс Моснарбанк, Зам. Директора                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; департамента ??Т </td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="80">15:05–15:35</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="395"><strong>Зал 1: NetApp Cisco Fast Track for Hyper-V</strong>                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Сергей Копорулин, Microsoft                             <br /><strong>Зал 2: Примеры успешного внедрения и применения                              <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; технологий эффективного хранения данных                               <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; NetApp </strong>                            <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Сергей Киселев, INLINE Technologies,                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; ведущий системный инженер</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="80">15:40–16:10</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="395"><strong>Зал 1: FlexPod for SAP </strong>                            <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br /><strong>Зал 2: NetApp Syncsort Integrated Backup </strong>                            <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Daniel Brunnert, Syncsort, Sales Manager Eastern-                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Europe                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Алексей Высоков, Netberg, Генеральный                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; директор </td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="80">16:10–16:45</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="395"><strong>Зал 1: Выступление IBS</strong>                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br /><strong>Зал 2: С чего начинать миграцию в облака: пошаговый                              <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; сценарий</strong>                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Сергей Чуканов, ??Т-ГРАД, Генеральный директор</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="80">16:45–17:20</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top" width="395"><strong>Зал 1: FlexPod – практический опыт в лабораторных                              <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; условиях</strong>                             <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Сергей Ким, i-Teco                             <br /><strong>Зал 2: Техническая презентация NetApp</strong></td>
+</tr>
+</tbody>
+<tbody></tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">17:20–18:00</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Лотерея, шампанское</strong></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Как видите, в этом году ясно прослеживается две цели усилий NetApp на рынке, это, во-первых, виртуализация и “облачные решения” (причем hypervisor-agnostic, как видите, тут и Citrix, и VMware, и MS Hyper-V), а также интереснейший продукт NetApp и Cisco –&#160; NetApp FlexPod – готовый building block для построения “облачного” решения, который, наконец, добрался до России. ?? во-вторых – традиционные для NetApp “бизнес-приложения” с использованием Oracle и SAP, но, как видите, тоже с поворотом в сторону облачности и вируализации.</p>
+<p>Ближе к событию я еще раз о нем напишу, особенно если пройдут какие-то изменения в программе.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../../tag/2011.html" rel="tag">2011</a>, <a href="../../../../tag/innovation.html" rel="tag">innovation</a>, <a href="../../../../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../../../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../../1007/trackback.html#respond" title="Комментарий к записи NetApp Innovation 2011 - 4 октября 2011">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1002">
+				<h2 class="posttitle"><a href="../../../../1002/trackback.html" rel="bookmark" title="Permanent Link to NetApp online WebEx Demo">NetApp online WebEx Demo</a></h2>
+				<div class="postmetadata">5 Сентябрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Знаете ли вы, что NetApp проводит еженедельно специальную серию “вебинаров”-демонстраций с использованием популярной платформы Cisco WebEx, где вы можете познакомиться и посмотреть демонстрацию работы множества интересных продуктов NetApp “вживую”?</p>
+<p>Демонстрации проводятся на базе нетапповского демо-центра, и охватывают, в разные дни, большой диапазон различных продуктов. Например для только знакомящихся с продуктами компании читается часовая лекция-демонстрация “NetApp 101”, охватывающая базовый набор фич, таких как RAID-DP, снэпшоты, дедупликация, и так далее. Для “продвинутых” и “продолжающих” можно посмотреть демонстрации OnCommand, SnapManager для различных продуктов, решения виртуализации, Oracle, SnapProtect, Insight Assure и Insight Balance (уверен, два последних продукта вы точно не видели, по моему в России их еще и не продавали даже).</p>
+<p>Для того, чтобы подключиться и посмотреть вебинар с использованием WebEx, достаточно браузера с флэшем. Если вы каким-то образом еще не знакомы с темой вебинаров, и вебинаров NetApp, рекомендую познакомиться. А тем, кто уже знаком – будет еще проще: вот PDF с расписанием демонстраций (длина лекций-демонстраций – 60-90 минут) на ближайшие 2 месяца. Рекомендую полюбопытствовать.</p>
+<p>К сожалению время там – рабочее США-шное, то есть начало 9 или 11 утра Pacific Time, это 8 или 10 вечера по Москве. Но не думаю, что это серьезная проблема для интересующегося.</p>
+<p><a href="/docs/NetAppWeeklyDemoSeriesSeptember.pdf">NetApp Weekly Demo Series September 2011</a></p>
+<p><a href="/docs/NetAppWeeklyDemoSeriesOctober.pdf">NetApp Weekly Demo Series October 2011</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../../tag/demo.html" rel="tag">demo</a>, <a href="../../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../../tag/webex.html" rel="tag">webex</a><br />					Раздел: <a href="../../../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../../1002/trackback.html#respond" title="Комментарий к записи NetApp online WebEx Demo">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1001">
+				<h2 class="posttitle"><a href="../../../../1001/trackback.html" rel="bookmark" title="Permanent Link to NetApp OnCommand plugin for Microsoft">NetApp OnCommand plugin for Microsoft</a></h2>
+				<div class="postmetadata">1 Сентябрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Я уже немного <a href="../../../../933/trackback.html">писал</a> в этом блоге, что такое OnCommand. В двух словах – это семейство продуктов, или вернее даже некий “бренд”, под которым будут в ближайшем времени собраны все разрозненные продукты для управления и мониторинга, имеющиеся у NetApp (ну и, разумеется, новые появятся тоже).</p>
+<p>Любопытно, что некоторые продукты под брендом <a href="http://media.netapp.com/documents/ds-3097.pdf">OnCommand</a> (OnCommand Core) будут теперь бесплатны для пользователей (а которые были бесплатны раньше, они тоже останутся такими).</p>
+<p>Но уже начали появляться и новые разработки в рамках этого нового бренда “софтверного NetApp” (вы же помните, надеюсь, что NetApp это не только <strike>ценный мех</strike> стораджи, но и множество очень интересных программных продуктов, причем, зачастую, не только для своих собственных стораджей, а и для инфраструктуры в целом, в качестве примера хочу назвать onCommand Insight Assure, бывший SANscreen, а также onCommand Insight Balance, бывший Akorri BalancePoint.</p>
+<p>А я бы сегодня хотел обратить внимание публики на два новых продукта в семействе. Один называется <a href="http://media.netapp.com/documents/ds-3090.pdf">NetApp OnCommand plugin for Microsoft</a>.</p>
+<p>Это <a href="http://www.netapp.com/us/products/management-software/oncommand-plug-ins-for-microsoft.html">плагин</a>, позволяющий интегрировать систему хранения NetApp, и ее возможности, в среду Microsoft System Center Operations Manager (MS SCOM) и System Center Virtual Machine Manager (SCVMM), позволяя администратору серверной инфраструктуры Microsoft удобно управлять всем комплексом из знакомого и удобного окружения System Center.</p>
+<p>Второй -&#160; <a href="http://www.ntapgeek.com/2011/08/netapp-publishes-oncommand-site.html">NetApp OnCommand Site Recovery Plug-in 1.0 for Microsoft</a>, который позволяет интегрировать знаменитое нетапповское решение территориально распределенного хранилища – Metrocluster – c <a href="http://www.microsoft.com/windowsserver2008/en/us/failover-clustering-main.aspx">Microsoft Windows Server Failover Cluster</a> (WSFC). Этот продукт соединяет возможности отказоусточивого серверного кластера приложений WSFC и возможности NetApp Metrocluster.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../../tag/microsoft.html" rel="tag">microsoft</a>, <a href="../../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../../tag/oncommand.html" rel="tag">oncommand</a>, <a href="../../../../tag/scom.html" rel="tag">scom</a>, <a href="../../../../tag/scvmm.html" rel="tag">scvmm</a>, <a href="../../../../tag/wsfc.html" rel="tag">wsfc</a><br />					Раздел: <a href="../../../../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../../../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../../1001/trackback.html#comments" title="Комментарий к записи NetApp OnCommand plugin for Microsoft">Комментарии (3)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"><a href="../index.html">Next Entries &raquo;</a></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../../../../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../../../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../../../../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../../../../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../../../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../../../../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../../../../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../../../../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../../../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../../../../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../../../2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../../../2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../../../2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../../../2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../../../2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../../../2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../../../2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../../../2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../../../2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../../../2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../../../2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../../../2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../../../2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../../../2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../../../2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../../../2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../../../2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../../../2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../../../2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../../../2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../../../2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../../../2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../../../2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../../../2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../../../2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../../../2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../../../2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../../../2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../../../2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../../../2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../../../2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../../../2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../../../2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../../../2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../../../2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../../../2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../../../2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../../../2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../../../2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../../../2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../../../2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../../12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../../11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../../10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../../08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../../07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../../06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../../05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../../04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../../03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../../02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../../01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../../../2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../../../2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../../../2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../../../2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../../../2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../../../2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../../../2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../../../2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../../../2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../../../2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../../../2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../../../2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../../../2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../../../2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../../../2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../../../2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../../../2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../../../2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../../../2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../../../2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../../../2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../../../2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../../../2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../../../2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../../../2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../../../2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../../../2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../../../2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../../../2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../../../2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../../../2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../../../2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../../../2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../../../2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../../../2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../../../2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../../../2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../../../2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../../../2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../../../../feed">Entries (RSS)</a> and <a href="../../../../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 14 queries. 0.092 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

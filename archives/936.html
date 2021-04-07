@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; EMC FASTcache и NetApp Flash Cache</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="937/trackback.html">Результаты розыгрыша &ldquo;Покажи всем свой df &ndash;s&rdquo;</a></div>
+			<div class="alignright"><a href="945/trackback.html">NetApp E-series, краткий FAQ</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-936">
+			<h2 class="posttitle"><a href="936/trackback.html" rel="bookmark" title="Permanent Link to EMC FASTcache и NetApp Flash Cache">EMC FASTcache и NetApp Flash Cache</a></h2>
+			<div class="postmetadata">23 Июнь 2011, 7:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Как мне тут не раз уже попеняли, некорректно сравнивать <em>tiering-as-datamoving</em> и <em>tiering-as-caching</em>, то есть, например, NetApp Flash Cache и EMC FAST VP. Допустим, как я ни старался в <a href="926/trackback.html">соответствующей статье</a>, я вас не убедил, что обе эти формы повышения эффективности системы хранения для пользователя есть суть одно. </p>
+<p>Хорошо, давайте рассмотрим отдельно особенности, достоинства и недостатки только Flash Cache (PAM-II) и FASTcache.</p>
+<p>Во первых, конечно, вы бы могли вместе со мной поехдничать о извилистом пути достижения цели у EMC. Сперва превратить flash-память в &quot;диски&quot; в форме SSD, а затем из этих дисков эмулировать &quot;память&quot; кэша. Ну ладно, допустим не смогли напрямую, оказалось проще через &quot;двойную эмуляцию&quot;.</p>
+<p>Во-вторых если мы посмотрим на то, как у EMC предполагается использовать SSD диски под FASTcache, вы, уверен, вместе со мной поразитесь неффективности.</p>
+<p>Допустим, мы разворачиваем систему хранения для 1000 рабочих мест под десктопную виртуализацию на XenDesktop. <a href="http://itzikr.wordpress.com/2011/06/08/citrix-xendesktopp-5-on-emc-vnx-match-made-in-heaven-part1/">Рекомендуемая схема</a> включает в себя три диска SSD, из которых один - hotspare, а два других образуют &quot;зеркало&quot; RAID-1. Таким образом, очевидно, что эффективность использования flash в такой конструкции будет примерно 33%, то есть одна треть от купленной емкости flash. Да, при увеличении объема FASTcache, кроме роста цены будет расти и эффективность использования, но она никогда не превысит 50%, за счет использования RAID-1 (плюс hotspare). Больше половины затраченных на SSD денег будут простаивать. По контрасту, если вы покупаете 256GB Flash Cache, вы можете использовать под кэширование и ускорение работы с данными все 256GB, сто процентов от затраченных на них денег.</p>
+<p>В третьих, стоит обратит внимание, что использование SSD как дисков вынуждает EMC разместить этот кэш &quot;снаружи&quot; контроллера, в &quot;петле&quot; дискового ввода-вывода на интерфейсе SAS. В то время, как у NetApp плата Flash Cache располагается непосредственно на системной шине контроллера, на PCIe (PCIe v2.0 x8 в моделях 3200/6200, пропускная способность 32Gbit/s в каждом направлении). То есть взаимодействие контроллера с кэшем в случае FASTcache такое: данные пришли через ввод-вывод на контроллер, по каналу SAS к дискам, вышли через другой порт и записались на SSD по интерфейсу SAS. Затем, если к данным кэша обращение, они должны считаться через дисковый канал ввода-вывода по SAS обратно в контроллер, и отдаться через третий канал ввода-вывода, собственно инициатору запроса, по FC или iSCSI, или NFS/CIFS. Все это, безусловно, нагружает и так не бесконечные возможности дискового канала ввода-вывода к полкам, и, потенциально, может привести к ограничению производительности.</p>
+<p>Наконец, стоит помнить, что, хотя в FASTcache удалось значительно снизить размер оперируемого &quot;чанка&quot; до 64KB, против гигабайта в FAST-&quot;просто&quot;, все же этот размер достаточно велик для многих задач, работающих в random read/write, размер блока кэша, значительно превышающий рабочий для соответствующей файловой системы или задачи, например блока базы данных, также снижает эффективность использования такого кэша, если, допустим, только 4KB из блока в 64KB нам действительно нужны (при 100% random это довольно обычная ситуация), то это значит, что эффективность кэша составляет лишь 1/16 от своего фактического объема.</p>
+<p>Что же в плюсах? Очевидно, что это активно &quot;педалируемая&quot; EMC возможность работы такого кэша на запись. Особенно на это нажимают в сравнении с NetApp Flash Cache, который на запись не работает, и эта возможность действительно производит впечатление на тех людей, которые не особенно разбираются как там у NetApp все устроено, и знают только то, что &quot;что-то иметь это гораздо лучше чем не иметь&quot;, и уж все знают, что запись надо кэшировать, без кэширования запись на диски очень медленная, это знает даже начинающий пользователь, впервые покупающий кэш-контроллер в сервер.</p>
+<p>Чем прежде всего занимается кэш на запись?   <br />Давайте рассмотрим на примере.</p>
+<p>Когда клиент записывает блок данных на систему хранения, то, при наличии кэша на запись, этот блок максимально быстро в него помещается, и клиенту отдается сообщение “OK, принято”, клиент не ждет физического помещения блока в сектор жесткого диска, а может продолжать работать, словно записываемый блок уже записан, например отправить следующий блок.    <br />Запись ускоряется путем ее буферизации, и, в дальнейшем, сортировкой и упорядочением процессов записи.</p>
+<p>Хотя современный жесткий диск и позволяет обращаться к произвольным фрагментам записанной на него информации, чем отличается от, например, магнитной ленты, которая позволяет считывать и записывать ее только последовательно, однако не позволяет эту произвольно размещенную (random) информацию считывать и записывать _одновременно_, поскольку это физически ограничено возможностями магнитных головок диска.</p>
+<p>Если у нас есть жесткий диск, и мы не используем кэширование, то три клиента, пишущих на этот диск, будут вынуждены выстроиться в очередь. Сперва диск спозиционирует головки и дождется подхода нужного сектора для записи блока данных клиента A, а пославшие на запись свой блок клиенты B и C будут вынуждены ждать, затем головки будут переставлены в новое место, диск дождется, когда мимо головок проедет блок, который требуется перезаписать клиенту B, и перезапишет его, а если за это время у клиента A появился еще один блок на запись, то он поставится в очередь следом за блоком клиента C, и будет ожидать, пока выполнятся все операции перед ним.</p>
+<p>Все эти процессы, как вы понимаете, механические, неспешны, и занимают не микросекунды, как операции в памяти, а миллисекунды, иногда десятки миллисекунд. Несмотря на то, что жесткий диск - устройство произвольной записи, эти произвольные записи не могут быть осуществлены одновременно.</p>
+<p><img src="http://blogs.netapp.com/.a/6a00d8341ca27e53ef013485986fca970c-pi" /></p>
+<p>Ради создания хотя бы иллюзии одновременности и организуется кэш на запись. Приложения записывают свои данные в кэш записи, получают сразу же ответ &quot;готово&quot; и идут сочинять новые блоки на запись, не дожидаясь того, что данные физически поместятся на диск.</p>
+<p>Кэш же внутри себя удерживает блок, ожидая подходящего момента на запись, а также оптимизирует записи, с тем, чтобы уменьшить &quot;пробег&quot; магнитных головок по диску, и возможно оптимальным образом перекомпонует записи так, чтобы уложить их максимально эффективным, с точки зрения head seek-а, способом.</p>
+<p>Принципиальное отличие WAFL тут состоит в том, что WAFL не перезаписывает блоки уже записанные на диске, и значит при записи клиенты гораздо меньше ожидают seek-а. Вы помните, что в WAFL записи можно провести &quot;чохом&quot;, в выделенный сегмент, а не переписывать по одному блоку, мечась по всему диску, здесь и там, ожидая, когда подъедет под головку тот или иной блок. Поэтому даже без традиционного кэширования записи на WAFL клиентские записи быстро оказываются на дисках.</p>
+<p>Строго говоря, большой кэш означает, что, используя транспортную аналогию, записи быстро встают в очередь на посадку, но совсем не значит, что при этом они быстро сядут и поедут.</p>
+<p>WAFL оптимизирован именно на минимальное время от момента прихода данных &quot;на остановку&quot; и до входа их &quot;в автобус&quot; жесткого диска, превращая записи в записи последовательного порядка (sequental) из поступающих записей в произвольном порядке (random).</p>
+<p><img src="http://blogs.netapp.com/.a/6a00d8341ca27e53ef0133f2735a39970b-pi" width="467" height="307" /></p>
+<p>Результат хорошо иллюстрируется <a href="http://blogs.netapp.com/dropzone/2010/07/does-your-data-wait-in-line.html">экспериментом</a>, в котором один aggregate, состоящий из трех дисков SATA 1TB 7200rpm, в RAID-DP (2p+1d), то есть, фактически, из одного действующего диска, показывает при random write блоком 4KB не типичные для SATA 70-80 IOPS, а более 4600!</p>
+<p><img src="http://blogs.netapp.com/.a/6a00d8341ca27e53ef013485986fe9970c-pi" /></p>
+<p><img src="http://blogs.netapp.com/.a/6a00d8341ca27e53ef013485987007970c-pi" /></p>
+<p>Объяснение этому простое - записи, поступающие на диск теряют свою &quot;рандомность&quot;, и &quot;секвентализируются&quot;. Около четырех с половиной тысяч IOPS random-записи на один диск SATA - это как раз то, отчего в системах NetApp нет свойственной для &quot;классических систем&quot; острой необходимости в кэше записи на уровне контроллера.</p>
+<p>Таким образом запись действительно надо кэшировать для &quot;классических&quot; систем, да, безусловно, это так. Но это совсем не так безусловно для &quot;неклассических&quot; дисковых структур, используемых, например, в NetApp.</p>
+<p>Вот почему NetApp Flash Cache не используется на запись данных, работая всем своим объемом только на чтение. Вот почему необходимость кэширования записи для WAFL не столь безоговорочна, как для <em>&quot;классических&quot;</em> дисковых структур.</p>
+<p>Потому, что в WAFL необходимость обязательного кэширования данных при записи существенно ниже, чем для &quot;традиционных&quot; систем. </p>
+<p>Это позволило, среди прочего, кстати, значительно упростить алгоритмическую составляющую процесса кэширования, ведь не секрет, что правильная обработка кэширования на запись часто создает значительные проблемы, особенно в наиболее эффективном режиме write-back.</p>
+<p>А это, в свою очередь, снизило количество возможных ошибок (как программного кода реализации, так и ошибок при использовании) удешевило устройство и упростило использование.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/cache.html" rel="tag">cache</a>, <a href="tag/emc/index.html" rel="tag">emc</a>, <a href="tag/fastcache.html" rel="tag">fastcache</a>, <a href="tag/flash/index.html" rel="tag">flash</a>, <a href="tag/flashcache.html" rel="tag">flashcache</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="936/trackback.html#respond">Комментарий</a> (<a href='936/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="936/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (25)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1453">
+		<div id="div-comment-1453">
+		<div class="comment-author">
+			<cite>ZW:<cite></div>
+			<p>&gt;Как мне тут не раз уже попеняли, некорректно сравнивать tiering-as-datamoving и tiering-as-caching, то есть, например, NetApp Flash Cache и EMC FAST VP. Допустим, как я ни старался в соответствующей статье, я вас не убедил, что обе эти формы повышения эффективности системы хранения для пользователя есть суть одно. </p>
+<p>Как минимум, у Netapp неполучится сделать уровней больше двух. У EMC это вполне разумный вариант.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1453" title="">25 Июнь 2011, 23:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1454">
+		<div id="div-comment-1454">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>ZW:</p>
+<p>Опять же скажу, для этого надо, чтобы это было нужно. Если два уровня на NetApp обеспечивают то же, что три уровня EMC, то зачем излишняя сложность?</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1454" title="">26 Июнь 2011, 7:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1455">
+		<div id="div-comment-1455">
+		<div class="comment-author">
+			<cite>ZW:<cite></div>
+			<p>Я думаю, что в целях экономии. Если на SSD посадить требовательную базу данных для SAP(при этом только актуальные данные), на SAS - часть SAP + базы для веб + аналитика, на SATA файловый архив, на SATA 5400 архивы. Другой разговор, насколько подобная конфигурация используется в реальности. Надо статистику собирать. Но впрямую сложно сравнивать SSD кэш и FAST. ??МХО слишком разные вещи.<br />
+PS. В плане cache есть свои заморочки, посадили бы диски для кэша на отдельные контроллеры. Но, отмечу, не тратить кэш на запись - это заманчиво.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1455" title="">26 Июнь 2011, 18:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1456">
+		<div id="div-comment-1456">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Экономия получается сомнительная.<br />
+Проблема, как я уже писал, в так называемых &#8220;холодных данных&#8221; и неэффективности с ними связанной.<br />
+Если в базе данных, лежащей на SSD, в данный момент только 20% данных активны (довольно обычное дело), значит из 500 тысяч долларов, потраченных на SSD, 400 тысяч бухнуты впустую. Они не приносят ни грамма пользы. 80%-м &#8220;холодных&#8221; данных все равно где лежать, на SSD или на SATA, на производительность системы в целом это не отражается. Пока они холодные&#8221;. Но проблема в том, что 20% &#8220;горячих&#8221; данных все время разные.</p>
+<p>Напротив, так как в кэш попадают всегда только активные данные, то кэширование вместо статического tiering-а эффективно использует все 100% объема флэша, все 100% потраченных на него денег.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1456" title="">26 Июнь 2011, 18:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1459">
+		<div id="div-comment-1459">
+		<div class="comment-author">
+			<cite>ZW:<cite></div>
+			<p>&gt;Напротив, так как в кэш попадают всегда только активные данные, то кэширование вместо статического tiering-а эффективно использует все 100% объема флэша, все 100% потраченных на него денег.</p>
+<p>Это бесспорно.<br />
+Но в принципе идея многоуровневых хранилищ заключается в разбитии стораджа на, фактически, разные уровни SLA. Чем-то напоминает SLA для трафика(видео, база данных, vpn, ftp и торренты).</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1459" title="">27 Июнь 2011, 9:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1460">
+		<div id="div-comment-1460">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>> Но в принципе идея многоуровневых хранилищ заключается в разбитии стораджа на, фактически, разные уровни SLA. Чем-то напоминает SLA для трафика(видео, база данных, vpn, ftp и торренты).</p>
+<p>Верно. Но ради чего все это затеяно?<br />
+Попробуйте встать на точку зрения не &#8220;технократическую&#8221;, как продавца стораджа, а на точку зрения клиента, посмотреть на проблему &#8220;сверху&#8221;.<br />
+Уровни SLA делаются не для того, чтобы они существовали &#8220;сами по себе&#8221;, чтобы настраивать нескучно было, их использование диктуется какими-то бизнес-требованиями.</p>
+<p>Для стораджей это, как я <a href="926/trackback.html" rel="nofollow">уже писал в статье ранее</a>, необходимость повысить эффективность использования, улучшить соотношение <b>IOPS/$</b>, то есть распределить затраты на хранилище более оптимальным путем, с большей результативностью. Потратить больше на то, что дает больше результата. Я считаю, что <b>именно это</b> и есть причина использования и как tiering в форме физического data moving, и в форме кэширования. То есть у задачи, улучшения соотношения IOPS/$, есть два решения, с точки зрения достижения результата, для клиента, эквивалентные. ?? в том и в другом случае соотношение IOPS/$ улучшается.<br />
+Тогда зачем сложное многоуровневое хранилище, если результат с кэшем, с точки зрения пользователя - тот же?</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1460" title="">27 Июнь 2011, 9:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1465">
+		<div id="div-comment-1465">
+		<div class="comment-author">
+			<cite>Nikita:<cite></div>
+			<p>Читаю дискуссии по поводу EMC FAST VP и никак не могу понять одного: никто вообще не интересовался какие требования нужны для него, и как это выглядит на практике? Поясню: для EMC FAST VP необходимо, чтобы диски были в RAID Pool. В RAID Pool можно запихнуть только RAID группы одинакового типа. Добавим сюда рекомендации EMC на длину RAID 5 (4 + 1) и RAID 6 (6 + 2) получаем полный абзац. Другими словами, нам либо все на RAID 10 придется делать, либо и SSD, и SAS, и SATA загонять в RAID 5 (что для SATA дисков как-то стремно), либо и SSD, и SAS, и SATA загонять в RAID6 и убить производительность на запись на всех уровнях + получить немеряную потерю usable space на четность.  Может для кого-то это приемлимо, но у меня это отбило всякий интерес как к способу &#8220;оптимизации&#8221; использования дискового пространства и затрат. Жалко, забанили выступавшего в защиту FAST VP человека, было бы интересно, что он скажет.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1465" title="">29 Июнь 2011, 2:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1466">
+		<div id="div-comment-1466">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nikita:</p>
+<p>Он не забанен, а поставлен на премодерацию. Если найдет в себе силы уважать правила места, где пишет, и о которых я ему говорил, и не превращаться в тролля - с удовольствием верну.</p>
+<p>Про пулы - я интересовался, но оставил на сладкое. Там вообще дофига еще &#8220;чудес&#8221;, если не надоел я тут с этими &#8220;страданиями по тиерингу&#8221;, то может как-нибудь еще возобновлю тему.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1466" title="">29 Июнь 2011, 8:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1478">
+		<div id="div-comment-1478">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>Мне кажется в статье есть ошибка. В системах NetApp есть NVRAM. Почему о нем ничего не сказано? На мой взгляд его вполне можно считать кешем на запись.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1478" title="">1 Июль 2011, 5:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1479">
+		<div id="div-comment-1479">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>firehunter:</p>
+<p>Нет, хотя в NVRAM действительно пишутся данные до их попадания на диски, способы его использования в системе принципиально другие, чем у &#8220;классического&#8221; кэша на запись.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1479" title="">1 Июль 2011, 7:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1480">
+		<div id="div-comment-1480">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx:<br />
+??з TechOnTap <a href="http://www.netapp.com/us/communities/tech-ontap/fas3100-0708.html" rel="nofollow">http://www.netapp.com/us/communities/tech-ontap/fas3100-0708.html</a> :<br />
+&#8220;NVRAM to temporarily cache writes to disk. Batching writes allows most data to be written in efficient stripes, including parity, rather than performing a much slower read-modify-write operation.&#8221;<br />
+Возможно есть лучшее описание способов использования NVRAM в каких либо документах. Но с точки зрения конечного пользователя СХД NetApp, как мне кажется, лучшее объяснение основной функции NVRAM - кеш на запись. Да он умнее чем у других производителей, но все равно кеш, т.к. как только данные в него попали, контроллер возвращает пользователю что данные записаны.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1480" title="">1 Июль 2011, 11:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1481">
+		<div id="div-comment-1481">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>firehunter:</p>
+<p>Это все зависит от того, что именно называть &#8220;кэшем на запись&#8221;. NVRAM по принципу работы сильно отличается от подавляющего большинства кэшей записи, поэтому называть его &#8220;кэш записи&#8221; и ставить между ним и &#8220;классическими кэшами&#8221; знак равенства может привести к серьезной путанице в дальнейшем. Лучше эту путаницу не создавать. Кэш это не только &#8220;буфер записи&#8221;.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1481" title="">1 Июль 2011, 12:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1510">
+		<div id="div-comment-1510">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx:</p>
+<p>Я решил упомянуть про NVRAM, так как его описание отсутствует в статье. В то же время WAFL без него существовать не может, т.к. его наличие требуется для реализации алгоритма записи. Я ошибаюсь?</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1510" title="">10 Июль 2011, 12:05</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1511">
+		<div id="div-comment-1511">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>firehunter:</p>
+<p>> В то же время WAFL без него существовать не может.</p>
+<p>Вот процитированное верно, но NVRAM это все же не кэш, в том понимании этого понятия, как его трактуют в других системах. Это, скорее, &#8220;журнал журналируемой файловой системы&#8221; на отдельном физическом устройстве.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1511" title="">10 Июль 2011, 12:10</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1512">
+		<div id="div-comment-1512">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx:</p>
+<p>Я удивился не увидев описание NVRAM в статье. Она какая то неполная без него, на мой взгляд. В то получается &#8220;litle dirty secret&#8221; :)</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1512" title="">10 Июль 2011, 18:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1513">
+		<div id="div-comment-1513">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>firehunter:</p>
+<p>Дело в том, что я пишу в этом блоге уже более четырех лет, и о многом уже писал ранее.<br />
+Глупо каждую заметку сюда писать ab ovo, начиная &#8220;с зарождения жизни на Земле&#8221;.<br />
+Про NVRAM я писал, например в статье про WAFL: <a href="19/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/19</a><br />
+Достаточно подробно про NVRAM и его работу рассказывается также в переведенной мной статье про устройство WAFL, которая выложена на сайте Netwell, в библиотеке переводов:<br />
+<a href="http://www.netwell.ru/docs/netapp/wp3002_wafl.pdf" rel="nofollow">http://www.netwell.ru/docs/netapp/wp3002_wafl.pdf</a></p>
+<p>К тому же, повторюсь, NVRAM это НЕ кэш, поэтому вполне логично, по крайней мере с моей стороны, в статье про КЭШ, про NVRAM как раз и не писать.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1513" title="">10 Июль 2011, 19:32</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1514">
+		<div id="div-comment-1514">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx:</p>
+<p>Здесь надо определятся с терминологией.<br />
+Конечно NVRAM это не кеш, если кешем считать реализацию энергонезависимой памяти и алгоритмов работы с ней в других системах. Но как это не называйте, при попадании данных от клиента в NVRAM, ему сообщается об успешной записи.<br />
+Статья ваша, Вам решать что в ней писать. Я лишь высказал свое мнение, что на мой взгляд, краткое упоминание NVRAM в ней не было бы лишним. Ведь именно NVRAM позволяет делать все трюки с записью, такие как отложенное выделение места под запись, CP и пр. В противном случае у читателя может сложиться неверное впечатление.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1514" title="">11 Июль 2011, 7:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1515">
+		<div id="div-comment-1515">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>firehunter:</p>
+<p>Ну я уже даже не знаю, что вам еще написать, все свои аргументы за то, почему это так, я привел, даже не по разу, дискуссия, на мой взгляд, зашла в тупик (вернее вошла в рекурсию).</p>
+<p>Действительно, лучше всего начать с определения терминологий, так как с моей точки зрения NVRAM кэшем не является, и к теме не относится, но вы, по-видимому, со мной не согласны.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1515" title="">11 Июль 2011, 8:21</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1516">
+		<div id="div-comment-1516">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx:</p>
+<p>Собственно я предполагаю, что следующее предложение в статье может ввести в заблуждение неподготовленного читателя: &#8220;Около четырех с половиной тысяч IOPS random-записи на один диск SATA - это как раз то, отчего в системах NetApp нет свойственной для &#8220;классических систем&#8221; острой необходимости в кэше записи на уровне контроллера.&#8221; Он, читатель, может сделать вывод, что все операции происходят исключительно в RAM и ONTAP сообщает о успешном завершении записи только тогда, когда она реально упала на диски. А это, как мы с Вами знаем - не так.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1516" title="">11 Июль 2011, 13:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1517">
+		<div id="div-comment-1517">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>firehunter:</p>
+<p>Дело в том, что 4000 IOPS это довольно обычная величина для sequental write на SATA. Она получается оттого, что random в процссе записи на диски становтся sequental. Отсюда и такие величины на random-запись<br />
+Как вы, возможно, знаете, записи, хотя и попадают в NVRAM на пути к дискам, но не задерживаются там надолго, каждые 10 секунд NVRAM делает flush на диски (либо при заполнении более 50% половины суммарной емкости памяти, одного из двух банков, NVRAM).<br />
+То есть фактическая емкость &#8220;кэша&#8221; в NetApp, если вы настаиваете на том, чтобы называть NVRAM кэшем, составляет 25% от его &#8220;паспортной емкости&#8221;. Это совсем немного для кэша (но достаточно для NVRAM).<br />
+Таким образом, диски на самом деле &#8220;потребляют&#8221; поток как указано, так как, в противном случае, емкость кэша быстро бы переполнилась, и производительность на запись бы упала. Данным просто некуда было бы поместиться.<br />
+А раз она не падает, а вполне себе steady, значит один диск SATA на самом деле успевает прожевывать 100% random write на такой скорости.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1517" title="">11 Июль 2011, 18:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1519">
+		<div id="div-comment-1519">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx:</p>
+<p>Я не настаиваю NVRAM называть как либо. Мне просто кажется, что NVRAM достоин упоминания о нем в статье. Так или иначе это устройство является важной частью всей системы. ?? несколько фраз про WAFL и отсутствии необходимости классического кеширования записи для нее я бы дополнил &#8220;&#8230; потому что WAFL использует NVRAM&#8221;.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1519" title="">11 Июль 2011, 20:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1521">
+		<div id="div-comment-1521">
+		<div class="comment-author">
+			<cite>firehunter:<cite></div>
+			<p>romx: </p>
+<p>плюс к последней фразе: &#8220;и алгоритмы, которые позволяют наиболее эффективно производить запись&#8221;.<br />
+Это в качестве варианта. Это мое предложение, основанное на личном мнении о статье, точнее о том, как ее прочтут неподготовленные читатели. Конечно Вы можете со мной не согласится. Я ни на чем не настаиваю.<br />
+Думаю что дискуссию можно сворачивать.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1521" title="">11 Июль 2011, 20:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1682">
+		<div id="div-comment-1682">
+		<div class="comment-author">
+			<cite>Alexey Mekhanoshin:<cite></div>
+			<p>Картинки отвалились, - какая жалость.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-1682" title="">12 Сентябрь 2011, 14:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4918">
+		<div id="div-comment-4918">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>&gt;если, допустим, только 4KB из блока в 64KB нам действительно нужны<br />
+А вот интересно где-то бы получить базовый размер блока которым оперирует СХД VNX/VNXe.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-4918" title="">20 Ноябрь 2012, 15:15</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4919">
+		<div id="div-comment-4919">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>Вы про FASTcache? 64KB.</p>
+						<div class="comment-meta"><a href="936/trackback.html#comment-4919" title="">20 Ноябрь 2012, 15:24</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="936" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.088 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

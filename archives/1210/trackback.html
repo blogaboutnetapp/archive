@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Data ONTAP Edge &ndash; виртуальный NetApp в VM</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1198/trackback.html">Политики кэширования записи на Flash Pool</a></div>
+			<div class="alignright"><a href="../1207/trackback.html">Загрузка серверов на Linux с NFS</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1210">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP Edge &ndash; виртуальный NetApp в VM">Data ONTAP Edge &ndash; виртуальный NetApp в VM</a></h2>
+			<div class="postmetadata">10 Сентябрь 2012, 11:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>На прошедшем на прошлой неделе VMworld NetApp показал крайне интересную штуку – Data ONTAP Edge. Это виртуальный appliance, виртуальная машина, с установленной в ней OS Data ONTAP, работающей как “виртуальная система хранения” в среде VMware ESXi. </p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="VSA[1]" border="0" alt="VSA[1]" src="/pics//vsa1.jpg" width="540" height="186" /></p>
+<p>Наверняка вы уже знаете и пользуетесь симулятором Data ONTAP (а если не пользуетесь, то самое время <a href="../40/trackback.html">пойти почитать про него подробнее</a>). В двух словах: Data ONTAP Simulator это код Data ONTAP, выполняемый не на реальном железе стораджа, а в среде Linux (для Simulator 7.x) или виртуальной машины FreeBSD (Simulator 8.х). Симулятор позволяет создать “эмуляцию стораджа”, протестировать те или иные решения, отработать какие-то процедуры, настроить инфраструктуру, не трогая реальный физический сторадж, проводить обучение и всякие эксперименты. Не позволяет он только сделать на симуляторе реальную систему хранения, так как в код симулятора вшиты строгие ограничения на объем. Сделано это с понятной целью, не провоцировать пользователя на попытку сделать из такой виртуальной машины реальный “сторадж”, так как производительность такого решения не идет в сравнение с нормальным физическим стораджем на физическом железе. ??ли по крайней мере “не шла”.</p>
+<p>Однако времена меняются, и некоторое время назад NetApp объявила о появлении у нее продукта Data ONTAP-v, который предоставляется не напрямую, а через партнеров (например Fujitsu в их blade-серверах для SMB), для создания virtual appliance, как раз того самого virtual storage. Data ONTAP-v это, если по-простому, симулятор со снятыми ограничениями. А&#160; на VMworld был сделан новый шаг – объявлено о доступности для конечных пользователей нового решения – Data ONTAP Edge – virtual storage appliance для малых офисов и филиалов.</p>
+<p>Data ONTAP Edge это, по сути, код Data ONTAP, практически такой, как он работает в реальном сторадже. Соответственно в таком апплайенсе вы получаете практически все то, что получаете в реальном железном сторадже, то есть универсальный (NAS+SAN) доступ, снэпшоты, thin provisioning, дедупликацию, FlexClone, SnapMirror и SnapVault. Однако, как и в эмуляторе, в Edge и ONTAP-v нет FC. Управлять Edge можно как и обычным нетапповским стораджем, с помощью System Manager, консоли, а также поддерживается Virtual Storage Console в&#160; vCenter.</p>
+<p>Цель Data ONTAP Edge – это филиалы и малые офисы. ?? прежде всего я вижу для таких организаций интерес в отношении Edge – это использовать его как SnapVault Primary. К сожалению, прекрасная и очень полезная для как раз малых компаний с филиалами и удаленными офисами идея с централизованным бэкапом через SnapVault разбивается о необходимость для использования всех плюсов SnapVault заводить второй (и более) железный нетапповский сторадж, так как SnapVault Primary, то есть “получатель” снэпшотов на хранение, может быть только нетаппом (SnapVault Secondary, “источник”, может быть даже обычный сервер, например при использовании OSSV, Open Systems SnapVault). Также интересным может быть организация репликации через SnapMirror.</p>
+<p>Кроме работы в составе SnapVault, вы можете использовать его как обычный виртуальный сторадж, например в составе инфраструктуры виртуальных серверов, используя его возможности эффективного хранения.</p>
+<p>Data ONTAP Edge можно скачать в виде 90-дневного триала, в формате OVA, с необходимым набором лицензий. Для установки его необходим, в отличие от симулятора, ряд строгих условий. Edge устанавливается только на ESXi (симулятор можно было установить на почти любой гипервизор), он требует много памяти и процессора (строго 2 выделенных vCPU и 4GB выделенной RAM, 57,5 GB места для самой системы), а также обязательно не ниже 4-ядерного или 2 двухядерных 64bit Intel x86 процессор, более 2,27GHz, четыре и более физических диска на Hardware battery-backed RAID, минимум одна Gigabit Ethernet карта, но в реальности, для современных серьезных продакшновых инфраструктур, эти требования вполне подъемны. Существует список поддерживаемых систем в качестве хоста. Рекомендую также посмотреть и на <a href="http://media.netapp.com/documents/ds-data-ontap-edge.pdf">Data ONTAP Edge datasheet</a>.</p>
+<p>Для получения ссылки на скачивание триала вам будет нужен логин на support.netapp.com (бывший NOW), в том числе вы можете получить его и не будучи уже зарегистрированным клиентом NetApp, по “гостевому входу”. Лицензии на триал придут на адрес почты, зарегистрированной на логин.</p>
+<p>Обсуждение и ответы на вопросы по Data ONTAP Edge можно получить в специальном разделе communities: <a href="https://communities.netapp.com/community/products_and_solutions/data-ontap-edge">https://communities.netapp.com/community/products_and_solutions/data-ontap-edge</a></p>
+<p>Любопытно, что, по слухам, в начале своей истории NetApp серьезно рассмативала вариант выпустить Data ONTAP как софт, устанавливаемый на пользовательское “железо”, то есть не становиться еще одним “вендором железа”, а оставаться софтовой компанией. К сожалению, тогда, в первой половине 90-х состояние дел с надежностью доступного пользователям железа не позволило достичь приемлемого качества и производительности, и пришлось под Data ONTAP строить свою железную платфолрму. Сегодня, как видите, старинная идея переживает второе рождение.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/data-ontap.html" rel="tag">data ontap</a>, <a href="../tag/edge.html" rel="tag">edge</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/ontap-v.html" rel="tag">ontap-v</a>, <a href="../tag/simulator.html" rel="tag">simulator</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (25)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-3343">
+		<div id="div-comment-3343">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Круто, че.. Роль агрегата, я так понимаю, берет на себя vmdk, соответственно raid dp отсутствует, nvram тоже vmdk.<br />
+У меня, кстати, в now.netapp.com Data ONTAP Edge	Not Active/Expired - это типа запрос надо писать для активации?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3343" title="">10 Сентябрь 2012, 14:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3344">
+		<div id="div-comment-3344">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>не надо оказывается ничего писать - в самом внизу Software Download - To access a specific - выбираете Data ONTAP Edge ставите версию 8.1.1 и качаете -)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3344" title="">10 Сентябрь 2012, 15:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3345">
+		<div id="div-comment-3345">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:</p>
+<p>Уже есть задумка в среде моих клиентов использовать Edge как SV Primary для хранения в офисе данных из продакшновой системы в удаленном (относительно офиса) датацентре.<br />
+Ждем цен, чтобы понять, насколько это юзабельно для маленьких компаний.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3345" title="">10 Сентябрь 2012, 15:11</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3347">
+		<div id="div-comment-3347">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Те если рассматривать fas и edge, то сценарий нетапом заложен следующий - развернули виртуальную архитектуру в центре на fas, отзеркалили ее в филиалы на edge, причем все изменения в центре реплицируются в филиалы. Обратно изменения в центр, как и бекап, получить нельзя. Правильно я понял?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3347" title="">10 Сентябрь 2012, 15:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3348">
+		<div id="div-comment-3348">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:</p>
+<p>Ну вот в моем случае у моих такая схема: У них в датацентре вся кухня, и она локально бэкапится в снэпшоты через VSC. А вот эти снэпшоты было бы здорово хранить удаленно, в офисной серверной, через SnapVault. ??ли миррорить тома системы через SnapMirror. Все это на Edge можно.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3348" title="">10 Сентябрь 2012, 15:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3349">
+		<div id="div-comment-3349">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Опять же, это может послужить массовой популярности SnapVault и OSSV как решения, которое сейчас (см. результаты моего опроса) находится в откровенном &#8220;загоне&#8221;.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3349" title="">10 Сентябрь 2012, 15:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3350">
+		<div id="div-comment-3350">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>&gt;  так как SnapVault Primary, то есть “получатель” снэпшотов на хранение, может быть только нетаппом<br />
+какая то путаница, здесь <a href="../879/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/879</a>  SnapVault Primary это источник снэпшотов</p>
+<p>лицензия SnapVault Primary в edge есть, значит он может быть источником снапшетов на SnapVault Secondary FAS<br />
+что для архитектуры с филиалами выглядит логичней, чем наоборот бэкапиться в филиалы.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3350" title="">10 Сентябрь 2012, 16:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3351">
+		<div id="div-comment-3351">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Это я ошибся, значит Secondary в офисе, и Primary на железке в датацентре.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3351" title="">10 Сентябрь 2012, 16:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3352">
+		<div id="div-comment-3352">
+		<div class="comment-author">
+			<cite>ray:<cite></div>
+			<p>romx:<br />
+Это я ошибся, значит Secondary в офисе, и Primary на железке в датацентре</p>
+<p>неа, идет с эджем:<br />
+SnapVault Primary   sv_ontap_pri</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3352" title="">10 Сентябрь 2012, 16:24</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3353">
+		<div id="div-comment-3353">
+		<div class="comment-author">
+			<cite>ray:<cite></div>
+			<p><a href="http://support.netapp.com/NOW/download/software/ontap_edge/8.1.1/CBvM100_licenses.txt" rel="nofollow">http://support.netapp.com/NOW/download/software/ontap_edge/8.1.1/CBvM100_licenses.txt</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-3353" title="">10 Сентябрь 2012, 16:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3355">
+		<div id="div-comment-3355">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Если скоростные показатели у edge будут в норме, то это даст вторую жизнь старым железкам - можно будет сделать edge боевым, а железку запасной. Только вот не знаю snapvault между data ontap 7 и 8 работает?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3355" title="">10 Сентябрь 2012, 16:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3357">
+		<div id="div-comment-3357">
+		<div class="comment-author">
+			<cite>Aleksey Sychev:<cite></div>
+			<p>Думаю, облом:</p>
+<p>The software includes the following features: Base Data ONTAP 8 7-Mode functionality (Snapshot®, deduplication, System Manager, and so on), plus SnapRestore®, SnapVault® primary, FlexClone®, iSCSI, and NFS and CIFS protocol licenses. Client software such as SnapManager® is supported and orderable à la carte.</p>
+<p>The following key features are not supported in Data ONTAP Edge: two-node high availability, RAID DP®, Cluster-Mode, SyncMirror®, MultiStore®, MetroCluster™, Flash Pool, and data compression. Also, SnapVault secondary and SnapMirror® are not offered with this model of Data ONTAP Edge.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3357" title="">10 Сентябрь 2012, 17:28</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3358">
+		<div id="div-comment-3358">
+		<div class="comment-author">
+			<cite>Aleksey Sychev:<cite></div>
+			<p>Это выдержка из официального Product Bulletin на First Customer Release. Хотя, в будущих версиях, скорей всего, этот функционал добавят.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3358" title="">10 Сентябрь 2012, 17:30</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3359">
+		<div id="div-comment-3359">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>ONTAP edge-T решит проблемы с поддержкой SVpri/sec и  SnapMirror</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3359" title="">10 Сентябрь 2012, 17:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3360">
+		<div id="div-comment-3360">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>функционал edge соответствует переводу этого слова. По моему, круто и вовремя, еще бы с ценой не промахнулись.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3360" title="">10 Сентябрь 2012, 17:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3361">
+		<div id="div-comment-3361">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Aleksey Sychev:</p>
+<p>> Also, SnapVault secondary and SnapMirror® are not offered with this model of Data ONTAP Edge.</p>
+<p>А в лицензиях SnapMirror прислали. ?? про SnapVault тоже нет разделения на primary и secondary, просто SnapVault, и все.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3361" title="">10 Сентябрь 2012, 17:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3362">
+		<div id="div-comment-3362">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Чем дальше в лес, тем толще партизан<br />
+Deploy Data ONTAP as a FlexCache-v with 32(96)Gb memory</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3362" title="">10 Сентябрь 2012, 18:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3378">
+		<div id="div-comment-3378">
+		<div class="comment-author">
+			<cite>navion:<cite></div>
+			<p>С такими запросами могли бы сделать полноценную СХД, а не обрезок для хранения снапшотов.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3378" title="">11 Сентябрь 2012, 20:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3382">
+		<div id="div-comment-3382">
+		<div class="comment-author">
+			<cite>river:<cite></div>
+			<p>navion:<br />
+&gt;С такими запросами могли бы сделать полноценную СХД, а не обрезок для хранения снапшотов.</p>
+<p>запросы не велики, 4гб оперативы на один вирт.сторадж. к слову это и есть полноценная вирт.схд. хранением снапшотов ее функционал не ограничивается.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3382" title="">11 Сентябрь 2012, 22:51</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3394">
+		<div id="div-comment-3394">
+		<div class="comment-author">
+			<cite>Киселев Сергей:<cite></div>
+			<p>Минусы:<br />
+- работает только на одном сервере и в случае падения сервера данные на Edge становятся недоступны<br />
+- отсутствует (надеюсь временно) поддержка SnapMirror<br />
+- отсутствие RAID-DP<br />
+Плюсы:<br />
+- дешёвый<br />
+- простая интеграция с центром где стоит NetApp FAS</p>
+<p>К сожалению не нашёл информации по сравнению Edge с VMware VSA и с HP LeftHand VSA.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3394" title="">12 Сентябрь 2012, 11:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3407">
+		<div id="div-comment-3407">
+		<div class="comment-author">
+			<cite>river:<cite></div>
+			<p>Киселев Сергей:<br />
+&gt; отсутствует (надеюсь временно) поддержка SnapMirror<br />
+у меня снапмиррор на едже активен, вы проверяли или поверили предыдущим комментаторам? </p>
+<p>&gt; отсутствие RAID-DP<br />
+в системе эмулируется всего один физический диск :) зачем ему рейд? главное есть wafl и весь функционал поверх него.</p>
+<p>&gt; дешёвый<br />
+понятие дорогой/дешевый у всех разное, я уже видел квоты и мне честно говоря так не показалось :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3407" title="">12 Сентябрь 2012, 22:12</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3413">
+		<div id="div-comment-3413">
+		<div class="comment-author">
+			<cite>Aleksey Sychev:<cite></div>
+			<p>romx:<br />
+Значит, как всегда, неразбериха небольшая ;-)<br />
+Видимо, надо подождать некоторое время, пока все устаканится - и тогда будет понятно.</p>
+<p>river:<br />
+Жаль, что в данный момент нельзя заказать 1 штуку - минимум 10.<br />
+Для кого-то 10 может быть уже и дорого.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3413" title="">13 Сентябрь 2012, 13:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3418">
+		<div id="div-comment-3418">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>какие-то подозрительно низкие значения на линейных операциях для коммерческого решения, причем операции с хранилища по данным vcenter на порядок ниже, чем оно способно выдать. ?? на запись все очень плохо</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3418" title="">13 Сентябрь 2012, 18:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3436">
+		<div id="div-comment-3436">
+		<div class="comment-author">
+			<cite>Киселев Сергей:<cite></div>
+			<p>Ни кто не должен ждать от Edge каких-то высоких скоростей на операциях чтения-записи, всё будет определяться RAID контроллером и типом дисков в сервере.<br />
+Edge это прежде всего бэкап данных в центр на FAS.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3436" title="">14 Сентябрь 2012, 14:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3437">
+		<div id="div-comment-3437">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Речь об адекватных скоростях, если das дает пол гигабайта в секунду, а edge его использующий 35 мегабайт это не нормально. Предполагается, что в центр будут делать бэкап РАБОЧ??Х данных, а что может быть рабочим при таком доступе - текстовые файлы? Для их хранения давно используются порталы. Я надеюсь на кривизну своих рук, ибо все очень красиво задумано - кто тестил - поделитесь результатом, там пять минут инсталляции и edge  в систем менеджере.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3437" title="">14 Сентябрь 2012, 14:23</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1210" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.075 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

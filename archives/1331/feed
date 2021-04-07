@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP 8.2.1 - что нового?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1331/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1331</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:48 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Odna ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12760</link>
+		<dc:creator>Odna ptichka</dc:creator>
+		<pubDate>Thu, 20 Mar 2014 03:32:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12760</guid>
+		<description>Планов о sync snap mirror никто не объявлял - вы сами все придумали. Но были планы по метрокластеру в 8.3.  Ждать то осталось совсем не долго.</description>
+		<content:encoded><![CDATA[<p>Планов о sync snap mirror никто не объявлял - вы сами все придумали. Но были планы по метрокластеру в 8.3.  Ждать то осталось совсем не долго.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12750</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Wed, 19 Mar 2014 08:51:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12750</guid>
+		<description>А синхронной репликации cmode всё нет и нет :(</description>
+		<content:encoded><![CDATA[<p>А синхронной репликации cmode всё нет и нет :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Igor Litvinov</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12694</link>
+		<dc:creator>Igor Litvinov</dc:creator>
+		<pubDate>Sat, 15 Mar 2014 13:55:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12694</guid>
+		<description>Нет встроенного антивируса. Только внешний. Я специально почитал официальные релизы, да и сами нетаперы не подтверждают.</description>
+		<content:encoded><![CDATA[<p>Нет встроенного антивируса. Только внешний. Я специально почитал официальные релизы, да и сами нетаперы не подтверждают.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12692</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Sat, 15 Mar 2014 10:42:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12692</guid>
+		<description>2 romx:  не вводи в заблуждение -  это внешний антивирус.  Можно прочитать в релиз ноутах.</description>
+		<content:encoded><![CDATA[<p>2 romx:  не вводи в заблуждение -  это внешний антивирус.  Можно прочитать в релиз ноутах.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12676</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 14 Mar 2014 04:27:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12676</guid>
+		<description>Andrey:
+Начиная с 8.2.1 - возвращается, с модификациями и доделками.</description>
+		<content:encoded><![CDATA[<p>Andrey:<br />
+Начиная с 8.2.1 - возвращается, с модификациями и доделками.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12668</link>
+		<dc:creator>Andrey</dc:creator>
+		<pubDate>Thu, 13 Mar 2014 17:47:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12668</guid>
+		<description>Вроде как больше нет on-board антивируса?
+По-крайней мере ветка команд antivirus больше нет, зато есть коннектор к внешнему антивирусу.</description>
+		<content:encoded><![CDATA[<p>Вроде как больше нет on-board антивируса?<br />
+По-крайней мере ветка команд antivirus больше нет, зато есть коннектор к внешнему антивирусу.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12615</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 11 Mar 2014 07:15:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12615</guid>
+		<description>Про Performance manager будет отдельная статья в следующий понедельник. Да, это virtual appliance, внутри VM, бесплатный, и это отдельный продукт, я ошибся про выделение его из unified manager.</description>
+		<content:encoded><![CDATA[<p>Про Performance manager будет отдельная статья в следующий понедельник. Да, это virtual appliance, внутри VM, бесплатный, и это отдельный продукт, я ошибся про выделение его из unified manager.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12613</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 11 Mar 2014 06:27:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12613</guid>
+		<description>По поводу встроенного антивируса NetApp как-то не определился т.к. зарубежный NetApp заявлял о том, что не будет больше развивать этот функционал. В свете данной информации мои зарубежные коллеги сделали ставку на решения с внешними антивирусами. Хотя я буду очень рад, если NetApp в этом плане устаканится т.к. со внешними антивирусами часто возникают проблемы :(
+Performance Manager будет халявный? :)))</description>
+		<content:encoded><![CDATA[<p>По поводу встроенного антивируса NetApp как-то не определился т.к. зарубежный NetApp заявлял о том, что не будет больше развивать этот функционал. В свете данной информации мои зарубежные коллеги сделали ставку на решения с внешними антивирусами. Хотя я буду очень рад, если NetApp в этом плане устаканится т.к. со внешними антивирусами часто возникают проблемы :(<br />
+Performance Manager будет халявный? :)))</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Crow</title>
+		<link>http://blog.aboutnetapp.ru/archives/1331#comment-12611</link>
+		<dc:creator>Crow</dc:creator>
+		<pubDate>Tue, 11 Mar 2014 03:44:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1331#comment-12611</guid>
+		<description>Роман! Можно поподробнее вот про это: Performance Manager 1.0</description>
+		<content:encoded><![CDATA[<p>Роман! Можно поподробнее вот про это: Performance Manager 1.0</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

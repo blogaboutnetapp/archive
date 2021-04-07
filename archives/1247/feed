@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Striped Volume в Cluster-mode</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1247/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1247</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:02 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1247#comment-6618</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 27 Mar 2013 10:20:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1247#comment-6618</guid>
+		<description>bbk&#62; Говорят якобы в 8.0.1
+Правка: 8.1.1RC</description>
+		<content:encoded><![CDATA[<p>bbk&gt; Говорят якобы в 8.0.1<br />
+Правка: 8.1.1RC</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1247#comment-6239</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 05 Mar 2013 07:11:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1247#comment-6239</guid>
+		<description>Говорят якобы в 8.0.1 убрали Striped Volume :(</description>
+		<content:encoded><![CDATA[<p>Говорят якобы в 8.0.1 убрали Striped Volume :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1247#comment-6238</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 05 Mar 2013 07:11:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1247#comment-6238</guid>
+		<description>Minus:
+
+Ну это, конечно, Unified решение, так что, с точки зрения стораджа, все равно.
+Однако надо понимать, что у данной фичи есть довольно существенные недостатки с точки зрения архитектуры, например она не позволяет включать в кластер разнородные контроллеры, и есть ряд неприятных глюков, так что, как мне тут за кадром уже написали оттуда (показывает вверх) данная фича пока "захолдена", и развиваться _пока_ не будет и не рекомендуется в продакшн.</description>
+		<content:encoded><![CDATA[<p>Minus:</p>
+<p>Ну это, конечно, Unified решение, так что, с точки зрения стораджа, все равно.<br />
+Однако надо понимать, что у данной фичи есть довольно существенные недостатки с точки зрения архитектуры, например она не позволяет включать в кластер разнородные контроллеры, и есть ряд неприятных глюков, так что, как мне тут за кадром уже написали оттуда (показывает вверх) данная фича пока &#8220;захолдена&#8221;, и развиваться _пока_ не будет и не рекомендуется в продакшн.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/1247#comment-6237</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Tue, 05 Mar 2013 06:40:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1247#comment-6237</guid>
+		<description>А на таких томах LUN-ы можно размещать, или оно только для файлового доступа?
+?? как он I/O на LUN распределяет, если можно?</description>
+		<content:encoded><![CDATA[<p>А на таких томах LUN-ы можно размещать, или оно только для файлового доступа?<br />
+?? как он I/O на LUN распределяет, если можно?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1247#comment-6229</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 04 Mar 2013 17:18:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1247#comment-6229</guid>
+		<description>Киселев Сергей:
+
+Странные у вас сведения.
+Вот прямо из официального буклета: http://www.tech.proact.co.uk/netapp/ontap8clustermode.pdf
+Data ONTAP 8.0 Cluster-Mode systems use clustered file-system technology to provide maximum I/O throughput and remove the bottlenecks that impact production. &lt;b&gt;You can stripe volumes across any or all of the storage controllers&lt;/b&gt;
+
+Впрочем, на следующей неделе я напишу отдельный пост, почему striped volume, при своих очевидных плюсах, также имеет и ряд существенных минусов, с точки зрения инфраструктуры хранения в целом.</description>
+		<content:encoded><![CDATA[<p>Киселев Сергей:</p>
+<p>Странные у вас сведения.<br />
+Вот прямо из официального буклета: <a href="http://www.tech.proact.co.uk/netapp/ontap8clustermode.pdf" rel="nofollow">http://www.tech.proact.co.uk/netapp/ontap8clustermode.pdf</a><br />
+Data ONTAP 8.0 Cluster-Mode systems use clustered file-system technology to provide maximum I/O throughput and remove the bottlenecks that impact production. <b>You can stripe volumes across any or all of the storage controllers</b></p>
+<p>Впрочем, на следующей неделе я напишу отдельный пост, почему striped volume, при своих очевидных плюсах, также имеет и ряд существенных минусов, с точки зрения инфраструктуры хранения в целом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Киселев Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1247#comment-6215</link>
+		<dc:creator>Киселев Сергей</dc:creator>
+		<pubDate>Mon, 04 Mar 2013 08:28:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1247#comment-6215</guid>
+		<description>Насколько я помню, функционал striped aggregate (и соответственно striped volume) был реализован на Data ONTAP GX.
+В Clustered Data ONTAP (aka Data ONTAP Cluster-Mode) такой функционал для новых систем не реализован, он остаётся для тех систем, которые апгрейдятся с GX на Clustered Data ONTAP.
+Хотя очень жалко ... очень жду жду он появится ... думаю что скорее всего в новой инкарнации.</description>
+		<content:encoded><![CDATA[<p>Насколько я помню, функционал striped aggregate (и соответственно striped volume) был реализован на Data ONTAP GX.<br />
+В Clustered Data ONTAP (aka Data ONTAP Cluster-Mode) такой функционал для новых систем не реализован, он остаётся для тех систем, которые апгрейдятся с GX на Clustered Data ONTAP.<br />
+Хотя очень жалко &#8230; очень жду жду он появится &#8230; думаю что скорее всего в новой инкарнации.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

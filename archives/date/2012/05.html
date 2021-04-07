@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; 2012 &raquo; Май</title>
+
+<link rel="stylesheet" href="../../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../../feed" />
+<link rel="pingback" href="../../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Archive for Май 2012</p>
+
+				
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1165">
+				<h2 class="posttitle"><a href="../../1165/trackback.html" rel="bookmark" title="Permanent Link to VMware и использование NFS: часть 3b &ndash; Трафик NFS в одной подсети">VMware и использование NFS: часть 3b &ndash; Трафик NFS в одной подсети</a></h2>
+				<div class="postmetadata">31 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Для рассмотрения вопроса, как работает доступ к стораджу по NFS с хоста ESXi, я снова воспользуюсь серией постов блога <a href="http://wahlnetwork.com">Wahl Network</a>, переводы которых я публикую сегодня и в ближайшие несколько дней. Его автор провел экспериментальную работу, показав то, как работает NFS в сети хранения, когда датасторы и vmkernel расположены в одной общей подсети, в разных подсетях, и рассмотрел вариант использования Load-based teaming, доступный для пользователей версии vSphere уровня Enterprise Plus.</p>
+<p>Я надеюсь, что эти статьи ответят на вопрос, как же все же работает NFS в сети хранения vSphere, и как стораджи с использованием этого протокола правильно использовать для VMware vSphere 5.0.</p>
+<h2><a href="http://wahlnetwork.com/2012/04/23/nfs-on-vsphere-technical-deep-dive-on-same-subnet-storage-traffic/">NFS в vSphere – погружение в детали: часть 1, порты vmkernel и экспорты NFS в единой общей подсети</a></h2>
+<p>Apr 23, 2012 </p>
+<h3>Конфигурация</h3>
+<p>Для эксперимента, показывающего, как vSphere направляет трафик NFS в одной подсети, я создал тестовый стенд, с использованием 2 серверов NFS (я использовал для этого NetApp Simulator) с каждого их которых выведено по 2 экспорта, суммарно 4 экспорта NFS. Весь трафик направлен в VLAN 5 (это подсеть 10.0.5.0/24 моего стенда) и идет на хост ESXi 5.0 update 1 (build 623860). Хост имеет 2 физических порта-аплинка и 4 порта vmkernel, дающих трафику NFS множество возможны путей. Для того, чтобы создать существенный трафик в сети хранения, я развернул 4 VM с VMware IO analyzer appliance – по одному на каждый экспорт. Это позволит мне быстро создать трафик с виртуальных машин на все экспорты разом.</p>
+<p>   <a href="../../1165/trackback.html#more-1165" class="more-link"><small>Continue reading &#8216;VMware и использование NFS: часть 3b &ndash; Трафик NFS в одной подсети&#8217; &raquo;</small></a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/esx.html" rel="tag">esx</a>, <a href="../../tag/etherchannel.html" rel="tag">etherchannel</a>, <a href="../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../tag/nfs/index.html" rel="tag">nfs</a>, <a href="../../tag/vmware/index.html" rel="tag">vmware</a>, <a href="../../tag/vsphere/index.html" rel="tag">vsphere</a><br />					Раздел: <a href="../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1165/trackback.html#respond" title="Комментарий к записи VMware и использование NFS: часть 3b &ndash; Трафик NFS в одной подсети">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1164">
+				<h2 class="posttitle"><a href="../../1164/trackback.html" rel="bookmark" title="Permanent Link to VMware и использование NFS: часть 3а &ndash;Балансировка нагрузки по NFS">VMware и использование NFS: часть 3а &ndash;Балансировка нагрузки по NFS</a></h2>
+				<div class="postmetadata">28 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как вы помните, я обещал остановиться на вопросе как именно правильно настраивать работу NFS по нескольким физическим интерфейсам Ethernet. ??так, отдельный разоблачения заблуждений в отношении multipathing для NFS псто!</p>
+<p>Как я уже вкратце показал, широкораспространенное заблуждение, что, использовав NFS, вы будете вынужденно ограничены ровно одним интерфейсом ethernet, так как “NFS не поддерживает multipathing” – не верно. К моему глубокому сожалению, это заблуждение местами поддерживает даже сама VMware, несмотря на то, что метод балансировки с помощью нескольких портов VMkernel и нескольких IP-алиасов описан и рекомендуется в их же Best Practices.</p>
+<p>Я уже написал ранее, что принципы работы NFS таковы, что даже пустив трафик Ethernet по нескольким объединенным в etherchannel портам, вы не добьетесь не только равномерной их загрузки, но даже не загрузите порты кроме первого. Это по видимому связано с тем, что NFS образует ровно одну TCP/IP сессию для данной пары IP-адресов “источник-приемник”, и именно ее и пускает по первому же подходящему для этого порту. А одну сессию разбить на несколько интерфейсов нельзя. Видимо именно это явилось источником странного заблуждения, что трафик NFS нельзя распределить по нескольким интерфейсам. Это не так, можно. Но нужна некоторая хитрость, в общем-то очевидная. Нужно создать несколько пар IP “источник-получатель”, в разных подсетях, и их уже распределить по интерфейсам.&#160; Об этом подробнее далее в постах серии.</p>
+<p>Впрочем, как вы уже видите, неверно и обратное убеждение. Совсем недостаточно объединить несколько портов в etherchannel (у NetApp он называется VIF или ifgrp), чтобы, автоматически, увеличить пропусную способность получившегося интерфейса в Х-раз.</p>
+<p>Давайте разберем некоторые распространенные заблуждения на этот счет:</p>
+<p><strong>1. Трафик NFS можно назначить на порт VMkernel также, как мы назначаем его для iSCSI.</strong></p>
+<p>Это не так. К сожалению.</p>
+<p><img src="http://wahlnetwork.files.wordpress.com/2012/04/virtual-adapter-settings.png" /></p>
+<p>Как вы видите на рисунке, в обведенном оранжевой рамкой боксе, можно назначить данный порт для: <em>iSCSI, FT, Management</em> или <em>vMotion</em>. Но не для NFS. Трафик NFS пойдет по первому же порту, принадлежащему подсети IP-получателя. Если порта в подсети IP-получателя трафика нет, то трафик пойдет через порт Management, в направлении его default gateway (предсказуемо), и такого варианта следует всеми силами избегать.</p>
+<p><strong>2. Трафик NFS равномерно распределяется по всем аплинкам (физическим vmnic) хоста, используемым для связи с системой хранения.</strong></p>
+<p>Увы – нет. Когда ESXi нажодит и выбирает подходящий порт vmkernel (принцип выбора описан выше), следуюшим шагом он выбирает аплинк. Независимо от типа vSwitch, хост vSphere использует конфигурацию portgroup по умолчанию (только с использованием virtual port ID), и, при наличии нескольких активных аплинков в группе, будет выбран только один (первый подходящий) аплинк для трафика NFS к данному примонтированному экспорту. Порты в группе при этом работают на поддержку high availability, то есть при выходе из строя активного порта, трафик перейдет на ранее пассивный порт, но не для load balancing, то есть трафик NFS по портам vmnic в группе не распределяется.</p>
+<p><strong>3. Достаточно включить несколько физических портов на стороне стораджа в VIF (etherchannel), и трафик магическим образом распределится по всем им, расширяя полосу пропускания интерфейса в Х-раз.</strong></p>
+<p>Тоже, к сожалению, в общем случае, без дополнительных усилий, неверно. При наличии одной TCP/IP сессии NFS с одного IP-источника на один IP-получатель, нельзя “разложить” трафик на несколько портов. Но можно это сделать для нескольких портов, нескольких IP-алиасов для получателя и/или&#160; нескольких портов VMkernel. Тогда, создав, например 4 пары IP в разных подсетях, для четырех eth, можно гораздо более равномено загрузить их работой. Это не столь “магически-автоматически”, но это работает. Без такого разбиения и распределения&#160; etherchannel обеспечивает только отказостоустойчивость (при отказе активного порта, трафик перенаправится в другой, ранее неактивный, в той же группе), но не балансировку нагрузки и не расширение bandwidth.</p>
+<p>На стороне хоста ESXi для использования балансировки вам необходимо создать <em>static Etherchannel </em>с <em>IPhash-based teaming policy</em>, и иметь у vmkernel IP уникальный, между другими vmk, так называемый <em><a href="http://en.wikipedia.org/wiki/Least_significant_bit">least significant bit</a></em>.</p>
+<p>Если у вас на VMware лицензия Enterprise Plus, и вы используете vSphere Distributed Switch, вы также можете воспользоваться <em>Load-based Teaming</em> для распределения трафика по VLAN или подсетям. При этом вам также понадобятся несколько VLAN или подсетей на VIF стораджа. Подробнее о таком варианте – в одном из следующих постов.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/etherchannel.html" rel="tag">etherchannel</a>, <a href="../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../tag/nfs/index.html" rel="tag">nfs</a>, <a href="../../tag/vif.html" rel="tag">vif</a>, <a href="../../tag/vmware/index.html" rel="tag">vmware</a><br />					Раздел: <a href="../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1164/trackback.html#comments" title="Комментарий к записи VMware и использование NFS: часть 3а &ndash;Балансировка нагрузки по NFS">Комментарии (4)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1160">
+				<h2 class="posttitle"><a href="../../1160/trackback.html" rel="bookmark" title="Permanent Link to О использовании EtherСhannel в vSphere">О использовании EtherСhannel в vSphere</a></h2>
+				<div class="postmetadata">24 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Несмотря на то, что основная тема блога – системы хранения, прежде всего системы хранения NetApp, поневоле приходится затрагивать интересные смежные темы. Раз уж мы заговорили тут про NFS, стоит затронуть тему использования LACP при организации EtherChannel, так как, как я заметил, понимание этой темы у многих все еще довольно зыбкое.</p>
+<p>Поэтому, в очередных переводах в этом блоге – перевод поста в интересном блоге <a href="http://wahlnetwork.com">Wahl Network</a></p>
+<h2><a href="http://wahlnetwork.com/2012/05/09/demystifying-lacp-vs-static-etherchannel-for-vsphere/">Демистификация LACP и Static EtherChannel в vSphere</a></h2>
+<p>May 9, 2012</p>
+<p>Удивительно часто я слышу о людях, которые воспринимают LACP как некую волшебную палочку, которой достаточно махнуть, и все чудесным образом <em>становится лучше</em>, а трафик волшебным образом распределяется по множеству линков. Я думаю, что это происходит от непонимания базового устройства того, как работает EtherChannel, так как я слышал множество ошибочных утверждений и FUD вокруг этого. Этот пост является попыткой описать то, что же за штука, этот LACP, почему он не работает на обычных, native vSphere switches, и почему он, на деле, имеет совсем небольшое количество преимуществ, в сравнении со static EtherChannel.</p>
+<h3>??так, что такое LACP?</h3>
+<p>LACP, иначе известный как <strong>IEEE 802.1ax Link Aggregation Control Protocol</strong>, это простой способ <strong>динамически</strong> строить EtherChannel. Для этого &quot;активная&quot; сторона группы LACP посылает специальный фрейм, оповещающий о возможностях и желаемых формах EtherChannel. Возможно существование, и чаще всего так и бывает, когда обе стороны являются &quot;активными&quot; (может быть и пассивная сторона). Также следует отметить, что LACP поддерживает только full duplex линки (в настоящий момент, в мире гигабитных, и более, линков, которые всегда full duplex, это уже не является значимым ограничением). Как только обмен фреймам произведен, и порты на обоих сторонах согласовали поддержку требований, LACP создает EtherChannel.</p>
+<p>Внимание: LACP также имеет ряд дополнительных возможностей при установке EtherChannel, например вычисление приоритета системы или порта, конфигурацию административного ключа, и так далее. Для нас сейчас это все не важно, поэтому эти детали мы опускаем, если хотите разобраться в подробностях, вам придется изучить эти опущенные подробности самостоятельно.</p>
+<h3>LACP отсутствует в Native vSphere Switches</h3>
+<p>Ситуация проста, нативные коммутаторы vSphere не отвечают на фреймы LACP. Они не слушают и не передают соответствующие кадры. Если вы настроили LACP на внешнем коммутаторе, он не получит отклика на запросы LACP от хоста vSphere, и, следовательно, EtherChannel не будет создан.</p>
+<p>Если вы хотите создать EtherChannel с участием хоста vSphere, вы должны создать Static EtherChannel. Когда порт установлен в Static, он не участвует в процессах объявления или распознавания LACP – канал EtherChannel немедленно создается физическим коммутатором.</p>
+<h3>Как работает распределение нагрузки (Load Distribution)?</h3>
+<p>Главная мысль:   <br /><strong><em>Как Static так и Dynamic (LACP) EtherChannel используют одни и те же методы распределения нагрузки (load distribution).</em></strong></p>
+<p>Я специально выделил это курсивом и жирным шрифтом. Да, это правда. ?? Static, и LACP используют одни и те же техники балансировки нагрузки для распределения трафика по линкам. Если кто-то утверждает иное, то можете поспорить с ним на деньги, можете хорошо выиграть.</p>
+<h3>Но Static EtherChannel требует IP Hash, а LACP - нет, не так ли?</h3>
+<p>А сейчас переходим в темную часть. Ответ на заданный в заголовке вопрос: &quot;Это не так&quot;, но вот почему это не так?</p>
+<p>IP Hash это требование native vSphere switch. Он не поддерживает никакие другие методы load distribution.</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="clip_image001" border="0" alt="clip_image001" src="/pics/ee51c31379cc_A89B/clip_image001.png" width="650" height="203" /></p>
+<p>Скриншот выше взять из <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf">vSphere Networking</a> guide</p>
+<p>А это уведомление из vSphere:</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="clip_image002" border="0" alt="clip_image002" src="/pics/ee51c31379cc_A89B/clip_image002.png" width="445" height="188" /></p>
+<p>Отметьте, что если я хочу использовать EtherChannel, я выбираю IP Hash в качестве метода балансировки, и появляется данный бокс с сообщением.</p>
+<p>Внимание: Термин IP Hash эквивалентен политике load distribution policy вида <strong>src-dst-ip</strong> на коммутаторе Cisco.</p>
+<p>Static EtherChannel в других случаях может использовать любые из доступных политик распределения нагрузки. Но когда порты работают с хостом vSphere, мы вынуждены использовать только IP Hash, так как vSphere ничего другого не умеет.</p>
+<p>Если вы хотите использовать LACP с vSphere, вам потребуется установить виртуальный коммутатор Cisco Nexus 1000V (или IBM 5000v). Нет других способов задействовать LACP с vSphere на момент написания этого поста. ??, так как 1000V это (почти) полнофункциональный коммутатор Cisco, в отличие от native vSphere switch, вы можете использовать любые политики load distribution – вы не ограничены только IP Hash (src-dst-ip)</p>
+<h3>Преимущества LACP перед Static</h3>
+<p>LACP имеет несколько &quot;карт в рукаве&quot;, но это не относится к методам распределения трафика по каналам EtherСhannel.</p>
+<h4>Hot-Standby Ports</h4>
+<p>Если вы добавите больше поддерживаемого числа портов в LACP port channel, есть возможность использовать лишние порты в качестве портов hot-standby mode. Если произойдет отказ активного порта, порт hot-standby автоматически заменит его.</p>
+<p>Однако, типичное число поддержваемых портов в LACP равно 8, так что для системы vSphere это не та возможность, о коорой стоит беспокоиться. Сомнительно, что у вас сделан 8-канальный EtherChannels к одному хосту vSphere. </p>
+<h4>Failover</h4>
+<p>Если у вас имеется dumb-устройство между двумя концами EtherChannel, например <a href="http://en.wikipedia.org/wiki/Fiber_media_converter">media converter</a>, и один из линков, идущих через него отказывает, LACP это понимает и перестает слать трафик в отказавший линк. Static EtherChannel не мониторит состояние линков. Это не типичная ситуация для большинства систем vSphere, которые мне встречались, но в ряде случаев это может оказаться полезным.</p>
+<h4>Проверка конфигурации</h4>
+<p>EtherChannel с использованием LACP не активируется, если есть какие-то проблемы с конфигурацией. Это помогает убедиться, что все настроено нормально. Static EtherСhannel не делает каких-либо проверок перед своим задействованием, то есть вам нужно заранее быть уверенными, что все сделано правильно.</p>
+<h3>Выводы</h3>
+<p>Я не хочу сказать, что LACP (или Nexus 1000V) это плохо. LACP - это очень полезный и популярный протокол, активно используемый. Проблема, побудившая меня написать этот пост в том, что я вижу людей, которые считают что с использованием LACP они получат лучшую балансировку трафика, или же что-то еще, что он совершенно точно не делает. Так что не спешите закупать Cisco 1000V для вашей системы vSphere только оттого, что вы хотите использовать LACP, пока вы не будете иметь ясного плана того, что, на самом деле, вы хотите получить в результате.</p>
+<p>??сточник:   <br /> <a href="http://wahlnetwork.com/2012/05/09/demystifying-lacp-vs-static-etherchannel-for-vsphere/">http://wahlnetwork.com/2012/05/09/demystifying-lacp-vs-static-etherchannel-for-vsphere/</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/etherchannel.html" rel="tag">etherchannel</a>, <a href="../../tag/lacp.html" rel="tag">lacp</a>, <a href="../../tag/vsphere/index.html" rel="tag">vsphere</a><br />					Раздел: <a href="../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1160/trackback.html#respond" title="Комментарий к записи О использовании EtherСhannel в vSphere">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1159">
+				<h2 class="posttitle"><a href="../../1159/trackback.html" rel="bookmark" title="Permanent Link to VMware и использование NFS: часть 2">VMware и использование NFS: часть 2</a></h2>
+				<div class="postmetadata">21 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В <a href="../../1151/trackback.html">части первой</a> я написал небольшую вводную, что такое NFS, и почему вам стоит обратить на этот способ подключения системы хранения к хост-серверу виртуализации, какие достоинства, удобства и премущества есть у этого способа.</p>
+<p>??так, перейдем к некоторым конкретным вопросам, на которые приодится отвечать, выбирая NFS в качестве протокола доступа к датастору в VMware. Впервые такой вариант появился еще в VMware ESX 3.0, и постепенно зарабатывает все большую популярность, потесняя “классический” блочный способ подключения по FCP или iSCSI. О преимуществах, и некоторых недостатках я писал в <a href="../../1151/trackback.html">первой части данной серии</a>.</p>
+<p>Какие же основные проблемы принято называть, когда речь идет о испоьзовании NFS для VMware?</p>
+<p><strong>1. На NFS нет multipathing.</strong></p>
+<p>“<em>?? значит, выбирая NFS, я ограничен производительностью только одного интерфейса Ethernet</em>” добавляется явно или подразумеваемо. Ну, на самом деле это “и так и не так”. Пока оставим “за скобками” <em>практическую </em>надобность расширения канала к дискам даже для Gigabit Ethernet NFS или iSCSI (во многих системах это расширение bandwidth имеет довольно спорную <em>практическую </em>ценность). На NFS действительно нет multipath в том виде, в котором он понимается в блочных протоколах, потому что <strong>multipathing (MPIO, Multipathed Input Output) – это фича исключительно блочных протоколов.</strong> А так как NFS это не блочный протокол, то <em>фичи блочных протоколов</em> в нем быть не может “по определению”. Это так. Однако, NFS, как протокол поверх TCP/IP, конечно же имеет возможности реализации отказоустойчивости, путем использования множественных путей (как его имеет сам нижележащий TCP/IP), а также использования нескольких параллельных каналов доступа к данным, для расширения bandwidth. </p>
+<p>Но тут есть некотрая тонкость. Проблема связана с тем, что NFS, для связи с данным датастором, с данным IP, и всеми его файлами, использует только одну TCP-сессию. А одну сессию, имеющую один IP-source и один IP-destination никак нельзя забалансировать по нескольким физическим портам Ethernet, даже с использованием etherchannel, формально работающем уровнем ниже.</p>
+<p>Но можно (и нужно) выйти из положения хитрым трюком. Дело в том, что можно создать для destination несколько так называемых IP-алиасов, а также несколько портов VMkernel в качестве IP-source. Датастор, тем самым может быть доступен по нескольким равноправным IP-адресам. Если мы подключим датастор таким образом, у нас уже могут быть несколько различных IP-destination, через разные IP-source в VMkernel и, значит, заработает балансировка по IP-хэшу. Такой трафик, вышедший из нескольких IP-source в своих подсетях, и пришедший на сторадж в разные IP-алиасы, <strong>можно</strong> распределить по нескольким физическим eth-интерфейсам. Просто это присходит не “мистически-автоматически”, как в случае iSCSI MPIO, а путем ручной настройки этой балансировки, и дальнейшей ее самостоятельной работы.</p>
+<p>Подробнее о этом методе рассказывается в <em><a href="http://www.netwell.ru/docs/netapp/rus_tr-3802_ethernet_storage_bp.pdf">TR-3802 Ethernet для систем хранения: Наилучшие методы</a></em> (глава 4.6 IP-алиасы), и в <em><a href="http://netwell.ru/docs/netapp/TR-3749_Rus_NetApp_VMware_vSphere_v5.0/tr-3749_rus_netapp_vmware_vsphere_v5.0.pdf">TR-3749 Руководство по наилучшим способам использования систем NetApp с VMware vSphere</a></em> (глава 3.3 Основы сети хранения с использованием Ethernet, глава 3.6 Сеть хранения с использованием Multiswitch Link Aggregation).</p>
+<p>Дабы не раздувать один блогопост, чуть подробнее предлагаю углубиться в тему в отдельном посте далее, посвященном тому, как именно организована балансировка методом нескольких IP-алиасов на стороне стораджа, и нескольких портов VMkernel на стороне хост-сервера.</p>
+<p><strong>UPD:</strong> Если вы счастливый обладатель VMware в лицензии <em>Enterprise Plus</em>, то тогда вам доступен еше один вариант загрузки нескольких NFS-линков к стораджу - это режим <em>Load-based Teaming</em> для интерфейсов vnic. Об этом способе мы также поговорим чуть позднее в отдельном посте.</p>
+<p><strong>2. NFS нестабилен в работе и имеет проблемы с призводительностью.</strong></p>
+<p><em>“Мы видели это своими глазами, собрав сервер NFS на Linux”</em> – добавляется явно или подразумеваемо. ?? это снова “и так, и не так”. Да, действительно, реализация NFS на Linux давно страдает серьезными проблемами, ее обычно приходится в продакшне твикать и патчить, только чтобы поправить некоторые наиболее вопиющие проблемы. В vanilla code она в продакшн малопригодна. Но это не значит, что <em>любой</em> NFS server также непригоден, только потому что он – NFS! Реализация NFS от NetApp зарекомендовала себя во множестве систем крайне высокого класса, ей по плечу задачи от небольших систем, до масштабов Yahoo!, Oracle, Siemens и Deutsche Telecom. NetApp имеет опыт разработки и эксплуатации NFS-серверов уже около 20 лет, в самых жестких условиях и требованиях по производительности и надежности. </p>
+<p>??так: Не все реализации NFS “одинаково полезны”. ?? реализацией NFS в Linux многообразие их не исчерпывается. Не нужно интерполировать на NetApp неудачные реализации одной отдельно взятой подсистемы, в одной конкретной OS (или группе OS, использующих общих прародителей данного кода).</p>
+<p>В следующей части я попробую более подробно остановится на методах multipathing для NFS, о которых выше в посте я вкратце уже упомянул.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/iscsi/index.html" rel="tag">iscsi</a>, <a href="../../tag/mpio.html" rel="tag">mpio</a>, <a href="../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../tag/nfs/index.html" rel="tag">nfs</a>, <a href="../../tag/vmware/index.html" rel="tag">vmware</a><br />					Раздел: <a href="../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1159/trackback.html#comments" title="Комментарий к записи VMware и использование NFS: часть 2">1 комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1157">
+				<h2 class="posttitle"><a href="../../1157/trackback.html" rel="bookmark" title="Permanent Link to NetApp TechTalk Live в Москве, 24 мая 2012г.">NetApp TechTalk Live в Москве, 24 мая 2012г.</a></h2>
+				<div class="postmetadata">17 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В следующий четверг, в Москве, в <a href="http://www.moscow-hi.ru/sys/image_view.html?src=/userdata/images/map_lesn.jpg&amp;alt=%D0%9A%D0%B0%D1%80%D1%82%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%B7%D0%B4%D0%B0">Holiday Inn Лесная</a> (ст.м. Белорусская) состоится технический семинар по программе TechTalk Live. Если вы еще не посещали ни один из таких семинаров NetApp, то расскажу, что это преимущественно “технический”, инженерский семинар, с минимумом “конвергенций и синергий”, и с максимумом практических тем, касающихся реальной жизни и заботящих практических специалистов реальных систем.</p>
+<p>Объявлена следующая программа:</p>
+<tr>
+<td>
+<table class="agenda" border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 0px" width="100"><strong>Время</strong></td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 0px" valign="top"><strong>Действие</strong></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">09:30 – 10:00 </td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Регистрация, приветственный кофе</strong></td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">10:00 – 10:10</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Обзор программы семинара </strong></td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">10:10 – 10:50</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Технологические аспекты NAS решений</strong>             <br /><em>Роман Ройфман</em> </td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">10:50 – 11:30</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>NAS для VMware </strong>            <br /><em>Роман Ройфман</em> </td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">11:30 – 12:10</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>NAS для СУБД </strong>            <br /><em>??горь Увкин</em> </td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">12:10 – 12:30</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Кофе-брейк</strong></td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">12:30 – 13:10</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>NAS для Windows</strong>             <br /><em>??горь Увкин</em> </td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">13:10 – 13:50</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Техническая презентация </strong>            <br />(тема будет объявлена позднее)</td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">13:50 – 14:10</td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Сессия вопросов и ответов</strong></td>
+</tr>
+<tr>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top">14:10 – 15:00 </td>
+<td style="font-family: arial, helvetica, sans-serif; color: #454545; font-size: 12px; padding-top: 10px" valign="top"><strong>Фуршет, общение с инженерами NetApp </strong></td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody></tbody>
+</table>
+</td>
+<td width="23">&#160;</td>
+<p>Как видите из программы, текушая тема – NAS-аспект систем хранения NetApp, аспект, который пока, по моему наблюдению, незаслуженно и неоправданно в России находится “в загоне”. ??спользование высокопроизводительных файловых, NAS-систем хранения – большой и хорошо растущий сегмент в мире, много лет как себя хорошо зарекомендовавший, в России все еще имеет репутацию “чего-то несерьезного”. Ну, NAS, это же всякие QNAP и Synology, да? ??спользовать Oracle 11g RAC на NAS? Вы должно быть шутите?&#160; То ли дело файбер ченэл, вот это – сила! ;)</p>
+<p>Надеюсь, пришедшие на семинар получат представление о существующем потенциале NAS-компоненты unified-систем NetApp FAS, и, возможно, пересмотрят свое мнение о нем. А те, кто уже знают, как использовать NFS для Oracle или VMware, или для HPC-систем, возможно получат ответы на свои вопросы “из первых уст”,&#160; узнают о перспективах, например о развитии в направлении Cluster-mode.</p>
+<p>Предварительная регистрация делается тут: <a href="http://www.netapp.com/ru/forms/ru-20120524-ttl-seminar.html">Регистрация на TechTalk Live</a></p>
+<p>Официальная страничка с программой: <a href="http://communicate.netapp.com/content/ru-20120524-ttl-seminar">Программа TechTalk Live 24 мая, 2012 г. Москва.</a></tr>
+<tr>
+<td width="23">&#160;</td>
+</p>
+<p><td width="339" valign="top">&#160;</td>
+</tr>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../tag/techtalk-live.html" rel="tag">techtalk live</a><br />					Раздел: <a href="../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1157/trackback.html#comments" title="Комментарий к записи NetApp TechTalk Live в Москве, 24 мая 2012г.">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1158">
+				<h2 class="posttitle"><a href="../../1158/trackback.html" rel="bookmark" title="Permanent Link to Hybrid Aggregate теперь Flash Pool!">Hybrid Aggregate теперь Flash Pool!</a></h2>
+				<div class="postmetadata">14 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Ну, так как до выхода 8.1.1 уже совсем немного времени, давайте я уже расскажу вам, что же такое Flash Pool, который появится у NetApp начиная с этой версии.</p>
+<p>Я ранее уже несколько раз упоминал о новой идее NetApp – включении нескольких SSD непосредственно в дисковый aggregate системы хранения, и использования их под кэш “уровня aggregate”, в том числе и для записи. Эта конструкция дополняет возможности Flash Cache, может работать как с ним вместе, так и сама по себе, причем, отметьте, также и для систем, на которых Flash Cache, по тем или иным причинам, использовать <strike>уже</strike> нельзя, например FAS3210, 3140, и даже 2240.</p>
+<p>К моменту выпуска, реализация <a href="../../1096/trackback.html">Hybrid Aggregate</a> в системах NetApp получила собственное, коммерческое имя-торговую марку Flash Pool, и далее я буду пользоваться именно им. Вы же знайте, что Flash Pool это название реализации NetApp Hybrid Aggregate в Data ONTAP 8.1.1 и новее.</p>
+<p>К сожалению, вокруг Hybrid Aggregate/Flash Pool уже начало образовываться облако недопониманий и мифов, а моя задача в очередной раз внести ясность в тему.</p>
+<p>??так, начнем.</p>
+<p>Прежде всего, я бы хотел сказать, что, вопреки домыслам, Flash Pool это <strong>НЕ</strong> <strong>tiering</strong>, в классическом его понимании (например в том виде, в каком он представлен в EMC FAST), это кэш. Этот момент понятен? НЕ disk tiering, not, nicht, nie. :) <strong>Это КЭШ</strong>.</p>
+<p>Появление Flash Pool также не означает отказа от Flash Cache. Это независимое, но дополняющее решение. Он может работать с Flash Cache, может работать сам по себе. В случае работы с Flash Cache, кэширование не дублируется. Тома, работающие с Flash Pool (находящиеся в аггрегейте с SSD) не кэшируются в Flash Cache. Помните, что Flash Cache может работать со всеми aggregates и volumes системы в целом, а кэширование Flash Pool распространяется только на тома одного aggregate. Если у вас несколько aggregates, вам понадобится добавлять SSD для создания Flash Pool в каждый aggregate, который вы хотите кэшировать в Flash.</p>
+<p>В гибридный aggregate, то есть Flash Pool вы можете преобразовать любой 64-bit aggregate, добавив в него несколько SSD NetApp, объединенных в RAID-группу, и указав для aggregate соответстующую опцию, также его можно создать “с нуля” обычным способом, как любой aggregate. Но в создании Flash Pool есть несколько тонких моментов, именно на них я хочу остановится подробнее.</p>
+<p>Так как Flash Pool это кэш, то есть SSD, как таковые, не доступны для непосредственного хранения на них каких-то конкретных данных, а лишь кэшируют поступаюшие на и считываемые с томов aggregate данные, добавление в aggregate SSD <strong>не увеличивает его емкость</strong>. Есть и “побочный эффект” – если вы имеете aggregate, достигший максимального возможного для данного типа контроллеров размера, например 50TB для FAS3210, то вы все равно можете добавить в этот 50TB-аггрегейт диски SSD для Flash Pool.</p>
+<p>Тип RAID-группы для дисков, добавляемых в aggregate должен быть одинаков для всего aggregate. Если вы используете RAID-DP, то добавляемые SSD тоже должны быть в RAID-DP. Нельзя в aggregate из HDD в RAID-DP добавить SSD в RAID-4, например.</p>
+<p>Обратите внимание, что возможность добавления в aggregate дисков SSD <strong>НЕ</strong> означает возможности добавления в aggregate дисков HDD другого типа. Flash Pool може быть (по вашему выбору) из SAS/FC и SSD, или из SATA и SSD, но НЕ из SAS и SATA.</p>
+<p>После добавления SSD в aggregate вы, как и в случае обычных дисков, добавленных в aggregate, не можете “вынуть” их оттуда (например чтобы использовать их позже в другом, более нуждающемся aggregate) не уничтожив aggregate. </p>
+<p>Наверняка у многих уже вертится на языке вопрос: “Как же нам воспользоваться Flash Pool, если NetApp продает SSD только в составе полки на 24 диска?” Отвечаем: С появлением Flash Pool SSD NetApp будут продаваться паками по 4 штуки, что дает вам во Flash Pool 142GB кэша из 4 SSD. Диски имеют размер 100GB [84574 MiB], и когда они включаются в aggregate, построенный на RAID-DP, вы получите из 4 дисков два диска parity и два – data. Конечно, вы можее включить в Flash Pool и больше SSD.</p>
+<p>Однако помните, что SSD имеют интерфейс SATA. Это значит, что вы <strong>НЕ МОЖЕТЕ</strong> добавить SSD непосредственно в полку с дисками SAS. Но <strong>можете</strong> – в полку с дисками SATA. Смешивать физические интерфейсы дисков в составе одной полки нельзя. Таким образом, если у вас система с “только-SAS/FC”, вам понадобится для установки SSD, даже всего 4 штук, например, дополнительная полка “только-SATA”. Не забывайте об этой сложности.</p>
+<p>Вопрос, который я уже тоже слышу :) “Вы говорите – SSD работает на запись? А как же <em>с исчерпанием ресурса на перезапись для SSD</em>?”</p>
+<p>Ну, это тема. Да, безусловно, с этой точки зрения Flash Cache был принципиально более надежен, так как работал только на чтение, а записи (заполнение кэша) в него делались сравнительно (по меркам компьютера) редко, и большими “порциями”, которые flash memory как раз обрабатывает довольно хорошо, это не random write мелкими блоками. Однако <a href="../../669/trackback.html">практика использования SSD enterprise-class показывает</a>, что проблема пресловутого “исчерпания ресурсов SSD при записи” в значительной мере надумана, преувеличена, и присуща, в основном, “бытовым” SSD. Тем не менее, эта проблема возможна, так как Flash Pool действительно пишется, работая на запись (хотя, вы не забыли, записи в WAFL не рандомны, а секвентальны). Для защиты данных в случае выхода SSD из строя вы как раз и используете объединение SSD в RAID, а сами SSD, как устройства, покрыты общей трехлетней warranty на систему.</p>
+<p>На самом деле в отношении записи вы можете столкнуться с другой, более важной, чем мифическое “<em>исчерпание ресурса на запись</em>” неприятностью. Дело в том, что устройство flash таково (это так для любого flash-устройства”), что его производительность на запись падает, по мере активной записи (и пере-записи) данных на нем. Производительность SSD на запись максимальна, когда он полностью пуст и только пришел с завода.&#160; После того, как данные на SSD записываются, перезаписываются, и он постепенно заполняется данными, его производительность постепенно снижается, и стабилизируется на более низком, чем начальный, уровне, после того, как все его ячейки будут перезаписаны. С этим эффектом знакомы все владельцы SSD. Так что не экстраполируйте результаты первого испытания пустых SSD на всю его работу.</p>
+<p>Отвечая на третий вопрос ;) : Да, <a href="http://en.wikipedia.org/wiki/TRIM">TRIM</a> для SSD поддерживается Data ONTAP на уровне системы. </p>
+<p>Напомню, Flash Pool, новое название Hybrid Aggregate, появится в Data ONTAP 8.1.1, которая ожидается к выпуску в ближайшем месяце.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/811.html" rel="tag">8.1.1</a>, <a href="../../tag/flash/index.html" rel="tag">flash</a>, <a href="../../tag/flash-pool.html" rel="tag">flash pool</a>, <a href="../../tag/hybrid-aggregate.html" rel="tag">hybrid aggregate</a>, <a href="../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../tag/ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1158/trackback.html#comments" title="Комментарий к записи Hybrid Aggregate теперь Flash Pool!">Комментарии (22)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1153">
+				<h2 class="posttitle"><a href="../../1153/trackback.html" rel="bookmark" title="Permanent Link to NetApp как Software vendor по оценке Gartner">NetApp как Software vendor по оценке Gartner</a></h2>
+				<div class="postmetadata">10 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>А помните ли вы, что NetApp это не только производитель хороших стораджей, <strike>но и пять шесть килограммов</strike> но и крупный разработчик в области SRM (Storage Resource Management) и SAN Management, причем вовсе не обязательно используя только свои стораджи, а, в том числе, и для всей разнородной IT-инфраструктуры вашей компании в целом?</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/bcb0315c4e4c_12A9F/image.png" width="587" height="440" /></p>
+				</div>
+		
+				<div class="postmetadata">
+										Раздел: <a href="../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1153/trackback.html#comments" title="Комментарий к записи NetApp как Software vendor по оценке Gartner">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1155">
+				<h2 class="posttitle"><a href="../../1155/trackback.html" rel="bookmark" title="Permanent Link to О ситуации с Flash Cache и FAS3210/3140">О ситуации с Flash Cache и FAS3210/3140</a></h2>
+				<div class="postmetadata">8 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Недавняя моя <a href="../../1152/trackback.html">заметка о выходе Data ONTAP 8.1</a> и <em>некоторых особенностях</em> новой версии, вызвала довольно широкий отклик, поэтому, для уменьшения количества панических слухов, я решил написать это дополнение и разъяснение.</p>
+<p>Проблема, как вы уже знаете, в том, что, согласно Release Notes, в новой версии Data ONTAP, не поддерживается устройство Flash Cache на младших моделях линейки midrange, то есть на 3140, и даже на сравнительно недавно вышедшей 3210, несмотря на то, что Flash Cache можно физически в эти системы поставить, и ранее такая конфигурация поддерживалась.</p>
+<p>По этому поводу <strike>ТАСС уполномочен сообщить</strike> мой источник в NetApp сообщает:</p>
+<ol>
+<li>Да, действительно, это так. Поддержка Flash Cache для 3210/3140 сохраняется для ранее выпущенных версий Data ONTAP, то есть для линейки 7.3.х, и для v8 вплоть до версии 8.0.3 (и далее, если линейка 8.0.х будет продолжена).      </li>
+<li>Ситуация связана с некими сложностями на системном уровне. Дабы не задерживать выпуск 8.1, было решено подготовить фиксы для этой проблемы к следующей версии, 8.1.1, которая запланирована к выпуску в начале лета.     </li>
+<li>В <strong>версии 8.1.1</strong> вновь ожидается поддержка Flash Cache для 3210 <strong>в объеме 256GB на контроллер</strong> (полный объем одной платы на 256GB), и для 3140 – <strong>в половинном объеме от объема установленной платы 256GB</strong> (доступный объем для Flash Cache 256GB для 3140 будет виден размером 128GB).      </li>
+<li>Flash Cache для FAS/V3210 или FAS/V3140 <strong>более недоступен к заказу</strong>, соответствующая конфигурация недоступна в конфигураторе с декабря 2011 года, вне зависимости от версии OS.      </li>
+<li>Установка Flash Cache на купленные после этой даты FAS/V3210 или FAS/V3140 <strong>не разрешена и не поддерживается</strong>, вне зависимости от использованной версии DOT.      </li>
+<li><strong>Версия 8.2</strong>, и далее, также <strong>не будет поддерживать Flash Cache</strong> на системах FAS/V3210 и FAS/V3140.</li>
+</ol>
+<p>В свете всего вышеизложенного (это уже мое, romx, мнение), даже несмотря на обещанную <em>временную</em> починку в 8.1.1, я бы не рисковал использовать в продакшне систему, фича которой уже официально прекращена в последующих версиях OS.</p>
+<p><strong>UPD:</strong> Я говорю тут <strong><font color="red">ТОЛЬКО</font></strong> о поддержке Flash Cache на 3210 и 3140, на всех остальных системах 3200/6200, а также 3100, Flash Cache по прежнему <strong>ПОДДЕРЖ??ВАЕТСЯ </strong>и работает как и раньше.</p>
+<p>В качестве варианта замены стоит обдумать вариант с <a href="../../1096/trackback.html">Hybrid Aggregate</a> (использование SSD в составе обычного aggregate из HDD), который появится начиная с 8.1.1, и о котором подробнее позже.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/3140.html" rel="tag">3140</a>, <a href="../../tag/3210.html" rel="tag">3210</a>, <a href="../../tag/flash-cache.html" rel="tag">flash cache</a>, <a href="../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../tag/pam-ii.html" rel="tag">pam-ii</a><br />					Раздел: <a href="../../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>,  <a href="../../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1155/trackback.html#comments" title="Комментарий к записи О ситуации с Flash Cache и FAS3210/3140">Комментарии (3)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1151">
+				<h2 class="posttitle"><a href="../../1151/trackback.html" rel="bookmark" title="Permanent Link to VMware и использование NFS: часть 1">VMware и использование NFS: часть 1</a></h2>
+				<div class="postmetadata">7 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как вы знаете, я убежденный сторонник того, что системы хранения NetApp – это лучший выбор для использования в среде серверной и десктопной вируализации. А для самой этой виртуализации – использование протокола NFS, который для систем NetApp, более чем родной, в свою очередь, лучший способ подключить дисковое хранилище. Со мной согласны <a href="../../992/trackback.html">уже 36% пользователей систем виртуализации</a> (согласно отчету Forrester за май прошлого года), причем процент использования NFS растет, и уже превысил процент использования iSCSI (23%) на этих задачах.</p>
+<p>Я уже не раз писал в этом блоге про различные аспекты использования NFS (посмотрите старые статьи по <a href="../../tag/nfs/index.html">тегу NFS</a>), и даже переводил на этут тему Best Practices (про <a href="../../632/trackback.html">Ethernet Storage</a> вообще и <a href="../../591/trackback.html">про VMware</a> в частности), однако все это были разрозненные публикации “к случаю”. Мне захотелось собрать основные темы вопроса в одном месте, и обсудить их, наконец, “раз и навсегда”, или пока тема не изменилась значительно.</p>
+<p>Но для начала несколько вводных слов, для тех, только что подключился к блогу.</p>
+<p><strong>NFS</strong> (Network File System) – это протокол “сетевой файловой системы” разработанной компанией Sun в глубокой исторически-компьютерной древности, и предназначенный для доступа к данным в файлах по сети, в том числе для совместного доступа к ним от нескольких клиентов. NFS, вследствие своей сравнительной простоты реализации, стал очень популярным в UNIX-мире, где работу по NFS поддерживают практически любые OS. Несмотря на то, что сегодня “файловой системой” обычно принято называть нечто иное, за протоколом доступа к файлам по сети, NFS, исторически закрепилось название “файловая система”.&#160; С момента своего изобретения, NFS прошел большой путь, и на сегодня достиг версии 4.2, обретя множество важных на сегодня возможностей, таких как использование не только UDP, как первоначально в исходной версии протокола, но и TCP (в v3), улучшенные технологии разграничения доступа и безопасности (v4), поддержка распределенных кластерных и объектных хранилищ (v4.1) и различные методы offload-а (v4.2).</p>
+<p>К сожалению, за NFS водится два своеобразных недостатка. Во-первых, он так и не появился в OS семейства Windows (если не считать крайне проблемной реализации, вышедшей в составе продуктов MS Services for UNIX) и остался “чужим и непонятным” для win-админов. ?? второе, но более важное, не все его реализации “одинаково полезны”. Многие пользователи, познакомившиеся с NFS через имеющую кучу проблем с производительностью и стабильностью, широкораспространенной реализацией в Vanilla Linux, считают, что “весь NFS такой, глючный, тормозной, для продакшна не пригодный”. А это не так.</p>
+<p>В третьих, наконец, вокруг NFS, и особенностей его работы, циркулирует множество различных недопониманий, вдобавок помноженных на специфики реализаций и долгий исторический путь от версии к версии. Вот разбором этих недопониманий мы и займемся для начала. Напомню, я не стану обнимать необъятное, и сосредоточусь только лишь на использовании NFS в VMware.</p>
+<p>А теперь <strong>о достоинствах</strong>. Во-первых следует отметить сравнительную простоту использования NFS. Его <strong>использование не требует внедрения и освоения сложной, особенно для новичка, FC-инфраструктуры</strong>, непростых процессов настроек зонинга, или разбирательства с iSCSI. ??спользовать NFS для доступа к датастору также просто и тем, что <strong>гранулярность хранения при этом равна файлу VMDK, а не целиком датастору</strong>, как в случае блочных протоколов. Датастор NFS это обычная монтируемая на хост сетевая “шара” с файлами дисков виртуальных машин и их конфигами. Это, в свою очередь, облегчает, например, резервное копирование и восстановление, так как единицей копирования и восстановления является простой файл, отдельный виртуальный диск отдельной виртуальной машины. Нельзя сбрасывать со счетов и то, что при использовании NFS <strong>вы “автоматически” получаете thin provisioning</strong>, а <strong>дедупликация высвобождает вам пространство непосредственно на уровень датастора</strong>, оно становится доступно непосредственно администратору и пользователям VM, а не на уровень стораджа, как в случае использования LUN-а. Это все также выглядит крайне привлекательно с точки зрения использования виртуальной инфраструктуры.</p>
+<p>Наконец, используя датастор по NFS, <strong>вы не ограничены лимитом в 2TB</strong>, даже с VMFS ранее 5, а это очень полезно, например, если вам приходится администрировать большое количество сравнительно слабонагруженных вводом-выводом машин. ??х всех можно поместить на один большой датастор, бэкапить, и управлять которым гораздо проще, чем десятком разрозненных VMFS LUN-ов по 2TB(-512bytes) каждый.</p>
+<p>Кроме того, <strong>вы можете свободно не только увеличивать, но и уменьшать датастор</strong>. Это может быть очень полезной возможностью для динамичной инфраструтуры, с большим количеством разнородных VM, таких как, например, среды облачных провайдеров, где VM постоянно создаются и&#160; удаляются, и данный конкретный датастор, для размещения этих VM, может не только расти, но и, часто, уменьшаться.</p>
+<p>Однако, какие у нас имеются минусы?</p>
+<p>Ну, во-первых, это <strong>невозможность использовать RDM</strong> (Raw-device mapping), который может понадобиться, например, для реализации кластера MS Cluster Service, если вы его хотите использовать. <strong>С NFS нельзя загрузиться</strong> (по крайней мере простым и обычным способом, типа boot-from-SAN). <strong>??спользование NFS сопряжено с некоторым увеличением нагрузки на сторадж</strong>, так как ряд операций, которые, в случае блочного SAN, реализуются на стороне хоста, в случае NFS поддерживатся стораджем. Это всяческие блокировки, разграничение доступа, и так далее. Однако, практика показывает, что <a href="http://media.netapp.com/documents/tr-3808.pdf">оверхед отражается на производительности крайне незначительно</a>.</p>
+<p>Большим плюсом использования NFS на стораджах NetApp является то, что выбор NFS там не диктует вам “жесткого выбора” для вашей инфраструктуры в целом. Если вам понадобится также и блочный протокол для RDM, или для крайне критичной даже к <em>возможному</em> 10-15% падению производительности виртуальной машины, вы можете использовать для нее iSCSI или даже FCP, все на том же сторадже, параллельно с NFS, и всеми его плюсами, для основного датастора.</p>
+<p>В следующем посте этой серии мы перейдемь к разбирательству основных недопониманий и мифов, которые имеются вокруг использования NFS в VMware.</p>
+<p>Рекомендуется также почитать по теме:</p>
+<ul>
+<li>VMware: <a href="http://vmware.com/files/pdf/VMware_NFS_BestPractices_WP_EN.pdf">Best Practices for running VMware vSphere on Network Attached Storage</a></li>
+<li>NetApp (RU): <a href="http://netwell.ru/docs/netapp/TR-3749_Rus_NetApp_VMware_vSphere_v5.0/tr-3749_rus_netapp_vmware_vsphere_v5.0.pdf">Руководство по наилучшим способам использования систем NetApp        <br />с VMware vSphere</a></li>
+<li>NetApp (RU): <a href="http://www.netwell.ru/docs/netapp/tr-3839_vmware_nfs.pdf">??спользование NFS в VMware</a></li>
+<li>NetApp (RU): <a href="http://www.netwell.ru/docs/netapp/rus_tr-3802_ethernet_storage_bp.pdf">Ethernet для систем хранения: наилучшие методы</a></li>
+<li>NetApp (EN): <a href="http://media.netapp.com/documents/tr-3880.pdf">tr-3880 CLI Configuration Processes for NetApp and VMware vSphere.pdf</a></li>
+<li>NetApp (EN): <a href="http://media.netapp.com/documents/tr-3697.pdf">tr-3697 Multiprotocol Performance Test of VMware ESX 3.5 on NetApp</a></li>
+<li>NetApp (EN): <a href="http://media.netapp.com/documents/tr-3808.pdf">tr-3808 VMware vSphere 4.1 and ESX 3.5 Multiprotocol Performance Comparison Using FC iSCSI and NFS</a></li>
+</ul>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../tag/nfs/index.html" rel="tag">nfs</a>, <a href="../../tag/vmware/index.html" rel="tag">vmware</a><br />					Раздел: <a href="../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;" rel="category tag">whoisho</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1151/trackback.html#comments" title="Комментарий к записи VMware и использование NFS: часть 1">Комментарии (10)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1152">
+				<h2 class="posttitle"><a href="../../1152/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP 8.1 GA release!">Data ONTAP 8.1 GA release!</a></h2>
+				<div class="postmetadata">3 Май 2012, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??так, 19 апреля наконец случилось долгожданное событие, дооооолгий путь версии 8.1 к пользователю, через казавшиеся бесчисленными Relelease Candidates (RC), завершился, наконец, выходом General Availability Release.</p>
+<p>Напомню, это та самая версия, в которой, наконец-то, появился 4-нодовый Cluster-mode для блочных протоколов FC/iSCSI/FCoE. Плюс ряд новых возможностей.</p>
+<p>К сожалению, не обошлось и без ряда неприятных потерь, о которых я хочу упомянуть отдельно (потому что про победы вы прочитаете в пресс-релизах, а о факапах придется читать мелким шрифтом, где нибудь в Release Notes).</p>
+<p>Во-первых, и об этом я хочу сказать с недоумением и негодованием, не думайте, что фоннатство в отношении NetApp мне напрочь глаза застило, это то, что теперь более <strong>не поддерживается Flash Cache на младших моделях линейки 3100/3200, то есть для 3140 и 3210</strong>.</p>
+<p>А вот так. Физически поставить можно, а в 8.1 не поддерживается. То есть человек покупает 3210, с Flash Cache и 8.0.2,&#160; в котором она поддерживается. Платит за пару Flash Cache 40 тысяч баксов. Платит за Software Subscription сколько-то тысяч, расчитывая получить поддержку и новые версии. Спустя три месяца выходит новая версия, и человек внезапно осознает, что его система более не поддерживается. А вот так вот. Либо новая версия Data ONTAP, и девайс на 40 штук баксов в ведро, либо оставить Flash Cache и тогда стоимость Software Subscription в ведро, и новых версий Data ONTAP для вас нет.</p>
+<p>Причины не ясны. То есть варианта два. Либо это сознательное решение, вызванное маркетинговой попыткой “сегментировать”, и повысить привлекательность 3240 для тех, кто при прочих равных выбрал бы систему подешевле. Либо это конструктивный просчет на этапе создания линейки (есть и такое <a href="http://datacenterdude.com/netapp/netapp-dataontap-81-reponse/">мнение</a>, что на что-то в новой версии перестало хватать памяти). Причем я даже искренне не знаю, что из этих двух причин хуже, то что впервые на моей памяти инженера NetApp так пролетают с расчетом, или что компания так <em>жостко</em> кинула своих клиентов 3210/3140 с Flash Cache и SSP, по схеме, описанной выше.</p>
+<p>Напомню, что 3210 с Flash Cache это официальная, опубликованная и валидированная конфигурация FlexPod, как она опубликована, например, в Cisco Validated Design.</p>
+<p><strong>UPD:</strong> Как совершенно справедливо заметили мои читатели в комментах, читающие внимательно Release Notes (в отличие от меня, позор), на самом деле там написано:<br />
+<em>Attention: If you have a 3210 or 3140 storage system with Flash Cache modules installed, do not upgrade your system to Data ONTAP 8.1 7-Mode. Flash Cache modules are not supported in 3210 or 3140 storage systems with Data ONTAP 8.1.<br />
+<strong>The issue is under investigation</strong> and a long-term strategy will be communicated as soon as possible.</em></p>
+<p>Что-ж, будем надеяться на лучшее. Видимо и вправду косяк вылез неожиданно, а так как 8.1 давно уже отстала от графика выпуска, было, по-видимому, решено выпускать как есть, а не откладывать еще раз, а такую неприятную особенность править в последующих Patch Releases.</p>
+<p>.</p>
+<p>.</p>
+<p>Остальное это уже мелочи, на мой взгляд.</p>
+<p>Окончательно исчезла поддержка полочных интерфейсных модулей <strong>ESH2</strong> (DS14mk2), то есть 2Gb/s FC к полкам. Это, что называется, “туда и дорога”, тем более, что системы с ESH2 не продаются уже лет пять минимум, и в живой системе они могут появиться только как глубокое legacy.</p>
+<p>Больше нет <strong>FilerView </strong>(веб-интерфейса, открывающегося по адресу <a href="http://filer/na_admin">http://filer/na_admin</a>). Ну я понимаю, что он в своем нынешнем виде уже был позорно анахроничен внешне, и непригоден для Cluster-mode (хотя, наверное, можно было и обновить, и что-нибудь придумать). Но кому он мешал в качестве стандартного инструмента, по-прежнему годного для администрирования 7-mode? Ну то есть я понимаю, у нас теперь всюду Cluster-mode “шагает впереди”, но тем не менее, будем смотреть правде в глаза, в ближайшие пару лет 7-mode все еще будет занимать подавляющее число инсталляций.</p>
+<p>Так что теперь у нас для администрирования осталась лишь командная строка и творение <em>развеселого бангалорского гения</em> – System Manager 2.0, который… ну-у… неоднозначный продукт, скажем обтекаемо.</p>
+<p>Но главное, конечно, и это ничуть не уменьшается со всем, перечисленным выше, это окончательное появление на рынке полноценного многоузлового кластера, в том числе и для блочных протоколов. Поздравления NetApp, ждем Success Stories, в том числе и на российском рынке!</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../tag/81.html" rel="tag">8.1</a>, <a href="../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../tag/ontap.html" rel="tag">ontap</a><br />					Раздел: <a href="../../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../1152/trackback.html#comments" title="Комментарий к записи Data ONTAP 8.1 GA release!">Комментарии (13)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../../feed">Entries (RSS)</a> and <a href="../../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 14 queries. 0.106 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

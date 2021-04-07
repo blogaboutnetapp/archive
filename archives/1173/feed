@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp опубликовал результаты SPC-1 в 8.1.1 C-mode</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1173/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1173</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:14 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: motl</title>
+		<link>http://blog.aboutnetapp.ru/archives/1173#comment-5852</link>
+		<dc:creator>motl</dc:creator>
+		<pubDate>Thu, 14 Feb 2013 12:29:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1173#comment-5852</guid>
+		<description>Добрый  день. 
+Я понимаю что чтобы работать в 8 моде нужно создать отдельный aggr для root volume.
+Это значит что для каждого контроллера 3 диска пойдут на эту цель.</description>
+		<content:encoded><![CDATA[<p>Добрый  день.<br />
+Я понимаю что чтобы работать в 8 моде нужно создать отдельный aggr для root volume.<br />
+Это значит что для каждого контроллера 3 диска пойдут на эту цель.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1173#comment-2823</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 26 Jun 2012 05:53:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1173#comment-2823</guid>
+		<description>s1d:
+
+&gt; Неизвестные анонимы - это порой серьезные и такие же авторитетные товарищи из “Storage Vendor’а #1″, вот тут и начинаются конфронтации.
+
+Ну давайте тогда спорить предметно, с доказательствами в руках. У распространяющих FUD есть доказательства их слов, опубликованные, и пригодные к проверке сторонними, независимыми, а также собственно специалистами NetaApp?
+
+Вот когда NetApp утверждает, что использование снэпшотов на системах "классической" архитектуры приводит к почти трехкратному падению их производтельности, они берут соответствующую систему, и демонстрируют это, публикуя проверяемые и хорошо документированные результаты (см. тот же SPC-1).
+
+В самом лучшем случае (если не брать "заборные варианты", типа "а вы, что, не знаете, что у NetApp производительность при заполнении падает? Да это же все знают, хаха!") это публикации вида:
+http://h30507.www3.hp.com/t5/Around-the-Storage-Block-Blog/Understanding-FAS-ESRP-Results/ba-p/78914
+"Мы тут собрали и померили, так вот, оно там все ужас-ужас!"
+В ответ на предложение специалиста из NetApp: "Это странно, мы такого не наблюдали, можно посмотреть конфигурацию, которую вы тестировали, может быть вы какие-то ошибки по неопытности допустили? Давайте мы вам поможем их исправить, если они есть."
+вторая сторона уходит в глухую несознанку: "Ничо не знаем, мы сконфигурировали все правильно, раз производительность падает, значит все правильно сделано. Ничо не покажем, уйдите ваще, противные".
+В комментах там очень показательная дискуссия между Джоном Мартином, NetApp ANZ, и Кальвином, из HP, автором поста.</description>
+		<content:encoded><![CDATA[<p>s1d:</p>
+<p>> Неизвестные анонимы - это порой серьезные и такие же авторитетные товарищи из “Storage Vendor’а #1″, вот тут и начинаются конфронтации.</p>
+<p>Ну давайте тогда спорить предметно, с доказательствами в руках. У распространяющих FUD есть доказательства их слов, опубликованные, и пригодные к проверке сторонними, независимыми, а также собственно специалистами NetaApp?</p>
+<p>Вот когда NetApp утверждает, что использование снэпшотов на системах &#8220;классической&#8221; архитектуры приводит к почти трехкратному падению их производтельности, они берут соответствующую систему, и демонстрируют это, публикуя проверяемые и хорошо документированные результаты (см. тот же SPC-1).</p>
+<p>В самом лучшем случае (если не брать &#8220;заборные варианты&#8221;, типа &#8220;а вы, что, не знаете, что у NetApp производительность при заполнении падает? Да это же все знают, хаха!&#8221;) это публикации вида:<br />
+<a href="http://h30507.www3.hp.com/t5/Around-the-Storage-Block-Blog/Understanding-FAS-ESRP-Results/ba-p/78914" rel="nofollow">http://h30507.www3.hp.com/t5/Around-the-Storage-Block-Blog/Understanding-FAS-ESRP-Results/ba-p/78914</a><br />
+&#8220;Мы тут собрали и померили, так вот, оно там все ужас-ужас!&#8221;<br />
+В ответ на предложение специалиста из NetApp: &#8220;Это странно, мы такого не наблюдали, можно посмотреть конфигурацию, которую вы тестировали, может быть вы какие-то ошибки по неопытности допустили? Давайте мы вам поможем их исправить, если они есть.&#8221;<br />
+вторая сторона уходит в глухую несознанку: &#8220;Ничо не знаем, мы сконфигурировали все правильно, раз производительность падает, значит все правильно сделано. Ничо не покажем, уйдите ваще, противные&#8221;.<br />
+В комментах там очень показательная дискуссия между Джоном Мартином, NetApp ANZ, и Кальвином, из HP, автором поста.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: s1d</title>
+		<link>http://blog.aboutnetapp.ru/archives/1173#comment-2822</link>
+		<dc:creator>s1d</dc:creator>
+		<pubDate>Tue, 26 Jun 2012 05:35:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1173#comment-2822</guid>
+		<description>Мне кажется, я ответил на все ваши вопросы?
+100%
+Заказчики верят на слово неизвестным анонимам, распространяющим слухи и FUD путем надписей на заборе “Лешка - пи*арас!”, но не верят вам? 
+Неизвестные анонимы - это порой серьезные и такие же авторитетные товарищи из "Storage Vendor'а #1", вот тут и начинаются конфронтации.
+Думаю, что тут проблема, в первую очередь, не в FUD, и не в NetApp, а в вашей низкой убедительности и авторитетности для заказчика, не так ли? ;)
+Не так ;)</description>
+		<content:encoded><![CDATA[<p>Мне кажется, я ответил на все ваши вопросы?<br />
+100%<br />
+Заказчики верят на слово неизвестным анонимам, распространяющим слухи и FUD путем надписей на заборе “Лешка - пи*арас!”, но не верят вам?<br />
+Неизвестные анонимы - это порой серьезные и такие же авторитетные товарищи из &#8220;Storage Vendor&#8217;а #1&#8243;, вот тут и начинаются конфронтации.<br />
+Думаю, что тут проблема, в первую очередь, не в FUD, и не в NetApp, а в вашей низкой убедительности и авторитетности для заказчика, не так ли? ;)<br />
+Не так ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1173#comment-2821</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 26 Jun 2012 04:41:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1173#comment-2821</guid>
+		<description>s1d:
+
+Почти все, что вы хотите, есть в официальных документах, их просто надо внимательно читать (и верить им больше, чем слухам злонамеренных анонимных "доброжелателей).
+
+&gt; показывающий стабильную производительность системы
+
+48-hr sustainability test: 
+&lt;a href="http://www.storageperformance.org/results/a00062_NetApp_FAS3040-48hr-sustain_full-disclosure.pdf
+"&gt;http://www.storageperformance.org/results/a00062_NetApp_FAS3040-48hr-sustain_full-disclosure.pdf&lt;/a&gt;
+
+Также обратите внимание, что тест, о котором шла речь в посте выше (6240, cluster-mode), проводился  течение 9 часов (при формальном требовании спецификации теста SPC-1 - 3 часа), и продемонстрировал неизменяющуюся и стабильную величину показателей, после первых нескольких минут ramp-up (прогрева), см. стр 25 в full disclosure report.
+
+&gt; при всех включенных плюшках
+
+См, например, тест, демонстрирующий влияние snapshots на производительность на WAFL:
+&lt;a href="http://www.storageperformance.org/results/a00058_NetApp_FAS3040-Snapshot_full-disclosure-r1.pdf" rel="nofollow"&gt;http://www.storageperformance.org/results/a00058_NetApp_FAS3040-Snapshot_full-disclosure-r1.pdf&lt;/a&gt;
+та же конфигурация, но с отключенными снэпшотами:
+&lt;a href="http://www.storageperformance.org/results/a00057_NetApp_FAS3040_full-disclosure-r1.pdf" rel="nofollow"&gt; http://www.storageperformance.org/results/a00057_NetApp_FAS3040_full-disclosure-r1.pdf&lt;/a&gt;
+
+Также обратите внимание, что системы NetApp тестируются с работающим thin provisioning: (стр 60, &lt;a href="http://www.storageperformance.org/benchmark_results_files/SPC-1/NetApp/A00115_NetApp_FAS6240-cluster/a00115_NetApp_FAS6240-cluster_SPC-1_full-disclosure.pdf" rel="nofollow"&gt;http://www.storageperformance.org/benchmark_results_files/SPC-1/NetApp/A00115_NetApp_FAS6240-cluster/a00115_NetApp_FAS6240-cluster_SPC-1_full-disclosure.pdf&lt;/a&gt;)
+Также отключается параметр walf.optimize_write_once (в ряде случаев могущий улучшить производительность за счет уменьшения write fragmentation), остальные параметры томов остаются по умолчанию "из коробки", в том виде, в каком они приходят к клиенту и рекомендуются в Best Practices (например, отключать snapshot schedules для SAN-томов).
+
+&gt; достаточной заполненности системы
+
+FAS3170A SPC-1/E test - Protected Application Utilization: 70.07%
+&lt;a href="http://www.storageperformance.org/results/a00066_NetApp_FAS3170_full-disclosure.pdf" rel="nofollow"&gt;http://www.storageperformance.org/results/a00066_NetApp_FAS3170_full-disclosure.pdf&lt;/a&gt;
+
+Также полезно внимательно прочитать пост-перевод в этом блоге:
+&lt;b&gt;Как заполненность данными системы хранения влияет на ее производительность?&lt;/b&gt;
+&lt;a href="http://blog.aboutnetapp.ru/archives/1083" rel="nofollow"&gt;http://blog.aboutnetapp.ru/archives/1083&lt;/a&gt;
+
+Мне кажется, я ответил на все ваши вопросы?
+
+&gt; По этому поводу много было Fuda, а заказчики не всегда верят на слово.
+
+Заказчики верят на слово неизвестным анонимам, распространяющим слухи и FUD путем надписей на заборе "Лешка - пи*арас!", но не верят вам? Думаю, что тут проблема, в первую очередь, не в FUD, и не в NetApp, а в вашей низкой убедительности и авторитетности для заказчика, не так ли? ;)
+
+panvartan:
+
+&gt; на IOPS не влияет, зато сильно влияет на $/IOPS
+&gt; то 6*~300k$ дает удвоение $/IOPS.
+
+Вот вы и ответили сами себе, почему в _тестировании_ в конфигурацию не включается ничего лишнего по цене, кроме того, что используется в этом тестировании, и почему &lt;i&gt;некоторые&lt;/i&gt; вендоры указывают даже эти цены уже с искусственным дисконтом. :)</description>
+		<content:encoded><![CDATA[<p>s1d:</p>
+<p>Почти все, что вы хотите, есть в официальных документах, их просто надо внимательно читать (и верить им больше, чем слухам злонамеренных анонимных &#8220;доброжелателей).</p>
+<p>> показывающий стабильную производительность системы</p>
+<p>48-hr sustainability test:<br />
+<a href="http://www.storageperformance.org/results/a00062_NetApp_FAS3040-48hr-sustain_full-disclosure.pdf<br />
+">http://www.storageperformance.org/results/a00062_NetApp_FAS3040-48hr-sustain_full-disclosure.pdf</a></p>
+<p>Также обратите внимание, что тест, о котором шла речь в посте выше (6240, cluster-mode), проводился  течение 9 часов (при формальном требовании спецификации теста SPC-1 - 3 часа), и продемонстрировал неизменяющуюся и стабильную величину показателей, после первых нескольких минут ramp-up (прогрева), см. стр 25 в full disclosure report.</p>
+<p>> при всех включенных плюшках</p>
+<p>См, например, тест, демонстрирующий влияние snapshots на производительность на WAFL:<br />
+<a href="http://www.storageperformance.org/results/a00058_NetApp_FAS3040-Snapshot_full-disclosure-r1.pdf" rel="nofollow">http://www.storageperformance.org/results/a00058_NetApp_FAS3040-Snapshot_full-disclosure-r1.pdf</a><br />
+та же конфигурация, но с отключенными снэпшотами:<br />
+<a href="http://www.storageperformance.org/results/a00057_NetApp_FAS3040_full-disclosure-r1.pdf" rel="nofollow"> </a><a href="http://www.storageperformance.org/results/a00057_NetApp_FAS3040_full-disclosure-r1.pdf" rel="nofollow">http://www.storageperformance.org/results/a00057_NetApp_FAS3040_full-disclosure-r1.pdf</a></p>
+<p>Также обратите внимание, что системы NetApp тестируются с работающим thin provisioning: (стр 60, <a href="http://www.storageperformance.org/benchmark_results_files/SPC-1/NetApp/A00115_NetApp_FAS6240-cluster/a00115_NetApp_FAS6240-cluster_SPC-1_full-disclosure.pdf" rel="nofollow">http://www.storageperformance.org/benchmark_results_files/SPC-1/NetApp/A00115_NetApp_FAS6240-cluster/a00115_NetApp_FAS6240-cluster_SPC-1_full-disclosure.pdf</a>)<br />
+Также отключается параметр walf.optimize_write_once (в ряде случаев могущий улучшить производительность за счет уменьшения write fragmentation), остальные параметры томов остаются по умолчанию &#8220;из коробки&#8221;, в том виде, в каком они приходят к клиенту и рекомендуются в Best Practices (например, отключать snapshot schedules для SAN-томов).</p>
+<p>> достаточной заполненности системы</p>
+<p>FAS3170A SPC-1/E test - Protected Application Utilization: 70.07%<br />
+<a href="http://www.storageperformance.org/results/a00066_NetApp_FAS3170_full-disclosure.pdf" rel="nofollow">http://www.storageperformance.org/results/a00066_NetApp_FAS3170_full-disclosure.pdf</a></p>
+<p>Также полезно внимательно прочитать пост-перевод в этом блоге:<br />
+<b>Как заполненность данными системы хранения влияет на ее производительность?</b><br />
+<a href="http://blog.aboutnetapp.ru/archives/1083" rel="nofollow">http://blog.aboutnetapp.ru/archives/1083</a></p>
+<p>Мне кажется, я ответил на все ваши вопросы?</p>
+<p>> По этому поводу много было Fuda, а заказчики не всегда верят на слово.</p>
+<p>Заказчики верят на слово неизвестным анонимам, распространяющим слухи и FUD путем надписей на заборе &#8220;Лешка - пи*арас!&#8221;, но не верят вам? Думаю, что тут проблема, в первую очередь, не в FUD, и не в NetApp, а в вашей низкой убедительности и авторитетности для заказчика, не так ли? ;)</p>
+<p>panvartan:</p>
+<p>> на IOPS не влияет, зато сильно влияет на $/IOPS<br />
+> то 6*~300k$ дает удвоение $/IOPS.</p>
+<p>Вот вы и ответили сами себе, почему в _тестировании_ в конфигурацию не включается ничего лишнего по цене, кроме того, что используется в этом тестировании, и почему <i>некоторые</i> вендоры указывают даже эти цены уже с искусственным дисконтом. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1173#comment-2818</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 25 Jun 2012 21:32:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1173#comment-2818</guid>
+		<description>&#62; В NetApp включение плюшек (таких, как, например снэпшоты, FlexVol, thin provisioning) практически не влияент на производительность
+на IOPS не влияет, зато сильно влияет на $/IOPS
+в Priced Storage Configuration Pricing отдельной строкой ПО нет, скорее всего FAS6240 с открытым на выбор FC протоколом, все остальное надо докупать отдельно. Если нескромно заложиться на SW-6240A-COMP-BNDL, то 6*~300k$ дает удвоение $/IOPS.</description>
+		<content:encoded><![CDATA[<p>&gt; В NetApp включение плюшек (таких, как, например снэпшоты, FlexVol, thin provisioning) практически не влияент на производительность<br />
+на IOPS не влияет, зато сильно влияет на $/IOPS<br />
+в Priced Storage Configuration Pricing отдельной строкой ПО нет, скорее всего FAS6240 с открытым на выбор FC протоколом, все остальное надо докупать отдельно. Если нескромно заложиться на SW-6240A-COMP-BNDL, то 6*~300k$ дает удвоение $/IOPS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: s1d</title>
+		<link>http://blog.aboutnetapp.ru/archives/1173#comment-2817</link>
+		<dc:creator>s1d</dc:creator>
+		<pubDate>Mon, 25 Jun 2012 19:58:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1173#comment-2817</guid>
+		<description>Добрый день, уважаемые.
+А есть какой-нибудь свежий документ, показывающий стабильную производительность системы, при всех включенных плюшках и достаточной заполненности системы (около 80%). По этому поводу много было Fuda, а заказчики не всегда верят на слово.
+Спасибо.</description>
+		<content:encoded><![CDATA[<p>Добрый день, уважаемые.<br />
+А есть какой-нибудь свежий документ, показывающий стабильную производительность системы, при всех включенных плюшках и достаточной заполненности системы (около 80%). По этому поводу много было Fuda, а заказчики не всегда верят на слово.<br />
+Спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1173#comment-2814</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 25 Jun 2012 11:34:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1173#comment-2814</guid>
+		<description>panvartan:
+
+&gt; а состав ПО тестируемой конфигурации netapp известен?
+
+Конечно. А то зачем я вам давал бы ссылки на описания?
+
+&gt; Возможно ли, что там только один рабочий протокол открыт , без всяких плюшек?
+
+1. SPC-1 это бенчмарк чисто блочного протокола (читай, FC).
+2. В NetApp включение плюшек (таких, как, например снэпшоты, FlexVol, thin provisioning) практически не влияент на производительность.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>> а состав ПО тестируемой конфигурации netapp известен?</p>
+<p>Конечно. А то зачем я вам давал бы ссылки на описания?</p>
+<p>> Возможно ли, что там только один рабочий протокол открыт , без всяких плюшек?</p>
+<p>1. SPC-1 это бенчмарк чисто блочного протокола (читай, FC).<br />
+2. В NetApp включение плюшек (таких, как, например снэпшоты, FlexVol, thin provisioning) практически не влияент на производительность.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1173#comment-2808</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 25 Jun 2012 07:01:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1173#comment-2808</guid>
+		<description>а состав ПО тестируемой конфигурации netapp известен? Возможно ли, что там только один рабочий протокол открыт , без всяких плюшек?</description>
+		<content:encoded><![CDATA[<p>а состав ПО тестируемой конфигурации netapp известен? Возможно ли, что там только один рабочий протокол открыт , без всяких плюшек?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

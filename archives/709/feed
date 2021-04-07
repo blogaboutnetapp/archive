@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Распределение дисков по RAID groups в aggregate</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/709/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/709</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:20 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/709#comment-847</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Fri, 01 Oct 2010 06:10:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=709#comment-847</guid>
+		<description>Будем ждать :) Вопрос весьма интересный.</description>
+		<content:encoded><![CDATA[<p>Будем ждать :) Вопрос весьма интересный.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/709#comment-843</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 30 Sep 2010 15:27:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=709#comment-843</guid>
+		<description>Там сложная история, может быть когда-нибудь соберу все мысли в кучу, почитаю и напишу.
+Но некатастрофично, это точно.
+А еще есть такая штука, как physical reallocation, после него данные распределяются на старых и добавленных дисках равномерно.</description>
+		<content:encoded><![CDATA[<p>Там сложная история, может быть когда-нибудь соберу все мысли в кучу, почитаю и напишу.<br />
+Но некатастрофично, это точно.<br />
+А еще есть такая штука, как physical reallocation, после него данные распределяются на старых и добавленных дисках равномерно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/709#comment-842</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Thu, 30 Sep 2010 15:11:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=709#comment-842</guid>
+		<description>А разве если в райд-группу добавить мало дисков производительность не снизится? Я не помню почему засело в голове (возможно путаю с добавление новых райд-групп, а может вообще не прав) что Ontap будет стараться догнать заполненность добавленных дисков до общего "уровня" - соответственно на них будет писаться гораздо больше данных, соответственно будет много пересчитываться parity для уже записанных страйпов.
+Добавление новых маленьких райд-групп конечно еще хуже.</description>
+		<content:encoded><![CDATA[<p>А разве если в райд-группу добавить мало дисков производительность не снизится? Я не помню почему засело в голове (возможно путаю с добавление новых райд-групп, а может вообще не прав) что Ontap будет стараться догнать заполненность добавленных дисков до общего &#8220;уровня&#8221; - соответственно на них будет писаться гораздо больше данных, соответственно будет много пересчитываться parity для уже записанных страйпов.<br />
+Добавление новых маленьких райд-групп конечно еще хуже.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/709#comment-829</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Mon, 27 Sep 2010 13:22:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=709#comment-829</guid>
+		<description>Да, делал подобную операцию, только вручную пихал диски в рейд группы. Теперь узнал новый способ как можно пачками запихивать :)</description>
+		<content:encoded><![CDATA[<p>Да, делал подобную операцию, только вручную пихал диски в рейд группы. Теперь узнал новый способ как можно пачками запихивать :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pavel Kruchok</title>
+		<link>http://blog.aboutnetapp.ru/archives/709#comment-827</link>
+		<dc:creator>Pavel Kruchok</dc:creator>
+		<pubDate>Mon, 27 Sep 2010 08:56:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=709#comment-827</guid>
+		<description>Очевидно закралась ошибка: "с максимальным размером 16 (13d+2p)", нужно ведь (14+2p).</description>
+		<content:encoded><![CDATA[<p>Очевидно закралась ошибка: &#8220;с максимальным размером 16 (13d+2p)&#8221;, нужно ведь (14+2p).</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

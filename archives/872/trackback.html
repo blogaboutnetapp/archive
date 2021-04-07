@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; EMC убедительно демонстрирует проблемы VNX</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../884/trackback.html">Смотрим внимательно на EMC VNX/VNXe. Часть 3</a></div>
+			<div class="alignright"><a href="../901/trackback.html">Конкурс &ldquo;экономия пространства на NetApp&rdquo;</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-872">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to EMC убедительно демонстрирует проблемы VNX">EMC убедительно демонстрирует проблемы VNX</a></h2>
+			<div class="postmetadata">27 Апрель 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>В моем блоге очередной перевод поста в блоге Recoverymonkey (Dimitris Kr.)</p>
+<p>Я бы хотел обратить внимание читателей, что то, что публикуется по средам, это <strong>переводы</strong>. Я стараюсь сохранять манеру и стиль оригинального автора, потому что это – <strong>перевод</strong>. Лично я могу быть несогласен (или согласен, как получится) с излагаемой позицией, но, так как это не мои собственные тексты, за исключением небольших сокращений, я стараюсь их не править, и переводить в том виде, в котором они были опубликованы их авторами. Если у вас есть возражения по существу написанного, то не нужно писать их в комментариях к этому посту, и вообще к “средовым” переводным постам мне, сюда. Если вы хотите подискутировать с автором – напишите непосредственно ему, я всегда оставляю ссылки на оригинальные публикации. Спасибо за понимание. А теперь – как всегда острая и полемическая статья Recoverymonkey, с очередной шпилькой в адрес EMC VNX.</p>
+<h3>EMC conclusively proves that VNX bottlenecks NAS performance</h3>
+<p>Posted on <a href="http://recoverymonkey.org/2011/02/24/emc-conclusively-proves-that-vnx-bottlenecks-nas-performance/">February 24, 2011</a> by <a href="http://recoverymonkey.org/author/admin/">Dimitris</a></p>
+<p>Немного провокативный заголовок, не правда ли?</p>
+<p>Позвольте мне объяснить.</p>
+<p>EMC опубликовала новые результаты SPEC SFS в рамках своей маркетинговой кампании (которая работает, смотрите чем я занят – я говорю о них).</p>
+<p>Если по-простому, то EMC получила почти 500 тысяч SPEC SFS NFS IOPS (уточню последнее, чтобы не спутать с “блочными” IOPS в SPC-1) на следующей конфигурации:</p>
+<ul>
+<li><strong>Четыре</strong> (4) полностью независимых массивах VNX, каждый на дисках SSD (всего 8 контроллеров, так как каждый массив имеет 2 контроллера).</li>
+<li><strong>Пять</strong> (5) Celerra VG8 NAS heads/gateways (1 как spare), по одному поверх каждого VNX</li>
+<li><strong>Две</strong> (2) Control Station</li>
+<li><strong>Восемь</strong> (8) экспортов&#160; файловых систем (по две на каждую голову VG8/VNX)</li>
+<li>Несколько пулов хранения (по крайней мере один на каждую VG8) – без совместного доступа, например с других контроллеров, без переноса данных с других контроллеров. </li>
+<li>Всего <strong>60TB</strong> пространства NAS под RAID5 (или по 15TB с каждого массива)</li>
+</ul>
+<p>Этот пост не о том, что приведенная конфигурация нереальная и дорогая (никто не заплатит 6 миллионов долларов за 60TB в NAS). Как я понял, EMC старается опубликовать наилучший результат теста путем объединения в кучу нескольких отдельных массивов с SSD. Это в принципе нормально, если понимать детали.</p>
+<p>Претензии мои тут в том, как это подается.</p>
+<p>EMC говорит о тестируемой конфигурации очень расплывчато (за деталями приходится идти <a href="http://www.spec.org/sfs2008/results/res2011q1/sfs2008-20110207-00177.txt">непосредственно на сайт SPEC</a>). В рекламных материалах просто говорится, что <em>EMC VNX показала результат </em><span lang="RU"><em>497623 SPECsfs2008_nfs.v3 операций в секунду</em>. Это что-то типа того, как если бы вы сказали, что нормально пройти четверым первоклассникам на сеанс в кино “до 18”, потому что, дескать, “всем четырем вместе больше 18”.</span></p>
+<p><span lang="RU">Нет, более правильно и корректно было бы сказать, что четыре массива VNX, работающих отдельно и независимо друг от друга, показали результат <strong>124405</strong> SPECsfs2008_nfs.v3 IOPS&#160; - <strong><u>каждый</u></strong>.</span></p>
+<p><span lang="RU">EMC просто сложила результаты четырех отдельных, независимых устройств вместе!</span></p>
+<p><span lang="RU">У NetApp <a href="http://www.spec.org/sfs2008/results/res2010q4/sfs2008-20101018-00172.html">уже есть результат SPEC SFS для FAS6240</a>, где всего два контроллера выдают <strong>190675</strong> SPEC NFS IOPS, в одной системе, настоящем unified, без нагромождения отдельных контроллеров, без использования SSD (на обычных SAS, плюс большой кэш), то есть на реальной, практической конфигурации, которую мы продаем ежедневно, а не на каком-то там лабораторном “звездолете”.</span></p>
+<p><span lang="RU">Если сделать также, как поступил EMC, то есть сложить четыре таких системы вместе (в случае NetApp, у нас при этом можно использовать <a href="http://media.netapp.com/documents/ds-2951.pdf">Cluster-mode</a>, с общим файловером между этими четырьмя нодами ), то мы получим следующие результаты:</span></p>
+<ul>
+<li><span lang="RU"><strong>762700</strong> SPEC SFS NFS операций</span></li>
+<li><span lang="RU"><strong>8</strong> экспортируемых файловых систем</span></li>
+<li><span lang="RU"><strong>334TB</strong> usable пространства в RAID-DP (в <em>тысячи</em> раз надежнее RAID-5)</span></li>
+</ul>
+<p><span lang="RU">Какой вариант, по вашему, более выгодная покупка? Та что более быстрая, 343TB с большей надежностью, или та, что медленнее, 60TB и меньше надежности? ;)</span></p>
+<p><span lang="RU">Пользователи других систем также могут легко проделывать такой же трюк с умножением их результатов измерений, вперед!</span></p>
+<p><span lang="RU">Если же говорить серьезно, то, что побудило меня так озаглавить пост, это факт того, что тестирование EMC убедительно продемонстрировало, что VNX сам по себе является узким местом. Фактически мы видим, что VNX может обслуживать только <em>одну</em> “голову” VG8 на максимальной для себя скорости, зачем и понадобилось четыре отдельных системы для демонстрации нужного результата. Таким образом, факт того, что VNX может иметь над собой до 8 “голов” Celerra ничего не значит, так как в такой системе back-end это и есть ограничивающий производительность фактор.</span></p>
+<p><span lang="RU">Но с одной “головой” NAS вы будете ограничены доступным объемом в 256TB, столько одна голова Celerra может адресовать на момент написания статьи. Впрочем, этого достаточно для обычного пользователя.</span></p>
+<p><span lang="RU">Любопытно, а те “головы” NAS, которые продаются вместе с VNX, медленнее, чем VG8, и насколько? Понятно, что большинство пользователей будут использовать те “головы”, что идут в комплекте, так как это обходится дешевле. Как быстро работают они? Уверен, клиенты хотели бы знать как быстро работает именно то, что они, обычно, покупают.</span></p>
+<p><span lang="RU">Также очень интересно, как быстро работает RAID6.</span></p>
+<p><span lang="RU">А вообще было бы здорово измерять бенчмарки именно того, что пользователь на самом деле покупает, а не абстрактных “болидов Formula 1”!</span></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/benchmark/index.html" rel="tag">benchmark</a>, <a href="../tag/emc/index.html" rel="tag">emc</a>, <a href="../tag/nfs/index.html" rel="tag">nfs</a>, <a href="../tag/sfs.html" rel="tag">sfs</a>, <a href="../tag/spec.html" rel="tag">spec</a>, <a href="../tag/vnx.html" rel="tag">vnx</a><br />					Раздел: <a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (7)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1315">
+		<div id="div-comment-1315">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Ничего удивительного&#8230; я тоже это же заметил. В прошлом году они Celerra&#8217;у к VMax&#8217;у с SSD подцепили чтобы NAS потестить&#8230; тогда я тоже подумал о том, что какой идиот будет брать VMax на SSD для того чтобы NAS делать.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1315" title="">27 Апрель 2011, 15:13</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1316">
+		<div id="div-comment-1316">
+		<div class="comment-author">
+			<cite><a href='http://zerg.org.ru' rel='external nofollow'>Zerg</a>:<cite></div>
+			<p>Я сразу заметил этот подвох.<br />
+На самом деле достаточно даже взглянуть на картинки:<br />
+<a href="http://www.spec.org/sfs2008/results/res2010q4/sfs2008-20101018-00172.FAS6240.jpg" rel="nofollow">http://www.spec.org/sfs2008/results/res2010q4/sfs2008-20101018-00172.FAS6240.jpg</a></p>
+<p><a href="http://www.spec.org/sfs2008/results/res2011q1/sfs2008-20110207-00177.sfs2008-EMC-VG8-VNX-NFS-EFD.rev.11.jpg" rel="nofollow">http://www.spec.org/sfs2008/results/res2011q1/sfs2008-20110207-00177.sfs2008-EMC-VG8-VNX-NFS-EFD.rev.11.jpg</a></p>
+<p>Большинство тестов в SPECsfs2008 у EMC - это сферический конь в вакууме.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1316" title="">27 Апрель 2011, 15:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1317">
+		<div id="div-comment-1317">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>По этому поводу Dimitris где-то в комментариях у другого блоггера высказал необычную, но не лишенную интересности мысль, что, может быть, целью EMC является не столько демонстрация производительности, сколько дискредитация в глазах своих сторонников, такими нелепыми результатами, вообще всей идеи проведения тестирования, в принципе?</p>
+<p>Ну то есть было бы странно считать, что сотрудники такой безусловно опытной и сильной компании как EMC не понимают всего вышесказанного в посте. Тогда, может быть, это не глупость, а хитро задуманный ход?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1317" title="">27 Апрель 2011, 15:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1318">
+		<div id="div-comment-1318">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Вот так и рождаются теории заговора. Велика вероятность того, что одно руководство за партией в гольф решает в разы переплюнуть конкурента в спеке - создают левиафана, другому руководству не нравится диаграмма его присутствия на рынке схд - покупают lsi</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1318" title="">27 Апрель 2011, 16:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1319">
+		<div id="div-comment-1319">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:</p>
+<p>Все еще проще, Том Джоргенс, нынешний CEO NetApp - бывший CEO Engenio ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1319" title="">27 Апрель 2011, 17:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1320">
+		<div id="div-comment-1320">
+		<div class="comment-author">
+			<cite><a href='http://zerg.org.ru' rel='external nofollow'>Zerg</a>:<cite></div>
+			<p><a href="http://www.spec.org/sfs2008/results/res2011q2/" rel="nofollow">http://www.spec.org/sfs2008/results/res2011q2/</a><br />
+Huawei недавно сделала 700к - эфимерных попугаев в вакууме.<br />
+?? они не кричат на каждом углу.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1320" title="">27 Апрель 2011, 18:20</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1321">
+		<div id="div-comment-1321">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Zerg:<br />
+Они по-китайски просто кричат ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1321" title="">27 Апрель 2011, 20:19</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="872" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Слухи и сплетни: FAS2240</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1045/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1045</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:28 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1045#comment-1836</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 24 Oct 2011 11:06:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1045#comment-1836</guid>
+		<description>Neoris:
+
+Да это-то да, но поскольку у меня с NetApp джентльменское соглашение: &lt;del&gt;я не занимаюсь разменом денег, а они не торгуют семечками&lt;/del&gt; я не пощу данные, которых нет в так или иначе открытых источниках, то давайте все же дождемся первой недели ноября. :)</description>
+		<content:encoded><![CDATA[<p>Neoris:</p>
+<p>Да это-то да, но поскольку у меня с NetApp джентльменское соглашение: <del>я не занимаюсь разменом денег, а они не торгуют семечками</del> я не пощу данные, которых нет в так или иначе открытых источниках, то давайте все же дождемся первой недели ноября. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1045#comment-1835</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Mon, 24 Oct 2011 10:50:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1045#comment-1835</guid>
+		<description>Советую покопаться в презентациях там уже обозначен продукт FAS2240, и меняется цена на FAS2040, FAS2020 снимается с производства.
+Ссылка на презентацию: https://fieldportal.netapp.com/viewcontent.asp?qv=1&#38;docid=37740   
+для тех у кого есть доступ на FieldPortal</description>
+		<content:encoded><![CDATA[<p>Советую покопаться в презентациях там уже обозначен продукт FAS2240, и меняется цена на FAS2040, FAS2020 снимается с производства.<br />
+Ссылка на презентацию: <a href="https://fieldportal.netapp.com/viewcontent.asp?qv=1&amp;docid=37740" rel="nofollow">https://fieldportal.netapp.com/viewcontent.asp?qv=1&amp;docid=37740</a><br />
+для тех у кого есть доступ на FieldPortal</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1045#comment-1761</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 03 Oct 2011 08:43:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1045#comment-1761</guid>
+		<description>panvartan:
+
+Да много можно гадать, очень хотелось бы встроенный Flash Cache, например, хотя бы гига на 64.
+Но... Месяц остался, потерпим :)</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Да много можно гадать, очень хотелось бы встроенный Flash Cache, например, хотя бы гига на 64.<br />
+Но&#8230; Месяц остался, потерпим :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1045#comment-1759</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 03 Oct 2011 06:44:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1045#comment-1759</guid>
+		<description>В DS4243 под контроллером есть заглушка высотой в один юнит, интересно FAS2240-4 будет использовать это свободное (судя по изображению) место, например под одну плату расширения, как в 2050?</description>
+		<content:encoded><![CDATA[<p>В DS4243 под контроллером есть заглушка высотой в один юнит, интересно FAS2240-4 будет использовать это свободное (судя по изображению) место, например под одну плату расширения, как в 2050?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

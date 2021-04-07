@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Бандлы HDD+SSD для FAS2240</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1283/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1283</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:53 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Free4ert</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-10938</link>
+		<dc:creator>Free4ert</dc:creator>
+		<pubDate>Tue, 05 Nov 2013 17:54:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-10938</guid>
+		<description>Мне цены тоже быстро выставили, но речь не об этом.
+Ко мне сейчас едет вот этот самый бандл (FAS 2240-4 20HDD+4SSD) и полка на 24 SAS.
+Вопрос имеет ли смысл делать гибридный agregate или SSD+SAS или в этом вообще нету смысла?</description>
+		<content:encoded><![CDATA[<p>Мне цены тоже быстро выставили, но речь не об этом.<br />
+Ко мне сейчас едет вот этот самый бандл (FAS 2240-4 20HDD+4SSD) и полка на 24 SAS.<br />
+Вопрос имеет ли смысл делать гибридный agregate или SSD+SAS или в этом вообще нету смысла?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pavel Kosachev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9549</link>
+		<dc:creator>Pavel Kosachev</dc:creator>
+		<pubDate>Wed, 04 Sep 2013 05:10:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9549</guid>
+		<description>Подтверждаю, цену прислали быстро.</description>
+		<content:encoded><![CDATA[<p>Подтверждаю, цену прислали быстро.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Валентин</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9530</link>
+		<dc:creator>Валентин</dc:creator>
+		<pubDate>Tue, 03 Sep 2013 11:07:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9530</guid>
+		<description>Ну на счет цен в данной новости - очень быстро присылают их. Правда звонят предварительно - "кто вы, что за компания и .т.д." :)</description>
+		<content:encoded><![CDATA[<p>Ну на счет цен в данной новости - очень быстро присылают их. Правда звонят предварительно - &#8220;кто вы, что за компания и .т.д.&#8221; :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9529</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Tue, 03 Sep 2013 10:48:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9529</guid>
+		<description>Виртуальные машины Hyper-V, на которых организованы терминальные сервера, сервера SQL, контроллеры доменов и т.д. всего порядка 30 штук. При этом большую часть нагрузки генерил SQL, на котором была база 1С</description>
+		<content:encoded><![CDATA[<p>Виртуальные машины Hyper-V, на которых организованы терминальные сервера, сервера SQL, контроллеры доменов и т.д. всего порядка 30 штук. При этом большую часть нагрузки генерил SQL, на котором была база 1С</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: GrigoriyF</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9524</link>
+		<dc:creator>GrigoriyF</dc:creator>
+		<pubDate>Tue, 03 Sep 2013 05:22:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9524</guid>
+		<description>Neoris, а тип задач какой ?</description>
+		<content:encoded><![CDATA[<p>Neoris, а тип задач какой ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9522</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Tue, 03 Sep 2013 03:49:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9522</guid>
+		<description>SSD диски ставятся от Samsung.
+
+Про количество кэша: к одному аггрегату можно прицепить максимум 300Гб SSD кэша, поэтому не стоит рассчитывать больше чем на 3 диска SSD к каждому аггрегату.
+
+Про скорости, которые показывает конфигурация SATA+SSD в конфигурации 18+6, в несимметричном виде 16+6 на одной голове и 2 SATA на другой, получал: при стабильной нагрузке выше 1500 IOPS идёт пробой кэша и он не сильно помогает, но при пиках длительностью от 3 до 5 минут, кэш позволял переживать нагрузки до 8000 IOPS.</description>
+		<content:encoded><![CDATA[<p>SSD диски ставятся от Samsung.</p>
+<p>Про количество кэша: к одному аггрегату можно прицепить максимум 300Гб SSD кэша, поэтому не стоит рассчитывать больше чем на 3 диска SSD к каждому аггрегату.</p>
+<p>Про скорости, которые показывает конфигурация SATA+SSD в конфигурации 18+6, в несимметричном виде 16+6 на одной голове и 2 SATA на другой, получал: при стабильной нагрузке выше 1500 IOPS идёт пробой кэша и он не сильно помогает, но при пиках длительностью от 3 до 5 минут, кэш позволял переживать нагрузки до 8000 IOPS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: llelik</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9514</link>
+		<dc:creator>llelik</dc:creator>
+		<pubDate>Mon, 02 Sep 2013 15:43:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9514</guid>
+		<description>под рукой сейчас 2240-4 с SSD и SATA. SSD - Samsung. Могу уточнить модель, если кому то интересно.</description>
+		<content:encoded><![CDATA[<p>под рукой сейчас 2240-4 с SSD и SATA. SSD - Samsung. Могу уточнить модель, если кому то интересно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Aaz</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9513</link>
+		<dc:creator>Aaz</dc:creator>
+		<pubDate>Mon, 02 Sep 2013 12:43:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9513</guid>
+		<description>Aaz:?
+
+Якоы: Stec, Samsung, Micron, HGST, LSI, Virident(http://www.storagesearch.com/emc.html). Фото EMC с Samsung внутри - видел.
+Это внутри EMC.</description>
+		<content:encoded><![CDATA[<p>Aaz:?</p>
+<p>Якоы: Stec, Samsung, Micron, HGST, LSI, Virident(http://www.storagesearch.com/emc.html). Фото EMC с Samsung внутри - видел.<br />
+Это внутри EMC.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Aaz</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9512</link>
+		<dc:creator>Aaz</dc:creator>
+		<pubDate>Mon, 02 Sep 2013 12:31:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9512</guid>
+		<description>Igor Zinovik:
+Роман, а чьи SSD ставит NetApp в свои СХД? Меня интересует производитель (intel, samsung, ocz)?
+
+Якоы: Stec, Samsung, Micron, HGST, LSI, Virident(http://www.storagesearch.com/emc.html). Фото EMC с Samsung внутри - видел.</description>
+		<content:encoded><![CDATA[<p>Igor Zinovik:<br />
+Роман, а чьи SSD ставит NetApp в свои СХД? Меня интересует производитель (intel, samsung, ocz)?</p>
+<p>Якоы: Stec, Samsung, Micron, HGST, LSI, Virident(http://www.storagesearch.com/emc.html). Фото EMC с Samsung внутри - видел.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1283#comment-9511</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 02 Sep 2013 12:03:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1283#comment-9511</guid>
+		<description>Igor Zinovik:
+
+В энтерпрайзе, у EMC и NetApp по состоянию на два года назад, ставился STEC (http://www.stec-inc.com/), что сейчас - не знаю точно, вполне возможно, что они же, просто других моделей.</description>
+		<content:encoded><![CDATA[<p>Igor Zinovik:</p>
+<p>В энтерпрайзе, у EMC и NetApp по состоянию на два года назад, ставился STEC (http://www.stec-inc.com/), что сейчас - не знаю точно, вполне возможно, что они же, просто других моделей.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+.style1 {font-size: large}
+-->
+</style>
+</head>
+
+<body>
+<p><span class="style1"><strong>Сравнение результатов </strong><strong>FAS270 и FAS</strong><strong>3020 на трех  паттернах.</strong></span></p>
+<p>Тестировался  FAS3020  (одноконтроллерная конфигурация, сегмент “enterprise”) и FAS270 (одноконтроллерная конфигурация,  сегмент “entry level – low enterprise”). <br />
+  Интерфейсы FC (iSCSI не тестировался).</p>
+<p><strong>FAS</strong><strong>270 (</strong><strong>DataONTAP</strong><strong> 7.0.5)</strong><br />
+    <strong>14</strong><strong>HDD</strong><strong> 72</strong><strong>G</strong><strong>15</strong><strong>K</strong><strong>, 1</strong><strong>GB</strong><strong> </strong><strong>RAM</strong><strong> </strong><strong>Cache</strong><strong> </strong><br />
+    <strong>aggr0 RAID-DP 13 HDD (2 parity + 11 data) + 1 Spare</strong><br />
+    <strong>vol1</strong><br />
+    <strong>10 hdd in vol1 (flexvol type)</strong><br />
+    <strong>lun 10GB</strong><br />
+    <strong>no snapshots, 0% reserve</strong><br />
+    <strong>vol1 minra on</strong></p>
+<p><strong>FAS3020 (DataONTAP 7.2.0)</strong><br />
+    <strong>14HDD 72G15K, 2GB RAM Cache</strong><br />
+    <strong>aggr0 RAID-DP 13 HDD (2 parity + 11 data) + 1 Spare</strong><br />
+    <strong>vol1</strong><br />
+    <strong>10 hdd in vol1 (flexvol type)</strong><br />
+    <strong>lun 10GB</strong><br />
+    <strong>no snapshots, 0% reserve</strong><br />
+    <strong>vol1 minra on</strong></p>
+<p>&nbsp;</p>
+<p>Подключался  «прямым проводом» в Load Generator (в случае FC – point-to-point 2GB/s)</p>
+<p>“Load Generator”: SUN Enterprise 4900 2x SPARC3 1.2GHz  4GB RAM / Solaris10 06/06<br />
+  FC HBA Emulex LP10000 (driver bundled in Solaris10,  v5.21 for MS Windows 2003 Server R2), Software iSCSI initiator (bundled in  Solaris10)</p>
+<p>Измерения  проводились с помощью IOmeter:<br />
+    <strong>IOMeter</strong><strong> </strong><strong>v</strong><strong>.2006.07.27 </strong><strong>stable</strong><strong>, </strong><strong>dynamo</strong><strong> </strong><strong>compiled</strong><strong> </strong><strong>for</strong><strong> </strong><strong>SPARC</strong><strong> (</strong><strong>gcc</strong><strong> 3.4.3)</strong>, собирался  из исходников на Load Generator непосредственно.</p>
+<p>Тестировался  тремя типами паттернов <strong>database</strong><strong> </strong><strong>pattern</strong>, <strong>fileserver</strong><strong> </strong><strong>pattern</strong> и <strong>webserver</strong><strong> </strong><strong>pattern</strong>.<br />
+  RAW access: 16777216 sectors (8GiB)<br />
+  Режим тестирования: 1 Worker,  up to 256 Outstanding IOs exponential up (1,2,4,8…256)</p>
+<p>Замерялся лимит по IOPS: 512bytes  blocks Sequential Read, up to 256 Outstanding IOs<br />
+  и  MBPS: 1MB blocks Sequential Read, up to 256 Outstanding IOs</p>
+<p>&nbsp;</p>
+<p><strong>Описания использованных паттернов:</strong></p>
+<table border="1" cellspacing="0" cellpadding="0" width="377">
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td width="377" nowrap="nowrap" colspan="4" valign="bottom"><p align="center"><strong>database pattern</strong></p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p><em>block    size</em></p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p><em>% of    size</em></p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p><em>% read</em></p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p><em>%    random</em></p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">8192</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">67</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td width="377" nowrap="nowrap" colspan="4" valign="bottom"><p align="center"><strong>fileserver pattern</strong></p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p><em>block    size</em></p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p><em>% of    size</em></p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p><em>% read</em></p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p><em>%    random</em></p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">512</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">10</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">80</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">1024</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">5</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">80</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">2048</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">5</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">80</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">4096</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">60</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">80</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">8192</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">2</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">80</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">16384</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">4</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">80</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">32768</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">4</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">80</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">65535</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">10</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">80</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td width="377" nowrap="nowrap" colspan="4" valign="bottom"><p align="center"><strong>webserver pattern</strong></p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p><em>block    size</em></p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p><em>% of    size</em></p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p><em>% read</em></p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p><em>%    random</em></p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">512</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">22</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">1024</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">15</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">2048</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">8</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">4096</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">23</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">8192</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">15</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">16384</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">2</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">32768</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">6</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">65535</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">7</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">131072</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">1</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+  <tr>
+    <td width="90" nowrap="nowrap" valign="bottom"><p align="right">524288</p></td>
+    <td width="91" nowrap="nowrap" valign="bottom"><p align="right">1</p></td>
+    <td width="88" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+    <td width="108" nowrap="nowrap" valign="bottom"><p align="right">100</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><strong>Результаты:</strong><strong> </strong><br />
+  1. паттерны</p>
+<table border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><br />
+        <strong>IOPS</strong> </td>
+    <td nowrap="nowrap" valign="bottom"><p>dbPattern    FC 270</p></td>
+    <td nowrap="nowrap" valign="bottom"><p>dbPattern    FC 3020</p></td>
+    <td nowrap="nowrap" valign="bottom"><p>fsPattern    FC 270</p></td>
+    <td nowrap="nowrap" valign="bottom"><p>fsPattern    FC 3020</p></td>
+    <td nowrap="nowrap" valign="bottom"><p>webPattern    FC 270</p></td>
+    <td nowrap="nowrap" valign="bottom"><p>webPattern    FC 3020</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">1</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">2573</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">3866</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">2735</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">3817</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">3091</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">3905</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">2</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">4207</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6991</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">4274</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6420</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">5028</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6373</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">4</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">5812</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">11207</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">5891</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">9261</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">7406</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">8962</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">8</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6670</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">14777</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">7312</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">11845</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">8982</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">10502</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">16</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6964</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">17378</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">7954</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">14431</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">9335</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">11044</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">32</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6492</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">18602</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">8309</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">15797</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">9447</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">11103</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">64</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6900</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">19026</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">8341</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">15086</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">9547</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">11127</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">128</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6825</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">19331</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">8324</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">14430</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">9588</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">11173</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">256</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">6902</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">19404</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">8468</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">13880</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">9522</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">11209</p></td>
+  </tr>
+</table>
+<p>2.  максималка</p>
+<table border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><br />
+    FC    maxIOPS 270 </td>
+    <td nowrap="nowrap" valign="bottom"><p>FC    maxMBPS 270</p></td>
+    <td nowrap="nowrap" valign="bottom"><p>FC maxIOPS 3020</p></td>
+    <td nowrap="nowrap" valign="bottom"><p>FC maxMBPS 3020</p></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap" valign="bottom"><p align="right">21810</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">182,2</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">23655</p></td>
+    <td nowrap="nowrap" valign="bottom"><p align="right">188,18</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><img src="image005.gif" alt="comparing iops" /></p>
+<p><strong>Выводы:</strong><br />
+  Максимальный  разброс производительности между системами оказался на паттерне dadabase (2.8 раза). Паттерн характеризуется  постоянным небольшим размером блока (8kb) и сравнительно большим количеством  операций записи (до 33% от общего количества операций). Очевидно что в этих  условиях вдвое больший кэш и более мощный процессор дает наблюдаемый выигрыш.  При этом на паттерне webserver (разные размеры блока, в основном  мелкие, чистое чтение) различия минимальны (около 15%).Таким образом правильный  выбор системы под задачу может дать заметный экономический эффект.<br />
+  Неясен  эффект падения производительности при увеличении Outstanding IOs на паттерне fileserver. Более ни на каком другом паттерне такой  эффект не наблюдается, при увеличении OutIOs производительность плавно растет до  конструктивного предела.<br />
+  Интересно,  что на FAS270 этот паттерн также характеризуется странным поведением, однако ровно  обратным (медленным ростом на начальном этапе и резким ростом на больших  величинах OutIOs). Эффект повторяемый, однако причины установить не удалось, возможно  это специфика OS модели.<br />
+  Линейный  участок роста производительности при росте загрузки на системе FAS3020 (до 32 против 8) также больше  по сравнению с FAS270. <br />
+  Максимальные  значения производительности FC-интерфейса (читай чипа FC и кэша) мало отличаются и  фактически близки (для 3020 больше примерно на 2000 IOPS или 8%)</p>
+</body>
+</html>

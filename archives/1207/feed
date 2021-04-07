@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Загрузка серверов на Linux с NFS</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1207/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1207</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:09 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: daevy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1207#comment-3412</link>
+		<dc:creator>daevy</dc:creator>
+		<pubDate>Thu, 13 Sep 2012 04:17:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1207#comment-3412</guid>
+		<description>получится ли все это провернуть на NetApp Data ONTAP симуляторе? (8.0)</description>
+		<content:encoded><![CDATA[<p>получится ли все это провернуть на NetApp Data ONTAP симуляторе? (8.0)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

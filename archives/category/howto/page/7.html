@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; howto</title>
+
+<link rel="stylesheet" href="../../../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../../../feed" />
+<link rel="pingback" href="../../../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Archive for the &#8216;howto&#8217; Category.</p>
+
+ 				
+		<div class="navigation">
+			<div class="alignleft"><a href="http://blog.aboutnetapp.ru/archives/category/howto/page/8">&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="6.html">Next Entries &raquo;</a></div>
+		</div>
+
+						
+			<div class="post" id="post-757">
+				<h2 class="posttitle"><a href="../../../757/trackback.html" rel="bookmark" title="Permanent Link to Hardware-Assisted Takeover">Hardware-Assisted Takeover</a></h2>
+				<div class="postmetadata">4 Ноябрь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>С выходом в активную жизнь Data ONTAP 8 с ее cluster-mode в этом блоге я начинаю менять используемую терминологию. Теперь, во избежание путаницы, я буду называть “cluster-classic”, который был в ONTAP 7 – как “HA-кластер” (High Availability), а под кластером “просто” будет подразумеваться multinode-cluster или ONTAP 8 cluster-mode.</p>
+<p>Как вы знаете, HA-кластерная функцинальность систем NetApp позволяет прозрачно для приложений и задач, в случае отказа одного из контроллеров HA-кластерной пары, перенести все его ресурсы, то есть IP-адреса, сетевые имена, WWN-ы FC, а следовательно доступ к сетевым шарам, LUN-ам, и так далее, с вышедшего из строя контроллера на действующий. Таким образом доступ ко всем ресурсам полностью сохраняется и не требует перенастройки клиентов или “фабрики” для продолжения доступа.</p>
+<p>Однако такая схема переключения может занимать, подчас, довольно значительное время, исчисляемое десятками секунда на совершение этого HA-cluster takeover. Это связано с тем, что “выживший” контроллер должен понять, что его HA-кластерный партнер не просто не отвечает вовремя, а дейтвительно перестал работать.</p>
+<p>Значительно ускорить этот процесс можно с помощью операции Hardware-assisted Takeover, которая использует для определеня состояния контроллера возможности RLM – автономного аппаратного микроконтроллера, который по основной своей задаче предназначен для удаленного “out-of-band” администрирования, и работает как независимое аппаратное устройство. RLM был опциональным устройством в системах серии 3000/6000, и встроен в контроллер для серии 3100 и новее. Будучи “внешним” для системы watchdog-ом, RLM позволяет значительно сократить время кластерного takeover, быстро определяя и сообщая состояние своего контроллера. RLM даже имеет автономное (хотя и не слишком длительное по времени автономной работы) питание, и остается включенным в сети даже, например, при полной потере электропитания контроллером, позволяя определять даже такое событие.</p>
+<p>Для того, чтобы включить Hardware-assisted Takeover, при наличии на контроллере OS Data ONTAP 7.3 и новее, дайте в консоли команду</p>
+<p><code>fas&gt; options cf.hw_assist.enable on </code></p>
+<p>Для того, чтобы изменить IP-адрес для получения партнером уведомлений об отказе, используйте команду (по умочанию это адрес порта e0a):</p>
+<p><code>fas &gt; options cf.hw_assist.partner.address &lt;IP or hostname&gt; </code></p>
+<p>Подробнее смотрите во встроенной документации на систему Data ONTAP вашей версии, по словам ???hardware-assisted takeover’.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/cluster/index.html" rel="tag">cluster</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/rlm.html" rel="tag">rlm</a>, <a href="../../../tag/takeover.html" rel="tag">takeover</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../757/trackback.html#respond" title="Комментарий к записи Hardware-Assisted Takeover">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-718">
+				<h2 class="posttitle"><a href="../../../718/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP 7G Cookbook">Data ONTAP 7G Cookbook</a></h2>
+				<div class="postmetadata">14 Октябрь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Бродя по бесконечным просторам внутренних пространств вебсайта NetApp обнаружил там в глухом уголке чрезвычайно полезную вещь, каковой и поделюсь.   <br />Называется <a href="http://www.divshare.com/download/12748580-cab">Data ONTAP Cookbook</a>.</p>
+<p>Представляет собой сравнительно краткий “сборник рецептов” (cookbook – кулинарная книга) для повседневной жизни админа, этакая “настольная книга <strike>домо</strike>системохозяина”.    <br />Как и обычная кулинарная книга это сборник пошаговых инструкций по выполнению тех или иных практических действий на системе хранения NetApp, например:</p>
+<ul>
+<li>Как создать том</li>
+<li>Настроить NFS export</li>
+<li>Сконфигурировать порт FC</li>
+<li>??зменить размер LUN</li>
+<li>Создать и настроить VIF/ifgrp</li>
+<li>Настроить SnapMirror</li>
+<li>…и так далее, всего 70 страниц.</li>
+</ul>
+<p>Скачать можно тут: <a href="http://www.divshare.com/download/12748580-cab">http://www.divshare.com/download/12748580-cab</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/guide.html" rel="tag">guide</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/ontap.html" rel="tag">ontap</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../718/trackback.html#comments" title="Комментарий к записи Data ONTAP 7G Cookbook">Комментарии (7)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-709">
+				<h2 class="posttitle"><a href="../../../709/trackback.html" rel="bookmark" title="Permanent Link to Распределение дисков по RAID groups в aggregate">Распределение дисков по RAID groups в aggregate</a></h2>
+				<div class="postmetadata">27 Сентябрь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Несколько слов о такой теме, которая, как я заметил, часто вызывает замешательство и непонимание.</p>
+<p>Для начала кратко о том, что такое aggregate и как они соотносятся с RAID-группами <em>(например для тех, кто тут впервые, пришел из поисковика, и еще не разглядел, что тут порядка двух сотен постов, в которых о многом написано не по разу)</em>.</p>
+<p>Aggregate это “уровень виртуализации” для физических дисков в системах хранения NetApp, это своеобразный виртуальный мета-том, на котором можно размещать уже непосредственно адресуемые пользователем тома, сетевые шары для NAS или LUN для SAN. ??спользование такого уровня виртуализации, например, позволяет равномерно распределять операции ввода-вывода по всем нижележащим дискам, увеличивая общую произвдительность, а также с легкостью увеличивать и уменьшать в объемах лежашие поверх него ресурсы – тем самые тома, LUN, сетевые шары, и так далее. Aggregate это одна из самых полезных и эффктивных “фич” систем хранения NetApp.</p>
+<p>Однако вопросы возникают вокруг темы создания, и дальнейшего увеличения самого aggregate, путем добавления в его структуру физических дисков. Как это делать правильно, и почему часто это проделывается неправильно – об этом сегодня и пойдет речь.</p>
+<p>В физической иерархии aggregate находится на уровне, на котором в традиционных системах хранения находится volume. Ниже него лежат непосредственно физические диски, на которых организованы RAID-группы. Каждый aggregate может занимать одну или, обычно, несколько сконкатенированных RAID-групп, причем размер этих групп в количестве дисков может быть разным. NetApp рекомендует, если нет каких-то особых причин, создавать минимально возможное количество максимально “длинных” aggregate. Это повышает производительность ввода-вывода всех лежащих на них томов и LUN.</p>
+<p>Для OS Data ONTAP семейства G7 (версий 7.х.x) максимальный размер aggregate был равен 16TB.    <br />В версиях семейства G8 (8.x.x), для нового формата, под названием 64-bit aggregate, его размер варьируется в зависимости от мощности контроллера, и достигает 100TB для систем FAS6080, самых мощных на сегодня.</p>
+<p>Подходить к созданию aggregate следует очень вдумчиво и аккуратно, так как то, что aggregate это фундамент в основе всех вышележащих структур, накладывает на его создание большую ответственность. Просчеты при создании aggregate будут влиять на все использующие его структуры выше. Кроме того, добавленные в aggregate диски нельзя из него извлечь не уничтожая весь aggregate вместе со всеми вышележащими структурами – LUN-ами, томами и сетевыми шарами, вместе со всем их содержимым.</p>
+<p>Для того, чтобы создать aggregate, надо отдать команду в командной строке админской консоли, или запустить мастер в FilerView web-GUI. ?? там и там от нас потребуется задать величину RAID-групп.</p>
+<p>Какой же должна быть величина этих RAID-групп в количестве дисков?    <br />На сегодня, максимальный размер RAID-групп для дисков FC и SAS равен 28 дискам (то есть, например, для RAID-DP это 26 дисков данных и 2 диска parity), а для дисков SATA – 16 дисков (в версии 8.0.1 будет увеличена до 20).     <br />Однако “рекомендованные величины”, выбранные “по умолчанию”, несколько меньше, это 16 и 14 дисков соответственно. (Все для типа RAID – RAID-DP).</p>
+<p>“Если не знаете что делать – не делайте ничего” гласит по легенде главное правило в учебнике по пилотированию самолетов. Последуем ему и мы. Если вы не знаете, какие параметры при создании aggregate нужно выбрать, например размер RAID-групп – рекомендую вам оставить параметры по умолчанию.</p>
+<p>Однако какие параметры стоит рассмотреть в том случае, если мы хотим разобраться и создать максимально оптимизированную структуру RAID?</p>
+<p>Прежде всего, рекомендуется создавать RAID-группы, на которых лежит aggregate, по возможности равного размера. Причины этому понятны. Сильный дисбаланс в размерах может ограничить производительность aggregate производительностью самой маленькой RAID-группы.</p>
+<p>То есть&#160; между вариантами распределения 26 дисков в виде: 22 диска (RAID-DP 20+2) и 4 (RAID-DP 2+2) или же 13 и 13 (RAID-DP 11+2), следует предпочесть второе, несмотря на то, что в первом случае одна из групп будет значительно крупнее, второй вариант будет иметь в целом гораздо более стабильное быстродйствие в IOPS.</p>
+<p>Создавать группы равного размера в принципе дело несложное в том случае, если количество дисков, которыми мы располагаем, заранее определено. Но что делать, если нам понадобится добавить дисков в aggregate, причем количество добавляемых дисков <strong>не</strong> 13, а заметно меньше, то есть создать из добавляемых дисков целую новую RAID-группу и растянуть на нее aggregate у нас не выйдет?</p>
+<p>Допустим, у нас есть 6 дисков, на которые мы хотим увеличить наш aggregate, лежащий на двух группах RAID-DP по 13 дисков каждый.</p>
+<p>У нас есть два варианта: </p>
+<p>Вариант 1. Мы може просто, не особо думая, добавить эти диски командой <code>aggr add &lt;aggrname&gt; 8a.1, 8a.2, 8a.3</code> (и прочие необходимые нам диски), или соответствующим GUI-мастером. Если ранее мы задали, что наш aggregate имеет размер RAID – 13 дисков, то вновь добавленные диски образуют третью RAID-группу rg2 (вдобавок к имещимся rg0 и rg1) размером 6 дисков (RAID-DP 4+2). Если в дальнейшем мы будем добавлять в этот aggregate еще дисков, то диски автоматически станут наращивать эту группу, пока она не достигнет размера 13 дисков, после чего начнется новая группа rg3.     <br />Результат в целом простой, но не совсем для нас желательный. Для системы с высокими требованиями по производительности мы можем столкнуться с ситуацией, когда производительность ввода-вывода системы будет заметно колебаться в зависимости от того, какая порция данных на каком RAID окажется.     <br />Хотя этот эффект часто не слшком ярко выражен, и часто переоценивается, но мы хотели бы его избежать.</p>
+<p>Вариант 2. Несколько более хитрый. Как я уже сказал выше, мы не можем вывести уже введенные в aggregate диски. Также мы не можем <em>уменьшить</em> уже установленный в aggregate размер RAID-групп (ведь на дисках уже могут располагаться данные). Однако мы можем <em>увеличивать</em> размер RAID-группы в параметре входящих в нее дисков, вплоть до максимального размера, равного 28 для SAS/FC и 16/20 для SATA. Как вы уже знаете, особенностью использованного у NetApp типа RAID, как RAID-4, так и RAID-DP, является то, что добавление в них новых дисков и увличение RAID производится без необходимости полного перестроения RAID, как это привычно при использовании, например, RAID-5. Новый диск добавляется в RAID-4 или RAID-DP, и сразу же на него можно писать, расширив RAID-группу на размер этого диска.</p>
+<p>Начнем с того, что зададим в свойствах aggregate размер его RAID-групп больше, чем было установлено ранее (13), в случае необходимости добавления 6 дисков зададим их величину в 16 дисков.</p>
+<p><code>fas1&gt; aggr options aggr1 raidsize 16</code></p>
+<p>После выполнения этой команды мы получаем тот же aggregate, только теперь вместо двух заполненных RAID-групп на 13 (11d+2p) дисков, мы имеем две неполных RAID-группы по 13 дисков (11d+2p), с максимальным размером 16 (13d+2p). Слдующей командой мы добавляем 6 наших дисков в aggr1:</p>
+<p><code>fas1&gt; aggr add aggr1 8a.1, 8a.2, 8a.3, 8a.4, 8a.5, 8a.6</code></p>
+<p>Логика добавления дисков неполные RAID-группы проста. Если в aggregate имеются неполные группы, то сперва системе следует заполнить эти группы до максимального зачения, начиная с самой младшей, затем переходя к следующей. Таким образом диски 1, 2, 3 добавятся RAID-группе rg0, а 4, 5, 6 – группе rg1. При необходимости можно и вручную задать какой диск в какую группу будет добавляться.</p>
+<p>В итоге мы добились нужного нам. Мы добавили 6 дисков, расширили aggregate, и избежали создания неравномерно разбитых RAID в этом aggregate. Обратите внимание, что все эти действия по изменению размеров RAID-группы и добавлнию дисков осуществляются “на ходу”, не прерывая работы системы, перестроения RAID не требуется, и емкость добавленных дисков становится немеленно доступна системе.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/aggregates.html" rel="tag">aggregates</a>, <a href="../../../tag/howto/index.html" rel="tag">howto</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tipstricks/index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../709/trackback.html#comments" title="Комментарий к записи Распределение дисков по RAID groups в aggregate">Комментарии (5)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-559">
+				<h2 class="posttitle"><a href="../../../559/trackback.html" rel="bookmark" title="Permanent Link to Syslog forwarding">Syslog forwarding</a></h2>
+				<div class="postmetadata">8 Апрель 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Основной лог в Data ONTAP, как у “правильной юниксподобной OS”, ведется в виде <a href="http://en.wikipedia.org/wiki/Syslog">syslog</a>. ??, как правильный syslog, он может передаваться на удаленную машину для сборки-разборки его в спциализированных программах.</p>
+<p>Для того, чтобы настроить логи на передачу их на удаленную машину, надо изменить настройки в /etc/syslog.conf    <br />Его синтаксис идентичен таковому в Linux/UNIX.</p>
+<p><code># Log all kernel messages, and anything of level err or higher to the console.      <br />&#160;&#160;&#160; *.err;kern.*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /dev/console       <br /># Also log console messages to a remote loghost system called adminhost.       <br />&#160;&#160;&#160; *.err;kern.*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; @adminhost </code></p>
+<p>То есть: выводим все сообщения уровня ядра, а также все сообщения с уровнем err и выше в системную консоль, а также передаем их на систему adminhost (где его должен принимать syslog-сервер).</p>
+<p>На указанной машине запустим сервер syslog (например <a href="http://www.kiwisyslog.com/kiwi-syslog-server-overview/">Kiwi Syslog Server</a>), и будем получать и обрабатывать эти логи, настроив по ним желаемые алерты и репорты.</p>
+<p>Смотрите также статью: <a href="http://partners.netapp.com/go/techontap/swatch-kiwi.html">Swatch and Kiwi Syslog Daemon</a>. К сожалению, за время, прошедшее с ее публикации, компанию-производителя Kiwi Syslog Daemon купили, и теперь их продукт платный, что, впрочем, не может помешать найти множество бесплатных вариатов той или иной степени удобности.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/management.html" rel="tag">management</a>, <a href="../../../tag/monitoring.html" rel="tag">monitoring</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/syslog.html" rel="tag">syslog</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>,  <a href="../../utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../559/trackback.html#respond" title="Комментарий к записи Syslog forwarding">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-558">
+				<h2 class="posttitle"><a href="../../../558/trackback.html" rel="bookmark" title="Permanent Link to Полезные команды: filestats">Полезные команды: filestats</a></h2>
+				<div class="postmetadata">5 Апрель 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Малоизвестной, но полезной командой для администратора NAS является команда <strong>filestats</strong>.     <br />С ее помощью можно быстро составить картину распределения файлов на системе хранения по размеру, времени хранения, владельцу, и использовать это в планировании и администрировании.</p>
+<p>Вот простой пример использования. Выведем статистику по файлам тома vol0 (системного root-vol), взяв для анализа снэпшот hourly.1:</p>
+<pre>toaster&gt; filestats volume vol0 snapshot hourly.1
+VOL=vol0 SNAPSHOT=hourly.1
+INODES=274528 COUNTED_INODES=875 TOTAL_BYTостой примеррES=458354190 TOTAL_KB=143556
+
+FILE SIZE         CUMULATIVE COUNT       CUMULATIVE TOTAL KB
+1K                465                    1576
+10K               832                    3356
+100K              853                    3980
+1M                856                    4660
+10M               864                    32808
+100M              875                    143524
+1G                875                    143254
+MAX               875                    143254
+
+AGE(ATIME)        CUMULATIVE COUNT       CUMULATIVE TOTAL KB
+0                 0                      0
+30D               841                    132780
+60D               850                    132932
+90D               859                    143464
+120D              875                    143528
+MAX               875                    143528
+
+UID               COUNT                  TOTAL KB
+#0                873                    143528
+#20041            2                      0
+
+GID               COUNT                  TOTAL KB
+#0                851                    41556
+#30               21                     1972
+#1                3                      0</pre>
+<p>Обратите внимание: счетчик количества выводится “накопительный” (cumulative). То есть, например, число файлов размера “до 1K” равно 465. А число файлов “до 10К (включая и файлы, посчитанные ранее в “до 1К”)” – 832. Таким образом число файлов “больше 1К, но меньше 10К” равно 832-465=367.</p>
+<p>Эта же команда имеет и некоторые другие ключи и способы использования, смотрите примеры и описания во встроенной помощи и “манах”.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tipstricks/index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../558/trackback.html#respond" title="Комментарий к записи Полезные команды: filestats">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-556">
+				<h2 class="posttitle"><a href="../../../556/trackback.html" rel="bookmark" title="Permanent Link to Полезные команды: dd">Полезные команды: dd</a></h2>
+				<div class="postmetadata">25 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Несмотря на то, что Data ONTAP не только не является “Линуксом”, она даже UNIX в общепринятом смысле этого слова <a href="../../../12/trackback.html">не является</a> (не устаю это повторять снова и снова, потому что это один из самых распространенных мифов в отношении NetApp), тем не менее, для удобства администраторов, а первыми администраторами систем хранения NetApp были, конечно же, администраторы UNIX-систем, в ней многое сделано “очень похожим на UNIX”. Структура директорий, правила именования файлов, и даже большинство команд похожи на свои аналоги из мира Юникса.</p>
+<p>Вот, например, даже имется хорошо известная команда dd, хотя она и немного спрятана.</p>
+<p>Отдайте в консоли команду</p>
+<p><code>fas1&gt; priv set advanced </code></p>
+<p>Эта команда переведет вас в специальный “расширенный режим”, в котором вы получаете доступ к расширенному набору команд, но, ВН??МАН??Е, эти команды могут быть опасны для работы системы, и для сохранности данных! Пользуйтсь ими с ответственностью, и исключительно на свой страх и риск!    <br />После ввода этой команды вы заметите изменившийся значок подсказки. Он указывает вам на то, что вы работаете в режиме повышенных привилегий. Для того, чтобы вернуться на обычный уровень, введите команду <strong>priv set admin</strong> или просто <strong>priv set</strong></p>
+<p>Среди множества дополнительных команд вам будет доступна и команда <strong>dd</strong> – disk dump, прямого посектороного копирования.</p>
+<p><code>fas1*&gt; dd if=/vol/vol0/etc/rc of=/vol/newroot/etc/rc</code> – копирование rc в новое место&#160; <br />&#160;&#160; <br />Обратите внимание, вы НЕ можете запустить команду <strong>dd</strong> в фоне (еще раз напомню, что Data ONTAP это не линукс, и внешняя схожесть команд еще не значит внутреннего подобия), поэтому, если вы используете <strong>dd</strong>, то все копирование будет происходить “основной задачей”, наберитесь терпения. Кстати это еще один повод использовать вместо <strong>dd</strong> что-нибудь более продвинутое, например <strong>ndmpcopy</strong>.     <br />Прервать работу <strong>dd</strong> можно нажатием Ctrl-C</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/console/index.html" rel="tag">console</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../556/trackback.html#respond" title="Комментарий к записи Полезные команды: dd">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-547">
+				<h2 class="posttitle"><a href="../../../547/trackback.html" rel="bookmark" title="Permanent Link to Syslog Translator">Syslog Translator</a></h2>
+				<div class="postmetadata">18 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Несмотря на то, что в целом ONTAP стремится быть понятной и “самоописательной”, как в своих командах, так и в сообщениях в логах, в них нередко встречаются сообщения довольно “загадочные”.</p>
+<p>Для того, чтобы лучше разобраться в сообщениях syslog, на сайте NOW (NetApp on Web) есть полезная служба: <a href="https://now.netapp.com/eservice/ems">System Log Translator</a><em>     <br />ниже – скриншот:</em></p>
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image31.png" width="878" height="181" /> </p>
+<p>Например, мы видим в логе сообщение:</p>
+<p>[scsitarget.partnerPath.misconfigured:error]: FCP Partner Path Misconfigured - Host I/O access through a non-primary and non-optimal path was detected. </p>
+<p>Введенное в Syslog Translator оно покажет следующее:</p>
+<p><a href="/pics//image32.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image-thumb17.png" width="667" height="161" /></a> </p>
+<p>Уже гораздо понятнее что делать и куда бечь.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/now.html" rel="tag">now</a>, <a href="../../../tag/support.html" rel="tag">support</a>, <a href="../../../tag/tools.html" rel="tag">tools</a>, <a href="../../../tag/web.html" rel="tag">web</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>,  <a href="../../utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../547/trackback.html#respond" title="Комментарий к записи Syslog Translator">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-548">
+				<h2 class="posttitle"><a href="../../../548/trackback.html" rel="bookmark" title="Permanent Link to Полезные команды: cifs top">Полезные команды: cifs top</a></h2>
+				<div class="postmetadata">15 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Если с занимающими много места на дисках пользователями NAS можно справиться механизмом квот, то что делать с пользователями, которые используют много, но не места, а системных ресурсов, например загружая систему большим числом операций ввода-вывода?</p>
+<p>Прежде всего таких следует найти и оценить загрузку от них. В этом поможет команда <strong>cifs top</strong>.</p>
+<p>Для начала нам надо включить системную опцию:</p>
+<p><code>fas1&gt; options cifs.per_client_stats.enable on </code></p>
+<p>Далее, собрав некоторую статистику, введем команду:</p>
+<p><code>fas1&gt; cifs top –n 3 –s w</code> - показать трех самых активных пользователей, отсортировав список по объемам записи</p>
+<p><code>&#160;&#160;&#160; ops/s&#160; reads(n, KB/s) writes(n, KB/s) suspect/s&#160;&#160; IP&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Name      <br />&#160;&#160;&#160;&#160; 263 |&#160;&#160;&#160;&#160; 29&#160;&#160; 215 |&#160;&#160;&#160;&#160; 137&#160;&#160; 627 |&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0 | 10.56.10.120 ENGR\varun       <br />&#160;&#160;&#160;&#160; 248 |&#160;&#160;&#160;&#160; 27&#160;&#160; 190 |&#160;&#160;&#160;&#160; 126&#160;&#160; 619 |&#160;&#160;&#160;&#160;&#160;&#160;&#160; 1 | 10.56.10.120 ENGR\jill       <br />&#160;&#160;&#160;&#160; 246 |&#160;&#160;&#160;&#160; 26&#160;&#160; 195 |&#160;&#160;&#160;&#160; 125&#160;&#160; 616 |&#160;&#160;&#160;&#160;&#160;&#160; 19 | 10.56.12.118 MKTG\bob       <br /></code></p>
+<p>&#160;</p>
+<p>Более подробно о доступных ключах команды можно узнать из встроенной документации и манов.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/cifs.html" rel="tag">cifs</a>, <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/nas.html" rel="tag">nas</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tipstricks/index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../548/trackback.html#respond" title="Комментарий к записи Полезные команды: cifs top">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-543">
+				<h2 class="posttitle"><a href="../../../543/trackback.html" rel="bookmark" title="Permanent Link to Полезные команды: logger">Полезные команды: logger</a></h2>
+				<div class="postmetadata">11 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Простая, малоизвестная, но весьма полезная команда – <strong>logger</strong>. Эта команда пишет данную ей в аргументе текстовую строку в системный лог (/etc/messages). С ее помошью можно заносить в лог определенные записи, например отмечать там свои действия.</p>
+<p><code>fas1&gt; logger&#160;&#160; *** Starting shelf firmware upgrade ***</code> </p>
+<p>Запущенная без аргумента она ожидает ввода со stdin (клавиатуры), завершаемого “по юниксному” – точкой в начале новой строки</p>
+<p><code>fas1&gt; logger&#160; <br />&#8212;&#8211; &gt; System going down for UPS system maintenance&#160; &lt; &#8212;&#8211;       <br />System is expected to halt ungracefully while we test battery duration       <br />-&#160; &gt; Sysadmin       <br />.</code></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tipstricks/index.html" rel="tag">tips&amp;tricks</a>, <a href="../../../tag/useful.html" rel="tag">useful</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../543/trackback.html#respond" title="Комментарий к записи Полезные команды: logger">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-542">
+				<h2 class="posttitle"><a href="../../../542/trackback.html" rel="bookmark" title="Permanent Link to Мониторинг среды: команда environment">Мониторинг среды: команда environment</a></h2>
+				<div class="postmetadata">8 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Малоизвестная, но полезная команда консоли <strong>environment</strong> позволит наблюдать за различными показателями “среды обитания” системы хранения, таких как, например, температура, скорости вращения вентиляторов охлаждения, или состояние блоков питания.</p>
+<p><code>fas&gt; environment status</code> – показывает всю доступную информацию&#160; <br /><code>fas&gt; environment shelf</code> – показывает информацию, относящуюся к дисковым полкам&#160; <br /><code>fas&gt; environment chassis all</code> – показывает информацию о шасси контроллера     <br /><code>fas&gt; environment chassis list-sensors</code> – показыват все датчики шасси, их состояния и пороги </p>
+<p>Пример вывода команды environment status shelf:</p>
+<pre>          Environment for adapter 3:
+                  Shelves monitored: 1    enabled: yes
+                  Swap in progress? no    Environmental failure? no
+
+                  EDM 1 (active):
+                  SES Configuration, via loop id 3 in shelf 0x0:
+                   logical identifier=0x3003040000000000
+                   vendor identification=EuroLogc
+                   product identification=Eurologic EDM
+                   product revision level=0x01000101
+                  Vendor-specific information:
+                   backplane byte=0x1e     cabinet id=0x0
+                   Backplane Type : Single Fibre Channel Backplane
+                   Backplane Function : Storage System
+                   Kernel Version : 1.0.A          App. Version : 1.1.A
+                  Shelf:0         SES path:3.3    Device mask: 0x7f
+                  Power Supply present: 0x3; with error: 0x0
+                  Fans present: 0x3; with error: 0x0
+                  Temperature Sensor present: 0x1; with error: 0x0
+                  SES Electronics present: 0x1; with error: 0x0
+                  Shelf temperature: 29C (84F)
+                  High thresholds: critical: 55C (131F); warning 50C (122F)
+                  Low thresholds: critical: 0C (32F); warning 10C (50F)
+
+                  Disks physically present on adapter 3
+                    Devices 0x1f-0x00: 0000007f
+                    Devices 0x3f-0x20: 00000000
+                    Devices 0x5f-0x40: 00000000
+                    Devices 0x7f-0x60: 00000000</pre>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/monitoring.html" rel="tag">monitoring</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../542/trackback.html#respond" title="Комментарий к записи Мониторинг среды: команда environment">Комментарий</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="http://blog.aboutnetapp.ru/archives/category/howto/page/8">&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="6.html">Next Entries &raquo;</a></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37 current-cat"><a href="../index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../../justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../../review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../../utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../../whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../../opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../../citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../../../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../../../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../../../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../../../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../../../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../../../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../../../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../../../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../../../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../../../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../../../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../../../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../../../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../../../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../../../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../../../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../../../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../../../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../../../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../../../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../../../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../../../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../../../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../../../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../../../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../../../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../../../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../../../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../../../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../../../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../../../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../../../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../../../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../../../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../../../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../../../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../../../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../../../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../../../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../../../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../../../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../../../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../../../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../../../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../../../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../../../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../../../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../../../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../../../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../../../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../../../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../../../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../../../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../../../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../../../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../../../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../../../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../../../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../../../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../../../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../../../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../../../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../../../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../../../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../../../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../../../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../../../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../../../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../../../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../../../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../../../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../../../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../../../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../../../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../../../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../../../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../../../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../../../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../../../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../../../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../../../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../../../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../../../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../../../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../../../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../../../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../../../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../../../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../../../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../../../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../../../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../../../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../../../feed">Entries (RSS)</a> and <a href="../../../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.092 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

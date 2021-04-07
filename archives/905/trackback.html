@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Flash Cache 1TB</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../899/trackback.html">??нструменты админа: Perfviewer 1.5.1</a></div>
+			<div class="alignright"><a href="../907/trackback.html">Публичная Beta для System Manager 2.0</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-905">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Flash Cache 1TB">Flash Cache 1TB</a></h2>
+			<div class="postmetadata">9 Май 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Без особого шума <a href="http://www.netapp.com/us/products/storage-systems/flash-cache/flash-cache-tech-specs.html">обновилась информация</a> о доступной конфигурации плат <a href="../599/trackback.html">Flash Cache (PAM II)</a>, нетапповского средства Virtual Tiering, представляющего собой плату с SLC Flash, между дисками и собственно системным кэшем контроллера, и позволяющего значительно повысить производительность в IOPS, без необходимости увеличивать количество дисковых шпинделей.</p>
+<p>От SSD это решение отличается тем, что его емкость занимают только “горячие”, активные данные, то есть высокопроизводительный объем flash занимается максимально эффективно, а от auto-tiering, наподобие EMC FAST это отличается полностью автоматической работой, быстротой заполнения и гибкостью использования, так как минимальный “квант” tiering-а равен блоку WAFL – 4KB, в отличие от огромного, размером 1Gb, сегмента, которым оперирует EMC FAST.</p>
+<p>Результаты производительности систем хранения с платами Flash Cache широко опубликованы, например в тестах <a href="http://www.spec.org/sfs2008/results/sfs2008.html">SPEC SFS</a> (<a href="http://www.spec.org/sfs2008/results/res2009q3/sfs2008-20090727-00128.html">NFS</a>/<a href="http://www.spec.org/sfs2008/results/res2010q4/sfs2008-20101018-00170.html">CIFS</a>) и в тестах <a href="http://www.storageperformance.org/benchmark_results_files/SPC-1E/NetApp/AE00004_NetApp_FAS3270A/ae00004_NetApp_FAS3270A_SPC1E_executive-summary.pdf">SPC-1/E</a> (SAN), и они широко продаются с системами хранения NetApp, утверждается, что ныне каждая четвертая система из всех, продаваемых NetApp идет с Flash Cache..</p>
+<p>До сих пор были доступны платы с объемом 256 и 512Gb SLC Flash, теперь к ним добавилась плата с 1Tb, доступная для самых старших систем – 6200 и 3270. Доступность к заказу объявлена с 13 июня.</p>
+<p>Как побочный результат это также означает, что к 13 июня должна также выйти система Data ONTAP 8.0.2, которая необходима для работы этих модулей.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/flashcache.html" rel="tag">flashcache</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/pam.html" rel="tag">pam</a><br />					Раздел: <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (15)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1339">
+		<div id="div-comment-1339">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Сравнение некорректно, аналога FAST у NetApp&#8217;a нет, FlashCache является аналогом FASTCache.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1339" title="">9 Май 2011, 16:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1340">
+		<div id="div-comment-1340">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>deepblue:</p>
+<p>Об этом мы обязательно поговорим несколько позже.<br />
+А пока же, в качестве анонса: с точки зрения &#8220;сверху&#8221;, то есть пользователя (и программы, использующей систему хранения), любой tiering суть одно и тоже, если смотреть со стороны функциональности. А уж как он реализован, с переносом данных на другие диски, или с переносом данных &#8220;не в диски&#8221; а на кэш-пространство, это уже детали реализации. С точки зрения пользователя (и программы, использующей сторадж) и то и другое имеет одну цель - увеличение производительности работы с &#8220;горячими&#8221; данными, за счет снижения latency и увеличения показателей в IOPS. А уж какими средствами это достигается - дело второе.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1340" title="">9 Май 2011, 16:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1341">
+		<div id="div-comment-1341">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Не совсем верно. Цель FASTCache и FlashCache - увеличение производительности с помощью кеширования данных. Цель FAST - оптимальное размещение данных между разными типами дисков (не только SSD). Например, FAST позволяет агрессивно использовать SATA или SAS-NL диски (75-80% от общей ёмкости), алгоритм сам позаботится о том, что на эти диски будут перемещены только &#8220;холодные&#8221; данные.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1341" title="">9 Май 2011, 17:12</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1342">
+		<div id="div-comment-1342">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>deepblue:</p>
+<p>> Цель FAST - оптимальное размещение данных между разными типами дисков</p>
+<p>Да, но _зачем_ нужно это &#8220;оптимальное размещение&#8221;? Я считаю, что цель этого - увеличение производительности, и, как конечный результат, эффективности использования пространства хранения, когда &#8220;горячие&#8221; данные отдаются с более произвдительного и дорогого хранилища, а &#8220;холодные&#8221; (или &#8220;не такие горячие&#8221;) отдаются с менее производительного, и, обычно, более дешевого в эксплуатации.<br />
+То есть конечный критерий использования у нас все тот же показатель IOPS/$.<br />
+Он повышается в случае использования как FAST, так и FASTcache.</p>
+<p>С этой точки зрения (улучшения показателя IOPS/$) все системы tiering-а занимаются одним и тем же.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1342" title="">9 Май 2011, 17:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1343">
+		<div id="div-comment-1343">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Заказчики используют автоматический tiering, чтобы не заниматься переносом данных между разными типами носителей вручную. Например, какое-то время мой проект активный и его данные лежат на более дорогих 15к SAS или FC дисках. Через пол-года этот проект закрывается и хотя данные всё ещё нужны в &#8220;онлайне&#8221;, производительность больше не критична, и файлы можно перенести на недорогие, но медленные SAS-NL или SATA. ?? таких проектов, допустим сотни. Как эту задачу решит FASTCache или FlashCache? SSD для такой задачи может оказаться слишком дорогим решением.</p>
+<p>Вообще то, что PAM карты назвали virtual tiring - это прекрасный маркетинговый трюк. Господа маркетологи осознали, что tiering - это одна из &#8220;горячих&#8221; тем в индустрии (см, например Compellent - компания добилась колоссального успеха у сервис провайдеров за счет одной этой фичи), которая пока не реализована на НетАппе. Но надо же было чем-то крыть. А не назвать ли наши старые добрые PAM карты tiering&#8217;om? Пускай это не совсем тоже самое, ну так назовём его &#8220;виртуальным&#8221;, чтобы никому не было обидно.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1343" title="">9 Май 2011, 17:50</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1344">
+		<div id="div-comment-1344">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>На протяжении нескольких лет FAS был супер успешным продуктом, во многих случаях это был лучший выбор по сравнению с заточенными под блоковые данные массивами. К сожалению, это не могло продолжаться вечно, и как только NetApp столкнулся с серьёзной конкуренцией, это вызвало очень некрасивую реакцию в медиа и на блогах NetApp. &#8220;Это не настоящий юнифайд!&#8221; - как же это похоже на риторику EMC трех-пяти летней давности &#8220;Это не настоящий fibre channel!&#8221;. EMC сделали вывод из своих ошибок, закатали рукава, вложились в разработку и сделали достойный продукт. Посмотрим, чем теперь ответит NetApp, пока что вся эта волна FUD&#8217;a выгладит совсем неубедительно. В любом случае конечный пользователь оказывается в выигрыше, конкуренция никому никогда не вредила.</p>
+<p>Вообще в ответ на серию постов про EMC на этом и других NetApp блогах, я бы посоветовал всему менеджменту NetApp&#8217;a, отвечающему за стратегию компании, прочитать замечательную книгу Спенсера Джонсона &#8220;Who Moved My Cheese&#8221;.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1344" title="">9 Май 2011, 20:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1345">
+		<div id="div-comment-1345">
+		<div class="comment-author">
+			<cite><a href='http://dmarck.livejournal.com/' rel='external nofollow'>dmarck</a>:<cite></div>
+			<p>&gt; 256 и 512Mb SLC Flash, теперь к ним добавилась плата с 1Gb</p>
+<p>Порядок не потерян? ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1345" title="">10 Май 2011, 5:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1346">
+		<div id="div-comment-1346">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>dmarck:</p>
+<p>Потерян, конечно, спасибо, что внимательно читаете. :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1346" title="">10 Май 2011, 9:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1347">
+		<div id="div-comment-1347">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>deepblue: </p>
+<p>> Заказчики используют автоматический tiering, чтобы не заниматься переносом данных между разными типами носителей вручную.</p>
+<p>Не-не-не, вы опять ставите телегу впереди лошади.<br />
+Ответьте на вопрос ЗАЧЕМ они &#8220;занимаются переносом данных между разными типами носителей&#8221;.<br />
+Чего они таким образом стараются достичь в результате?<br />
+Не мыслите &#8220;технократически&#8221;, мыслите в терминах задач клиента!</p>
+<p>Я утверждаю, что единственная цель этих действий - в повышении величины эффективности, то есть увеличения выдачи полезного результата, прежде всего величин производительности, на вложенную единицу затрат. Цель - получить больше результата, с того же бюджета.<br />
+Отсюда и перемещения менее важных, менее критичных к быстродействию данных, на объемы хранения с меньшей ценой хранения, и более важных - на более быстродействующие, но и более дорогостоящие, получая, в результате, улучшение показателя IOPS/$.</p>
+<p>Вот ради чего все.</p>
+<p>?? если подойти к задаче с точки зрения клиента, то совершенно неважно, какими именно средствами это будет достигнуто. &#8220;Неважно какого цвета кошка, если она хорошо ловит мышей&#8221;. Неважно, будет ли это real fibe&#8230; э-э&#8230; простите ;) real tiering, или virtual tiering, если в результате клиент получит то, что он хочет в результате получить - повышение эффективности в терминах бюджета.</p>
+<p>ЗЫ. ??ногда мне кажется, что вы совсем не читаете, что я вам пишу. :(</p>
+<p>> как же это похоже на риторику EMC трех-пяти летней давности</p>
+<p>Ах, если бы &#8220;трех-пяти&#8221;&#8230; Еще в октябре 2010 года Чак писал об этом-же самом. Я же давал ссылку.<br />
+&#8220;I think that&#8217;s been one of the advantages of EMC&#8217;s Celerra over the years &#8212; the FC SAN connects to an underlying EMC CLARiiON (and is not emulated by the file system).  When you need a real SAN, you&#8217;ve got a real SAN.&#8221;</p>
+<p>> В любом случае конечный пользователь оказывается в выигрыше, конкуренция никому никогда не вредила.</p>
+<p>Вот тут не могу не согласиться. Пример - прекрасный продукт NetApp, многие годы не имевший никакого конкурирующего решения на рынке - Metrocluster, находится сегодня, с точки зрения разработки, в откровенном застое, и хоть сколько-нибудь начал шевелиться только с появлением VPLEX.</p>
+<p>Конкуренция, безусловно, это благо.</p>
+<p>Но вы вообще странно реагируете на критику. Вы считаете, что любой продукт надо только хвалить и гладить? Пусть этим занимается отдел маркетинга, это их профессиональные скиллы.</p>
+<p>Кстати наберитесь терпения, у нас с вами в серии про VNX впереди еще один пост, и, надеюсь, до каких-либо крупных изменений у EMC (надеюсь, в положительную сторону), пока надолго все с ними.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1347" title="">10 Май 2011, 12:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1348">
+		<div id="div-comment-1348">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Ок,<br />
+Наверное я &#8220;непонятно объяснил&#8221;. Ответьте мне на простой вопрос. Если в реальных конфигурациях, поставляемых сегодня, объём Flash составляет 2-5% от общего объёма (не важно, в виде PAM или в виде FASTCache), то что прикажете делать пользователям с остальными 98-95% данных? Сегодня тут собственно есть 3 варианта:<br />
+1. Заполнить остальное пространство FC (SAS) дисками. Это дорого.<br />
+2. Заполнить остальное пространство SATA (SAS-NL). Если это рекомендация NetApp, то я свой вопрос снимаю. В реальной жизни я не знаю проектов, где только 3% данных активные, а все остальные можно было бы положить на SATA, ни один из известных мне заказчиков это сделать не рискнул бы.<br />
+3. Заполнить остальное пространство комбинацией SAS/SAS-NL дисков. Это, то, что я вижу в реальных проектах сегодня. Раз NetApp заявляет, что имеет некий функционал для tiering&#8217;a, то каким образом предполагается _автоматически_ пареносить данные между этими двумя уровнями хранения? Ответ простой - такого функционала в NetApp нет, и пользователям либо приходится переносить данные ручками, либо покупать больше FC/SAS дисков, чем нужно. $/IOPS сам по себе не даёт полной картины о производительности системы, если все IOPS&#8217;ы можно получить только с 3% данных. ??, ещё раз, FlashCache и FASTCache занимаются копированием данных (кешированием) на SSD диски, FAST занимается переносом данных между 3 уровнями хранения (EFD/SAS/SAS-NL). Я продолжаю утверждать, что здесь есть принципиальная разница, и, например, сравнения размеров блока у FlashCache и FAST некорректно.</p>
+<p>Кстати, если это здесь кому интересно (romx&#8217;a помнится очень интересовали конкретные цифры), ЕМС вчера сделал несколько анонсов по этой теме:<br />
+* Сегодня 60% VNX поставляется с SSD дисками.<br />
+* На сегодня ЕМС поставил 14 Петабайт Flash памяти, что больше, чем любой другой производитель систем хранения.<br />
+* ЕМС будет поддерживать MLC диски - более дешевый вариант SLC SSD, который используется в системах хранения ЕМС сегодня. FAST-VP здесь придется очень кстати.<br />
+* Самое интересное - раскрыли некоторые детали проекта &#8220;Lightning&#8221;. EMC будет поставлять PCIe Flash карты для серверов (а ля FusionIO) + софт который будет отвечать за tiering между этими картами и кешем в системах хранения.</p>
+<p>Больше деталей здесь:<br />
+<a href="http://virtualgeek.typepad.com/virtual_geek/2011/05/understanding-project-lightning.html" rel="nofollow">http://virtualgeek.typepad.com/virtual_geek/2011/05/understanding-project-lightning.html</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-1348" title="">10 Май 2011, 13:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1351">
+		<div id="div-comment-1351">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>deepblue:</p>
+<p>> Ответьте мне на простой вопрос. Если в реальных конфигурациях, поставляемых сегодня, объём Flash составляет 2-5% от общего объёма (не важно, в виде PAM или в виде FASTCache), то что прикажете делать пользователям с остальными 98-95% данных?</p>
+<p>Ответить несложно. Это ведь кэш! Это _динамические_ &#8220;3%&#8221;!<br />
+У вас ведь не возникает такого вопроса, например, к процессору Intel Xeon, в котором кэша 8Mb, а объем памяти в сервере, в котором он работает, допустим - 48Gb, что составляет куда меньше, чем даже 3%, но все же он эффективно работает, и значительно увеличивает его быстродействие, и быстродействие системы в целом.</p>
+<p>В отличие от &#8220;статического&#8221; tiering-а, например FAST, эти 3% всегда заполнены только активно доступаемыми данными, которые постоянно меняются, если к данным перестали обращаться, то через какое-то время они окажутся безболезненно &#8220;вытесненными&#8221; из этого пространства, и их место займут более активные. В том-то и дело, что данные в этих &#8220;3%&#8221; не &#8220;лежат&#8221;, в отличие от FAST!</p>
+<p>Это принцип кэша, конечно всегда хочется, чтобы кэш был побольше, но даже кэш, размером в единицы, и даже доли процента от общего объема данных, является средством, повышающим эффективность работы и скорость доступа к данным.</p>
+<p>ЗЫ. Прошу простить за долгий ответ. Мои комменты тут - малопригодное место для развернутой дискуссии, я вполне могу пропустить появившийся комментарий :(</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1351" title="">12 Май 2011, 11:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1355">
+		<div id="div-comment-1355">
+		<div class="comment-author">
+			<cite>deepblue:<cite></div>
+			<p>Вы продолжаете сравнивать яблоки с апельсинами, сравнивая FlashCache и FAST, хотя у ЕМС есть FASTCache, который и является аналогом FlashCache (с некоторыми различиями в реализации). Чувствую, что беседа в очередной раз зашла в тупик, на мой вопрос вы так и не ответили, как-будто идет разговор слепого с глухим. Можно ли на NetApp каким-то образом динамически перемещать данные между ВСЕМ?? уровнями хранения, в зависимости от активности использования этих данных, что в простонародье называется tiering&#8217;ом? (а не только кешировать активные данные в flash для повышения производительности, чем занимается NetApp FlashCache и EMC FASTCache).</p>
+<p>??менно динамическим перемещением данных между ВСЕМ?? уровнями хранения занимается EMC FAST. Это позволяет не только увеличить производительность IOPS/$, но и упростить администрирование (не нужно возиться с несколькими агрегатами, достаточно иметь всего один пул на всю систему), снизить стоимость хранения статических данных, автоматически перемещая их на SAS NL/SATA диски (tier-3) и т.д.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1355" title="">12 Май 2011, 20:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1356">
+		<div id="div-comment-1356">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>deepblue:</p>
+<p>Да, правда, диалог пошел по кругу. Я не могу понять вашу аргументацию, в свою очередь мне не удается понятно объяснить вам, отчего я считаю, что если достигнута конечная цель применения tiering-а, улучшение показателей эффективности (IOPS/$) использования хранилища, то совершенно неважно, каким образом физически он реализован, с помощью перемещения данных или с помощью кэширования.</p>
+<p>Давайте закруглим на этом наш пока бесплодный спор. Будем считать, что мне перед вами защитить мою позицию не удалось. :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1356" title="">12 Май 2011, 20:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1457">
+		<div id="div-comment-1457">
+		<div class="comment-author">
+			<cite>11:<cite></div>
+			<p>Вообще-то актуальный размер блока под FAST - 64 Kb, а в остальном , ну ооочень много безобразного флуда, такое ощущение, что NetApp очень хочет хотя бы в блогах показать себе на одном уровне с ЕМС. Будучи ЕМС-сторажистом и поработав немного с NetApp-ом ,крайне рад,что я EMC-сторажист))</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1457" title="">26 Июнь 2011, 21:27</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1458">
+		<div id="div-comment-1458">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>11:</p>
+<p>Вообще-то 64KB размер блока не у FAST, а у FAST<b>cache</b>, и удивительно, что их путает &#8220;EMC-сторажист&#8221;, а поправляет его &#8220;NetApp-сторажист&#8221;, что-то надо в SE-подготовке у EMC править :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1458" title="">26 Июнь 2011, 21:31</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="905" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.080 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

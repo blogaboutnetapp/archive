@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Почему Nutanix и NetApp, на мой взгляд, не конкуренты.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1302/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1302</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:19 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Gartner Magic Quadrant по конвергентным системам &#124; about NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-13461</link>
+		<dc:creator>Gartner Magic Quadrant по конвергентным системам &#124; about NetApp</dc:creator>
+		<pubDate>Mon, 23 Jun 2014 04:00:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-13461</guid>
+		<description>[...] снизу “лидеров”, такие как Nutanix. о котором я уже писал в этом блоге, (и пишу в отдельном, ссылку не дам, [...]</description>
+		<content:encoded><![CDATA[<p>[...] снизу “лидеров”, такие как Nutanix. о котором я уже писал в этом блоге, (и пишу в отдельном, ссылку не дам, [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-12844</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 26 Mar 2014 11:04:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-12844</guid>
+		<description>Alexey Marushchenko:
+А, насколько мне удалось понять, они куда-то в разные стороны бегут. PernixData, это, как я понял, аналог и конкурент для NetApp Flash Array, а не для Nutanix, по крайней мере с точки зрения внутреннего устройства.</description>
+		<content:encoded><![CDATA[<p>Alexey Marushchenko:<br />
+А, насколько мне удалось понять, они куда-то в разные стороны бегут. PernixData, это, как я понял, аналог и конкурент для NetApp Flash Array, а не для Nutanix, по крайней мере с точки зрения внутреннего устройства.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-11267</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 20:39:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-11267</guid>
+		<description>??нтересно, насколько технологически Nutanix и PernixData обогнали/догнали друг друга? Первый взгляд на технологию показывает примерно одинаковый уровень развития. Кто-то обладает ссылками на сравнения этого сегмента рынка?</description>
+		<content:encoded><![CDATA[<p>??нтересно, насколько технологически Nutanix и PernixData обогнали/догнали друг друга? Первый взгляд на технологию показывает примерно одинаковый уровень развития. Кто-то обладает ссылками на сравнения этого сегмента рынка?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-11262</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 17:07:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-11262</guid>
+		<description>Мне не интересен другой ресурс и неизвестный Максим :) 
+
+Nutanix не публичная компания, не попадающая в сферу уважаемых компаний IDC и Gartner, и, соответсвенно,  достоверной информации не много.   Что известно из пресс-релизов этой компании:
+
+- число сотрудников 200 человек worldwide (данные этого года)
+- продажи 80МUSD (данные этого года)
+- рост продаж по отношению к прошлому году 80% ( данные этого года)
+- продано 150 систем за 2.5 года (данные прошлого года)
+- 70 заказчиков (данные прошлого года)
+
+Если даже учесть рост продаж, то можно говорить о продажах 100 систем в год или порядка 300 систем за три года.  Это если не кустарное, то мелкосерийное экспериментальное производство. Ты любишь сравнение с автомобилями? :) Это не объемы феррари с 6-7 тыс в год, и не ламбо с 1.5 тысячами. Это скорее McLaren или Lotus. По цени и по возможностям скорее Lotus c мотором Тойота, чем Макларен :)
+
+За эти три года сменилось несколько поколений компонентов - чипсеты, адаптеры и прочее. Как обеспечена совместимость компонентов при таком мелкосерийном производстве?   Не потребуется ли при сбое одно компонента менять все 4 сервера?  Это просты вопросы к любоиу продукту с таким тиражом. 
+
+Сколько человек работает в поддержке?  Как доставляют запчасти?  Это совсем обычные вопросы к стартам...
+
+К сожалению, официально это не освящается.  Если доживут до IPO, как Violin, то опубликуют все что требуется SEC-ком. Увидим много интересного :) 
+
+Сейчас ответил полнее?</description>
+		<content:encoded><![CDATA[<p>Мне не интересен другой ресурс и неизвестный Максим :) </p>
+<p>Nutanix не публичная компания, не попадающая в сферу уважаемых компаний IDC и Gartner, и, соответсвенно,  достоверной информации не много.   Что известно из пресс-релизов этой компании:</p>
+<p>- число сотрудников 200 человек worldwide (данные этого года)<br />
+- продажи 80МUSD (данные этого года)<br />
+- рост продаж по отношению к прошлому году 80% ( данные этого года)<br />
+- продано 150 систем за 2.5 года (данные прошлого года)<br />
+- 70 заказчиков (данные прошлого года)</p>
+<p>Если даже учесть рост продаж, то можно говорить о продажах 100 систем в год или порядка 300 систем за три года.  Это если не кустарное, то мелкосерийное экспериментальное производство. Ты любишь сравнение с автомобилями? :) Это не объемы феррари с 6-7 тыс в год, и не ламбо с 1.5 тысячами. Это скорее McLaren или Lotus. По цени и по возможностям скорее Lotus c мотором Тойота, чем Макларен :)</p>
+<p>За эти три года сменилось несколько поколений компонентов - чипсеты, адаптеры и прочее. Как обеспечена совместимость компонентов при таком мелкосерийном производстве?   Не потребуется ли при сбое одно компонента менять все 4 сервера?  Это просты вопросы к любоиу продукту с таким тиражом. </p>
+<p>Сколько человек работает в поддержке?  Как доставляют запчасти?  Это совсем обычные вопросы к стартам&#8230;</p>
+<p>К сожалению, официально это не освящается.  Если доживут до IPO, как Violin, то опубликуют все что требуется SEC-ком. Увидим много интересного :) </p>
+<p>Сейчас ответил полнее?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-11257</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 13:05:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-11257</guid>
+		<description>Odna Ptichka:
+Ну так и твоя - также неполна, ты же не указываешь, что данные приведены на декабрь 12 года, то есть почти что год назад, накануне Round С. Текущие данные могут существенно отличаться. К тому же в этом деле ведь важна не абсолютная величина, а динамика роста, более того, относительная динамика роста, относительно темпов других подобных стартапов в сегменте.
+
+ЗЫ. Вы с Максимом упорно делаете из меня передаста. Он помментирует "там", ты - "здесь", а я бегаю туда и сюда, и ношу ваши реплики. Встретьтесь, как два джентльмена, и выясните все вопросы лично, а не через мое секундантство :)</description>
+		<content:encoded><![CDATA[<p>Odna Ptichka:<br />
+Ну так и твоя - также неполна, ты же не указываешь, что данные приведены на декабрь 12 года, то есть почти что год назад, накануне Round С. Текущие данные могут существенно отличаться. К тому же в этом деле ведь важна не абсолютная величина, а динамика роста, более того, относительная динамика роста, относительно темпов других подобных стартапов в сегменте.</p>
+<p>ЗЫ. Вы с Максимом упорно делаете из меня передаста. Он помментирует &#8220;там&#8221;, ты - &#8220;здесь&#8221;, а я бегаю туда и сюда, и ношу ваши реплики. Встретьтесь, как два джентльмена, и выясните все вопросы лично, а не через мое секундантство :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-11256</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Wed, 20 Nov 2013 12:51:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-11256</guid>
+		<description>"У Нутаникса-то - готовые коробки, продающиеся сотнями."
+:) Это правда, но не полная.   Согласно данным самого Nutanix:
+
+"Unprecedented achievements in 2.5 years since conception. $71.5M in funding, 75% of which makes up for a future war chest. 100+ employees.  ...150 systems shipped..."
+
+150 коробок за 2.5 года - это не так и много, не правда ли...</description>
+		<content:encoded><![CDATA[<p>&#8220;У Нутаникса-то - готовые коробки, продающиеся сотнями.&#8221;<br />
+:) Это правда, но не полная.   Согласно данным самого Nutanix:</p>
+<p>&#8220;Unprecedented achievements in 2.5 years since conception. $71.5M in funding, 75% of which makes up for a future war chest. 100+ employees.  &#8230;150 systems shipped&#8230;&#8221;</p>
+<p>150 коробок за 2.5 года - это не так и много, не правда ли&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-11154</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 15 Nov 2013 01:03:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-11154</guid>
+		<description>FLY:
+А какое тут нужно специальное мнение? Конкурентом Violin в линейке NetApp является EF540, про который я уже писал чуть раньше. Atlanris пока такая маленькая компания, что я впервые о них услышал только от вас.</description>
+		<content:encoded><![CDATA[<p>FLY:<br />
+А какое тут нужно специальное мнение? Конкурентом Violin в линейке NetApp является EF540, про который я уже писал чуть раньше. Atlanris пока такая маленькая компания, что я впервые о них услышал только от вас.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: FLY</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-11146</link>
+		<dc:creator>FLY</dc:creator>
+		<pubDate>Thu, 14 Nov 2013 19:09:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-11146</guid>
+		<description>хотелось бы услышать мнение о Виолинах и Атлантисах
+
+http://www.violin-memory.com/
+
+http://www.atlantiscomputing.com/</description>
+		<content:encoded><![CDATA[<p>хотелось бы услышать мнение о Виолинах и Атлантисах</p>
+<p><a href="http://www.violin-memory.com/" rel="nofollow">http://www.violin-memory.com/</a></p>
+<p><a href="http://www.atlantiscomputing.com/" rel="nofollow">http://www.atlantiscomputing.com/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-11137</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 14 Nov 2013 12:58:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-11137</guid>
+		<description>Odna Ptichka:
+Не согласен. NAS существовали и до NetApp, например, и после, и NetApp сейчас даже не крупнейший производитель NAS и iSCSI, но это ведь совсем не повод прекратить заниматься тем, чем они занимаются "потому что EMC и Dell ее уже накрыли, а паразитировать на их недостатках - плохая бизнес-модель". Не так ли?</description>
+		<content:encoded><![CDATA[<p>Odna Ptichka:<br />
+Не согласен. NAS существовали и до NetApp, например, и после, и NetApp сейчас даже не крупнейший производитель NAS и iSCSI, но это ведь совсем не повод прекратить заниматься тем, чем они занимаются &#8220;потому что EMC и Dell ее уже накрыли, а паразитировать на их недостатках - плохая бизнес-модель&#8221;. Не так ли?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1302#comment-11136</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Thu, 14 Nov 2013 12:18:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1302#comment-11136</guid>
+		<description>"Работающее решение" и "ранняя альфа" :)  Слова и не более.  
+В текущей ситуации тема уже не интересная. MS и VMware ее уже накрыли. А паразитировать на их недостатках - плохая бизнес модель.</description>
+		<content:encoded><![CDATA[<p>&#8220;Работающее решение&#8221; и &#8220;ранняя альфа&#8221; :)  Слова и не более.<br />
+В текущей ситуации тема уже не интересная. MS и VMware ее уже накрыли. А паразитировать на их недостатках - плохая бизнес модель.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

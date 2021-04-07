@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Как передать диск в системе от одного контроллера другому</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1084/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1084</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:28 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1084#comment-3132</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 12 Aug 2012 09:34:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1084#comment-3132</guid>
+		<description>n22sn:
+
+А какой в таком действии физический смысл? Как (зачем) можно передать диски несуществующему (неработающему) контролеру? Какая ситуация может такое действие породить?</description>
+		<content:encoded><![CDATA[<p>n22sn:</p>
+<p>А какой в таком действии физический смысл? Как (зачем) можно передать диски несуществующему (неработающему) контролеру? Какая ситуация может такое действие породить?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: n22sn</title>
+		<link>http://blog.aboutnetapp.ru/archives/1084#comment-3019</link>
+		<dc:creator>n22sn</dc:creator>
+		<pubDate>Mon, 30 Jul 2012 08:34:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1084#comment-3019</guid>
+		<description>День добрый!
+А можно как то перетащить диски если второй контроллер не работает?</description>
+		<content:encoded><![CDATA[<p>День добрый!<br />
+А можно как то перетащить диски если второй контроллер не работает?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий ??ванов</title>
+		<link>http://blog.aboutnetapp.ru/archives/1084#comment-1890</link>
+		<dc:creator>Дмитрий ??ванов</dc:creator>
+		<pubDate>Sun, 06 Nov 2011 19:33:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1084#comment-1890</guid>
+		<description>Спасибо, Роман!</description>
+		<content:encoded><![CDATA[<p>Спасибо, Роман!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1084#comment-1887</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 06 Nov 2011 15:41:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1084#comment-1887</guid>
+		<description>Дмитрий ??ванов:
+
+&gt; 1) просмотр, какой диск вылетел
+
+Это должно быть в логе и в сообщениях autosupport
+
+&gt; 2) процедура замены диска
+
+При наличии hot spare сразу начинается восстановление на него, либо с помощью процедуры Rapid RAID Recovery, при которой читаемая на диске информация переносится прямо на spare, остальная восстанавливается с RAID parity (преимущество - это быстро и минимально грузит систему), либо с помощью традиционного RAID reconstruction, если диск физически недоступен более.
+
+&gt; 3) Тут мы получаем от суппорта новый диск
+
+Затем вы вставляете пришедший на замену диск на место вышедшего из строя, и он становится новым hot spare. Любой новый для системы диск, не содержащий данных, рассматривается системой как hot spare.
+
+Рекомендую, если вас такие детали интересуют, почитать недавно опубликованный перевод &lt;a href="http://www.netwell.ru/docs/netapp/tr-3437_rus_storage_subsystems_resiliency_guide.pdf" rel="nofollow"&gt;NetApp Resiliency Guide&lt;/a&gt;</description>
+		<content:encoded><![CDATA[<p>Дмитрий ??ванов:</p>
+<p>> 1) просмотр, какой диск вылетел</p>
+<p>Это должно быть в логе и в сообщениях autosupport</p>
+<p>> 2) процедура замены диска</p>
+<p>При наличии hot spare сразу начинается восстановление на него, либо с помощью процедуры Rapid RAID Recovery, при которой читаемая на диске информация переносится прямо на spare, остальная восстанавливается с RAID parity (преимущество - это быстро и минимально грузит систему), либо с помощью традиционного RAID reconstruction, если диск физически недоступен более.</p>
+<p>> 3) Тут мы получаем от суппорта новый диск</p>
+<p>Затем вы вставляете пришедший на замену диск на место вышедшего из строя, и он становится новым hot spare. Любой новый для системы диск, не содержащий данных, рассматривается системой как hot spare.</p>
+<p>Рекомендую, если вас такие детали интересуют, почитать недавно опубликованный перевод <a href="http://www.netwell.ru/docs/netapp/tr-3437_rus_storage_subsystems_resiliency_guide.pdf" rel="nofollow">NetApp Resiliency Guide</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий ??ванов</title>
+		<link>http://blog.aboutnetapp.ru/archives/1084#comment-1886</link>
+		<dc:creator>Дмитрий ??ванов</dc:creator>
+		<pubDate>Sun, 06 Nov 2011 15:23:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1084#comment-1886</guid>
+		<description>У меня относительно новый (и первый в практике netapp)
+Допустим, в агрегате-17 дисков в RAID-DP и один spare-диск,
+Допустим, вышел из строя диск.
+Можете дать последовательность команд:1) просмотр, какой диск вылетел
+2) процедура замены диска(допустим, rebuild на spare-диск уже закончился и спары у нас нет пока)
+3) Тут мы получаем от суппорта новый диск-&#62; надо поменять-&#62; + я так понимаю назначить диск как spare/
+Был бы крайне благодарен за последовательность операций</description>
+		<content:encoded><![CDATA[<p>У меня относительно новый (и первый в практике netapp)<br />
+Допустим, в агрегате-17 дисков в RAID-DP и один spare-диск,<br />
+Допустим, вышел из строя диск.<br />
+Можете дать последовательность команд:1) просмотр, какой диск вылетел<br />
+2) процедура замены диска(допустим, rebuild на spare-диск уже закончился и спары у нас нет пока)<br />
+3) Тут мы получаем от суппорта новый диск-&gt; надо поменять-&gt; + я так понимаю назначить диск как spare/<br />
+Был бы крайне благодарен за последовательность операций</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: motl</title>
+		<link>http://blog.aboutnetapp.ru/archives/1084#comment-1878</link>
+		<dc:creator>motl</dc:creator>
+		<pubDate>Thu, 03 Nov 2011 09:58:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1084#comment-1878</guid>
+		<description>Можно и так:
+
+1)	ssh fl1 vol status  –s
+
+
+Spare disks (empty)
+
+2)	ssh fl2 vol status -s
+
+Spare disks
+
+RAID Disk       Device          HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)    Phys (MB/blks)
+---------       ------          ------------- ---- ---- ---- ----- --------------    --------------
+Spare disks for block or zoned checksum traditional volumes or aggregates
+spare           2c.21.22        2c    21  22  SA:B   -  SAS  15000 418000/856064000  420156/860480768 
+spare           2c.21.23        2c    21  23  SA:B   -  SAS  15000 418000/856064000  420156/860480768
+
+3)	ssh fl2 "priv set diag ; disk assign 2c.21.22  -s unowned   -f "
+
+
+4)	 :/ [root] &#62; ssh fl1 disk show -n
+  DISK       OWNER                      POOL   SERIAL NUMBER         HOME  
+------------ -------------              -----  -------------         -------------  
+2c.21.22     Not Owned                  NONE   3QQ332MC00009035M6RS
+
+5)	ssh fl1 disk assign 2c.21.22
+
+
+6)	ssh fl1 vol status -s 
+
+Spare disks
+
+RAID Disk       Device          HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)    Phys (MB/blks)
+---------       ------          ------------- ---- ---- ---- ----- --------------    --------------
+Spare disks for block or zoned checksum traditional volumes or aggregates
+spare           2c.21.22        2c    21  22  SA:A   -  SAS  15000 418000/856064000  420156/860480768</description>
+		<content:encoded><![CDATA[<p>Можно и так:</p>
+<p>1)	ssh fl1 vol status  –s</p>
+<p>Spare disks (empty)</p>
+<p>2)	ssh fl2 vol status -s</p>
+<p>Spare disks</p>
+<p>RAID Disk       Device          HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)    Phys (MB/blks)<br />
+&#8212;&#8212;&#8212;       &#8212;&#8212;          &#8212;&#8212;&#8212;&#8212;- &#8212;- &#8212;- &#8212;- &#8212;&#8211; &#8212;&#8212;&#8212;&#8212;&#8211;    &#8212;&#8212;&#8212;&#8212;&#8211;<br />
+Spare disks for block or zoned checksum traditional volumes or aggregates<br />
+spare           2c.21.22        2c    21  22  SA:B   -  SAS  15000 418000/856064000  420156/860480768<br />
+spare           2c.21.23        2c    21  23  SA:B   -  SAS  15000 418000/856064000  420156/860480768</p>
+<p>3)	ssh fl2 &#8220;priv set diag ; disk assign 2c.21.22  -s unowned   -f &#8221;</p>
+<p>4)	 :/ [root] &gt; ssh fl1 disk show -n<br />
+  DISK       OWNER                      POOL   SERIAL NUMBER         HOME<br />
+&#8212;&#8212;&#8212;&#8212; &#8212;&#8212;&#8212;&#8212;-              &#8212;&#8211;  &#8212;&#8212;&#8212;&#8212;-         &#8212;&#8212;&#8212;&#8212;-<br />
+2c.21.22     Not Owned                  NONE   3QQ332MC00009035M6RS</p>
+<p>5)	ssh fl1 disk assign 2c.21.22</p>
+<p>6)	ssh fl1 vol status -s </p>
+<p>Spare disks</p>
+<p>RAID Disk       Device          HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)    Phys (MB/blks)<br />
+&#8212;&#8212;&#8212;       &#8212;&#8212;          &#8212;&#8212;&#8212;&#8212;- &#8212;- &#8212;- &#8212;- &#8212;&#8211; &#8212;&#8212;&#8212;&#8212;&#8211;    &#8212;&#8212;&#8212;&#8212;&#8211;<br />
+Spare disks for block or zoned checksum traditional volumes or aggregates<br />
+spare           2c.21.22        2c    21  22  SA:A   -  SAS  15000 418000/856064000  420156/860480768</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий Хомицевич</title>
+		<link>http://blog.aboutnetapp.ru/archives/1084#comment-1877</link>
+		<dc:creator>Дмитрий Хомицевич</dc:creator>
+		<pubDate>Thu, 03 Nov 2011 08:48:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1084#comment-1877</guid>
+		<description>Хорошее описание. Как раз то что надо для стартовой эксплуатации обьекта :)</description>
+		<content:encoded><![CDATA[<p>Хорошее описание. Как раз то что надо для стартовой эксплуатации обьекта :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

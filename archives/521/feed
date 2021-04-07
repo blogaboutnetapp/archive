@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Multimode VIF в NetApp (часть 2)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/521/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/521</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:15 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-2768</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 20 Jun 2012 07:50:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-2768</guid>
+		<description>В результате тестирования я убедился в том, что если речь о IP балансировке в рамках одной подсети и количество физических серверов как минимум равно количеству агрегированных физических линков, то никакие алиасы цеплять не нужно. Как правило эти условия соблюдаются автоматически.
+От алиасов только голавная боль при работе с NFS - такие шары примапленные по разным IP адресам (NAS'a) видятся как разные датасторы и соответственно vMoution произойти не может.
+
+??нтересно, а если мапить с разных IP адресов (хоста) на один IP адрес (СХД) будет ли vSphere'а понимать, что это один и тот же датастор? Если да, то в такой схеме проблем с vMoution по идее быть не должно. Но с этим есть смысл замарачиваться, только если в вышеописанных условиях вместо одной подсети - несколько и последние октеты совпадают у нескольких хостов. Но с другой стороны проще уже выполнить условие уникальности последнего октета узлов подключённых к СХД.</description>
+		<content:encoded><![CDATA[<p>В результате тестирования я убедился в том, что если речь о IP балансировке в рамках одной подсети и количество физических серверов как минимум равно количеству агрегированных физических линков, то никакие алиасы цеплять не нужно. Как правило эти условия соблюдаются автоматически.<br />
+От алиасов только голавная боль при работе с NFS - такие шары примапленные по разным IP адресам (NAS&#8217;a) видятся как разные датасторы и соответственно vMoution произойти не может.</p>
+<p>??нтересно, а если мапить с разных IP адресов (хоста) на один IP адрес (СХД) будет ли vSphere&#8217;а понимать, что это один и тот же датастор? Если да, то в такой схеме проблем с vMoution по идее быть не должно. Но с этим есть смысл замарачиваться, только если в вышеописанных условиях вместо одной подсети - несколько и последние октеты совпадают у нескольких хостов. Но с другой стороны проще уже выполнить условие уникальности последнего октета узлов подключённых к СХД.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-2366</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 26 Apr 2012 18:08:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-2366</guid>
+		<description>bbk:
+
+Это IP интерфейса контроллера-партнера. Того, на который будет перенесен данный интерфейс, в случае отказа данного контроллера.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Это IP интерфейса контроллера-партнера. Того, на который будет перенесен данный интерфейс, в случае отказа данного контроллера.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-2361</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 26 Apr 2012 14:17:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-2361</guid>
+		<description>В
+ifconfig e0a 10.1.1.100 netmask 255.255.255.0 mtusize 9000 partner
+10.1.1.200 flowcontrol send
+
+что такое 10.1.1.200? По логике вещей это должен быть свич. ??ли всё-же это партнёр (сервер который примапил шару/лун)?</description>
+		<content:encoded><![CDATA[<p>В<br />
+ifconfig e0a 10.1.1.100 netmask 255.255.255.0 mtusize 9000 partner<br />
+10.1.1.200 flowcontrol send</p>
+<p>что такое 10.1.1.200? По логике вещей это должен быть свич. ??ли всё-же это партнёр (сервер который примапил шару/лун)?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-1038</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 13 Jan 2011 08:43:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-1038</guid>
+		<description>Anton: нет смысла. Эти два поста являются, фактически, главой из документа TR-3802 Ethernet Storage, того же автора, который я первел целиком и выложил в техбиблиотеку Netwell, о чем есть ссылка в UPD.
+Лучше его читайте.</description>
+		<content:encoded><![CDATA[<p>Anton: нет смысла. Эти два поста являются, фактически, главой из документа TR-3802 Ethernet Storage, того же автора, который я первел целиком и выложил в техбиблиотеку Netwell, о чем есть ссылка в UPD.<br />
+Лучше его читайте.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Anton</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-1037</link>
+		<dc:creator>Anton</dc:creator>
+		<pubDate>Thu, 13 Jan 2011 08:32:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-1037</guid>
+		<description>Приветствую, вторая часть отличная, спасибо, но хочется прочитать и первую. Может к годовому юбилею восстановите?</description>
+		<content:encoded><![CDATA[<p>Приветствую, вторая часть отличная, спасибо, но хочется прочитать и первую. Может к годовому юбилею восстановите?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nikolay</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-245</link>
+		<dc:creator>Nikolay</dc:creator>
+		<pubDate>Wed, 10 Feb 2010 06:48:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-245</guid>
+		<description>Если не затруднит, восстановите пожалуйста.</description>
+		<content:encoded><![CDATA[<p>Если не затруднит, восстановите пожалуйста.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-242</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 09 Feb 2010 15:17:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-242</guid>
+		<description>Он случайно затерся своей второй частью. Если очень надо, то восстановлю на следующей неделе.</description>
+		<content:encoded><![CDATA[<p>Он случайно затерся своей второй частью. Если очень надо, то восстановлю на следующей неделе.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nikolay</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-240</link>
+		<dc:creator>Nikolay</dc:creator>
+		<pubDate>Tue, 09 Feb 2010 14:01:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-240</guid>
+		<description>Multimode VIF в NetApp (часть 2) - почему-то не могу найти в Вашем блоге первую часть статьи :(</description>
+		<content:encoded><![CDATA[<p>Multimode VIF в NetApp (часть 2) - почему-то не могу найти в Вашем блоге первую часть статьи :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: paul-k</title>
+		<link>http://blog.aboutnetapp.ru/archives/521#comment-230</link>
+		<dc:creator>paul-k</dc:creator>
+		<pubDate>Mon, 08 Feb 2010 15:19:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=521#comment-230</guid>
+		<description>возможно он не заработал потому что со стороны головы не было 'ifconfig e0a flowcontrol send' (по умолчанию - full) - а в циске стоит принудиловка только на receive... какой-то косяк в negotiation</description>
+		<content:encoded><![CDATA[<p>возможно он не заработал потому что со стороны головы не было &#8216;ifconfig e0a flowcontrol send&#8217; (по умолчанию - full) - а в циске стоит принудиловка только на receive&#8230; какой-то косяк в negotiation</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

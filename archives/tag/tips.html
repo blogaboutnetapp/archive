@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; tips</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;tips&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-996">
+				<h2 class="posttitle"><a href="../996/trackback.html" rel="bookmark" title="Permanent Link to Одинаковые имена томов и аггрегейтов на системе хранения">Одинаковые имена томов и аггрегейтов на системе хранения</a></h2>
+				<div class="postmetadata">22 Август 2011, 11:15 <!-- от  --></div>
+				<div class="postentry">
+					<p>Любопытную залипуху недавно пришлось разрешить. При объединении на одной системе хранения дисков, аггрегейтов и томов с нескольких других, на системе оказалось несколько томов с одинаковыми именами (ну да, на каждой был свой ???vol0’, к примеру).</p>
+<p>Для устранения этой проблемы Data ONTAP автоматически изменяет имена таких дублирующихся ресурсов, добавляя цифру в скобках. Однако проблема (по крайней мере в 7.x) в том, что такие авто-переименованные ресурсы нельзя переименовать вручную. Но можно переименовать исходный, который вызвал автопереименование последующих. Результат будет такой:</p>
+<p><code>fas1&gt; vol status      <br />&#160; Vol_data&#160;&#160;&#160; online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; Vol_data(1) online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; Vol_data(2) online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; <br />fas1&gt; vol rename vol_data vol_data_orig       <br />fas1&gt; vol status       <br />&#160; Vol_data_orig&#160; online&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; Vol_data&#160; online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on       <br />&#160; Vol_data(1) online&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_dp, flex&#160;&#160;&#160;&#160; create_ucode=on </code></p>
+<p>Как вы видите, можно выкрутиться из этой ситуации переименовывая тома вручную по одному.</p>
+<p>Лучше, конечно, в такую ситуацию не попадать, и проверять на возможность дублирования ресурсы (аггрегейты и тома) до миграции. Самым лучшим будет заранее разработать <em>name convention</em>, препятствующую дублированию имен ресурсов на разных стораджах, и следовать ей при развертывании.</p>
+<p>Помощь, как всегда, была найдена в TFM&#160; ;) – NetApp Storage Management Guide.</p>
+<p><a href="https://now.netapp.com/NOW/knowledge/docs/ontap/rel733/html/ontap/smg/GUID-8AF533ED-4D0E-4953-A61C-535169B515B6.html">How you manage duplicate volume names</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tips.html" rel="tag">tips</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../996/trackback.html#respond" title="Комментарий к записи Одинаковые имена томов и аггрегейтов на системе хранения">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-927">
+				<h2 class="posttitle"><a href="../927/trackback.html" rel="bookmark" title="Permanent Link to Оптимизация на Large Sequental Read">Оптимизация на Large Sequental Read</a></h2>
+				<div class="postmetadata">30 Май 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Large Sequental Read, или чтение последовательными большими блоками, это один из распространенных паттернов доступа к данным. Например, с таким характером доступа работают такие задачи, как Decision Suport System (DSS), системы Business Intelligence (BI), а также многие задачи резервного копирования (full backup, например).</p>
+<p>Вследствие характера работы WAFL, такой паттерн доступа может быть проблемным для систем хранения NetApp, поэтому, если ваши задачи часто используют Large Sequental Read, то стоит позаботиться о некоторых методах оптимизации. Я уже писал, что ситуацию с производительностью на последовательном чтении улучшает регулярное выполнение операций реаллокации (они выполняются по расписанию, или при превышении порогового уровня non-contiguous blocks placement, не обязательно гонять его вручную). Также в блоге специалиста NetApp по нагрузочному тестированию и производительности, <a href="http://blogs.netapp.com/pseudo_benchmark">Wei Liu</a>, я приметил еще одну оптимизационную фишечку.</p>
+<p>В системах Data ONTAP версии 7.3.2 и новее имеется опция <code>wafl_max_write_alloc_blocks</code>, по умолчанию она установлена в 64. Если у вас работа с данными осуществляется преимущественно большими блоками, имеет смысл увеличить его значение до 256. Этот параметр, наскольно я могу судить из его названия, управляет размером экстента записи данных. О влиянии и смысле этого элемента дисковой структуры я недавно писал в посте про &#8220;фрагмнтацию&#8221;. Для версий до 7.3.2 этот параметр нужно было установить в файле /etc/rc в виде строки:     <br /><code>setflag wafl_max_write_alloc_blocks 256</code></p>
+<p>Эта опция оптимизирует работу WAFL при работе большими последовательными блоками. Я могу ошибаться, но, исходя из моего понимания процессов за которые она отвечает, сказываться она будет не просто при включении, а при включении и последующей записи на том, или после реаллокации блоков на томе (вы помните, надеюсь, что WAFL не перезаписывает однажды занятые блоки, поэтому структура для уже записанных данных, на момент включения опции, никак не изменится). Поэтому, возможно, заметить эффект от ее использования получится не сразу же.</p>
+<p>Опция была подсмотрена в документе: <a href="http://media.netapp.com/documents/tr-3760.pdf">TR-3760: Building a Scalable Data Warehouse Solution</a>, кстати любопытного и самого по себе чтива.</p>
+<p>Отдельно обращу ваше внимание, что не стоит сразу бросаться “тюнить” систему, так как данная опция, вероятнее всего, положительно влияет только на производительность large sequental read, и может не сказаться, или сказаться отрицательно на всех других. Но если у вас DSS-like база, то, может быть, можно и попробовать.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="optimization.html" rel="tag">optimization</a>, <a href="sequental-read.html" rel="tag">sequental read</a>, <a href="tips.html" rel="tag">tips</a>, <a href="tricks/index.html" rel="tag">tricks</a>, <a href="wafl/index.html" rel="tag">wafl</a><br />					Раздел: <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../927/trackback.html#respond" title="Комментарий к записи Оптимизация на Large Sequental Read">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-858">
+				<h2 class="posttitle"><a href="../858/trackback.html" rel="bookmark" title="Permanent Link to Четыре главных ошибки при конфигурировании дедупликации на NetApp">Четыре главных ошибки при конфигурировании дедупликации на NetApp</a></h2>
+				<div class="postmetadata">30 Март 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как вы заметили, стандартными днями публикации в этом блоге являются понедельник и четверг. В эти дни выходят мои собственные заметки в блоге. Но недавно я решил “расширить предложение”, и по средам тут будут публиковаться наиболее интересные публикации переводов постов из англоязычных блогов, в частности из <a href="http://blogs.netapp.com">blogs.netapp.com</a> – директории официальных блоггеров NetApp, где, зачастую, встречаются очень интересные посты, увы, по причине “англоязычности” часто проходящие мимо внимания русскоязычных пользователей.</p>
+<p>Сегодня – <a href="http://blogs.netapp.com/virtualization/2011/03/the-4-most-common-misconfigurations-with-netapp-deduplication-.html">пост Кейта Аасена</a>, инженера службы поддержки пользователей в NetApp, где он рассказывает об основных ошибках пользователей при конфигурировании дедупликации на системах хранения NetApp.</p>
+<h3 class="entry-header">The 4 Most Common Misconfigurations with NetApp Deduplication </h3>
+<p class="entry-body"><em>Posted by Keith Aasen - CSE Virtualization</em></p>
+<p class="entry-content">Работая сервисным инженером мне приходится встречаться с пользователями из самых разных отраслей. Когда я рассказываю пользователям про наши типичные показатели экономии пространства при дедупликации данных на “боевых” системах VMware, которые составляют 60-70% изначального объема, я часто встречаюсь со скептическим отношением: “<em>Ну, мол, это у них, у нас-то данные особенные</em>”, часто отвечают мне, “<em>Поверю, только когда сам увижу</em>”. Мы демонстрируем результат, и мне нравится слышать в ответ: “<em>О, это совсем не то, что про вас рассказывали нам ваши конкуренты!</em>”</p>
+<p class="entry-content">Совсем недавно один из наших клиентов перенес более 600 виртуальных машин, занимавших на его действующей системе хранения 11,9TB, на новый дисковый массив NetApp, причем это были 600 виртуальных машин разного содержимого, с различными OS, с различными в них приложениями и их конфигурациями, и после дедупликации это заняло всего 3,2TB – <strong>73%</strong> экономии!</p>
+<p class="entry-content">Но иногда встречаются пользователи, которые звонят с вопросами: “<em>Эй, а у нас тут дедупликация дала всего 5%, в чем дело?</em>” Такие невысокие показатели дедупликации, по моему опыту, являются следствием какой-нибудь из перечисленных ниже типичных ошибок.</p>
+<h3>Ошибка №1 – Неправильно изначально включенная дедупликация (или забытая опция –s для scan)</h3>
+<p>Как уже указывал в своем блоге Dr.Dedupe, NetApp рекомендует использовать дедупликацию для всех данных VMware. Вы можете заметить, что если вы используете наш продукт <a href="http://blogs.netapp.com/virtualstorageguy/2010/07/virtual-storage-console-20-is-available-for-download.html">Virtual Storage Console (VSC)</a>, плагин к vCenter, то созданные в нем датасторы VMware автоматически идут с включенной опцией дедупликации для них. Мы советуем оставлять включенной эту опцию, и вот почему.</p>
+<p>Когда для тома включена дедупликация (ASIS), то контроллер отслеживает все записываемые на этот том блоки данных. Когда наступает время запуска процесса дедупликации, то контроллер просматривает все отслеженные ранее блоки, и устраняет дубликаты среди них. Но только среди тех, которые он перед этим уже отследил при записи! Что же делать, если у вас уже на диске было несколько виртуальных машин, для которых опция дедупликации не была включена изначально при их создании? Если вы не указали контроллеру NetApp специально просканировать блоки уже лежащих на его дисках данных, то эти виртуальные машины и их данные не будут обработаны дедупликацией! Это приведет к снижению результатов, показываемых дедупликацией. Но хорошая новость состоит в том, что это легко поправить. Запустите дедупликацию с опцией scan в VSC, или же вручную, из консоли управления укажите у команды <strong>sis</strong> ключ –s.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image79.png" width="542" height="323" /></p>
+<p>Выше – рассматриваемое действие в VSC, ниже – в System Manager, другом нашем инструменте управления контроллером системы хранения.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image80.png" width="442" height="216" /></p>
+<p>Для предпочитающих командную строку это будет <strong>sis start <font color="#ff0000">-s</font> /vol/myvol</strong>, удивительно как много могут сделать всего два дополнительных символа. </p>
+<p>Это, по моим наблюдениям, самая популярная ошибка, но благодаря все большему количеству наших пользователей, которые создают разделы для VMware с помощью VSC, она становится все менее распространенной.</p>
+<h3>Ошибка №2 – Включенное резервирование пространства под LUN</h3>
+<p>На контроллере NetApp у нас есть несколько различных уровней включения резервирования пространства, в зависимости от ваших потребностей. Но для VMware используются главным образом два. Первый – это резервирование на уровне тома (volume reservation). Оно резервирует пространство в объеме пула aggregate, и обеспечивает вам уверенность в том, что объект, который вы помещаете на том, на него поместится, и для него найдется достаточно места. Внутри такого тома вы можете создавать LUN-ы для VMware. Тут вы тоже можете выбрать вариант резервирования пространства под LUN, которое займет сразу все необходимое пространство на томе под создаваемый LUN. ?? с этим есть две проблемы. Первая – что вам так делать, на самом деле, не нужно. Вы уже зарезервировали место на уровне тома на aggregate, с помощью volume space reservation, вам <em>не нужно резервировать его еще раз</em>, с помощью LUN space reservation. Вторая – LUN reservation означает, что LUN <em>всегда будет занимать зарезервированное пространство</em>. То есть LUN , созданный с заданным размером 600GB, <strong>всегда</strong> займет на дисках эти 600GB, даже если он пустой, даже если на нем успешно поработала дедупликация.</p>
+<p>Простое отключение резервирование пространства для LUN даст вам эффект от дедупликации данных на нем (да, кстати вы можете сделать это прямо на ходу, не останавливая VM, использующую этот LUN).</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image81.png" width="429" height="368" /></p>
+<h3>Ошибка №3 – Неверно выравненная VM</h3>
+<p>Проблема с неверным выравниванием партиций для некоторых гостевых операционных систем с нижележащей структурой блоков системы хранения хорошо <a href="http://blogs.netapp.com/virtualstorageguy/2010/04/raising-awareness-around-the-misalignment-of-data.html">документирована</a>. Во многих случаях проблема неправильного выравнивания вызывает уменьшение результатов экономии пространства при дедупликации, ниже ожидаемых величин. Наши клиенты часто бывают поражены тем, как много блоков мы можем дедуплицировать даже между неодинаковыми OS, например между Windows 2003 и Windows 2008, или между Windows XP и Windows 2003. Но если начальное смещение партиции одной OS отличается от такого же смещения другой, то результат дедупликации будет почти нулевой.</p>
+<p>Кроме снижения результатов экономии при дедупликации и большего занятого на дисках объема, неверное выравнивание партиции оказывает довольно значительную дополнительную нагрузку на контроллер системы хранения (любой системы хранения, не только NetApp). Поэтому было бы очень неплохо исправить эту ситуацию. На рынке существует множество программных инструментов для выполнения этого действия, включая утилиту MBRalign, которую получают клиенты NetApp в составе нашего пакета VSC (Virtual Storage Console). Когда вы поправите неправильное выравнивание ваших VM, вы увидите не только улучшение показателей экономии пространства в результате дедупликации, но и снижение уровня загрузки процессоров на контроллерах системы хранения.</p>
+<h3>Ошибка №4 – Большой объем данных в VM</h3>
+<p>Это, правда, не ошибка конфигурации, а, скорее, особенность дизайна системы. Большинство наших пользователей не отделяют данные VM от системного VMDK с OS. Возможность держать все содержимое VM в одной директории выглядит слишком заманчиво, чтобы ей пренебречь. Пользователь обычно все равно получает довольно неплохие результаты дедупликации, даже если данные приложения смешаны с блоками данных самой OS. Часто пользователи держат по настоящему большие разделы виртуальных дисков, где блоки данных OS лежат вместе с большими базами данных, репозиториями образов, или базами электронной почты, все внутри одного диска VM. Такие большие разделы смешанных данных скорее всего не будут дедуплицироваться с высокими показателями экономии. В общем-то нет ничего страшного в такой схеме, но если вы переместите VMDK с такими данными на отдельные разделы с аналогичными данными, то показатели дедупликации для таких VMDK, и для VMDK с файлами OS, хранящимися по отдельности друг от друга, будут заметно выше. Но, в принципе, оба варианта вполне рабочие.</p>
+<p>Вот такие четыре основных ошибки конфигурирования дедупликации, с которыми приходится сталкиваться на практике у наших пользователей.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="dedupe.html" rel="tag">dedupe</a>, <a href="deduplication/index.html" rel="tag">deduplication</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tips.html" rel="tag">tips</a><br />					Раздел: <a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../858/trackback.html#comments" title="Комментарий к записи Четыре главных ошибки при конфигурировании дедупликации на NetApp">Комментарии (5)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-489">
+				<h2 class="posttitle"><a href="../489/trackback.html" rel="bookmark" title="Permanent Link to Консольный кабель и переустановка системы">Консольный кабель и переустановка системы</a></h2>
+				<div class="postmetadata">14 Январь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??ногда пользователям попадается система хранения с “богатым прошлым”, “доставшаяся в наследство”, или иной странный некомплект. Часто встает вопрос, как привести такую систему в исходное состояние, избавившись от “тяжелого наследства” установленной конфигурации прежних владельцев.</p>
+<p>Для начала, вам следует найти консольный кабель. Он идет в комплекте поставки но, в случае, когда концы системы утеряны, бывает с ними же уходит и кабель.</p>
+<p>В качестве консольного кабеля прекрасно подойдет аналогичный консольный кабель RJ-45-to-DB-9 от оборудования Cisco. Его распиновка такова: </p>
+<pre>Pinouts RJ45
+Pin# Signal
+1    connected to pin 8
+2    Not connected
+3    TXD (from appliance)
+4    GND
+5    GND
+6    RXD (to appliance)
+7    Not connected
+8    connected to pin 1 </pre>
+<p>Для справки также привожу распиновку стандартного RS-232 serial DB-9 </p>
+<pre>Pinouts DB9
+Pin# Signal Data Flow Description
+1    DCD    input     data carrier detected
+2    SIN    input     serial input
+3   SOUT    output    serial output
+4    DTR    output    data terminal ready
+5    GND    N/A       signal ground
+6    DSR    input     data set ready
+7    RTS    output    request to send
+8    CTS    input     clear to send
+9     RI    input     ring indicator </pre>
+<p>Для сброса системы в “состояние с завода” следует выполнить в консоли загруженной системы, войдя от имени root, следующие команды:</p>
+<p>&gt;priv set advanced</p>
+<p>&gt;halt -c factory </p>
+<p>После перезагрузки все ранее сделанные изменения конфигурации в /etc сотрутся, и будет запущен стартовый скрипт setup, обеспечивающий начальную установку впервые включенной системы.</p>
+<p>Если необходимо сменить неизвестный или утерянный пароль root, следует, с подключенным к serial port кабелем и консолью, включить контроллер, и, при загрузке, на предложенную подсказку, нажать Ctrl-C и выбрать (3) Change password.</p>
+<p>Обратите внимание, что сбросить пароль root возможно только с консольным подключением в контроллер.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="hardware.html" rel="tag">hardware</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tips.html" rel="tag">tips</a>, <a href="tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../489/trackback.html#respond" title="Комментарий к записи Консольный кабель и переустановка системы">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-443">
+				<h2 class="posttitle"><a href="../443/trackback.html" rel="bookmark" title="Permanent Link to Как избежать работы с LUN через &ldquo;чужой&rdquo; контроллер кластера.">Как избежать работы с LUN через &ldquo;чужой&rdquo; контроллер кластера.</a></h2>
+				<div class="postmetadata">2 Ноябрь 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Одной из ошибок настройки при работе кластерной системы NetApp FAS является проблема подключения к LUN через “неродной” для этого LUN-а контроллер.</p>
+<p>Кластер контроллеров FAS работает таким образом, что каждый LUN имеет некий preferred path для доступа, будучи “привязанным” к какому-то из контроллеров кластерной пары.</p>
+<p>Однако доступ к данным возможен и при работе через вторую ноду кластера, LUN “виден” с обоих нодов кластера, вне зависимости от того, какому из контроллеров он выдан. Это необходимо, в том числе, для обеспечения отказоустойчивости. Однако, доступ через “чужой” для LUN узел, это“нештатный” способ подключения, так как при этом данные пойдут с порта “неродного” контроллера, через кластерный интерконнект, в “родной” котроллер, а из него в LUN, соответственно, обратным путем пойдут данные с LUN.</p>
+<p>Этот процесс снижает производительность, нагружает оба контроллера, загружает ненужным трафиком кластерный интерконнект, и ухудшает responce time и latency, поэтому работы через “чужой” узел кластерной пары следует избегать.</p>
+<p>Для того, чтобы диагностировать и устранить проблему доступа к LUN через путь на “чужой” контроллер, следует сделать следующее жирным шрифтом выделены команды в консоли (в скобках – соответствующие пункты меню веб-интерфейса FilerView).</p>
+<ol>
+<li>Определите, к какому из LUN доступ осуществляется через порт FCP target партнерской (“чужой”) ноды.      <br />a.<strong> lun stats -o</strong>&#160; (LUN STATISTICS) </li>
+<li>Определите какой из хостов получает доступ к этому LUN через канал партнерской ноды      <br />a.<strong> lun config_check -A</strong>&#160; (LUN CONFIG CHECK)       <br />b.<strong> lun show -v</strong>&#160; (LUN CONFIGURATION)       <br />c.<strong> igroup show -v</strong>&#160; (INITIATOR GROUPS) </li>
+<li>Определите порт FCP target основной ноды кластера, который должно использовать для доступа к этому LUN.      <br />a. <strong>fcp show cfmode</strong>&#160; (FCP CFMODE)       <br />b.<strong> fcp show adapters</strong>&#160; (FCP TARGET ADAPTERS) </li>
+<li>Проверьте соединение инициатора хоста с основным портом FCP target и конфигурацию MPIO на хосте. </li>
+<li>Убедитесь, что доступ по партнерскому пути вместо основного прекращен на обоих узлах кластера.      <br />a.<strong> sysstat -b 1</strong> </li>
+</ol>
+<p>Убедитесь также, что настройки MPIO правильны, и не влияют на выбор пути доступа. Рекомендуется на каждом из хостов установить соответствующий host utility kit.</p>
+<p>Оригинал текста, на основе которого сделан пост взят там:&#160; <br /><a href="http://ibmnseries.blog.com/2009/10/13/partner-path-misconfigured/">http://ibmnseries.blog.com/2009/10/13/partner-path-misconfigured/</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="howto/index.html" rel="tag">howto</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="tips.html" rel="tag">tips</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../443/trackback.html#comments" title="Комментарий к записи Как избежать работы с LUN через &ldquo;чужой&rdquo; контроллер кластера.">Комментарии (2)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.081 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

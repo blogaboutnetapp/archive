@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: VMware и использование NFS: часть 1</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1151/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1151</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:30 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-3143</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 15 Aug 2012 04:09:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-3143</guid>
+		<description>Border:
+
+Ну так я не спорю с тем, что Fibre Channel еще будет долго где-то существовать. Вон Token Ring или FICON тоже существуют как стандарты до сих пор :D</description>
+		<content:encoded><![CDATA[<p>Border:</p>
+<p>Ну так я не спорю с тем, что Fibre Channel еще будет долго где-то существовать. Вон Token Ring или FICON тоже существуют как стандарты до сих пор :D</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Border</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-3141</link>
+		<dc:creator>Border</dc:creator>
+		<pubDate>Wed, 15 Aug 2012 01:15:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-3141</guid>
+		<description>Попробуйте перейти по ссылке, на которую ссылается таблица из статьи Википедии, на которую ссылаетесь вы.</description>
+		<content:encoded><![CDATA[<p>Попробуйте перейти по ссылке, на которую ссылается таблица из статьи Википедии, на которую ссылаетесь вы.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-3112</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 09 Aug 2012 10:39:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-3112</guid>
+		<description>Border:
+
+&gt; Будет надо - появятся 32 и 64.
+
+Вы явно знаете что-то, чего не знают даже организации, разрабатывающие FC, так как пока существуют планы только до 20Gb, причем по нему неизвестна даже ориентировочная дата выпуска стандарта, а у вас уже о как размахнулось, и 32, и даже 64. ;D
+http://en.wikipedia.org/wiki/Fibre_Channel_Protocol#History</description>
+		<content:encoded><![CDATA[<p>Border:</p>
+<p>> Будет надо - появятся 32 и 64.</p>
+<p>Вы явно знаете что-то, чего не знают даже организации, разрабатывающие FC, так как пока существуют планы только до 20Gb, причем по нему неизвестна даже ориентировочная дата выпуска стандарта, а у вас уже о как размахнулось, и 32, и даже 64. ;D<br />
+<a href="http://en.wikipedia.org/wiki/Fibre_Channel_Protocol#History" rel="nofollow">http://en.wikipedia.org/wiki/Fibre_Channel_Protocol#History</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Border</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-3111</link>
+		<dc:creator>Border</dc:creator>
+		<pubDate>Thu, 09 Aug 2012 10:26:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-3111</guid>
+		<description>Со скоростью у FC все нормально. Сейчас доступны к заказу карточки и коммутаторы со скоростью порта 16Gb. Будет надо - появятся 32 и 64. План по возможным скоростям известен давно.</description>
+		<content:encoded><![CDATA[<p>Со скоростью у FC все нормально. Сейчас доступны к заказу карточки и коммутаторы со скоростью порта 16Gb. Будет надо - появятся 32 и 64. План по возможным скоростям известен давно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-2532</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 15 May 2012 05:23:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-2532</guid>
+		<description>Alexey Savva:
+
+&gt; 1) Дольшее время failover (до 45 секунд) против 1-2
+
+Это не так "в общем случае". ?? совершенно точно в долгом процессе файловера не виноват NFS как таковой.
+Либо у вас что-то с настройками.
+Ну то есть да, если у вас под сотню шар, смонтированных на десятке серверов, тогда - да, конечно, файловер займет довольно продолжительное время. Но он также станет длиннее в случае, если у вас будет множество LUN-ов.
+
+&gt; 2) Сложнее балансировака нагрузки (подсети, vmk и т.д.)
+
+Это таки довольно "вкусовой" параметр: "сложнее". Вдобавок, в однажды построенной сети "сложность настройки подсетей" это далеко не первоочередная или ежедневная проблема. А вот то, что NFS дает в плюсах - это как раз вполне может быть ежедневно ощущаемым преимуществом.
+
+&gt; 3) Сложнее осуществить High Availability
+
+Снова, я не понимаю такого критерия "сложнее". А также того места, в котором "более сложно" отделяется от "менее сложно".
+
+&gt; 4) 8 GB FC в целом дешевле (включая операционные расходы), чем 10 GB Ethernet
+
+Ну, знаете... 10GB Ethernet, это было технологической новинкой года три наад, сейчас уже говорят о 40GB Ethernet, как там с этим у 8G FC? ;)
+
+Вопрос расчета стоимости (в том числе "операционных расходов") по моей практике сильно зависит от того, кто считает. ;)</description>
+		<content:encoded><![CDATA[<p>Alexey Savva:</p>
+<p>> 1) Дольшее время failover (до 45 секунд) против 1-2</p>
+<p>Это не так &#8220;в общем случае&#8221;. ?? совершенно точно в долгом процессе файловера не виноват NFS как таковой.<br />
+Либо у вас что-то с настройками.<br />
+Ну то есть да, если у вас под сотню шар, смонтированных на десятке серверов, тогда - да, конечно, файловер займет довольно продолжительное время. Но он также станет длиннее в случае, если у вас будет множество LUN-ов.</p>
+<p>> 2) Сложнее балансировака нагрузки (подсети, vmk и т.д.)</p>
+<p>Это таки довольно &#8220;вкусовой&#8221; параметр: &#8220;сложнее&#8221;. Вдобавок, в однажды построенной сети &#8220;сложность настройки подсетей&#8221; это далеко не первоочередная или ежедневная проблема. А вот то, что NFS дает в плюсах - это как раз вполне может быть ежедневно ощущаемым преимуществом.</p>
+<p>> 3) Сложнее осуществить High Availability</p>
+<p>Снова, я не понимаю такого критерия &#8220;сложнее&#8221;. А также того места, в котором &#8220;более сложно&#8221; отделяется от &#8220;менее сложно&#8221;.</p>
+<p>> 4) 8 GB FC в целом дешевле (включая операционные расходы), чем 10 GB Ethernet</p>
+<p>Ну, знаете&#8230; 10GB Ethernet, это было технологической новинкой года три наад, сейчас уже говорят о 40GB Ethernet, как там с этим у 8G FC? ;)</p>
+<p>Вопрос расчета стоимости (в том числе &#8220;операционных расходов&#8221;) по моей практике сильно зависит от того, кто считает. ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Savva</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-2502</link>
+		<dc:creator>Alexey Savva</dc:creator>
+		<pubDate>Thu, 10 May 2012 12:15:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-2502</guid>
+		<description>Основные минусы NFS vs FC, которые я открыл для себя при работе в нагруженном продакшене:
+1) Дольшее время failover (до 45 секунд) против 1-2
+2) Сложнее балансировака нагрузки (подсети, vmk и т.д.)
+3) Сложнее осуществить High Availability - мы даже перешли на использование beacon probing в VMWare
+4) 8 GB FC в целом дешевле (включая операционные расходы), чем 10 GB Ethernet
+
+В целом согласен с плюсам NFS, приведенными в статье - ресайзинг datastore будет очень болезнен для нас :(</description>
+		<content:encoded><![CDATA[<p>Основные минусы NFS vs FC, которые я открыл для себя при работе в нагруженном продакшене:<br />
+1) Дольшее время failover (до 45 секунд) против 1-2<br />
+2) Сложнее балансировака нагрузки (подсети, vmk и т.д.)<br />
+3) Сложнее осуществить High Availability - мы даже перешли на использование beacon probing в VMWare<br />
+4) 8 GB FC в целом дешевле (включая операционные расходы), чем 10 GB Ethernet</p>
+<p>В целом согласен с плюсам NFS, приведенными в статье - ресайзинг datastore будет очень болезнен для нас :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-2493</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 09 May 2012 14:24:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-2493</guid>
+		<description>Dmitriy:
+
+Откройте для себя FlexClone. :) 
+Работает еще быстрее и не загружает сторадж, в отличие от того клона, о котором вы говорите выше. К тому же экономит пространство на дисках.</description>
+		<content:encoded><![CDATA[<p>Dmitriy:</p>
+<p>Откройте для себя FlexClone. :)<br />
+Работает еще быстрее и не загружает сторадж, в отличие от того клона, о котором вы говорите выше. К тому же экономит пространство на дисках.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-2492</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Wed, 09 May 2012 13:18:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-2492</guid>
+		<description>@romx:
+
+например, клонирование машинки с VHDD в 300 гигов (реально занято 50, полноценный Thin provisioning) по iSCSI занимает минуту, по NFS - около 10 минут.</description>
+		<content:encoded><![CDATA[<p>@romx:</p>
+<p>например, клонирование машинки с VHDD в 300 гигов (реально занято 50, полноценный Thin provisioning) по iSCSI занимает минуту, по NFS - около 10 минут.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-2467</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 07 May 2012 17:43:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-2467</guid>
+		<description>Dmitriy:
+
+Объясните мне хоть кто-нибудь, ЗАЧЕМ нужен VAAI на NFS?
+У него там, по-моему, есть ровно одна юзабельная функция - делать thick provisioned vmdk (у самого п себе NFS файлы VMDK всегда thin, "тонкие").</description>
+		<content:encoded><![CDATA[<p>Dmitriy:</p>
+<p>Объясните мне хоть кто-нибудь, ЗАЧЕМ нужен VAAI на NFS?<br />
+У него там, по-моему, есть ровно одна юзабельная функция - делать thick provisioned vmdk (у самого п себе NFS файлы VMDK всегда thin, &#8220;тонкие&#8221;).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1151#comment-2466</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Mon, 07 May 2012 14:24:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1151#comment-2466</guid>
+		<description>Меня больше всего огорчает отсутствие поддержки VAAI с NFS в vSphere 4. Пятую использовать не могу в силу ряда причин.</description>
+		<content:encoded><![CDATA[<p>Меня больше всего огорчает отсутствие поддержки VAAI с NFS в vSphere 4. Пятую использовать не могу в силу ряда причин.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

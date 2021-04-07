@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Знаете ли вы, что:</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/25/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/25</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:50 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/25#comment-1308</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 23 Apr 2011 05:13:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/25#comment-1308</guid>
+		<description>UFO:
+
+Мой вам совет - забейте. У вас не хватает для "полного комплекта" слишком многого.
+
+Есть такая русская приговорка:
+- Федул! Чо губы надул?
+- Кафтан прожег...
+- А велика ли дыра?
+- Один ворот остался...
+
+Вот и в вашем случае у вас от системы "один ворот", дошивать к нему целый кафтан - слишком затратно, ладно бы вышло в результате что  ценное, но получится всего лишь доисторический пентиум 1.
+Забейте. Как я уже говорил, единственная ценность там сейчас - показывать школьникам исторический Alpha AXP212хх.</description>
+		<content:encoded><![CDATA[<p>UFO:</p>
+<p>Мой вам совет - забейте. У вас не хватает для &#8220;полного комплекта&#8221; слишком многого.</p>
+<p>Есть такая русская приговорка:<br />
+- Федул! Чо губы надул?<br />
+- Кафтан прожег&#8230;<br />
+- А велика ли дыра?<br />
+- Один ворот остался&#8230;</p>
+<p>Вот и в вашем случае у вас от системы &#8220;один ворот&#8221;, дошивать к нему целый кафтан - слишком затратно, ладно бы вышло в результате что  ценное, но получится всего лишь доисторический пентиум 1.<br />
+Забейте. Как я уже говорил, единственная ценность там сейчас - показывать школьникам исторический Alpha AXP212хх.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: UFO</title>
+		<link>http://blog.aboutnetapp.ru/archives/25#comment-1287</link>
+		<dc:creator>UFO</dc:creator>
+		<pubDate>Tue, 19 Apr 2011 17:43:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/25#comment-1287</guid>
+		<description>Да, я всё ещё хочу его запустить.
+Хотя бы какие модули памяти ему нужны?
+?? хорошо бы описание джамперов на материнке.</description>
+		<content:encoded><![CDATA[<p>Да, я всё ещё хочу его запустить.<br />
+Хотя бы какие модули памяти ему нужны?<br />
+?? хорошо бы описание джамперов на материнке.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/25#comment-1280</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 18 Apr 2011 06:57:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/25#comment-1280</guid>
+		<description>О, боги! Вам правда это _нужно_? F520 это же система "времен Очакова и покоренья Крыма".
+Вам правда нужен NFS-сервер на Pentium-I MMX десятилетней давности сборки?</description>
+		<content:encoded><![CDATA[<p>О, боги! Вам правда это _нужно_? F520 это же система &#8220;времен Очакова и покоренья Крыма&#8221;.<br />
+Вам правда нужен NFS-сервер на Pentium-I MMX десятилетней давности сборки?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: UFO</title>
+		<link>http://blog.aboutnetapp.ru/archives/25#comment-1279</link>
+		<dc:creator>UFO</dc:creator>
+		<pubDate>Mon, 18 Apr 2011 06:52:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/25#comment-1279</guid>
+		<description>Добрый день!
+
+Друзья, может ли кто-нибудь помочь скачать документацию на NetApp F520 с сайта netapp.com?
+Аккаунт с простым уровнем доступа не позволяет... :(</description>
+		<content:encoded><![CDATA[<p>Добрый день!</p>
+<p>Друзья, может ли кто-нибудь помочь скачать документацию на NetApp F520 с сайта netapp.com?<br />
+Аккаунт с простым уровнем доступа не позволяет&#8230; :(</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

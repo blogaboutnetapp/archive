@@ -1,0 +1,623 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 11">
+<link id=Main-File rel=Main-File href="../IOPS.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Edit-Time-Data href=editdata.mso>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+x\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>NetApp FAS3020 vs. HDS AMS500</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:" ";}
+@page
+	{margin:1.0in .75in 1.0in .75in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../IOPS.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]><!--[if gte mso 9]><xml>
+ <x:WorksheetOptions>
+  <x:Print>
+   <x:ValidPrinterInfo/>
+   <x:PaperSizeIndex>9</x:PaperSizeIndex>
+   <x:HorizontalResolution>600</x:HorizontalResolution>
+   <x:VerticalResolution>0</x:VerticalResolution>
+  </x:Print>
+  <x:Panes>
+   <x:Pane>
+    <x:Number>3</x:Number>
+    <x:ActiveRow>2</x:ActiveRow>
+    <x:ActiveCol>1</x:ActiveCol>
+    <x:RangeSelection>$B$3:$E$3</x:RangeSelection>
+   </x:Pane>
+  </x:Panes>
+  <x:ProtectContents>False</x:ProtectContents>
+  <x:ProtectObjects>False</x:ProtectObjects>
+  <x:ProtectScenarios>False</x:ProtectScenarios>
+ </x:WorksheetOptions>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="3"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body link=blue vlink=purple>
+
+<table x:str border=0 cellpadding=0 cellspacing=0 width=943 style='border-collapse:
+ collapse;table-layout:fixed;width:708pt'>
+ <col width=88 style='mso-width-source:userset;mso-width-alt:3218;width:66pt'>
+ <col width=97 style='mso-width-source:userset;mso-width-alt:3547;width:73pt'>
+ <col width=107 style='mso-width-source:userset;mso-width-alt:3913;width:80pt'>
+ <col width=105 style='mso-width-source:userset;mso-width-alt:3840;width:79pt'>
+ <col width=98 style='mso-width-source:userset;mso-width-alt:3584;width:74pt'>
+ <col width=64 span=7 style='width:48pt'>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl27 width=88 style='height:12.75pt;width:66pt'
+  x:str="iozone64 -i 0 -i 1 -i 2 -i 4 -i 5 -i 8 -e -o -c -s 4000M -r 4K -j 1 -f TEST4G4k.log -b /export/home/romx/testlog.xls ">iozone64
+  -i 0 -i<span style='display:none'> 1 -i 2 -i 4 -i 5 -i 8 -e -o -c -s 4000M -r
+  4K -j 1 -f TEST4G4k.log -b /export/home/romx/testlog.xls<span
+  style='mso-spacerun:yes'> </span></span></td>
+  <td width=97 style='width:73pt'></td>
+  <td width=107 style='width:80pt'></td>
+  <td width=105 style='width:79pt'></td>
+  <td width=98 style='width:74pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl27 style='height:12.75pt'></td>
+  <td colspan=11 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=18 style='height:13.5pt'>
+  <td height=18 class=xl29 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl35>HDS FC</td>
+  <td class=xl35>NetApp FC</td>
+  <td class=xl35>NetApp iSCSI</td>
+  <td class=xl35>NetApp NFS</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl28 style='height:12.75pt'>Writer</td>
+  <td class=xl27 align=right x:num>2016</td>
+  <td class=xl27 align=right x:num>4983</td>
+  <td class=xl27 align=right x:num>4211</td>
+  <td class=xl27 align=right x:num>4908</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl28 style='height:12.75pt'>Re-Writer</td>
+  <td class=xl27 align=right x:num>642</td>
+  <td class=xl27 align=right x:num>5677</td>
+  <td class=xl27 align=right x:num>5013</td>
+  <td class=xl27 align=right x:num>4513</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl28 style='height:12.75pt'>Reader</td>
+  <td class=xl27 align=right x:num>108400</td>
+  <td class=xl27 align=right x:num>81972</td>
+  <td class=xl27 align=right x:num>86864</td>
+  <td class=xl27 align=right x:num>57163</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl28 style='height:12.75pt'>Re-Reader</td>
+  <td class=xl27 align=right x:num>102099</td>
+  <td class=xl27 align=right x:num>107705</td>
+  <td class=xl27 align=right x:num>120151</td>
+  <td class=xl27 align=right x:num>56891</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl28 style='height:12.75pt'>RandRead</td>
+  <td class=xl27 align=right x:num>2860</td>
+  <td class=xl27 align=right x:num>3582</td>
+  <td class=xl27 align=right x:num>4470</td>
+  <td class=xl27 align=right x:num>3131</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl28 style='height:12.75pt'>RandWrite</td>
+  <td class=xl27 align=right x:num>488</td>
+  <td class=xl27 align=right x:num>1784</td>
+  <td class=xl27 align=right x:num>2345</td>
+  <td class=xl27 align=right x:num>2221</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl28 style='height:12.75pt'>RecRewrite</td>
+  <td class=xl27 align=right x:num>2659</td>
+  <td class=xl27 align=right x:num>6616</td>
+  <td class=xl27 align=right x:num>6593</td>
+  <td class=xl27 align=right x:num>10428</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl28 style='height:12.75pt'>StrideRead</td>
+  <td class=xl27 align=right x:num>61515</td>
+  <td class=xl27 align=right x:num>33798</td>
+  <td class=xl27 align=right x:num>31827</td>
+  <td class=xl27 align=right x:num>5097</td>
+  <td colspan=7 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 colspan=5 style='height:12.75pt;mso-ignore:colspan'></td>
+  <td class=xl27></td>
+  <td colspan=6 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 style='height:12.75pt' align=left valign=top><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t201" coordsize="21600,21600" o:spt="201" path="m,l,21600r21600,l21600,xe">
+   <v:stroke joinstyle="miter"/>
+   <v:path shadowok="f" o:extrusionok="f" strokeok="f" fillok="f"
+    o:connecttype="rect"/>
+   <o:lock v:ext="edit" shapetype="t"/>
+  </v:shapetype><v:shape id="_x0000_s3073" type="#_x0000_t201" style='position:absolute;
+   margin-left:0;margin-top:0;width:449.25pt;height:339.75pt;z-index:1'
+   fillcolor="window [78]" strokecolor="windowText [77]" o:insetmode="auto">
+   <v:fill color2="windowText [77]"/>
+   <o:lock v:ext="edit" rotation="t" text="t"/>
+   <x:ClientData ObjectType="Chart">
+    <x:WebChart>
+     <x:Scaling>
+      <x:ScaleID>0</x:ScaleID>
+      <x:Orientation>MinMax</x:Orientation>
+     </x:Scaling>
+     <x:Scaling>
+      <x:ScaleID>1</x:ScaleID>
+      <x:Orientation>MinMax</x:Orientation>
+     </x:Scaling>
+     <x:Chart>
+      <x:Name>Chart 1</x:Name>
+      <x:Title>
+       <x:Caption>
+        <x:DataSource>-1</x:DataSource>
+        <x:Data>&quot;<x:B>Iozone 4G size 4k blocks</x:B>&quot;</x:Data>
+       </x:Caption>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>11.5</x:Size>
+        <x:B/>
+        <x:AutoScale/>
+       </x:Font>
+       <x:Border>
+        <x:ColorIndex>None</x:ColorIndex>
+       </x:Border>
+       <x:Interior>
+        <x:ColorIndex>None</x:ColorIndex>
+       </x:Interior>
+      </x:Title>
+      <x:Options>
+       <x:SizeWithWindow/>
+      </x:Options>
+      <x:PageSetup>
+       <x:ChartSize>FullPage</x:ChartSize>
+      </x:PageSetup>
+      <x:Font>
+       <x:FontName>Arial</x:FontName>
+       <x:Size>16</x:Size>
+       <x:AutoScale/>
+      </x:Font>
+      <x:Left>0</x:Left>
+      <x:Top>0</x:Top>
+      <x:Width>9000</x:Width>
+      <x:Height>6809.9853515625</x:Height>
+      <x:ChartGrowth>
+       <x:HorzGrowth>1.225677490234375</x:HorzGrowth>
+       <x:VertGrowth>1.058349609375</x:VertGrowth>
+      </x:ChartGrowth>
+      <x:PlotArea>
+       <x:Left>153</x:Left>
+       <x:Top>526.07136840820317</x:Top>
+       <x:Width>8725.5</x:Width>
+       <x:Height>6130.6893127441408</x:Height>
+       <x:Border>
+        <x:ColorIndex>15</x:ColorIndex>
+        <x:LineStyle>Solid</x:LineStyle>
+        <x:Weight>Narrow</x:Weight>
+       </x:Border>
+       <x:Interior>
+        <x:ColorIndex>14</x:ColorIndex>
+        <x:BGColorIndex>Neutral</x:BGColorIndex>
+       </x:Interior>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>19.75</x:Size>
+        <x:AutoScale/>
+       </x:Font>
+       <x:Graph>
+        <x:Type>Line</x:Type>
+        <x:SubType>Standard</x:SubType>
+        <x:SubType>Marker</x:SubType>
+        <x:ScaleID>0</x:ScaleID>
+        <x:ScaleID>1</x:ScaleID>
+        <x:Series>
+         <x:Index>0</x:Index>
+         <x:Caption>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$B$3</x:Data>
+         </x:Caption>
+         <x:Name>HDS FC</x:Name>
+         <x:Line>
+          <x:ColorIndex>5</x:ColorIndex>
+          <x:LineStyle>Solid</x:LineStyle>
+          <x:Weight>Narrow</x:Weight>
+         </x:Line>
+         <x:Marker>
+          <x:Symbol>Triangle</x:Symbol>
+          <x:Size>5</x:Size>
+          <x:Border>
+           <x:ColorIndex>5</x:ColorIndex>
+          </x:Border>
+          <x:Interior>
+           <x:ColorIndex>5</x:ColorIndex>
+          </x:Interior>
+         </x:Marker>
+         <x:Category>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$A$4:$A$11</x:Data>
+         </x:Category>
+         <x:Value>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$B$4:$B$11</x:Data>
+         </x:Value>
+        </x:Series>
+        <x:Series>
+         <x:Index>1</x:Index>
+         <x:Caption>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$C$3</x:Data>
+         </x:Caption>
+         <x:Name>NetApp FC</x:Name>
+         <x:Category>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$A$4:$A$11</x:Data>
+         </x:Category>
+         <x:Value>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$C$4:$C$11</x:Data>
+         </x:Value>
+        </x:Series>
+        <x:Series>
+         <x:Index>2</x:Index>
+         <x:Caption>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$D$3</x:Data>
+         </x:Caption>
+         <x:Name>NetApp iSCSI</x:Name>
+         <x:Line>
+          <x:ColorIndex>24</x:ColorIndex>
+          <x:LineStyle>Solid</x:LineStyle>
+          <x:Weight>Narrow</x:Weight>
+         </x:Line>
+         <x:Marker>
+          <x:Symbol>Diamond</x:Symbol>
+          <x:Size>5</x:Size>
+          <x:Border>
+           <x:ColorIndex>24</x:ColorIndex>
+          </x:Border>
+          <x:Interior>
+           <x:ColorIndex>24</x:ColorIndex>
+          </x:Interior>
+         </x:Marker>
+         <x:Category>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$A$4:$A$11</x:Data>
+         </x:Category>
+         <x:Value>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$D$4:$D$11</x:Data>
+         </x:Value>
+        </x:Series>
+        <x:Series>
+         <x:Index>3</x:Index>
+         <x:Caption>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$E$3</x:Data>
+         </x:Caption>
+         <x:Name>NetApp NFS</x:Name>
+         <x:Category>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$A$4:$A$11</x:Data>
+         </x:Category>
+         <x:Value>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$E$4:$E$11</x:Data>
+         </x:Value>
+        </x:Series>
+        <x:PlotVisible/>
+       </x:Graph>
+       <x:Axis>
+        <x:Placement>Bottom</x:Placement>
+        <x:AxisID>0</x:AxisID>
+        <x:ScaleID>0</x:ScaleID>
+        <x:CrossingAxis>1</x:CrossingAxis>
+        <x:Font>
+         <x:FontName>Arial</x:FontName>
+         <x:Size>8.5</x:Size>
+         <x:I/>
+         <x:AutoScale/>
+        </x:Font>
+        <x:Number>
+         <x:SourceLinked/>
+         <x:BuiltInFormat>0</x:BuiltInFormat>
+        </x:Number>
+        <x:Type>Automatic</x:Type>
+       </x:Axis>
+       <x:Axis>
+        <x:Placement>Left</x:Placement>
+        <x:AxisID>1</x:AxisID>
+        <x:ScaleID>1</x:ScaleID>
+        <x:MajorGridlines/>
+        <x:CrossingAxis>0</x:CrossingAxis>
+        <x:CrossesAt>Minimum</x:CrossesAt>
+        <x:CrossBetween>Between</x:CrossBetween>
+        <x:Font>
+         <x:FontName>Arial</x:FontName>
+         <x:Size>8.5</x:Size>
+         <x:AutoScale/>
+        </x:Font>
+        <x:Number>
+         <x:SourceLinked/>
+         <x:BuiltInFormat>0</x:BuiltInFormat>
+        </x:Number>
+        <x:Type>Value</x:Type>
+       </x:Axis>
+      </x:PlotArea>
+      <x:Legend>
+       <x:Type>Vertical</x:Type>
+       <x:Placement>Custom</x:Placement>
+       <x:Left>6383.25</x:Left>
+       <x:Top>1307.5171875000001</x:Top>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>8</x:Size>
+        <x:AutoScale/>
+       </x:Font>
+      </x:Legend>
+     </x:Chart>
+    </x:WebChart>
+   </x:ClientData>
+  </v:shape><v:shape id="_x0000_s3074" type="#_x0000_t201" style='position:absolute;
+   margin-left:453.75pt;margin-top:0;width:216.75pt;height:339.75pt;z-index:2'
+   fillcolor="window [78]" strokecolor="windowText [77]" o:insetmode="auto">
+   <v:fill color2="windowText [77]"/>
+   <o:lock v:ext="edit" rotation="t" text="t"/>
+   <x:ClientData ObjectType="Chart">
+    <x:WebChart>
+     <x:Scaling>
+      <x:ScaleID>0</x:ScaleID>
+      <x:Orientation>MinMax</x:Orientation>
+     </x:Scaling>
+     <x:Scaling>
+      <x:ScaleID>1</x:ScaleID>
+      <x:Orientation>MinMax</x:Orientation>
+     </x:Scaling>
+     <x:Chart>
+      <x:Name>Chart 2</x:Name>
+      <x:Title>
+       <x:Caption>
+        <x:DataSource>-1</x:DataSource>
+        <x:Data>&quot;<x:B>RandWrite</x:B>&quot;</x:Data>
+       </x:Caption>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>11</x:Size>
+        <x:B/>
+        <x:AutoScale/>
+       </x:Font>
+       <x:Border>
+        <x:ColorIndex>None</x:ColorIndex>
+       </x:Border>
+       <x:Interior>
+        <x:ColorIndex>None</x:ColorIndex>
+       </x:Interior>
+      </x:Title>
+      <x:Options>
+       <x:SizeWithWindow/>
+      </x:Options>
+      <x:PageSetup>
+       <x:ChartSize>FullPage</x:ChartSize>
+      </x:PageSetup>
+      <x:Font>
+       <x:FontName>Arial</x:FontName>
+       <x:Size>8</x:Size>
+       <x:AutoScale/>
+      </x:Font>
+      <x:Left>0</x:Left>
+      <x:Top>0</x:Top>
+      <x:Width>4349.99267578125</x:Width>
+      <x:Height>6809.9853515625</x:Height>
+      <x:ChartGrowth>
+       <x:HorzGrowth>1.276702880859375</x:HorzGrowth>
+       <x:VertGrowth>1</x:VertGrowth>
+      </x:ChartGrowth>
+      <x:PlotArea>
+       <x:Left>155.51223815917967</x:Left>
+       <x:Top>735.47841796875002</x:Top>
+       <x:Width>3876.9309722900389</x:Width>
+       <x:Height>5921.2822631835934</x:Height>
+       <x:Border>
+        <x:ColorIndex>15</x:ColorIndex>
+        <x:LineStyle>Solid</x:LineStyle>
+        <x:Weight>Narrow</x:Weight>
+       </x:Border>
+       <x:Interior>
+        <x:ColorIndex>14</x:ColorIndex>
+        <x:BGColorIndex>Neutral</x:BGColorIndex>
+       </x:Interior>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>9.75</x:Size>
+        <x:AutoScale/>
+       </x:Font>
+       <x:Graph>
+        <x:Type>Column</x:Type>
+        <x:SubType>Clustered</x:SubType>
+        <x:Overlap>0</x:Overlap>
+        <x:ScaleID>0</x:ScaleID>
+        <x:ScaleID>1</x:ScaleID>
+        <x:Series>
+         <x:Index>0</x:Index>
+         <x:Caption>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$A$9</x:Data>
+         </x:Caption>
+         <x:Name>RandWrite</x:Name>
+         <x:Interior>
+          <x:ColorIndex>43</x:ColorIndex>
+          <x:BGColorIndex>1</x:BGColorIndex>
+         </x:Interior>
+         <x:Category>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$B$3:$E$3</x:Data>
+         </x:Category>
+         <x:Value>
+          <x:DataSource>0</x:DataSource>
+          <x:Data>IOzone4G4k!$B$9:$E$9</x:Data>
+         </x:Value>
+        </x:Series>
+        <x:PlotVisible/>
+       </x:Graph>
+       <x:Axis>
+        <x:Placement>Bottom</x:Placement>
+        <x:AxisID>0</x:AxisID>
+        <x:ScaleID>0</x:ScaleID>
+        <x:CrossingAxis>1</x:CrossingAxis>
+        <x:Font>
+         <x:FontName>Arial</x:FontName>
+         <x:Size>8</x:Size>
+         <x:AutoScale/>
+        </x:Font>
+        <x:Number>
+         <x:SourceLinked/>
+         <x:BuiltInFormat>0</x:BuiltInFormat>
+        </x:Number>
+        <x:Type>Automatic</x:Type>
+       </x:Axis>
+       <x:Axis>
+        <x:Placement>Left</x:Placement>
+        <x:AxisID>1</x:AxisID>
+        <x:ScaleID>1</x:ScaleID>
+        <x:MajorGridlines/>
+        <x:CrossingAxis>0</x:CrossingAxis>
+        <x:CrossesAt>Minimum</x:CrossesAt>
+        <x:CrossBetween>Between</x:CrossBetween>
+        <x:Font>
+         <x:FontName>Arial</x:FontName>
+         <x:Size>8</x:Size>
+         <x:AutoScale/>
+        </x:Font>
+        <x:Number>
+         <x:SourceLinked/>
+         <x:BuiltInFormat>0</x:BuiltInFormat>
+        </x:Number>
+        <x:Type>Value</x:Type>
+       </x:Axis>
+      </x:PlotArea>
+      <x:Legend>
+       <x:Type>Vertical</x:Type>
+       <x:Placement>Custom</x:Placement>
+       <x:Left>823.23611389160158</x:Left>
+       <x:Top>1075.9776855468749</x:Top>
+       <x:Font>
+        <x:FontName>Arial</x:FontName>
+        <x:Size>8</x:Size>
+        <x:AutoScale/>
+       </x:Font>
+      </x:Legend>
+     </x:Chart>
+    </x:WebChart>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:1;margin-left:0px;margin-top:0px;width:895px;
+  height:454px'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=0 height=0></td>
+    <td width=600></td>
+    <td width=5></td>
+    <td width=290></td>
+   </tr>
+   <tr>
+    <td height=454></td>
+    <td align=left valign=top><![endif]><![if !excel]><img width=600
+    height=454 src=image003.gif v:shapes="_x0000_s3073" class=shape v:dpi="96"><![endif]><![if !vml]></td>
+    <td></td>
+    <td align=left valign=top><![endif]><![if !excel]><img width=290
+    height=454 src=image004.gif v:shapes="_x0000_s3074" class=shape v:dpi="96"><![endif]><![if !vml]></td>
+   </tr>
+  </table>
+  </span><![endif]><span style='mso-ignore:vglayout2'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td height=17 width=88 style='height:12.75pt;width:66pt'></td>
+   </tr>
+  </table>
+  </span></td>
+  <td colspan=5 class=xl27 style='mso-ignore:colspan'></td>
+  <td colspan=6 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=442 style='height:331.5pt;mso-xlrowspan:26'>
+  <td height=442 colspan=12 style='height:331.5pt;mso-ignore:colspan'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=88 style='width:66pt'></td>
+  <td width=97 style='width:73pt'></td>
+  <td width=107 style='width:80pt'></td>
+  <td width=105 style='width:79pt'></td>
+  <td width=98 style='width:74pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

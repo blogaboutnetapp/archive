@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Software Subscription: что это такое</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/164/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/164</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:40 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Arti</title>
+		<link>http://blog.aboutnetapp.ru/archives/164#comment-127</link>
+		<dc:creator>Arti</dc:creator>
+		<pubDate>Mon, 30 Mar 2009 10:47:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=164#comment-127</guid>
+		<description>1. Grace-период систем без Software Subscription для устранения проблем возникших на этапе начальной установки - 3 месяца со дня продажи...
+
+Ограниченная гарантия на программное обеспечение
+Network Appliance гарантирует, что в течении девяноста (90) дней с даты доставки программного обеспечения (включая «встроенное» программное обеспечение) (вместе – «Программное обеспечение») производства компании Network Appliance: (a) Будет в существенных признаках соответствовать актуальной на тот момент версии документации на данное Программное обеспечение; и (b) Носители, на которых записано Программное обеспечение (но не само Программное обеспечение), не будут иметь физических дефектов («Гарантия на Программное обеспечение»)
+
+2. Software Subscription на отдельные (хостовые) программные компоненты NetApp покупать можно, например:
+
+SW-SS-SMSQL-SERVER	       Продукт SnapManager SQL Server Software,Solution Set
+SW-SSP-SS-SMSQL-SERVER    Подписка на обновления SW SUB,Solution Set,Microsoft SQL
+SW-SMO-NEW	       Продукт SnapManager Oracle Software
+SW-SSP-SMO	       Подписка на обновления SW SUB,SnapManager for Oracle</description>
+		<content:encoded><![CDATA[<p>1. Grace-период систем без Software Subscription для устранения проблем возникших на этапе начальной установки - 3 месяца со дня продажи&#8230;</p>
+<p>Ограниченная гарантия на программное обеспечение<br />
+Network Appliance гарантирует, что в течении девяноста (90) дней с даты доставки программного обеспечения (включая «встроенное» программное обеспечение) (вместе – «Программное обеспечение») производства компании Network Appliance: (a) Будет в существенных признаках соответствовать актуальной на тот момент версии документации на данное Программное обеспечение; и (b) Носители, на которых записано Программное обеспечение (но не само Программное обеспечение), не будут иметь физических дефектов («Гарантия на Программное обеспечение»)</p>
+<p>2. Software Subscription на отдельные (хостовые) программные компоненты NetApp покупать можно, например:</p>
+<p>SW-SS-SMSQL-SERVER	       Продукт SnapManager SQL Server Software,Solution Set<br />
+SW-SSP-SS-SMSQL-SERVER    Подписка на обновления SW SUB,Solution Set,Microsoft SQL<br />
+SW-SMO-NEW	       Продукт SnapManager Oracle Software<br />
+SW-SSP-SMO	       Подписка на обновления SW SUB,SnapManager for Oracle</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/164#comment-88</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 28 Oct 2008 03:07:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=164#comment-88</guid>
+		<description>"Критические обновления" каждый месяц это у Микрософта ;)
+
+Если появляются действительно критические, то вам их пришлют. Но это случается довольно редко, Data ONTAP довольно стабильная система на сегодня.</description>
+		<content:encoded><![CDATA[<p>&#8220;Критические обновления&#8221; каждый месяц это у Микрософта ;)</p>
+<p>Если появляются действительно критические, то вам их пришлют. Но это случается довольно редко, Data ONTAP довольно стабильная система на сегодня.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/164#comment-87</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 27 Oct 2008 15:47:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=164#comment-87</guid>
+		<description>А как же критические обновления? ??х тоже не дают без SS?</description>
+		<content:encoded><![CDATA[<p>А как же критические обновления? ??х тоже не дают без SS?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Как вы делаете бэкапы?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1177/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1177</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:35 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Павел</title>
+		<link>http://blog.aboutnetapp.ru/archives/1177#comment-2885</link>
+		<dc:creator>Павел</dc:creator>
+		<pubDate>Sat, 07 Jul 2012 15:53:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1177#comment-2885</guid>
+		<description>Пока не используем netapp, но собираемся. ??спользуем прочую схему. В общем случае D2D2D2 т.е. бэкапим софтом MS DPM, Veeam дополнительно к этому выгружаем копии на внешние диски. Хотим попробовать локальные и удаленные снэпшоты на NetApp, думаю не будет исключать существующих схем, по-крайней мере на первое время.</description>
+		<content:encoded><![CDATA[<p>Пока не используем netapp, но собираемся. ??спользуем прочую схему. В общем случае D2D2D2 т.е. бэкапим софтом MS DPM, Veeam дополнительно к этому выгружаем копии на внешние диски. Хотим попробовать локальные и удаленные снэпшоты на NetApp, думаю не будет исключать существующих схем, по-крайней мере на первое время.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1177#comment-2867</link>
+		<dc:creator>Sergey</dc:creator>
+		<pubDate>Thu, 05 Jul 2012 06:41:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1177#comment-2867</guid>
+		<description>Схема стандартная D2D2T
+
+Оперативные бэкапы делаются с помощью обычных снепшотов и разных SnapManager'ов
+Затем суточный бэкап уходит на nearstore с помощью SnapVault
+а nearstore сливает все на ленты с помощью NDMP</description>
+		<content:encoded><![CDATA[<p>Схема стандартная D2D2T</p>
+<p>Оперативные бэкапы делаются с помощью обычных снепшотов и разных SnapManager&#8217;ов<br />
+Затем суточный бэкап уходит на nearstore с помощью SnapVault<br />
+а nearstore сливает все на ленты с помощью NDMP</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Evgueni Gavrilov</title>
+		<link>http://blog.aboutnetapp.ru/archives/1177#comment-2866</link>
+		<dc:creator>Evgueni Gavrilov</dc:creator>
+		<pubDate>Thu, 05 Jul 2012 04:11:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1177#comment-2866</guid>
+		<description>выбрал "схему, не перечисленную выше", потому что данные бэкапим различными способами, исходя из способа доступа к данным и их хранения
+
+данные, доступ к которым осуществляется по NFS, бэкапим с помощью NDMP на ленты
+данные, доступ к которым осуществляется по FC, бэкапим с помощью агента бэкапера, т.е. бэкапится именно файловая система, построенная на LUN'ах с NetApp</description>
+		<content:encoded><![CDATA[<p>выбрал &#8220;схему, не перечисленную выше&#8221;, потому что данные бэкапим различными способами, исходя из способа доступа к данным и их хранения</p>
+<p>данные, доступ к которым осуществляется по NFS, бэкапим с помощью NDMP на ленты<br />
+данные, доступ к которым осуществляется по FC, бэкапим с помощью агента бэкапера, т.е. бэкапится именно файловая система, построенная на LUN&#8217;ах с NetApp</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

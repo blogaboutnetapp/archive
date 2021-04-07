@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  </title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+						
+			<div class="post" id="post-1312">
+				<h2 class="posttitle"><a href="../archives/1312/trackback.html" rel="bookmark" title="Permanent Link to Aggregate Relocate в Clustered Data ONTAP">Aggregate Relocate в Clustered Data ONTAP</a></h2>
+				<div class="postmetadata">9 Декабрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Я тут уже, было дело, бухтел, что, видимо вследствие того, что у NetApp в компании большой вес имеют &#8220;инженеры&#8221;, довольно часто в продукт попадают какие-нибудь функциональные, но маловыразительные, или, того хуже, запутывающие термины.<br />
+Вот кто знает, почему управление (включение, выключение, и прочая настройка) дедупликацией скрывается за командой консоли <code>asis</code>? Что это за &#8220;асис&#8221; такой, что он значит, и как связан с дедупликацией?<br />
+А вот, оказывается, когда-то, в самом начале, еще, фактически, до релиза, функция дедупликации у NetApp называлась <em>Advanced Single Instance Store</em>, или <em>ASIS</em> (что такое был не-адвансед, а простой <em>single instance store</em>, не помнит уже никто, наверное). Потом аббревиатуру заменили на самоописывающий термин &#8220;deduplication&#8221;, а команда осталась.</p>
+<p>Ранее, осенью, я писал <a href="../archives/tag/reallocation.html">несколько статей</a> на тему, &#8220;Что такое Reallocation, как она работает, и как ей пользоваться правильно?&#8221;, и, соответственно, в консоли есть команда <strong>reallocate</strong>.<br />
+Но теперь, с 8.2, в Cluster-mode, появилась новая функция, называющаяся очень похоже -  <strong>relocate</strong>. Путаница со всем этим нам, очевидно, еще предстоит. :-/</p>
+<p><strong>Relocate</strong> - &#8220;перемещение&#8221; - это новая возможность Cluster-mode, доступная с версии 8.2, которая позволяет не прерывая работы системы, &#8220;на ходу&#8221;, передать aggregate, то есть, по сути, disk ownership дисков этого аггрегейта, вместе со всеми томами и данными на них, другому контроллеру в той же HA-паре.</p>
+<p>В &#8220;Семерке&#8221; и 7-mode это делается с остановкой работы контроллера, из boot menu, а вот теперь, использующие Cluster-mode, это могут сделать &#8220;на ходу&#8221;. Ясно, что для Cluster-mode такая возможность куда более важна, так как в кластере задачи &#8220;перекинуть данные&#8221;, и, например, полностью вывести контроллер из кластера, допустим для его обновления или замены, это достаточно рядовая задача.</p>
+<p>Посмотреть, кому и как назначены aggregates можно командой:<br />
+<code>storage aggregate show [-node <em>source-node</em>]</code></p>
+<p><code>node1::> storage aggregate show<br />
+Aggregate Size Available Used% State #Vols Nodes RAID Status<br />
+&#8212;&#8212;&#8212; &#8212;&#8212;&#8211; &#8212;&#8212;&#8212; &#8212;&#8211; &#8212;&#8212;- &#8212;&#8212; &#8212;&#8212; &#8212;&#8212;&#8212;&#8211;<br />
+aggr_0 239.0GB 11.13GB 95% online 1 node1 raid_dp, normal<br />
+aggr_1 239.0GB 11.13GB 95% online 1 node1 raid_dp, normal<br />
+aggr_2 239.0GB 11.13GB 95% online 1 node2 raid_dp, normal<br />
+aggr_3 239.0GB 11.13GB 95% online 1 node2 raid_dp, normal<br />
+aggr_4 239.0GB 238.9GB 0% online 5 node3 raid_dp, normal<br />
+aggr_5 239.0GB 239.0GB 0% online 4 node4 raid_dp, normal<br />
+6 entries were displayed.<br />
+</code></p>
+<p>Собственно процесс релокации аггрегейтов запускается командой:<br />
+<code>storage aggregate relocation start <em>-aggregate-list aggregate-1, aggregate-2&#8230; -node source-node -destination destination-node</em></code></p>
+<p><code>node1::> storage aggregate relocation start -aggregate-list aggr_1,<br />
+aggr_2 -node node1 -destination node3<br />
+Run the storage aggregate relocation show command to check relocation status.<br />
+node1::storage aggregate><br />
+</code><br />
+А посмотреть как все идет можно командой:<br />
+<code>storage aggregate reloaction show [<em>-node <source-node></em>]</code></p>
+<p><code>node1::> storage aggregate relocation show -node node1<br />
+Source Aggregate Destination Relocation Status<br />
+&#8212;&#8212; &#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<br />
+node1<br />
+ aggr_1 node3 In progress, module: wafl<br />
+ aggr_2 node3 Not attempted yet<br />
+2 entries were displayed.<br />
+node1::storage aggregate><br />
+</code><br />
+Обратите внимание, что использовать в Cluster-mode старую, disruptive схему, с выключением контроллера, загрузкой в boot menu, снятием там текущего disk ownership с дисков и назначением их новому контроллеру - нельзя. Новые механизмы &#8220;по капотом&#8221; Cluster-mode, в частности внутренние, реплицируемые между членами кластера базы конфигураций, будут если не повреждены, то уж точно не позволят вам таким образом &#8220;релоцированный&#8221; мимо штатных механизмов aggregate (и, прежде всего, тома на нем) подключить и увидеть.<br />
+Подробно, включая и разнообразный траблшутинг, механизм релокейта рассматривается в документе <strong>Clustered Data ONTAP® 8.2 High-Availability Configuration Guide</strong><br />
+(<a href="https://library.netapp.com/ecm/ecm_download_file/ECMP1196905">https://library.netapp.com/ecm/ecm_download_file/ECMP1196905</a>)</p>
+				</div>
+		
+				<div class="postmetadata">
+										Раздел: <a href="../archives/category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1312/trackback.html#comments" title="Комментарий к записи Aggregate Relocate в Clustered Data ONTAP">Комментарии (4)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1309">
+				<h2 class="posttitle"><a href="../archives/1309/trackback.html" rel="bookmark" title="Permanent Link to Эффект от использования VAAI">Эффект от использования VAAI</a></h2>
+				<div class="postmetadata">2 Декабрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Недавно в <del datetime="2013-12-03T14:58:30+00:00"><a href="http://tt.yyaazz.hu/2011/04/19/netapp-fas3210-vmware-vaai-performance-test/">одном блоге</a></del>(<em>внезапно блог этот умер буквально на неделе, поэтому мне пришлось сохраненный текст того поста перенести в <a href="https://docs.google.com/document/d/1bDyGCU3vN0LSam9qFk3k9SlsvGP1NXuOvapop4p0t_E/pub">документ Google Docs</a>, смотрите содержимое цитируемого поста <a href="https://docs.google.com/document/d/1bDyGCU3vN0LSam9qFk3k9SlsvGP1NXuOvapop4p0t_E/pub">там</a></em>) увидел результаты эксперимента, в котором пользователь тестировал FAS3210 на эффект от включенной и выключенной поддержки VAAI, на таких операциях, как создание нового thick eager zeroed диска, клонирование VM, и Storage VMotion.<br />
+Я часто встречал какие-то завышенные ожидания от использования VAAI. ?? очень часто люди, не получая ожидаемого ими сногсшибательного результата, начинают думать, что делают что-то не так. А на самом деле этот эффект и правда, по видимому, не слишком велик (по крайней мере не так велик, как о нем думают, и чего ожидают, начитавшись маркетинговых материалов VMware).<br />
+Так, например, в рассматриваемом эксперименте, максимальный эффект от поддержки VAAI был на операции Storage VMotion, и представлял собой всего лишь тридцатипроцентное улучшение по времени операции, при пропорциональном увеличении загрузки CPU контроллера.<br />
+Сравнивая со сделанными ранее тестами FAS2040, автор вполне резонно делает вывод, что эффект от  VAAI, по видимому, тем больше, чем мощнее контроллер, и упирается в контроллер и его процессор. Отсюда вывод, что на entry-level стораджах (любого производителя), эффект от поддержки VAAI в его контроллере, скорее всего незначителен, и нет особого смысла бороться за него, или надеяться на его чудодейственность.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a>, <a href="../archives/tag/vaai.html" rel="tag">vaai</a><br />					Раздел: <a href="../archives/category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1309/trackback.html#comments" title="Комментарий к записи Эффект от использования VAAI">Комментарии (10)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1310">
+				<h2 class="posttitle"><a href="../archives/1310/trackback.html" rel="bookmark" title="Permanent Link to Аггрегация и балансировка на нескольких eth">Аггрегация и балансировка на нескольких eth</a></h2>
+				<div class="postmetadata">25 Ноябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>А вот вы знаете, что у нас тут есть <a href="https://communities.netapp.com/groups/netapp-ru">русскоязычный форум</a>, с участием же русскоязычных специалистов, работающих в NetApp? Не знали? А он - есть :)<br />
+Это я к чему, к тому, что недавно там был обнаружен интересный топик, который будет полезен тем, кто пытается разобраться с непростой темой аггрегации etherchannel и балансировки по нескольким линкам.<br />
+<a href="https://communities.netapp.com/thread/32967">https://communities.netapp.com/thread/32967</a></p>
+<p>Если вы занимаетесь NetApp, и при этом еще не там - рекомендую зарегистрироваться (читать можно и так), и подписаться на rss. ??ногда там бывают полезные для жизни темы. Да и возможность спросить на русском тоже бывает порой неоценима.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/aggregation.html" rel="tag">aggregation</a>, <a href="../archives/tag/eth.html" rel="tag">eth</a>, <a href="../archives/tag/forum.html" rel="tag">forum</a>, <a href="../archives/tag/multipath.html" rel="tag">multipath</a>, <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../archives/category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../archives/category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../archives/category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1310/trackback.html#respond" title="Комментарий к записи Аггрегация и балансировка на нескольких eth">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1305">
+				<h2 class="posttitle"><a href="../archives/1305/trackback.html" rel="bookmark" title="Permanent Link to Большое обновление в семействе E-series">Большое обновление в семействе E-series</a></h2>
+				<div class="postmetadata">20 Ноябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как вы знаете (должны знать, по крайней мере), <a href="../archives/945/trackback.html">NetApp, вот уже третий год пошел, как владеет бизнесом, ранее принадлежавшем компании  LSI/Engenio</a>, и производившим системы хранения &#8220;классической блочной архитектуры&#8221; для различных OEM-клиентов. Таким образом сегодня NetApp это не только традиционные для него стораджи семейства  FAS, то есть unified, NAS+SAN, WAFL-based стораджи &#8220;со снепшотами и дедупликацией&#8221;, о которых в этом блоге в основном и пишется, но также и &#8220;традиционные для рынка&#8221; блочные стораджи для FC и iSCSI, которые продает как сам, так и поставляет по OEM-контрактам. Так, например, хорошо знакомые российскому IT системы IBM DS3524 и Dell PowerVault MD3 - это как раз они и есть, NetApp E-series.</p>
+<p>Некоторое замешательство вызвало в свое время появление такой, <em>необычной для NetApp</em>, линейки продуктов среди пользователей, как же так, мол, а что же FAS, неужели он теперь не хорош, и вы теперь от него отказываетесь и начинаете заниматься продуктом, всю дорогу с ними конкурирующим?</p>
+<p>На самом деле те, кто с NetApp уже давно, они знают, что он, как компания, всегда действует в русле здорового прагматизма, без всякого &#8220;идеологического паладинства&#8221;, если есть направление, в котором можно заработать деньги - действует простое правило: пойди, дай то, что пользователь хочет, и возьми у пользователя за это его деньги, <del>без всяких &#8220;фу, это же не настоящий Fibrechannel!&#8221;</del> :). Так, в свое время, <a href="http://habrahabr.ru/company/netapp/blog/105936/">NetApp вдруг, неожиданно для всех, перестал заниматься только лишь NAS</a>, и быстро сделал поддержку блочных протоколов SAN в своих системах хранения (оставаясь, впрочем, сторонником своей линии, что NAS есть более интеллектуальный и прогрессивный продукт, сегодня мы все видим, что так оно, во многом, и получилось, смотрите как развивается NAS-направление в виртуализации!).</p>
+<p>Точно также получилось и с E-series. На рынке существует ниша, в которой многочисленные интеллектуальные преимущества FAS и Data ONTAP не слишком нужны, а нужна там высокая удельная емкость хранения, высокая линейная скорость записи-чтения, возможность DAS-подключения к серверам, поддержка только блочных протоколов, и так далее. Это, например, системы хранения потокового HD-видео от камер видеонаблюдения, это <a href="../archives/1192/trackback.html">системы для обработки BigData</a>, например под Apache Hadoop, и ряд других таких же нишевых, но очень деньгоемких систем и областей использования. Ну, вот, отчего не расширить туда присутствие на рынке? </p>
+<p>Сперва стораджи E-series продавались только в OEM, потом понемногу NetApp начал производить их и продавать от своего имени, сперва в Америке, а теперь и &#8220;в канал&#8221;, в том числе и в России.</p>
+<p>?? вот, на днях, <strong>в семействе E-series вышло большое обновление</strong>.<br />
+Во-первых, появилась новая линейка в нижнем сегменте, той, чем был тот самый IBM DS3524, он же NetApp E2600. Теперь ему на смену появился <a href="http://www.netapp.com/us/products/storage-systems/e2700/">E2700</a>.</p>
+<p><a href="/pics//e2600-sideview.jpg"><img src="/pics//e2600-sideview-300x165.jpg" alt="" title="e2600-sideview" width="300" height="165" class="alignnone size-medium wp-image-1306" /></a></p>
+<p>В линейке будет выпущено три модели, это E2712, E2724 и E2760. Последние две цифры модели, как вы уже поняли, это число дисков в конструктиве. 2712 и 2724 это уже знакомые 2U на 12 и 24 диска 2,5&#8243;, а вот 2760 это новый для модели E2 конструктив, уже встречавшийся в семействе E5, это 4U с треями &#8220;магазинного&#8221; типа, на 60 дисков 3,5&#8243; в корпусе, для &#8220;сверхплотных&#8221; применений.</p>
+<p>Контроллеры  E2700 оснащаются в базе портами SAS 12Gb/s, и поддерживают расширение с помощью Host Interface Cards (HIC) с портами FC 16G, iSCSI 10G, а также дополнительными портами SAS 12G.</p>
+<p>Будут поддерживаться разные типы дисков: SAS, NL-SAS, а также SSD (кроме 2712). Впрочем, про SSD дальше еще пойдет речь в связи с обновлением <a href="../archives/1244/trackback.html">All-Flash системы</a> EF5.</p>
+<p>В остальном - это наследник E2600, все, знакомое вам по этой модели, в новой осталось.</p>
+<p><strong>Обновился контроллер у E5500.</strong></p>
+<p><a href="/pics//e5500-sideview.jpg"><img src="/pics//e5500-sideview-300x164.jpg" alt="" title="e5500-sideview" width="300" height="164" class="alignnone size-medium wp-image-1307" /></a></p>
+<p>E5500 - это системы еще большей производительности, чем были E2600. Теперь в нем добавились (ранее недоступные) интерфейсы FC 16Gb и iSCSI 10G (ранее были только SAS 12Gb, FC 8Gb и Infiniband). Также как у E2700 будут доступны три конструктива, на 12 и 24 диска в 2U, и на 60 дисков в 4U.<br />
+Поддерживаемые диски - SAS и SSD.</p>
+<p>Наконец, <strong>обновился All-Flash storage, который теперь носит название EF550</strong>.</p>
+<p><a href="/pics//ef550.jpg"><img src="/pics//ef550-300x95.jpg" alt="" title="ef550" width="300" height="95" class="alignnone size-medium wp-image-1308" /></a></p>
+<p>Эта система поставляется в виде 2U корпуса, с вариантами поставки на 12 дисков SSD (9,6TB raw) и на 24 диска SS (19,2TB raw), с общей возможной емкостью системы - 120 дисков.</p>
+<p>Поддерживаются интерфейсы:<br />
+•    16Gb FC (OM2, OM3, OS1, and OS2 optical)<br />
+•    10Gb iSCSI (optical, twinax passive, and RJ-45 Cat 6)<br />
+•    6Gb SAS (copper with Mini-SAS cables)<br />
+•    40Gb IB (QSFP+ copper and OM3 optical)</p>
+<p><del datetime="2013-12-06T05:12:55+00:00">Системы поставляются с 800GB SSD дисками технологии SLC, каждый диск оснащен двумя портами ввода-вывода SAS, и имеют пятилетнюю гарантию производителя.</del><br />
+The EF550 ships with 800GB mixed-use multi-level cell (MLC) NAND SSDs from SanDisk with dual (2) full-duplex interface ports. The EF550 actually leverages the dual-active paths from each controller to every SSD as part of its design.<br />
+Each SSD is rated at 10 drive writes per day (DWPD), warrantied up to 5 years, but with an endurance lifetime well over 5 years.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/e-series.html" rel="tag">e-series</a>, <a href="../archives/tag/e2700.html" rel="tag">e2700</a>, <a href="../archives/tag/e5500.html" rel="tag">e5500</a>, <a href="../archives/tag/ef550.html" rel="tag">ef550</a>, <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../archives/category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1305/trackback.html#comments" title="Комментарий к записи Большое обновление в семействе E-series">Комментарии (12)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1304">
+				<h2 class="posttitle"><a href="../archives/1304/trackback.html" rel="bookmark" title="Permanent Link to VSC 5.0 goes public beta">VSC 5.0 goes public beta</a></h2>
+				<div class="postmetadata">18 Ноябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??так, долгожданный Virtual Storage Console, основной продукт для интеграции стораджа NetApp и виртуальной инфраструктуры vSphere, <a href="https://communities.netapp.com/community/products_and_solutions/virtualization/vsc">добрался до public beta</a>.<br />
+Напомню, что VSC 5.0 будет первой версией, с интеграцией в vCenter web client. Вы знаете, что в планах VMware вскоре отказаться полностью от старого, классического &#8220;толстого&#8221; клиента, и перейти на web-client полностью, уже сейчас все новые фичи добавляются уже только через web-client.<br />
+Однако главная проблема тут - в плагинах к vCenter console, например VSC существует пока только для &#8220;толстого клиента&#8221;. Вот для того, чтобы это исправить, производится переход на новую платформу плагинов, ну и за компанию много всего перетрясено.<br />
+Новый VSC радикальным образом переделан и обновлен. Теперь нет отдельного таба для плагинов в клиенте, функции его будут интегрированы непосредственно в дерево inventory. Например для бэкапа датастора нужно будет щелкнуть правой клавишей непосредственно по нужному датастору в инвентори и выбрать нужное действие в контекстном меню.</p>
+<p>??з основных особенностей текущей беты:</p>
+<ul>
+<li>VSC требует vSphere 5.5 (но работающие под vSphere 5.5 ESXi 5.х и даже 4.х - поддерживаются)</li>
+<li>??меет только х64 инсталляцию</li>
+<li>Не поддерживает апгрейд со старой версии VSC (например с действующей 4.2.1)</li>
+</ul>
+<p>Специально, отдельной строкой отмечу, что public beta это все же еще не то, что можно ставить на продакшн, по крайней мере как единственный инструмент управления. Но посмотреть уже можно.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a>, <a href="../archives/tag/vmware/index.html" rel="tag">vmware</a>, <a href="../archives/tag/vsc.html" rel="tag">vsc</a>, <a href="../archives/tag/vsphere/index.html" rel="tag">vsphere</a><br />					Раздел: <a href="../archives/category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1304/trackback.html#respond" title="Комментарий к записи VSC 5.0 goes public beta">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1302">
+				<h2 class="posttitle"><a href="../archives/1302/trackback.html" rel="bookmark" title="Permanent Link to Почему Nutanix и NetApp, на мой взгляд, не конкуренты.">Почему Nutanix и NetApp, на мой взгляд, не конкуренты.</a></h2>
+				<div class="postmetadata">14 Ноябрь 2013, 10:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В этом году на IT-рынке EMEA появился новый, интересный, и крайне зубастый игрок - <a href="http://nutanix.com">Nutanix</a>. В двух словах, это вычислительная кластерная платформа, позволяющая строить фермы виртуальных машин без использования SAN-хранилищ, это &#8220;сервер-и-сторадж&#8221;, интегрированный специальной IT-магией в единый &#8220;кирпичик&#8221;, из множества которых можно строить кластеры VM, легко масштабируемые.<br />
+Так уж получилось, что активное продвижение Nutanix на российском рынке постоянно сталкивает его с системами NetApp, и кастомеры довольно часто задают такой вопрос <del>&#8220;А если слон на кита залезет, то кто кого сборет?&#8221;</del> &#8220;Победит ли Nutanix NetApp, или наоборот?&#8221;</p>
+<p>Поэтому вопрос, заданный в заголовке, имеет ответ, что они, конечно, конкуренты, но лишь на определенном участке рынка, таким образом, можно представить пересечение множества задач обоих вендоров в виде классической диаграммы окружностей пересечения множеств (для политкорректности я намеренно показываю размер окружностей равным ;)</p>
+<p><a href="/pics//intrsect.png"><img src="/pics//intrsect-300x185.png" alt="" title="intrsect" width="300" height="185" class="alignnone size-medium wp-image-1303" /></a></p>
+<p>Да, есть области у Nutanix и у NetApp, в которых они встречаются на рынке. Но и у того и у другого продукта область применения куда шире, чем то, чем они пересекаются. Вот почему я считаю, что Nutanix и NetApp - не являются взаимно конкурирующими продуктами, я уверен, что на рынке есть место как для одного, так и для другого. В этом блоге мы рассмотрим вопрос, почему Nutanix - не конкурент NetApp. </p>
+<p>1. <strong>Nutanix - это решение для виртуализованных сред.</strong> Область применения NetApp гораздо шире. Nutanix - передовая платформа крутить гипервизор виртуализации, это, если угодно, server-oriented система. Это сервер, с некоторыми функциями хранилища, интегрированными в него. NetApp - это, наоборот, &#8220;хранилище-ориентированная&#8221; система, это сторадж, в который интегрированы некоторые функции сервера (NAS, репликация). Эти две системы идут &#8220;навстречу&#8221;, и вот, на каком-то нейтральном для них обоих поле, они встретились и пересеклись.<br />
+На этом (и только на нем) можно говорить о конкуренции.</p>
+<p>2. <strong>Передовые технические решения это здорово. Но иногда хочется оставаться в рамках классических архитектур. </strong>Например, когда переход на новую архитектуру несет с собой существенные риски и затраты на полную переделку уже существующей, работающей и приносящей деньги системы. Которую обслуживают люди, с определенным уровнем квалификации, в которую вложены деньги через их обучение. Которая обвязана разнообразными работающими &#8220;3rd party&#8221; продуктами, такими как инструменты мониторинга, алертинга, оптимизации, аналитики. ?? которые просто с точки зрения защиты инвестиций нельзя просто взять и выкинуть (и купить новые).</p>
+<p>3. <strong>Линейное масштабирование, о котором часто говорит Nutanix, работает только для определенного ряда задач.</strong> Это фермы веб-сервисов, это VDI-среды, это некоторые NoSQL и BigData приложения. Это там, где сама задача позволяет выполнять обработку своих данных параллельно. Это, однако, не работает для &#8220;классических&#8221; SQL-баз и ряда традиционных архитектур. А это, читай, биллинги, ERP, legacy-системы, и все такое прочее. Перенос с переписыванием таких приложений под масштабируемую архитектуру съест всю гипотетическую экономию и поэтому экономически бессмысленнен.<br />
+Если ваша задача не масштабируется и не параллелится на кластер нодов и мощность одного нода для нее недостаточна, то никаких способов увеличить производительность этой задачи, крутя ее на Nutanix, у вас нет. В наше время это не слишком частая ситуация, тем не менее это все еще встречается.</p>
+<p>4. <strong>Существует ряд задач, связанных с чистым хранением (а не хранением ?? обработкой) больших объемов данных.</strong> Если вам нужно хранить массив данных в несколько сотен терабайт, причем в основном только хранить, то хранить его на вычислительных нодах, тем более таких недешевых и производительных, как старшие Nutanix (NX-6000) - это оверкилл.</p>
+<p>5. <strong>NetApp, во многих случаях, выбирают ради его многочисленных сервисов хранения данных </strong>(FlexClone, SnapLock, компрессия и дедупликация данных), их защиты, интегрированных в приложения (SnapManager, SnapProtect, SnapCreator) и репликации (SnapMirror, Metrocluster). Nutanix пока такими возможностями не обладает.</p>
+<p>6. <strong>Если ваша задача может быть уложена в, порой прокрустово, ложе серверной виртуализации - отлично. Если нет - Nutanix с этим не работает.</strong> К сожалению, до сих пор многие важные для отрасли производители софта крайне настороженно относятся к попыткам кастомеров переносить их системы с физических платформ в виртуальные машины, и, часто, не поддерживают штатным образом такие конфигурации (пример - Oracle, а значит, сразу, любые системы, его использующие).</p>
+<p>Ну и остановимся пока.<br />
+Таким образом, как вы видите, Nutanix конкурирует не с NetApp как таковым. Он конкурирует, возможно, с NetApp/Cisco FlexPod. Но FlexPod - это совсем не весь NetApp, это лишь отдельный прикладной продукт для определенного рынка, использующий систему хранения NetApp как свой компонент.</p>
+<p>Можно сказать даже более, в каком-то смысле ?? Nutanix, ?? NetApp местами даже играют вместе, в одной команде. Одной из ключевых тем push message у Nutanix есть тезис об устарелости и неэффективности SAN и использования LUN, шире - тупого &#8220;блочного доступа&#8221;, прежде всего для виртуализованных сред.<br />
+Но так ведь и NetApp продвигает эту идею ни больше, ни меньше как с 1993 года! Да, <a href="http://habrahabr.ru/company/netapp/blog/105936/">NetApp умеет SAN вместе с NAS c 2004 года</a>, в рамках концепции Unified Storage, и умеет крайне неплохо, но тем не менее, с самого начала своего сотрудничества с VMware он всюду твердит, что SAN LUN это вынужденный метод для размещения датасторов виртуальных машин, что VMFS - костыль, красивый, сияющий, хайтек, но - костыль. Что NAS-концепция и NAS-протокол лучше чем что-либо подходит именно для такого применения (параллельного доступа к данным на дисках от разных его потребителей со стороны хоста). &#8220;<a href="http://blogs.computerworld.com/cloud-storage/22895/designing-cloud-storage-ditch-lun-cfbdcw">Делаете облачный сторадж - выкиньте LUN-ы!</a>&#8221; - пишет в своей колонке в Computerworld Джон Мартин, директор SNIA ANZ и главный специалист по технологиям в австралийском NetApp. ?? все это как нельзя лучше поддерживает и перекликается с тем, что говорит по этому поводу Nutanix.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a>, <a href="../archives/tag/nutanix.html" rel="tag">nutanix</a><br />					Раздел: <a href="../archives/category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;" rel="category tag">whoisho</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1302/trackback.html#comments" title="Комментарий к записи Почему Nutanix и NetApp, на мой взгляд, не конкуренты.">Комментарии (15)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1301">
+				<h2 class="posttitle"><a href="../archives/1301/trackback.html" rel="bookmark" title="Permanent Link to NetApp Hardware Universe">NetApp Hardware Universe</a></h2>
+				<div class="postmetadata">11 Ноябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>У NetApp есть такой подсайт, который называется <a href="http://hwu.netapp.com">Hardware Universe</a>. На нем собраны разнообразные материалы по аппаратной части систем, например матрицы совместимости контроллеров и плат расширения, и прочие такие же полезные штуки. К сожалению, для доступа туда нужен, как я понимаю, партнерский аккаунт. На этом сайте можно найти, например, PDF с таблицами характеристик контроллеров и их максимумов. Например, какого размера данный контроллер поддерживает том для дедупликации, сколько LUN-ов можно создать максимально, какая минимальная версия Data ONTAP для этого контроллера нужна, или какое его тепловыделение в BTU, и так далее.</p>
+<p>??нформация полезная, и не закрытая, поэтому я вытащил эти таблички с HWU для общего пользования. Скачивая их у меня имейте ввиду, что они у меня не обновляются, и свежие только на момент публикации, а иногда они все же меняются, так что для абсолютно точной уверенности найдите способ получить их актуальными.</p>
+<p><a href="https://app.box.com/s/ao2rv1rzxkbuwqzcy1l4">Maximums for 8.2 7-Mode</a></p>
+<p><a href="https://app.box.com/s/a6jrh7yjk7d3opd2nfgz">Maximums for 8.2 Cluster-mode</a></p>
+<p><a href="https://app.box.com/s/10h7opbwgiwzajz8b2wt">Maximums for 7.86 SANtricity (E-series)</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/hardware.html" rel="tag">hardware</a>, <a href="../archives/tag/hwu.html" rel="tag">hwu</a>, <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../archives/category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1301/trackback.html#comments" title="Комментарий к записи NetApp Hardware Universe">Комментарии (8)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1286">
+				<h2 class="posttitle"><a href="../archives/1286/trackback.html" rel="bookmark" title="Permanent Link to Как переделать NFS VMDK в RDM LUN">Как переделать NFS VMDK в RDM LUN</a></h2>
+				<div class="postmetadata">4 Ноябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??нтересный способ был подсмотрен в <a href="http://blog.vmpress.org/2013/04/lun-netapp.html">соседском блоге</a>.</p>
+<p>В некоторых (нечастых) случаях возникает необходимость преобразовать уже существующий виртуальный диск, например файл VMDK, лежащий на NFS-шаре, в RDM LUN (RDM – raw device mapping, подключение физического LUN в VM непосредственно, как SCSI LUN-а). Есть некоторое ограниченное число случаев, когда трудно или нельзя обойтись без RDM.</p>
+<p>Сделать это можно без необходимости копирования данных через хост и создания второй копии данных. NetApp может создать LUN с указанием файла на диске, из которого будет взято его содержимое. При этом со стороны хоста это будет самый настоящий физический SCSI LUN, и его можно будет подключить как самостоятельное физическое устройство, например с помощью установленного внутри VM OS инициатора, допустим MS Software iSCSI Initiator, как новый диск. Но при этом на стороне стораджа такой “LUN” будет просто небольшой ссылкой на данные соотвествующего vmdk, уже хранящегося на дисках.</p>
+<p>Опция –f может указать при создании LUN файл, хранящий содержимое сотвествующего LUN-а.</p>
+<p><code>lun create -f /vol/vol1/test02/test02_1-flat.vmdk -t windows_2008 /vol/vol1/lun1</code>     <br />создаст физически небольшой файл LUN&#160; <em>/vol/vol1/lun1</em> (тип LUN – <em>windows_2008</em>), указывающий на существующий .vmdk файл <em>test02_1-flat.vmdk</em>. В дальнейшем вы можете работать с таким “LUN”-ссылкой как с настоящим LUN-ом.</p>
+<p>Обратите внимание, что в качестве vmdk указан именно *-flat.vmdk, большого размера.</p>
+<p>Помните также, что после такого “преобразования” нельзя удалить этот *–flat.vmdk, так как именно в нем будет находиться физическое содержимое LUN.</p>
+<p>Сложно сказать, насколько такой вариант пригоден для продакшна, и насколько он беспроблемен с точки зрения производительности, но как вариант сделать это быстро, и для тестовых системм он, конечно, незаменим.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/lun.html" rel="tag">lun</a>, <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a>, <a href="../archives/tag/vmdk.html" rel="tag">vmdk</a><br />					Раздел: <a href="../archives/category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../archives/category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1286/trackback.html#comments" title="Комментарий к записи Как переделать NFS VMDK в RDM LUN">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1300">
+				<h2 class="posttitle"><a href="../archives/1300/trackback.html" rel="bookmark" title="Permanent Link to Storage QoS в Clustered Data ONTAP 8.2">Storage QoS в Clustered Data ONTAP 8.2</a></h2>
+				<div class="postmetadata">28 Октябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как вы уже заметили, в NetApp вот уже пару лет как перевели “семерку”, Data ONTAP 7-mode, куда входят как “классическая” линейка 7.х.х, так и Data ONTAP 8.x 7-mode, в состояние stable, и новые фичи в них практически не появляются, а все усилия разработчиков направлены на развитие и разработку Cluster mode, или как она сейчас стала часто называться в документации Clustered Data ONTAP. Уже само появление “личного имени” свидетельствует о том, что это – окончательный продукт, в представлении NetApp (затянувшийся) переходный период подошел к концу. Это, безусловно, очень рискованный период в жизни компании (любой компании), так как Clustered Data ONTAP пока еще не стал массовым и все еще не “мэйнстрим” в представлениях клиентов. Однако, NetApp не теряет терпения, и новыми фичами, такими как SMB 3.0, NFS 4.1 и pNFS, и прочими полезными штуками, старается перетянуть пользователей на новую, прогрессивную платформу с большим будущим.</p>
+<p>Одной из новинок Clustered ONTAP стал полноценный Storage QoS. В принципе, <em>псевдо-QoS</em> в нетапповских стораджах был и раньше, он назывался <a href="../archives/602/trackback.html">FlexShare</a>, но говоря о нем NetApp всегда старался уточнить, что это, ну, “не совсем настоящий QoS”, как, допустим, кооперативная многозадачность ранних Windows и MacOS Classic была лишь “псевдо”-многозадачностью. Конечно, это лучше чем ничего, многие стораджи, других вендоров, и такой-то не имеют. Но все же не следует забывать, что FlexShare это просто способ отдать побольше приоритета в тиках системы тому, данные с которого мы считаем важными, за счет того, что мы заберем их у того тома, данные с которого мы считаем не такими важными.</p>
+<p>Однако подлинный QoS это не просто перераспределение приоритетов системы, это возможность задать некоторую гарантированную “полосу” в ресурсах. В особенности это стало важно после того, как появилась Clustered Data ONTAP, в которой multi-tenancy, то есть “сожительство” нескольких разнородных задач в рамках одной системы и одного контроллера такой системы стала не экзотикой, а нормальной повседневной работой. Для такой работы несомненно нужен полноценный QoS в рамках системы в целом, гибко назначаемый по потребителям, которые могут мигрировать по контроллерам кластерной системы, а не просто смещенные приоритеты обслуживания для какого-то тома, привязанные к данному контроллеру.</p>
+<p>?? вот, в 8.2 появился полноценный планировщик ввода-вывода, который позволяет назначать политики с лимитами на отдельный SVM, <a href="../archives/1258/trackback.html">Storage Virtual Machine</a>, как теперь, если вы помните, решено, для упрощения понимания, называть Vserver в Clustered ONTAP.</p>
+<p>Вы можете задать на отдельный “виртуальный нетапп”, живущий в кластерной системе, и ресурсов в нем, его лимиты по IOPS или же по MB/s ввода-вывода (но не одновременно, отметьте это ограничение). Следуя модели “политик” (policy), ограничение задается для такой созданной политики, которая затем назначается для SVM (Vserver) в целом, или же на его отдельный том, LUN, или файлы в нем. На кластер контроллеров вы можете задать до 3500 политик, то есть решение подойдет даже для довольно больших по масштабам систем.</p>
+<p>“Внутри” назначенных политик действует правило равных долей для всех объектов, которым назначена эта политика, например томов или LUN-ов. Таким образом, задача с более активной рабочей нагрузкой не “съест” все ресурсы ввода-вывода у задач с меньшим траффиком, они в равной мере получат заданный в политике лимит ресурса.</p>
+<p>QoS не разделяет операции чтения или записи, соответственно нельзя отдельно ограничить поток ввода-вывода только на чтение или только на запись.</p>
+<p>??спользовать QoS можно, например, для ограничения производительности ввода-вывода определенных приложений, к примеру сервер резервного копирования может, при начавшемся процессе резервного копирования, очень быстро “съесть” всю доступную полосу ввода-вывода контроллера, “задавив” трафиком при этом всех своих соседей по кластеру. Можно ограничить ресурсы SVM ряда подразделений, живущих в том же кластере, например задачи R&amp;D, чтобы случайный эксперимент на их SVM не смог повлиять на доступность продакшн-систем в том же кластере. Наконец, можно обеспечивать гарантированную полосу или величину IOPS (SLA) для особо критичных задач в облачной структуре, либо наоборот, максимально доступные им ресурсы.</p>
+<p>Storage QoS включена в Clustered Data ONTAP 8.2, и не требует лицензии, и работает на любой системе, поддерживающей cDOT 8.2.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/cdot.html" rel="tag">cDOT</a>, <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a>, <a href="../archives/tag/qos.html" rel="tag">qos</a><br />					Раздел: <a href="../archives/category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../archives/category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1300/trackback.html#comments" title="Комментарий к записи Storage QoS в Clustered Data ONTAP 8.2">Комментарии (11)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1297">
+				<h2 class="posttitle"><a href="../archives/1297/trackback.html" rel="bookmark" title="Permanent Link to Оффтопик: Глава из How to Castrate a Bull">Оффтопик: Глава из How to Castrate a Bull</a></h2>
+				<div class="postmetadata">21 Октябрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Что-то мы с вами все про технику и про технику. Отвлечемся на сегодня. Несколько лет назад, еще в 2009 году, один из сооснователей компании NetApp – Дейв Хитц, о котором я тут несколько раз уже упоминал, написал книгу под несколько шокирующим названием “<em>HOW TO CASTRATE A BULL: Unexpected Lessons on Risk, Growth, and Success in Business</em>” – “Как кастрировать быка: Неожиданные уроки риска, роста и успеха в бизнесе”. Книга, как вы понимаете, рассказывает историю основания и развития компании NetApp, ну и на примере разнообразных набитых в процессе шишек рассматриваются какие-то “уроки жизни” в этом бизнесе. Название взялось вот откуда: Хитц после колледжа подрабатывал на ранчо с ковбоями (в Америке они существуют и по сей день), и вспоминает, что многие из простых жизненных уроков и историй оттуда хорошо подошли и к миру IT-бизнеса.</p>
+<p>Эта книжка (на английском) у меня есть целиком, но я бы не хотел заниматься откровенным пиратством, поэтому не буду выкладывать ее в открытый доступ (и вас бы просил этого не делать), но если кто хочет почитать – пришлите мне весточку в комменты или на <a href="mailto:romx@mail.ru">romx@mail.ru</a>, я пришлю вам текст. Книжка на английском, но, в принципе, читается неплохо.</p>
+<p>В книге есть несколько действительно поучительных историй, одна из них – про то, как они увольняли сооснователя компании, друга в человеческих взаимоотношениях, да вдобавок и принесшего им первые инвестиционные деньги, и вообще фактического лидера компании в первые ее годы, с поста главы компании, CEO. ??стория, увы, с которй очень часто сталкиваются многие стартапы, когда выясняется, что методы работы или взгляды на будущее у бывших друзей расходятся. В какой-то момент становится ясно, что без хирургического вмешательства не обойтись, как бы болезненно для всех присутствующих оно ни было.</p>
+<p>Вот эту главу для вас на днях я и решил перевести.</p>
+</p>
+<p>  <a href="../archives/1297/trackback.html#more-1297" class="more-link">Continue reading &#8216;Оффтопик: Глава из How to Castrate a Bull&#8217; &raquo;</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../archives/tag/book.html" rel="tag">book</a>, <a href="../archives/tag/hitz.html" rel="tag">hitz</a>, <a href="../archives/tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../archives/category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../archives/1297/trackback.html#comments" title="Комментарий к записи Оффтопик: Глава из How to Castrate a Bull">Комментарии (2)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="http://blog.aboutnetapp.ru/page/9">&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="7.html">Next Entries &raquo;</a></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../archives/category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../archives/category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../archives/category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../archives/category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../archives/category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../archives/category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../archives/category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../archives/category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../archives/category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../archives/category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../archives/category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../archives/category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../archives/date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../archives/date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../archives/date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../archives/date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../archives/date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../archives/date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../archives/date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../archives/date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../archives/date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../archives/date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../archives/date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../archives/date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../archives/date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../archives/date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../archives/date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../archives/date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../archives/date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../archives/date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../archives/date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../archives/date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../archives/date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../archives/date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../archives/date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../archives/date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../archives/date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../archives/date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../archives/date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../archives/date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../archives/date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../archives/date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../archives/date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../archives/date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../archives/date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../archives/date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../archives/date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../archives/date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../archives/date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../archives/date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../archives/date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../archives/date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../archives/date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../archives/date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../archives/date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../archives/date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../archives/date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../archives/date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../archives/date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../archives/date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../archives/date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../archives/date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../archives/date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../archives/date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../archives/date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../archives/date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../archives/date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../archives/date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../archives/date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../archives/date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../archives/date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../archives/date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../archives/date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../archives/date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../archives/date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../archives/date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../archives/date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../archives/date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../archives/date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../archives/date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../archives/date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../archives/date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../archives/date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../archives/date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../archives/date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../archives/date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../archives/date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../archives/date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../archives/date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../archives/date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../archives/date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../archives/date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../archives/date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../archives/date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../archives/date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../archives/date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../archives/date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../archives/date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../archives/date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../archives/date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../archives/date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../archives/date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../archives/date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../archives/date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+							
+				  <li id="linkcat-2" class="linkcat"><h2>Ссылки</h2>
+	<ul>
+<li><a href="http://blog.in-a-nutshell.ru" title="О Nutanix по-русски" target="_blank">О Nutanix по-русски</a></li>
+
+	</ul>
+</li>
+				
+				<li><h2>Мета</h2>
+				<ul>
+										<li><a href="../wp-login.php.html">Войти</a></li>
+					<li><a href="http://validator.w3.org/check/referer" title="Эта страница соответствует стандарту XHTML 1.0 Transitional">Valid <abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a></li>
+					<li><a href="http://gmpg.org/xfn/"><abbr title="XHTML Friends Network">XFN</abbr></a></li>
+					<li><a href="http://wordpress.org/" title="Сайт работает на WordPress &#8212; современной системе персональных публикаций. ">WordPress</a></li>
+									</ul>
+				</li>
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.099 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

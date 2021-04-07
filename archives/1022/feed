@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp Virtual Storage Console 2.1.1</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1022/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1022</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:33 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1022#comment-1716</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 22 Sep 2011 07:12:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1022#comment-1716</guid>
+		<description>Dmitriy:
+
+Ну официально ее еще пока нет, абажите :)
+Вот-вот выкатят RC, и весной следующего года уже полноценный релиз.
+??з того, что я слышал, там занимались в первую очередь Cluster-mode, в котором теперь будет и блочный доступ (то есть FC и iSCSI), и который будут сильно продвигать, ну и должен уже, наконец, быть конвертер из 32-bit aggregate в 64-bit.
+Детали вроде как активно не рассказывали, а я как-то и не рыл сам.
+
+Можете взять за пуговицу нетапповцев 4 октября, если будете в Москве. :)</description>
+		<content:encoded><![CDATA[<p>Dmitriy:</p>
+<p>Ну официально ее еще пока нет, абажите :)<br />
+Вот-вот выкатят RC, и весной следующего года уже полноценный релиз.<br />
+??з того, что я слышал, там занимались в первую очередь Cluster-mode, в котором теперь будет и блочный доступ (то есть FC и iSCSI), и который будут сильно продвигать, ну и должен уже, наконец, быть конвертер из 32-bit aggregate в 64-bit.<br />
+Детали вроде как активно не рассказывали, а я как-то и не рыл сам.</p>
+<p>Можете взять за пуговицу нетапповцев 4 октября, если будете в Москве. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1022#comment-1715</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Thu, 22 Sep 2011 07:02:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1022#comment-1715</guid>
+		<description>Роман, а есть информация про "Поддерживается Data ONTAP 8.1.0 (7-Mode) "? Что нового объявлено в 8.1.0?</description>
+		<content:encoded><![CDATA[<p>Роман, а есть информация про &#8220;Поддерживается Data ONTAP 8.1.0 (7-Mode) &#8220;? Что нового объявлено в 8.1.0?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1022#comment-1713</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 21 Sep 2011 07:33:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1022#comment-1713</guid>
+		<description>panvartan:
+
+Насколько я помню, требование (очевидное) - иметь vCenter. Я не помню, на всех ли редакциях vCenter есть поддержка плагинов, но если на всех, то, значит, на любую редакцию встанет.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Насколько я помню, требование (очевидное) - иметь vCenter. Я не помню, на всех ли редакциях vCenter есть поддержка плагинов, но если на всех, то, значит, на любую редакцию встанет.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1022#comment-1712</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Wed, 21 Sep 2011 07:19:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1022#comment-1712</guid>
+		<description>Скажите, а у VSC есть требования к редакции vSphere? Essentials, Standart, Enterprise... ??ли наличие vCenter любой редакции достаточно?</description>
+		<content:encoded><![CDATA[<p>Скажите, а у VSC есть требования к редакции vSphere? Essentials, Standart, Enterprise&#8230; ??ли наличие vCenter любой редакции достаточно?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

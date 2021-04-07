@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Глава Oracle, Ларри Элиссон утверждает, что до 60% бизнеса NetApp это хранение баз Oracle</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/711/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/711</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:44 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/711#comment-836</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 28 Sep 2010 03:41:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/711#comment-836</guid>
+		<description>UPD: "срач в комментах" почищен, и в дальнейшем приветствоваться не будет.</description>
+		<content:encoded><![CDATA[<p>UPD: &#8220;срач в комментах&#8221; почищен, и в дальнейшем приветствоваться не будет.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/711#comment-828</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Mon, 27 Sep 2010 12:53:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/711#comment-828</guid>
+		<description>"ex SUN employe"( по видимому , ex-Sun employee )  плохо читает и пишет по-английски. фраза "We [Oracle] love that business. We would love to have that 60 per cent. Do we need to acquire? I think there are some interesting technologies we'd like to acquire ... I think it is possible" как-то плохо сочетается с его выводом "не нужен Ораклу Нетапп".</description>
+		<content:encoded><![CDATA[<p>&#8220;ex SUN employe&#8221;( по видимому , ex-Sun employee )  плохо читает и пишет по-английски. фраза &#8220;We [Oracle] love that business. We would love to have that 60 per cent. Do we need to acquire? I think there are some interesting technologies we&#8217;d like to acquire &#8230; I think it is possible&#8221; как-то плохо сочетается с его выводом &#8220;не нужен Ораклу Нетапп&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/711#comment-826</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 27 Sep 2010 03:19:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/711#comment-826</guid>
+		<description>&gt; Это говорит о значимости Оракла для Нетаппа. Никак не наоборот.
+
+Вот как у вас интерсно получается. А почму тогда об этом говорит не человек NetApp, как было бы в таком случае логично, а человек Oracle?
+
+&gt; Не нужен Ораклу Нетапп.
+
+А вот Элиссону кажется что нужно, вы уж там свяжитесь с ним, раскройте, так сказать, глаза ;)</description>
+		<content:encoded><![CDATA[<p>> Это говорит о значимости Оракла для Нетаппа. Никак не наоборот.</p>
+<p>Вот как у вас интерсно получается. А почму тогда об этом говорит не человек NetApp, как было бы в таком случае логично, а человек Oracle?</p>
+<p>> Не нужен Ораклу Нетапп.</p>
+<p>А вот Элиссону кажется что нужно, вы уж там свяжитесь с ним, раскройте, так сказать, глаза ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ex SUN employe</title>
+		<link>http://blog.aboutnetapp.ru/archives/711#comment-823</link>
+		<dc:creator>ex SUN employe</dc:creator>
+		<pubDate>Sun, 26 Sep 2010 19:51:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/711#comment-823</guid>
+		<description>&#62; такое признание о значимости NetApp для Oracle
+
+наивный человек. Это говорит о значимости Оракла для Нетаппа. Никак не наоборот.
+
+Не нужен Ораклу Нетапп.</description>
+		<content:encoded><![CDATA[<p>&gt; такое признание о значимости NetApp для Oracle</p>
+<p>наивный человек. Это говорит о значимости Оракла для Нетаппа. Никак не наоборот.</p>
+<p>Не нужен Ораклу Нетапп.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

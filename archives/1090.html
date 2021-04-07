@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Что такое Mailbox Disk?</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1083/trackback.html">Как заполненность данными системы хранения влияет на ее производительность?</a></div>
+			<div class="alignright"><a href="1092/trackback.html">DataMotion for Volumes</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1090">
+			<h2 class="posttitle"><a href="1090/trackback.html" rel="bookmark" title="Permanent Link to Что такое Mailbox Disk?">Что такое Mailbox Disk?</a></h2>
+			<div class="postmetadata">14 Ноябрь 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Некоторое время назад пришлось разбираться с некоей не совсем хорошо описанной и недостаточно хорошо известной функцией внутреннего устройства систем хранения NetApp под названием Mailbox Disk. Это, если в двух словах, некая специальная структура на жестких дисках, с помощью которых две ноды, входящих в HA-пару “классических”, 7-mode кластера сообщают друг другу о своем состоянии, и состоянии кластера в целом, независимо от работы основного метода взаимодействия – кабеля кластерного интерконнекта, и дополнительно к нему.</p>
+<p>Упоминание mailbox disks вы можете встретить в выводе команд, показывающих системный статус кластера, и, как правило, в качестве mailbox disks называются диски, на которых располагается root volume системы.</p>
+<p>У меня сложилось также впечатление, что mailbox disk это также “рудимент” времен давних, когда кластер у NetApp в целом работал через такие “псевдо-кворумные диски”, без кластерного интерконнекта вовсе, и остался в системе с тех давних пор, но, увы, это пока лишь гипотеза.</p>
+<p>Тем не менее, в случае неисправности mailbox disks (их в кластере, если он не использует SyncMirror – по два у каждой ноды), перестает работать cluster takeover, даже при нормальной работе cluster interconnect cable, а это уже серьезно. К сожалению никаких подробных руководств как работать с mailbox disks, что делать в случае проблем с ними, у NetApp в документации нет (отсюда моя гипотеза о “рудиментарности”, то есть “остатках хвоста”, в существовании mailbox disk вообще). ??з maintenance mode его можно удалить, и тогда при перезагрузке контроллера он создастся заново. Но, в общем, это все.</p>
+<p>Несмотря на то, что он называется mailbox disk, надо понимать, что это не “диск” как таковой, физически, а просто некая структура в служебных областях диска, не занимающая заметного места, служащая для <em>сношения посредством дупла</em> (с) для двух нод одного HA-кластера.</p>
+<p>Вот вам перевод найденного в недрах NetApp KB документа <strong>NetApp Mailbox disks FAQ</strong>. </p>
+<p>  <span id="more-1090"></span></p>
+<p><strong>Что такое mailbox disk?</strong></p>
+<p>Структура, которая называется в Data ONTAP mailbox disks используется для хранения данных состояния кластера, которые должны сохраняться даже при его перезагрузке. Более конкретно это информация о состоянии кластера, состоянии зеркал и владельцах (ownership), которая читается контроллерами кластера во время процесса загрузки. Если контроллер обнаруживает локирование (SCSI Reservation) этих дисков, то вместо выполнения штатной загрузки он останавливается в состоянии &quot;Waiting for giveback&quot;. Контроллер не переходит в обычное состояние операций, и подразумевает, что контроллер-партнер перехватил управление на себя (выполнил так называемый &quot;кластерный тэйковер&quot;). Он будет ожидать отдачи на партнере команды <strong>cf giveback</strong> для того, чтоб перейти в состояние нормальной загрузки. Если диски не локированы, то контроллер загружается обычным образом. Причина, по которой контроллеру нужно писать информацию в mailbox заключается в необходимости показать партнеру, что он жив и подключен к дискам. Также таким образом записывается информация о различных состояниях, например о состоянии зеркальных копий дисков, которые используются для того, чтобы определить какой из плексов зеркала содержит наиболее свежие данные. ??спользование mailbox это вторичный путь (первичный это кабель кластерного интерконнекта) для обеспечения работы heartbeat и предупреждения ситуации split-brain. Он также предупреждает ситуацию ненужного takeover, вызываемую какой-либо неисправностью кабеля кластерного интерконнекта.</p>
+<p><strong>Как система хранения выбирает диски под использование как mailbox disk?</strong></p>
+<p>В нормальной ситуации система хранения всегда выбирает диск parity и первый диск данных тома root vol для использования в качестве двух mailbox disk. Но если в какой-то момент времени, один из этих дисков откажет, то под mailbox будет использован второй диск parity (dparity disk в RAID-DP) тома root vol. [<em>Пожалуйста, обратите на это предложение особое внимание. Если вы построили систему вопреки best practices с root vol на RAID-4 и на маленьком томе (так называемая &quot;асимметричная схема&quot;) в можете столкнуться с ситуацией, когда один из дисков, который был для данного контроллера mailbox, вышел из строя, а dparity для данного тома нет. </em><em>Это может привести к серьезным проблемам (невозможности кластерного takeover штатным образом, например). Это не шутка. Я как раз сейчас ковыряюсь с такой системой у клиента, &quot;потерявшей&quot; в результате такой ситуации (отказа диска в root vol на RAID-4) свои mailbox, и никак не желающей их видеть вновь, и которая при этом потеряла возможность штатного кластерного тэйковера, несмотря на исправный кабель интерконнекта. прим. Romx]</em></p>
+<p><em></em></p>
+<p>Диск mailbox может быть автоматически изменен силами DataONTAP, например, если parity disk тома root vol отказал. Data ONTAP назначает роль mailbox диску dparity тома root vol, как новому mailbox. Затем, когда новый диск заменяет сбойный и завершает ребилд, роль изменяется назад на диск parity и первый диск данных тома root vol. </p>
+<p><strong>Как контроллер работает с mailbox disks?</strong></p>
+<p>Контроллер системы хранения пишет на собственные mailbox disks. Он может читать информацию, записанную партнером на диски mailbox партнера, но никогда не пишет на mailbox-диски партнера. Таким образом, если даже операция локирования (SCSI3 Reservation) происходит на партнерских mailbox disk, то контроллер может по-прежнему читать с них. С помощью таки действий контроллер понимает, что контроллер-партнер жив и работает. Контроллер пытается получить доступ к дискам mailbox каждые 3-5 секунд. Если все &quot;свои&quot;, &quot;локальные&quot; mailbox disks одновременно исчезают для системы, система сообщает о &quot;permanent error of accessing mailbox disk&quot; и уходит в panic.</p>
+<p><strong>Как Data ONTAP использует mailbox disks для оценки ситуации, в которой необходимо заблокировать работу кластерного файловера?</strong></p>
+<p>??спользуется &quot;правило большинства&quot; или &quot;кворума&quot;. Допустим, половина членов кластера обеспечивает его стабильную работу. Если доступны менее половины членов кластера, иными словами, если больше половины отказало, то кластерные функции будут отключены (disabled). Таким образом, если одновременно один из двух mailboxes неисправен/недоступен/не отвечает, появится сообщение &quot;mailbox uncertain&quot; или &quot;mailbox error detected&quot;, и работа кластерной функциональности будет отключена до тех пор, пока ситуация не будет разрешена. После того, как вышедшие из строя диски mailbox будут успешно заменены на исправные и RAID-группа будет восстановлена, работа кластера будет вновь включена (enabled). </p>
+<p>Для системы, использующей SyncMirror, на каждой стороне будет 4 mailbox disks, 2 для локальной, и 2 для партнерской системы, если aggregate или том, содержащий mailbox disks зеркалирован с помощью syncmirror. Если один из них откажет, сообщение не будет показано, так как кворум не затронут. Если откажет два и более, то будет показано вышеописанное сообщение.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/faq.html" rel="tag">faq</a>, <a href="tag/mailbox.html" rel="tag">mailbox</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="1090/trackback.html#respond">Комментарий</a> (<a href='1090/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1090/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (6)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2475">
+		<div id="div-comment-2475">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Может это можно было сделать более красивым способом, к примеру через Alternate Control Path (ACP). Хотя есть ли лучше способ показать, что доступ к дискам есть, как не записать что-то на диск? Так что вопрос на счёт рудимента остается открыт.</p>
+						<div class="comment-meta"><a href="1090/trackback.html#comment-2475" title="">8 Май 2012, 18:24</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2477">
+		<div id="div-comment-2477">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:</p>
+<p>ACP появился всего несколько лет как, а mailbox disk был всегда :)</p>
+						<div class="comment-meta"><a href="1090/trackback.html#comment-2477" title="">8 Май 2012, 18:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-5565">
+		<div id="div-comment-5565">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>&gt;Я как раз сейчас ковыряюсь с такой системой<br />
+??нтересно, получилось этот вопрос разрешить?</p>
+						<div class="comment-meta"><a href="1090/trackback.html#comment-5565" title="">24 Январь 2013, 17:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11488">
+		<div id="div-comment-11488">
+		<div class="comment-author">
+			<cite>Artur:<cite></div>
+			<p>Роман, присоединяюсь к вопросу о системе, которая потеряла mailbox диски. Чем все закончилось?</p>
+						<div class="comment-meta"><a href="1090/trackback.html#comment-11488" title="">10 Декабрь 2013, 13:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-11489">
+		<div id="div-comment-11489">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Artur:<br />
+Ничем. Хозяин крайне легкомысленно отнесся к потере cluster takeover его системой, я тогда посоветовал ему задать этот вопрос на форуме, и вот, спустя пару лет, он это все же сделал :)</p>
+						<div class="comment-meta"><a href="1090/trackback.html#comment-11489" title="">10 Декабрь 2013, 16:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11518">
+		<div id="div-comment-11518">
+		<div class="comment-author">
+			<cite>Artur:<cite></div>
+			<p>Ясно :) А мы по кругу с форума пришли в этот пост :)</p>
+						<div class="comment-meta"><a href="1090/trackback.html#comment-11518" title="">12 Декабрь 2013, 17:20</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1090" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.072 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

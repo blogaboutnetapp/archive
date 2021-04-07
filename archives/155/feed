@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: «Передний край» – iWARP</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/155/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/155</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:08 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/155#comment-36</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 25 Aug 2008 02:37:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=155#comment-36</guid>
+		<description>Верно, понял. Собираюсь о ней написать вот как только раскачаюсь.</description>
+		<content:encoded><![CDATA[<p>Верно, понял. Собираюсь о ней написать вот как только раскачаюсь.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/155#comment-35</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Sun, 24 Aug 2008 20:38:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=155#comment-35</guid>
+		<description>К слову: я не про RAM написал, а про PAM. Если вдруг ускользнуло, что я про новую разновидность memory on board, которая в PCI-E вставляется.</description>
+		<content:encoded><![CDATA[<p>К слову: я не про RAM написал, а про PAM. Если вдруг ускользнуло, что я про новую разновидность memory on board, которая в PCI-E вставляется.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/155#comment-34</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 23 Aug 2008 10:22:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=155#comment-34</guid>
+		<description>Получается так. В принципе RAM системы это и есть кэш, такова его основная задача, за вычетом того, в чем крутится сама Data ONTAP, но там, как я понимаю, его немного.</description>
+		<content:encoded><![CDATA[<p>Получается так. В принципе RAM системы это и есть кэш, такова его основная задача, за вычетом того, в чем крутится сама Data ONTAP, но там, как я понимаю, его немного.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/155#comment-33</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Sat, 23 Aug 2008 10:13:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=155#comment-33</guid>
+		<description>Каждый 10 секунд сбрасывается страйп, а что журналирует + собирает страйпы - с этим согласен, тоже так думал.
+
+Таким образом кэш (Memory) и PAM используется только для кэширования чтения?</description>
+		<content:encoded><![CDATA[<p>Каждый 10 секунд сбрасывается страйп, а что журналирует + собирает страйпы - с этим согласен, тоже так думал.</p>
+<p>Таким образом кэш (Memory) и PAM используется только для кэширования чтения?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/155#comment-31</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 22 Aug 2008 05:36:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=155#comment-31</guid>
+		<description>Не находясь внутри NetApp Dev Team мы можем знать только то, что NetApp говорит нам по этому поводу.
+А говорит он, что да, NVRAM это "аппаратный журнал" для WAFL, но кроме этого, как я сложил для себя, в нем также формируется страйп для записи на RAID-группу. Таким образом определенное, нестандартное, "кэширование записи" также происходит. Но опять таки отмечу особо, это не то кэширование, к которому мы привыкли в случае других систем.
+Поэтому принято считать, что кэширования записи на системах NetApp нет, все данные немедленно коммитятся на диски каждые сколько-то там секунд (15 кажется, не помню уже), создавая т.н. Consistensy Point файловой системы.</description>
+		<content:encoded><![CDATA[<p>Не находясь внутри NetApp Dev Team мы можем знать только то, что NetApp говорит нам по этому поводу.<br />
+А говорит он, что да, NVRAM это &#8220;аппаратный журнал&#8221; для WAFL, но кроме этого, как я сложил для себя, в нем также формируется страйп для записи на RAID-группу. Таким образом определенное, нестандартное, &#8220;кэширование записи&#8221; также происходит. Но опять таки отмечу особо, это не то кэширование, к которому мы привыкли в случае других систем.<br />
+Поэтому принято считать, что кэширования записи на системах NetApp нет, все данные немедленно коммитятся на диски каждые сколько-то там секунд (15 кажется, не помню уже), создавая т.н. Consistensy Point файловой системы.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/155#comment-30</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Thu, 21 Aug 2008 16:32:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=155#comment-30</guid>
+		<description>Жито то будет (:
+
+Вопрос: NVRAM кэширует данные, предназначенные для записи, или только журналирует WAFL? А то вроде как говорят, что кэш и PAM - только для чтения, а NVRAM - кэш записи. Но с другой стороны сам NetApp пишет, что NVRAM только журналирует запись ):</description>
+		<content:encoded><![CDATA[<p>Жито то будет (:</p>
+<p>Вопрос: NVRAM кэширует данные, предназначенные для записи, или только журналирует WAFL? А то вроде как говорят, что кэш и PAM - только для чтения, а NVRAM - кэш записи. Но с другой стороны сам NetApp пишет, что NVRAM только журналирует запись ):</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/155#comment-29</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 21 Aug 2008 01:14:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=155#comment-29</guid>
+		<description>Неправда, она всегда будет жить в наших сердцах! ;-Р</description>
+		<content:encoded><![CDATA[<p>Неправда, она всегда будет жить в наших сердцах! ;-Р</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/155#comment-28</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Wed, 20 Aug 2008 21:22:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=155#comment-28</guid>
+		<description>Ничего себе... сразу в одной статье куча новых слов. Давненько такого не читывали... Особенно порадовал Infiniband-over-IP (:
+
+К слову: Network Appliance - нет такой компании.</description>
+		<content:encoded><![CDATA[<p>Ничего себе&#8230; сразу в одной статье куча новых слов. Давненько такого не читывали&#8230; Особенно порадовал Infiniband-over-IP (:</p>
+<p>К слову: Network Appliance - нет такой компании.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; NetApp опубликовал результаты SPC-1 в 8.1.1 C-mode</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1171/trackback.html">Infinite Volume</a></div>
+			<div class="alignright"><a href="../1174/trackback.html">Еще о тестировании Cluster-mode в SPC-1</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1173">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to NetApp опубликовал результаты SPC-1 в 8.1.1 C-mode">NetApp опубликовал результаты SPC-1 в 8.1.1 C-mode</a></h2>
+			<div class="postmetadata">25 Июнь 2012, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>На днях, NetApp официально опубликовал результаты бенчмарка SPC-1, главного бенчмарка по демонстрации производительности на блочном (SAN) доступе.</p>
+<p>Как вы знаете, в Data ONTAP 8.1.x Cluster-mode появилась новая возможность – кроме доступа к системе хранения как к NAS, по протоколу NFS или CIFS/SMB, теперь возможна и работа с блочным стораджем, то есть как SAN-утройства. В версии 8.1 кластер SAN был ограничен 4 узлами (2 HA-парами), но, как я и предполагал, этот размер будет постепенно увеличиваться, и вот уже в 8.1.1 он был увеличен до 6 узлов (нод) в кластере. Напомню, что для NAS (NFS) максмальный размер кластера составляет 24 узла.</p>
+<p>Однако для любой новинки всегда остается вопрос, как и насколько хорошо это на самом деле работает? ??менно на этот вопрос отвечают бенчмарки, то есть эталонные процедуры тестирования, на которых можно протестировать свою конфигурацию,&#160; получить определенный результат, который уже можно сравнить с результатами бенчмарков других систем. Специально останавливаюсь на том, что именно стандартизованная среда тестирования, и только она, позволяет в дальнейшем сравнивать результаты между собой. Нельзя сравнивать результаты какого-то одного теста, выраженного в IOPS, с результатами в IOPS какого-то другого.</p>
+<p>?? если для NAS NetApp достаточно давно показывал свои результаты в бенчмарке SPEC sfs2008, в том числе и для Cluster-mode, то для блочных протоколов, таких как FC или iSCSI, или FCoE, таких данных не было. А отсутствие результатов бенчмарков всегда тревожит, как же оно там, на самом деле, не на бумаге маркетинговых буклетов?</p>
+<p>Наконец, на прошлой неделе, NetApp показал свои (почти)топовые результаты, для 6-узлового кластера, с использованием контроллеров FAS6240, под управлением Data ONTAP 8.1.1.</p>
+<p>??нтересно, что бенчмарк SPC-1 требует публиковать цену тестируемой конфигурации (в терминах SPC-1 – TSC, Tested Storage Configuration), и, следовательно, вычислять параметр $/IOPS, “цену транзакции”. Но тут следует обратить внимание, что не запрещается искусственно занижать “листовую” цену продукта (например указав в цене уже некий “дисконт” относительно листпрайса), получая более “выгодно выглядящие” $/IOPS. Показатель $/IOPS приводится вместе с показателем IOPS, достигнутым на тестировании, даже в короткой версии результата, так называемом <em>executive summary</em>, в то время, как за полной конфигурацией тестируемой системы и за опубликованными на нее ценами, надо идти в <em>full disclosure report</em>. </p>
+<p>NetApp на тестировании SPC-1 всегда приводит в качестве цены на систему полный, официальный листпрайс на момент тестирования, без дисконтов, и, что интересно, со включенным SupportEdge 24&#215;7х4h на 3 года. Специально хочу напомнить, что листпрайс в реальной жизни не является реальной ценой продажи, так как в подавляющем числе случаев при продаже для конечного пользователя из цены вычитаются разнообразные, порой значительные, в десятки процентов, дисконты (скидки).</p>
+<p>Поэтому если вы хотите просто тупо сравнить циферку $/IOPS системы одного вендора, с опубликованным $/IOPS у NetApp, обязательно посмотрите, исходя из какой цены было это значение вычислено, и, соответствующим образом, скорректируйте результаты.</p>
+<p>18 июня 2012 года NetApp опубликовал официальный отчет о тестировании 6-узлового кластера в SAN, на протоколе доступа FC 8Gb/s и тестируемом объеме ~72TB (~193TB raw, 36% от raw), 432 диска SAS 450GB в 18 полках, показав результат <strong>250 039,67</strong> IOPS, и, при листпрайсе <strong>$1 672 602</strong>, показатель $/IOPS составил <strong>6,69$/IOPS SPC-1</strong>.</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics/NetApp---SPC-1--Cluster-mode_80D1/image.png" width="731" height="248" /></p>
+<p>За подробностями – в <a href="http://www.storageperformance.org/benchmark_results_files/SPC-1/NetApp/A00115_NetApp_FAS6240-cluster/a00115_NetApp_FAS6240-cluster_SPC-1_executive-summary.pdf">executive summary</a> и в <a href="http://www.storageperformance.org/benchmark_results_files/SPC-1/NetApp/A00115_NetApp_FAS6240-cluster/a00115_NetApp_FAS6240-cluster_SPC-1_full-disclosure.pdf">full disclosure report</a>.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/benchmark/index.html" rel="tag">benchmark</a>, <a href="../tag/cluster/index.html" rel="tag">cluster</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/performance/index.html" rel="tag">performance</a>, <a href="../tag/san.html" rel="tag">san</a>, <a href="../tag/spc-1.html" rel="tag">spc-1</a><br />					Раздел: <a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>,  <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (8)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2808">
+		<div id="div-comment-2808">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>а состав ПО тестируемой конфигурации netapp известен? Возможно ли, что там только один рабочий протокол открыт , без всяких плюшек?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2808" title="">25 Июнь 2012, 14:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2814">
+		<div id="div-comment-2814">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:</p>
+<p>> а состав ПО тестируемой конфигурации netapp известен?</p>
+<p>Конечно. А то зачем я вам давал бы ссылки на описания?</p>
+<p>> Возможно ли, что там только один рабочий протокол открыт , без всяких плюшек?</p>
+<p>1. SPC-1 это бенчмарк чисто блочного протокола (читай, FC).<br />
+2. В NetApp включение плюшек (таких, как, например снэпшоты, FlexVol, thin provisioning) практически не влияент на производительность.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2814" title="">25 Июнь 2012, 18:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2817">
+		<div id="div-comment-2817">
+		<div class="comment-author">
+			<cite>s1d:<cite></div>
+			<p>Добрый день, уважаемые.<br />
+А есть какой-нибудь свежий документ, показывающий стабильную производительность системы, при всех включенных плюшках и достаточной заполненности системы (около 80%). По этому поводу много было Fuda, а заказчики не всегда верят на слово.<br />
+Спасибо.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2817" title="">26 Июнь 2012, 2:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2818">
+		<div id="div-comment-2818">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>&gt; В NetApp включение плюшек (таких, как, например снэпшоты, FlexVol, thin provisioning) практически не влияент на производительность<br />
+на IOPS не влияет, зато сильно влияет на $/IOPS<br />
+в Priced Storage Configuration Pricing отдельной строкой ПО нет, скорее всего FAS6240 с открытым на выбор FC протоколом, все остальное надо докупать отдельно. Если нескромно заложиться на SW-6240A-COMP-BNDL, то 6*~300k$ дает удвоение $/IOPS.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2818" title="">26 Июнь 2012, 4:32</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2821">
+		<div id="div-comment-2821">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>s1d:</p>
+<p>Почти все, что вы хотите, есть в официальных документах, их просто надо внимательно читать (и верить им больше, чем слухам злонамеренных анонимных &#8220;доброжелателей).</p>
+<p>> показывающий стабильную производительность системы</p>
+<p>48-hr sustainability test:<br />
+<a href="http://www.storageperformance.org/results/a00062_NetApp_FAS3040-48hr-sustain_full-disclosure.pdf<br />
+">http://www.storageperformance.org/results/a00062_NetApp_FAS3040-48hr-sustain_full-disclosure.pdf</a></p>
+<p>Также обратите внимание, что тест, о котором шла речь в посте выше (6240, cluster-mode), проводился  течение 9 часов (при формальном требовании спецификации теста SPC-1 - 3 часа), и продемонстрировал неизменяющуюся и стабильную величину показателей, после первых нескольких минут ramp-up (прогрева), см. стр 25 в full disclosure report.</p>
+<p>> при всех включенных плюшках</p>
+<p>См, например, тест, демонстрирующий влияние snapshots на производительность на WAFL:<br />
+<a href="http://www.storageperformance.org/results/a00058_NetApp_FAS3040-Snapshot_full-disclosure-r1.pdf" rel="nofollow">http://www.storageperformance.org/results/a00058_NetApp_FAS3040-Snapshot_full-disclosure-r1.pdf</a><br />
+та же конфигурация, но с отключенными снэпшотами:<br />
+<a href="http://www.storageperformance.org/results/a00057_NetApp_FAS3040_full-disclosure-r1.pdf" rel="nofollow"> </a><a href="http://www.storageperformance.org/results/a00057_NetApp_FAS3040_full-disclosure-r1.pdf" rel="nofollow">http://www.storageperformance.org/results/a00057_NetApp_FAS3040_full-disclosure-r1.pdf</a></p>
+<p>Также обратите внимание, что системы NetApp тестируются с работающим thin provisioning: (стр 60, <a href="http://www.storageperformance.org/benchmark_results_files/SPC-1/NetApp/A00115_NetApp_FAS6240-cluster/a00115_NetApp_FAS6240-cluster_SPC-1_full-disclosure.pdf" rel="nofollow">http://www.storageperformance.org/benchmark_results_files/SPC-1/NetApp/A00115_NetApp_FAS6240-cluster/a00115_NetApp_FAS6240-cluster_SPC-1_full-disclosure.pdf</a>)<br />
+Также отключается параметр walf.optimize_write_once (в ряде случаев могущий улучшить производительность за счет уменьшения write fragmentation), остальные параметры томов остаются по умолчанию &#8220;из коробки&#8221;, в том виде, в каком они приходят к клиенту и рекомендуются в Best Practices (например, отключать snapshot schedules для SAN-томов).</p>
+<p>> достаточной заполненности системы</p>
+<p>FAS3170A SPC-1/E test - Protected Application Utilization: 70.07%<br />
+<a href="http://www.storageperformance.org/results/a00066_NetApp_FAS3170_full-disclosure.pdf" rel="nofollow">http://www.storageperformance.org/results/a00066_NetApp_FAS3170_full-disclosure.pdf</a></p>
+<p>Также полезно внимательно прочитать пост-перевод в этом блоге:<br />
+<b>Как заполненность данными системы хранения влияет на ее производительность?</b><br />
+<a href="../1083/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/1083</a></p>
+<p>Мне кажется, я ответил на все ваши вопросы?</p>
+<p>> По этому поводу много было Fuda, а заказчики не всегда верят на слово.</p>
+<p>Заказчики верят на слово неизвестным анонимам, распространяющим слухи и FUD путем надписей на заборе &#8220;Лешка - пи*арас!&#8221;, но не верят вам? Думаю, что тут проблема, в первую очередь, не в FUD, и не в NetApp, а в вашей низкой убедительности и авторитетности для заказчика, не так ли? ;)</p>
+<p>panvartan:</p>
+<p>> на IOPS не влияет, зато сильно влияет на $/IOPS<br />
+> то 6*~300k$ дает удвоение $/IOPS.</p>
+<p>Вот вы и ответили сами себе, почему в _тестировании_ в конфигурацию не включается ничего лишнего по цене, кроме того, что используется в этом тестировании, и почему <i>некоторые</i> вендоры указывают даже эти цены уже с искусственным дисконтом. :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2821" title="">26 Июнь 2012, 11:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2822">
+		<div id="div-comment-2822">
+		<div class="comment-author">
+			<cite>s1d:<cite></div>
+			<p>Мне кажется, я ответил на все ваши вопросы?<br />
+100%<br />
+Заказчики верят на слово неизвестным анонимам, распространяющим слухи и FUD путем надписей на заборе “Лешка - пи*арас!”, но не верят вам?<br />
+Неизвестные анонимы - это порой серьезные и такие же авторитетные товарищи из &#8220;Storage Vendor&#8217;а #1&#8243;, вот тут и начинаются конфронтации.<br />
+Думаю, что тут проблема, в первую очередь, не в FUD, и не в NetApp, а в вашей низкой убедительности и авторитетности для заказчика, не так ли? ;)<br />
+Не так ;)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2822" title="">26 Июнь 2012, 12:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2823">
+		<div id="div-comment-2823">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>s1d:</p>
+<p>> Неизвестные анонимы - это порой серьезные и такие же авторитетные товарищи из “Storage Vendor’а #1″, вот тут и начинаются конфронтации.</p>
+<p>Ну давайте тогда спорить предметно, с доказательствами в руках. У распространяющих FUD есть доказательства их слов, опубликованные, и пригодные к проверке сторонними, независимыми, а также собственно специалистами NetaApp?</p>
+<p>Вот когда NetApp утверждает, что использование снэпшотов на системах &#8220;классической&#8221; архитектуры приводит к почти трехкратному падению их производтельности, они берут соответствующую систему, и демонстрируют это, публикуя проверяемые и хорошо документированные результаты (см. тот же SPC-1).</p>
+<p>В самом лучшем случае (если не брать &#8220;заборные варианты&#8221;, типа &#8220;а вы, что, не знаете, что у NetApp производительность при заполнении падает? Да это же все знают, хаха!&#8221;) это публикации вида:<br />
+<a href="http://h30507.www3.hp.com/t5/Around-the-Storage-Block-Blog/Understanding-FAS-ESRP-Results/ba-p/78914" rel="nofollow">http://h30507.www3.hp.com/t5/Around-the-Storage-Block-Blog/Understanding-FAS-ESRP-Results/ba-p/78914</a><br />
+&#8220;Мы тут собрали и померили, так вот, оно там все ужас-ужас!&#8221;<br />
+В ответ на предложение специалиста из NetApp: &#8220;Это странно, мы такого не наблюдали, можно посмотреть конфигурацию, которую вы тестировали, может быть вы какие-то ошибки по неопытности допустили? Давайте мы вам поможем их исправить, если они есть.&#8221;<br />
+вторая сторона уходит в глухую несознанку: &#8220;Ничо не знаем, мы сконфигурировали все правильно, раз производительность падает, значит все правильно сделано. Ничо не покажем, уйдите ваще, противные&#8221;.<br />
+В комментах там очень показательная дискуссия между Джоном Мартином, NetApp ANZ, и Кальвином, из HP, автором поста.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2823" title="">26 Июнь 2012, 12:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-5852">
+		<div id="div-comment-5852">
+		<div class="comment-author">
+			<cite>motl:<cite></div>
+			<p>Добрый  день.<br />
+Я понимаю что чтобы работать в 8 моде нужно создать отдельный aggr для root volume.<br />
+Это значит что для каждого контроллера 3 диска пойдут на эту цель.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5852" title="">14 Февраль 2013, 19:29</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1173" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.072 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

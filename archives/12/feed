@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Что у нас &#8220;внутре&#8221;</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/12/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/12</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:25 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: itdiver.blogspot.com/</title>
+		<link>http://blog.aboutnetapp.ru/archives/12#comment-134</link>
+		<dc:creator>itdiver.blogspot.com/</dc:creator>
+		<pubDate>Thu, 23 Apr 2009 11:50:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/12#comment-134</guid>
+		<description>В дисковых массивах EMC CLARiiON CX-4 сейчас живет Windows Storage Server 2003.</description>
+		<content:encoded><![CDATA[<p>В дисковых массивах EMC CLARiiON CX-4 сейчас живет Windows Storage Server 2003.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: NetApp WAFL, file system of NetApp &#124; about NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/12#comment-32</link>
+		<dc:creator>NetApp WAFL, file system of NetApp &#124; about NetApp</dc:creator>
+		<pubDate>Fri, 22 Aug 2008 06:54:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/12#comment-32</guid>
+		<description>[...] лежащих в основании системы хранения NetApp, наряду с собственной версией UNIX-подобной OS, является внутренняя файловая система, [...]</description>
+		<content:encoded><![CDATA[<p>[...] лежащих в основании системы хранения NetApp, наряду с собственной версией UNIX-подобной OS, является внутренняя файловая система, [...]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Snap Creator 3.6.0</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1188/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1188</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:12 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1188#comment-3078</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Sat, 04 Aug 2012 11:37:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1188#comment-3078</guid>
+		<description>Вообще из Protection Manager имеет смысл вызывать snapcreator как скрипт, тогда расписание одно.</description>
+		<content:encoded><![CDATA[<p>Вообще из Protection Manager имеет смысл вызывать snapcreator как скрипт, тогда расписание одно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Vadim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1188#comment-3069</link>
+		<dc:creator>Vadim</dc:creator>
+		<pubDate>Fri, 03 Aug 2012 09:10:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1188#comment-3069</guid>
+		<description>Понятно - ничего не изменилось. Жаль. Ждем.</description>
+		<content:encoded><![CDATA[<p>Понятно - ничего не изменилось. Жаль. Ждем.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1188#comment-3062</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Thu, 02 Aug 2012 20:07:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1188#comment-3062</guid>
+		<description>https://communities.netapp.com/videos/1998</description>
+		<content:encoded><![CDATA[<p><a href="https://communities.netapp.com/videos/1998" rel="nofollow">https://communities.netapp.com/videos/1998</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Vadim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1188#comment-3059</link>
+		<dc:creator>Vadim</dc:creator>
+		<pubDate>Thu, 02 Aug 2012 07:57:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1188#comment-3059</guid>
+		<description>Продукт интересный. Но, к сожалению, есть и печальки (вернее были полгода назад).
+когда я его тестировал и привязывал к Data Protection Manager (который сейчас входит в состав OnCommand) так и не удалось настроить централизованное управление расписаниями. Т.е. расписания SnapManager - в одном месте, SnapCreator - в другом.... А если еще появится что-нибудь типа netbackup - то и третье нарисуется. В общем, кошмар для администратора....
+Возможно, сейчас все позитивнее. Кто нибудь в курсе?</description>
+		<content:encoded><![CDATA[<p>Продукт интересный. Но, к сожалению, есть и печальки (вернее были полгода назад).<br />
+когда я его тестировал и привязывал к Data Protection Manager (который сейчас входит в состав OnCommand) так и не удалось настроить централизованное управление расписаниями. Т.е. расписания SnapManager - в одном месте, SnapCreator - в другом&#8230;. А если еще появится что-нибудь типа netbackup - то и третье нарисуется. В общем, кошмар для администратора&#8230;.<br />
+Возможно, сейчас все позитивнее. Кто нибудь в курсе?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1188#comment-3058</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 02 Aug 2012 07:14:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1188#comment-3058</guid>
+		<description>Киселев Сергей:
+
+Странный комментарий. Я не увидел в Snap Creator-е ни "кажущейся", ни некажущейся легкости. Это и есть фреймворк скриптовых сценариевв к ZAPI.
+
+&gt; Скрипты, скрипты и ещё раз скрипты.
+
+Это к чему? Да, скрипты. ???</description>
+		<content:encoded><![CDATA[<p>Киселев Сергей:</p>
+<p>Странный комментарий. Я не увидел в Snap Creator-е ни &#8220;кажущейся&#8221;, ни некажущейся легкости. Это и есть фреймворк скриптовых сценариевв к ZAPI.</p>
+<p>> Скрипты, скрипты и ещё раз скрипты.</p>
+<p>Это к чему? Да, скрипты. ???</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Киселев Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1188#comment-3056</link>
+		<dc:creator>Киселев Сергей</dc:creator>
+		<pubDate>Thu, 02 Aug 2012 06:23:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1188#comment-3056</guid>
+		<description>Несмотря на кажущуюся легкость, продукт сложен в реализации, необходимы не только и не столько знания api DataONTAP, сколько знания api приложений, бэкап которых будет осуществляться.
+Скрипты, скрипты и ещё раз скрипты.</description>
+		<content:encoded><![CDATA[<p>Несмотря на кажущуюся легкость, продукт сложен в реализации, необходимы не только и не столько знания api DataONTAP, сколько знания api приложений, бэкап которых будет осуществляться.<br />
+Скрипты, скрипты и ещё раз скрипты.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

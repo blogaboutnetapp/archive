@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Еще несколько слов про MPHA</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1008/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1008</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:31 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1728</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 13:44:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1728</guid>
+		<description>Можно спросить касаемо вот этого:
+"Попросите сконфигурировать вам FAS3210 с Flash Cache и закажите в том же заказе дополнительно плату 10G Ethernet, которая придет отдельно, не установленная в контроллер. Далее вы сможете самостоятельно вынуть карту портов SAS и поставить на ее место карту 10G Ethernet"
+
+Это означает, что у заказчика нет вариантов не заплатить за дополнительную SAS карту? или она идет по нулевой стоимости?</description>
+		<content:encoded><![CDATA[<p>Можно спросить касаемо вот этого:<br />
+&#8220;Попросите сконфигурировать вам FAS3210 с Flash Cache и закажите в том же заказе дополнительно плату 10G Ethernet, которая придет отдельно, не установленная в контроллер. Далее вы сможете самостоятельно вынуть карту портов SAS и поставить на ее место карту 10G Ethernet&#8221;</p>
+<p>Это означает, что у заказчика нет вариантов не заплатить за дополнительную SAS карту? или она идет по нулевой стоимости?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sergeykim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1727</link>
+		<dc:creator>sergeykim</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 09:32:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1727</guid>
+		<description>- двух портовых SAS PCI карт для FAS3xx0 FAS6xx0 не бывает (только четырехпортовые)</description>
+		<content:encoded><![CDATA[<p>- двух портовых SAS PCI карт для FAS3xx0 FAS6xx0 не бывает (только четырехпортовые)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sergeykim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1726</link>
+		<dc:creator>sergeykim</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 09:13:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1726</guid>
+		<description>Про FAS3210 MPHA и недостаток слотов почти все неверно.
+ - FAS3210 поддерживает MPHA в отличии от FAS2040 и при этом ему не нужна доп SAS карта
+ - Если в FAS3210 дополнительная SAS карта не нужна нет необходимости ее покупать. (конфигуратор в некоторых случаях добавляется SAS адаптер по умолчанию - по умолчанию предлагает сделать две петли и более - ее нужно убирать самостоятельно стандартными средствами). Соответственно, можно запросто конфигурировать с Flash Cache и UTA 10Gb, например.
+ - Конфигурация FlexPod посчитана с MPHA (нет ни одного свободного слота SAS на полках)</description>
+		<content:encoded><![CDATA[<p>Про FAS3210 MPHA и недостаток слотов почти все неверно.<br />
+ - FAS3210 поддерживает MPHA в отличии от FAS2040 и при этом ему не нужна доп SAS карта<br />
+ - Если в FAS3210 дополнительная SAS карта не нужна нет необходимости ее покупать. (конфигуратор в некоторых случаях добавляется SAS адаптер по умолчанию - по умолчанию предлагает сделать две петли и более - ее нужно убирать самостоятельно стандартными средствами). Соответственно, можно запросто конфигурировать с Flash Cache и UTA 10Gb, например.<br />
+ - Конфигурация FlexPod посчитана с MPHA (нет ни одного свободного слота SAS на полках)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1725</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 08:15:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1725</guid>
+		<description>Я уже поставил. Работает шустрее бета-версии, но у меня тоже предвзятое отношение к поделиям на Java. Писали бы дальше на православном .NET, зачем было менять платформу?
+??з плюсов заметил хелп, который имеет прямые ссылки на статьи о той или иной опции (типа Thin Provisioning) на сайте NOW.</description>
+		<content:encoded><![CDATA[<p>Я уже поставил. Работает шустрее бета-версии, но у меня тоже предвзятое отношение к поделиям на Java. Писали бы дальше на православном .NET, зачем было менять платформу?<br />
+??з плюсов заметил хелп, который имеет прямые ссылки на статьи о той или иной опции (типа Thin Provisioning) на сайте NOW.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1724</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 08:07:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1724</guid>
+		<description>Minus:
+
+Ага. Видел. Эти дети Ханумана зарелизили SM 2.0, но он, блин... ну не знаю, может я предвзят. Ну очень он страннен. Может глянешь, а то у меня счас не к чему подключить его? :(</description>
+		<content:encoded><![CDATA[<p>Minus:</p>
+<p>Ага. Видел. Эти дети Ханумана зарелизили SM 2.0, но он, блин&#8230; ну не знаю, может я предвзят. Ну очень он страннен. Может глянешь, а то у меня счас не к чему подключить его? :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1723</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 08:04:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1723</guid>
+		<description>FilerView приказал долго жить :)</description>
+		<content:encoded><![CDATA[<p>FilerView приказал долго жить :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1722</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 08:03:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1722</guid>
+		<description>Minus:
+
+A! А я-то смотрю, буквально вчера вечером по Software Downloads лазил, в связи с выходом System Manager 2.0, и не увдел, а оно "вон оно что, Михалыч" :)
+
+Конвертер в 64-bit давно обещали. Обещали и блочные протоколы в Cluster-mode, наконец-то.
+Читаю whatsnew, да.</description>
+		<content:encoded><![CDATA[<p>Minus:</p>
+<p>A! А я-то смотрю, буквально вчера вечером по Software Downloads лазил, в связи с выходом System Manager 2.0, и не увдел, а оно &#8220;вон оно что, Михалыч&#8221; :)</p>
+<p>Конвертер в 64-bit давно обещали. Обещали и блочные протоколы в Cluster-mode, наконец-то.<br />
+Читаю whatsnew, да.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1721</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 07:57:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1721</guid>
+		<description>Вышло оно сегодня с утра, вчера еще не было :)
+Так как я тут обновлял новую систему до 8.0.2, с удивлением увидел 8.1RC1 в списке.
+Вкусного много. Они наконец, кажется, сделали конвертацию агрегатов из 32 в 64 бита, если я правильно понял вот это - "The 64bit-upgrade option has been added. This option enables the administrator to upgrade an aggregate from 32-bit to 64-bit format by adding enough storage to exceed the 16 TB maximum 32-bit aggregate size."</description>
+		<content:encoded><![CDATA[<p>Вышло оно сегодня с утра, вчера еще не было :)<br />
+Так как я тут обновлял новую систему до 8.0.2, с удивлением увидел 8.1RC1 в списке.<br />
+Вкусного много. Они наконец, кажется, сделали конвертацию агрегатов из 32 в 64 бита, если я правильно понял вот это - &#8220;The 64bit-upgrade option has been added. This option enables the administrator to upgrade an aggregate from 32-bit to 64-bit format by adding enough storage to exceed the 16 TB maximum 32-bit aggregate size.&#8221;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1720</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 07:13:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1720</guid>
+		<description>Minus:
+
+Ха. А оно уже успело выйти?
+Как-то пропустил этот момент.
+Напишу, как только разберусь, надо ж почитать сперва. Там много интересного планировалось, как я помню.
+?? да, долгожданный бридж :)</description>
+		<content:encoded><![CDATA[<p>Minus:</p>
+<p>Ха. А оно уже успело выйти?<br />
+Как-то пропустил этот момент.<br />
+Напишу, как только разберусь, надо ж почитать сперва. Там много интересного планировалось, как я помню.<br />
+?? да, долгожданный бридж :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/1008#comment-1719</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Fri, 23 Sep 2011 07:06:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1008#comment-1719</guid>
+		<description>Привет, Роман!
+Не знаю, к какому посту написать комментарий, напишу сюда.
+Ты когда планируешь написать про вышедшую 8.1RC1 и про ее плюшки, в частности, про "Starting with Data ONTAP 8.1, the ATTO FibreBridge 6500N, which is a Fibre Channel-to-SAS bridge that allows SAS disk shelves (with SAS or SATA disk drives) to be used in stretch and fabric MetroCluster configurations, is supported."?</description>
+		<content:encoded><![CDATA[<p>Привет, Роман!<br />
+Не знаю, к какому посту написать комментарий, напишу сюда.<br />
+Ты когда планируешь написать про вышедшую 8.1RC1 и про ее плюшки, в частности, про &#8220;Starting with Data ONTAP 8.1, the ATTO FibreBridge 6500N, which is a Fibre Channel-to-SAS bridge that allows SAS disk shelves (with SAS or SATA disk drives) to be used in stretch and fabric MetroCluster configurations, is supported.&#8221;?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

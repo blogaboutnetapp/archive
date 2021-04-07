@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Некоторые полезные команды в консоли управления NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/198/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/198</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:34 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/198#comment-126</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 20 Mar 2009 03:47:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=198#comment-126</guid>
+		<description>Привет. Форум сделать можно, но, боюсь, это будет "театр одного актера" - меня :)
+По моему нет ничего более унылого, чем дохлый форум на сайте с одним участником.
+А так - да. Можно и форум. По секрету скажу, он даже есть :) Просто не опубликован и не запущен как следует.
+В настоящее время в качестве форума можно пользоваться iXBT-шным тредом http://forum.ixbt.com/topic.cgi?id=66:3353.
+Его большой плюс в том, что там отвечаю не только я.</description>
+		<content:encoded><![CDATA[<p>Привет. Форум сделать можно, но, боюсь, это будет &#8220;театр одного актера&#8221; - меня :)<br />
+По моему нет ничего более унылого, чем дохлый форум на сайте с одним участником.<br />
+А так - да. Можно и форум. По секрету скажу, он даже есть :) Просто не опубликован и не запущен как следует.<br />
+В настоящее время в качестве форума можно пользоваться iXBT-шным тредом <a href="http://forum.ixbt.com/topic.cgi?id=66:3353" rel="nofollow">http://forum.ixbt.com/topic.cgi?id=66:3353</a>.<br />
+Его большой плюс в том, что там отвечаю не только я.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: llaann</title>
+		<link>http://blog.aboutnetapp.ru/archives/198#comment-125</link>
+		<dc:creator>llaann</dc:creator>
+		<pubDate>Thu, 19 Mar 2009 19:33:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=198#comment-125</guid>
+		<description>Было бы замечательно если бы в разделе опубликовали некоторые полезности типа настройки SnapShot и всего что с ним связанно и многое другое. Хотелось бы ещё чтоб появился форум (конечно по возможности). Блог замечательный очень помогает. Автору большое спасибо.</description>
+		<content:encoded><![CDATA[<p>Было бы замечательно если бы в разделе опубликовали некоторые полезности типа настройки SnapShot и всего что с ним связанно и многое другое. Хотелось бы ещё чтоб появился форум (конечно по возможности). Блог замечательный очень помогает. Автору большое спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/198#comment-104</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Mon, 19 Jan 2009 03:14:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=198#comment-104</guid>
+		<description>Отличная потборка, многих команд не знал!</description>
+		<content:encoded><![CDATA[<p>Отличная потборка, многих команд не знал!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

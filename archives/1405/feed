@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: ?? вот мы снова с вами, и вы, конечно, рады !.. :)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1405/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1405</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:05 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Igor Nalivko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1405#comment-14094</link>
+		<dc:creator>Igor Nalivko</dc:creator>
+		<pubDate>Wed, 22 Oct 2014 08:09:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1405#comment-14094</guid>
+		<description>Надеюсь, что дело зачинщика ROMX будет жить и побеждать! Удачи!</description>
+		<content:encoded><![CDATA[<p>Надеюсь, что дело зачинщика ROMX будет жить и побеждать! Удачи!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Максим</title>
+		<link>http://blog.aboutnetapp.ru/archives/1405#comment-14088</link>
+		<dc:creator>Максим</dc:creator>
+		<pubDate>Mon, 20 Oct 2014 09:37:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1405#comment-14088</guid>
+		<description>Удачи, ждем с нетерпением статей и новостей</description>
+		<content:encoded><![CDATA[<p>Удачи, ждем с нетерпением статей и новостей</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

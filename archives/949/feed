@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Административноэ</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/949/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/949</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:08:02 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/949#comment-1486</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Sat, 02 Jul 2011 16:46:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/949#comment-1486</guid>
+		<description>&lt;i&gt;&#62; А, то есть мою кросспостилку можно удалять? ;)&lt;/i&gt;
+
+Точно знаю, надо бы сравнить, но вроде бы стопить (не удалять: в новой посты с 11 июня 2011) можно</description>
+		<content:encoded><![CDATA[<p><i>&gt; А, то есть мою кросспостилку можно удалять? ;)</i></p>
+<p>Точно знаю, надо бы сравнить, но вроде бы стопить (не удалять: в новой посты с 11 июня 2011) можно</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/949#comment-1485</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 02 Jul 2011 11:10:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/949#comment-1485</guid>
+		<description>А, то есть мою кросспостилку можно удалять? ;)</description>
+		<content:encoded><![CDATA[<p>А, то есть мою кросспостилку можно удалять? ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/949#comment-1484</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Sat, 02 Jul 2011 10:20:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/949#comment-1484</guid>
+		<description>... а если всё-таки хочется видеть посты в ленте LJ, то RSS транслируется вот &lt;a href="http://netappru.livejournal.com/profile" rel="nofollow"&gt;сюда&lt;/a&gt; ;-)</description>
+		<content:encoded><![CDATA[<p>&#8230; а если всё-таки хочется видеть посты в ленте LJ, то RSS транслируется вот <a href="http://netappru.livejournal.com/profile" rel="nofollow">сюда</a> ;-)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

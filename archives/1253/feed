@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Как изменить serialnumber у ONTAP Edge?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1253/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1253</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:25 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1253#comment-8536</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 19 Jul 2013 11:01:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1253#comment-8536</guid>
+		<description>Михаил:
+Рекомендую спросить в форуме: https://communities.netapp.com/groups/netapp-ru
+Может у кого есть опыт решения.</description>
+		<content:encoded><![CDATA[<p>Михаил:<br />
+Рекомендую спросить в форуме: <a href="https://communities.netapp.com/groups/netapp-ru" rel="nofollow">https://communities.netapp.com/groups/netapp-ru</a><br />
+Может у кого есть опыт решения.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Михаил</title>
+		<link>http://blog.aboutnetapp.ru/archives/1253#comment-8535</link>
+		<dc:creator>Михаил</dc:creator>
+		<pubDate>Fri, 19 Jul 2013 10:44:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1253#comment-8535</guid>
+		<description>Забыл указать версию Edge 8.1.1 . Пробовал даже при первом старте.</description>
+		<content:encoded><![CDATA[<p>Забыл указать версию Edge 8.1.1 . Пробовал даже при первом старте.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Михаил</title>
+		<link>http://blog.aboutnetapp.ru/archives/1253#comment-8534</link>
+		<dc:creator>Михаил</dc:creator>
+		<pubDate>Fri, 19 Jul 2013 08:51:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1253#comment-8534</guid>
+		<description>Да
+http://saveimg.ru/show-image.php?id=4fc992aa549079294f08c905e7f40805</description>
+		<content:encoded><![CDATA[<p>Да<br />
+<a href="http://saveimg.ru/show-image.php?id=4fc992aa549079294f08c905e7f40805" rel="nofollow">http://saveimg.ru/show-image.php?id=4fc992aa549079294f08c905e7f40805</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1253#comment-8530</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 19 Jul 2013 07:16:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1253#comment-8530</guid>
+		<description>Михаил:
+А вы именно в лоадере это делаете, как указано?
+Сейчас нет под руками, к сожалению, не могу проверить на текущей версии.</description>
+		<content:encoded><![CDATA[<p>Михаил:<br />
+А вы именно в лоадере это делаете, как указано?<br />
+Сейчас нет под руками, к сожалению, не могу проверить на текущей версии.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Михаил</title>
+		<link>http://blog.aboutnetapp.ru/archives/1253#comment-8529</link>
+		<dc:creator>Михаил</dc:creator>
+		<pubDate>Fri, 19 Jul 2013 07:11:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1253#comment-8529</guid>
+		<description>Пытаюсь обновить SYS_SERIAL_NUM. 
+Получаю 'SYS_SERIAL_NUM' is read-only property</description>
+		<content:encoded><![CDATA[<p>Пытаюсь обновить SYS_SERIAL_NUM.<br />
+Получаю &#8216;SYS_SERIAL_NUM&#8217; is read-only property</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

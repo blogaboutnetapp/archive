@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: DS2246 &#8211; новая SAS-полка</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/712/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/712</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:58 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Sharky Lion's</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-3273</link>
+		<dc:creator>Sharky Lion's</dc:creator>
+		<pubDate>Wed, 05 Sep 2012 13:19:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-3273</guid>
+		<description>&#62;&#62;Диски 2,5 летят в разы чаще чем 3,5.
+&#62;Ну это вы милейший напраслину гоните… Мировая статистика этого не подтверждает… Может дело в HP?.. ;)
+дело не в HP, наверное, дело в Seagate... Не поверите, сам сильно удивился, когда заказав HD 160 G SATA NHP, обнаружил там Barracuda 7200 с самоклейкой от НР размером 1,5/3,0 см......
+раньше они хотя бы раззорялись на полноформатную наклейку с надписями HP и харрактерной цветосхемой и с демонтажем старой наклейки... теперь походу не заморачиваются вообще...</description>
+		<content:encoded><![CDATA[<p>&gt;&gt;Диски 2,5 летят в разы чаще чем 3,5.<br />
+&gt;Ну это вы милейший напраслину гоните… Мировая статистика этого не подтверждает… Может дело в HP?.. ;)<br />
+дело не в HP, наверное, дело в Seagate&#8230; Не поверите, сам сильно удивился, когда заказав HD 160 G SATA NHP, обнаружил там Barracuda 7200 с самоклейкой от НР размером 1,5/3,0 см&#8230;&#8230;<br />
+раньше они хотя бы раззорялись на полноформатную наклейку с надписями HP и харрактерной цветосхемой и с демонтажем старой наклейки&#8230; теперь походу не заморачиваются вообще&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-2831</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 27 Jun 2012 15:11:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-2831</guid>
+		<description>bbk:
+
+&gt; Подскажите, почему так решили сделать: 10k диски в полку с 6Gbit/s, а 15k в полку с 3Gbit/s ?
+
+Потому что IOM6 новее, и появился позже IOM3.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> Подскажите, почему так решили сделать: 10k диски в полку с 6Gbit/s, а 15k в полку с 3Gbit/s ?</p>
+<p>Потому что IOM6 новее, и появился позже IOM3.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-2830</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 27 Jun 2012 12:58:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-2830</guid>
+		<description>&#62;Новый модуль IOM6 с 4 портами SAS 6Gbit/s
+Не совчем так. Должно быть: Новый IOM6 с 2 портами SAS 6Gbit/s (в полке 2 модуля).
+4 порта получается не на IOM6 модуль а на полку.
+
+Подскажите, почему так решили сделать: 10k диски в полку с 6Gbit/s, а 15k в полку с 3Gbit/s ?</description>
+		<content:encoded><![CDATA[<p>&gt;Новый модуль IOM6 с 4 портами SAS 6Gbit/s<br />
+Не совчем так. Должно быть: Новый IOM6 с 2 портами SAS 6Gbit/s (в полке 2 модуля).<br />
+4 порта получается не на IOM6 модуль а на полку.</p>
+<p>Подскажите, почему так решили сделать: 10k диски в полку с 6Gbit/s, а 15k в полку с 3Gbit/s ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Ivanov</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-850</link>
+		<dc:creator>Dmitry Ivanov</dc:creator>
+		<pubDate>Sun, 03 Oct 2010 16:51:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-850</guid>
+		<description>Ну это вы милейший напраслину гоните… Мировая статистика этого не подтверждает… Может дело в HP?.. ;)
+Вы уж извините, я не гоню,я делюсь своей статистикой</description>
+		<content:encoded><![CDATA[<p>Ну это вы милейший напраслину гоните… Мировая статистика этого не подтверждает… Может дело в HP?.. ;)<br />
+Вы уж извините, я не гоню,я делюсь своей статистикой</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-846</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 01 Oct 2010 04:13:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-846</guid>
+		<description>&gt; Это понятно, но я своим вопросом как бы намекнул на доступность SSD, анонсированных одновременно с новой полкой… ;)
+
+Это новость, но она не имеет отношения к DS2246. В 2.5" SSD у NetApp нет.</description>
+		<content:encoded><![CDATA[<p>> Это понятно, но я своим вопросом как бы намекнул на доступность SSD, анонсированных одновременно с новой полкой… ;)</p>
+<p>Это новость, но она не имеет отношения к DS2246. В 2.5&#8243; SSD у NetApp нет.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Rafaelich</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-845</link>
+		<dc:creator>Rafaelich</dc:creator>
+		<pubDate>Fri, 01 Oct 2010 03:58:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-845</guid>
+		<description>&#62;Но я в данном случае пишу не про 4243, а про 2246.
+Это понятно, но я своим вопросом как бы намекнул на доступность SSD, анонсированных одновременно с новой полкой... ;)
+Это ведь тоже новость, не правда ли?..
+
+&#62;Диски 2,5 летят в разы чаще чем 3,5.
+Ну это вы милейший напраслину гоните... Мировая статистика этого не подтверждает... Может дело в HP?.. ;)</description>
+		<content:encoded><![CDATA[<p>&gt;Но я в данном случае пишу не про 4243, а про 2246.<br />
+Это понятно, но я своим вопросом как бы намекнул на доступность SSD, анонсированных одновременно с новой полкой&#8230; ;)<br />
+Это ведь тоже новость, не правда ли?..</p>
+<p>&gt;Диски 2,5 летят в разы чаще чем 3,5.<br />
+Ну это вы милейший напраслину гоните&#8230; Мировая статистика этого не подтверждает&#8230; Может дело в HP?.. ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy Ivanov</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-844</link>
+		<dc:creator>Dmitriy Ivanov</dc:creator>
+		<pubDate>Thu, 30 Sep 2010 18:38:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-844</guid>
+		<description>Если честно, в распоряжении куча hp серверов c 3,5 дисками и 2,5 дисками. Диски 2,5 летят в  разы чаще
+чем 3,5. ??мел неосторожность пойти на поводу у программистов(схд втот момент не было)-поставить в сервер с высоконагруженной базой 8 таких дисков в 5 raid.за два года-4 или 5 шт вылетело. ?? на других серверах-нормально вылетают. Знаете, мне честно сказать пофик-2u,4u-но такая надежность мне не нравится:(</description>
+		<content:encoded><![CDATA[<p>Если честно, в распоряжении куча hp серверов c 3,5 дисками и 2,5 дисками. Диски 2,5 летят в  разы чаще<br />
+чем 3,5. ??мел неосторожность пойти на поводу у программистов(схд втот момент не было)-поставить в сервер с высоконагруженной базой 8 таких дисков в 5 raid.за два года-4 или 5 шт вылетело. ?? на других серверах-нормально вылетают. Знаете, мне честно сказать пофик-2u,4u-но такая надежность мне не нравится:(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-841</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 30 Sep 2010 10:22:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-841</guid>
+		<description>Но я в данном случае пишу не про 4243, а про 2246.</description>
+		<content:encoded><![CDATA[<p>Но я в данном случае пишу не про 4243, а про 2246.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Rafaelich</title>
+		<link>http://blog.aboutnetapp.ru/archives/712#comment-840</link>
+		<dc:creator>Rafaelich</dc:creator>
+		<pubDate>Thu, 30 Sep 2010 10:13:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=712#comment-840</guid>
+		<description>Не очень понял насчет SSD...
+NetApp offers a DS4243 disk shelf in a 24-drive, full-shelf configuration of 100GB SSDs. Individual SSDs are available as add-on parts.
+Disk shelf with 24 solid state drives: 
+DS4243-SL02-24A-R5-C (configured) 
+DS4243-SL02-24A-QS-R5 (add-on)</description>
+		<content:encoded><![CDATA[<p>Не очень понял насчет SSD&#8230;<br />
+NetApp offers a DS4243 disk shelf in a 24-drive, full-shelf configuration of 100GB SSDs. Individual SSDs are available as add-on parts.<br />
+Disk shelf with 24 solid state drives:<br />
+DS4243-SL02-24A-R5-C (configured)<br />
+DS4243-SL02-24A-QS-R5 (add-on)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

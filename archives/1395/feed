@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Новые переводы: MS Hyper-V и SMB3.0 на NetApp</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1395/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1395</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:46 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1395#comment-13942</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 31 Aug 2014 09:07:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1395#comment-13942</guid>
+		<description>goodserg:
+
+А вроде же был TR-3702
+Он, правда, дубовый и "индийский", но уж что есть - то есть.
+Надо переводить TR-4226 (NetApp SnapManager 2.0 for Hyper-V on Clustered Data ONTAP 8.2), да тогда уж и TR-4068, про vSphere, но не хватает рук, и ресурсов у Netwell.
+
+К тому же все активные работы по переводам сейчас засуспенжены, в ожидании 8.3 и последующего активного обновления всех TR.</description>
+		<content:encoded><![CDATA[<p>goodserg:</p>
+<p>А вроде же был TR-3702<br />
+Он, правда, дубовый и &#8220;индийский&#8221;, но уж что есть - то есть.<br />
+Надо переводить TR-4226 (NetApp SnapManager 2.0 for Hyper-V on Clustered Data ONTAP 8.2), да тогда уж и TR-4068, про vSphere, но не хватает рук, и ресурсов у Netwell.</p>
+<p>К тому же все активные работы по переводам сейчас засуспенжены, в ожидании 8.3 и последующего активного обновления всех TR.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: goodserg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1395#comment-13941</link>
+		<dc:creator>goodserg</dc:creator>
+		<pubDate>Sun, 31 Aug 2014 08:55:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1395#comment-13941</guid>
+		<description>Привет,
+Было бы интересно почитать про продукт SnapManager for Hyper-V и про возможности аварийного восстановления Hyper-V на резервной площадке с помощью продуктов Hyper-V.</description>
+		<content:encoded><![CDATA[<p>Привет,<br />
+Было бы интересно почитать про продукт SnapManager for Hyper-V и про возможности аварийного восстановления Hyper-V на резервной площадке с помощью продуктов Hyper-V.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

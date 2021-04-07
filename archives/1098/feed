@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Как поставить Data ONTAP Simulator v8 на VMware</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1098/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1098</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:26 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: amazi</title>
+		<link>http://blog.aboutnetapp.ru/archives/1098#comment-2016</link>
+		<dc:creator>amazi</dc:creator>
+		<pubDate>Tue, 13 Dec 2011 23:11:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1098#comment-2016</guid>
+		<description>Что-то не получилось у меня нагуглить ISO 8-ки...</description>
+		<content:encoded><![CDATA[<p>Что-то не получилось у меня нагуглить ISO 8-ки&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/1098#comment-1999</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Tue, 06 Dec 2011 10:52:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1098#comment-1999</guid>
+		<description>&#62; Первым добавьте диск DataONTAP-cf. Вторым – vmdk меньшего размера.
+
+при этом на скриншоте обратное: cf VMDK is second</description>
+		<content:encoded><![CDATA[<p>&gt; Первым добавьте диск DataONTAP-cf. Вторым – vmdk меньшего размера.</p>
+<p>при этом на скриншоте обратное: cf VMDK is second</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/1098#comment-1995</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Mon, 05 Dec 2011 10:28:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1098#comment-1995</guid>
+		<description>Если у вас vSphere 5 (проверялось на vCloud c ESX5i под ним, по идее для vSphere 4 то же самое должно быть) и выше можно просто конвертнуть в OVF и импортировать как vApp. Для успешной конвертации необходжимо в vmx файле закомментировать строку начинающуюся с точки (в самом начале файла).
+
+Насчет systemid интересно. Простая смена переменной окружения в лоадере вываливает систему в panic при загрузке.
+
+Без смены не дает например добавить два симулятора в DFM что жутко огорчает. На коммунити написано что в 8.0.1 systemid менялся вместе с serialnum, с 8.1 это поменяли, и видимо что-то еще.
+
+Ждем когда допилят режим HA пары, не понятно что мешает сделать чтоб работало раз все равно сейчас для интерконнекта ethernet используется.</description>
+		<content:encoded><![CDATA[<p>Если у вас vSphere 5 (проверялось на vCloud c ESX5i под ним, по идее для vSphere 4 то же самое должно быть) и выше можно просто конвертнуть в OVF и импортировать как vApp. Для успешной конвертации необходжимо в vmx файле закомментировать строку начинающуюся с точки (в самом начале файла).</p>
+<p>Насчет systemid интересно. Простая смена переменной окружения в лоадере вываливает систему в panic при загрузке.</p>
+<p>Без смены не дает например добавить два симулятора в DFM что жутко огорчает. На коммунити написано что в 8.0.1 systemid менялся вместе с serialnum, с 8.1 это поменяли, и видимо что-то еще.</p>
+<p>Ждем когда допилят режим HA пары, не понятно что мешает сделать чтоб работало раз все равно сейчас для интерконнекта ethernet используется.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

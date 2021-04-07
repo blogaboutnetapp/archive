@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; block checksum</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;block checksum&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-708">
+				<h2 class="posttitle"><a href="../708/trackback.html" rel="bookmark" title="Permanent Link to Расчет дисковой емкости: Zone и Block Checksums">Расчет дисковой емкости: Zone и Block Checksums</a></h2>
+				<div class="postmetadata">23 Сентябрь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??так, в предыдущем посте я показал вам, почему &quot;диск на два терабайта&quot; вовсе не обладает емкостью в &quot;два терабайта&quot; (по крайней мере с точки зрения устройства, использующего &quot;двоичную&quot; арифметику. Однако в случае NetApp это не единственный &quot;сюрприз&quot; для новичка.</p>
+<p>Я уже <a href="../294/trackback.html">рассказывал</a> в этом блоге, почему NeApp, наряду с некоторыми другими вендорами, использует на дисках сектор размером 520 байт, то есть на 8 байт больше, чем &quot;традиционный&quot;, 512 байт. ??спользование такого сектора обеспечивает лучшую сохранность данных, устойчивость к некоторым специфическим дисковым ошибкам, и позволяет организовать, например, дедупликацию данных.     <br />Однако использование такого сектора, и получение всех связанных с ним плюсов, также приводит к увеличению расхода raw-пространства, прежде чем оно станет usable.</p>
+<p>Если в случае использование дисков SAS или FC мы можем просто задать необходимый размер сектора при низкоуровневом форматировании, то все сложнее с дисками SATA. Диски SATA имеют фиксированный сектор, размером 512 байт, и не имеют возможности задавать его размер произвольно, таково ограничение и негибкость протокола SATA.</p>
+<p>Поэтому для того, чтобы обеспечить идентичный функционал как для SAS/FC, так и для SATA, в системах NetApp используется следующий метод.    <br />Как вы уже знаете, логический сектор WAFL в OS Data ONTAP равен 4096 байт данных, то есть состоит из восьми &quot;низкоуровневых&quot; секторов диска. Если в случае SAS/FC мы храним дополнительную информацию о секторе в дополнительных 8 байтах на каждый из 8 секторов (суммарно на логический сектор WAFL мы получаем 64 байта таких данных), то, поскольку SATA нам такой возможности не предоставляет, мы вынуждены под хранение этих 64 байт занять отдельный сектор на диске, размером 512 байт. Таким образом, на каждые 8 секторов по 512 байт на диске SATA, мы занимаем один сектор, размером 512 байт, под хранение 64 байт служебных данных. Не слишком экономично, но у нас нет иного варианта.</p>
+<p>Однако это, как нетрудно заметить, на 1/9 уменьшает доступную для хранения данных емкость диска SATA.</p>
+<p>Технология &quot;расширенного сектора&quot; для FC и SAS-дисков принято называть &quot;Block Checksum (BCS)&quot;, технологию &quot;девятого сектора&quot; - &quot;Zone checksum&quot; или &quot;8/9th&quot;</p>
+<p>Для того, чтобы посмотреть сколько же в распоряжении NetApp оказывается емкости на диске, можно использовать команду sysconfig -r, которая покажет &quot;правильную&quot; (<em>rightsized</em>) емкость дисков в MiB и блоках.</p>
+<p>Вот каковы результаты для диска SATA на &quot;2TB&quot;</p>
+<p><code>Phys (MB/blks)      <br />&#8212;&#8212;&#8212;&#8212;&#8211;       <br />1695759/3472914816 </code></p>
+<p>В прошлом посте я уже приводил выдержку из техспеки диска WDC RE4 на &quot;2TB&quot;. В ней указывалось, что диск содержит 3 907 029 168 секторов. Почему же NetApp видит тут только 3 472 914 816?</p>
+<p>Посчитаем:</p>
+<p>Эффект &quot;отбрасывания&quot; каждого девятого сектора это будет для числа секторов коэффициент 0,88 &quot;в периоде&quot;.   <br />Умножим паспортное количество секторов на 0,88… и получим:</p>
+<p><em>3 907 029 168 x 0.88… = 3 472 914 816</em> секторов размером 512 байт для хранения непосредственно данных.</p>
+<p>Сколько же это в мегабайтах, или правильнее - в &quot;мебибайтах&quot;?</p>
+<p><em>3 472 914 816 доступных секторов x 512 байт = 1 778 132 385 792 байт</em></p>
+<p><em>1 778 132 385 792 байт/1024 = 1 736 457 408 kiB/1024 = 1 695 759 MiB = 1 656 GiB</em></p>
+<p>Таким образом, в &quot;двоичной арифметике&quot;, принятой в компьютере (и OS Data ONTAP в том числе), мы получаем доступной в NetApp емкость одного диска &quot;SATA 2TB&quot; равной чуть более 1,65 &quot;тебибайт&quot;.</p>
+<p>??менно исходя из этой емкости одного диска следует высчитывать общую емкость системы хранения, обратите на этот факт особое внимание, чтобы не оказаться, что нужный объем хранения просто не лезет на неосмотрительно малое купленное количество дисков.</p>
+<p>Вот тут я бы хотел, чтобы написанное далее было бы выделено жирным, крупным и ярким шрифтом, и было ясно осознано моими читателями, прежде чем мы двинемся дальше.</p>
+<p>Все описанное выше не является недостатком систем хранения NetApp (как это, зачастую, желают представить некоторые из наших уважаемых конкурентов и оппонентов). Все описанное выше это не НЕДОСТАТОК, это <strong>СВОЙСТВО</strong>. Точно также, как &quot;свойством&quot;, а не &quot;недостатком&quot; является описанное в предыдущем посте &quot;уменьшение&quot; размера диска при переходе от измерения емкости диска <em>&quot;в попугаях&quot;</em> к емкости <em>&quot;в слоненках&quot;</em>.</p>
+<p>Да, сперва нам кажется, что отдать 15% от &quot;паспортной&quot; емкости это довольно жестокое требование, в особенности по сравнению с другими системами, которые, как будто, такого &quot;налога&quot; и не требуют. Но помните, что всегда вы что-то получите назад (это свойство любых налогов, по крайней мере в <em>нормальной стране</em>;).</p>
+<p>&quot;Отобранный&quot; у вас &quot;каждый девятый сектор&quot;, вернется к вам более высокой надежностью хранения, возможностью использовать быстрый &quot;RAID с двойной четностью&quot;, не страдающий недостатками &quot;обычного RAID-6&quot;, возможностью использовать thin provisioning и дедупликацию.</p>
+<p>В итоге, как показывает практика, вы получаете обратно в usable, заметно больше, чем эти отданные сперва &quot;15%&quot;.   <br />Обратите также внимание, что &quot;15%&quot; это только при использовании Zone Checksum на SATA.</p>
+<p>При использовании дисков SAS/FC, использующих Block Checksum, например дисков SAS &quot;450GB&quot;, их rightsized-емкость для системы будет равна 408,2GiB, что составляет уменьшение примерно на 9,5%.</p>
+<p>В следующем посте мы обсудим формирование и ограничения aggregates и flexvol-ов.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="block-checksum.html" rel="tag">block checksum</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="zone-checksum.html" rel="tag">zone checksum</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../708/trackback.html#comments" title="Комментарий к записи Расчет дисковой емкости: Zone и Block Checksums">Комментарии (10)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.065 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

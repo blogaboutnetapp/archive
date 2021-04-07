@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; ownership</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;ownership&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1220">
+				<h2 class="posttitle"><a href="../1220/trackback.html" rel="bookmark" title="Permanent Link to Замена &ldquo;головы&rdquo; в сторадже: disk ownership change">Замена &ldquo;головы&rdquo; в сторадже: disk ownership change</a></h2>
+				<div class="postmetadata">8 Октябрь 2012, 11:11 <!-- от  --></div>
+				<div class="postentry">
+					<p>Вы уже наверняка знаете, что, в принципе, замена контроллера на установленной системе хранения NetApp процедура довольно несложная. Так как все контроллеры, всех семейств, используют одну и ту же OS Data ONTAP, отличаясь только&#160; внутренним аппаратным устройством, а индивидуальные настройки контроллера системы (файловая система /etc, если кто понимает UNIX-style) находится отдельно от контроллера, на дисках дисковых полок, то вообще говоря замена контроллера на новый, даже другой системы, сводится к простому перетыканию кабелей, после чего новый контроллер с OS внутри подмонтирует свои индивидуальные настройки и поднимется с сохранением настроек и данных на дисках. Но следует не забыть про software ownership. Дело в том, что в этой схеме, ныне общепринятой, диски “приписаны” к определенному контроллеру по его SystemID (а не по подключенным портам, как было когда-то, во времена FAS3020 и старше). Соответственно, чтобы старые диски увиделись новым контроллером нужно на них записи их владельца поменять на нового. делается это из Maintenance mode:</p>
+<p><code>
+<p>=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2012.10.08 09:26:06 =~=~=~=~=~=~=~=~=~=~=~=      <br />login as: root       <br /><a href="mailto:root@192.168.99.161's">root@192.168.99.161&#8217;s</a> password:       <br />=== OEMCLP v1.0.0 BMC v1.3 ===       <br />bmc shell -&gt; system power cycle       <br />This will cause a dirty shutdown of your appliance. Continue? [y/N] y       <br />bmc shell -&gt;       <br />bmc shell -&gt; system console       <br />Press ^G to enter BMC command shell</p>
+<p>AMI BIOS8 Modular BIOS      <br />Copyright (C) 1985-2009,&#160; American Megatrends, Inc. All Rights Reserved       <br />Portions Copyright (C) 2009 NetApp, Inc. All Rights Reserved       <br />BIOS Version 6.1       <br />+++++++++++++++++++++++++++++++++++</p>
+<p>Boot Loader version 2.1      <br />Copyright (C) 2000-2003 Broadcom Corporation.       <br />Portions Copyright (C) 2002-2008 NetApp</p>
+<p>4096MB RAM installed      <br />CPU Type: Intel(R) Xeon(R) CPU&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; @ 1.66GHz</p>
+<p>Starting AUTOBOOT press Ctrl-C to abort&#8230;      <br />Loading X86/freebsd/image2/kernel:..0&#215;200000/7916668 0&#215;98cc7c/708860 0xa3a000/573440 Entry at 0&#215;00248390       <br />Loading X86/freebsd/image2/platform.ko:0xac6000/380544 0xb23000/28000 0xb29d60/109976       <br />Starting program at 0&#215;00248390       <br />NetApp Data ONTAP 8.1.1 7-ModeCopyright (C) 1992-2012 NetApp.       <br />All rights reserved.       <br />md1.uzip: 26368 x 16384 blocksmd2.uzip: 3584 x 16384 blocks</p>
+<p>*******************************      <br />*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *       <br />* Press Ctrl-C for Boot Menu. *       <br />*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *       <br />*******************************       <br />^C</p>
+<p>Boot Menu will be available.</p>
+<p>Please choose one of the following:</p>
+<p>(1) Normal Boot.      <br />(2) Boot without /etc/rc.       <br />(3) Change password.       <br />(4) Clean configuration and initialize all disks.       <br />(5) Maintenance mode boot.       <br />(6) Update flash from backup config.       <br />(7) Install new software first.       <br />(8) Reboot node.       <br />Selection (1-8)? 5</p>
+<p>You have selected the maintenance boot option:      <br />the system has booted in maintenance mode allowing the       <br />following operations to be performed:</p>
+<p>?&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; disk&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />key_manager&#160;&#160;&#160;&#160;&#160;&#160; fcadmin&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />fcstat&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; sasadmin&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />sasstat&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; acpadmin&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />halt&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; help&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />ifconfig&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; raid_config&#160;&#160;&#160;&#160;&#160;&#160; <br />storage&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; sesdiag&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />sysconfig&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; vmservices&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />version&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; vol&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />aggr&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; sldiag&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />dumpblock&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; environment&#160;&#160;&#160;&#160;&#160;&#160; <br />systemshell&#160;&#160;&#160;&#160;&#160;&#160; vol_db&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />led_on&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; led_off&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />sata&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; acorn&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />stsb&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; scsi&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />nv8&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; disk_list&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />fctest&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; disktest&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />diskcopy&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; vsa&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br />xortest&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; disk_mung&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </p>
+<p>Type &quot;help &lt;command&gt;&quot; for more details.</p>
+<p>In a High Availablity configuration, you MUST ensure that the      <br />partner node is (and remains) down, or that takeover is manually       <br />disabled on the partner node, because High Availability       <br />software is not started or fully enabled in Maintenance mode.</p>
+<p>FAILURE TO DO SO CAN RESULT IN YOUR FILESYSTEMS BEING DESTROYED</p>
+<p>NOTE: It is okay to use &#8217;show/status&#8217; sub-commands such as      <br />&#8216;disk show or aggr status&#8217; in Maintenance mode while the partner is up       <br />Continue with boot?Please answer yes or no.       <br />Continue with boot? yes</p>
+<p>*&gt; disk ?      <br />usage: disk &lt;options&gt;</p>
+<p>Options are:&#160; <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; assign {&lt;disk_name&gt; | all | [-T &lt;storage type&gt; | -shelf &lt;shelf name&gt;] [-n &lt;count&gt;] | auto} [-p &lt;pool&gt;] [-o &lt;ownername&gt;] [-s &lt;sysid&gt;] [-c block|zoned] [-f] - assign a disk to a filer or all unowned disks by specifying &quot;all&quot;&#160; or &lt;count&gt; number of unowned disks       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; ddr_label {repair | print | delete | dumpraw | modify [-c] -o &lt;offset&gt; -v &lt;value&gt; | start_scan | pause_scan | resume_scan | error_scan} [-d all | &lt;disk_list&gt;]       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; encrypt { lock | rekey | destroy | sanitize | show } - perform tasks specific to self-encrypting disks       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; power_cycle [ -f ] { [-d &lt;disk_list&gt;] | [ -c &lt;channel_name&gt; [ -s &lt;shelf_number&gt; ] ] } - power-cycle one or more disks       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; <strong>reassign</strong> {-o &lt;old_name&gt; | -s &lt;old_sysid&gt;} [-n &lt;new_name&gt;] [-d &lt;new_sysid&gt;] - reassign disks from old filer       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; remove_ownership [&lt;disk_name&gt; | all | -s &lt;sysid&gt;] [-f] - revert/remove disk ownership       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; sanown_stats {start| stop| show }- collect sanown event stats       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; show [-o &lt;ownername&gt; | -s &lt;sysid&gt; | -n | -v | -a]&#160; - lists disks and owners       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; unfail [-s] &lt;disk_name&gt;&#160;&#160;&#160;&#160; - unfail a disk&#160; (-s&#160; not valid in maintenance mode)       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; upgrade_ownership&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; - upgrade disks to new ownership scheme</p>
+<p>*&gt;</p>
+<p>*&gt; disk reassign -s xxxxxxxxxxx -d yyyyyyyyyyy</p>
+<p>Partner node must not be in Takeover mode during disk reassignment      <br />from maintenance mode.       <br />Serious problems could result!!       <br />Are you sure partner is NOT in takeover mode (y/n)? n</p>
+<p>*&gt; halt      </p>
+<p>Oct 08 01:34:22 [localhost:kern.cli.cmd:debug]: Command line input: the command is &#8216;halt&#8217;. The full command line is &#8216;halt&#8217;. </p>
+<p>Uptime: 6m54sSystem halting&#8230; </p>
+</p>
+<p></code></p>
+<p>Выше я прервал переназначение disk ownership, сама же эта процедура делается довольно быстро, и если нигде не ошибиться, и все иметь подготовленным и смонтированным, то можно уложить процедуру замены контроллера системы хранения в 15-20 минут.</p>
+<p>Впрочем, если вы используете NetApp как SAN-устройство, и храните на нем LUN-ы, есть еще одна тонкость, связанная со сменой serial id этих LUN при замене NVRAM (отдельно, или в составе контроллера целиком), о которой поговорим в четверг.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="change.html" rel="tag">change</a>, <a href="disk-ownership.html" rel="tag">disk ownership</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ownership.html" rel="tag">ownership</a>, <a href="upgrade.html" rel="tag">upgrade</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1220/trackback.html#comments" title="Комментарий к записи Замена &ldquo;головы&rdquo; в сторадже: disk ownership change">Комментарии (11)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.068 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

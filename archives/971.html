@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Что означает сообщение FCP Partner Path Misconfigured (и что с ним делать)?</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="951/trackback.html">Еще немного про autotiering</a></div>
+			<div class="alignright"><a href="972/trackback.html">Заработал сайт NetApp Linux Community</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-971">
+			<h2 class="posttitle"><a href="971/trackback.html" rel="bookmark" title="Permanent Link to Что означает сообщение FCP Partner Path Misconfigured (и что с ним делать)?">Что означает сообщение FCP Partner Path Misconfigured (и что с ним делать)?</a></h2>
+			<div class="postmetadata">14 Июль 2011, 7:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Я обратил внимание, что, довольно часто, пользователи сталкиваются с ошибкой конфгурации, которая индицируется в логах сообщением: <strong>FCP Partner Path Misconfigured</strong>. Несмотря на то, что ошибка эта довольно банальна, и исправление вызвавших ее причин тривиально, я заметил, что у многих пользователей возникают проблемы с диагностикой, да и вообще с пониманием того, что именно вызывает эту ошибку.</p>
+<p>Поэтому я взял на себя труд перевести на русский прекрасно написанную статью из Knowledge Base с сайта NetApp, в которой подробно рассматривается эта ошибка, причины ее вызывающие, и методы устранения.</p>
+<h2>Что означает сообщение FCP Partner Path Misconfigured</h2>
+<p><a href="https://kb.netapp.com/support/index?page=content&amp;id=3010111&amp;actp=LIST_POPULAR">https://kb.netapp.com/support/index?page=content&amp;id=3010111</a></p>
+<p>KB ID: 3010111 Version: 7.0    <br />Published date: 04/29/2011 </p>
+<h3>Проблема</h3>
+<p>AutoSupport message: FCP PARTNER PATH MISCONFIGURED</p>
+<h3>Сообщения Syslog и EMS</h3>
+<p><code>[hostname: scsitarget.partnerPath.misconfigured:error]: FCP Partner Path Misconfigured.      <br />[hostname: scsitarget.partnerPath.misconfigured:error]: FCP Partner Path Misconfigured - Host I/O access through a non-primary and non-optimal path was detected.</code></p>
+<p>  <span id="more-971"></span></p>
+<h3>Терминология</h3>
+<table border="0" cellspacing="0" cellpadding="2" width="697">
+<tbody>
+<tr>
+<td valign="top" width="180">Partner Path</td>
+<td valign="top" width="515">любой путь к LUN, который используется узлом-партнером HA-кластера для доступа к LUN, принадлежащего локальному узлу.</td>
+</tr>
+<tr>
+<td valign="top" width="180">Non-primary path</td>
+<td valign="top" width="515">Синоним для partner path, proxy path и secondary path. Все приведенные варианты это non-primary path.</td>
+</tr>
+<tr>
+<td valign="top" width="180">FCP target port</td>
+<td valign="top" width="515">??нтерфейс fibre channel, используемый для доступа по FCP с хостов.</td>
+</tr>
+<tr>
+<td valign="top" width="180">Virtual Target Interconnect (VTIC)</td>
+<td valign="top" width="515">??нтерфейс виртуального FCP таргета, как он видится в списке initiator group. VTIC используется для индикации того, инициатор имеет доступ к secondary path.</td>
+</tr>
+</tbody>
+</table>
+<h3>Описание проблемы </h3>
+<p>Конфигурация HA-кластера NetApp, работающего в режиме active-active, позволяет доступ к logical unit (LUN) по портам FCP с обоих узлов кластера. Однако хосты, в рабочем, нормальном режиме, должны работать с LUN-ами через порты того контроллера, которому принадлежит данный LUN. Пути ввода-вывода, использующие порт того узла кластера, который непосредственно владеет данным LUN, называются primary paths или optimized paths. Пути ввода-вывода, использующие порт того узла кластера, который является партнером непосредственно владеющего LUN-ом, называются secondary paths, partner paths или non-optimized paths. Доступ к LUN через партнерский узел должен осуществляться только в том случае, когда недоступен основной, primary port.</p>
+<p>Работа с LUN-ами через secondary path вызывается одной или несколькими следующими причинами: не работает primary path между хостом и контроллером, или же MPIO на OS хоста сконфигурировано неверно. Эти причины показывают, что величины избыточности и показатели производительности SAN ниже возможного. ??справить проблему следует немедленно, как только primary path к контроллеру восстановлен.    <br />При некоторых условиях, сообщение об этой ошибке может быть вызвано некоторыми событиями не связанными с операциями ввода-вывода, например действиями MPIO path management или же работой кластерного ПО на хосте, проводящего проверку состояния и доступности LUN-ов. Если установлено, что именно эти причины вызвали генерацию сообщения об ошибке, возможно следует предпринять действия по уменьшению активности этих задач, или же настроить пороговые значения соответствующих датчиков, вызывающих генерацию сообщения. Начиная с версии Data ONTAP 7.2.2, операции SCSI не являющиеся операциями чтения или записи данных, не вызывают появления сообщения о рассматриваемой в статье ошибке.</p>
+<p>Сообщение FCP Partner Path Misconfigured иногда появляется при перезагрузке контроллера системы хранения, процессе кластерного takeover и giveback, или загрузке OS хоста. Эти случаи должны статься нормальными, и обычно исправляются автоматически, на уровне MPIO хоста, когда он определяет состояние изменившегося пути доступа. Эти случаи появления такой ошибки могу быть проигнорированы, если они не происходят непрерывно. Data ONTAP 7.2.2 и более новые релизы имеют необходимые механизмы по устранению таких спорадических срабатываний триггера ошибки при перезагрузке контроллера, кластерном переключении, и так далее. </p>
+<p>NetApp рекомендует настроить пороги срабатывания уведомления о ошибочном пути (FCP Partner Path Misconfigured) для того, чтобы устранить ложные и спорадические срабатывания. Запустите в консоли следующие команды на обоих узлах HA-кластера.</p>
+<p><code>options lun.use_partner.cc.warn_limit 300      <br />options lun.use_partner.cc.bytes 2457600 </code></p>
+<p>Первая опция увеличивает время интервала измерения с 10 секунд до 300 секунд, а вторая опция – увеличивает порог числа переданных байт с 512000 байт до 2457600 байт. </p>
+<p>Если после этого изменения сообщение продолжает появляться, то следуйте приведенным ниже шагам по поиску и устранению причин проблемы. Рисунок ниже показывает ситуацию с доступом к вводу-выводу данных по primary path и non-primary path.</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image119.png" width="633" height="527" /></p>
+<h3>Определение вызвавших проблему LUN-ов и хостов</h3>
+<p>Перечисленные ниже шаги реализуют процедуру, которая может быть использована для идентификации событий ввода-вывода, в результате которых вы получаете названную ошибку. Процесс идентификации начинается с определения тех LUN-ов, ввод-вывод данных на которых происходит через порты FCP target узла-партнера. Когда эти LUN-ы найдены, следующим шагом следует идентифицировать инициаторы, выполняющие эти операции. Далее, идентифицируются порты FCP target на контроллере системы хранения, который обслуживает нужные LUN-ы. Хост должен иметь доступ как минимум к одному порту на каждом узле HA-кластера из контроллеров системы хранения. Когда инициаторы хоста и правильные порты FCP target определены, следует проинспектировать фабрику, чтобы убедиться в том, что ее конфигурация верна, и все соединения в ней работают правильно. ??, наконец, следует проверить конфигурацию MPIO на хостах, чтобы убедиться в правильной его настройке.</p>
+<ol>
+<li>Определите LUN-ы, доступ к которым осуществляется через порт FCP-таргета партнерского узла.
+<ul>
+<li><strong>lun stats -o</strong> (LUN STATISTICS) </li>
+</ul>
+</li>
+<li>Определите инициаторов-хостов, которые осуществляют доступ через partner path
+<ul>
+<li><strong>lun config_check -A</strong> (LUN CONFIG CHECK) – вывод валиден только в случае, когда просматривается в AutoSupport </li>
+<li><strong>lun show -v</strong> (LUN CONFIGURATION) </li>
+<li><strong>igroup show -v</strong> (INITIATOR GROUPS) </li>
+</ul>
+</li>
+<li>Определите правильный порт FCP target для доступа к LUN.
+<ul>
+<li><strong>fcp show cfmode</strong> (FCP CFMODE) </li>
+<li><strong>fcp show adapters</strong> (FCP TARGET ADAPTERS) </li>
+</ul>
+</li>
+<li>Проверьте соединение инициатора хоста к правильному порту FCP target конфигурацию MPIO в OS. </li>
+<li>Проверьте, что использование partner path прекратилось на обоих узлах кластера.
+<ul>
+<li><strong>sysstat -b 1</strong> </li>
+</ul>
+</li>
+</ol>
+<p>&#160;</p>
+<h3>Процедуры и примеры</h3>
+<p><strong><em>1. Определите LUN-ы, к которым идет доступ через порты FCP target с узла-партнера HA-кластера, а также тип этих операций.</em></strong> </p>
+<p>Порог включения сообщения об ошибке может включаться по определенному количеству считанных или записанных килобайт, а также от определенного количества выполненных операций. Примеры операций SCSI, которые не связаны с чтением или записью это Inquiry, Persistent Reserve, Report LUNS, и Test Unit Ready. Data ONTAP 7.2.2 и более новые релизы не включают уведомление об ошибке для операций, не относящихся к чтению или записи данных. </p>
+<p>Раздел LUN STATISTICS отчета Autosupport покажет количество и объем операций чтения и записи для обоих узлов HA-кластера, как локального, так и партнерского, раздельно по LUN-ам. Необходимые данные могу быть также получены из вывода отчета команды <strong>lun stats -o</strong>. Счетчики могут быт обнулены с помощью команды <strong>lun stats -z</strong> которая полезна для того, чтобы понять, какие из счетчиков растут. Вывод команды <strong>lun stats</strong> может показать что ни один из счетчиков не превысил порога срабатывания уведомления. В этом случае, LUN-ы, к которым доступ идет через узел-партнер, могут быть расположены на узле-партнере. Когда виновные LUN-ы идентифицированы, продолжайте шагом 2, чтобы найти вызвавший ошибку хост.     <br />Пример вывода <strong>lun stats -o</strong> из Autosupport:</p>
+<p><code>===== LUN STATISTICS =====      <br />/vol/esx_luns/guest001.lun&#160; (32 minutes, 39 seconds)       <br />&#160;&#160;&#160; Read (kbytes)&#160;&#160; Write (kbytes)&#160; Read Ops&#160; Write Ops&#160; Other Ops&#160; QFulls&#160; <strong>Partner Ops</strong> <strong>Partner KBytes</strong>       <br />&#160;&#160;&#160; 13510011357&#160;&#160;&#160;&#160; 12648494826&#160;&#160;&#160;&#160; 707504214 932701251&#160; 251651&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160;&#160; <strong>263445977</strong>&#160;&#160; <strong>2123914089</strong>       <br /></code></p>
+<p>В примере выше, как параметр <strong>Partner Ops</strong>, так и <strong>Partner Kbytes</strong>, превышают допустимый порог в заданном интервале времени. Следует найти хост, осуществляющий доступ к LUN таким образом, и понят, почему он так поступает. Возможным решением проблемы будет ограничение доступа, или же настройка MPIO на OS хоста, чтобы устранить доступ по неосновному пути. </p>
+<p>&#160;</p>
+<p><strong><em>2. Определите инициаторы хостов, которые производят ввод-вывод через partner path.</em></strong></p>
+<p>??спользуя LUN-ы, идентифицированные на шаге 1, определите подозреваемые инициаторы путем перекрестной locate the suspect initiators by cross-referencing the LUN configuration with the initiator group mapping. Эта информация может быть найдена в отчетах AutoSupport, в разделе LUN CONFIGURATION и показана в выводе команды <strong>lun show -v</strong>. Когда initiator groups для LUN-ов обнаружена, то WWPN инициаторов-членов группы может быть найдена в разделе отчета Autosupport под названием INITIATOR GROUPS и в выводе команды <strong>igroup show -v</strong>.     <br />Пример<strong> lun show -v</strong> и <strong>igroup show -v</strong> из AutoSupport:</p>
+<p><code>===== LUN CONFIGURATION =====      <br />/vol/esx_luns/guest001.lun&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 2.0t (2194459852800) (r/w, online, mapped)       <br />&#160; Comment:       <br />&#160; Serial#: XXXXXXXXX       <br />&#160; Share: none       <br />&#160; Space Reservation: enabled       <br />&#160; Multiprotocol Type: linux       <br />&#160; Maps: igroupA=0 igroupB=0       <br />===== INITIATOR GROUPS =====       <br />&#160;&#160;&#160; igroupA (FCP) (ostype: vmware):       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; 21:00:00:e0:8b:92:da:ef (logged in on: 0a, vtic)       <br />&#160;&#160;&#160; igroupB (FCP) (ostype: vmware):       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; 21:00:00:e0:8b:82:d0:09 (logged in on: 0c, vtic)</code></p>
+<p>В этом примере LUN /vol/esx_luns/guest001.lun смаппирован на две initiator groups, igroupA и igroupB. Каждая initiator group содержит один WWPN. Эти WWPN принадлежат разным портам, которые могут быть на одном хосте, или на разных хостах, в зависимости от вашей конфигурации. WWPN-ы входят в составленный список подозреваемых инициаторов, которые могут осуществлять доступ к LUN по неправильному пути. Это будет список подозреваемых инициаторов, который мы проверим на шаге 4.</p>
+<p>Чтобы уменьшить «список подозреваемых», версия Data ONTAP 7.2.2 и новее предлагает список инициаторов, производящих ввод-вывод через partner path. Эту информацию можно найти в разделе LUN CONFIG CHECK в AutoSupport и выводе команды <strong>lun config_check -A</strong> (Внимание: вывод <strong>lun config_check -A</strong> валиден только когда включен в AutoSupport). В дополнение к списку инициаторов, работающих через partner path, <strong>lun config_check -v</strong> проверит и покажет различные другие проблемы конфигурации. Проблемы, показанные в выводе этой команды, следует устранить перед дальнейшими действиями. </p>
+<p>Пример lun config_check -A из вывода AutoSupport:</p>
+<p><code>===== LUN CONFIG CHECK =====      <br />The following FCP Initiators are sending Read/Write i/o over the       <br />FCP Partner Paths during the last 15 seconds       <br />WWPN&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Partner&#8217;s Port&#160;&#160;&#160;&#160;&#160;&#160; ops&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; bytes       <br />21:00:00:e0:8b:25:0c:10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0c&#160;&#160;&#160;&#160;&#160;&#160;&#160; 34&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 17408       <br />21:00:00:e0:8b:25:03:66&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0c&#160;&#160;&#160;&#160;&#160;&#160; 186&#160;&#160;&#160;&#160;&#160;&#160; 1117696       <br />21:00:00:e0:8b:25:0c:18&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0c&#160;&#160;&#160;&#160;&#160; 1618&#160;&#160;&#160;&#160;&#160; 10866688       <br />21:00:00:e0:8b:25:0b:b0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0c&#160;&#160;&#160;&#160;&#160; 1693&#160;&#160;&#160;&#160;&#160; 13290496</code></p>
+<p>В приведенном примере четыре инициатора обращаются к LUN-ам через partner path. Некоторое количество операций приемлемо и нормально для существующих механизмов управления путями в MPIO. Но высокие значения числа операций и количества прошедших байт у других инициаторов являются поводом проверить правильность настроек в MPIO.</p>
+<p><strong><em>3. Определите, что таргет-порты FC на primary-контроллере доступны для подключения к LUN.</em></strong></p>
+<p>В режиме кластера active-active, будет порт primary или secondary зависит от используемого режима cluster failover mode (cfmode). Например, режим cfmode single_image позволяет каждый из target FC портов использовать как для доступа по основному пути к LUN-ам, расположенным на локальном узле, так и к LUN-ам на партнерском узле HA-кластера. Для деталей о использовании cfmode и конфигурировании портов смотрите <a href="http://now.netapp.com/NOW/knowledge/docs/ontap/ontap_index.shtml">Data ONTAP Block Access Management Guide</a>.</p>
+<p>Режим cfmode может быть определен с помощью команды fcp show cfmode. Его также можно увидеть в разделе FCP CFMODE в выводе AutoSupport.</p>
+<p><code>===== FCP CFMODE =====      <br />fcp show cfmode: single_image</code></p>
+<p>На сегодняшний день режим cfmode single_image используется в абсолютном большинстве кластерных систем NetApp.</p>
+<p>Порты FCP target ports можно посмотреть с помощью команды fcp show adapter и в разделе AutoSupport FCP TARGET ADAPTERS. </p>
+<p>В приведенном примере показываются target adapters при использовании режима cfmode single_image. Когда используется single_image cfmode, любые порты можно использовать для доступа к LUN, расположенным на обоих узлах HA-кластера, как local, так и partner.</p>
+<p><code>&gt; fcp show adapters      <br />Slot:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0c       <br />Description:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Fibre Channel Target Adapter 0c (Dual-channel, QLogic 2322 (2362) rev. 3)       <br />Adapter Type:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Local       <br />Status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; ONLINE       <br />FC Nodename:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 50:0a:09:80:86:17:c3:ac (500a09808617c3ac)       <br />FC Portname:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 50:0a:09:81:96:17:c3:ac (500a09819617c3ac)       <br />Slot:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0d       <br />Description:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Fibre Channel Target Adapter 0d (Dual-channel, QLogic 2322 (2362) rev. 3)       <br />Adapter Type:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Local       <br />Status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; ONLINE       <br />FC Nodename:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 50:0a:09:80:86:17:c3:ac (500a09808617c3ac)       <br />FC Portname:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 50:0a:09:82:96:17:c3:ac (500a09829617c3ac)</code></p>
+<p>&#160;</p>
+<p><strong><em>4. Проверьте подключение инициаторов с хоста, определенны на шаге 2 как «подозреваемых», к портам primary FCP target и их конфигурацию MPIO.</em></strong></p>
+<p>Когда primary и secondary FCP target ports идентифицированы, убедитесь, что инициаторы на хостах подключены к ним (logged in). Соединение между инициаторами хостов, FC-фабрикой и портами FCP target на контроллере проверяются со стороны хоста. Хотя контроллер системы хранения имеет возможность определить, какой из инициаторов подключен к нему (logged in), состояние этой информации иногда бывает не вполне актуально. Только на стороне хоста его инициаторы могут дать точное и актуальное состояние о статусе подключения (login). Такие инструменты, как Emulex HBAnywhere и QLogic SANSurfer могут использоваться для определения текущего состояния инициаторов. Если инициаторы не подключаются в primary FCP target port, тогда следует проверить состояние FC-фабрики на целостность соединений (link failures) или ограничения при неверном зонировании, которые могут препятствовать нормальному подключению инициаторов в порты FCP target на контроллере системы хранения.</p>
+<p>Перечисленные ниже подробные процедуры предлагают детальную процедуру по проверке подключения хоста-инициатора и конфигурации MPIO для различных операционных систем на хосте.</p>
+<p><a href="https://kb.netapp.com/support/index?page=content&amp;id=1010434">How to verify HP-UX fibre channel configurations with multipathing I/O (MPIO)</a>     <br /><a href="https://kb.netapp.com/support/index?page=content&amp;id=1011509">How to Verify VMWare ESX 3.x Fibre Channel Configurations with Multipathing I/O (MPIO)</a>     <br /><a href="https://kb.netapp.com/support/index?page=content&amp;id=1011577">How to Verify VMWare ESX 4.x Fibre Channel Configurations with Multipathing I/O (MPIO)</a>     <br /><a href="https://kb.netapp.com/support/index?page=content&amp;id=1012650">How to verify Windows fibre channel configurations with multipathing I/O (MPIO)</a>     <br /><a href="https://kb.netapp.com/support/index?page=content&amp;id=1010943">How to verify Solaris fibre channel configurations with multipathing I/O (MPIO)</a>     <br /><a href="https://kb.netapp.com/support/index?page=content&amp;id=1010260">How to verify Linux fibre channel configurations with multipathing I/O (MPIO)</a>     <br /><a href="https://kb.netapp.com/support/index?page=content&amp;id=1011508">How to verify AIX fibre channel configurations with multipathing I/O (MPIO)</a>     <br /><a href="https://kb.netapp.com/support/index?page=content&amp;id=1011507">How to verify NetWare fibre channel configurations with multipathing I/O (MPIO)</a>     <br /><a href="https://kb.netapp.com/support/index?page=content&amp;id=3011171">How to verify VMware ESXi configurations with multipathing I/O</a></p>
+<p>&#160;</p>
+<p><strong><em>5. Проверьте, что доступ по partner path прекратился для обоих кластерных узлов.</em></strong></p>
+<p>Команда <strong>sysstat -b 1</strong> используется для мониторинга счетчиков производительности SAN. Счетчик &quot;Partner&quot; считает операции ввода-вывода и трафик передачи данных по partner path. Наблюдение за этими счетчиками это эффективный метод убедиться, что все действия по устранению проблемы доступа по partner path выполнены успешно и проблема решена. Убедитесь, что проверили ситуацию трафиком по partner path для обоих контроллеров, на обоих узлах HA-кластера одновременно. </p>
+<p><code>CPU&#160;&#160; FCP iSCSI Partner&#160; Total&#160;&#160;&#160; FCP&#160;&#160; kB/s&#160;&#160; iSCSI&#160;&#160; kB/s Partner&#160; kB/s&#160;&#160; Disk&#160; kB/s&#160;&#160; CP&#160;&#160; CP Disk      <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; in&#160;&#160;&#160; out&#160;&#160;&#160;&#160;&#160; in&#160;&#160;&#160; out&#160;&#160;&#160;&#160;&#160; in&#160;&#160; out&#160;&#160; read write&#160; time&#160; ty util       <br />0%&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 8&#160;&#160;&#160; 24&#160;&#160;&#160; 0%&#160; -&#160;&#160;&#160; 2%       <br />0%&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 16&#160;&#160;&#160;&#160; 8&#160;&#160;&#160; 0%&#160; -&#160;&#160;&#160; 1%       <br />0%&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 1&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 1&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 1&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160; 0&#160;&#160;&#160; 0%&#160; -&#160;&#160;&#160; 0%</code></p>
+<p>&#160;</p>
+<h3>Дополнительно:</h3>
+<p><strong></strong><a href="http://now.netapp.com/NOW/knowledge/docs/san/fcp_iscsi_config/QuickRef/fc_iscsi_config_guide_80.pdf">Fibre Channel and iSCSI Configuration Guide</a>     <br /><a href="http://now.netapp.com/NOW/knowledge/docs/ontap/ontap_index.shtml">Data ONTAP Block Access Management Guide</a>     <br /><a href="http://www.emulex.com/index.php?id=973">Emulex HBAnywhere</a>     <br /><a href="http://support.qlogic.com/support/drivers_software.asp?id=m10">QLogic SANSurfer and SANSurfer CLI</a></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/configuration.html" rel="tag">configuration</a>, <a href="tag/fcp.html" rel="tag">fcp</a>, <a href="tag/kb.html" rel="tag">kb</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/partner-path.html" rel="tag">partner path</a><br />					Раздел: <a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="971/trackback.html#respond">Комментарий</a> (<a href='971/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="971/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (3)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1524">
+		<div id="div-comment-1524">
+		<div class="comment-author">
+			<cite>Сергей:<cite></div>
+			<p>Всё очень доступно, спасибо.</p>
+						<div class="comment-meta"><a href="971/trackback.html#comment-1524" title="">15 Июль 2011, 14:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1536">
+		<div id="div-comment-1536">
+		<div class="comment-author">
+			<cite>Dmitry Gorokhov:<cite></div>
+			<p>На моей практике подавляющее большинство таких сообщений возникало из-за использования стандартного MPIO в windows 2008.</p>
+						<div class="comment-meta"><a href="971/trackback.html#comment-1536" title="">22 Июль 2011, 20:18</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1537">
+		<div id="div-comment-1537">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Dmitry Gorokhov:</p>
+<p>Оно возникает из за <strong>неправильно настроенного</strong> MPIO.<br />
+Чьего производства при этом драйвер MPIO это уже второй и отдельный вопрос.</p>
+						<div class="comment-meta"><a href="971/trackback.html#comment-1537" title="">22 Июль 2011, 21:35</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="971" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.078 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

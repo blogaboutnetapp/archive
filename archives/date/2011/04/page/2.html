@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; 2011 &raquo; Апрель</title>
+
+<link rel="stylesheet" href="../../../../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../../../../feed" />
+<link rel="pingback" href="../../../../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../../../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../../../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../../../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Archive for Апрель 2011</p>
+
+				
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"><a href="../index.html">Next Entries &raquo;</a></div>
+		</div>
+
+						
+			<div class="post" id="post-859">
+				<h2 class="posttitle"><a href="../../../../859/trackback.html" rel="bookmark" title="Permanent Link to 5 причин перейти на Data ONTAP 8.0.1">5 причин перейти на Data ONTAP 8.0.1</a></h2>
+				<div class="postmetadata">6 Апрель 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>А сегодня у меня в блоге наверное самый активный и интересный нетапповский блоггер, директор и евангелист направления виртуализации и cloud computing – <a href="http://blogs.netapp.com/virtualstorageguy/biography.html">Vaughan Stewart</a>.</p>
+<p>Напоминаю, что по средам я публикую переводы недавних интересных постов блоггеров самого NetApp, с их собственной блогохостинговой площадки <a href="http://blogs.netapp.com">blogs.netapp.com</a>, кто свободно читает по-английски – рекомендую подписываться на тамошних авторов.</p>
+<h3 class="entry-header">5 Reasons to Upgrade to Data Ontap 8.0.1</h3>
+<p class="entry-header"><em>Vaughan Stewart - Director &amp; Evangelist, Virtualization &amp; Cloud Computing</em></p>
+<p class="entry-header">На прошлой неделе, проводя наш Virtualization Field Readiness Summit, я много говорил с <a href="http://twitter.com/#!/chrisgeb">Dr.Desktop</a> (Chris Gebhardt), который показал мне множество преимуществ наших технологий в области виртуализации десктопов, а также тем, какие преимущества несет с собой новая Data ONTAP 8.0.1, и я решил поделиться этим с вами.</p>
+<h3>Причина номер 1 – 64-битные aggregates</h3>
+<p class="entry-header">64-битные aggregate, или “пулы хранения”, позволяют увеличивать размеры aggregates, так как поднимают верхний лимит с 16TB в Data ONTAP 7.x.x до 100TB (в зависимости от типа и мощности контроллера). Для тех, кто еще не знаком с технологиями NetApp, aggregate это набор физических дисков, собранных в RAID-группы </p>
+<p class="entry-header">Aggregate это то, как NetApp логически отделяет емкость и производительность в IOPS от физического диска, и использует их в виде ресурсного пула. Такая модель позволяет использовать физические ресуосы с более высоким чем обычно уровнем утилизации, большим, чем можно достичь с помощью традиционных технологий RAID.</p>
+<p class="entry-header">При использовании 64-bit aggregate и RAID-DP, наш пользователи могут увеличить размер своих разделов данных, не поступаясь при этом степенью их защиты.</p>
+<h3>Причина номер 2 – NetApp DataMotion for FC, FCoE, &amp; iSCSI LUN</h3>
+<p class="entry-header"><a href="http://media.netapp.com/documents/tr-3873.pdf">NetApp DataMotion for LUNs</a> это одна из наших технологий для организации многоуровневого хранения, с помощью которой мы можем, не прерывая доступа к данным на LUN-е, перемещать его (и соответствующий ему FlexVol) с одного aggregate на другой, на том же контроллере. DataMotion выполняет миграцию LUN-ов, вместе со всеми сопутствующими им атрибутами,такими как снэпшоты, состояние thin provisioning, состояние дедупликации и отношений между датасетами (например источник или получатель репликации, “зеркальность” для другого тома, и так далее), причем, как сказано выше, “на ходу”, не прерывая ввод-вывод данных с этих LUN-ов.</p>
+<h3>Причина номер 3 – 10GbE &amp; FCoE Unified Target Adapter</h3>
+<p class="entry-header">Data ONTAP 8.0.1 обеспечивает поддержку (в форме драйверов устройств) для нашего Unified Connect Target Adapter (UTA). UTA более известен как Converged Network Adapter (CNA). Наши клиенты с UTA могут использовать его для всего их рабочего трафика, как SAN (FCoE, iSCSI), так и NAS (NFS, CIFS), одновременно, по одному проводу, с использованием Data Center Ethernet (DCE), известного как “10Gb Ethernet”, через одну карту PCI-E.</p>
+<p class="entry-header">UTA кроме этого позволяет пользователям потенциально увеличить емкость хранения данных, так как позволяет высвободить слоты PCI-E, занятые под карты портов SAN и Ethernet, и установить в них порты для подключения дополнительных дисковых полок. Слоты PCI-E тут важны, так как, например, такая наша система среднего уровня, как FAS3270, может адресовать до 1,9PB хранения.</p>
+<h3>Причина номер 4 – Онлайн-компрессия на файловой системе</h3>
+<p class="entry-header">В свете непрерывно расширяющихся объемов хранения, пользователи требуют средств для хранения данных в виртуализованной форме, при которой “логическая” емкость может значительно превышать “физическую” емкость хранилища, такого как диски или ленты. Сжатие данных это наиболее новое предложение NetApp в области повышения эффективности хранения, среди всех наших многочисленных решений в этой области, нацеленных на такие задачи, как хранение данных виртуальных машин, систем передачи сообщений или баз данных.</p>
+<p class="entry-header">Хотя во многих своих постах я подчеркивал наши возможности по дедупликации данных на уровне диска и в кэше, компрессия это отличное средство, дополняющее дедупликацию, и еще более увеличивающее экономию места для данных, не исчерпывающихся виртуальными машинами, например таких, как домашние директории пользователей, инженерные и архивные данные. А самое лучшее тут то, что лицензия на компрессию – бесплатна!</p>
+<h3>Причина номер 5 – поддержка VMware VAAI</h3>
+<p class="entry-header">Data ONTAP 8.0.1 обеспечивает поддержку VMware Storage APIs for Array Integration (VAAI), новой возможности появившейся в vSphere 4.1. Это такие возможности, как: Full Copy, Block Zeroing и Hardware-assisted Locking, расширяющие возможности масштабирования виртуальной инфраструктуры, путем переноса части операций по вводу-выводу на аппаратуру системы хранения. В настоящий момент <a href="http://blogs.netapp.com/virtualstorageguy/2010/07/vsphere-41-and-vstorage-apis-for-array-integration-vaai.html">поддерживаются только хранилища VMFS</a>, но, верьте мне, в ближайшем будущем тут будет еще много интересного.</p>
+<p class="entry-header">Ну ОК, я немного промахнулся, когда счел, что числа “пять” для причин будет достаточно. Есть еще кое-что, пусть это будет бонусом.</p>
+<h3>Бонус – Повышенная производительность!</h3>
+<p class="entry-header">В релизе 8.0.1 мы повысили быстродействие логики дедупликации в кэше массива, что дало нам прирост в различных тестах от 10% до 48% увеличения производительности.</p>
+<p class="entry-header">Я хочу процитировать своего коллегу, Dr.Desktop, на стенде которого был проведен эксперимент с <a href="http://blogs.netapp.com/virtualstorageguy/2011/03/virtual-storage-tering-and-desktop-virtualization.html">одновременной загрузкой 5000 виртуальных десктопов (VDI, VMware View) под Windows 7</a>, что заняло 50 минут на всего 24 дисках SAS. Этот результат на 28% улучшил предыдущий результат, полученный с использованием на контроллерах Data ONTAP 7.3.4.</p>
+<p class="entry-header">В комментариях указали еще один немаловажный плюс, который я счел необходимым внести в переводе (прим.romx)</p>
+<h3>Бонус 2 – лимит тома с дедупликацией теперь поднят до 16 TB для всех платформ!</h3>
+<p class="entry-header">Если раньше, на Data ONTAP семейства 7.х.х, емкость тома, на котором можно было включить дедупликацию, была ограничена различными величинами, в зависимости от типа контроллера, например для FAS2020 можно было включить дедупликацию только на томе, физическим размером не более 1TB, а для 2040 – 3TB, то на 8.0.1 эти лимиты на всех системах, поддерживающих 8.0.1, включая и 2040, лимиты емкости для тома с возможностью дедупликации подняты до 16TB.</p>
+<h3>Закругляясь.</h3>
+<p class="entry-header">??нженеры NetApp каждодневно работают над улучшением и увеличением возможностей нашей платформы, и с релизом 8.0.1 пользователи получили дополнительную функциональность и увеличение производительности для уже имеющихся у них систем. Я добавлю, что количество причин будет в дальнейшем только расти, с появлением все новых релизов.</p>
+<p class="entry-header">С тех пор как нам удалось обеспечить <a href="https://now.netapp.com/NOW/knowledge/docs/ontap/rel801/html/ontap/upgrade/frameset.html">непрерывающий (non-disruptive) работу системы хранения апгрейд с Data ONTAP 7.x на 8.0.1</a>, апгрейд на новую версию не может быть проще! </p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../../tag/801.html" rel="tag">8.0.1</a>, <a href="../../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../../tag/ontap.html" rel="tag">ontap</a><br />					Раздел: <a href="../../../../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../../859/trackback.html#comments" title="Комментарий к записи 5 причин перейти на Data ONTAP 8.0.1">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-862">
+				<h2 class="posttitle"><a href="../../../../862/trackback.html" rel="bookmark" title="Permanent Link to Multistore">Multistore</a></h2>
+				<div class="postmetadata">4 Апрель 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как и обещал чуть раньше – рассказываю про этого зверя.    <br /><a href="http://www.netapp.com/us/products/platform-os/multistore.html">Multistore</a> – опция систем хранения NetApp, позволяющая делить физическую систему хранения на “логические партиции”.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image82.png" width="418" height="318" /></p>
+<p><a href="http://www.netapp.com/us/products/platform-os/multistore.html">Multistore</a> - “в обед сто лет”. Она существует многие годы (с первых версий 7.0, а то может и даже раньше), но, к сожалению, до недавних пор сравнительно редко применялась. На нее требовалась отдельная и не самая дешевая лицензия, поэтому многие NetApp-админы часто даже не слышали о Multistore, и не применяли ее.</p>
+<p>Однако многое изменилось в прошлом году. Во-первых Multistore была извлечена из забвения, в котором находилась много лет, и приспособлена к многим новым инициативам NetApp, куда она удивительно органично подошла, например к <a href="http://www.netapp.com/us/technology/secure-multi-tenancy.html">Secure Multi-Tenancy</a>. Во-вторых, появились новые и многообещающие продукты, использующие Multistore, например NetApp <a href="http://www.netapp.com/us/library/technical-reports/tr-3814.html">DataMotion for vFilers</a>, позволяющая такие “виртуальные партиции” – виртуальные “файлеры”, созданные внутри физической системы хранения, переносить между системами хранения, даже между физически различными, и установленными в разных местах, без прерывания к ним доступа, наподобие vMotion для виртуальных машин в VMware.     <br />??, наконец, логичным шагом стало включение Multistore в комплект <em><a href="http://www.netapp.com/us/products/storage-systems/fas3200/fas3200-software.html">ONTAP Essentials</a></em>, идущий по умолчанию, и доступный целиком, без покупки дополнительных лицензий, для новых систем FAS3200/6200, что тем более делает нужным и полезным знакомство с этой интересной опцией.</p>
+<p>Но давайте по порядку.</p>
+<p>Multistore – это средство создавать внутри физического контроллера системы хранения множество “виртуальных”, автономных “логических” систем хранения, с автономным управлением, и своим набором данных для каждой.    <br />Разумеется вы уже подумали про гипервизоры в стиле VMware, но – нет, все проще, используется механизм, подобный chroot или jail во FreeBSD. Это позволяет гораздо меньше “нагружать” железо, и вполне безопасно изолирует такие виртуальные файлеры друг от друга. Так, например, для самой младшей FAS2020 количество таких виртуальных файлеров ограничено 26, а для всех остальных контроллеров NetApp под версиями Data ONTAP 7.x можно создать до 65 таких ???vfilers’ (на каждом контроллере, на HA-пару – 130), что, конечно, гораздо экономичнее, с точки зрения расхода памяти и ресурсов, так как как “сущность” Data ONTAP не множится в памяти, продолжая существовать в единственном экземпляре. Каждый vFiler занимает в системной памяти всего около 400Kb.</p>
+<p>В отношении же безопасности изоляции данных, следует упомянуть, что, в течении нескольких лет, независимая компания информационной безопасности Matasano Security проводила security audit OS NetApp Data ONTAP, и отметила в итоговом документе:</p>
+<blockquote><p>At the conclusion of our testing, we found that the Data ONTAP operating system exceeded our expectations for security. We know of no vulnerability in Data ONTAP that would allow an attacker to use a FAS Storage System, even if they have a login to a portion of it, to compromise another subnet.      </p>
+<p><strong><a href="http://media.netapp.com/documents/wp-multistore-analysis.pdf">NetApp MultiStore: An Independent Security Analysis</a>         <br /></strong>Prepared By: Thomas Ptacek and Eric Monti, Matasano Security</p>
+</blockquote>
+<p>Классической, изначальной областью применения Multistore, до недавних пор, была организация использования NAS-файлера в многодоменной Windows-сети, а также возможность создавать виртуальные файлеры для подразделений в компании, требующих отдельных политик администрирования и безопасности. В этом случае, вместо заведения таким подразделениям отдельных физических систем, вы могли выделить им виртуальный файлер, на котором они могли быть своим собственным виртуальным рутом, создавать на нем любые, угодные им ресурсы, с любыми нужными им политиками, все в таком своеобразном изолированном jail-е внутри физического файлера.</p>
+<p>Такой виртуальный файлер выглядит изнутри себя как отдельный “netapp”, включая свой собственный vol0 и /etc, а попасть администратору в его контекст можно с помощью команды:</p>
+<p><code>mainfiler&gt; vfiler context vfiler1      <br /><a href="mailto:vfiler1@mainfiler">vfiler1@mainfiler</a>&gt; Wed Apr 8 22:18:24 EDT [vfiler1@cmds.vfiler.console.switch:notice]: Console context was switched to a vFiler(tm) unit vfiler1.</code> </p>
+<p><a href="mailto:vfiler1@mainfiler">vfiler1@mainfiler</a>&gt;</p>
+<p>Далее вы можете оперировать в среде такого vfiler как в реальной системе. В настоящее время&#160; в среде vfiler команды управления в значительной мере совпадают с тем, что доступно в “физическом” файлере.</p>
+<p>Каковы же ограничения?</p>
+<p>Пожалуй самым заметным следует указать отсутствие в среде такого vfiler поддержки FCP. Работают все остальные протоколы, то есть CIFS, NFS, NDMP, FTP, и так далее, но из “блочных” протоколов доступен iSCSI. То есть vfiler <strong>может</strong> работать в SAN, но в настоящее время только как iSCSI-target. Отсутствие поддержки FCP в контексте vfiler связано, прежде всего, с отсутствием поддержки <a href="http://en.wikipedia.org/wiki/NPIV">NPIV</a> в Data ONTAP, однако&#160; она также может быть со временем добавлена. Но в настоящий момент вы не можете “виртуализовать” физический FC HBA, разделив его между виртуальными файлерами, поэтому FCP доступен только на уровне хост-системы, или vfiler0, как ее в данном случае принято называть.</p>
+<p>Мне не удалось найти однозначных сведений по поводу текущего состояния с FCoE на Unified Target, возможно уточнят этот вопрос присутствующие и читающие меня люди из NetApp?</p>
+<p>Что касается ethernet, то каждый vfiler оперирует своим набором IP-адресов, VLAN, VIF и таблиц маршрутизации, что позволяет оперировать с ним как с самостоятельной сущностью, с точки зрения администрирования. Например можно держать один vfiler в DMZ, а другой – во внутренней сети, оба будут находиться внутри одного физического контроллера, но данные первого будут надежно изолированы от данных второго. На физический контроллер доступно до 101 набора IPspaces, то есть логических таблиц маршрутизации.</p>
+<p>Кроме уже упомянутой, традиционной области применения, такой как многодоменная Windows-сеть, и подразделения с индивидуальными политиками администрирования, областью применения Multistore, в особенности с новыми продуктами Secure Multi-Tenancy и DataMotion, может быть задачи Disaster Recovery или миграции данных.</p>
+<p>Например команда <code>vfiler migrate</code> перенесет весь instance виртуального файлера, включая его данные и конфигурацию, IP-адреса, NETBIOS Name, hostname, на новый контроллер (требуется активированная лицензия SnapMirror).</p>
+<p>Вы также можете регулировать загрузку физического файлера его vfiler-ами с помощью средств FlexShare и назначения приоритетов доступа к томам FlexVol. Помните, что оттого, что вы на одном физическом контроллере создали десяток виртуальных, производительность физического не увеличилась, IOPSы, выдаваемые физическим контроллером распределятся между vfiler-ами, а с помощью FlexShare вы сможете правильно сбалансировать приоритеты.</p>
+<p>Так что тем, кто получает новые системы с набором лицензий ONTAP Essentials, куда, повторюсь, входит Multistore, рекомендую пошевелить тему поподробнее, возможно вы найдете что-то интересное для конкретно вашего случая использования.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../../tag/multistore.html" rel="tag">multistore</a>, <a href="../../../../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../../../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../../862/trackback.html#comments" title="Комментарий к записи Multistore">Комментарии (2)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"><a href="../index.html">Next Entries &raquo;</a></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../../../../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../../../../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../../../../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../../../../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../../../../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../../../../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../../../../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../../../../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../../../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../../../../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../../../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../../../../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../../../2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../../../2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../../../2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../../../2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../../../2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../../../2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../../../2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../../../2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../../../2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../../../2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../../../2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../../../2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../../../2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../../../2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../../../2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../../../2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../../../2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../../../2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../../../2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../../../2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../../../2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../../../2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../../../2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../../../2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../../../2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../../../2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../../../2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../../../2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../../../2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../../../2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../../../2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../../../2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../../../2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../../../2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../../../2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../../../2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../../../2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../../../2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../../../2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../../../2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../../../2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../../12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../../11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../../10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../../09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../../08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../../07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../../06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../../05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../../03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../../02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../../01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../../../2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../../../2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../../../2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../../../2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../../../2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../../../2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../../../2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../../../2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../../../2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../../../2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../../../2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../../../2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../../../2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../../../2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../../../2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../../../2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../../../2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../../../2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../../../2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../../../2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../../../2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../../../2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../../../2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../../../2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../../../2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../../../2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../../../2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../../../2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../../../2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../../../2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../../../2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../../../2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../../../2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../../../2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../../../2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../../../2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../../../2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../../../2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../../../2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../../../../feed">Entries (RSS)</a> and <a href="../../../../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 14 queries. 0.077 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

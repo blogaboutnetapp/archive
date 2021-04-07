@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Компрессия данных в WAFL: Как это работает?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1125/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1125</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:21 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1125#comment-2223</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Sun, 11 Mar 2012 22:25:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1125#comment-2223</guid>
+		<description>Александр, Ваш продавец NetApp с радостью ее Вам предоставит, просто выложить утилиту в интернет нельзя по условиям лицензии.
+
+Если Вы сами продаете чудо хранилки, то ищите утилиту на fieldportal. Версии есть как под Windows, так и под Linux.</description>
+		<content:encoded><![CDATA[<p>Александр, Ваш продавец NetApp с радостью ее Вам предоставит, просто выложить утилиту в интернет нельзя по условиям лицензии.</p>
+<p>Если Вы сами продаете чудо хранилки, то ищите утилиту на fieldportal. Версии есть как под Windows, так и под Linux.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1125#comment-2220</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Sun, 11 Mar 2012 13:35:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1125#comment-2220</guid>
+		<description>Я таки тащусь с нетапа. Единственный сторадж вендор делающий что-то своими мозгами и ничего ни у кого не украли (... кажися :)) Вот только вопрос:  откуда взять Space Savings Estimation Tool? на support.netapp.com нашел только упоминание в доках про дедупликацию.</description>
+		<content:encoded><![CDATA[<p>Я таки тащусь с нетапа. Единственный сторадж вендор делающий что-то своими мозгами и ничего ни у кого не украли (&#8230; кажися :)) Вот только вопрос:  откуда взять Space Savings Estimation Tool? на support.netapp.com нашел только упоминание в доках про дедупликацию.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Как начать новую жизнь с Clustered Data ONTAP и FCP</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1408/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1408</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:04 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Ungin</title>
+		<link>http://blog.aboutnetapp.ru/archives/1408#comment-14212</link>
+		<dc:creator>Ungin</dc:creator>
+		<pubDate>Fri, 14 Nov 2014 11:20:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1408#comment-14212</guid>
+		<description>Nostromo, например так (7-mode, часть /etc/rc):
+ifgrp create lacp nfs-pri -b ip e0e e5a e7a e13a
+ifgrp create lacp nfs-stb -b ip e0f e5b e7b e13b
+ifgrp create single nfs nfs-pri nfs-stb
+ifgrp favor nfs-pri
+ifconfig nfs mtusize 9000 partner nfs
+?? потом уже vlanы:
+vlan create nfs 777
+ifconfig nfs-777 10.10.10.10 netmask 255.255.255.0 partner nfs-777
+
+??, напирмер, nfs-pri идет в одну стойку(коммутатор), nfs-stb в другую.</description>
+		<content:encoded><![CDATA[<p>Nostromo, например так (7-mode, часть /etc/rc):<br />
+ifgrp create lacp nfs-pri -b ip e0e e5a e7a e13a<br />
+ifgrp create lacp nfs-stb -b ip e0f e5b e7b e13b<br />
+ifgrp create single nfs nfs-pri nfs-stb<br />
+ifgrp favor nfs-pri<br />
+ifconfig nfs mtusize 9000 partner nfs<br />
+?? потом уже vlanы:<br />
+vlan create nfs 777<br />
+ifconfig nfs-777 10.10.10.10 netmask 255.255.255.0 partner nfs-777</p>
+<p>??, напирмер, nfs-pri идет в одну стойку(коммутатор), nfs-stb в другую.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1408#comment-14156</link>
+		<dc:creator>odna Ptichka</dc:creator>
+		<pubDate>Tue, 04 Nov 2014 09:19:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1408#comment-14156</guid>
+		<description>Добрый день, 
+
+Все не плохо для начала, но есть пожелание поработать над стилем :) Сообщение не должно пугать и оно должно донести мысль, правильно? 
+Какая мысль это сообщения? Что в принципе возможно настроить FCP на Cdot? А это кто-то ставит под сомнение? Значит не об этом... Может быть про то, что сам процесс не сложный ? Но после стольких букв, вы отпугнете многих... 
+
+Так о чем хотели рассказать? Определитесь и перечитайте блог.  Вы ответили на поставленный вопрос?
+
+Прошу прощения за вопросы и советы, которых никто не спрашивал....</description>
+		<content:encoded><![CDATA[<p>Добрый день, </p>
+<p>Все не плохо для начала, но есть пожелание поработать над стилем :) Сообщение не должно пугать и оно должно донести мысль, правильно?<br />
+Какая мысль это сообщения? Что в принципе возможно настроить FCP на Cdot? А это кто-то ставит под сомнение? Значит не об этом&#8230; Может быть про то, что сам процесс не сложный ? Но после стольких букв, вы отпугнете многих&#8230; </p>
+<p>Так о чем хотели рассказать? Определитесь и перечитайте блог.  Вы ответили на поставленный вопрос?</p>
+<p>Прошу прощения за вопросы и советы, которых никто не спрашивал&#8230;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1408#comment-14106</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Sat, 25 Oct 2014 08:09:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1408#comment-14106</guid>
+		<description>Хотелось бы увидеть рекомендации по настройке отказоустойчивой NFS. А то эта тема, насколько я могу судить, не особо хорошо раскрыта.</description>
+		<content:encoded><![CDATA[<p>Хотелось бы увидеть рекомендации по настройке отказоустойчивой NFS. А то эта тема, насколько я могу судить, не особо хорошо раскрыта.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bakset</title>
+		<link>http://blog.aboutnetapp.ru/archives/1408#comment-14105</link>
+		<dc:creator>bakset</dc:creator>
+		<pubDate>Sat, 25 Oct 2014 04:31:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1408#comment-14105</guid>
+		<description>ivs, это не romx, у ребят свой стиль. Да другой.
+Пишите еще, не хочется что бы лучший блог по netapp в рунете затух.</description>
+		<content:encoded><![CDATA[<p>ivs, это не romx, у ребят свой стиль. Да другой.<br />
+Пишите еще, не хочется что бы лучший блог по netapp в рунете затух.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1408#comment-14098</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Wed, 22 Oct 2014 20:02:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1408#comment-14098</guid>
+		<description>Ромх, вернись и научи ребят форматировать текст, а также не ставить пробел перед "!" :)</description>
+		<content:encoded><![CDATA[<p>Ромх, вернись и научи ребят форматировать текст, а также не ставить пробел перед &#8220;!&#8221; :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

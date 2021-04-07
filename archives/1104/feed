@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp - №1 в Германии!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1104/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1104</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:26 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1104#comment-2123</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 16 Jan 2012 11:19:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1104#comment-2123</guid>
+		<description>Мне интересно, как такой график в excel постороить? Пытался - нет там ничего подобного.</description>
+		<content:encoded><![CDATA[<p>Мне интересно, как такой график в excel постороить? Пытался - нет там ничего подобного.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1104#comment-2018</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 14 Dec 2011 10:19:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1104#comment-2018</guid>
+		<description>Сергей Жилкин:
+
+Ну тут надо понимать, что, во-первых, TheRegister это "желтая пресса", в чистом виде, она так себя и позиционирует.
+Во-вторых сейчас идет общая рецессия, которая воздействует на _все_рынки_. Если хотите, я вам запощу динамику за полгода для EMC, VMware, IBM, NetApp и индекса Dow-Jones, вы  увидите насколько они сейчас все похожи между собой.
+В третьих, для нас, для России, куда важнее именно EMEA, чем кто-либо еще, а главный "двигатель" EMEA это, бесспорно, Германия.
+Так что я бы не стал реагировать на публикации TheRegister не проанализировав ситуацию в целом. ??менно так я всегда информацию Регистера и подаю в блоге.</description>
+		<content:encoded><![CDATA[<p>Сергей Жилкин:</p>
+<p>Ну тут надо понимать, что, во-первых, TheRegister это &#8220;желтая пресса&#8221;, в чистом виде, она так себя и позиционирует.<br />
+Во-вторых сейчас идет общая рецессия, которая воздействует на _все_рынки_. Если хотите, я вам запощу динамику за полгода для EMC, VMware, IBM, NetApp и индекса Dow-Jones, вы  увидите насколько они сейчас все похожи между собой.<br />
+В третьих, для нас, для России, куда важнее именно EMEA, чем кто-либо еще, а главный &#8220;двигатель&#8221; EMEA это, бесспорно, Германия.<br />
+Так что я бы не стал реагировать на публикации TheRegister не проанализировав ситуацию в целом. ??менно так я всегда информацию Регистера и подаю в блоге.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей Жилкин</title>
+		<link>http://blog.aboutnetapp.ru/archives/1104#comment-2017</link>
+		<dc:creator>Сергей Жилкин</dc:creator>
+		<pubDate>Wed, 14 Dec 2011 09:40:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1104#comment-2017</guid>
+		<description>Доброго дня ! 
+
+Очень интересная "новость" :) А вот на The Register есть новость с заголовком "NetApp loses ground again in IDC's Storage Tracker"
+http://www.theregister.co.uk/2011/12/02/idc_storage_tracker_q3_11/
+
+Германия это ещё не вись мир.</description>
+		<content:encoded><![CDATA[<p>Доброго дня ! </p>
+<p>Очень интересная &#8220;новость&#8221; :) А вот на The Register есть новость с заголовком &#8220;NetApp loses ground again in IDC&#8217;s Storage Tracker&#8221;<br />
+<a href="http://www.theregister.co.uk/2011/12/02/idc_storage_tracker_q3_11/" rel="nofollow">http://www.theregister.co.uk/2011/12/02/idc_storage_tracker_q3_11/</a></p>
+<p>Германия это ещё не вись мир.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1104#comment-2014</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Mon, 12 Dec 2011 08:17:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1104#comment-2014</guid>
+		<description>Я скажу больше, через канал Fuji тоже продается немало NetApp. Так что немцы действительно любят эту фирму. Ситуация конечное интересная, но это локальный рынок.
+Больше интересно, что творится в мире, проскакивала информация, что в 2011 NetApp немного утратил позиции.</description>
+		<content:encoded><![CDATA[<p>Я скажу больше, через канал Fuji тоже продается немало NetApp. Так что немцы действительно любят эту фирму. Ситуация конечное интересная, но это локальный рынок.<br />
+Больше интересно, что творится в мире, проскакивала информация, что в 2011 NetApp немного утратил позиции.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ylytch</title>
+		<link>http://blog.aboutnetapp.ru/archives/1104#comment-2005</link>
+		<dc:creator>Ylytch</dc:creator>
+		<pubDate>Wed, 07 Dec 2011 12:21:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1104#comment-2005</guid>
+		<description>В таком случае доля устройств NetApp банально еще выше)))))))))</description>
+		<content:encoded><![CDATA[<p>В таком случае доля устройств NetApp банально еще выше)))))))))</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1104#comment-2004</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 07 Dec 2011 12:08:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1104#comment-2004</guid>
+		<description>Ylytch:
+
+Я полагаю, что сторадж, который носит название "IBM", продается через каналы продаж IBM, учитывается в документах на продажи как IBM, и обслуживается сервисом IBM - считается как IBM, а у вас какие на этот счет существуют подозрения?</description>
+		<content:encoded><![CDATA[<p>Ylytch:</p>
+<p>Я полагаю, что сторадж, который носит название &#8220;IBM&#8221;, продается через каналы продаж IBM, учитывается в документах на продажи как IBM, и обслуживается сервисом IBM - считается как IBM, а у вас какие на этот счет существуют подозрения?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ylytch</title>
+		<link>http://blog.aboutnetapp.ru/archives/1104#comment-2003</link>
+		<dc:creator>Ylytch</dc:creator>
+		<pubDate>Wed, 07 Dec 2011 12:01:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1104#comment-2003</guid>
+		<description>IBM N series в чьей маркет шаре посчитан?</description>
+		<content:encoded><![CDATA[<p>IBM N series в чьей маркет шаре посчитан?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

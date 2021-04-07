@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Учу матчасть :)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/950/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/950</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:42 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1573</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Sun, 31 Jul 2011 07:37:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1573</guid>
+		<description>To Антон:
+
+MirrorView/A does NOT have any checks to consider Thin Pool space on secondary array
+Это значит, что массив с primary mirror image не проверяет, хватает ли места в storage pool для secondary mirror image и админ клариона должен проверить это сам</description>
+		<content:encoded><![CDATA[<p>To Антон:</p>
+<p>MirrorView/A does NOT have any checks to consider Thin Pool space on secondary array<br />
+Это значит, что массив с primary mirror image не проверяет, хватает ли места в storage pool для secondary mirror image и админ клариона должен проверить это сам</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1553</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Sun, 24 Jul 2011 18:45:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1553</guid>
+		<description>romx:
+
+по поводу профиля нагрузки. Времени было в обрез (как всегда вообщем) поэтому тестил на скорую руку все подряд на заморачиваясь на профилях чтоб просто понять что лучше выбрать для задач, как случайный доступ так и последовательный разными блоками (4K 16K 64K). К сожалению, не скажу в каком случае пул меньше теряют производительности, а 10-15% это общая картина... "средняя температура по поликлинике"
+
+P.S. В отпуске был поэтому затянул с ответом.</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>по поводу профиля нагрузки. Времени было в обрез (как всегда вообщем) поэтому тестил на скорую руку все подряд на заморачиваясь на профилях чтоб просто понять что лучше выбрать для задач, как случайный доступ так и последовательный разными блоками (4K 16K 64K). К сожалению, не скажу в каком случае пул меньше теряют производительности, а 10-15% это общая картина&#8230; &#8220;средняя температура по поликлинике&#8221;</p>
+<p>P.S. В отпуске был поэтому затянул с ответом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1539</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 22 Jul 2011 15:38:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1539</guid>
+		<description>Антон:
+
+Вы не по адресу вопросы задаете. Это вам надо специалистам по EMC задавать, тут таких нет, мы другими стораджами занимаемся, и говорим о них. EMC тут изредка, и с дилетантской позиции обсуждается.</description>
+		<content:encoded><![CDATA[<p>Антон:</p>
+<p>Вы не по адресу вопросы задаете. Это вам надо специалистам по EMC задавать, тут таких нет, мы другими стораджами занимаемся, и говорим о них. EMC тут изредка, и с дилетантской позиции обсуждается.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Антон</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1528</link>
+		<dc:creator>Антон</dc:creator>
+		<pubDate>Tue, 19 Jul 2011 21:04:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1528</guid>
+		<description>Ребята, помогите перевести предложение, плиз!
+MirrorView/A does NOT have any checks to consider Thin Pool space on secondary array
+Я не имею представление, что значит Thin Pool space и все такое, т.к. не программист...
+Буду оч. благодарен за ответ и возможные пояснения на примитивном уровне.
+Спасибо.</description>
+		<content:encoded><![CDATA[<p>Ребята, помогите перевести предложение, плиз!<br />
+MirrorView/A does NOT have any checks to consider Thin Pool space on secondary array<br />
+Я не имею представление, что значит Thin Pool space и все такое, т.к. не программист&#8230;<br />
+Буду оч. благодарен за ответ и возможные пояснения на примитивном уровне.<br />
+Спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Freedom</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1526</link>
+		<dc:creator>Freedom</dc:creator>
+		<pubDate>Mon, 18 Jul 2011 17:55:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1526</guid>
+		<description>Вышла новая дока, уже по VNX - EMC Unified Storage Best Practices for Performance and Availability 
+
+http://www.emc.com/collateral/hardware/white-papers/h8268-vnx-block-best-practices.pdf</description>
+		<content:encoded><![CDATA[<p>Вышла новая дока, уже по VNX - EMC Unified Storage Best Practices for Performance and Availability </p>
+<p><a href="http://www.emc.com/collateral/hardware/white-papers/h8268-vnx-block-best-practices.pdf" rel="nofollow">http://www.emc.com/collateral/hardware/white-papers/h8268-vnx-block-best-practices.pdf</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1509</link>
+		<dc:creator>firehunter</dc:creator>
+		<pubDate>Sun, 10 Jul 2011 04:46:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1509</guid>
+		<description>romx:
+
+Я не утверждаю, что разница в производительности обязательно должна быть значительная. Как мне кажется, наоборот, речь скорее всего будет идти о долях процента или чуть больше.</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>Я не утверждаю, что разница в производительности обязательно должна быть значительная. Как мне кажется, наоборот, речь скорее всего будет идти о долях процента или чуть больше.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1508</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 10 Jul 2011 01:30:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1508</guid>
+		<description>firehunter:
+
+Ну можно проще, взять какую-нибудь версию из ранних 7.0, какую-нибудь массовую 7.0.5, например, где только появился FlexVol, и сравнить.
+Я ни разу не слышал ничего о значительной разнице в производительности, даже при первом появлении 7.0 (я еще вовсю 6.х в продакшне застал).</description>
+		<content:encoded><![CDATA[<p>firehunter:</p>
+<p>Ну можно проще, взять какую-нибудь версию из ранних 7.0, какую-нибудь массовую 7.0.5, например, где только появился FlexVol, и сравнить.<br />
+Я ни разу не слышал ничего о значительной разнице в производительности, даже при первом появлении 7.0 (я еще вовсю 6.х в продакшне застал).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1507</link>
+		<dc:creator>firehunter</dc:creator>
+		<pubDate>Sat, 09 Jul 2011 21:16:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1507</guid>
+		<description>romx: Когда код становится сложнее, обычно он дольше выполняется. Не всегда, но обычно. Вы с этим согласны?
+В любом случае, чтобы расставить точки на "и", надо тестировать. Без теста - это теоретическая полемика, которая к реальности имеет опосредованное отношение.
+Тест, на мой взгляд имеет смысл проводить на достаточно старой системе, которая будет способна работать под старой версией Ontap, где еще не было Flexvol. ?? проводить три теста: два на достаточно новой OnTap, с FlexVol и Traditional и отдельный тест на старой версии Ontap, в которой еще не было FlexVol. При этом желательно иметь достаточно кол-во шпинделей, чтобы центральный процессор был бы узким местом.</description>
+		<content:encoded><![CDATA[<p>romx: Когда код становится сложнее, обычно он дольше выполняется. Не всегда, но обычно. Вы с этим согласны?<br />
+В любом случае, чтобы расставить точки на &#8220;и&#8221;, надо тестировать. Без теста - это теоретическая полемика, которая к реальности имеет опосредованное отношение.<br />
+Тест, на мой взгляд имеет смысл проводить на достаточно старой системе, которая будет способна работать под старой версией Ontap, где еще не было Flexvol. ?? проводить три теста: два на достаточно новой OnTap, с FlexVol и Traditional и отдельный тест на старой версии Ontap, в которой еще не было FlexVol. При этом желательно иметь достаточно кол-во шпинделей, чтобы центральный процессор был бы узким местом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Firehunter</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1506</link>
+		<dc:creator>Firehunter</dc:creator>
+		<pubDate>Sat, 09 Jul 2011 17:18:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1506</guid>
+		<description>romx:
+
+Собственно дискурсия носит теоритеческий характер. На практике надо сравнивать на каком либо старом оборудовании оба типа томов на современной версии ontap и плюс к этому на версии ontap где еще не было FlexVol.</description>
+		<content:encoded><![CDATA[<p>romx:</p>
+<p>Собственно дискурсия носит теоритеческий характер. На практике надо сравнивать на каком либо старом оборудовании оба типа томов на современной версии ontap и плюс к этому на версии ontap где еще не было FlexVol.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/950#comment-1504</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 09 Jul 2011 02:45:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/950#comment-1504</guid>
+		<description>&gt; firehunter:
+
+Не совсем так. Корневая директория - тоже директория. Механизмы работы файловой системы от того, лежит файл в корневой директории, или в поддиректории в ней, не изменяются.
+С точки зрения кода это просто у файла чуть более длинное имя, не c:\filename.ext, а c:\folder\filename.ext
+Возможно чуть больше времени занимает конкретная операция seek, если мы делаем просмотр директории с неизвестным содержимым, но, для NetApp, это не наш случай, к нашим томам для доступа к их данным мы всегда обращаемся по конкретному имени (пути).</description>
+		<content:encoded><![CDATA[<p>> firehunter:</p>
+<p>Не совсем так. Корневая директория - тоже директория. Механизмы работы файловой системы от того, лежит файл в корневой директории, или в поддиректории в ней, не изменяются.<br />
+С точки зрения кода это просто у файла чуть более длинное имя, не c:\filename.ext, а c:\folder\filename.ext<br />
+Возможно чуть больше времени занимает конкретная операция seek, если мы делаем просмотр директории с неизвестным содержимым, но, для NetApp, это не наш случай, к нашим томам для доступа к их данным мы всегда обращаемся по конкретному имени (пути).</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

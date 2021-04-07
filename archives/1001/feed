@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp OnCommand plugin for Microsoft</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1001/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1001</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:58 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: alexandr</title>
+		<link>http://blog.aboutnetapp.ru/archives/1001#comment-2939</link>
+		<dc:creator>alexandr</dc:creator>
+		<pubDate>Fri, 20 Jul 2012 05:45:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1001#comment-2939</guid>
+		<description>romx:
+??нтересует вопрос интеграции NetAPP + SCOM2012  в плане мониторинга, в мае был релиз beta  версии  NetApp OnCommand plugin for Microsoft 3.1, но сейчас информация по ней закрыта, по крайней мере в группе мне написали "The OCPM beta is now closed. Please join the public Microsoft Virtualization and Management Community here: https://communities.netapp.com/community/products_and_solutions/microsoft/management-virtualization"
+Вы не в курсе тенденций и стоит ли ждать релиз OnCommand plugin for Microsoft 3.1 в ближайшее время?</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+??нтересует вопрос интеграции NetAPP + SCOM2012  в плане мониторинга, в мае был релиз beta  версии  NetApp OnCommand plugin for Microsoft 3.1, но сейчас информация по ней закрыта, по крайней мере в группе мне написали &#8220;The OCPM beta is now closed. Please join the public Microsoft Virtualization and Management Community here: <a href="https://communities.netapp.com/community/products_and_solutions/microsoft/management-virtualization" rel="nofollow">https://communities.netapp.com/community/products_and_solutions/microsoft/management-virtualization</a>&#8221;<br />
+Вы не в курсе тенденций и стоит ли ждать релиз OnCommand plugin for Microsoft 3.1 в ближайшее время?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1001#comment-1665</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 04 Sep 2011 18:00:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1001#comment-1665</guid>
+		<description>Василий:
+
+Нет, пока только на FC, хотя разговоры про SAS-to-FC bridge идут уже второй год.</description>
+		<content:encoded><![CDATA[<p>Василий:</p>
+<p>Нет, пока только на FC, хотя разговоры про SAS-to-FC bridge идут уже второй год.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Василий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1001#comment-1664</link>
+		<dc:creator>Василий</dc:creator>
+		<pubDate>Sun, 04 Sep 2011 17:50:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1001#comment-1664</guid>
+		<description>Кстати,
+
+а метрокластер уже работает на SAS полках?</description>
+		<content:encoded><![CDATA[<p>Кстати,</p>
+<p>а метрокластер уже работает на SAS полках?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

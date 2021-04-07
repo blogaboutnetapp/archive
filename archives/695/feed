@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp: вид сзади (окончание)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/695/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/695</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:55 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-1144</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 20 Feb 2011 13:57:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-1144</guid>
+		<description>Vitaliy:
+Это значит, что для полок с дисками SATA не надо выделять отдельный порт, выделяя их в отдельную "петлю", как было с полками DS14.
+
+То есть можно сделать так:
+DS4243-SATA == DS4243-SAS == DS4243-SAS == NetApp-FAS</description>
+		<content:encoded><![CDATA[<p>Vitaliy:<br />
+Это значит, что для полок с дисками SATA не надо выделять отдельный порт, выделяя их в отдельную &#8220;петлю&#8221;, как было с полками DS14.</p>
+<p>То есть можно сделать так:<br />
+DS4243-SATA == DS4243-SAS == DS4243-SAS == NetApp-FAS</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Vitaliy</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-1143</link>
+		<dc:creator>Vitaliy</dc:creator>
+		<pubDate>Sun, 20 Feb 2011 13:48:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-1143</guid>
+		<description>@Andrey, как я понимаю никак:
+
+"When using the DS4243, SAS and SATA drives can be mixed in the same stack but not in the same shelf."
+
+http://communities.netapp.com/docs/DOC-9216
+
+Осталось еще посмотреть что такое "same stack" в нотации NetApp.</description>
+		<content:encoded><![CDATA[<p>@Andrey, как я понимаю никак:</p>
+<p>&#8220;When using the DS4243, SAS and SATA drives can be mixed in the same stack but not in the same shelf.&#8221;</p>
+<p><a href="http://communities.netapp.com/docs/DOC-9216" rel="nofollow">http://communities.netapp.com/docs/DOC-9216</a></p>
+<p>Осталось еще посмотреть что такое &#8220;same stack&#8221; в нотации NetApp.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrey</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-772</link>
+		<dc:creator>Andrey</dc:creator>
+		<pubDate>Sat, 11 Sep 2010 15:53:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-772</guid>
+		<description>Картинка не обьясняет, как NetApp решил проблемы связанные с падением производительности, если на экспандере еще будет висеть полка SATA.</description>
+		<content:encoded><![CDATA[<p>Картинка не обьясняет, как NetApp решил проблемы связанные с падением производительности, если на экспандере еще будет висеть полка SATA.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-771</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 11 Sep 2010 14:25:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-771</guid>
+		<description>А какое отношение ваш текст имеет к тому, как все устроено в оборудовании NetApp?
+Это общие слова про протокол. Я же вам цитирую Best Practices Guide по DS4243 самого NetApp.</description>
+		<content:encoded><![CDATA[<p>А какое отношение ваш текст имеет к тому, как все устроено в оборудовании NetApp?<br />
+Это общие слова про протокол. Я же вам цитирую Best Practices Guide по DS4243 самого NetApp.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrey</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-770</link>
+		<dc:creator>Andrey</dc:creator>
+		<pubDate>Sat, 11 Sep 2010 09:48:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-770</guid>
+		<description>Картинка ничего не обьясняет.
+
+In contrast, SATA is designed for PC applications where the lowest possible cost per GByte with
+acceptable performance is the design goal. SATA protocol assumes that a single drive is connected to
+a single host. Because of the relatively low cost disk drive mechanism employed, the very high data
+density on the disk and the relatively simple communications protocol, SATA drives take much longer
+to respond to a data request than SAS disk drives. Another important aspect of the SATA protocol is
+that the drive assumes that it “owns” the connection. Once a transaction is started, the drive will
+maintain ownership of the connection until the transaction is completed, even though it may take a
+long time to prepare for the actual data transfer. When a large number of drives are configured in a
+single domain, this feature limits overall throughput by preventing other disk drives from moving data
+until the transaction is completed. The recent introduction of Native Command Queuing (NCQ)
+capability in SATA drives has improved drive performance by as much as twenty percent in some
+applications.
+The SAS protocol defines a mechanism that has been implemented in the SAS Expanders to guarantee
+fair access between drives in a domain. In practice, this works quite well when a SAS domain is made
+up of all SAS or all SATA drives. When both drive types co-exist in a single domain, the large
+differences in response time combined with the tendency of SATA drives to lock up a connection can
+play havoc with performance expectations.</description>
+		<content:encoded><![CDATA[<p>Картинка ничего не обьясняет.</p>
+<p>In contrast, SATA is designed for PC applications where the lowest possible cost per GByte with<br />
+acceptable performance is the design goal. SATA protocol assumes that a single drive is connected to<br />
+a single host. Because of the relatively low cost disk drive mechanism employed, the very high data<br />
+density on the disk and the relatively simple communications protocol, SATA drives take much longer<br />
+to respond to a data request than SAS disk drives. Another important aspect of the SATA protocol is<br />
+that the drive assumes that it “owns” the connection. Once a transaction is started, the drive will<br />
+maintain ownership of the connection until the transaction is completed, even though it may take a<br />
+long time to prepare for the actual data transfer. When a large number of drives are configured in a<br />
+single domain, this feature limits overall throughput by preventing other disk drives from moving data<br />
+until the transaction is completed. The recent introduction of Native Command Queuing (NCQ)<br />
+capability in SATA drives has improved drive performance by as much as twenty percent in some<br />
+applications.<br />
+The SAS protocol defines a mechanism that has been implemented in the SAS Expanders to guarantee<br />
+fair access between drives in a domain. In practice, this works quite well when a SAS domain is made<br />
+up of all SAS or all SATA drives. When both drive types co-exist in a single domain, the large<br />
+differences in response time combined with the tendency of SATA drives to lock up a connection can<br />
+play havoc with performance expectations.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-769</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 11 Sep 2010 09:26:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-769</guid>
+		<description>1. 
+HOW MANY CROSSOVER POINTS BETWEEN SATA AND SAS CAN I IMPLEMENT IN MY DS4243 STACK? 
+The term "crossover point" refers to the number of times a DS4243 storage shelf makes the transition from SATA to SAS (or vice versa) within a single stack. Although multiple crossover points are supported within a single stack, NetApp recommends that a stack contain no more than a single crossover point. By reducing the number of crossover points in your stacks, you reduce the variability of the storage configuration. As is 
+true in all computer systems today, increased variability can add difficulty when troubleshooting issues and also raises the possibility of encountering unknown issues. 
+
+2. 
+&lt;img border="0" src="http://habreffect.ru/files/177/c3416cf2a/SAS-SATA-FC.png"/&gt;</description>
+		<content:encoded><![CDATA[<p>1.<br />
+HOW MANY CROSSOVER POINTS BETWEEN SATA AND SAS CAN I IMPLEMENT IN MY DS4243 STACK?<br />
+The term &#8220;crossover point&#8221; refers to the number of times a DS4243 storage shelf makes the transition from SATA to SAS (or vice versa) within a single stack. Although multiple crossover points are supported within a single stack, NetApp recommends that a stack contain no more than a single crossover point. By reducing the number of crossover points in your stacks, you reduce the variability of the storage configuration. As is<br />
+true in all computer systems today, increased variability can add difficulty when troubleshooting issues and also raises the possibility of encountering unknown issues. </p>
+<p>2.<br />
+<img border="0" src="http://habreffect.ru/files/177/c3416cf2a/SAS-SATA-FC.png"/></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrey</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-768</link>
+		<dc:creator>Andrey</dc:creator>
+		<pubDate>Sat, 11 Sep 2010 09:06:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-768</guid>
+		<description>&#62;Нет, не тормозится, они изолированы от интерфейса собственно SAS
+
+Это как ? Соединение полок это же последовательное соединение экспандеров 4мя lane. Если на SATA пойдет больша нагрузка, то lane на контроллере не будет отпускаться пока не выполнится операция конкретным SATA диском. Вот и получаем производительность 4х дисков в худшем варианте.</description>
+		<content:encoded><![CDATA[<p>&gt;Нет, не тормозится, они изолированы от интерфейса собственно SAS</p>
+<p>Это как ? Соединение полок это же последовательное соединение экспандеров 4мя lane. Если на SATA пойдет больша нагрузка, то lane на контроллере не будет отпускаться пока не выполнится операция конкретным SATA диском. Вот и получаем производительность 4х дисков в худшем варианте.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrey</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-766</link>
+		<dc:creator>Andrey</dc:creator>
+		<pubDate>Sat, 11 Sep 2010 08:54:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-766</guid>
+		<description>&#62;&#62; Причем стореджи могут быть раскиданы где угодно, главное чтобы были обьединены в сеть &#62;&#62;и задержки были не более 2ms.
+
+&#62;Это уже не “как угодно”, это в общем довольно жесткое требование для гигабита по меди.
+
+Да, вот интересно, как оно работает. Как часто разваливается RAID в реальной жизни и себя фиксит.</description>
+		<content:encoded><![CDATA[<p>&gt;&gt; Причем стореджи могут быть раскиданы где угодно, главное чтобы были обьединены в сеть &gt;&gt;и задержки были не более 2ms.</p>
+<p>&gt;Это уже не “как угодно”, это в общем довольно жесткое требование для гигабита по меди.</p>
+<p>Да, вот интересно, как оно работает. Как часто разваливается RAID в реальной жизни и себя фиксит.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-765</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 11 Sep 2010 08:45:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-765</guid>
+		<description>Нет, не тормозится, они изолированы от интерфейса собственно SAS. В отличе от FC-AL.
+Но рекомендуется не перемешивать SATA и SAS слишком уж часто (пример: вместо SAS-SATA-SAS-SATA делать SAS-SAS-SATA-SATA).
+Кстати сказать, производительность дисков SATA в DS4243 получается выше чем в DS14mk2-AT примерно на 20-25%</description>
+		<content:encoded><![CDATA[<p>Нет, не тормозится, они изолированы от интерфейса собственно SAS. В отличе от FC-AL.<br />
+Но рекомендуется не перемешивать SATA и SAS слишком уж часто (пример: вместо SAS-SATA-SAS-SATA делать SAS-SAS-SATA-SATA).<br />
+Кстати сказать, производительность дисков SATA в DS4243 получается выше чем в DS14mk2-AT примерно на 20-25%</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrey</title>
+		<link>http://blog.aboutnetapp.ru/archives/695#comment-764</link>
+		<dc:creator>Andrey</dc:creator>
+		<pubDate>Sat, 11 Sep 2010 08:42:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=695#comment-764</guid>
+		<description>Ну если самим не получается сделать и занять рынок, то проще купить.
+Всех конкурентов так и убирают в цивилизованном мире :)
+Молодец HP. А то их чуть Dell не сделал.</description>
+		<content:encoded><![CDATA[<p>Ну если самим не получается сделать и занять рынок, то проще купить.<br />
+Всех конкурентов так и убирают в цивилизованном мире :)<br />
+Молодец HP. А то их чуть Dell не сделал.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

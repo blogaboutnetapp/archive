@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; data ontap</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;data ontap&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1331">
+				<h2 class="posttitle"><a href="../1331/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP 8.2.1 - что нового?">Data ONTAP 8.2.1 - что нового?</a></h2>
+				<div class="postmetadata">10 Март 2014, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Обсуждая и отмечая выход FAS8000 как аппаратных устройств, мы совсем выпустили из внимания их &#8220;программную&#8221; часть. 19 февраля вышла Data ONTAP 8.2.1, и новые контроллеры будут поставляться с самой новой ее версией - 8.2.1RC2.<br />
+Напомню, вновь, что в номенклатуре NetApp версия RC, хотя и расшифровывается как &#8220;Release Candidate&#8221;, тем не менее не является какой-то там недопроверенной и неготовой &#8220;бетой&#8221;, это официальная production-ready версия, пригодная и устанавливаемая на продакшн-системы, просто вот такая вот схема нумерации версий принята. С этим разобрались, пойдем теперь deeper. :) </p>
+<p>Что нового появилось в Data ONTAP 8.2.1</p>
+<ul>
+<li>Дальнейшее улучшение и развитие NDO - Non-Disruptive Operations, процедур, выполняющихся без прерывания работы системы. В перспективе _все_ операции с Cluster Environment будут NDO. Пока же идет планомерное улучшение и расширение.</li>
+</ul>
+<ol>
+<li>Таковой стала операция удаления из системы дисковых полок. Теперь доступ к данным системы хранения не прерывается даже в процессе замены или удаления дисковых полок (конечно, не с дисков на этих полках, но тем не менее). Удаление, а также замена дисков и полок на другие, например более новые, теперь может осуществляться &#8220;на ходу&#8221; кластера.</li>
+<li>Замена контроллеров в кластере ранее требовала некоторых ручных процедур. Теперь, с помощью инструмента NetApp OnCommand Workflow Automation (WFA), эти шаги могут быть автоматизированы. Это ускоряет процедуру и снижает возможность операторских ошибок в процессе.</li>
+<li>Поддерживается MS SQL Server, работающий по SMB3.0 с шарами в CA (Continuous Available) режиме.</li>
+</ol>
+<ul>
+<del datetime="2014-03-19T04:35:25+00:00"></p>
+<li>Вернулся встроенный антивирус.</li>
+<p>Вы помните, возможно, что встроенный антивирус в DOT 8.x уже был в ранних версиях ее, но потом был удален для доработки. Доработка проведена, и вот теперь, надеюсь окончательно, в Data ONTAP 8.2.1 появился встроенный антивирусный сервис. Это крайне важно для всяческих &#8220;файловых&#8221;  применений и крупных NAS. До сих пор такие системы строились с внешним антивирусным сервером, возможность подключения которого существовала у систем хранения NetApp всегда. Теперь появилась возможность, в дополнение или же как замена такому, использовать антивирусный сервис внутри контроллера.</p>
+<p></del>
+</ul>
+<p>Спасибо читающим и комментирующим за важную поправку, действительно, я неправильно прочитал, это не встроенный, а внешний антивирус, просто улучшили некоторые моменты его работы, но антивирус по-прежнему является внешним по отношению к процессору контроллера системы хранения.</p>
+<ol>
+<li>Поддерживаются антивирусные службы, разработанные специально для NetApp несколькими антивирусными вендорами, в частности это McAfee, TrendMicro и Symantec.</li>
+<li>Служба поддерживает интеграцию с приложениями корпоративного менеджмента, например McAfee ePO</li>
+<li>Поддерживается сканирование в памяти, с использованием кэша, что существенно ускоряет проверку и снижает нагрузку на диски при повторной проверке одних и тех же файлов.</li>
+<li>Появились средства мониторинга процесса антивирусной проверки.</li>
+<li>Теперь сканирование может осуществляться несколькими сканерами одновременно, во много потоков.</li>
+</ol>
+<ul>
+<li>Automated Workflow Analyzer (AWA) теперь умеет анализировать и сайзить Flash Pool.</li>
+</ul>
+<ul>
+<li>Data ONTAP Edge, &#8220;NetApp в виде виртуальной машины&#8221;, в среде vSphere, предназначенный, в первую очередь, для инфраструктур remote and btach offices, то есть филиалов и распределенных офисов (ROBO), умеет теперь работать в режиме single-node cluster. Это сравнительно новый режим cluster-mode, в котором можно включить его для одного отдельного контроллера. Это применяется, в первую очередь, для систем-получателей репликации, бэкапов через SnapVault, и прочих таких же применений, где не требуется &#8220;доступность пять девяток&#8221;, и это позволяет снизить затраты на систему в целом. Теперь вы можете использовать DOT-Edge как компонент в Clustered-системе, включенный туда как single-node cluster, например реплицировать в нее бэкапы.</li>
+</ul>
+<ul>
+<li>Некоторые изменения и улучшения в NFS и CIFS/SMB. Кому важно - смотрите в release notes.</li>
+</ul>
+<ul>
+<li>Обновились программы семейства OnCommand</li>
+</ul>
+<ul>
+<li>Появилось новый инструмент - Performance Manager 1.0, <del datetime="2014-04-05T06:08:29+00:00">выделенный, как понимаю, из Unified Manager</del>.</li>
+</ul>
+<ul>
+<li>Появилась впервые поддержка UTA2 - Unified Target Adapter, что это такое мы уже рассматривали в статьях о FAS8000 ранее, это таргет-порты, которыми штатно оснащены все контроллеры 8000-серии, которые программно могут быть включены и настроены в системе или как FC 16G, или как 10G Ethernet.</li>
+</ul>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="821.html" rel="tag">8.2.1</a>, <a href="data-ontap.html" rel="tag">data ontap</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="whatsnew.html" rel="tag">whatsnew</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1331/trackback.html#comments" title="Комментарий к записи Data ONTAP 8.2.1 - что нового?">Комментарии (9)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1210">
+				<h2 class="posttitle"><a href="../1210/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP Edge &ndash; виртуальный NetApp в VM">Data ONTAP Edge &ndash; виртуальный NetApp в VM</a></h2>
+				<div class="postmetadata">10 Сентябрь 2012, 11:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>На прошедшем на прошлой неделе VMworld NetApp показал крайне интересную штуку – Data ONTAP Edge. Это виртуальный appliance, виртуальная машина, с установленной в ней OS Data ONTAP, работающей как “виртуальная система хранения” в среде VMware ESXi. </p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="VSA[1]" border="0" alt="VSA[1]" src="/pics//vsa1.jpg" width="540" height="186" /></p>
+<p>Наверняка вы уже знаете и пользуетесь симулятором Data ONTAP (а если не пользуетесь, то самое время <a href="../40/trackback.html">пойти почитать про него подробнее</a>). В двух словах: Data ONTAP Simulator это код Data ONTAP, выполняемый не на реальном железе стораджа, а в среде Linux (для Simulator 7.x) или виртуальной машины FreeBSD (Simulator 8.х). Симулятор позволяет создать “эмуляцию стораджа”, протестировать те или иные решения, отработать какие-то процедуры, настроить инфраструктуру, не трогая реальный физический сторадж, проводить обучение и всякие эксперименты. Не позволяет он только сделать на симуляторе реальную систему хранения, так как в код симулятора вшиты строгие ограничения на объем. Сделано это с понятной целью, не провоцировать пользователя на попытку сделать из такой виртуальной машины реальный “сторадж”, так как производительность такого решения не идет в сравнение с нормальным физическим стораджем на физическом железе. ??ли по крайней мере “не шла”.</p>
+<p>Однако времена меняются, и некоторое время назад NetApp объявила о появлении у нее продукта Data ONTAP-v, который предоставляется не напрямую, а через партнеров (например Fujitsu в их blade-серверах для SMB), для создания virtual appliance, как раз того самого virtual storage. Data ONTAP-v это, если по-простому, симулятор со снятыми ограничениями. А&#160; на VMworld был сделан новый шаг – объявлено о доступности для конечных пользователей нового решения – Data ONTAP Edge – virtual storage appliance для малых офисов и филиалов.</p>
+<p>Data ONTAP Edge это, по сути, код Data ONTAP, практически такой, как он работает в реальном сторадже. Соответственно в таком апплайенсе вы получаете практически все то, что получаете в реальном железном сторадже, то есть универсальный (NAS+SAN) доступ, снэпшоты, thin provisioning, дедупликацию, FlexClone, SnapMirror и SnapVault. Однако, как и в эмуляторе, в Edge и ONTAP-v нет FC. Управлять Edge можно как и обычным нетапповским стораджем, с помощью System Manager, консоли, а также поддерживается Virtual Storage Console в&#160; vCenter.</p>
+<p>Цель Data ONTAP Edge – это филиалы и малые офисы. ?? прежде всего я вижу для таких организаций интерес в отношении Edge – это использовать его как SnapVault Primary. К сожалению, прекрасная и очень полезная для как раз малых компаний с филиалами и удаленными офисами идея с централизованным бэкапом через SnapVault разбивается о необходимость для использования всех плюсов SnapVault заводить второй (и более) железный нетапповский сторадж, так как SnapVault Primary, то есть “получатель” снэпшотов на хранение, может быть только нетаппом (SnapVault Secondary, “источник”, может быть даже обычный сервер, например при использовании OSSV, Open Systems SnapVault). Также интересным может быть организация репликации через SnapMirror.</p>
+<p>Кроме работы в составе SnapVault, вы можете использовать его как обычный виртуальный сторадж, например в составе инфраструктуры виртуальных серверов, используя его возможности эффективного хранения.</p>
+<p>Data ONTAP Edge можно скачать в виде 90-дневного триала, в формате OVA, с необходимым набором лицензий. Для установки его необходим, в отличие от симулятора, ряд строгих условий. Edge устанавливается только на ESXi (симулятор можно было установить на почти любой гипервизор), он требует много памяти и процессора (строго 2 выделенных vCPU и 4GB выделенной RAM, 57,5 GB места для самой системы), а также обязательно не ниже 4-ядерного или 2 двухядерных 64bit Intel x86 процессор, более 2,27GHz, четыре и более физических диска на Hardware battery-backed RAID, минимум одна Gigabit Ethernet карта, но в реальности, для современных серьезных продакшновых инфраструктур, эти требования вполне подъемны. Существует список поддерживаемых систем в качестве хоста. Рекомендую также посмотреть и на <a href="http://media.netapp.com/documents/ds-data-ontap-edge.pdf">Data ONTAP Edge datasheet</a>.</p>
+<p>Для получения ссылки на скачивание триала вам будет нужен логин на support.netapp.com (бывший NOW), в том числе вы можете получить его и не будучи уже зарегистрированным клиентом NetApp, по “гостевому входу”. Лицензии на триал придут на адрес почты, зарегистрированной на логин.</p>
+<p>Обсуждение и ответы на вопросы по Data ONTAP Edge можно получить в специальном разделе communities: <a href="https://communities.netapp.com/community/products_and_solutions/data-ontap-edge">https://communities.netapp.com/community/products_and_solutions/data-ontap-edge</a></p>
+<p>Любопытно, что, по слухам, в начале своей истории NetApp серьезно рассмативала вариант выпустить Data ONTAP как софт, устанавливаемый на пользовательское “железо”, то есть не становиться еще одним “вендором железа”, а оставаться софтовой компанией. К сожалению, тогда, в первой половине 90-х состояние дел с надежностью доступного пользователям железа не позволило достичь приемлемого качества и производительности, и пришлось под Data ONTAP строить свою железную платфолрму. Сегодня, как видите, старинная идея переживает второе рождение.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="data-ontap.html" rel="tag">data ontap</a>, <a href="edge.html" rel="tag">edge</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ontap-v.html" rel="tag">ontap-v</a>, <a href="simulator.html" rel="tag">simulator</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1210/trackback.html#comments" title="Комментарий к записи Data ONTAP Edge &ndash; виртуальный NetApp в VM">Комментарии (25)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1040">
+				<h2 class="posttitle"><a href="../1040/trackback.html" rel="bookmark" title="Permanent Link to Вышел Data ONTAP 8.1 RC">Вышел Data ONTAP 8.1 RC</a></h2>
+				<div class="postmetadata">26 Сентябрь 2011, 12:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Вышел долгожданный 8.1</p>
+<p>Напомню, что по введенной с июля 2010 года модели именования релизов, выпуск под названием RC (Release Candidate) является полноценным релизом, оттестированным и готовым в продакшн.</p>
+<p>Цитата с сайта:</p>
+<blockquote><p><strong><font size="4">Release Candidate (RC)</font></strong></p>
+<p>All Data ONTAP releases are made available first as release candidates (RCs). The RC classification indicates that NetApp has <strong>completed the internal testing of the major release</strong>. RCs are provided primarily to customers who want to start exploring the major or maintenance releases for either new features or bug fixes early on. <strong>RC releases are fully tested and are suitable for production usage. </strong><em>(выделение мое, romx)</em></p>
+<p>NetApp might provide multiple RCs, as necessary, to address any specific issues found before the release becomes a general availability (GA) release. NetApp Global Services (NGS) provides support for RCs. After RCs move to GA, all maintenance and patch releases are based on the GA release and not on the RC.</p>
+</blockquote>
+<p>Релизы “цифра после запятой” (Major Release) выходят каждые 18 месяцев, после их выпуска, каждые 6 месяцев выпускаются так называемые Maintenance Release.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image146.png" width="640" height="480" /></p>
+<p>Список изменений довольно велик и существеннен. Очень много важных изменений, поэтому далее я собрал почти все значимое, в кратком переводе. Порядок пунктов хаотичный и не слишком системный, просто FYI.</p>
+<p>   <a href="../1040/trackback.html#more-1040" class="more-link"><small>Continue reading &#8216;Вышел Data ONTAP 8.1 RC&#8217; &raquo;</small></a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="81.html" rel="tag">8.1</a>, <a href="data-ontap.html" rel="tag">data ontap</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ontap.html" rel="tag">ontap</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1040/trackback.html#comments" title="Комментарий к записи Вышел Data ONTAP 8.1 RC">Комментарии (15)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-713">
+				<h2 class="posttitle"><a href="../713/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP 8.0.1RC1 &ndash; что нового?">Data ONTAP 8.0.1RC1 &ndash; что нового?</a></h2>
+				<div class="postmetadata">7 Октябрь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Ну, потихоньку-полегоньку надо начинать привыкать к “восьмерке”.</p>
+<p>Еще 3 сентября на NOW появилась версия под названием 8.0.1RC1 и я уже сталкивался с некоторым непониманем того, что такое теперь у NetApp RC. </p>
+<p>Если вы знакомы со старой моделью именвания релизов, то помните названия GA – General Availability и GD – General Deployment.</p>
+<p>Начиная с июня 2010 года, то есть с версии 7.3.4 и также для всех дальнейших 8.0.х действует новая, упрошенная модель именования релизов. Теперь, если по простому, то нынешний RC это старый GA, а нынешний GA это старый GD.   <br />Теперь версии будут называться RC – Release Candidate, наиболее свежие версии, опубликованные, протестированные, и предназначенные для&#160; ознакомления, использования и <strong>годные для установки в продакшн</strong>; и GA – General Available, протестированные всеми способами, в том числе подтвержденные на <em>“пять девяток”</em>, что занимает определенное дополнительное время, и GA становятся доступны несколько позднее. Добавление функциональности между RC и GA не производится.</p>
+<p>Что же добавилось в 8.0.1?</p>
+<ul>
+<li>Поддерживается новое “железо”, о котором нам объявят в ноябре.</li>
+<li>Появилась поддержка Flash Cache АКА PAM-II, который не поддерживался в версии 8.0.0, что многих сильно огорчало. Теперь поддержка есть для всех PAM, причем как для 7-Mode, так и для Cluster-Mode.</li>
+<li>Теперь есть поддержка SMB 2.0 для 7-Mode. Ранее она была доступна только в “семерке”, а недавно опубликованные результаты показывают значительные преимущества использования SMB 2.0, причем в сетях с задержками в десятки миллисекунд (например распределенные и соединенные через WAN и VPN сети Windows ) разница в производительности с SMB 1.0/CIFS <a href="http://www.netapp.com/us/library/technical-reports/tr-3869.html">по настоящему огромная</a>.</li>
+<li>Теперь возможно использования root vol (vol0) на 64-bit aggregate, то есть нет нужды держать отдельный “старый” маленький aggregate только ради root vol, жертвуя минимум двумя-тремя дисками на каждом из двух контроллеров. Однако помните, что это не позволит вам “откатиться” на старую версию, только с полной переустановкой системы.</li>
+<li>Появилась поддержка в 7-Mode возможности Volume Snapmirror Compression, которая уже была в наиболее свежих версиях ONTAP “седьмой” ветки, а также (ограниченно) поддерживается Multistore (на уровне 7.3.2). Правда Data Motion для vfiler, базирующийся на функциональности 7.3.3, пока не поддерживается.</li>
+<li>Зато (в 7-Mode только) появилась возможность под названием Data Motion for Volumes, при котором можно мигрировать тома, содержащие LUN (то есть только блочный доступ), не прерывая к ним доступа, на ходу, на другие aggregates. Обратите внимание, типы aggregates должны быть одинаковы, то есть это НЕ способ мигрировать с 32-bit на 64-bit. Средство преобразования типов aggregates вновь обещается, и вновь задерживается.</li>
+<li>Увеличен верхний лимит длины RAID-группы типа RAID-DP для SATA: с 16 до 20.</li>
+<li>В 7-Mode поддерживается онлайн-компрессия данных на WAFL, но только на 64-it aggregates.</li>
+<li>Наконец то увеличен размер тома, на котором возможна дедупликация, для всей линейки, начиная с 2040 (напомню, что 2020 и 2050 в 8.0 не поддерживаются), теперь дедупликация возможна на томе размером 16TB, для всех контроллеров (только для 7-Mode).</li>
+<li>Поддерживается VAAI – VMware vStorage API for Array Integration, новый API для offload операций хранения с хоста VMware ESX, например создание eager zeroed thick volume, а также новый метод локирования данных на LUN при совместном к ним доступе через VMFS (только для 7-Mode).</li>
+<li>Много добавлений по мелочи, например появилась поддержка CDP – Cisco Discovery Protocol, полезного для разбирательств с сетевой инфраструктурой. Команда работы с VIF (Virtual Interface, нетапповским названием для EtherChannel) теперь не vif, а ifgrp. Появилась полезная команда storage show fault, а также поддержка SSL v2 и v3.</li>
+</ul>
+<p>Пока нет:</p>
+<ul>
+<li>IPv6</li>
+<li>SnapLock</li>
+<li>Не изменились доступные данному типа контроллера размер 64-bit aggregate, то есть по прежнему: 2040 – 30TB; 3040,3140,3160,3070 – 50TB; 6030,6040,3170 – 70TB; 6070,6080 – 100TB.</li>
+</ul>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="80.html" rel="tag">8.0</a>, <a href="data-ontap.html" rel="tag">data ontap</a>, <a href="netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../713/trackback.html#comments" title="Комментарий к записи Data ONTAP 8.0.1RC1 &ndash; что нового?">Комментарии (8)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-643">
+				<h2 class="posttitle"><a href="../643/trackback.html" rel="bookmark" title="Permanent Link to NetApp FAS и Data ONTAP 8.0">NetApp FAS и Data ONTAP 8.0</a></h2>
+				<div class="postmetadata">2 Август 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В связи с приближающейся долгожданной Data ONTAP 8.0.1 со множеством плюшек и бонусов, хочу обратить внимание владельцев систем хранения NetApp FAS на то, что 8.0.х принципиально работает только на 64-bit процессорах (это связано со сменой внутренней архитектуры), а это значит, что она не пойдет на 32-х разрядных системах в линейке FAS. К 32-разрядным относятся такие системы, как: FAS2020, FAS2050, FAS3020 и FAS3050. Для этих систем следует либо остаться на “ветке” 7, которая пока еще продолжает развиваться и поддерживаться, либо провести аппаратный апгрейд.</p>
+<p>Так, FAS3020 может быть проапгрейжена заменой контроллера существующей системы в 64-битную FAS3040, 3050 – в 3070. Но 3020, и уж того паче, 3050, это системы достаточно старые, а более современные 3040/3070 (а также системы линейки 3100) существуют уже около 3 лет. Сложнее ситуация в low-enterprise, с системами серии 2000, успешно и активно продающихся и по сей день.</p>
+<p>Если для FAS2020 и есть теоретическая замена контроллера на 64-bit FAS2040, правда за вполне солидные для систем этого сегмента деньги, то FAS2050 пока остается “сбоку”. Есть некоторая надежда на появление аналогичного апгрейда для этого конструктива, назовем его условно “FAS2070”, но пока никаких известий нет, и многочисленные покупатели довольно удачной системы 2050 пока остаются без “восьмерки”. Ждем осени и предполагающегося, подобно прошлому году, объявления новых продуктов.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="80.html" rel="tag">8.0</a>, <a href="data-ontap.html" rel="tag">data ontap</a>, <a href="netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../643/trackback.html#respond" title="Комментарий к записи NetApp FAS и Data ONTAP 8.0">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-160">
+				<h2 class="posttitle"><a href="../160/trackback.html" rel="bookmark" title="Permanent Link to HOWTO: Обновляем Data ONTAP на работающей системе">HOWTO: Обновляем Data ONTAP на работающей системе</a></h2>
+				<div class="postmetadata">29 Сентябрь 2008, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p><strong>Процедура полного обновления OS и firmware системы хранения NetApp FAS</strong></p>
+<p>В случае обновления системы в кластерной конфигурации возможно провести обновление системы, не прерывающее нормальную работу. </p>
+<p>Загрузите с now.netapp.com:</p>
+<ul>
+<li><a href="http://now.netapp.com/NOW/download/tools/diskshelf/">свежие прошивки для полок </a>(all shelf firmware updates)</li>
+<li><a href="http://now.netapp.com/NOW/download/tools/diskfw/">свежие прошивки дисков </a>(all disk firmware updates)</li>
+<li><a href="http://now.netapp.com/NOW/cgi-bin/fw">прошвку firmware контроллера CFE</a></li>
+<li><a href="http://now.netapp.com/NOW/cgi-bin/software/">новую версию DataONTAP</a></li>
+<li><a href="http://now.netapp.com/NOW/knowledge/docs/ontap/ontap_index.shtml#Data%20ONTAP%20Documentation">документацию соответствующей версии DataONTAP</a></li>
+</ul>
+<p><em>Рекомендуется:</em> Сообщите в саппорт о том, что вы приступаете к обновлению. Сгенерируйте письмо в AutoSupport с темой Maintenance или Upgrade, иначе вы можете получить кучу открытых кейсов для вашей системы и обеспокоенные звонки из техподдержки &#8220;чего это у вас там все ребутится в кластере?&#8221;<br />
+( <code><strong>> option autosupport.doit maintenance</strong></code> )<br />
+На крайний случай просто временно выключите AutoSupport (не рекомендуется, можно забыть включить назад)<br />
+(<code><strong>> option autosupport.enable off</strong></code>)</p>
+<p>Смонтируйте на вашем компьютере как сетевой диск ресурс <code><strong>\\filerA\c$</strong></code> и <code><strong>\\filerB\c$</strong></code><br />
+Данное монтирование (C$) возможно в том числе, если вы не используете и не имеете лицензию CIFS.<br />
+Аналогично это возможно и с NFS в случае Linux/UNIX.</p>
+<p>Сделайте резервную копию содержимого <code><strong>c$\etc\</strong></code> на обоих системах</p>
+<p>Скопируйте эту резервную копию в папку <code><strong>c$\backup\etc_хх-хх-хххх</strong></code></p>
+<p>Распакуйте архив прошивок полок в <code><strong>etc\shelf_fw</strong> </code>на обоих контроллерах filerA и filerB</p>
+<p>Распакуйте архив прошивок дисков в <code><strong>etc\disk_fw </strong></code>на обоих контроллерах filerA и filerB</p>
+<p><strong>* Обновление прошивки полок</strong></p>
+<p>Войдите в админскую консоль системы хранения.</p>
+<p>Проверьте текущую версию shelf firmware ( <code><strong>> sysconfig -v</strong></code> )</p>
+<p>Войдите в режим с повышенными привилегиями ( <code><strong>> priv set advanced </strong></code>)</p>
+<p>Запустите обновление прошивки полок ( <code><strong>> storage download shelf </strong></code>)<br />
+Этот процесс обновит прошивки всех дисковых полок системы. Если вы хотите обновить только какие-то определенные, то используйте команду<br />
+<code><strong>> storage download shelf adapter_number</strong></code>.</p>
+<p>Согласитесь на обновление, нажмите &#8220;y&#8221; и Enter.</p>
+<p>После завершения проверьте версию прошивки полок ( <code><strong>> sysconfig -v </strong></code>)</p>
+<p>Выйдите из режима повышенных привилегий ( <code><strong>> priv set admin</strong> </code>)</p>
+<p><strong>* Обновление прошивки дисков</strong></p>
+<p>Прошивки дисков автоматически обновятся во время перезагрузки, если новые версии на этот момент будут лежать в папке disk_fw. Чтобы предотвратить такое поведение, например в случае очень больших систем с большим количеством дисков, можно изменить следующую системную опцию:<br />
+( <code><strong>> options raid.background_disk_fw_update.enable</strong></code>), она может быть в состоянии on или off. Рекомендуется оставить ее в <code><strong>on</strong></code>.</p>
+<p><strong>* Обновление Data ONTAP </strong></p>
+<p>Проверьте соответствие вашей системы опуликованным для полученного релиза Data ONTAP. При необходимости обновить версии прошивок полок и дисков сделайте это как описано выше.<br />
+Проверьте разделы <em>known problems and limitations </em>сопровождающей релиз информации. Проверьте списики исправленных багов между вашей рабочей системой и обновляемой.</p>
+<p><strong>* Процесс обновления</strong></p>
+<p>Распакуйте полученные архивы с новым дистрибутивом OS на смонтированные диски C$ обоих контроллеров в соответствуюшие папки (\etc\boot). Если вы проделываете это из под Windows, то рекомендуется воспользоваться стандартным путем, запустив на локальной машине самораспаковывающийся архив дистрибутива Data ONTAP и указав смонтированный на локальную машину диск \\filer\c$, как это указано в подсказке распаковки.</p>
+<p>Запустите установку обновления новой OS на обоих системах ( <code><strong>> download </strong></code>)</p>
+<p>Проверьте состояние кластера ( <code><strong>> cf status </strong></code>) чтобы быть уверенным, что кластерный файловер работает</p>
+<p>Выполните перехват системой filerB сервисов системы filerA ( <code><strong>> cf takeover</strong></code> )<br />
+Это отправит filerA в перезагрузку</p>
+<p>Во время перезагрузки filerA нажмите ( <code><strong>ctrl-c</strong> </code>) для входа в maintenance mode<br />
+Вы должны делать это подключенным консольным кабелем к системе хранения, или через RMC (Remote Management Controller).</p>
+<p>Находясь в maintenance mode наберите ( <code><strong>> halt</strong> </code>) чтобы выполнить полную перезагрузку</p>
+<p>Нажмите ( <code><strong>del </strong></code>) во время теста памяти, чтоы получить консоль CFE</p>
+<p>Запустите прошивку нового firmware в flash командой CFE ( <code><strong>CFE> update_flash</strong></code> )</p>
+<p>Перезагрузитесь командой ( <code><strong>bye </strong></code>) на консоли и дождитесь завершения нормальной загрузки OS системы хранения filerA<br />
+Система filerA должна находиться в состоянии <code><strong>…waiting for giveback state</strong></code></p>
+<p>Для возвращения кластерных ресурсов на filerA мы должны дать команду<br />
+( <code><strong>> cf giveback –f</strong></code> ) с консоли filerB<br />
+Это необходимо сделать вручную, так как у нас сейчас различные версии Data ONTAP на контроллерах кластера.</p>
+<p>После завершения giveback, проверьте версию прошивки и OS системы filerA<br />
+( <code><strong>> sysconfig –v</strong></code> )</p>
+<p>После проверки успешности обновления повторяем действия с системой filerB:</p>
+<p>Система filerA перехватывает сервисы filerB ( <code><strong>> cf takeover –n</strong></code> )</p>
+<p>Наберите ( <code><strong>> halt</strong></code> ) в консоли filerB для перезагрузки</p>
+<p>Во время перезагрузки filerB нажмите ( <code><strong>ctrl-c</strong></code> ) для входа в maintenance mode.<br />
+В maintenance mode наберите в консоли ( <code><strong>> halt</strong> </code>) для выполнения полной перезагрузки.<br />
+Нажмите ( <code><strong>del </strong></code>) по время тестирования памяти чтобы получить консоль CFE.<br />
+Запустите обновление firmware командой ( <code><strong>CFE> update_flash </strong></code>)</p>
+<p>Введите ( <code><strong>bye </strong></code>) в консоли после завершения перепрошивки и выполните перезагрузку filerB</p>
+<p>Если система filerB находится в состоянии <code><strong>…waiting for giveback state </strong></code>сделайте ручной giveback ( <code><strong>> cf giveback –f</strong></code> ) с контроллера filerA<br />
+Если процесс giveback завершен успешно, проверьте firmeware и версию OS на filerB при помощи ( <code><strong>> sysconfig –v</strong></code> )</p>
+<p>Обе системы полностью обновлены.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="data-ontap.html" rel="tag">data ontap</a>, <a href="howto/index.html" rel="tag">howto</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="upgrade.html" rel="tag">upgrade</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../160/trackback.html#comments" title="Комментарий к записи HOWTO: Обновляем Data ONTAP на работающей системе">1 комментарий</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.088 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

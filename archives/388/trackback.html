@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; О &#8220;дешевизне&#8221; SATA-дисков</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../386/trackback.html">Мастер-класс говнилок, или &ldquo;сеанс черной уличной магии&rdquo;</a></div>
+			<div class="alignright"><a href="../387/trackback.html">SANscreen trial</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-388">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to О &#8220;дешевизне&#8221; SATA-дисков">О &#8220;дешевизне&#8221; SATA-дисков</a></h2>
+			<div class="postmetadata">7 Сентябрь 2009, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Ранее, в посте <a href="../373/trackback.html">про надежность RAID-5</a> я уже писал про такой аспект дисков SATA, как надежность и величину UER (Unrecoverable Error Rate, иногда также называется UBE - Unrecoverable Bit Error).<br />
+Величина эта почти на порядок (в 10 раз) хуже, чем для дисков SAS/FC, причем причина тут конструктивная, а не просто в интерфейсе.<br />
+Однако, для небольших систем &#8220;начинающих&#8221;, в первую очередь роль играет цена.</p>
+<p>Жесткий диск (и система хранения) характеризуется, в общем случае, двумя параметрами: емкостью (измеряется в <strong>Мегабайтах/Гигабайтах (MB/GB)</strong>), и быстродействием (измеряется в <strong>IOPS </strong>- Input-Output Operations per Second - Операций ввода-вывода в секунду ). ?? если емкости дисков непрерывно растут вот уже несколько лет, то показатели по IOPS замерли уже довольно давно.<br />
+Принято считать, что диск SATA дает <strong>80-100 IOPS</strong>, диски SAS/FC - <strong>140-160</strong> для 10KRPM, <strong>180-200</strong> - 15KRPM.</p>
+<p>Стоимость за мегабайт для дисков SATA весьма низка, на сегодня она составляет<strong> 0,17$/MB</strong> для диска SATA 1TB, однако около <strong>0.83$/MB</strong> для диска SAS 300GB. (я оперирую ценами, взятыми из price.ru: SATA WD RE3 1TB 7200 - <strong>170$</strong>, SAS Hitachi 300GB 15K - <strong>250$</strong>)</p>
+<p>??ная картина будет, если мы посчитаем стоимость IOPS-ов. Диск SATA при этом будет стоить <strong>2,1$ за IOPS</strong>, а 15K SAS - <strong>1.38$/IOPS</strong></p>
+<p>Допустим, перед нами стоит задача создать сторадж на <strong>3 TB</strong>, при этом быстродействие его должно быть не хуже <strong>3000 IOPS</strong>.</p>
+<p>Рассмотрим два варианта:<br />
+Если мы рассматриваем только емкость, то будет все просто:<br />
+SATA 1TB нужно три штуки, при цене за диск в 170$ общая сумма хранилища заданного размера, без учета RAID будет <strong>510$</strong><br />
+Дисков SAS на 15KRPM емкостью 300GB будет нужно 10 штук, при цене за диск 250$ такая емкость будет стоить <strong>2500$</strong></p>
+<p>Казалось бы вывод очевиден, SATA дешевле, причем раз в пять.<br />
+Но мы пока не учли второе требование, про 3000 IOPS.</p>
+<p>Для быстродействия системы емкостью 3TB в 3000 IOPS, из расчета в 80 IOPS с каждого диска SATA, нам нужно распараллелить ввод-вывод не менее чем на 38 дисков. 38 дисков SATA, это будет стоить уже <strong>6460$</strong>.<br />
+Однако для дисков SAS те же 3000 IOPS достижимы на всего 17 дисках, что стоит <strong>4250$</strong></p>
+<p>??того, для удовлетворения обоих заданных требований, и по емкости, и по быстродействию, система, изначально построенная на более дешевых дисках оказывается почти в полтора раза дороже, и с увеличением требований по быстродействию это разрыв будет только расти.</p>
+<p>Этот момент часто не учитывают люди, планирующие использование SATA на задачах primary storage.</p>
+<p>Если перед вами стоит задача не просто создать емкость хранения, без учета показателей по быстродействию, что, вообще говоря имеет только одно применение - хранилище архивных и резервных копий, а систему хранения, обеспечивающую приемлемую скорость работы приложения его использующего, то вам следует забыть про гигабайты, и ориентироваться, в первую очередь, на производительность дисков, на IOPS. Необходимый объем вы получите &#8220;автоматичски&#8221;.<br />
+Сегодня, во многих случаях, при планировании системы хранения, производительность есть ее &#8220;первичное&#8221;, ключевое свойство .<br />
+??ли, иначе говоря: &#8220;GB are free, IOPS cost you money&#8221; - &#8220;Гигабайты бесплатно, вы платите только за <del>доставку</del> ??ОПСы&#8221;</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/iops.html" rel="tag">iops</a>, <a href="../tag/sas.html" rel="tag">sas</a>, <a href="../tag/sata.html" rel="tag">sata</a>, <a href="../tag/sizing.html" rel="tag">sizing</a>, <a href="../tag/techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (10)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-169">
+		<div id="div-comment-169">
+		<div class="comment-author">
+			<cite>alex nop:<cite></div>
+			<p>Согласен почти со всем. Могу только добавить, что количество IOPS, которое выдает железка, еще сильно зависит от размера блока. Приведенные цифры справедливы по нижней границе на 8К блоках. На блоках большего размера разница между SATA и SAS/FC нивелируется. На эту тему у, как ни странно, Symantec, есть презентация о методике расчета IOPS для вполне конкретных параметров. Пару лет назад, когда было сильно надо, я ее находил и исходя из нее делал сайзинг для своих задачек.</p>
+<p>?? кстати, например, для работы с фильмами хотябы в 2K уже интересней использовать SATA, чем SAS/FC, потому что размер кадра 12Mb и соответственно использовать мелкие блоки нерационально. А средний размерчик &#8220;кина&#8221; около 5Tb. Так что с &#8220;только одно применение - хранилище архивных и резервных копий&#8221; - эт вы, коллега, погорячились.</p>
+<p>Все зависит от задачи, как всегда.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-169" title="">7 Сентябрь 2009, 23:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-170">
+		<div id="div-comment-170">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Это вы просто меня невнимательно читаете. &#8220;Хранилище архивных и резервных копий&#8221; приводилось как пример стораджа, создаваемого исключительно исходя из объема хранения. </p>
+<p><em>Если перед вами стоит задача не просто создать емкость хранения, без учета показателей по быстродействию, что, вообще говоря имеет только одно применение - хранилище архивных и резервных копий, а систему хранения, обеспечивающую приемлемую скорость работы приложения его использующего&#8230;</em> далее по тексту</p>
+<p>Вы же приводите пример совсем другого порядка. Производительность в вашем случае весьма важна.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-170" title="">8 Сентябрь 2009, 0:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-171">
+		<div id="div-comment-171">
+		<div class="comment-author">
+			<cite>alex nop:<cite></div>
+			<p>Цитата:&#8221;вообще говоря имеет только одно применение - хранилище архивных и резервных копий&#8221;. Не хочу придираться к словам. Предлагаю перейти сразу к производительности :)</p>
+<p>В случае с киношниками - это не random IO, это throughput IO. Т.е. нужно получить 24 кадра/сек, при объеме кадра 12Mb (если говорим о 2K). ??того 24*12=288Mb/s. Берем размер блока 256k. 12Mb (размер кадра) / 256 k = 48 винтов SATA. Поскольку работа всега идет покадровая, нам нет смысла брать маленькие блоки.</p>
+<p>Вы допускаете, что с 48 винтов SATA можно читать со скоростью 288 Mb/s? Как вы думаете насколько % будет отличаться производительность в IOPS между SATA и SAS/FC винтами при 256k блоках?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-171" title="">8 Сентябрь 2009, 19:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-939">
+		<div id="div-comment-939">
+		<div class="comment-author">
+			<cite><a href='http://www.storage-expert.ru' rel='external nofollow'>Дмитрий</a>:<cite></div>
+			<p>Нашел в инете калькулятор IOPS - вопрос, а правильно ли указана производительность SSD дисков? Что-то про 48000 IOPS не верится.<br />
+<a href="http://www.storage-expert.ru/index.php/section-table/42-disk-array-faq/63-online-iops-calc" rel="nofollow">http://www.storage-expert.ru/index.php/section-table/42-disk-array-faq/63-online-iops-calc</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-939" title="">17 Ноябрь 2010, 3:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-940">
+		<div id="div-comment-940">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Честно сказать, сложно сказать однозначно. В отличие от HDD, где IOPS напрямую и детерминированно зависят от скорости вращения, в случае SSD этот параметр зависит от множества вещей, от конструкции контроллера и организации блоков flash в перву очередь.</p>
+<p>Второй момент, о котором надо помнит, что есть у HDD IOPS &#8220;линеен&#8221; для записи и чтения, то у Flash это не так. Операция записи на SSD значительно медленнее, чем чтение.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-940" title="">17 Ноябрь 2010, 12:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2699">
+		<div id="div-comment-2699">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>А если есть FlashCache - можно ли SATA делать primary storage, как считаете?<br />
+Ну, допустим, это несколько СУБД, серверы приложений, Exchange, AD, профили пользователей и прочая стандартная mid-Enterprise требуха.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2699" title="">13 Июнь 2012, 21:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2700">
+		<div id="div-comment-2700">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Алексей:</p>
+<p>Строго говоря, на такие вопросы нельзя отвечать &#8220;да&#8221; или &#8220;нет&#8221;, не проводя дополнительных исследований. Случаи (и характер задач) бывают разные.<br />
+Но вот, например, на задачах файлового сервиса, как показывает пример тестирования SPEC sfs2007, такой вариант вполне может пр определенных конфигурациях, существовать.</p>
+<p>Результаты можно посмотреть на сайте spec.org в соответствующем разделе.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2700" title="">13 Июнь 2012, 21:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2701">
+		<div id="div-comment-2701">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>Видел-видел. Там красивая дуга. Одинаковая для вариантов тестирования: 224 disk FC15k vs 56 disk FC15k vs 96 disk SATA 7.2k.<br />
+Прям аж так вкусно выглядит (я про SATA). Наверняка подвох. Строго под определенный тип задач, опять же на счет SATA + PAMII. То есть с ходу про универсальность такой системы говорить не следует. Надо сайзить и тд и тп. В общем, ясно.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2701" title="">13 Июнь 2012, 21:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-2702">
+		<div id="div-comment-2702">
+		<div class="comment-author">
+			<cite>Алексей:<cite></div>
+			<p>Пардон, так правильнее:<br />
+(224 disk FC15k) vs (56 disk FC15k + PAMII) vs (96 disk SATA 7.2k + PAMII).</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2702" title="">13 Июнь 2012, 21:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2703">
+		<div id="div-comment-2703">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Алексей:</p>
+<p>Вот именно. Навскидку, результат для 96 дисков SATA может не быть таким, например, для 24 таких дисков. Поэтому нельзя дать компетентный ответ в предложенных рамках.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2703" title="">13 Июнь 2012, 21:46</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="388" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

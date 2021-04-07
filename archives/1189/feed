@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Странное поведение Synology DS411 на iSCSI</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1189/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1189</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:11 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1189#comment-3307</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 08 Sep 2012 08:06:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1189#comment-3307</guid>
+		<description>Zerg:
+
+В данном случае я специально указал, что при работе по NFS, который априори всегда более нагружающий процессор, данной проблемы нет. Так что дело не в процессоре. ?? Atom не такой уж слабый, если применять его правильно.</description>
+		<content:encoded><![CDATA[<p>Zerg:</p>
+<p>В данном случае я специально указал, что при работе по NFS, который априори всегда более нагружающий процессор, данной проблемы нет. Так что дело не в процессоре. ?? Atom не такой уж слабый, если применять его правильно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Zerg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1189#comment-3300</link>
+		<dc:creator>Zerg</dc:creator>
+		<pubDate>Fri, 07 Sep 2012 21:30:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1189#comment-3300</guid>
+		<description>Во всех домашних NAS зачастую все упирается в процессор. Т.к. реализация MD-RAID в Linux. очень требовательна к ресурсам процессора. А ставят туда в основном Atom которые и так весьма слабые. А пользователей подкупает маркетинг и всяческие фишечки.</description>
+		<content:encoded><![CDATA[<p>Во всех домашних NAS зачастую все упирается в процессор. Т.к. реализация MD-RAID в Linux. очень требовательна к ресурсам процессора. А ставят туда в основном Atom которые и так весьма слабые. А пользователей подкупает маркетинг и всяческие фишечки.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1189#comment-3140</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Tue, 14 Aug 2012 11:22:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1189#comment-3140</guid>
+		<description>ирония использования подобных решений в продакшне заключается в идентичной с нетапом стоимостью, цена qnap TS-EC1279U-RP или  netgear readynas 4200 с 12 терабайтными дисками примерно 10 тыс долларов, fas 2220 с аналогичными дисками, одним контроллером и базовой лицензией будет стоить столько же (и это при гарантии на диски nbd). Ничего плохого не могу сказать про netgear - надежная и быстрая (на чтение) система, но даже 2020 - это решение иного порядка.</description>
+		<content:encoded><![CDATA[<p>ирония использования подобных решений в продакшне заключается в идентичной с нетапом стоимостью, цена qnap TS-EC1279U-RP или  netgear readynas 4200 с 12 терабайтными дисками примерно 10 тыс долларов, fas 2220 с аналогичными дисками, одним контроллером и базовой лицензией будет стоить столько же (и это при гарантии на диски nbd). Ничего плохого не могу сказать про netgear - надежная и быстрая (на чтение) система, но даже 2020 - это решение иного порядка.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ylytch</title>
+		<link>http://blog.aboutnetapp.ru/archives/1189#comment-3139</link>
+		<dc:creator>Ylytch</dc:creator>
+		<pubDate>Mon, 13 Aug 2012 13:16:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1189#comment-3139</guid>
+		<description>Вообще, DS411 судя по всему, стабильно  показывает куда лучшую работу с NFS нежели с iSCSI
+Под рукой подобного железа нет, но вот статья описывающая поведение сабжа c ESXi по NFS vs iSCSI с обычными, не SSD дисками.
+Также указана в разы лучшая производительность по NFS. Грешить думаю, стоит на реализацию софтверного iSCSI target.
+http://www.thatcouldbeaproblem.com/?tag=ds411</description>
+		<content:encoded><![CDATA[<p>Вообще, DS411 судя по всему, стабильно  показывает куда лучшую работу с NFS нежели с iSCSI<br />
+Под рукой подобного железа нет, но вот статья описывающая поведение сабжа c ESXi по NFS vs iSCSI с обычными, не SSD дисками.<br />
+Также указана в разы лучшая производительность по NFS. Грешить думаю, стоит на реализацию софтверного iSCSI target.<br />
+<a href="http://www.thatcouldbeaproblem.com/?tag=ds411" rel="nofollow">http://www.thatcouldbeaproblem.com/?tag=ds411</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1189#comment-3134</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 13 Aug 2012 04:32:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1189#comment-3134</guid>
+		<description>azurk:
+
+У вас очень странный комментарий. Даже затрудняюсь на него ответить. Почему вы решили, что в качестве коммутатора используется некий "домашний роутер"? 
+В цитируемой статье не указано, что именно используется в качестве ethernet-коммутатора вообще, но в более ранних постах автора, например в http://wahlnetwork.com/2012/07/25/creating-a-link-aggregation-group-for-a-vsphere-lab-video/ можно узнать, что "In this video, I review the creation of a Link Aggregation Group (LAG) on my home lab’s HP V1910-24G switch."
+
+Я уж не говорю о том, что не совсем понятно, как, с вашей точки зрения, "домашний роутер" так избирательно относится к TCP/IP несущим в себе кадры, содержащие iSCSI, и отличает их от кадров с NFS, у которого описанных проблем с производительностью нет.</description>
+		<content:encoded><![CDATA[<p>azurk:</p>
+<p>У вас очень странный комментарий. Даже затрудняюсь на него ответить. Почему вы решили, что в качестве коммутатора используется некий &#8220;домашний роутер&#8221;?<br />
+В цитируемой статье не указано, что именно используется в качестве ethernet-коммутатора вообще, но в более ранних постах автора, например в <a href="http://wahlnetwork.com/2012/07/25/creating-a-link-aggregation-group-for-a-vsphere-lab-video/" rel="nofollow">http://wahlnetwork.com/2012/07/25/creating-a-link-aggregation-group-for-a-vsphere-lab-video/</a> можно узнать, что &#8220;In this video, I review the creation of a Link Aggregation Group (LAG) on my home lab’s HP V1910-24G switch.&#8221;</p>
+<p>Я уж не говорю о том, что не совсем понятно, как, с вашей точки зрения, &#8220;домашний роутер&#8221; так избирательно относится к TCP/IP несущим в себе кадры, содержащие iSCSI, и отличает их от кадров с NFS, у которого описанных проблем с производительностью нет.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: azurk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1189#comment-3133</link>
+		<dc:creator>azurk</dc:creator>
+		<pubDate>Mon, 13 Aug 2012 04:10:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1189#comment-3133</guid>
+		<description>может стоит попообовать с isci использовать коммутатор по серъезнее, чем домашний роутер?</description>
+		<content:encoded><![CDATA[<p>может стоит попообовать с isci использовать коммутатор по серъезнее, чем домашний роутер?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

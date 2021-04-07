@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Проблемы и решения Usable Space. Часть 5.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/341/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/341</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:11 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/341#comment-163</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 28 Aug 2009 14:13:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=341#comment-163</guid>
+		<description>sas-2:
+Спасибо, кстати, за хороший вопрос про agregate level snap reservation, вещь это так редко упоминаемая, что пришлось покопаться в доках :)
+
+В двух словах и на пальцах: так как в каком-то смысле aggregate это тоже такой псевдо-volume, то на нем тоже возможны снэпшоты.
+Однако в реальной жизни они почти не применяются, места их использования можно посчитать по пальцам одной руки. Это такие операции, как aggr copy - внутрисистемное копирование содержимого агрегата, а также RAID SyncMirror, используемый, например, в системах MetroCluster, а также можно сделать snapshot (и, соответственно, snap restore) для всего aggr целиком. Также снэпшоты используются при некоторых операциях проверки WAFL, при его неконсистентности.
+При них действительно создаются snapshots на уровне aggregate, но в _реальной_, моей и вашей жизни ;) они не используются, поэтому резервирование на уровне aggregate чаще всего не нужно, и его смело можно обнулить:
+&gt; snap sched -A [aggrname] 0
+
+Параноики могут оставить процента 2-3. :)
+
+Напомню также, что _резервирование_ для снэпшотов играет роль только в том случае, если ваш aggregate полностью заполнен (и поэтому места под снэпшот может не найтись), резервирование дает гарантию того, что место найдется в любом случае. Если aggregate не заполняется на все 100% своего объема, беспокоиться о переполнении нечего.</description>
+		<content:encoded><![CDATA[<p>sas-2:<br />
+Спасибо, кстати, за хороший вопрос про agregate level snap reservation, вещь это так редко упоминаемая, что пришлось покопаться в доках :)</p>
+<p>В двух словах и на пальцах: так как в каком-то смысле aggregate это тоже такой псевдо-volume, то на нем тоже возможны снэпшоты.<br />
+Однако в реальной жизни они почти не применяются, места их использования можно посчитать по пальцам одной руки. Это такие операции, как aggr copy - внутрисистемное копирование содержимого агрегата, а также RAID SyncMirror, используемый, например, в системах MetroCluster, а также можно сделать snapshot (и, соответственно, snap restore) для всего aggr целиком. Также снэпшоты используются при некоторых операциях проверки WAFL, при его неконсистентности.<br />
+При них действительно создаются snapshots на уровне aggregate, но в _реальной_, моей и вашей жизни ;) они не используются, поэтому резервирование на уровне aggregate чаще всего не нужно, и его смело можно обнулить:<br />
+> snap sched -A [aggrname] 0</p>
+<p>Параноики могут оставить процента 2-3. :)</p>
+<p>Напомню также, что _резервирование_ для снэпшотов играет роль только в том случае, если ваш aggregate полностью заполнен (и поэтому места под снэпшот может не найтись), резервирование дает гарантию того, что место найдется в любом случае. Если aggregate не заполняется на все 100% своего объема, беспокоиться о переполнении нечего.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/341#comment-162</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 26 Aug 2009 18:12:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=341#comment-162</guid>
+		<description>&gt; А для чего применяется резервирование на уровне агрегата?
+
+Про резервирование на софтверном уровне я еще отдельно напишу.
+А что имеется ввиду под "на уровне агрегата"?</description>
+		<content:encoded><![CDATA[<p>> А для чего применяется резервирование на уровне агрегата?</p>
+<p>Про резервирование на софтверном уровне я еще отдельно напишу.<br />
+А что имеется ввиду под &#8220;на уровне агрегата&#8221;?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/341#comment-161</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 26 Aug 2009 08:46:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=341#comment-161</guid>
+		<description>Да, спасибо, счас поправлю.</description>
+		<content:encoded><![CDATA[<p>Да, спасибо, счас поправлю.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/341#comment-160</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Wed, 26 Aug 2009 08:14:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=341#comment-160</guid>
+		<description>На счет кол-ва снапшотов, к примеру для самого "младшенького" из HDS AMS:
+
+Snap per source			32
+Snap source volumes per system	1023
+Snap volume clone per system 	2046
+
+...так что на счет 14-30 на систему я бы поостерегся. На счет младшего из CX4 - того самого CX4-120:
+
+Snap per source			8
+Snap source volumes per system	128
+Snap volume clone per system	512</description>
+		<content:encoded><![CDATA[<p>На счет кол-ва снапшотов, к примеру для самого &#8220;младшенького&#8221; из HDS AMS:</p>
+<p>Snap per source			32<br />
+Snap source volumes per system	1023<br />
+Snap volume clone per system 	2046</p>
+<p>&#8230;так что на счет 14-30 на систему я бы поостерегся. На счет младшего из CX4 - того самого CX4-120:</p>
+<p>Snap per source			8<br />
+Snap source volumes per system	128<br />
+Snap volume clone per system	512</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sas-2</title>
+		<link>http://blog.aboutnetapp.ru/archives/341#comment-156</link>
+		<dc:creator>sas-2</dc:creator>
+		<pubDate>Tue, 25 Aug 2009 14:19:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=341#comment-156</guid>
+		<description>А для чего применяется резервирование на уровне агрегата?</description>
+		<content:encoded><![CDATA[<p>А для чего применяется резервирование на уровне агрегата?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

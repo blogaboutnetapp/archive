@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Переход на Clustered Data ONTAP. Часть 3</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1384/trackback.html">Встреча в четверг, 7 августа.</a></div>
+			<div class="alignright"><a href="../1385/trackback.html">Встреча - завтра, 7 августа.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1383">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Переход на Clustered Data ONTAP. Часть 3">Переход на Clustered Data ONTAP. Часть 3</a></h2>
+			<div class="postmetadata">4 Август 2014, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>??так, завершая наш цикл постов про переход с Data ONTAP 7-mode на Clustered Data ONTAP, принципиально новую версию OS Data ONTAP, переход на которую пользователей идет вот уже несколько лет, и вот, наконец, этой осенью выходит на финишную прямую, и компания NetApp, наконец, этой осенью выпускает очередную версию Data ONTAP, в которой уже не будет режима 7-mode, и будет только Clustered Data ONTAP.<br />
+Да, уже существующие системы и версии Data ONTAP продолжат поддерживаться, но все новые версии будут уже только Clustered, или C-mode (Cluster-mode).<br />
+Это значит, что именно этой осенью вам стоит решить, остаетесь ли вы на текущей версии, и отказываетесь от всех новых фич, которые уже появились, и еще появятся, или же идете вместе с NetApp.</p>
+<p>Одной из основных проблем, среди нескольких, которые встают перед решившимся на такой переход, является невозможность перехода такого, который называется <em>data-in-place</em>, то есть с сохранением данных на дисках на их местах. Невозможность простой миграции - довольно привычная ситуация для пользователей систем других вендоров, стоит вспомнить, например, переход с EMC Clariion на EMC VNX, или с HP EVA на HP 3Par. Все такие переходы у большинства вендоров делается с &#8220;полной пересборкой&#8221; системы. Нельзя взять дисковую полку от EMC Celerra, со всеми лежащими на них данными, и подключить прямо к VNX, и сразу же продолжать с ними работу.<br />
+Не так было у NetApp. Много лет как апгрейд у NetApp делался с полным сохранением данных на диске. Вы могли взять FAS3040 с дисками FC в полках DS14MK4, системы, выпущенной лет 10 назад, и просто заменить ее контроллеры, или же установить на нее самую последнюю версию Data ONTAP и все заработает без необходимости делать бэкап данных, и восстанавливать их на новую систему, на новые, или те же самые диски.</p>
+<p>К сожалению, для перехода с 7-mode на Clustered Data ONTAP такого простого перехода сделать нельзя. Структуры данных на дисках существенно и сильно поменялись, поэтому просто &#8220;сконвертировать&#8221; данные &#8220;на месте&#8221; - невозможно.</p>
+<p>Незадолго до начала задуманной серии постов я встречался со специалистами дистрибуторской компании <a href="http://netwell.ru/">Netwell</a>, компании, с сотрудниками которой меня связывает долгое сотрудничество по <a href="http://netwell.ru/production/techbiblioteka.php">&#8220;переводному проекту&#8221;</a>. Тогда же они мне рассказали, что они оказывают помощь российским пользователям NetApp по переходу на Clustered Data ONTAP, и миграции данных, предоставляя необходимое оборудование и помогая инженерами, то есть осуществляя Professional Service, как это называется &#8220;там&#8221;.<br />
+?? тогда мы договорились, что знакомый многим по нашему <a href="https://communities.netapp.com/groups/netapp-ru">форуму</a> Евгений Денисов, сотрудник Netwell, подробно расскажет про эту услугу в моем блоге.<br />
+Ниже - наш разговор. </p>
+<p><strong>romx:</strong> ??так, что же надо сделать, если мы &#8220;решились на переезд&#8221;?</p>
+<p><strong>ED: </strong>Вам нужно связаться с вашим партнером, через которого вы покупали систему, и, если вы покупали ее через нас, дистрибутора Netwell, то партнер связывается с нами и передает эту задачу нам. Мы контактируем с вами, узнаем, что за конфигурация у вас сейчас, каков объем мигрируемых данных, и прочие технические детали, согласуем сроки. Затем мы привозим к вам на сайт сторадж, собираем его в кластер, затем мигрируем ваши данные на него, затем разбираем и переконфигурируем ваш сторадж в кластер, затем мигрируем данные назад, очищаем наши диски от ваших данных, проверяем, что миграция успешна, и вы получаете готовую систему в Cluster-mode, и с вашими данными, перенесенными на нее.</p>
+<p><strong>romx:</strong> Этот сторадж, что это?</p>
+<p><strong>ED: </strong>Это &#8220;подменная&#8221; система из нашего демо-пула оборудования, которую мы держим для внутренних нужд, демонстраций у пользователей, и так далее. У нас есть также достаточный объем дисков. Впрочем, для очень больших объемов переноса могут быть сложности, так что - связывайтесь предварительно.</p>
+<p><strong>romx: </strong>Как все это осуществляется физически? Каким образом переносятся данные?</p>
+<p><strong>ED: </strong>Если это файловые шары, то есть данные хранятся в NAS-режиме, по протоколам SMB/CIFS или NFS, то есть нетапповский инструмент: <em>7-Mode Transition Tool</em>, 7MTT. Он в полуавтоматическом режиме переносит все данные с системы в 7-Mode на Clustered Data ONTAP. К сожалению такого средства нет для блочных данных, поэтому их мы мигрируем вручную, копированием через хост. На новой системе создается LUN, затем данные со старого LUN-а копируются в новый, затем, после пересборки пользовательской системы в кластер - назад.</p>
+<p><strong>romx: </strong>Сколько все это занимает времени?</p>
+<p><strong>ED: </strong>Мы укладывались в довольно большом проекте за выходные. Так что можно считать, что за два выходных дня и менее можно перенести практически любую систему. Бывают всякие случаи, поэтому нам и нужно заранее согласовать объемы работы и время. </p>
+<p><strong>romx: </strong>Со временем - понятно. А сколько это стоит?</p>
+<p><strong>ED: </strong>Для пользователей это бесплатно. Ну, то есть это, как любой professional service, стоит денег, но NetApp покрывает эти затраты нам, так как заинтересован в скорейшем и максимально массовом, беспроблемном переходе. Так что для пользователя это бесплатный сервис и бесплатный процесс.</p>
+<p><strong>romx: </strong>Это сейчас делаете только вы, из всех дистрибуторов в России?</p>
+<p><strong>ED: </strong>Насколько я знаю - да. Если вы - наши, то вам повезло. Если вы, допустим, &#8220;мерлионовские&#8221;, то спрашивайте о такой услуге у них. У них также есть необходимые ресурсы это сделать для вас.</p>
+<p><strong>romx: </strong>Технический вопрос: Получается, что на дисках системы, которую вы привозите для проведения миграции, после нее остается копия пользовательских данных? </p>
+<p><strong>ED: </strong>Нет, конечно мы уважаем секьюрность пользовательских данных, после миграции все данные на наших дисках  уничтожаются в присутствии клиентов. Это может быть или простое удаление всех томов и LUN-ов после обратной миграции (это уже необратимый процесс), либо, если действуют особые требования по информационной безопасности, то делается процесс disk sanitization, это полное затирание содержимого дисков. Это, впрочем, существенно дольше, чем простое удаление.</p>
+<p><strong>romx: </strong>?? у вас уже есть опыт такой миграции, да и вообще быстрой сборки и развертывания кластера? Спрашиваю, потому что для любого сисадмина сломать работающую систему - поступок, причем в нашем случае - необратимый. Вдруг что-то пойдет не так? Не удастся все быстро собрать и мигрировать за &#8220;maintenance окно&#8221;?</p>
+<p><strong>ED: </strong>Да, конечно, нам уже много раз приходилось собирать у пользователей кластер, это отработанная и накатанная процедура, которую мы уже не раз проделывали. Конечно же это проще и спокойнее сделать пользуясь нашим опытом. Миграцию мы уже также не раз проделывали.</p>
+<p><strong>romx: </strong>Спасибо, в целом на все вопросы есть ответы. Если у читателей будут еще какие-то уточнения и конкретные вопросы, то их можно задавать?</p>
+<p><strong>ED: </strong>Конечно, например в комментарии к посту, я их, да и вообще тебя читаю регулярно.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/8x.html" rel="tag">8.x</a>, <a href="../tag/c-mode.html" rel="tag">c-mode</a>, <a href="../tag/cluster/index.html" rel="tag">cluster</a>, <a href="../tag/clustered-data-ontap.html" rel="tag">clustered data ontap</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (5)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-13844">
+		<div id="div-comment-13844">
+		<div class="comment-author">
+			<cite>goodserg:<cite></div>
+			<p>Ром не знаю по поводу EMC, но по поводу перехода с &#8220;HP EVA на HP 3Par&#8221; ты не совсем прав.</p>
+<p>У HP есть очень неплохое решение!!!<br />
+ПО называется HP 3PAR Peer Motion.<br />
+<a href="http://www8.hp.com/ru/ru/products/storage-software/product-detail.html?oid=5157539#" rel="nofollow">http://www8.hp.com/ru/ru/products/storage-software/product-detail.html?oid=5157539#</a>!tab%3Dfeatures<br />
+На 180 дней предоставляется бесплатно, как раз для миграции со старых систем хранения.<br />
+После 180 дней можно запросить ещё раз триальный ключ или если купить.</p>
+<p>А вот и одни из документов по миграции с использованием этой технологии:<br />
+<a href="http://h20565.www2.hp.com/portal/site/hpsc/template.BINARYPORTLET/public/kb/docDisplay/resource.process/?spf_p.tpst=kbDocDisplay_ws_BI&amp;spf_p.rid_kbDocDisplay=docDisplayResURL&amp;javax.portlet.begCacheTok=com.vignette.cachetoken&amp;spf_p.rst_kbDocDisplay=wsrp-resourceState%3DdocId%253Demr_na-c03597451-2%257CdocLocale%253D&amp;javax.portlet.endCacheTok=com.vignette.cachetoken" rel="nofollow">http://h20565.www2.hp.com/portal/site/hpsc/template.BINARYPORTLET/public/kb/docDisplay/resource.process/?spf_p.tpst=kbDocDisplay_ws_BI&amp;spf_p.rid_kbDocDisplay=docDisplayResURL&amp;javax.portlet.begCacheTok=com.vignette.cachetoken&amp;spf_p.rst_kbDocDisplay=wsrp-resourceState%3DdocId%253Demr_na-c03597451-2%257CdocLocale%253D&amp;javax.portlet.endCacheTok=com.vignette.cachetoken</a> </p>
+<p>Надеюсь к этому же решению придёт NetApp (прозрачная виртуализация (FlexArray) старых массивов на 7-mode и лучше бесплатно).</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13844" title="">5 Август 2014, 3:26</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13845">
+		<div id="div-comment-13845">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>goodserg:</p>
+<p>Нет, но это в любом случае <b>миграция</b>, для которой нужна одна система, старая, и новая, с новыми дисками, такое-то наверное все умеют, никто не умеет data-in-place, а так-то, есть 7MTT, есть SnapMirror, совместимый между 7-mode и C-mode.<br />
+Но, я так понял, что Peer Motion это _только_ репликация, нет? Вот если у меня есть полтора миллиона файлов в четырехстах шарах, с правами на полторы сотни пользователей и групп - перенесет? А LUN-ы с маскингом?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13845" title="">5 Август 2014, 3:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13847">
+		<div id="div-comment-13847">
+		<div class="comment-author">
+			<cite>goodserg:<cite></div>
+			<p>ну в случае HP 3par это СХД только блочный доступ.</p>
+<p>Peer Motion это не только репликация.<br />
+Это в том числе wizard позволяющий плавно и без прерывания доступа к данным перенести данные на новую СХД.<br />
+Для клиентов (серверов) процесс выглядит прозрачно!</p>
+<p>Работает примерно следующим образам (более точно описано в документе о котором писал выше):<br />
+1. СХД соединяются по FC через отдельные порты на 3par и через те же на EVA с помощью создания выделенных зон<br />
+2. настраивается партнёрские отношения между EVA и 3par.<br />
+3. Все LUNы СХД презентуются через 3par для серверов по дополнительным путям в режиме standby.<br />
+4. Вручную из зон убираются пути к EVA и все данные начинают ходить через 3par<br />
+5. Производится процесс переноса данных на диски 3par.<br />
+6. удаляются партнёрские отношения между EVA и 3par.<br />
+7. процесс миграции завершён.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13847" title="">5 Август 2014, 4:00</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13850">
+		<div id="div-comment-13850">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>??спользуйте VxVM повсеместно&#8230; (для блочного доступа) :)<br />
+Дорого? Ну значит данные и сервисы не настолько ценные и могут поваляться на время переноса. Как вам такой подход (это конечно не data-in-place, но гораздо лучше того что предлагает HP)? Такой подход позволяет менять СХД с минимальными &#8220;потерями&#8221; и между различными вендорамию</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13850" title="">5 Август 2014, 19:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13852">
+		<div id="div-comment-13852">
+		<div class="comment-author">
+			<cite>goodserg:<cite></div>
+			<p>4 года назад использовал под windows&#8230;<br />
+??тог потеря данных так как на vxfs на windows работает поверх dynamic disks.</p>
+<p>Так что идеальных технологий нет и всё всегда case by case.</p>
+<p>Моё мнение что опция Peer Motion от HP хороша для переезда со старых массивов и не виртуализованых сервисов.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13852" title="">6 Август 2014, 4:06</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1383" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.072 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Новости конфигураций</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1227/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1227</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:06 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1227#comment-5777</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 07 Feb 2013 22:21:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1227#comment-5777</guid>
+		<description>bbk&#62;Слышал, что могут передумать на счёт мезанина для 2220, это очень хорошо.
+уже можно ставить 10г в 2220 :)</description>
+		<content:encoded><![CDATA[<p>bbk&gt;Слышал, что могут передумать на счёт мезанина для 2220, это очень хорошо.<br />
+уже можно ставить 10г в 2220 :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1227#comment-4390</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Tue, 30 Oct 2012 16:22:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1227#comment-4390</guid>
+		<description>panvartan:
+&#62;в FAS2220 диски 3.5″ - это максимум 600Gb 15k.
+
+Можно собрать вариант с дисками X488A-R5 ( 900GB, 10K )</description>
+		<content:encoded><![CDATA[<p>panvartan:<br />
+&gt;в FAS2220 диски 3.5″ - это максимум 600Gb 15k.</p>
+<p>Можно собрать вариант с дисками X488A-R5 ( 900GB, 10K )</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1227#comment-4376</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Tue, 30 Oct 2012 05:34:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1227#comment-4376</guid>
+		<description>в FAS2220 диски 3.5" - это максимум 600Gb 15k. Как они могут быть 10k и 900Gb? Такие диски существуют только в SFF 2.5", или я что-то пропустил?</description>
+		<content:encoded><![CDATA[<p>в FAS2220 диски 3.5&#8243; - это максимум 600Gb 15k. Как они могут быть 10k и 900Gb? Такие диски существуют только в SFF 2.5&#8243;, или я что-то пропустил?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1227#comment-4367</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 29 Oct 2012 11:55:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1227#comment-4367</guid>
+		<description>2 romx
+в голову 2220 и 2240-2 900ки уже ставятся.
+в 2220 теперь ставятся и 3T NSE.
+
+2 Stepanov Sergey
+Слышал, что могут передумать на счёт мезанина для 2220, это очень хорошо.
+Но пока купить 2220 с мезанином нельзя - это точно.</description>
+		<content:encoded><![CDATA[<p>2 romx<br />
+в голову 2220 и 2240-2 900ки уже ставятся.<br />
+в 2220 теперь ставятся и 3T NSE.</p>
+<p>2 Stepanov Sergey<br />
+Слышал, что могут передумать на счёт мезанина для 2220, это очень хорошо.<br />
+Но пока купить 2220 с мезанином нельзя - это точно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1227#comment-4361</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 29 Oct 2012 08:38:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1227#comment-4361</guid>
+		<description>Stepanov Sergey:
+
+Ну разница-то понятна: другой конструктив, другие диски (10K), невозможность апгрейда коробки в полку.
+Возможность включения mezzanine card была довольно прозрачно намекнута и в самом начале, понятно, что ограничение сугубо софтверное, и дает простой сопособ апгрейда и дополнительного бенефита при сравнении с конкурентом.</description>
+		<content:encoded><![CDATA[<p>Stepanov Sergey:</p>
+<p>Ну разница-то понятна: другой конструктив, другие диски (10K), невозможность апгрейда коробки в полку.<br />
+Возможность включения mezzanine card была довольно прозрачно намекнута и в самом начале, понятно, что ограничение сугубо софтверное, и дает простой сопособ апгрейда и дополнительного бенефита при сравнении с конкурентом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Stepanov Sergey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1227#comment-4360</link>
+		<dc:creator>Stepanov Sergey</dc:creator>
+		<pubDate>Mon, 29 Oct 2012 08:22:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1227#comment-4360</guid>
+		<description>Обнаружил вот такую строчку в Release Notes
+Data ONTAP 8.1.2 and later supports the 10-GbE mezzanine card with the FAS2220 platform.
+
+Это же теперь совсем непонятно, чем отличаются 2220 и 2240?</description>
+		<content:encoded><![CDATA[<p>Обнаружил вот такую строчку в Release Notes<br />
+Data ONTAP 8.1.2 and later supports the 10-GbE mezzanine card with the FAS2220 platform.</p>
+<p>Это же теперь совсем непонятно, чем отличаются 2220 и 2240?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/1227#comment-4358</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Mon, 29 Oct 2012 06:13:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1227#comment-4358</guid>
+		<description>в полке DS4246-FPMIX вроде как уже достаточно давно фигурирует -- правда, наш поставщик мне ничего внятного про него так и не озвучил...</description>
+		<content:encoded><![CDATA[<p>в полке DS4246-FPMIX вроде как уже достаточно давно фигурирует &#8212; правда, наш поставщик мне ничего внятного про него так и не озвучил&#8230;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

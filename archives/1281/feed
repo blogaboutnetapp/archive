@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Ждем EMC VNX2</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1281/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1281</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:54 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: zerg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9441</link>
+		<dc:creator>zerg</dc:creator>
+		<pubDate>Thu, 29 Aug 2013 08:26:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9441</guid>
+		<description>Да уж. Ничего не меняется.</description>
+		<content:encoded><![CDATA[<p>Да уж. Ничего не меняется.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Артём</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9375</link>
+		<dc:creator>Артём</dc:creator>
+		<pubDate>Sat, 24 Aug 2013 08:48:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9375</guid>
+		<description>Цитата из комментария к одному из старых постов:
+http://blog.aboutnetapp.ru/archives/871
+
+"блочная дедупликация, которая будет на VNX в третьем квартале этого года"
+Автор коммента - некто deepblue, дата - 20 апреля 2011, 4:34
+Все ок, третий квартал, только год не стоило указывать )
+?? совсем не на тех VNX, что были в 2011.
+?? нельзя использовать совместно с компрессией (если не ошибаюсь).</description>
+		<content:encoded><![CDATA[<p>Цитата из комментария к одному из старых постов:<br />
+<a href="http://blog.aboutnetapp.ru/archives/871" rel="nofollow">http://blog.aboutnetapp.ru/archives/871</a></p>
+<p>&#8220;блочная дедупликация, которая будет на VNX в третьем квартале этого года&#8221;<br />
+Автор коммента - некто deepblue, дата - 20 апреля 2011, 4:34<br />
+Все ок, третий квартал, только год не стоило указывать )<br />
+?? совсем не на тех VNX, что были в 2011.<br />
+?? нельзя использовать совместно с компрессией (если не ошибаюсь).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9362</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 06:42:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9362</guid>
+		<description>"Neoris
+В твоей заметке есть большая неточность, дедупликация на новом VNX только ОНЛАЙН!!!"
+
+Не вижу никаких неточностей: дедупликация делается в онлайне (т.е. во время работы системы), но пост процесс (т.е. сначала запись на сторадж, а потом дедупликация), не In-line, как на EMC DD.
+Это отражено в нескольких документах, например "Frequently Asked Questions: EMC VNX Series" от 18 июня. 
+
+Deduplication occurs post-processing to minimize host I/O impact.</description>
+		<content:encoded><![CDATA[<p>&#8220;Neoris<br />
+В твоей заметке есть большая неточность, дедупликация на новом VNX только ОНЛАЙН!!!&#8221;</p>
+<p>Не вижу никаких неточностей: дедупликация делается в онлайне (т.е. во время работы системы), но пост процесс (т.е. сначала запись на сторадж, а потом дедупликация), не In-line, как на EMC DD.<br />
+Это отражено в нескольких документах, например &#8220;Frequently Asked Questions: EMC VNX Series&#8221; от 18 июня. </p>
+<p>Deduplication occurs post-processing to minimize host I/O impact.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9359</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 05:54:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9359</guid>
+		<description>Кстати в VNXe появится возможность установки FC-портов</description>
+		<content:encoded><![CDATA[<p>Кстати в VNXe появится возможность установки FC-портов</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9358</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 05:52:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9358</guid>
+		<description>Сергей:
+В твоей заметке есть большая неточность, дедупликация на новом VNX только ОНЛАЙН!!!</description>
+		<content:encoded><![CDATA[<p>Сергей:<br />
+В твоей заметке есть большая неточность, дедупликация на новом VNX только ОНЛАЙН!!!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9357</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 05:45:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9357</guid>
+		<description>2 romx:
+У EMC всегда(сколько работаю по этой теме) была позиция, что перенос данных только миграцией через сервер и, вроде как, в ближайших планах они не собираются это менять.</description>
+		<content:encoded><![CDATA[<p>2 romx:<br />
+У EMC всегда(сколько работаю по этой теме) была позиция, что перенос данных только миграцией через сервер и, вроде как, в ближайших планах они не собираются это менять.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9356</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 05:43:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9356</guid>
+		<description>??з интересного, теперь кэшем контроллеров нельзя управлять(раньше можно было вручную распределять память контроллеров на кэширование операций чтения и записи).
+Обещают Актив-Актив режим на бэк-энде(пока работает только на традиционных рэйд-группах, ожидается поддержка на пулах в начале следующего года).</description>
+		<content:encoded><![CDATA[<p>??з интересного, теперь кэшем контроллеров нельзя управлять(раньше можно было вручную распределять память контроллеров на кэширование операций чтения и записи).<br />
+Обещают Актив-Актив режим на бэк-энде(пока работает только на традиционных рэйд-группах, ожидается поддержка на пулах в начале следующего года).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Neoris</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9355</link>
+		<dc:creator>Neoris</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 05:31:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9355</guid>
+		<description>2 Сергей:Aaz:
+Диски будут поддерживаться не все. При этом данные с дисков придётся переносить миграцией через сервер. Новые системы не поймут Пулы старых систем, это официальная позиция EMC озвученная их сэйлами. Она же описана в их презентации.</description>
+		<content:encoded><![CDATA[<p>2 Сергей:Aaz:<br />
+Диски будут поддерживаться не все. При этом данные с дисков придётся переносить миграцией через сервер. Новые системы не поймут Пулы старых систем, это официальная позиция EMC озвученная их сэйлами. Она же описана в их презентации.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9354</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 04:51:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9354</guid>
+		<description>Aaz:
+
+Это вообще очень удобная позиция с точки зрения компании: "Может будет, может нет. Если будет - хорошо, если нет - мы вам ничего не обещали официально".</description>
+		<content:encoded><![CDATA[<p>Aaz:</p>
+<p>Это вообще очень удобная позиция с точки зрения компании: &#8220;Может будет, может нет. Если будет - хорошо, если нет - мы вам ничего не обещали официально&#8221;.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Aaz</title>
+		<link>http://blog.aboutnetapp.ru/archives/1281#comment-9353</link>
+		<dc:creator>Aaz</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 04:41:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1281#comment-9353</guid>
+		<description>romx, Сергей: Сейчас прорабатываю возможность апгрейда с VNX на MCx для своих заказчиков и инфо пока такое: подключение “старых” дисков без data-in-place возможно. Подключение “старых” дисков с data-in-place если будет возможно, то с сохранением текущей структуры хранения данных, читаем “без нового функционала”.
+
+На словах сейлы EMC это обещают, но в FAQ  партнерском написано прямо обратное, старые диски и полки не совместимы с новыми контроллерами, DATA-IN-PLACE не будет.</description>
+		<content:encoded><![CDATA[<p>romx, Сергей: Сейчас прорабатываю возможность апгрейда с VNX на MCx для своих заказчиков и инфо пока такое: подключение “старых” дисков без data-in-place возможно. Подключение “старых” дисков с data-in-place если будет возможно, то с сохранением текущей структуры хранения данных, читаем “без нового функционала”.</p>
+<p>На словах сейлы EMC это обещают, но в FAQ  партнерском написано прямо обратное, старые диски и полки не совместимы с новыми контроллерами, DATA-IN-PLACE не будет.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

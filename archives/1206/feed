@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: SMB 3.0</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1206/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1206</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:08 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-8524</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 18 Jul 2013 17:24:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-8524</guid>
+		<description>Василий:
+
+SMB 3.0 в Data ONTAP сейчас есть только в Cluster-mode, к сожалению, в 7-mode его все еще нет (только 2.1).</description>
+		<content:encoded><![CDATA[<p>Василий:</p>
+<p>SMB 3.0 в Data ONTAP сейчас есть только в Cluster-mode, к сожалению, в 7-mode его все еще нет (только 2.1).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Василий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-8523</link>
+		<dc:creator>Василий</dc:creator>
+		<pubDate>Thu, 18 Jul 2013 17:22:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-8523</guid>
+		<description>Добрый день! расскажите плз про SMB 3.0 в вышедшей Data ONTAP 8.2. Как она реализуется на разных линейках, в 7-mode и cluster. спасибо</description>
+		<content:encoded><![CDATA[<p>Добрый день! расскажите плз про SMB 3.0 в вышедшей Data ONTAP 8.2. Как она реализуется на разных линейках, в 7-mode и cluster. спасибо</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-5564</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 24 Jan 2013 08:18:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-5564</guid>
+		<description>Антон:
+Ждем уж, ждем... в мае 2012 года обещали еще в 2012 году выпустить, в августе была создана закрытая группа https://communities.netapp.com/groups/ontap-82-beta-program по обкатке беты, так что по всем признакам должна быть уже вот-вот. Но там довольно много существенных изменений в коде напланировано, так что, подозреваю, вылизывание еще идет.</description>
+		<content:encoded><![CDATA[<p>Антон:<br />
+Ждем уж, ждем&#8230; в мае 2012 года обещали еще в 2012 году выпустить, в августе была создана закрытая группа <a href="https://communities.netapp.com/groups/ontap-82-beta-program" rel="nofollow">https://communities.netapp.com/groups/ontap-82-beta-program</a> по обкатке беты, так что по всем признакам должна быть уже вот-вот. Но там довольно много существенных изменений в коде напланировано, так что, подозреваю, вылизывание еще идет.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Антон</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-5563</link>
+		<dc:creator>Антон</dc:creator>
+		<pubDate>Thu, 24 Jan 2013 07:40:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-5563</guid>
+		<description>Добрый день.
+
+
+Скажите, пожалуйста, не слышно ли чего-нибудь о сроках релиза Data ONTAP 8.2? На носу строительство небольшого "облака" на 2012 сервере, и уж очень хочется его с использованием SMB 3.0 построить :)
+
+Заранее спасибо за любую информацию.
+
+
+С уважением,
+Антон.</description>
+		<content:encoded><![CDATA[<p>Добрый день.</p>
+<p>Скажите, пожалуйста, не слышно ли чего-нибудь о сроках релиза Data ONTAP 8.2? На носу строительство небольшого &#8220;облака&#8221; на 2012 сервере, и уж очень хочется его с использованием SMB 3.0 построить :)</p>
+<p>Заранее спасибо за любую информацию.</p>
+<p>С уважением,<br />
+Антон.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-3931</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 12 Oct 2012 11:33:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-3931</guid>
+		<description>Andrey:
+Email : xxx@xxx.com
+
+Андрей, одно из правил хорошего тона, и, следовательно, правил этого блога, указывать при написании коммента валидный email. Если же вы меня считаете спамером, то я могу обидеться, и вас забанить за такое подозрение, ступайте себе писать в тех блогах, которым вы доверяете.
+
+&gt; С включенным SMB2.0 — не работают Previous Versions. Отключаешь SMB 2.0 — работает.
+
+Работают и с SMB2.0 и без. Строго говоря они вообще никак не связаны с SMB. Это функция VSS.</description>
+		<content:encoded><![CDATA[<p>Andrey:<br />
+Email : <a href="mailto:xxx@xxx.com">xxx@xxx.com</a></p>
+<p>Андрей, одно из правил хорошего тона, и, следовательно, правил этого блога, указывать при написании коммента валидный email. Если же вы меня считаете спамером, то я могу обидеться, и вас забанить за такое подозрение, ступайте себе писать в тех блогах, которым вы доверяете.</p>
+<p>> С включенным SMB2.0 — не работают Previous Versions. Отключаешь SMB 2.0 — работает.</p>
+<p>Работают и с SMB2.0 и без. Строго говоря они вообще никак не связаны с SMB. Это функция VSS.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrey</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-3930</link>
+		<dc:creator>Andrey</dc:creator>
+		<pubDate>Fri, 12 Oct 2012 11:22:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-3930</guid>
+		<description>С включенным SMB2.0 -- не работают Previous Versions. Отключаешь SMB 2.0 -- работает.
+
+Кто-нибудь знает, когда SnapDrive 6.5 GA/release появится с поддержкой Windows Server 2012 ?</description>
+		<content:encoded><![CDATA[<p>С включенным SMB2.0 &#8212; не работают Previous Versions. Отключаешь SMB 2.0 &#8212; работает.</p>
+<p>Кто-нибудь знает, когда SnapDrive 6.5 GA/release появится с поддержкой Windows Server 2012 ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-3677</link>
+		<dc:creator>Odna Ptichka</dc:creator>
+		<pubDate>Wed, 26 Sep 2012 11:42:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-3677</guid>
+		<description>Официальная - позиция есть матрица совместимости в ней есть разные версии Win  и MacOS  клиентов.  Поддержка означает, что NetApp тратит свои  деньги и  свои ресурсы. C другой стороны NetApp не запрещает использовать другие клиенты, например, Samba.  Если проблема с клиентом Samba воспроизводится и с официально поддерживаемыми, то NetApp  будет ее решать. 
+
+Если проблема связана только с особенностями SAMBA, то есть скорее надежда на сообщество разработчиков.  
+
+??МХО, логично.....  
+
+-------
+
+Does Data ONTAP support Samba clients or domain controllers?
+KB ID: 3010138 
+
+Answer
+
+NetApp does not perform full interoperability testing between the Samba client and Data ONTAP. Should an issue arise, using the resources provided by Samba (documentation, forums, etc.) is recommended as a first step. NetApp support personnel will assist on a best effort basis.
+
+NetApp does not currently support Samba domain controllers in any capacity.</description>
+		<content:encoded><![CDATA[<p>Официальная - позиция есть матрица совместимости в ней есть разные версии Win  и MacOS  клиентов.  Поддержка означает, что NetApp тратит свои  деньги и  свои ресурсы. C другой стороны NetApp не запрещает использовать другие клиенты, например, Samba.  Если проблема с клиентом Samba воспроизводится и с официально поддерживаемыми, то NetApp  будет ее решать. </p>
+<p>Если проблема связана только с особенностями SAMBA, то есть скорее надежда на сообщество разработчиков.  </p>
+<p>??МХО, логично&#8230;..  </p>
+<p>&#8212;&#8212;-</p>
+<p>Does Data ONTAP support Samba clients or domain controllers?<br />
+KB ID: 3010138 </p>
+<p>Answer</p>
+<p>NetApp does not perform full interoperability testing between the Samba client and Data ONTAP. Should an issue arise, using the resources provided by Samba (documentation, forums, etc.) is recommended as a first step. NetApp support personnel will assist on a best effort basis.</p>
+<p>NetApp does not currently support Samba domain controllers in any capacity.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-3675</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 26 Sep 2012 09:46:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-3675</guid>
+		<description>navion:
+
+1. Ну мало ли что на каком заборе &lt;s&gt;говорили&lt;/s&gt; писали? В мире столько криворуких сисадминов, что реагировать на каждый "а у меня не заработало" - никакого рабочего времени не хватит.
+
+Тот факт, что в Гугле не упоминаются эти проблемы за обозримый промежуток времени, говорит о том, что проблемы - локальные, у конкретных людей с их настройками или пониманием.
+
+2. Повторюсь тут еще раз: Я считаю, что в ситуации, когда есть официальная поддерживаемая реализация версии протокола (NetApp), с которой (иногда, возможно, в отдельных частных случаях) не работает неофициальная, сделанная с помошью реверс-инжиниринга протокола, реализация (SAMBA), я бы предположил, что проблема не в NetApp, а в SAMBA. Я где-то неправ?</description>
+		<content:encoded><![CDATA[<p>navion:</p>
+<p>1. Ну мало ли что на каком заборе <s>говорили</s> писали? В мире столько криворуких сисадминов, что реагировать на каждый &#8220;а у меня не заработало&#8221; - никакого рабочего времени не хватит.</p>
+<p>Тот факт, что в Гугле не упоминаются эти проблемы за обозримый промежуток времени, говорит о том, что проблемы - локальные, у конкретных людей с их настройками или пониманием.</p>
+<p>2. Повторюсь тут еще раз: Я считаю, что в ситуации, когда есть официальная поддерживаемая реализация версии протокола (NetApp), с которой (иногда, возможно, в отдельных частных случаях) не работает неофициальная, сделанная с помошью реверс-инжиниринга протокола, реализация (SAMBA), я бы предположил, что проблема не в NetApp, а в SAMBA. Я где-то неправ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-3674</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Wed, 26 Sep 2012 09:10:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-3674</guid>
+		<description>&#62; Мне кажется это все же разные веши, не так ли?
+Там говорили, а база поддержки намного лучше подходит для поиска проблем, чем Гугл :)</description>
+		<content:encoded><![CDATA[<p>&gt; Мне кажется это все же разные веши, не так ли?<br />
+Там говорили, а база поддержки намного лучше подходит для поиска проблем, чем Гугл :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1206#comment-3673</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 26 Sep 2012 08:20:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1206#comment-3673</guid>
+		<description>navion:
+
+&gt; Лучше посмотрите в базе поддержки. Вот тут (http://www.radio-t.com/) рассказывали про проблемы
+
+;) Так все же "в базе поддержки" или " вот тут radio-t.com/"? ;)
+Мне кажется это все же разные веши, не так ли?</description>
+		<content:encoded><![CDATA[<p>navion:</p>
+<p>> Лучше посмотрите в базе поддержки. Вот тут (http://www.radio-t.com/) рассказывали про проблемы</p>
+<p>;) Так все же &#8220;в базе поддержки&#8221; или &#8221; вот тут radio-t.com/&#8221;? ;)<br />
+Мне кажется это все же разные веши, не так ли?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

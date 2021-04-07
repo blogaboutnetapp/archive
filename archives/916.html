@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Запускаем новую систему хранения. Часть 1.</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="902/trackback.html">Полезные документы по PowerShell Toolkit</a></div>
+			<div class="alignright"><a href="926/trackback.html">Про tiering: EMC FAST, FASTcache, NetApp Flash Cache</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-916">
+			<h2 class="posttitle"><a href="916/trackback.html" rel="bookmark" title="Permanent Link to Запускаем новую систему хранения. Часть 1.">Запускаем новую систему хранения. Часть 1.</a></h2>
+			<div class="postmetadata">23 Май 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Конечно этот пост должен был быть написан и опубликован до начала известной распродажи FAS2020, стартовавшей в первом квартале этого года, так как именно с ними в ряды владельцев NetApp начали вливаться новые, необтёртые и необстрелянные пользователи, но, увы, лучше поздно чем никогда. Да и, я уверен, распродажа эта не последняя, а темпы роста NetApp на рынке не уменьшаются, что говорит о том, что новых владельцев систем хранения NetApp будет еще много.</p>
+<p>Давайте с самого начала рассмотрим путь <strike>самурая</strike> нового пользователя NetApp, и те сложности, с которыми он может столкнуться, запуская новую для себя систему.     <br />Вот вы купили сторадж, и вам его даже доставили, и вот он стоит у вас в датацентре, в коробке. Что делать дальше?     <br />(тут должна быть ссылка на видеоролик на ютубе, в популярном нынче жанре unboxing. Надо будет сделать как-нибудь;)</p>
+<p>  <span id="more-916"></span></p>
+<p>В коробке у вас должен быть листочек с несложной процедурой монтажа, если вы его не можете найти, то можете взять вот тут в PDF (для <a href="http://www.box.net/shared/y6ol68znox">FAS2020</a>/<a href="http://www.box.net/shared/v8c8o9aoa3">FAS2050</a>/<a href="http://www.box.net/shared/7fln2xuk6r">FAS2040</a>/<a href="http://www.box.net/shared/13es6v2kdg">FAS3100</a>).</p>
+<p>Ну, допустим, с процедурой механической распаковки, установки и “кабелирования” его в серверной стойке вы справились. Приступим к конфигурированию.</p>
+<p>На сегодняшний день существует две процедуры первоначальной конфигурации системы хранения NetApp. Будем называть их <em>“old skool”</em> и <em>“новая”</em>.</p>
+<p>Традиционный, или old skool-метод заключается в первоначальном конфигурировании системы хранения в окне терминала, подключенного в <a href="689/trackback.html">порт “системной консоли”</a>. “Консоль” это простой COM-порт, имеющийся на контроллере, куда можно подключить COM-порт терминала (обычно программы-терминала, например в Windows обычно есть программа HyperTerminal, а также множество бесплатных и условно-бесплатных продуктов такого рода) с помощью прилагающегося <a href="http://i.ebayimg.com/10/!BfEfS1QBmk~$%28KGrHqMH-CUErgKLYMVTBK+6VJFZmQ~~_1.JPG?set_id=8800005007">кабеля-переходника</a> (идентичен RJ45-to-DB9 от оборудования Cisco), установить в качестве параметров традиционную строчку 9600-N-1, включить питание, и вы увидите, как на экране программы терминала появятся сообщения загружающейся внутренней OS, а после начальной загрузки “голой”, несконфигурированной системы, в каком виде она приходит с завода, запустится “мастер” начальной установки. Нужно ввести запрашиваемые данные, такие, как, например, пароль администратора, IP-адрес системы и прочие сетевые настройки, и система хранения станет “видна” в локальной сети. Можно либо завершить мастер в “textmode” в терминале консоли, либо же зайти на систему через веб-интерфейс, и продолжить подробное конфигурирование через него.</p>
+<p>Для входа в веб-интерфейс FilerView (на лицо ужасный, но вполне незлой внутри) введите в веб-браузер адрес: <a href="http://ip-address-or-dnsname/na_admin">http://ip-address-or-dnsname<strong>/na_admin</strong></a></p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="NTAP-FilerView" border="0" alt="NTAP-FilerView" src="/pics//ntap-filerview.jpg" width="640" height="307" /></p>
+<p>Последнее обязательно, так как обратившись к просто ip-address-or-dnsname вы попытаетесь использовать доступ по протоколу http, который, скорее всего, не установлен, и увидите что-то типа такого.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="NTAP-FilerView2" border="0" alt="NTAP-FilerView2" src="/pics//ntap-filerview2.jpg" width="406" height="291" /></p>
+<p>Ничего страшного, просто щелкните по приведенной ссылке на подпапку na_admin, и попадете куда надо.</p>
+<p>Щелкнув же по кнопке FilerView вы попадете в основной веб-интерфейс NetApp FAS.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="filerview-8.0rc2" border="0" alt="filerview-8.0rc2" src="/pics//filerview-80rc2.jpg" width="640" height="349" /></p>
+<p>В первую очередь проверьте установленность лицензий в системе хранения, потому что иначе вы не увидите сразу очень многого (нелицензированные опции просто скрываются из меню FilerView). Если лицензии (семисимвольные строчки заглавных цифробукв) по какой-то причине не установлены, то наседайте на продавшего систему партнера. Лицензии в “хардкопии” не передаются, они есть на вашей страничке в NetApp Support, но если у вас пока нет логина в нее, то взять вам их неоткуда. Однако партнер, продавший систему, скорее всего без проблем их видит у себя на странице, и сможет вам их выдать.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="NTAP-FilerView-licenses" border="0" alt="NTAP-FilerView-licenses" src="/pics//ntap-filerview-licenses.jpg" width="640" height="334" /></p>
+<p>??з командной строки посмотреть установленные лицензии еще проще, командой <code>&gt; license </code>, а добавить новые - <code>&gt; license add XXXXXXX </code>. </p>
+<p>Мастер начальной установки также вызывается командой в командной строке<code> &gt; setup </code>, причем ранее введенные данные являются значениями по умолчанию в мастере, что очень удобно, если вы вынуждены прервать мастер на середине, и продолжить снова, просто давите Enter, пока не дойдете до того места, где надо изменить значение.</p>
+<p>При всех очевидных достоинствах, у этого, овеянного славой прошлого, метода есть и недостатки. Так, например, часто бывает проблемой найти обычный (теперь уже совсем необычный) COM-порт в ноутбуке или другом компьютере, да и HyperTerminal в Windows 7 <strike>наконец-то выкинули</strike> уже не включен.</p>
+<p>??менно поэтому для современных систем, наряду с по-прежнему доступным “классическим” методом, появился и современный, подробно описанный в недавно опубликованном руководстве <a href="http://www.netapp.com/us/library/technical-reports/tr-3913.html">TR-3913 Simple Configuration Guide for NetApp Storage</a>.     <br />Вполне вероятно, что мы вскоре подготовим его перевод на русский язык, но пока посмотрите на английском, там несложно и с картинками.</p>
+<p>Тут вас поджидает первая засада. Дело в том, что для проведения конфигурирования по “новому способу” вам понадобится установленный <a href="267/trackback.html">NetApp System Manager</a>. Эта программа хоть и бесплатная, но находится в разделе софта вебсайта <a href="https://now.netapp.com/">NetApp Support</a> (бывший NOW), к которому вам нужно иметь доступ. А доступа у вас, на момент прибытия стораджа, скорее всего нет, и делают его все еще мучительно долго и вручную, а для создания полноценного доступа, с входом в директорию с софтом и вашими лицензиями, вам нужно знать ряд специфических параметров, например <em>Purchase Order Number</em> для вашей системы.</p>
+<p>Поэтому вот вам <a href="http://www.divshare.com/download/14217086-cab">System Manager</a> не с сайта NetApp Support, но не откладывайте создание логина на сайт в долгий ящик, начните заниматься им сразу же, как получили систему. Для ускорения процессов сразу напрягите этим вопросом вашего партнера NetApp, через которого вы купили систему, и не слезайте, пока не получите заветные имя и пароль. Все эти советы – из многолетней практики в этом вопросе :(</p>
+<p>Но, допустим, вы успешно установили System Manager, и готовы сконфигурировать систему “по-новому” согласно <a href="http://media.netapp.com/documents/tr-3913.pdf">TR-3913</a>.</p>
+<p>Включенная в первый раз ненастроенная система хранения получит временный IP от имеющегося в сети DHCP, затем System Manager просканирует подсеть, найдет этот адрес, войдет по нему в систему хранения, где, затем, вы сможете задать нужный вам фиксированный адрес, который будет использоваться в будущем при работе, и провести всю необходимую начальную настройку (смотрите подробное описание процедуры настройки в TR-3913).</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image96.png" width="560" height="319" /></p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image97.png" width="484" height="380" /></p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image98.png" width="455" height="360" /></p>
+<p>К сожалению, с некоторых пор системы NetApp не комплектуются при инсталляции OS штатной документацией (ни в печатном, ни в электронном виде), поэтому установить ее&#160; вам придется самостоятельно. Я рекомендую вам сделать это, особенно если это ваша первая и единственная система NetApp.</p>
+<p>Необходимо скачать установочный архив с сайта NetApp Support, и прямо в виде ZIP-архива зааплоадить в веб-интерфейсе, после чего он развернется на сторадже, и вам будут доступно его содержимое как в виде html-страниц, так и в виде pdf.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="NTAP-FilerView1" border="0" alt="NTAP-FilerView1" src="/pics//ntap-filerview1.jpg" width="640" height="472" /></p>
+<p>Вот там, где написано <strong>Documentation</strong> is <strong>not installed</strong>. <u>Click here</u> to install ZIP file… После правильной установки там будет активная ссылка на страничку с документацией.</p>
+<p>При желании вы можете распаковать данный пак и самостоятельно, на локальном компьютере, там простой архив с содержимым, можно читать локально. В нем есть вся необходимая документация по администрированию и настройке.</p>
+<p>С учетом всего сказанного выше про сложности с доступом на NetApp Support, положу-ка я и их тут, отдельно, там ничего секретного нет. Комплект встроенного хелпа для <a href="http://www.divshare.com/download/14223218-0a9">версии 7.3.5.1</a> и для <a href="http://www.divshare.com/download/14342923-16d">версии 8.0.1</a>. Распаковав RAR получите искомый ZIP, заливаемый на устройство.</p>
+<p>Также не забывайте, что вы можете экспериментировать и тренироваться на прекрасном инструменте – <a href="40/trackback.html">NetApp Simulator</a>. Доступ к нему, да, вы угадали, снова со страницы NetApp Support, куда не попасть без правильного логина, попросите скачать его вам вашего партнера-поставщика NetApp, он стоит того.     <br />Обязательно обратите внимание на системные требования у симулятора версии 8.0.1, они довольно высокие и строгие. Симулятор 8.0.1 идет в виде диска standalone виртуальной машины, запускается под гипервизором (например в бесплатном VMware Player), требует для своей работы много памяти и обязательную поддержку VT-d в процессоре. Версия 7.3.5 как и ранее – просто программа-процесс под любым Linux. Подробно про установку симулятора 7.x с картинками можно посмотреть в <a href="http://www.unitek.com/training/netapp/blog/2008/05/installing-your-simulator/">блоге Unitek</a>.</p>
+<p>Продолжим на следующей неделе рассказом про особенности конфигурирования дисков, аггрегейтов и томов на новой системе.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/configure.html" rel="tag">configure</a>, <a href="tag/guide.html" rel="tag">guide</a>, <a href="tag/install.html" rel="tag">install</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/setup.html" rel="tag">setup</a><br />					Раздел: <a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>					&nbsp;|&nbsp;&nbsp;<a href="916/trackback.html#respond">Комментарий</a> (<a href='916/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="916/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (13)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1371">
+		<div id="div-comment-1371">
+		<div class="comment-author">
+			<cite>Киселев Сергей:<cite></div>
+			<p>По сути, в 99% случае (за мой 3 летний опыт работы с NetApp), вторым вариантом воспользоваться не удасться - редко кто новую ненанстроенную железку сразу включает в сеть с работающим сервисом DHCP. Плюс, к тому же, как правило сервис DHCP работает в пользовательских подсетях (подсети рабочих станций) и на подсети серверного оборудования и оборудования системы хранения не распространяют.</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1371" title="">23 Май 2011, 15:21</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1373">
+		<div id="div-comment-1373">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Киселев Сергей:</p>
+<p>Не согласен. Что мешает вам включить систему для конфигурирования в сеть с DHCP, хоть бы эта &#8220;сеть&#8221; и состояла из одного вашего ноута, с которого вы настраиваете систему в первый раз?<br />
+Тем более, что это нужно сделать ровно один раз.</p>
+<p>Так что это в вас просто ретроградство говорит :)</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1373" title="">23 Май 2011, 17:49</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1374">
+		<div id="div-comment-1374">
+		<div class="comment-author">
+			<cite>Киселев Сергей:<cite></div>
+			<p>Я то как раз ЗА использование System Manager &#8230; но как-то через COM надёжнее :)<br />
+Я и EMC инициализирую через COM :)</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1374" title="">23 Май 2011, 19:11</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1375">
+		<div id="div-comment-1375">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Ну так я и говорю - ретроградствуете :)</p>
+<p>Главное, что старый способ, через консоль и командную строку, не отбирают ведь.</p>
+<p>А вот найти COM-порт все чаще и чаще проблема, гораздо больше проблема, чем поднять DHCP в сети.</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1375" title="">23 Май 2011, 20:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1376">
+		<div id="div-comment-1376">
+		<div class="comment-author">
+			<cite><a href='http://dmarck.livejournal.com/' rel='external nofollow'>dmarck</a>:<cite></div>
+			<p>&gt; А вот найти COM-порт все чаще и чаще проблема</p>
+<p>Ну, для этого в ящике лежит Prolific ;-P</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1376" title="">24 Май 2011, 17:20</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1612">
+		<div id="div-comment-1612">
+		<div class="comment-author">
+			<cite>Miloshevitch:<cite></div>
+			<p>Подскажите пожалуйста ссылку на ч.2 с продолжением.</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1612" title="">15 Август 2011, 12:00</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1613">
+		<div id="div-comment-1613">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Miloshevitch:</p>
+<p>Пока не написано, но раз есть интерес, давайте на следующей, или через неделю, постараюсь дописать и опубликовать.</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1613" title="">15 Август 2011, 12:13</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1764">
+		<div id="div-comment-1764">
+		<div class="comment-author">
+			<cite>??ван:<cite></div>
+			<p>Будет ли продолжение?</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1764" title="">4 Октябрь 2011, 18:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1765">
+		<div id="div-comment-1765">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>??ван:</p>
+<p>Будет. Но писать оказалось довольно много. К тому же, считайте, что я сейчас &#8220;на практике&#8221; проверяю текст, запуская систему, и отрабатываю написанное &#8220;в реале&#8221;, для лучшей понятности. :)</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1765" title="">4 Октябрь 2011, 18:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1766">
+		<div id="div-comment-1766">
+		<div class="comment-author">
+			<cite>??ван:<cite></div>
+			<p>Очень жду! У меня стоит новая 2020 с двумя контролерами, а запускать пока боюсь. Читаю мануалы, но т.к. впервые связался со стораджами, то вопросов миллион, а с ноля все понять тяжеловато. В общем очень полезный был бы документ!</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1766" title="">5 Октябрь 2011, 15:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1785">
+		<div id="div-comment-1785">
+		<div class="comment-author">
+			<cite>Dake:<cite></div>
+			<p>Присоединяюсь к ??вану! Ждем продолжение! Особенно интересно, каким образом происходит первичный soft disk ownership и как система решает, где ей создать root vol&#8217;ы. Так же будет очень полезно почитать Ваши бест практисы из опыта, например, есть один остроумный способ изпользования 12 дисков в 2020 (9 дисков на 1 голову, 2 диска на 2 голову и 1 общий spare) - как такая конфигурация работает на практике?</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1785" title="">12 Октябрь 2011, 14:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1827">
+		<div id="div-comment-1827">
+		<div class="comment-author">
+			<cite>Artur Alikulov:<cite></div>
+			<p>На всякий случай тоже отмечюсь с просьбой о выходе второй части гайда.</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1827" title="">21 Октябрь 2011, 3:38</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1901">
+		<div id="div-comment-1901">
+		<div class="comment-author">
+			<cite>sil:<cite></div>
+			<p>Присоединяюсь ко всем! Очень хотелось бы почитать 2ую часть.</p>
+						<div class="comment-meta"><a href="916/trackback.html#comment-1901" title="">10 Ноябрь 2011, 15:29</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="916" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.075 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

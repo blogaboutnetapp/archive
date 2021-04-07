@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: about</title>
+	<atom:link href="http://blog.aboutnetapp.ru/about/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:02:43 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: ??ван</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-15723</link>
+		<dc:creator>??ван</dc:creator>
+		<pubDate>Mon, 16 Jan 2017 07:45:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-15723</guid>
+		<description>Автору большой привет! ??нтересует активность блога - планируете писать новые статьи? очень хочется узнавать новое про нетап от таких профессионалов.</description>
+		<content:encoded><![CDATA[<p>Автору большой привет! ??нтересует активность блога - планируете писать новые статьи? очень хочется узнавать новое про нетап от таких профессионалов.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Guzya</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-14490</link>
+		<dc:creator>Guzya</dc:creator>
+		<pubDate>Mon, 26 Jan 2015 11:52:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-14490</guid>
+		<description>Здравствуйте!
+Подскажите пожалуйста, как победить\куда копать проблему /vol/vol0 is full (using or reserving 98% of space and 0% of inodes, using 98% of reserve). При том, что vol0 размером 150 Гб и содержит только root область, /etc имеет размер 7 Гб, а снапшоты занимают примерно 1 Гб. NetApp fas2040 dataontap 8.2.</description>
+		<content:encoded><![CDATA[<p>Здравствуйте!<br />
+Подскажите пожалуйста, как победить\куда копать проблему /vol/vol0 is full (using or reserving 98% of space and 0% of inodes, using 98% of reserve). При том, что vol0 размером 150 Гб и содержит только root область, /etc имеет размер 7 Гб, а снапшоты занимают примерно 1 Гб. NetApp fas2040 dataontap 8.2.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: timg</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-14374</link>
+		<dc:creator>timg</dc:creator>
+		<pubDate>Wed, 24 Dec 2014 13:52:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-14374</guid>
+		<description>А есть хоть какая-то информация от NetApp ? Письма, номер кейса ?
+Были какие-то попытки прислать запчасти ?
+Если нет, то нужно открыть кейс в личном кабинете на mysupport.netapp.com. (на серийный номер системы, где сломался диск)</description>
+		<content:encoded><![CDATA[<p>А есть хоть какая-то информация от NetApp ? Письма, номер кейса ?<br />
+Были какие-то попытки прислать запчасти ?<br />
+Если нет, то нужно открыть кейс в личном кабинете на mysupport.netapp.com. (на серийный номер системы, где сломался диск)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: иван</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-14373</link>
+		<dc:creator>иван</dc:creator>
+		<pubDate>Wed, 24 Dec 2014 10:14:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-14373</guid>
+		<description>Привет есть проблема, есть действующий договор по тех под, сломались два диска и уже не могут заменить 3 неделю, кому и куда можно пожаловаться в netapp, желательно пендосный чтобы показать им кузькину мать?</description>
+		<content:encoded><![CDATA[<p>Привет есть проблема, есть действующий договор по тех под, сломались два диска и уже не могут заменить 3 неделю, кому и куда можно пожаловаться в netapp, желательно пендосный чтобы показать им кузькину мать?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-14249</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 22 Nov 2014 20:48:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-14249</guid>
+		<description>Так у Тимофея все пароли теперь. Он рулит :)</description>
+		<content:encoded><![CDATA[<p>Так у Тимофея все пароли теперь. Он рулит :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: odna Ptichka</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-14248</link>
+		<dc:creator>odna Ptichka</dc:creator>
+		<pubDate>Sat, 22 Nov 2014 20:45:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-14248</guid>
+		<description>раздел нужно обновить, кажется?</description>
+		<content:encoded><![CDATA[<p>раздел нужно обновить, кажется?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ??ван</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-14076</link>
+		<dc:creator>??ван</dc:creator>
+		<pubDate>Thu, 16 Oct 2014 12:39:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-14076</guid>
+		<description>Привет а подскажи пожалуйста у меня один контроллер fas2240 показывает состояние Critical: Insufficient spare disks, как я понимаю это что у него нету spare disk.
+я проверил действительно у второго контроллера 2 диска в спаре но один пишет что not zeroed, что это значит?
+Spare disks for block checksum
+spare           0a.00.23        0a    0   23  SA:A   0   SAS 10000 560000/1146880000 572325/1172123568
+spare           0b.01.21        0b    1   21  SA:B   0   SAS 10000 560000/1146880000 572325/1172123568 (not zeroed)
+
+и как дать один диск первому контроллеру.</description>
+		<content:encoded><![CDATA[<p>Привет а подскажи пожалуйста у меня один контроллер fas2240 показывает состояние Critical: Insufficient spare disks, как я понимаю это что у него нету spare disk.<br />
+я проверил действительно у второго контроллера 2 диска в спаре но один пишет что not zeroed, что это значит?<br />
+Spare disks for block checksum<br />
+spare           0a.00.23        0a    0   23  SA:A   0   SAS 10000 560000/1146880000 572325/1172123568<br />
+spare           0b.01.21        0b    1   21  SA:B   0   SAS 10000 560000/1146880000 572325/1172123568 (not zeroed)</p>
+<p>и как дать один диск первому контроллеру.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-9352</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 23 Aug 2013 03:21:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-9352</guid>
+		<description>Ask:
+
+Привет. 
+Как-то пропустил ваш комментарий и он застрял в премодерации.
+Я всегда испытываю симпатию к маленьким, активным новичкам на рынке. Собственно я и нетаппом начал заниматься, когда он еще был маленьким активным новичком.
+Huawei в России (а в значительной степени и в мире) пока очень маленькая и серая лошадка, что, очевидно, контрастирует с тем, что есть Huawei в мире.
+Причиной тому, как мне кажется, пресловутая гиперконсервативность российского IT-рынка, который до сих пор какой-нибудь Fibre Channel прошловековой держит за новинку и откровение :)
+Ну и немалую роль играет традиционная для российского менталитета пафосная имперскость: "Разве может что хорошего прийти из Китая? Да они там только рис сажают и дешевые калькуляторы собирают, а даже писать стоя мы их научили" :)
+
+Безусловно все эти предубеждения мешают всерьез отнестись к Huawei и его продукции, чего он, безусловно, заслуживает. Отчасти тут виноват и сам российский Huawei, который имеет в репертуаре (только)один аргумент, считающийся там убойным - демпинговать ценой. Но, мне кажется, в стратегическом плане, это уничтожает рынок, да и сам Huawei на этом рынке, выталкивая его в "маргинальный сектор".
+
+К сожалению, не могу сказать, что вот именно по каким-то стораджам их у меня есть профессиональное мнение, я практически не сталкиваюсь с ними в жизни.</description>
+		<content:encoded><![CDATA[<p>Ask:</p>
+<p>Привет.<br />
+Как-то пропустил ваш комментарий и он застрял в премодерации.<br />
+Я всегда испытываю симпатию к маленьким, активным новичкам на рынке. Собственно я и нетаппом начал заниматься, когда он еще был маленьким активным новичком.<br />
+Huawei в России (а в значительной степени и в мире) пока очень маленькая и серая лошадка, что, очевидно, контрастирует с тем, что есть Huawei в мире.<br />
+Причиной тому, как мне кажется, пресловутая гиперконсервативность российского IT-рынка, который до сих пор какой-нибудь Fibre Channel прошловековой держит за новинку и откровение :)<br />
+Ну и немалую роль играет традиционная для российского менталитета пафосная имперскость: &#8220;Разве может что хорошего прийти из Китая? Да они там только рис сажают и дешевые калькуляторы собирают, а даже писать стоя мы их научили&#8221; :)</p>
+<p>Безусловно все эти предубеждения мешают всерьез отнестись к Huawei и его продукции, чего он, безусловно, заслуживает. Отчасти тут виноват и сам российский Huawei, который имеет в репертуаре (только)один аргумент, считающийся там убойным - демпинговать ценой. Но, мне кажется, в стратегическом плане, это уничтожает рынок, да и сам Huawei на этом рынке, выталкивая его в &#8220;маргинальный сектор&#8221;.</p>
+<p>К сожалению, не могу сказать, что вот именно по каким-то стораджам их у меня есть профессиональное мнение, я практически не сталкиваюсь с ними в жизни.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ask</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-8917</link>
+		<dc:creator>Ask</dc:creator>
+		<pubDate>Wed, 07 Aug 2013 07:12:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-8917</guid>
+		<description>Добрый день, Роман. СХД от NetApp считаю на данный момент лучшими на рынке, однако, недавно прослушал вебинар по СХД от Huawei, которые уже начали активно поставлять в Россию, в принципе достаточно интересно. Сформировалось ли у Вас профессиональное мнение по этим СХД?</description>
+		<content:encoded><![CDATA[<p>Добрый день, Роман. СХД от NetApp считаю на данный момент лучшими на рынке, однако, недавно прослушал вебинар по СХД от Huawei, которые уже начали активно поставлять в Россию, в принципе достаточно интересно. Сформировалось ли у Вас профессиональное мнение по этим СХД?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/about#comment-1888</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 06 Nov 2011 16:00:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?page_id=153#comment-1888</guid>
+		<description>Guzya:
+
+За четыре года что я только уже не писал. Читайте внимательнее, там в недрах уже много всего.
+http://blog.aboutnetapp.ru/archives/160
+
+ЗЫ. Такие и подобные вопросы лучше задавать в почту, она для этого и придумана.</description>
+		<content:encoded><![CDATA[<p>Guzya:</p>
+<p>За четыре года что я только уже не писал. Читайте внимательнее, там в недрах уже много всего.<br />
+<a href="http://blog.aboutnetapp.ru/archives/160" rel="nofollow">http://blog.aboutnetapp.ru/archives/160</a></p>
+<p>ЗЫ. Такие и подобные вопросы лучше задавать в почту, она для этого и придумана.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

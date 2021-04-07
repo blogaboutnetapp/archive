@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: RAID &#38; IOPS calculator</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1287/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1287</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:27 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Artur</title>
+		<link>http://blog.aboutnetapp.ru/archives/1287#comment-10822</link>
+		<dc:creator>Artur</dc:creator>
+		<pubDate>Thu, 31 Oct 2013 06:05:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1287#comment-10822</guid>
+		<description>Я для расчетов по полезной емкости RAID-DP использую вот этот калькулятор - http://practicalnetapp.blogspot.ru/2013/09/netapp-usable-space-calculator-new.html</description>
+		<content:encoded><![CDATA[<p>Я для расчетов по полезной емкости RAID-DP использую вот этот калькулятор - <a href="http://practicalnetapp.blogspot.ru/2013/09/netapp-usable-space-calculator-new.html" rel="nofollow">http://practicalnetapp.blogspot.ru/2013/09/netapp-usable-space-calculator-new.html</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pavel Kosachev</title>
+		<link>http://blog.aboutnetapp.ru/archives/1287#comment-9728</link>
+		<dc:creator>Pavel Kosachev</dc:creator>
+		<pubDate>Thu, 12 Sep 2013 08:50:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1287#comment-9728</guid>
+		<description>Вот тут нашел неплохой калькулятор для RAID-DP http://www.storagebyte.com/netapp.html</description>
+		<content:encoded><![CDATA[<p>Вот тут нашел неплохой калькулятор для RAID-DP <a href="http://www.storagebyte.com/netapp.html" rel="nofollow">http://www.storagebyte.com/netapp.html</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

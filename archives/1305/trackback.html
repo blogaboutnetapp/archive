@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Большое обновление в семействе E-series</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1304/trackback.html">VSC 5.0 goes public beta</a></div>
+			<div class="alignright"><a href="../1310/trackback.html">Аггрегация и балансировка на нескольких eth</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1305">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Большое обновление в семействе E-series">Большое обновление в семействе E-series</a></h2>
+			<div class="postmetadata">20 Ноябрь 2013, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Как вы знаете (должны знать, по крайней мере), <a href="../945/trackback.html">NetApp, вот уже третий год пошел, как владеет бизнесом, ранее принадлежавшем компании  LSI/Engenio</a>, и производившим системы хранения &#8220;классической блочной архитектуры&#8221; для различных OEM-клиентов. Таким образом сегодня NetApp это не только традиционные для него стораджи семейства  FAS, то есть unified, NAS+SAN, WAFL-based стораджи &#8220;со снепшотами и дедупликацией&#8221;, о которых в этом блоге в основном и пишется, но также и &#8220;традиционные для рынка&#8221; блочные стораджи для FC и iSCSI, которые продает как сам, так и поставляет по OEM-контрактам. Так, например, хорошо знакомые российскому IT системы IBM DS3524 и Dell PowerVault MD3 - это как раз они и есть, NetApp E-series.</p>
+<p>Некоторое замешательство вызвало в свое время появление такой, <em>необычной для NetApp</em>, линейки продуктов среди пользователей, как же так, мол, а что же FAS, неужели он теперь не хорош, и вы теперь от него отказываетесь и начинаете заниматься продуктом, всю дорогу с ними конкурирующим?</p>
+<p>На самом деле те, кто с NetApp уже давно, они знают, что он, как компания, всегда действует в русле здорового прагматизма, без всякого &#8220;идеологического паладинства&#8221;, если есть направление, в котором можно заработать деньги - действует простое правило: пойди, дай то, что пользователь хочет, и возьми у пользователя за это его деньги, <del>без всяких &#8220;фу, это же не настоящий Fibrechannel!&#8221;</del> :). Так, в свое время, <a href="http://habrahabr.ru/company/netapp/blog/105936/">NetApp вдруг, неожиданно для всех, перестал заниматься только лишь NAS</a>, и быстро сделал поддержку блочных протоколов SAN в своих системах хранения (оставаясь, впрочем, сторонником своей линии, что NAS есть более интеллектуальный и прогрессивный продукт, сегодня мы все видим, что так оно, во многом, и получилось, смотрите как развивается NAS-направление в виртуализации!).</p>
+<p>Точно также получилось и с E-series. На рынке существует ниша, в которой многочисленные интеллектуальные преимущества FAS и Data ONTAP не слишком нужны, а нужна там высокая удельная емкость хранения, высокая линейная скорость записи-чтения, возможность DAS-подключения к серверам, поддержка только блочных протоколов, и так далее. Это, например, системы хранения потокового HD-видео от камер видеонаблюдения, это <a href="../1192/trackback.html">системы для обработки BigData</a>, например под Apache Hadoop, и ряд других таких же нишевых, но очень деньгоемких систем и областей использования. Ну, вот, отчего не расширить туда присутствие на рынке? </p>
+<p>Сперва стораджи E-series продавались только в OEM, потом понемногу NetApp начал производить их и продавать от своего имени, сперва в Америке, а теперь и &#8220;в канал&#8221;, в том числе и в России.</p>
+<p>?? вот, на днях, <strong>в семействе E-series вышло большое обновление</strong>.<br />
+Во-первых, появилась новая линейка в нижнем сегменте, той, чем был тот самый IBM DS3524, он же NetApp E2600. Теперь ему на смену появился <a href="http://www.netapp.com/us/products/storage-systems/e2700/">E2700</a>.</p>
+<p><a href="/pics//e2600-sideview.jpg"><img src="/pics//e2600-sideview-300x165.jpg" alt="" title="e2600-sideview" width="300" height="165" class="alignnone size-medium wp-image-1306" /></a></p>
+<p>В линейке будет выпущено три модели, это E2712, E2724 и E2760. Последние две цифры модели, как вы уже поняли, это число дисков в конструктиве. 2712 и 2724 это уже знакомые 2U на 12 и 24 диска 2,5&#8243;, а вот 2760 это новый для модели E2 конструктив, уже встречавшийся в семействе E5, это 4U с треями &#8220;магазинного&#8221; типа, на 60 дисков 3,5&#8243; в корпусе, для &#8220;сверхплотных&#8221; применений.</p>
+<p>Контроллеры  E2700 оснащаются в базе портами SAS 12Gb/s, и поддерживают расширение с помощью Host Interface Cards (HIC) с портами FC 16G, iSCSI 10G, а также дополнительными портами SAS 12G.</p>
+<p>Будут поддерживаться разные типы дисков: SAS, NL-SAS, а также SSD (кроме 2712). Впрочем, про SSD дальше еще пойдет речь в связи с обновлением <a href="../1244/trackback.html">All-Flash системы</a> EF5.</p>
+<p>В остальном - это наследник E2600, все, знакомое вам по этой модели, в новой осталось.</p>
+<p><strong>Обновился контроллер у E5500.</strong></p>
+<p><a href="/pics//e5500-sideview.jpg"><img src="/pics//e5500-sideview-300x164.jpg" alt="" title="e5500-sideview" width="300" height="164" class="alignnone size-medium wp-image-1307" /></a></p>
+<p>E5500 - это системы еще большей производительности, чем были E2600. Теперь в нем добавились (ранее недоступные) интерфейсы FC 16Gb и iSCSI 10G (ранее были только SAS 12Gb, FC 8Gb и Infiniband). Также как у E2700 будут доступны три конструктива, на 12 и 24 диска в 2U, и на 60 дисков в 4U.<br />
+Поддерживаемые диски - SAS и SSD.</p>
+<p>Наконец, <strong>обновился All-Flash storage, который теперь носит название EF550</strong>.</p>
+<p><a href="/pics//ef550.jpg"><img src="/pics//ef550-300x95.jpg" alt="" title="ef550" width="300" height="95" class="alignnone size-medium wp-image-1308" /></a></p>
+<p>Эта система поставляется в виде 2U корпуса, с вариантами поставки на 12 дисков SSD (9,6TB raw) и на 24 диска SS (19,2TB raw), с общей возможной емкостью системы - 120 дисков.</p>
+<p>Поддерживаются интерфейсы:<br />
+•    16Gb FC (OM2, OM3, OS1, and OS2 optical)<br />
+•    10Gb iSCSI (optical, twinax passive, and RJ-45 Cat 6)<br />
+•    6Gb SAS (copper with Mini-SAS cables)<br />
+•    40Gb IB (QSFP+ copper and OM3 optical)</p>
+<p><del datetime="2013-12-06T05:12:55+00:00">Системы поставляются с 800GB SSD дисками технологии SLC, каждый диск оснащен двумя портами ввода-вывода SAS, и имеют пятилетнюю гарантию производителя.</del><br />
+The EF550 ships with 800GB mixed-use multi-level cell (MLC) NAND SSDs from SanDisk with dual (2) full-duplex interface ports. The EF550 actually leverages the dual-active paths from each controller to every SSD as part of its design.<br />
+Each SSD is rated at 10 drive writes per day (DWPD), warrantied up to 5 years, but with an endurance lifetime well over 5 years.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/e-series.html" rel="tag">e-series</a>, <a href="../tag/e2700.html" rel="tag">e2700</a>, <a href="../tag/e5500.html" rel="tag">e5500</a>, <a href="../tag/ef550.html" rel="tag">ef550</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (12)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-11246">
+		<div id="div-comment-11246">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>А тесты производительности будут? Особенно интересует EF в сравненни с 3par :).</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11246" title="">20 Ноябрь 2013, 15:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11247">
+		<div id="div-comment-11247">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>2 Nostromo<br />
+Если вас это удовлетворит:<br />
+Delivers more than 400,000 IOPS, submillisecond latency, and up to 12GBps throughput<br />
+<a href="http://www.netapp.com/us/products/storage-systems/flash-ef550/" rel="nofollow">http://www.netapp.com/us/products/storage-systems/flash-ef550/</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-11247" title="">20 Ноябрь 2013, 17:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-11249">
+		<div id="div-comment-11249">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>2 bbk: ну это-то понятно, просто у нетаппа есть хорошая традиция выкладывать тесты FAS SPC-1, так что, на мой взгляд, логичным было бы и для E-series тоже так поступить.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11249" title="">20 Ноябрь 2013, 18:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11250">
+		<div id="div-comment-11250">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:<br />
+Это настолько абстрактные &#8220;IOPS&#8221;, что этот &#8220;конь&#8221; - даже не сферический, а такой, метафизический, платоновский. &#8220;??дея коня&#8221; ;D</p>
+<p>Nostromo:<br />
+Так я ж разве зря написал в посте: это системы для специальных нагрузок. Поэтому если их и будут тестировать, то это будет не SPC-1, а скорее SPC-2, то есть для секвентальных workload.<br />
+Впрочем, вот IBM свои DS3500 гоняет на SPC-1, можете посмотреть их, но сам NetApp их на задачи рандомного IO как основного workload не нацеливает, как я понял.<br />
+Далее: Сравнивать all-flash и систему дисковую, но не с HDD установленными, а с SSD, не очень осмысленно. Если с чем-то сравнивать EF, то с каким-нибудь Violin, или подобной системой. 3Par, даже если в него поставить SSD, аналогом Violin, или EF5 не станет. Его можно сравнивать, если хочется с E2 или E5, с SSD, такая конфигурация есть, как я выше написал.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11250" title="">20 Ноябрь 2013, 18:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-11251">
+		<div id="div-comment-11251">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>romx:<br />
+Я, кстати, не совсем понимаю идею использовать ssd на sequential load, когда они показывают очень высокую производительность на random io. Взять даже обычные ssd для серверов, которые hp предлагает - 12k random iops на запись и 60k на чтение - чем не решение для oltp? А для sequential load они же показывают ~500MBps и разница с hdd гораздо меньше, чем в случае с random io.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11251" title="">20 Ноябрь 2013, 19:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11252">
+		<div id="div-comment-11252">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nostromo:<br />
+Кто-то из нас все напутал :) EF - конечно под рандом. А вот E, которые с дисками HDD, они часто под sequental, и прочие специальные виды доступа. Вы про что из них спрашивали?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11252" title="">20 Ноябрь 2013, 19:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-11254">
+		<div id="div-comment-11254">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>romx:<br />
+ок, этот кто-то, по-видимому - я :). Но давайте-таки проясним - E2700 c ssd-драйвами, по-вашему, подходят для random io? Ну и если да, то, логично ли ожидать тестов SPC-1? ?? ещё - имеет ли смысл искать на hardware universe подробности начинки E-series (частоту контроллеров, допустим)?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11254" title="">20 Ноябрь 2013, 19:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11260">
+		<div id="div-comment-11260">
+		<div class="comment-author">
+			<cite>Artur:<cite></div>
+			<p>У 3par имели в виду систему 7450. В ней по словам HP внесли какие-то модификации в прошивку для более эффективной работы с SSD. EF540 и EF550 не разработанные с нуля массивы под SSD, там все та же SANtricity, что и в обычной E-серии. Так что думаю вполне корректно сравнивать EF и HP 3par 7450.</p>
+<p>Куда интереснее было бы посмотреть на сравнение с PureStorage и EMC XtremIO.</p>
+<p>Роман, а где можно почитать про то, что 800GB SSD диски в EF550 именно SLC?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11260" title="">20 Ноябрь 2013, 23:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-11261">
+		<div id="div-comment-11261">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Artur:<br />
+SANtricity - это еще не все.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11261" title="">20 Ноябрь 2013, 23:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11263">
+		<div id="div-comment-11263">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>Куда интеснее посмотреть на реалии. Если у вас есть задача на 100-200K IOPS  с суб-миллисекундной задержкой, то EF один из возможных вариантов. ?? очень неплохой, с учетом надежности этого решения и относительной доступности.</p>
+<p>Pure - не серьезно. В России точно, в Европе - пока сомнительно.<br />
+XtremIO - интереснее, но пока неприятные новости о  получившейся надежности решения <a href="http://www.theregister.co.uk/2013/11/18/xtremio_kit_has_high_initial_flash_death_rate/" rel="nofollow">http://www.theregister.co.uk/2013/11/18/xtremio_kit_has_high_initial_flash_death_rate/</a> . Наверное исправят, после опыта &#8220;над живыми людьми&#8221;</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11263" title="">21 Ноябрь 2013, 0:15</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-11265">
+		<div id="div-comment-11265">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>EFххх действительно построен на базе Е-серии. Это решает проблему с мелкосерийным производством, характерную для AFA.  Есть утверждение, что на  EF540 построено самое большое решение AFA в мире. Есть заказчик, который сразу закупил несколько сотен систем. </p>
+<p>Это очень много для этого рынка. </p>
+<p>Но теже технологии, те же контроллеры, используются в системах объемы поставок, которых сотнями тысяч в год. Это позволяет повысить устойчивость платформы и объемы позволяют иметь нормальное, а не штучное производство.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-11265" title="">21 Ноябрь 2013, 0:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13381">
+		<div id="div-comment-13381">
+		<div class="comment-author">
+			<cite><a href='../1366/trackback.html' rel='external nofollow'>NetApp E2700 по спецценам в IT-Град до 27 июля | about NetApp</a>:<cite></div>
+			<p>[...] E2700 – это классические блочные стораджи, которые можно использовать например как [...]</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13381" title="">12 Июнь 2014, 17:10</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1305" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.073 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

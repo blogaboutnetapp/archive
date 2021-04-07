@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; SnapCreator вблизи. Часть 1. </title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1356/trackback.html">NetApp VSC - теперь и для Red Hat Enterprise Visualization (RHEV)</a></div>
+			<div class="alignright"><a href="../1359/trackback.html">Обновление NetApp OnCommand Insight &ndash; 7.0</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1345">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to SnapCreator вблизи. Часть 1.">SnapCreator вблизи. Часть 1.</a></h2>
+			<div class="postmetadata">28 Апрель 2014, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Вот уже несколько лет, как среди программных продуктов NetApp есть такая штука, как SnapCreator. К сожалению, как я обратил внимание, он не только очень плохо известен пользователям, но даже те, кто знает про него, используют его крайне редко. А ведь это штука, которая, благодаря своей гибкости, может решить многие задачи, связанные с защитой данных на системе хранения и в прикладных системах, ее использующих.</p>
+<p>SnapCreator первоначально был разработан в 2007 году как &#8220;служебный&#8221;, внутренний продукт, внутри подразделения Professional Services и Rapid Responce Engineering Group, для того, чтобы облегчить построение систем защиты данных в снэпшоты системы хранения для пользовательских прикладных систем, не входящих в список поддерживаемых &#8220;официальным&#8221; продуктом NetApp - SnapManager.<br />
+То есть, если у вас используется MS SQL Server, MS Exchange, Sharepoint, Oracle, SAP, Hyper-V или vSphere (и у вас есть деньги на лицензию SnapManager), то все относительно просто. Вы устанавливаете SnapManager для соответствующего программного продукта, и дальше он делает все сам.</p>
+<p>Зачем нужен SnapManager, и почему нельзя обойтись просто командой snap create из консоли, или переданной через ssh или rsh? Ну, например потому, что некоторые программы требуют некоей согласованной последовательности действий на своей стороне, чтобы состояние данных, записанных на дисках системы хранения, было корректным, или еще говорят &#8220;консистентным&#8221;. Ведь, например, какие-то данные могут оказаться в буферах кэша сервера, как на стороне программы, так и файловой системы, базы SQL могут иметь незавершенные транзакции, и так далее. Все это требует, чтобы перед тем, как будет сделан &#8220;снимок&#8221;, снэпшот состояния данных, эти данные на дисках уже находились какое-то время в некоем стабильном, непротиворечивом состоянии, то есть все равно нужен некий &#8220;агент&#8221; на стороне программного продукта, умеющий с ним взаимодействовать.</p>
+<p>Таким образом, если у вас используется какой-нибудь MySQL, Sybase, Xen, KVM или что-то подобное, вам <em>нельзя так просто взять и сделать снэпшот</em>. Нужно написать какую-то систему-посредник, между вашим софтом, и софтом Data ONTAP. Вот для того, чтобы облегчить такую задачу для специалистов Professional Services и был написан SnapCreator.</p>
+<p>SnapCreator - это платформа, или, иначе говоря, фреймворк, для написания скриптов и агентов, взаимодействующих с вашей прикладной программной системой, с системой хранения, обеспечивающий автоматизацию взятия корректных, консистентных снэпшотов для данных этой программной системы. Вначале, первые несколько своих версий, это была закрытая внутренняя разработка, начиная с версии 3 она стала ограниченно доступна всем желающим. В настоящий момент для скачивания и использования доступна уже версия 4.1</p>
+<p>Официально в настоящее время существуют две линейки, официальная, и так называемая Community Edition. Последняя это, так сказать, unstable, developers edition, где обкатываются все мульки, которые потом деплоятся в официальную поддерживаемую компанией ветку.</p>
+<p>Архитектурно SnapCreator является клмент-серверным приложением. Существует так называемый SnapCreator Server, выполняющий код компонента Workflow Engine, который многопоточно обрабатывает поступающие от Агентов и собственного GUI и/или CLI запросы. Так как API открыт, то использовать SnapCreator могут любые внешние системы, например это могут быть коммандлеты PowerShell, другие продукты NetApp, такие как Unified Manager (для него есть свой собственный API), и даже собственные самописанные системы клиентов.</p>
+<p><a href="/pics//snapcreatorserverarch.png"><img src="/pics//snapcreatorserverarch.png" alt="" title="snapcreatorserverarch" width="500" height="247" class="alignnone size-full wp-image-1346" /></a></p>
+<p>&#8220;Другим концом&#8221; Snap Creator Server взаимодействует с внутренним API Data ONTAP, обеспечивая все нужные вызовы и отдачу команд.<br />
+Конфигурации, jobs, и метаданные плагинов хранятся в специальной структуре - Репозитории (Repository / Extended Repository). Расписания задач, сами задачи (jobs), пользователи и их права доступа (RBAC) хранятся в базе данных (Database).</p>
+<p>Наконец, специальный API есть для &#8220;клиентов&#8221;, агентов SnapCreator.</p>
+<p>Посмотрим теперь подробнее на систему SnapCreator со стороны Агента.</p>
+<p><a href="/pics//snapcreatoragentarch.png"><img src="/pics//snapcreatoragentarch.png" alt="" title="snapcreatoragentarch" width="500" height="242" class="alignnone size-full wp-image-1347" /></a></p>
+<p>Агент - это программный продукт, написанный на Java, чтобы многопоточно выполняться на всех поддерживаемых OS. В ранних версиях в качестве транспорта использовался обычный HTTP, начиная с версии 4.1 взаимодействие Агента и Сервера полностью шифруется в HTTPS.<br />
+Основным компонентом, ядром SC Agent является Operation/Execution Manager.<br />
+Ядро выполняет запросы от плагинов, которые могут быть как нативными на Джава, так и поддерживаться ранее написанные плагины &#8220;не-Java&#8221; (значительное их количество для разных программных систем было написано для версий SC 3.6 и 4.0, существовавших ранее), в том числе и на разных скриптовых языках, Perl, PowerShell, даже на UNIX Shell. </p>
+<p>В следующих постах разберем то, как пишутся собственно плагины для SnapCreator.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/snapcreator.html" rel="tag">snapcreator</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (7)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-13138">
+		<div id="div-comment-13138">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>В свете интеграции Veeam с DOT, по-моему, SnapCreator выглядит как-то не особо, как вы считаете?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13138" title="">2 Май 2014, 16:51</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13139">
+		<div id="div-comment-13139">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Не вижу связи. Veeam это продукт для узкой ниши, который, вдобавок, приходит и, возможно, уходит. Как Veeam поможет вам забыкапить, например, базу Informix for Solaris/SPARC?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13139" title="">2 Май 2014, 17:03</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13149">
+		<div id="div-comment-13149">
+		<div class="comment-author">
+			<cite>Odna ptichka:<cite></div>
+			<p>Veeam пока только обещания и беты, или что-то упустил?.Притом они обещают реализацию поддержки snap vault на Cdot начиная с 8.1:) А это немного странно, не </p>
+<p>А так альтернатив sc достаточно. Simpana/snapProtect, NBU &#8230;но дальше нужно нудно смотреть в матрицы, что на самом деле работает и с  какими ограничениями&#8230;</p>
+<p>SC интересен, так как обещают, что следующее поколение snap manager будет реализовано на его основе.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13149" title="">3 Май 2014, 12:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13176">
+		<div id="div-comment-13176">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>romx:<br />
+&gt;Informix for Solaris/SPARC?<br />
+По-моему, это как раз гораздо более нишевый продукт, чем veeam :). Да и они уже 8 лет на рынке, тогда уж скорее какой-нибудь Nutanix &#8220;уйдёт&#8221; :D (уж простите, за оффтопик).</p>
+<p>Odna ptichka:<br />
+Я не совсем понял, какие обещания вы имеете ввиду. Я говорил с veeam-овскими пресейлами и у меня сложилось впечатление, что у них весьма зрелый продукт для виртуальных сред, на большее они и не претендуют.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13176" title="">6 Май 2014, 17:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13177">
+		<div id="div-comment-13177">
+		<div class="comment-author">
+			<cite>comotoza:<cite></div>
+			<p>как с помощью SC обеспечить бекап приложений внутри ВМ в среде сервис провайдера, когда sc не будет иметь прямого доступа к ВМ и приложениям внутри их?<br />
+спрашиваю потому, что раньше была поддержка vmware vcloud director, но вроде как могло бекапить только vapp без консистентности приложения</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13177" title="">6 Май 2014, 18:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13209">
+		<div id="div-comment-13209">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>2 Nostromo<br />
+&#8212;&#8211;</p>
+<p>я говорил про заявленый фунционал интеграции  Veeam Backup &amp; Replication и функционала NetApp. В том, что сам продукт B&amp;R  выполняет свои базовые функции соменения нет. Штука понятная и широкоиспользуемая. Но вот глубина интерации требует исследований. Пока все на уровне рекламных проспектов.  Думаю, что в части мгновенный копий скорее все работает, чем нет. А вот с интерацией со snapmirror и особенно с SnapVault в с-mode  я был был осторожен.  </p>
+<p>надеюсь, что не запутал. :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13209" title="">11 Май 2014, 23:43</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13232">
+		<div id="div-comment-13232">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>Odna Ptichka:<br />
+&gt;А вот с интерацией со snapmirror и особенно с SnapVault в с-mode я был был осторожен.<br />
+Соглашусь. У меня до сих пор, кстати, стоит в шорт-листе тест взаимодействия SnapMirror+SRM и бэкапами через VSC :). Ну, лишний раз повод проверить всё в лабе, благо технически всё достаточно просто.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13232" title="">14 Май 2014, 23:19</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1345" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.070 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

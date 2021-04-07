@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp E5500 - новый сторадж для HPC и Bandwidth-related задач</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1250/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1250</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:02 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1250#comment-6384</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Thu, 14 Mar 2013 10:32:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1250#comment-6384</guid>
+		<description>к примеру, пару стоек hpc просматривает видео архив среднего метрополитена за пару месяцев на предмет поиска некоторого события в неопределенном месте - iops будет относительно немного, а bandwidth должна быть гигантской.</description>
+		<content:encoded><![CDATA[<p>к примеру, пару стоек hpc просматривает видео архив среднего метрополитена за пару месяцев на предмет поиска некоторого события в неопределенном месте - iops будет относительно немного, а bandwidth должна быть гигантской.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1250#comment-6383</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 14 Mar 2013 08:19:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1250#comment-6383</guid>
+		<description>Как мне удалось понять по данным сравнения с E5400, &lt;b&gt;на IOPS-ах&lt;/b&gt; выигрыш относительно 5400 крайне незначительный, исходя из этого можно примерно оценить.
+Это все же специализированное решение "одной задачи", впрочем, как все E-series.</description>
+		<content:encoded><![CDATA[<p>Как мне удалось понять по данным сравнения с E5400, <b>на IOPS-ах</b> выигрыш относительно 5400 крайне незначительный, исходя из этого можно примерно оценить.<br />
+Это все же специализированное решение &#8220;одной задачи&#8221;, впрочем, как все E-series.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1250#comment-6382</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Thu, 14 Mar 2013 08:13:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1250#comment-6382</guid>
+		<description>Круто...
+а производительность по SPC-1, по сравнению с "обычными" СХД, у нее  соответственно просядет? или этого никто не знает?:)
+
+и, мне кажется, было бы полезно перед этими двумя табличками дать хотя бы таблицу с абсолютными значениями результатов теста  - а то пока не полезешь по ссылке (а полезут не все), ждешь какого-то подвоха.</description>
+		<content:encoded><![CDATA[<p>Круто&#8230;<br />
+а производительность по SPC-1, по сравнению с &#8220;обычными&#8221; СХД, у нее  соответственно просядет? или этого никто не знает?:)</p>
+<p>и, мне кажется, было бы полезно перед этими двумя табличками дать хотя бы таблицу с абсолютными значениями результатов теста  - а то пока не полезешь по ссылке (а полезут не все), ждешь какого-то подвоха.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

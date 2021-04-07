@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Обновление линейки FAS - FAS8000</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1321/trackback.html">??спользование решений BigData в NetApp: ASUP</a></div>
+			<div class="alignright"><a href="../1324/trackback.html">FAS8020 - результаты SPEC sfs2008 NFS benchmark</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1323">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Обновление линейки FAS - FAS8000">Обновление линейки FAS - FAS8000</a></h2>
+			<div class="postmetadata">20 Февраль 2014, 2:41 <!-- от  --></div>
+			<div class="postentry">
+				<p>Вчера NetApp объявил новую серию моделей NetApp FAS - FAS8000. Вопреки банальной логике, выработанной принятой схемой нумерации моделей и линеек, это НЕ суперпупер-системы, стоящие НАД FAS6200, что было бы логично исходя из номера линейки, напротив, это &#8220;сайд-линейка&#8221;, заменяющая ряд моделей в мидрендже и нижнем-среднем хайэнде:<br />
+FAS8020 планируется как перспективная замена FAS3220, FAS8040 - FAS3250, а FAS8060 - замена для FAS6220. Почему NetApp решил перепахать всю схему нумерации моделей, и чем их не устраивали цифры 4000 и 5000, расположенные как раз в нужном и привычном диапазоне - непонятно.<br />
+Но, закончим с бухтежом, посмотрим же, что нам подготовили с технической стороны.<br />
+<span id="more-1323"></span><br />
+Ну, начнем с &#8220;встречи по одежке&#8221;, с этой модельной линейки меняется &#8220;морда&#8221;, внешний вид контроллерного bezel, лицевой панели. Логотип <del datetime="2014-02-19T17:52:03+00:00">города Перми</del> - светится. :) </p>
+<p><img src="http://1.bp.blogspot.com/-iAq4VST2ZNA/UwJRcQNGwsI/AAAAAAAABUk/U7Qz_SocVq0/s1600/FAS8020.png" alt="" /></p>
+<p>Более важно то, что &#8220;под крышкой&#8221;. Под ней - контроллер, построенный с использованием: для <strong>FAS8020</strong> <em>single-socket процессора, 2.0 GHz Intel <strong>E5-2620</strong> “Sandy Bridge-EP”</em>, с 6 ядрами (12 на HA pair), Intel Patsburg-J как SouthBridge, и <strong><em>24GB DDR3 RAM</em></strong> (48GB на HA pair), для <strong>FAS8040</strong> <em>single-socket, 2.1 GHz Intel <strong>E5-2658</strong> “Sandy Bridge-EP”</em> с 8 ядрами (16 на HA pair), Intel Patsburg-J SouthBridge, и <strong><em>32GB DDR3 RAM</em></strong> (64GB на HA pair), и <em>dual-socket, 2.1 GHz Intel <strong>E5-2658</strong> “Sandy Bridge-EP” processors <strong>with a total of 16 cores (32 per HA pair)</strong>, an Intel Patsburg-J SouthBridge, and 64GB of DDR3 physical memory (128GB per HA pair)</em> в контроллере <strong>FAS8060</strong>. </p>
+<p>??спользована новая &#8220;серия&#8221; NVRAM - <strong>NVRAM9</strong>, интегрированная в System RAM (то есть не в виде отдельного устройства на PCIe, как было в старых 3000- и 6000-series), просто батарея NVRAM запитывает часть системной памяти, использующейся как Non-Volatile (это принято называть теперь у NetApp - NVMEM), причем для гарантии транзакционной сохранности операций в NVMEM/NVRAM, в случае отключения (обесточивания) стораджа, содержимое этой батарейно-запитанной памяти, для сохранности, немедленно начинает сливаться в резервный внутренний NAND-flash.<br />
+Емкость NVRAM9 для 8020 - <strong>4GB</strong> (8GB на HA-pair), для 8040/8060 - <strong>8GB</strong> (16GB на HA-pair).</p>
+<p>По производительности обещано двукратное превосходство над заменяемыми моделями. Кроме того существенно (втрое) расширяется допустимые объемы flash-memory, используемой в этих системах, по сравнению с заменяемыми. </p>
+<p>Архитектура контроллеров построена на базе <em>Gen 3 PCI Express (PCIe) architecture</em>, с поддержкой до x8-линий.</p>
+<p>Естественный вопрос - будет ли на этом 7-mode? <strong>Да</strong>, будет, минимальная версия Data ONTAP для этих контроллеров - 8.2.1 RC2, поддерживаются как 7-mode, так и Clustered Data ONTAP. В кластерной конфигурации для <em>гомогенных</em> кластеров, то есть состоящих из контроллеров только одной этой модели, поддерживается до 8 узлов (4 HA-пар) для работы с блочными протоколами (SAN), и до 24 узлов (12 HA-пар) для NAS. При негомогенности, например при включении в кластер систем типа 2240 или 3250, допустимый размер кластера уменьшается, учитывайте это при расчете кластера.<br />
+К слову - межконтроллерный интерконнект в HA-паре вновь поменялся. Вместо 10G Ethernet в FAS3200 (и 20G DDR Infiniband в 6220), в FAS8000 в этом качестве используется 40G QDR Infiniband. </p>
+<p>Важное: в системах серии 3200/6200 несколько лет назад появилось новое тогда устройство - IOXM, &#8220;пассивная&#8221; коробка расширения портов, <em>IO eXtension Module</em>. Начиная с FAS8000 от этой идеи, кажется, начали отказываться.<br />
+FAS8020 - 3U корпус, которые может поставляться как с одним, так и с парой контроллеров, аналогично FAS8040/8060 - 6U корпус. Но при этом IOXM-модуля для них нет.</p>
+<p><img src="http://3.bp.blogspot.com/-5sVPC-E79zs/UwJSHd3bOGI/AAAAAAAABUo/oOj_5fYgd84/s1600/FAS8040-FAS8060.png" alt="" /></p>
+<p>Связано это с тем, что новая архитектура предлагает так называемый Unified Target Adapter (UTA) Type 2. Это ASIC на два порта, которых можно установить в систему несколько, и который позволяет конфигурировать эту пару портов как FC 16G, или как 10G Ethernet-порты. ??спользование UTA2 потенциально позволяет обойтись без IOXM.<br />
+Однако, обратите внимание, что <strong>выбрать режим порта FC или 10G ethernet можно только одновременно для пары портов, входящих в ASIC вместе</strong>. Но можно выбрать его разным для портов из разных ASIC. Таким образом, используя UTA2 можно иметь на встроенных Target-портах одной системы произвольно выбираемые FC 16G или 10G Ethernet порты, без необходимости устанавливать карты расширения. Впрочем, слоты для карт расширения в базовом конструктиве контроллера предусмотрены как и обычно, просто нет дополнительного 3U IOXM.</p>
+<p>Обратите внимание, что порты FC в UTA2 поддерживают FC скоростью 16/8/4Gb (и не поддерживаются 2 и 1Gb FC, что понятно, впрочем), а порты Ethernet в UTA2 поддерживают <strong>только 10G</strong>, и не поддерживают, например Gigabit Ethernet. В последнем случае чересчур велика разница в реализации physical layer, не буду вдаваться в детали. Учитывайте это при построении архитектуры хранения.</p>
+<p>Наконец - снова важное. Некоторая странность линейки, официально называющейся, начиная с выхода первых моделей 3200/6200, если вы были внимательны, <strong>FAS/V</strong>, но при этом существовали отдельно модели <em>FAS</em>, и отдельно, полностью им аппаратно идентичные модели <em>V</em>, с функцией виртуализации сторонних стораджей. Причем точно такой же <em>FAS</em> подключать к себе third party стораджи - не мог, и мог только родные дисковые полки, а такой же, но <em>V</em> - мог как нативные полки, так и, допустим, стораджи EMC, HP, HDS, IBM, и так далее. Но если вы купили FAS, и позже, например через год, захотели подключить через него сторонний сторадж - no way, формально - только заменой контроллера FASxxxx на такой же, но Vxxxx.<br />
+Теперь, наконец, эта нелепость разрешилась. <strong>ВСЕ</strong> FAS8000 умеют делать виртуализацию сторонних стораджей &#8220;из коробки&#8221;, новая фича, это им позволяющая, называется <em>FlexArray</em>. Она может быть куплена и поставлена, разрешая функцию виртуализации сторонних &#8220;коробок с дисками&#8221; в любое время, как обычная лицензия.</p>
+<p>Максимальное число дисков, поддерживаемых в <strong>FAS8020</strong> - 480 дисков на HA-пару, при этом 240 из них могут быть SSD. Максимальная поддерживаемая емкость равна 1920TB на HA-пару.<br />
+Максимальный объем Flash Cache + Flash Pool - 6TB на HA-пару. Максимальный размер aggregate - 150TB, а максимальный размер тома - 70TB.</p>
+<p>Для <strong>FAS8040</strong> - 720 дисков на HA-пару, 240 из них могут быть SSD. Максимальная поддерживаемая емкость равна 2880TB на HA-пару.<br />
+Максимальный объем Flash Cache + Flash Pool - 12TB на HA-пару. Максимальный размер aggregate - 180TB, а максимальный размер тома - 100TB.</p>
+<p>Для <strong>FAS8060</strong> - 1200 дисков на HA-пару, 240 из них могут быть SSD. Максимальная поддерживаемая емкость равна 4800TB на HA-пару.<br />
+Максимальный объем Flash Cache + Flash Pool - 18TB на HA-пару. Максимальный размер aggregate - 324TB, а максимальный размер тома - 100TB.</p>
+<p>??з мелких, но интересных новостей:<br />
+• Non-disruptive Shelf Removal (NDSR), enhancing non-disruptive operations (NDO)<br />
+• Release of 16Gb FCVI, supporting Metro Cluster configurations on ONTAP 8.2.1 with 7-mode</p>
+<p>К заказу/квотированию FAS8000 доступны немедленно, поставки начнутся с марта, начиная с мая будут доступны новые пре-конфигурации, так называемые Factory Configured Clusters (FCC).</p>
+<p>PS.<br />
+<a href="http://www.netapp.com/us/media/tr-4268.pdf">http://www.netapp.com/us/media/tr-4268.pdf</a><br />
+Technical Report<br />
+200,000 Exchange Server 2013 Mailboxes on NetApp FAS8060<br />
+An Overview of Performance and Scalability<br />
+Wei Liu, NetApp<br />
+February 2014 | TR-4268</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/8000.html" rel="tag">8000</a>, <a href="../tag/8020.html" rel="tag">8020</a>, <a href="../tag/8040.html" rel="tag">8040</a>, <a href="../tag/8060.html" rel="tag">8060</a>, <a href="../tag/fas8000.html" rel="tag">fas8000</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (30)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-12291">
+		<div id="div-comment-12291">
+		<div class="comment-author">
+			<cite>Artur:<cite></div>
+			<p>Про IOXM встречал упоминание в партнерских презентациях, что для 8040 и 8060 он появится позже.<br />
+Еще не порадовало, что нигде нет упоминания о поддержке виртуализации массивов HP при использовании FlexArray.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12291" title="">20 Февраль 2014, 3:10</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12294">
+		<div id="div-comment-12294">
+		<div class="comment-author">
+			<cite>Aaz:<cite></div>
+			<p>Крышу сносит &#8230;.<br />
+<a href="http://www.netapp.com/us/products/storage-systems/fas8000/fas8000-tech-specs.aspx" rel="nofollow">http://www.netapp.com/us/products/storage-systems/fas8000/fas8000-tech-specs.aspx</a><br />
+Maximum Adapters<br />
+Dual 10GbE/FCoE 16Gb FC Unified Target Adapter 2 (UTA2, optical or copper for 10GbE/FCoE deployments, optical for 16Gb FC)	824(для 8060)	824(для 8040)	48(для 8020)   - это же опечатка? смотреть на первую цифру?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12294" title="">20 Февраль 2014, 12:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12295">
+		<div id="div-comment-12295">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Aaz:</p>
+<p>Поторопились. Готов ручаться, что имелось ввиду 8/24, в том смысле, что 8 - onboard для HA-пары (по два двупортовых UTA2 на контроллер), и 24 - максимум, включая те, что могут быть установлены в слоты расширения.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12295" title="">20 Февраль 2014, 13:58</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12297">
+		<div id="div-comment-12297">
+		<div class="comment-author">
+			<cite>Sergey:<cite></div>
+			<p>Скорее всего опечатка:<br />
+FC Target Ports (16Gb/8Gb/4Gb or 8Gb)<br />
+40	40	20</p>
+<p>FCoE Target Ports, UTA, UTA2 (max.)<br />
+2448	2448	12  &#8211;&gt;  читать как 24/48 24/48 12 </p>
+<p>10GbE Ports (max.)<br />
+3264	3264	16  &#8211;&gt; читать как 32/64 32/64 16</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12297" title="">20 Февраль 2014, 14:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12298">
+		<div id="div-comment-12298">
+		<div class="comment-author">
+			<cite>Sergey:<cite></div>
+			<p>??нтересно цена FAS8040 насколько будет выше аналогичной FAS3250?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12298" title="">20 Февраль 2014, 14:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12301">
+		<div id="div-comment-12301">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Скопом обновили наиболее денежные модели, новой нумерацией дистанцировали по производительности от старого мидрейнджа, судя по спекам небезосновательно. На первый взгляд, все очень симпатично.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12301" title="">20 Февраль 2014, 17:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12302">
+		<div id="div-comment-12302">
+		<div class="comment-author">
+			<cite>Aaz:<cite></div>
+			<p>Роман, процессоры в 8040 и 8060 идентичны?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12302" title="">20 Февраль 2014, 18:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12303">
+		<div id="div-comment-12303">
+		<div class="comment-author">
+			<cite>Артем:<cite></div>
+			<p>Слухи про новый low-end и high-end уже есть?<br />
+Видимо, будет 7000 и 9000?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12303" title="">20 Февраль 2014, 18:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12304">
+		<div id="div-comment-12304">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>По ценам, GPL примерно сравним у соответствующих моделей. Перфоманс вырос при этом нереально - раза в полтора-два.<br />
+??зза большего NVRAM принципиально улучшилась работа с последовательными операциями.</p>
+<p>По сути, апдейт - больше памяти, ядер, поддержки VST. 6TB VST на entry-midrange - нереально!</p>
+<p>??з поддержки V-series только E5500, HDS, EMC. IBM и HP больше судя по всему не поддерживаются.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12304" title="">20 Февраль 2014, 19:28</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12305">
+		<div id="div-comment-12305">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Yeha!! - &#8220;40G QDR Infiniband.&#8221; Наконец-то NetApp меня услышал! :))</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12305" title="">20 Февраль 2014, 20:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12310">
+		<div id="div-comment-12310">
+		<div class="comment-author">
+			<cite>Nick:<cite></div>
+			<p>По поводу нелогичности нумерации. Может они обновляют всю линейку просто решили начать с мидлов, а через какое-то время выпустить 9ххх ну или как-то так?<br />
+С графичекими адаптерами почти всегда так :D</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12310" title="">21 Февраль 2014, 18:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12321">
+		<div id="div-comment-12321">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>Учитывая то, что нетапп всё больше налегает на горизонтальную масштабируемость (cmode), как-то странно было бы видеть у них &#8220;хай-энд&#8221;.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12321" title="">22 Февраль 2014, 20:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12322">
+		<div id="div-comment-12322">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nostromo:<br />
+> как-то странно было бы видеть у них “хай-энд”.</p>
+<p>А какая связь? Задача,то есть SVM, все равно controller-bound, то есть выполняется ровно на одном контроллере, соответственно, если задаче (одной) нужна высокая процессорная мощность, или много дисков в одном aggregate, то никаких способов выполнить ее распараллелив в кластере - нет. ?? если, предположим, база данных требует хайендных контроллеров по мощности или, допустим, по объему flash, то никак десятком 2240 их не заменить.</p>
+<p>Александр:<br />
+> HP больше судя по всему не поддерживаются.</p>
+<p>Отсутствие поддержки не означает невозможности работы, не забудьте. То, что в старых версиях поддерживались, например, EMC CX4, а теперь - нет, не значит, что теперь CX4 почему-то подключить не получится. Получится, но так как они теперь уже не являются recent, то и поддержки по ним нет. А так, уверен, всякие MSA и EVA как работали, так и работают, что там, физически-то, просто нарублена сотня LUN, имитирующих для нетаппа его собственные диски, и все. Со стороны 3rd-party storage никакой специальной функциональности не нужно.</p>
+<p>Aaz:<br />
+> Роман, процессоры в 8040 и 8060 идентичны?</p>
+<p>Нет, это моя ошибка, я пропустил, сейчас поправлю.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12322" title="">23 Февраль 2014, 0:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12326">
+		<div id="div-comment-12326">
+		<div class="comment-author">
+			<cite>amazi:<cite></div>
+			<p>Работать-то HP/IBM, скорее всего, будут, но при любых вопросах саппорт пошлёт. Поддержка нетаппом HP заканчивается на актуальной на полгода назад прошивке (8-мь с чем-то, не помню), может что-то поменяется в будущем.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12326" title="">23 Февраль 2014, 5:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12332">
+		<div id="div-comment-12332">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>Кстати да, отсутствие поддержки 3par как-то странно, так как тот же межделмашевский svc его поддерживает. Касательно же роста &#8220;вверх&#8221;, romx, возможно вы и правы, я как-то не задумался над тем, что один контроллер можно загрузить достаточно просто (кривыми руками, например :), как в пресловутом посте на хабре).</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12332" title="">23 Февраль 2014, 17:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12338">
+		<div id="div-comment-12338">
+		<div class="comment-author">
+			<cite>Евгений:<cite></div>
+			<p>Есть ли сведения относительно планов IBM продолжать OEM-ить NetApp в этой линейке? Будет ли IBM N-что-то там от новых FAS8000?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12338" title="">24 Февраль 2014, 14:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12339">
+		<div id="div-comment-12339">
+		<div class="comment-author">
+			<cite>Aaz:<cite></div>
+			<p>Romx, Nostromo:</p>
+<p>Про производительность контроллеров: прогнал на одинаковой нагрузке через S P M 6290 и 8060 - загрузка процессора на 6290(54%) была больше чем на 8060(45%). Так что у 6290 больше памяти/FLASH/дисков, но процессоры похоже слабее.</p>
+<p>Ждем анонса на 8080 на 4-х процессорах на контроллер, 512GB RAM, 64TB Flash, 1992 диска(ну и корпус побольше - 12-14U) и обновление всего модельного ряда будет завершено. :-)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12339" title="">24 Февраль 2014, 14:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12349">
+		<div id="div-comment-12349">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Евгений:<br />
+Отчетливо видится активная попытка в IBM уйти от OEM, и максимально широко продвигать всюду свой Storwise.</p>
+<p>Выглядит это так:<br />
+- А посчитайте нам DS2524?<br />
+- Ну-у&#8230; А может лучше посмотрите V3700? То же самое, только в сто раз лучше, и мы вам цену дадим, как на 3524, а может и чуть лучше?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12349" title="">24 Февраль 2014, 21:48</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12356">
+		<div id="div-comment-12356">
+		<div class="comment-author">
+			<cite>Sergey:<cite></div>
+			<p>romx:<br />
+Это еще что&#8230; Вот когда у них просишь N-series, а они в ответ:<br />
+Возьмите лучше Storwize V7000 Unified. То же самое, только в сто раз лучше, и мы вам цену дадим, как на N-series, а может и чуть лучше?<br />
+Вот это фейспалм. :D</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12356" title="">25 Февраль 2014, 12:31</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12365">
+		<div id="div-comment-12365">
+		<div class="comment-author">
+			<cite>Евгений:<cite></div>
+			<p>romx, Sergey<br />
+Но согласитесь, что в условиях торгов и тендеров, IBM N-Series это замечательный &#8220;или эквивалент&#8221; от NetApp FAS ;-)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12365" title="">25 Февраль 2014, 20:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12413">
+		<div id="div-comment-12413">
+		<div class="comment-author">
+			<cite>Sergey:<cite></div>
+			<p>Кстати судя по первым прикидкам в новых FAS8000 нет Data ONTAP Essentials в комплекте. ??того две одинаковые спецификации отличаются как раз на стоимость одного бесплатного протокола.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12413" title="">27 Февраль 2014, 14:37</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12424">
+		<div id="div-comment-12424">
+		<div class="comment-author">
+			<cite>Дмитрий:<cite></div>
+			<p>А есть данные по кол-ву дисков внутри каждой из серий?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12424" title="">27 Февраль 2014, 18:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12444">
+		<div id="div-comment-12444">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>Один момент сделал меня задуматься: очевидно более мощный контроллер 8060 поддерживает меньше дисков, чем 6290. Вопрос: почему? Это 6290 был перегружен, или 8060 взяли с запасом прочности? ??ли-таки маркетинг?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12444" title="">28 Февраль 2014, 20:34</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12445">
+		<div id="div-comment-12445">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nostromo:<br />
+Оставляют место в линейке для FAS8080, возможно?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12445" title="">28 Февраль 2014, 20:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12448">
+		<div id="div-comment-12448">
+		<div class="comment-author">
+			<cite>Nostromo:<cite></div>
+			<p>romx:<br />
+возможно, но всё равно нелогично как-то получается - выкатывать но линейку по частям. Впрочем, поживём - увидим. </p>
+<p>ЗЫ. Кстати, жаль, что 8000 пока нет в HWU :(</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12448" title="">1 Март 2014, 1:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12449">
+		<div id="div-comment-12449">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Nostromo:</p>
+<p>Ничего странного, 3200/6200 тоже так выходила.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12449" title="">1 Март 2014, 1:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-12632">
+		<div id="div-comment-12632">
+		<div class="comment-author">
+			<cite>LesikL:<cite></div>
+			<p>??нтересно, а апгрейд со старых контроллеров на новые возможен без потери данных и остановки хранилища? Например, с 3250 или 3140 на 8020?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12632" title="">12 Март 2014, 15:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-12642">
+		<div id="div-comment-12642">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>LesikL:<br />
+Конечно, от контроллера это никак не зависит, это возможность Data ONTAP.<br />
+Правда пока, на всех контроллерах, нет (автоматического) апгрейда с 7-mode на cluster-mode, но это отдельная задача и решается она другими способами.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-12642" title="">12 Март 2014, 18:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13290">
+		<div id="div-comment-13290">
+		<div class="comment-author">
+			<cite>WaleraPP:<cite></div>
+			<p>сколько вообще стоит fas 8020 ?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13290" title="">26 Май 2014, 15:03</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-13291">
+		<div id="div-comment-13291">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>WaleraPP:</p>
+<p>Примерно столько же, сколько заменяемый им 3220.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13291" title="">26 Май 2014, 15:28</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1323" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.080 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

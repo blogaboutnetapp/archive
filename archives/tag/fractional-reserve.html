@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; fractional reserve</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;fractional reserve&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-233">
+				<h2 class="posttitle"><a href="../233/trackback.html" rel="bookmark" title="Permanent Link to Загадочный fractional reserve (часть 1).">Загадочный fractional reserve (часть 1).</a></h2>
+				<div class="postmetadata">6 Апрель 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Не скрою, среди отдельных штук в NetApp есть вещи, способные поставить в тупик.<br />
+По моим наблюдениям, изрядным камнем преткновения для пользователей, вот уже несколько лет, является так называемый fractional reserve, как и вообще вся &#8220;кухня&#8221; распределения пространства под LUN на системах хранения NetApp.</p>
+<p>Что же такое этот &#8220;загадочный&#8221; fractional reserve, и как его правильно использовать?</p>
+<p>Думаю, что изрядная доля проблем понимания вызвана, в первую очередь, неудачным термином.<br />
+Fractional - &#8220;дробный&#8221;. но что там дробится, и зачем - остается непонятным.<br />
+Я заметил, что в некоторых продуктах, выпущенных NetApp в последнее время появилась более удобоваримая замена для этой &#8220;фичи&#8221;: <strong>Overwrite reserved space </strong>- &#8220;резерв под перезапись&#8221;.</p>
+<p>Чтобы разобраться что же это за резерв такой, давайте вспомним, как устроено хранение данных на системах NetApp.<br />
+Я уже <a href="../216/trackback.html">писал раньше о том</a>, что в основе любой системы хранения NetApp FAS лежит <a href="../12/trackback.html">собственная OS</a> и собственная специализированная <a href="../19/trackback.html">файловая структура</a> (я намеренно избегаю использовать более привычный термин &#8220;файловая система&#8221;, чтобы не получить ненужных ассоциаций у читающих, ведь WAFL, в опредедленном смысле, уникальный по своему устройству продукт).</p>
+<p>В основе WAFL лежит идея организации записи данных как &#8220;неперезаписывающего&#8221; процесса. Каждый блок данных записывается однократно, и остается на своем месте. Все же остальные попытки изменений этого блока прикладной программой приводят к записи нового блока, берущегося из пула &#8220;свободных блоков&#8221; и замены указателя в &#8220;таблице размещения файлов&#8221; со старого на новый, при этом старый блок остается на старом месте, в прежнем своем состоянии.<br />
+Если на старый блок больше не остается ссылок, то он считается свободным, и поступает в распоряжение пула свободных блоков.</p>
+<p>Такая любопытная схема позволяет с легкостью брать так называемые <a href="../39/trackback.html">&#8220;снэпшоты&#8221;</a>, то есть мгновенные &#8220;снимки&#8221; данных, зафиксированные &#8220;состояния&#8221;. Это получается на WAFL как бы само собой, так как, см. выше, данные не изменяются, достаточно сохранить текущую &#8220;таблицу блоков файлов&#8221; на определенный момент времени, запретив ее изменять, и вот вам пожалуйста - снэпшот.<br />
+Пока на блок остаются ссылки, например из такого снэпшота, он остается на диске в неприкосновенности.</p>
+<p>Однако очевидны и недостатки. Такой метод довольно расточительно расходует место на дисках.</p>
+<p>Предположим, мы создали на томе LUN, и в какой-то момент взяли с него снэпшот. Этот снэпшот зафиксирует некий набор блоков, и в момент создания он дополнительного места не займет, так как по сути мы сохранили только таблицу инодов на момент его взятия. Все же последующие изменения в нем будут занимать новые блоки, ранее бывшие свободными. Поменяли в нем 10 мегабайт - свободное место на диске на 10 мегабайт уменьшилось.</p>
+<p>Допустим, этот LUN в процессе его жизни полностью перезаписан, каждый блок данных его составляющих был перезаписан. Это значит, что суммарный объем данных, занятых этим LUN на диске, увеличится вдвое. ??сходные блоки LUN, записанные первоначально, и &#8220;запертые&#8221; в снэпшоте, и блоки измененные, с момента первоначальной записи.</p>
+<p>Но что случится, если на томе, где мы этот LUN создали, не окажется места для всех перезаписываемых блоков? Очевидно, что ничего хорошего не произойдет, так как в какой-то момент очередного свободного блока процессу записи не достанется, и запись не произойдет с сообщением &#8220;No available space at SCSI device&#8221;.<br />
+В жизни при этом Data ONTAP переводит LUN в offline, чтобы защитить имеющиеся данные от возможных повреждений и сохранить их в целостности.</p>
+<p>Для того, чтобы избежать этой неприятности и придумано резервирование типа <strong>fractional reserve</strong> или, что понятнее звучит, <strong>overwrite reserved space</strong>.</p>
+<p>Это место, резервируемое на том (flexvol), оставленное на нем тот случай, когда содержащийся на томе LUN будет активно переписываться, и понадобятся дополнительные блоки, для того, чтобы разместить эти изменения, в том случае, если прежние блоки по той или иной причине &#8220;заперты&#8221; и не высвобождаются. Например в случае взятия снэпшота.</p>
+<p>Размер этого резервирования можно задать от 0% (резервирования нет, запись возможна только при фактическом наличии места на томе, ничем больше не занятого), до 100% (зарезервировано место, равное размеру размещенного LUN, для остальных задач системы хранения это место недоступно).</p>
+<p>Последний вариант дает безопасные гарантии того, что сколько бы вы не написали в LUN, у вас сохранится достаточно места для перезаписи, и вы не столкнетесь с проблемой &#8220;No available space left on SCSI device&#8221;.<br />
+Однако это означает увеличение вдвое занимаемого места для LUN.</p>
+<p>Однако NetApp не был бы нетаппом, если бы не предлагал варианты.<br />
+Вариантов, на самом деле, существует несколько.</p>
+<p>Во первых, возможно <strong>не использовать именно 100% резервирования</strong>. Например, вы знаете, что ваш LUN сравнительно мало заполнен, или количество записей в него невелико. В таком случае, вы можете выбрать меньший размер резервирования. Например, вы знаете, что в вашем 500GB LUN, расположенном на 1TB томе, в настоящий момент занято не более 200GB. Очевидно, что перезаписи скорее всего будут выполняться в пределах этих 200GB, а резкий рост объема записи в настоящее время маловероятен. Тогда вы можете выбрать резервирование 20%, и сэкномить пространство на томе для других задач.<br />
+Однако нужно будет настроить мониторинг объемов свободного места на томе, и внимательно следить за его состоянием, чтобы избежать проблем переполнения.<br />
+Помните также, что резерв выделяется на том целиком, а не на LUN. Это значит, что если у вас на томе лежат два 200GB LUN, и резерв выставлен в 30%, то это значит, что один из этих LUNов  может измениться (вырасти), при необходимости на 60% (30% своих и 30% соседа).</p>
+<p>Во вторых, можно включить опцию <strong>snapshot auto-delete</strong>, при этом, при нехватке места под данные система попытается удалить старые снэпшоты, и освободить место на томе.<br />
+Обратите внимание, что триггер auto-delete может не успеть сработать при резком росте объемов, просто не успеет закончить удаление, оно не мгновенно. Также следует помнить, что если вы пользуетесь client-side ПО управления снэпшотами, например каким-то из SnapManager, то ему может очень не понравиться, что снэпшоты на томе удаляются без его ведома. </p>
+<p>В третьих, можно включить опцию <strong>volume auto-grow</strong>, и тут уже сам том будет иметь возможность увеличиваться с заданным шагом и до заданного предела в объемах, для того, чтобы вместить необходимые данные.</p>
+<p>??так, мы видимо, что NetApp предлагает нам несколько вариантов действий. Зарезервировать 100%, на наихудший вариант, и &#8220;спать спокойно&#8221; - &#8220;ленивый&#8221; вариант. Внимательно подумать, проанализировать, и зарезервировать столько, сколько в реальности потребуется - &#8220;умный&#8221; вариант. ??, наконец, подойти с другой стороны, и воспользоваться возможностями автоматического ресайза (или автоосвобождения) тома. По моим наблюдениям, этот вариант сейчас встречается чаще всего, так как позволяет занимать место на дисках только по мере реальной необходимости в нем - &#8220;экономный&#8221; вариант.</p>
+<p>Чтобы не раздувать пост я перенесу практическую &#8220;лабу&#8221; во второй пост этой темы.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="fractional-reserve.html" rel="tag">fractional reserve</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;" rel="category tag">whoisho</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../233/trackback.html#comments" title="Комментарий к записи Загадочный fractional reserve (часть 1).">Комментарии (7)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.069 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

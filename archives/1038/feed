@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: OnCommand System Manager 2.0</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1038/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1038</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:33 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1038#comment-1746</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Wed, 28 Sep 2011 06:29:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1038#comment-1746</guid>
+		<description>Как, они все же оставили Java? У меня от первого знакомства с обновленным систем менеджером еще в статусе беты остались очень неприятные впечатления: дико тормозило.
+
+Посмотрим, что они доделали.</description>
+		<content:encoded><![CDATA[<p>Как, они все же оставили Java? У меня от первого знакомства с обновленным систем менеджером еще в статусе беты остались очень неприятные впечатления: дико тормозило.</p>
+<p>Посмотрим, что они доделали.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1038#comment-1735</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 26 Sep 2011 09:08:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1038#comment-1735</guid>
+		<description>Kosmatiy:
+
+Ну, слава Кришне :)</description>
+		<content:encoded><![CDATA[<p>Kosmatiy:</p>
+<p>Ну, слава Кришне :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Kosmatiy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1038#comment-1734</link>
+		<dc:creator>Kosmatiy</dc:creator>
+		<pubDate>Mon, 26 Sep 2011 09:04:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1038#comment-1734</guid>
+		<description>Работает вполне себе. Приятный и информативный System DashBoard</description>
+		<content:encoded><![CDATA[<p>Работает вполне себе. Приятный и информативный System DashBoard</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1038#comment-1731</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 26 Sep 2011 04:33:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1038#comment-1731</guid>
+		<description>Minus:
+
+Ага. Хинду-код, Рамакришна их за ногу... ;-/
+
+На самом деле смешное не это.
+У меня знакомство с ними началось с поста в communities, которое выглядело примерно так:
+
+Пост: Мы выпустили публичную бету!
+Далее в тексте поста была вверстана html-таблица, в которой, примерно в 15 ячейках были засунуты 15 полноэкранных скринкастов в формате mp4, смасштабированных в 300х300 пикселей, автоматически загружающихся и запускающихся. 8)
+
+А я, блин, минуты три думал, чо я браузер с форумом запускаю - у меня вся машина виснет!
+
+Ну это... Оно хоть работает?</description>
+		<content:encoded><![CDATA[<p>Minus:</p>
+<p>Ага. Хинду-код, Рамакришна их за ногу&#8230; ;-/</p>
+<p>На самом деле смешное не это.<br />
+У меня знакомство с ними началось с поста в communities, которое выглядело примерно так:</p>
+<p>Пост: Мы выпустили публичную бету!<br />
+Далее в тексте поста была вверстана html-таблица, в которой, примерно в 15 ячейках были засунуты 15 полноэкранных скринкастов в формате mp4, смасштабированных в 300х300 пикселей, автоматически загружающихся и запускающихся. 8)</p>
+<p>А я, блин, минуты три думал, чо я браузер с форумом запускаю - у меня вся машина виснет!</p>
+<p>Ну это&#8230; Оно хоть работает?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/1038#comment-1730</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Mon, 26 Sep 2011 04:21:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1038#comment-1730</guid>
+		<description>А еще смешно то, что нельзя обновить уже стоящую релизную версию (я же как раз поставил самую первую сборку). Необходимо снести старую и начисто поставить новую.</description>
+		<content:encoded><![CDATA[<p>А еще смешно то, что нельзя обновить уже стоящую релизную версию (я же как раз поставил самую первую сборку). Необходимо снести старую и начисто поставить новую.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: IDC Storage Tracker 2011</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1108/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1108</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:24 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2187</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 16 Feb 2012 12:30:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2187</guid>
+		<description>Oleg:
+
+&gt; что толку с PAM, который хоть и появился раньше, но является кешем на чтение и уж никак не прямой конкурент FAST Cache
+
+Ответ на ваш вопрос содержится в статье по одной из ссылок.
+
+http://blog.aboutnetapp.ru/archives/936
+
+Если вкратце: кэширование записи для WAFL, на практике, не слишком нужно. А с учетом того, что Flash на запись, по сравнению с чтением, весьма небыстр для random access, и подвержен "старению", и исчерпанию ресурса, это тем более повод минимизировать его использование для кэширования записи.
+
+Давайте продолжим после того, как вы разберетесь в теме того, как работает и чем отличается Flash Cache, более углубленно.
+
+PS. Я бы был признателен, если бы вопросы про Flash Cache задавались в комментах к статье про Flash Cache, а не про IDC Storage Tracker. Просто для лучшей находимости и лучшей логики.
+К тому же то, что вы прочтете тему поуглубленнее, поможет мне не писать заново все то, что уже писалось мной в статьях не раз.</description>
+		<content:encoded><![CDATA[<p>Oleg:</p>
+<p>> что толку с PAM, который хоть и появился раньше, но является кешем на чтение и уж никак не прямой конкурент FAST Cache</p>
+<p>Ответ на ваш вопрос содержится в статье по одной из ссылок.</p>
+<p><a href="http://blog.aboutnetapp.ru/archives/936" rel="nofollow">http://blog.aboutnetapp.ru/archives/936</a></p>
+<p>Если вкратце: кэширование записи для WAFL, на практике, не слишком нужно. А с учетом того, что Flash на запись, по сравнению с чтением, весьма небыстр для random access, и подвержен &#8220;старению&#8221;, и исчерпанию ресурса, это тем более повод минимизировать его использование для кэширования записи.</p>
+<p>Давайте продолжим после того, как вы разберетесь в теме того, как работает и чем отличается Flash Cache, более углубленно.</p>
+<p>PS. Я бы был признателен, если бы вопросы про Flash Cache задавались в комментах к статье про Flash Cache, а не про IDC Storage Tracker. Просто для лучшей находимости и лучшей логики.<br />
+К тому же то, что вы прочтете тему поуглубленнее, поможет мне не писать заново все то, что уже писалось мной в статьях не раз.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Oleg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2186</link>
+		<dc:creator>Oleg</dc:creator>
+		<pubDate>Thu, 16 Feb 2012 12:20:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2186</guid>
+		<description>FAST Cache полноценный кеш (и чтение и запись)
+что толку с PAM, который хоть и появился раньше, но является кешем на чтение и уж никак не прямой конкурент FAST Cache
+резюмируя - аналог ЕМС FAST Cache у NetApp в стадии разработки?
+
+будущий Hybrid Aggregate будет использовать те SSD, что NetApp продает сейчас?
+кстати, по чем SSD у NetApp? 
+EMC VNX 100GB SAS FLASH 2.5" 6120USD по прайслисту
+SATA SSD 3.5" для VNX дешевле, но как по мне - это не вариант
+насколько я знаю, у NetApp SSD значительно дороже?</description>
+		<content:encoded><![CDATA[<p>FAST Cache полноценный кеш (и чтение и запись)<br />
+что толку с PAM, который хоть и появился раньше, но является кешем на чтение и уж никак не прямой конкурент FAST Cache<br />
+резюмируя - аналог ЕМС FAST Cache у NetApp в стадии разработки?</p>
+<p>будущий Hybrid Aggregate будет использовать те SSD, что NetApp продает сейчас?<br />
+кстати, по чем SSD у NetApp?<br />
+EMC VNX 100GB SAS FLASH 2.5&#8243; 6120USD по прайслисту<br />
+SATA SSD 3.5&#8243; для VNX дешевле, но как по мне - это не вариант<br />
+насколько я знаю, у NetApp SSD значительно дороже?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2185</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 16 Feb 2012 11:41:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2185</guid>
+		<description>Oleg:
+
+&gt; кажется понял - VST=PAMII?
+ 
+Flash Cache (ранее: PAM-II) это основной аппаратный компонент решения, под названием VST.
+Если по аналогии: SSD - это компонент решения, под названием FASTcache.
+
+&gt; в чем инновационность?
+
+Если честно, я не очень люблю "маркетинговые баззворды", наподобие "инновационность". Что именно вы хотите спросить "простыми словами", которыми пристало говорить инженерам? ;)
+В чем новизна и отличие от других решений storage tiering-а на рынке?
+
+Прежде всего в использовании Flash как памяти, а не как "эмуляции диска", и организации в такой памяти "кэша", в котором _автоматически_ накапливаются "горячие" блоки системы хранения, без необходимости использовать тот или иной механизм вычисления активности и миграции данных между tier-ами дисков.
+
+&gt; в той же ЕМС уже давно совершенно спокойно продают с массивами FAST Cache (не путать с FAST VP)
+
+Не путаем. Но FASTcache появился только примерно год спустя начала продаж Flash Cache и на два года позже PAM, предыдущего поколения устройства.
+
+VST это использование Flash memory в качестве промежуточного емкого кэша второго уровня (если "первым уровнем" считать кэш OS), и использование его для автоматического перераспределения данных и "ранжирования" доступа к ним в соответствии с частотой и активностью их использования.
+
+Подробнее о работе Flash Cache и о VST:
+
+http://blog.aboutnetapp.ru/archives/951
+http://blog.aboutnetapp.ru/archives/940
+http://blog.aboutnetapp.ru/archives/936
+http://blog.aboutnetapp.ru/archives/926</description>
+		<content:encoded><![CDATA[<p>Oleg:</p>
+<p>> кажется понял - VST=PAMII?</p>
+<p>Flash Cache (ранее: PAM-II) это основной аппаратный компонент решения, под названием VST.<br />
+Если по аналогии: SSD - это компонент решения, под названием FASTcache.</p>
+<p>> в чем инновационность?</p>
+<p>Если честно, я не очень люблю &#8220;маркетинговые баззворды&#8221;, наподобие &#8220;инновационность&#8221;. Что именно вы хотите спросить &#8220;простыми словами&#8221;, которыми пристало говорить инженерам? ;)<br />
+В чем новизна и отличие от других решений storage tiering-а на рынке?</p>
+<p>Прежде всего в использовании Flash как памяти, а не как &#8220;эмуляции диска&#8221;, и организации в такой памяти &#8220;кэша&#8221;, в котором _автоматически_ накапливаются &#8220;горячие&#8221; блоки системы хранения, без необходимости использовать тот или иной механизм вычисления активности и миграции данных между tier-ами дисков.</p>
+<p>> в той же ЕМС уже давно совершенно спокойно продают с массивами FAST Cache (не путать с FAST VP)</p>
+<p>Не путаем. Но FASTcache появился только примерно год спустя начала продаж Flash Cache и на два года позже PAM, предыдущего поколения устройства.</p>
+<p>VST это использование Flash memory в качестве промежуточного емкого кэша второго уровня (если &#8220;первым уровнем&#8221; считать кэш OS), и использование его для автоматического перераспределения данных и &#8220;ранжирования&#8221; доступа к ним в соответствии с частотой и активностью их использования.</p>
+<p>Подробнее о работе Flash Cache и о VST:</p>
+<p><a href="http://blog.aboutnetapp.ru/archives/951" rel="nofollow">http://blog.aboutnetapp.ru/archives/951</a><br />
+<a href="http://blog.aboutnetapp.ru/archives/940" rel="nofollow">http://blog.aboutnetapp.ru/archives/940</a><br />
+<a href="http://blog.aboutnetapp.ru/archives/936" rel="nofollow">http://blog.aboutnetapp.ru/archives/936</a><br />
+<a href="http://blog.aboutnetapp.ru/archives/926" rel="nofollow">http://blog.aboutnetapp.ru/archives/926</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Oleg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2184</link>
+		<dc:creator>Oleg</dc:creator>
+		<pubDate>Thu, 16 Feb 2012 11:00:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2184</guid>
+		<description>кажется понял - VST=PAMII?
+если это так, то в чем инновационность?</description>
+		<content:encoded><![CDATA[<p>кажется понял - VST=PAMII?<br />
+если это так, то в чем инновационность?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Oleg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2183</link>
+		<dc:creator>Oleg</dc:creator>
+		<pubDate>Thu, 16 Feb 2012 10:56:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2183</guid>
+		<description>по строке "Flash Cache" не находится никакого "VST"
+впрочем, как и по строке "VST"
+только Hybrid Aggregate, который, я так понял, еще в стадии разработки?
+тогда особенно комично по отношению к Hybrid Aggregate выглядит фраза "всего этого пока нет у конкурентов даже рядом" (с)
+в той же ЕМС уже давно совершенно спокойно продают с массивами FAST Cache (не путать с FAST VP)</description>
+		<content:encoded><![CDATA[<p>по строке &#8220;Flash Cache&#8221; не находится никакого &#8220;VST&#8221;<br />
+впрочем, как и по строке &#8220;VST&#8221;<br />
+только Hybrid Aggregate, который, я так понял, еще в стадии разработки?<br />
+тогда особенно комично по отношению к Hybrid Aggregate выглядит фраза &#8220;всего этого пока нет у конкурентов даже рядом&#8221; (с)<br />
+в той же ЕМС уже давно совершенно спокойно продают с массивами FAST Cache (не путать с FAST VP)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2162</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Mon, 30 Jan 2012 21:05:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2162</guid>
+		<description>panvartan, промо на FAS2240 ЕСТЬ - запрашивайте у партнеров или напрямую в дистрибьюторах, если угодно.</description>
+		<content:encoded><![CDATA[<p>panvartan, промо на FAS2240 ЕСТЬ - запрашивайте у партнеров или напрямую в дистрибьюторах, если угодно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2153</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 27 Jan 2012 08:09:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2153</guid>
+		<description>Сергей:
+
+А разве не достаточно уже рассказано?
+Поищите по этому блогу по строке Flash Cache.</description>
+		<content:encoded><![CDATA[<p>Сергей:</p>
+<p>А разве не достаточно уже рассказано?<br />
+Поищите по этому блогу по строке Flash Cache.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Сергей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2152</link>
+		<dc:creator>Сергей</dc:creator>
+		<pubDate>Fri, 27 Jan 2012 08:04:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2152</guid>
+		<description>Роман,так может вы нам расскажете про VST? Не много информации по этой теме.</description>
+		<content:encoded><![CDATA[<p>Роман,так может вы нам расскажете про VST? Не много информации по этой теме.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2140</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 20 Jan 2012 14:33:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2140</guid>
+		<description>Никита:
+
+&gt; &lt;i&gt;Но, думается, с наступлением SSD преимущества NetApp на ниве использования традиционных HDD могут быть нивелированы&lt;/i&gt;
+
+Я вам более скажу. У NetApp есть что сказать не только "на ниве использования традиционных HDD", у NetApp есть кое-что, под названием VST (Virtual Storage Tier), делающее SSD "вчерашним днем", причем не просто есть, а уже года два как в продакшне трудится, и на эту тему мы тут в комментах как-то с полгода назад очень горячо пообсудили, а также Hybrid Aggregate, всего этого пока нет у конкурентов даже рядом. Так что "оставь надежду" на этот призрачный шанс. :)
+
+&gt; &lt;i&gt;Для начала нужно хотя бы посмотреть, как правильно было замечено, что это за петабайты. У одних может это петабайты SSD, а у других - SATA&lt;/i&gt;
+
+"А у него пулеметы не той системы" (с)</description>
+		<content:encoded><![CDATA[<p>Никита:</p>
+<p>> <i>Но, думается, с наступлением SSD преимущества NetApp на ниве использования традиционных HDD могут быть нивелированы</i></p>
+<p>Я вам более скажу. У NetApp есть что сказать не только &#8220;на ниве использования традиционных HDD&#8221;, у NetApp есть кое-что, под названием VST (Virtual Storage Tier), делающее SSD &#8220;вчерашним днем&#8221;, причем не просто есть, а уже года два как в продакшне трудится, и на эту тему мы тут в комментах как-то с полгода назад очень горячо пообсудили, а также Hybrid Aggregate, всего этого пока нет у конкурентов даже рядом. Так что &#8220;оставь надежду&#8221; на этот призрачный шанс. :)</p>
+<p>> <i>Для начала нужно хотя бы посмотреть, как правильно было замечено, что это за петабайты. У одних может это петабайты SSD, а у других - SATA</i></p>
+<p>&#8220;А у него пулеметы не той системы&#8221; (с)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Никита</title>
+		<link>http://blog.aboutnetapp.ru/archives/1108#comment-2139</link>
+		<dc:creator>Никита</dc:creator>
+		<pubDate>Fri, 20 Jan 2012 14:25:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1108#comment-2139</guid>
+		<description>Согласен с тем, что NetApp явно недоиспользует свой потенциал. Кого винить в том, что имея на голову лучшие технологии чем EMC NetApp все же значительно уступает ему в доле рынка - не знаю. Но, думается, с наступлением SSD преимущества NetApp на ниве использования традиционных HDD могут быть нивелированы
+
+А по поводу разницы в соотношении Revenue и проданных петабайтов - это все очень поверхностно. Для начала нужно хотя бы посмотреть, как правильно было замечено, что это за петабайты. У одних может это петабайты SSD, а у других - SATA</description>
+		<content:encoded><![CDATA[<p>Согласен с тем, что NetApp явно недоиспользует свой потенциал. Кого винить в том, что имея на голову лучшие технологии чем EMC NetApp все же значительно уступает ему в доле рынка - не знаю. Но, думается, с наступлением SSD преимущества NetApp на ниве использования традиционных HDD могут быть нивелированы</p>
+<p>А по поводу разницы в соотношении Revenue и проданных петабайтов - это все очень поверхностно. Для начала нужно хотя бы посмотреть, как правильно было замечено, что это за петабайты. У одних может это петабайты SSD, а у других - SATA</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

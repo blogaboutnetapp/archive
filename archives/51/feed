@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Резервное копирование (Backup). Методы и средства. Часть 3.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/51/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/51</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:47 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/51#comment-720</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Sun, 05 Sep 2010 00:28:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/51#comment-720</guid>
+		<description>RAID действительно повышает надежность хранилища данных, но каким боком RAID относится к резервным копиям? Резервные копии, если уж на то пошло, запрещено хранить не то что на том же компе, но и в том же датацентре ( да, они горят ).</description>
+		<content:encoded><![CDATA[<p>RAID действительно повышает надежность хранилища данных, но каким боком RAID относится к резервным копиям? Резервные копии, если уж на то пошло, запрещено хранить не то что на том же компе, но и в том же датацентре ( да, они горят ).</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

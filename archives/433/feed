@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Порты FC на системах NetApp и расширение их количества</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/433/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/433</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:20 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: murzic</title>
+		<link>http://blog.aboutnetapp.ru/archives/433#comment-911</link>
+		<dc:creator>murzic</dc:creator>
+		<pubDate>Wed, 27 Oct 2010 11:31:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=433#comment-911</guid>
+		<description>Помойму сейчас все вот так
+http://now.netapp.com/NOW/knowledge/docs/san/fcp_iscsi_config/config_guide_73/GUID-8BB7CE20-A571-459B-A2E3-5A7D6ED139B7.html
+
+или я ошибаюсь?</description>
+		<content:encoded><![CDATA[<p>Помойму сейчас все вот так<br />
+<a href="http://now.netapp.com/NOW/knowledge/docs/san/fcp_iscsi_config/config_guide_73/GUID-8BB7CE20-A571-459B-A2E3-5A7D6ED139B7.html" rel="nofollow">http://now.netapp.com/NOW/knowledge/docs/san/fcp_iscsi_config/config_guide_73/GUID-8BB7CE20-A571-459B-A2E3-5A7D6ED139B7.html</a></p>
+<p>или я ошибаюсь?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/433#comment-413</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 06 May 2010 09:18:39 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=433#comment-413</guid>
+		<description>Возможно, если вы напишете то, как оно сейчас, я внесу правки в пост.</description>
+		<content:encoded><![CDATA[<p>Возможно, если вы напишете то, как оно сейчас, я внесу правки в пост.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/433#comment-412</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Thu, 06 May 2010 08:54:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=433#comment-412</guid>
+		<description>сейчас все по другому...</description>
+		<content:encoded><![CDATA[<p>сейчас все по другому&#8230;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

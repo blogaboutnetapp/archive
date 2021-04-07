@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Переход на Clustered Data ONTAP. Часть 3</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1383/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1383</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:12 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: goodserg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1383#comment-13852</link>
+		<dc:creator>goodserg</dc:creator>
+		<pubDate>Tue, 05 Aug 2014 21:06:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1383#comment-13852</guid>
+		<description>4 года назад использовал под windows...
+??тог потеря данных так как на vxfs на windows работает поверх dynamic disks.
+
+Так что идеальных технологий нет и всё всегда case by case.
+
+Моё мнение что опция Peer Motion от HP хороша для переезда со старых массивов и не виртуализованых сервисов.</description>
+		<content:encoded><![CDATA[<p>4 года назад использовал под windows&#8230;<br />
+??тог потеря данных так как на vxfs на windows работает поверх dynamic disks.</p>
+<p>Так что идеальных технологий нет и всё всегда case by case.</p>
+<p>Моё мнение что опция Peer Motion от HP хороша для переезда со старых массивов и не виртуализованых сервисов.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1383#comment-13850</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 05 Aug 2014 12:47:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1383#comment-13850</guid>
+		<description>??спользуйте VxVM повсеместно... (для блочного доступа) :)
+Дорого? Ну значит данные и сервисы не настолько ценные и могут поваляться на время переноса. Как вам такой подход (это конечно не data-in-place, но гораздо лучше того что предлагает HP)? Такой подход позволяет менять СХД с минимальными "потерями" и между различными вендорамию</description>
+		<content:encoded><![CDATA[<p>??спользуйте VxVM повсеместно&#8230; (для блочного доступа) :)<br />
+Дорого? Ну значит данные и сервисы не настолько ценные и могут поваляться на время переноса. Как вам такой подход (это конечно не data-in-place, но гораздо лучше того что предлагает HP)? Такой подход позволяет менять СХД с минимальными &#8220;потерями&#8221; и между различными вендорамию</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: goodserg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1383#comment-13847</link>
+		<dc:creator>goodserg</dc:creator>
+		<pubDate>Mon, 04 Aug 2014 21:00:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1383#comment-13847</guid>
+		<description>ну в случае HP 3par это СХД только блочный доступ.
+
+Peer Motion это не только репликация. 
+Это в том числе wizard позволяющий плавно и без прерывания доступа к данным перенести данные на новую СХД.
+Для клиентов (серверов) процесс выглядит прозрачно!
+
+Работает примерно следующим образам (более точно описано в документе о котором писал выше):
+1. СХД соединяются по FC через отдельные порты на 3par и через те же на EVA с помощью создания выделенных зон
+2. настраивается партнёрские отношения между EVA и 3par.
+3. Все LUNы СХД презентуются через 3par для серверов по дополнительным путям в режиме standby.
+4. Вручную из зон убираются пути к EVA и все данные начинают ходить через 3par
+5. Производится процесс переноса данных на диски 3par.
+6. удаляются партнёрские отношения между EVA и 3par.
+7. процесс миграции завершён.</description>
+		<content:encoded><![CDATA[<p>ну в случае HP 3par это СХД только блочный доступ.</p>
+<p>Peer Motion это не только репликация.<br />
+Это в том числе wizard позволяющий плавно и без прерывания доступа к данным перенести данные на новую СХД.<br />
+Для клиентов (серверов) процесс выглядит прозрачно!</p>
+<p>Работает примерно следующим образам (более точно описано в документе о котором писал выше):<br />
+1. СХД соединяются по FC через отдельные порты на 3par и через те же на EVA с помощью создания выделенных зон<br />
+2. настраивается партнёрские отношения между EVA и 3par.<br />
+3. Все LUNы СХД презентуются через 3par для серверов по дополнительным путям в режиме standby.<br />
+4. Вручную из зон убираются пути к EVA и все данные начинают ходить через 3par<br />
+5. Производится процесс переноса данных на диски 3par.<br />
+6. удаляются партнёрские отношения между EVA и 3par.<br />
+7. процесс миграции завершён.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1383#comment-13845</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 04 Aug 2014 20:43:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1383#comment-13845</guid>
+		<description>goodserg:
+
+Нет, но это в любом случае &lt;b&gt;миграция&lt;/b&gt;, для которой нужна одна система, старая, и новая, с новыми дисками, такое-то наверное все умеют, никто не умеет data-in-place, а так-то, есть 7MTT, есть SnapMirror, совместимый между 7-mode и C-mode.
+Но, я так понял, что Peer Motion это _только_ репликация, нет? Вот если у меня есть полтора миллиона файлов в четырехстах шарах, с правами на полторы сотни пользователей и групп - перенесет? А LUN-ы с маскингом?</description>
+		<content:encoded><![CDATA[<p>goodserg:</p>
+<p>Нет, но это в любом случае <b>миграция</b>, для которой нужна одна система, старая, и новая, с новыми дисками, такое-то наверное все умеют, никто не умеет data-in-place, а так-то, есть 7MTT, есть SnapMirror, совместимый между 7-mode и C-mode.<br />
+Но, я так понял, что Peer Motion это _только_ репликация, нет? Вот если у меня есть полтора миллиона файлов в четырехстах шарах, с правами на полторы сотни пользователей и групп - перенесет? А LUN-ы с маскингом?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: goodserg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1383#comment-13844</link>
+		<dc:creator>goodserg</dc:creator>
+		<pubDate>Mon, 04 Aug 2014 20:26:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1383#comment-13844</guid>
+		<description>Ром не знаю по поводу EMC, но по поводу перехода с "HP EVA на HP 3Par" ты не совсем прав.
+
+У HP есть очень неплохое решение!!!
+ПО называется HP 3PAR Peer Motion.
+http://www8.hp.com/ru/ru/products/storage-software/product-detail.html?oid=5157539#!tab%3Dfeatures
+На 180 дней предоставляется бесплатно, как раз для миграции со старых систем хранения.
+После 180 дней можно запросить ещё раз триальный ключ или если купить.
+
+А вот и одни из документов по миграции с использованием этой технологии:
+http://h20565.www2.hp.com/portal/site/hpsc/template.BINARYPORTLET/public/kb/docDisplay/resource.process/?spf_p.tpst=kbDocDisplay_ws_BI&#38;spf_p.rid_kbDocDisplay=docDisplayResURL&#38;javax.portlet.begCacheTok=com.vignette.cachetoken&#38;spf_p.rst_kbDocDisplay=wsrp-resourceState%3DdocId%253Demr_na-c03597451-2%257CdocLocale%253D&#38;javax.portlet.endCacheTok=com.vignette.cachetoken 
+
+Надеюсь к этому же решению придёт NetApp (прозрачная виртуализация (FlexArray) старых массивов на 7-mode и лучше бесплатно).</description>
+		<content:encoded><![CDATA[<p>Ром не знаю по поводу EMC, но по поводу перехода с &#8220;HP EVA на HP 3Par&#8221; ты не совсем прав.</p>
+<p>У HP есть очень неплохое решение!!!<br />
+ПО называется HP 3PAR Peer Motion.<br />
+<a href="http://www8.hp.com/ru/ru/products/storage-software/product-detail.html?oid=5157539#" rel="nofollow">http://www8.hp.com/ru/ru/products/storage-software/product-detail.html?oid=5157539#</a>!tab%3Dfeatures<br />
+На 180 дней предоставляется бесплатно, как раз для миграции со старых систем хранения.<br />
+После 180 дней можно запросить ещё раз триальный ключ или если купить.</p>
+<p>А вот и одни из документов по миграции с использованием этой технологии:<br />
+<a href="http://h20565.www2.hp.com/portal/site/hpsc/template.BINARYPORTLET/public/kb/docDisplay/resource.process/?spf_p.tpst=kbDocDisplay_ws_BI&amp;spf_p.rid_kbDocDisplay=docDisplayResURL&amp;javax.portlet.begCacheTok=com.vignette.cachetoken&amp;spf_p.rst_kbDocDisplay=wsrp-resourceState%3DdocId%253Demr_na-c03597451-2%257CdocLocale%253D&amp;javax.portlet.endCacheTok=com.vignette.cachetoken" rel="nofollow">http://h20565.www2.hp.com/portal/site/hpsc/template.BINARYPORTLET/public/kb/docDisplay/resource.process/?spf_p.tpst=kbDocDisplay_ws_BI&amp;spf_p.rid_kbDocDisplay=docDisplayResURL&amp;javax.portlet.begCacheTok=com.vignette.cachetoken&amp;spf_p.rst_kbDocDisplay=wsrp-resourceState%3DdocId%253Demr_na-c03597451-2%257CdocLocale%253D&amp;javax.portlet.endCacheTok=com.vignette.cachetoken</a> </p>
+<p>Надеюсь к этому же решению придёт NetApp (прозрачная виртуализация (FlexArray) старых массивов на 7-mode и лучше бесплатно).</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

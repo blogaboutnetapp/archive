@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; SMB 3.0</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1212/trackback.html">NetApp Innovation 2012 &ndash; 3 октября!</a></div>
+			<div class="alignright"><a href="1217/trackback.html">NetApp MetroCluster целиком сертфицирован под VMware</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1206">
+			<h2 class="posttitle"><a href="1206/trackback.html" rel="bookmark" title="Permanent Link to SMB 3.0">SMB 3.0</a></h2>
+			<div class="postmetadata">20 Сентябрь 2012, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Для начала терминологическое вступление. Вокруг файлового протокола Microsoft довольно много путаницы, начнем с ее распутывания.</p>
+<ul>
+<li><strong>SMB</strong> – <em>“Server Message Block”</em> – первоначальная версия протокола, разработанная еще во времена MS LAN manager 1.0(почти уже никто не застал те времена, и не помнит что это, совсем каменный век IT, середина 80-х). Некоторый отголосок этой аббревиатуры остался в названии опенсорсного продукта SAMBA, реализации файлового протокола SMB путем его реверс-инжиниринга. </li>
+<li><strong>CIFS</strong> – (он же SMB-“просто” или SMB 1.0) – <em>“Common Internet File System”</em> – название CIFS появилось, когда Microsoft в 1996 году начала процесс стандартизации уже существовавшего протокола, в качестве RFC в IETF. Процесс стандартизации этот застопорился где-то на начальном этапе, и MS решила не продолжать его, остановившись на проведении в RFC первой версии драфта (сегодня его статус уже expired). Тем не менее название CIFS в индустрии закрепилось, и постепенно почти вытеснило SMB. </li>
+<li><strong>SMB 2.0</strong> – протокол, появившийся в Windows Server 2008, Vista, и поддерживающийся в более поздних OS. Microsoft осознала в какой-то момент, что файловый протокол, разработанный в середине 80-х, пусть и весьма совершенный на тот момент, и имеющий возможности постепенного расширения и добавления возможностей на уровне протокола, страшно отстал от современности (ситуация как примерно с Internet Explorer), страдает рядом существенных проблем, которые стали более заметны с годами. ?? вот в компании дошли руки до начала глубокой модернизации протокола SMB. Обратите внимание, что SMB 2.0 уже некорректно называть “CIFS”. <strong><em>CIFS это только SMB 1.0</em></strong>, поэтому постепенно название CIFS будет уходить. Я, в свою очередь, в этом блоге также буду постепенно избавляться от термина “CIFS”. Если мы говорим о новых версиях файлового протокола Microsoft, то мы будем называть его SMB (v2.0, v2.1, v2.2 AKA v3.0). В SMB 2.0 (и последующих его модификациях: 2.1, 2.2) были улучшены многие насущно важные аспекты, мешавшие SMB 1.0. Протокол был значительно упрощен, и, вместе с тем, улучшен. Появилась возможность кэширования и объединения нескольких команд в одну “цепочку”. Улучшилась работа по “длинным” сетям с большими уровнями задержек, что позволили использовать SMB 2.0 даже в географически распределенных локальных сетях, соединенных через WAN и VPN. Улучшилась реакция на кратковременные дисконнекты сети и масштабируемость.       <br />Но работы в группе разработки SMB не стояли на месте, и к выходу Server 2012 была готова новая, еще более глубоко переработанная версия: </li>
+<li><strong>SMB 3.0</strong> – это самая новая на сегодня версия файлового протокола Microsoft, с которым компания готова побороться с некоторым вынужденным засилием NFS в файловых системах хранения (NAS). В ее разработке MS буквально скакнула через несколько ступенек, и подготовила крайне интересный и современный продукт, с множеством новинок и хорошим заделом на будущее. Продолжая развитие SMB 2.0, в Microsoft еще более значительно улучшили производительность работы протокола, реализовали такие интересные вещи, как SMBDirect, с использованием RDMA Transport Protocol (Remote DMA, технология, используемая в высокоскоростых сетях, таких как 10G Ethernet и Infiniband) и поддержку многоканального режима, возможность использовать Remote VSS, BranchCache v2, Transparent Failover, шифрования. Немалую роль в популяризации и распространении SMB 3.0 должен сыграть и MS Hyper-V, впервые поддерживающий в его лице файловые протоколы для подключения стораджа. </li>
+</ul>
+<p>Официально о поддержке, кроме самой Microsoft, уже заявили EMC и NetApp, два крупнейших игрока рынка NAS, а также поддержка SMB 3.0 появится и в открытом проекте SAMBA. Есть надежда, что к этим игрокам, после выхода Server 2012 подтянутся и остальные, уж больно много полезного появилось в новом SMB.</p>
+<p>Так, например, SMB 3.0 явственно нацелился не только на традиционный для SMB 1.0/CIFS/SMB 2.0 сегмент канала связи от сервера до конечной клиентской машины, но и на межсерверный коннект (как бы ни звучало это дико и невообразимо для Old Skool: “Между серверами по бэкбону гонять данные? MS SQL? Exchange? По <strike>CIFS</strike> SMB? Да вы шутите!”). Для этого в нем появились средства SMBDirect и multichannel, позволяющие полноценно использовать производительные возможности вплоть до все еще невообразимого многими 40G Ethernet. Например можно объединить на уровне протокола (а не EtherChannel) в мультилинковый “транк” четыре 10G-линка. А использование RDMA (наиболее известным пользователем технологий RDMA является протокол Infiniband, славящийся своей низкой латентностью) и iWARP (я рассказывал о них в <a href="155/trackback.html">давней заметке</a> в этом блоге) позволит даже выйти по уровню латентности и полосе пропускания для файлового протокола на уровень FC, при этом сохранив все преимущества файлового, а не тупого блочного протокола.</p>
+<p>SMB 2.0 поддерживается в системах NetApp уже довольно давно, и требует просто включения соответствующей опции в конфигурации (<code>&gt; options cifs.smb2.enable on</code> и <code>&gt; options cifs.smb2.client.enable on</code>), так что если вы используете в своей сети клиентов не ниже Windows Vista/7, и сервера не ниже Server 2008, то есть смысл включить на сторадже эти опции и перейти целиком на версию протокола SMB 2.0, вы можете получить довольно заметный <a href="http://media.netapp.com/documents/tr-3869.pdf">прирост в производительности</a>.</p>
+<p>Поддержка SMB 3.0 в NetApp появится в версии Data ONTAP 8.2, планируемой к выпуску в RC осенью этого года.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/cifs.html" rel="tag">cifs</a>, <a href="tag/microsoft.html" rel="tag">microsoft</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/smb.html" rel="tag">smb</a>, <a href="tag/smb-20.html" rel="tag">smb 2.0</a>, <a href="tag/smb-30.html" rel="tag">smb 3.0</a><br />					Раздел: <a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>,  <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="1206/trackback.html#respond">Комментарий</a> (<a href='1206/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1206/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (18)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-3565">
+		<div id="div-comment-3565">
+		<div class="comment-author">
+			<cite>navion:<cite></div>
+			<p>А правда, что NetApp не дружит с клиентами Samba?</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3565" title="">21 Сентябрь 2012, 13:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3566">
+		<div id="div-comment-3566">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>navion:</p>
+<p>В данном случае надо скорее говорить о том, что _клиент SAMBA_ не дружит с NetApp, так как SAMBA это reverse engineering, а NetApp - официальный, лицензированный протокол.</p>
+<p>Про &#8220;не дружит&#8221; же - ну, SAMBA такой странный предмет&#8230; что там происходит в нем мало кто знает в полной мере. Наверное можно сконфигурировать такое, что оно перестанет дружить, бесспорно.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3566" title="">21 Сентябрь 2012, 13:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3570">
+		<div id="div-comment-3570">
+		<div class="comment-author">
+			<cite>Pavel Kosachev:<cite></div>
+			<p>А правда, что при включенном smb2 на netapp вы не сможете получить доступ к SMB-папкам на netapp c Windows 8 и Windows 2012, хотя это обходится , включением smb v1, которая была включена по умолчанию?</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3570" title="">21 Сентябрь 2012, 15:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3573">
+		<div id="div-comment-3573">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Правда состоит в том, что сдуру сломать можно даже нефритовый жезл :) а не только доступ по SMB.<br />
+Владение нетаппом не делает сисадмина мистическим образом мастером в настройке оборудования и софта.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3573" title="">21 Сентябрь 2012, 16:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3574">
+		<div id="div-comment-3574">
+		<div class="comment-author">
+			<cite>Pavel Kosachev:<cite></div>
+			<p>Отвечая не по существу вопроса вы тоже ставите под сомнение свой статус &#8220;придворного&#8221; гуру.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3574" title="">21 Сентябрь 2012, 17:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3579">
+		<div id="div-comment-3579">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Pavel Kosachev:</p>
+<p>Я не увидел тут &#8220;вопроса по существу&#8221;. Выше вы привели утверждение вида: &#8220;А правда, что у автомобиля стучит двигатель?&#8221; </p>
+<p>Во-первых я не вижу тут вопроса. Да, наверное всегда можно найти автомобиль, у которого будет стучяать двигатель, более того, существует для этого два десятка причин, и есть &#8220;прфессионалы&#8221;, умеющие сделать такое с любым автомобилем и любым двигателем.<br />
+Для того, чтобы на него можно было бы ответить, вам следует перечислить все конкретные условия возникновения проблемы, версии ПО, описание конфигурации с обеих сторон.</p>
+<p>Во-вторых это &#8220;вопрос не по адресу&#8221;. Это скорее к Release Notes соответствующего релиза Data ONTAP и Windows, а также в Bugs Online NetApp и в поддержку обоих вендоров. Но уж точно не в комментарии к записи в блоге.</p>
+<p>Нет, то есть вы можете, конечно, и хотя результат будет нулевой, но если вас в принципе не интересует ответ - то пожалуйста, можете здесь. :)</p>
+<p>> статус “придворного” гуру</p>
+<p>Какого гуру? При- какого? ;)</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3579" title="">21 Сентябрь 2012, 19:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3648">
+		<div id="div-comment-3648">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>navion:</p>
+<p>> А правда, что NetApp не дружит с клиентами Samba?</p>
+<p>Специально пошел в Гугл с вопросом. Результат: на первом десятке найденных страниц за последний год ни одного релевантного упоминания о проблемах Samba и NetApp нет.<br />
+Так что ответ на ваш вопрос - нет, неправда, дружит, в той мере, в какой Samba корректно поддерживает реализацию спецификации SMB.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3648" title="">24 Сентябрь 2012, 23:08</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3672">
+		<div id="div-comment-3672">
+		<div class="comment-author">
+			<cite>navion:<cite></div>
+			<p>&gt; Так что ответ на ваш вопрос - нет, неправда, дружит, в той мере, в какой Samba корректно поддерживает реализацию спецификации SMB.<br />
+Лучше посмотрите в базе поддержки. Вот тут (http://www.radio-t.com/) рассказывали про проблемы у RHEL с NetApp и про отказ от поддержки такой конфигурации.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3672" title="">26 Сентябрь 2012, 15:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3673">
+		<div id="div-comment-3673">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>navion:</p>
+<p>> Лучше посмотрите в базе поддержки. Вот тут (http://www.radio-t.com/) рассказывали про проблемы</p>
+<p>;) Так все же &#8220;в базе поддержки&#8221; или &#8221; вот тут radio-t.com/&#8221;? ;)<br />
+Мне кажется это все же разные веши, не так ли?</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3673" title="">26 Сентябрь 2012, 15:20</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3674">
+		<div id="div-comment-3674">
+		<div class="comment-author">
+			<cite>navion:<cite></div>
+			<p>&gt; Мне кажется это все же разные веши, не так ли?<br />
+Там говорили, а база поддержки намного лучше подходит для поиска проблем, чем Гугл :)</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3674" title="">26 Сентябрь 2012, 16:10</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3675">
+		<div id="div-comment-3675">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>navion:</p>
+<p>1. Ну мало ли что на каком заборе <s>говорили</s> писали? В мире столько криворуких сисадминов, что реагировать на каждый &#8220;а у меня не заработало&#8221; - никакого рабочего времени не хватит.</p>
+<p>Тот факт, что в Гугле не упоминаются эти проблемы за обозримый промежуток времени, говорит о том, что проблемы - локальные, у конкретных людей с их настройками или пониманием.</p>
+<p>2. Повторюсь тут еще раз: Я считаю, что в ситуации, когда есть официальная поддерживаемая реализация версии протокола (NetApp), с которой (иногда, возможно, в отдельных частных случаях) не работает неофициальная, сделанная с помошью реверс-инжиниринга протокола, реализация (SAMBA), я бы предположил, что проблема не в NetApp, а в SAMBA. Я где-то неправ?</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3675" title="">26 Сентябрь 2012, 16:46</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3677">
+		<div id="div-comment-3677">
+		<div class="comment-author">
+			<cite>Odna Ptichka:<cite></div>
+			<p>Официальная - позиция есть матрица совместимости в ней есть разные версии Win  и MacOS  клиентов.  Поддержка означает, что NetApp тратит свои  деньги и  свои ресурсы. C другой стороны NetApp не запрещает использовать другие клиенты, например, Samba.  Если проблема с клиентом Samba воспроизводится и с официально поддерживаемыми, то NetApp  будет ее решать. </p>
+<p>Если проблема связана только с особенностями SAMBA, то есть скорее надежда на сообщество разработчиков.  </p>
+<p>??МХО, логично&#8230;..  </p>
+<p>&#8212;&#8212;-</p>
+<p>Does Data ONTAP support Samba clients or domain controllers?<br />
+KB ID: 3010138 </p>
+<p>Answer</p>
+<p>NetApp does not perform full interoperability testing between the Samba client and Data ONTAP. Should an issue arise, using the resources provided by Samba (documentation, forums, etc.) is recommended as a first step. NetApp support personnel will assist on a best effort basis.</p>
+<p>NetApp does not currently support Samba domain controllers in any capacity.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3677" title="">26 Сентябрь 2012, 18:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3930">
+		<div id="div-comment-3930">
+		<div class="comment-author">
+			<cite>Andrey:<cite></div>
+			<p>С включенным SMB2.0 &#8212; не работают Previous Versions. Отключаешь SMB 2.0 &#8212; работает.</p>
+<p>Кто-нибудь знает, когда SnapDrive 6.5 GA/release появится с поддержкой Windows Server 2012 ?</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3930" title="">12 Октябрь 2012, 18:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3931">
+		<div id="div-comment-3931">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Andrey:<br />
+Email : <a href="mailto:xxx@xxx.com">xxx@xxx.com</a></p>
+<p>Андрей, одно из правил хорошего тона, и, следовательно, правил этого блога, указывать при написании коммента валидный email. Если же вы меня считаете спамером, то я могу обидеться, и вас забанить за такое подозрение, ступайте себе писать в тех блогах, которым вы доверяете.</p>
+<p>> С включенным SMB2.0 — не работают Previous Versions. Отключаешь SMB 2.0 — работает.</p>
+<p>Работают и с SMB2.0 и без. Строго говоря они вообще никак не связаны с SMB. Это функция VSS.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-3931" title="">12 Октябрь 2012, 18:33</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-5563">
+		<div id="div-comment-5563">
+		<div class="comment-author">
+			<cite>Антон:<cite></div>
+			<p>Добрый день.</p>
+<p>Скажите, пожалуйста, не слышно ли чего-нибудь о сроках релиза Data ONTAP 8.2? На носу строительство небольшого &#8220;облака&#8221; на 2012 сервере, и уж очень хочется его с использованием SMB 3.0 построить :)</p>
+<p>Заранее спасибо за любую информацию.</p>
+<p>С уважением,<br />
+Антон.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-5563" title="">24 Январь 2013, 14:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-5564">
+		<div id="div-comment-5564">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Антон:<br />
+Ждем уж, ждем&#8230; в мае 2012 года обещали еще в 2012 году выпустить, в августе была создана закрытая группа <a href="https://communities.netapp.com/groups/ontap-82-beta-program" rel="nofollow">https://communities.netapp.com/groups/ontap-82-beta-program</a> по обкатке беты, так что по всем признакам должна быть уже вот-вот. Но там довольно много существенных изменений в коде напланировано, так что, подозреваю, вылизывание еще идет.</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-5564" title="">24 Январь 2013, 15:18</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-8523">
+		<div id="div-comment-8523">
+		<div class="comment-author">
+			<cite>Василий:<cite></div>
+			<p>Добрый день! расскажите плз про SMB 3.0 в вышедшей Data ONTAP 8.2. Как она реализуется на разных линейках, в 7-mode и cluster. спасибо</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-8523" title="">19 Июль 2013, 0:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-8524">
+		<div id="div-comment-8524">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Василий:</p>
+<p>SMB 3.0 в Data ONTAP сейчас есть только в Cluster-mode, к сожалению, в 7-mode его все еще нет (только 2.1).</p>
+						<div class="comment-meta"><a href="1206/trackback.html#comment-8524" title="">19 Июль 2013, 0:24</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1206" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.077 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

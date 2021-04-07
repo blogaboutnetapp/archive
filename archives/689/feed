@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp: вид сзади</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/689/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/689</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:57 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Максим</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-803</link>
+		<dc:creator>Максим</dc:creator>
+		<pubDate>Mon, 20 Sep 2010 13:14:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-803</guid>
+		<description>&#62;А я бы еще что-то типа sg247840.pdf рекомендовал заинтересованным лицам глянуть (:
+
+Да, на IBM RedBooks ( _http://blog.aboutnetapp.ru/archives/315 )</description>
+		<content:encoded><![CDATA[<p>&gt;А я бы еще что-то типа sg247840.pdf рекомендовал заинтересованным лицам глянуть (:</p>
+<p>Да, на IBM RedBooks ( _http://blog.aboutnetapp.ru/archives/315 )</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-753</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 09 Sep 2010 13:12:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-753</guid>
+		<description>А, он "обновил", я помотрел. Но я уже писал это, напишу еще. Все это "артель "Напрасный труд". Пользы, особенно в России, от цен на партномера североамериканского рынка - даже меньше чем ноль.</description>
+		<content:encoded><![CDATA[<p>А, он &#8220;обновил&#8221;, я помотрел. Но я уже писал это, напишу еще. Все это &#8220;артель &#8220;Напрасный труд&#8221;. Пользы, особенно в России, от цен на партномера североамериканского рынка - даже меньше чем ноль.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-752</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Thu, 09 Sep 2010 12:44:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-752</guid>
+		<description>Написано что цены на январь 2010. Собрать систему конечно не выйдет, но админу испугаться хватит 5-ти и 6-значными цифрами в долларах :)</description>
+		<content:encoded><![CDATA[<p>Написано что цены на январь 2010. Собрать систему конечно не выйдет, но админу испугаться хватит 5-ти и 6-значными цифрами в долларах :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-749</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 08 Sep 2010 14:28:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-749</guid>
+		<description>Не надо их оттуда брать.
+Во первых они устарели на пару эпох примерно.
+Во вторых из цены партномеров цену продукта без помощи конфигуратора собрать, кроме примитивных вариантов, не сможет даже опытный пресэйл.
+Поэтому я бы даже не рекомендовал вообще это смотреть и в чем-то себя обманывать. Эти цифры имеют отношения к ценам Нетапп не больше, чем цифры из розыгрыша Спортлото к ним же.</description>
+		<content:encoded><![CDATA[<p>Не надо их оттуда брать.<br />
+Во первых они устарели на пару эпох примерно.<br />
+Во вторых из цены партномеров цену продукта без помощи конфигуратора собрать, кроме примитивных вариантов, не сможет даже опытный пресэйл.<br />
+Поэтому я бы даже не рекомендовал вообще это смотреть и в чем-то себя обманывать. Эти цифры имеют отношения к ценам Нетапп не больше, чем цифры из розыгрыша Спортлото к ним же.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Альберт Салман</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-748</link>
+		<dc:creator>Альберт Салман</dc:creator>
+		<pubDate>Wed, 08 Sep 2010 13:47:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-748</guid>
+		<description>Цены на прайсовые позиции можно взять с http://storagemojo.com/storagemojos-pricing-guide/. Там конечно "средняя температура по больнице" но прикинуть можно. Плюс замучаешься догадываться о соотвествии прайсовой позиции и реальной железки.</description>
+		<content:encoded><![CDATA[<p>Цены на прайсовые позиции можно взять с <a href="http://storagemojo.com/storagemojos-pricing-guide/" rel="nofollow">http://storagemojo.com/storagemojos-pricing-guide/</a>. Там конечно &#8220;средняя температура по больнице&#8221; но прикинуть можно. Плюс замучаешься догадываться о соотвествии прайсовой позиции и реальной железки.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-742</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 07 Sep 2010 12:49:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-742</guid>
+		<description>Про ACP напишу, что знаю, в ближайшее время.
+UPD: Написал. Читайте в понедельник.</description>
+		<content:encoded><![CDATA[<p>Про ACP напишу, что знаю, в ближайшее время.<br />
+UPD: Написал. Читайте в понедельник.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-741</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Tue, 07 Sep 2010 11:33:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-741</guid>
+		<description>Можно немного offtop в тему DS4243?
+
+"e0P это порт управления для своеобразной “сети управления” дисковой полки DS4243"
+Много читал довольно общих слов о данной штуке (ACP),  а есть ли где-то подробная информация как это работает и реально ли она нужна?
+
+Спасибо.</description>
+		<content:encoded><![CDATA[<p>Можно немного offtop в тему DS4243?</p>
+<p>&#8220;e0P это порт управления для своеобразной “сети управления” дисковой полки DS4243&#8243;<br />
+Много читал довольно общих слов о данной штуке (ACP),  а есть ли где-то подробная информация как это работает и реально ли она нужна?</p>
+<p>Спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitry Gorokhov</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-740</link>
+		<dc:creator>Dmitry Gorokhov</dc:creator>
+		<pubDate>Tue, 07 Sep 2010 11:31:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-740</guid>
+		<description>Могу похвастаться наличием у себя постера NetApp Hardware Universe. По-моему он доступен для заказа всем желающим участникам коммюнити NetApp.
+
+Вот там очень подробно про железо расписано :)</description>
+		<content:encoded><![CDATA[<p>Могу похвастаться наличием у себя постера NetApp Hardware Universe. По-моему он доступен для заказа всем желающим участникам коммюнити NetApp.</p>
+<p>Вот там очень подробно про железо расписано :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-738</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 07 Sep 2010 01:23:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-738</guid>
+		<description>&gt; интересно узнать порядок цен на 6000 серию
+Цена, как и всегда, зависит от количества дисков и набора лицензий.</description>
+		<content:encoded><![CDATA[<p>> интересно узнать порядок цен на 6000 серию<br />
+Цена, как и всегда, зависит от количества дисков и набора лицензий.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/689#comment-737</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 07 Sep 2010 01:20:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=689#comment-737</guid>
+		<description>&gt; а без него нельзя
+Да ладно, что вы такое говорите, всю жизнь NetApp был customer serviceable и customer installable.
+Хотя конечно, если не горит, то лучше дождитесь, чтобы не допускать какой-нибудь дурацкой ошибки прямо на старте.
+В принципе же вся инсталляция это подключение терминальной консоли (9600-N-1) и включние в сеть. Сразу после загрузки OS запускается встроенный мастер установки, задающий в целом вполне понятные вопросы, типа установки даты, времени, часовог пояса, IP-адреса, DNS, после чего система завелась и может быть сконфигурирована по сети либо из FilerView (веб-интерфейса), либо через System Manager.</description>
+		<content:encoded><![CDATA[<p>> а без него нельзя<br />
+Да ладно, что вы такое говорите, всю жизнь NetApp был customer serviceable и customer installable.<br />
+Хотя конечно, если не горит, то лучше дождитесь, чтобы не допускать какой-нибудь дурацкой ошибки прямо на старте.<br />
+В принципе же вся инсталляция это подключение терминальной консоли (9600-N-1) и включние в сеть. Сразу после загрузки OS запускается встроенный мастер установки, задающий в целом вполне понятные вопросы, типа установки даты, времени, часовог пояса, IP-адреса, DNS, после чего система завелась и может быть сконфигурирована по сети либо из FilerView (веб-интерфейса), либо через System Manager.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

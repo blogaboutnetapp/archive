@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: iSCSI или FC? Цена решения.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1043/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1043</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:31 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1824</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 20 Oct 2011 04:44:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1824</guid>
+		<description>Nimdan:
+
+Все, идите уже, идите. Вы не тот человек, потеря которого из читателей блога будет невосполнимой ;)
+
+&gt; Этот ваш детский аргумент из разряда “сначала добейся” 
+
+Вы так это говорите, будто это что-то плохое. :D</description>
+		<content:encoded><![CDATA[<p>Nimdan:</p>
+<p>Все, идите уже, идите. Вы не тот человек, потеря которого из читателей блога будет невосполнимой ;)</p>
+<p>> Этот ваш детский аргумент из разряда “сначала добейся” </p>
+<p>Вы так это говорите, будто это что-то плохое. :D</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1823</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Thu, 20 Oct 2011 01:58:48 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1823</guid>
+		<description>Кстати, может мне не по глазам, но я не увидел на чем была построена сеть 10Gb.
+
+А для подключения двух портов 1Gb 1-4 хостам мне вообще коммутаторы не нужны, например в HP P2000 я могу воткнуть их напрямую в контроллеры. То есть стоимость коммутаторов равна нолю.</description>
+		<content:encoded><![CDATA[<p>Кстати, может мне не по глазам, но я не увидел на чем была построена сеть 10Gb.</p>
+<p>А для подключения двух портов 1Gb 1-4 хостам мне вообще коммутаторы не нужны, например в HP P2000 я могу воткнуть их напрямую в контроллеры. То есть стоимость коммутаторов равна нолю.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1822</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Thu, 20 Oct 2011 01:45:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1822</guid>
+		<description>Не понимаю, вам и человек выше и я прямо говорим, что данный расчет некорректен для оценки стоимости iSCSI, а вы нас отправляете на iXBT. А вы в какой форме представляете себе обсуждение: крики браво-браво, несогласных в топку? Этот ваш детский аргумент из разряда "сначала добейся" как-то не приглашает к обсуждению.
+
+Вот у вас в табличке дана оценка для 16, 24 инициаторов. ?? вы считаете, что 2960 - это вполне себе нормальный коммутатор для такой нагрузки? Как насчет того, что у него блокируемая матрица?
+
+А Direct Attach Twinaxial Cable можно будет нормально уложить для 16 хостов? В, так сказать, real life.</description>
+		<content:encoded><![CDATA[<p>Не понимаю, вам и человек выше и я прямо говорим, что данный расчет некорректен для оценки стоимости iSCSI, а вы нас отправляете на iXBT. А вы в какой форме представляете себе обсуждение: крики браво-браво, несогласных в топку? Этот ваш детский аргумент из разряда &#8220;сначала добейся&#8221; как-то не приглашает к обсуждению.</p>
+<p>Вот у вас в табличке дана оценка для 16, 24 инициаторов. ?? вы считаете, что 2960 - это вполне себе нормальный коммутатор для такой нагрузки? Как насчет того, что у него блокируемая матрица?</p>
+<p>А Direct Attach Twinaxial Cable можно будет нормально уложить для 16 хостов? В, так сказать, real life.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1821</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 19 Oct 2011 16:02:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1821</guid>
+		<description>Nimdan:
+
+Дорогой друг!
+Позвольте еще раз, лично вам повторить предложение, сделанное человеку выше.
+Если у вас есть свои подсчеты на рассмотренную тему - присылайте, я с удовольствием их опубликую, и все желающие их смогут обсудить.
+А продолжать беседу в ключе "да только последние лохи ездят на тачках без наддува!" мне скучно, она бессмысленна и беспредметна.
+
+Есть что предметно обсудить - присылайте. Нет - ступайте в форум iXBT, вас там с вашими обсуждениями "на чем не впадлу реальному пацану делать SAN" с удовольствие поддержат.</description>
+		<content:encoded><![CDATA[<p>Nimdan:</p>
+<p>Дорогой друг!<br />
+Позвольте еще раз, лично вам повторить предложение, сделанное человеку выше.<br />
+Если у вас есть свои подсчеты на рассмотренную тему - присылайте, я с удовольствием их опубликую, и все желающие их смогут обсудить.<br />
+А продолжать беседу в ключе &#8220;да только последние лохи ездят на тачках без наддува!&#8221; мне скучно, она бессмысленна и беспредметна.</p>
+<p>Есть что предметно обсудить - присылайте. Нет - ступайте в форум iXBT, вас там с вашими обсуждениями &#8220;на чем не впадлу реальному пацану делать SAN&#8221; с удовольствие поддержат.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1820</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Wed, 19 Oct 2011 15:49:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1820</guid>
+		<description>Мне правда интересно, в какого размера iSCSI-сетях успешно используются коммутаторы 2960G, с такими-то показателями:
+
+Cisco Catalyst 2960G-24TC-L 35.7 mpps
+ 
+The C2960GL switch has 6 ASIC, each has 4G of bandwidth shared among 8 ports. Also, each ASIC has shared buffers (ingress of 192KB and egress of 384KB).
+
+Это наверное инициатора 3-4 подключают за раз?</description>
+		<content:encoded><![CDATA[<p>Мне правда интересно, в какого размера iSCSI-сетях успешно используются коммутаторы 2960G, с такими-то показателями:</p>
+<p>Cisco Catalyst 2960G-24TC-L 35.7 mpps</p>
+<p>The C2960GL switch has 6 ASIC, each has 4G of bandwidth shared among 8 ports. Also, each ASIC has shared buffers (ingress of 192KB and egress of 384KB).</p>
+<p>Это наверное инициатора 3-4 подключают за раз?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1819</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Wed, 19 Oct 2011 15:42:13 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1819</guid>
+		<description>А 24 иницатора это много или мало? Это небольшая сеть iSCSI или нет? У вас какая линейка?</description>
+		<content:encoded><![CDATA[<p>А 24 иницатора это много или мало? Это небольшая сеть iSCSI или нет? У вас какая линейка?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1809</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 18 Oct 2011 16:53:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1809</guid>
+		<description>Nimdan:
+
+&gt; Вы считаете их адекватными коммутаторами для построения iSCSI-сетей?
+
+Я считаю их, для рассматриваемых небольших сетей iSCSI, вполне пригодными коммутаторами, знаю что их вполне успешно применяют на практике.
+
+&gt; ??спользовать такие кабели в большом количестве.. гм… трудно.
+
+А в небольшом - вполне возможно.</description>
+		<content:encoded><![CDATA[<p>Nimdan:</p>
+<p>> Вы считаете их адекватными коммутаторами для построения iSCSI-сетей?</p>
+<p>Я считаю их, для рассматриваемых небольших сетей iSCSI, вполне пригодными коммутаторами, знаю что их вполне успешно применяют на практике.</p>
+<p>> ??спользовать такие кабели в большом количестве.. гм… трудно.</p>
+<p>А в небольшом - вполне возможно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nimdan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1808</link>
+		<dc:creator>Nimdan</dc:creator>
+		<pubDate>Tue, 18 Oct 2011 16:49:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1808</guid>
+		<description>romx, вопроса два - какие такие специалисты-счетоводы используют коммутаторы Cisco 2960 для iSCSI? Вы считаете их адекватными коммутаторами для построения iSCSI-сетей?
+
+??рония Олега по поводу 3M SFP+ Direct Attach Twinaxial Cable по-моему понятна каждому, кто хоть раз имел с ними дело. ??спользовать такие кабели в большом количестве.. гм... трудно. Хотелось бы увидеть фотографию системы, где таких да хотя бы 24, какие там 48 штук.</description>
+		<content:encoded><![CDATA[<p>romx, вопроса два - какие такие специалисты-счетоводы используют коммутаторы Cisco 2960 для iSCSI? Вы считаете их адекватными коммутаторами для построения iSCSI-сетей?</p>
+<p>??рония Олега по поводу 3M SFP+ Direct Attach Twinaxial Cable по-моему понятна каждому, кто хоть раз имел с ними дело. ??спользовать такие кабели в большом количестве.. гм&#8230; трудно. Хотелось бы увидеть фотографию системы, где таких да хотя бы 24, какие там 48 штук.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alex</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1804</link>
+		<dc:creator>Alex</dc:creator>
+		<pubDate>Mon, 17 Oct 2011 15:19:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1804</guid>
+		<description>Dmitriy, сорри, что вмешиваюсь, скажите, а почему не рассматриваете для вашей задачи всякие фринасы и опенфайлеры?</description>
+		<content:encoded><![CDATA[<p>Dmitriy, сорри, что вмешиваюсь, скажите, а почему не рассматриваете для вашей задачи всякие фринасы и опенфайлеры?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/1043#comment-1803</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Mon, 17 Oct 2011 13:34:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1043#comment-1803</guid>
+		<description>Задача очень простая - купить сторадж, использовать его в качестве стораджа для виртуальных машин с 2-3 хостов (5-15 виртуальных машин в-целом), а также в качестве Backend стораджа для файлового сервера (up to 300 users, не очень интенсивного).
+
+Цена тут реально имеет значение.</description>
+		<content:encoded><![CDATA[<p>Задача очень простая - купить сторадж, использовать его в качестве стораджа для виртуальных машин с 2-3 хостов (5-15 виртуальных машин в-целом), а также в качестве Backend стораджа для файлового сервера (up to 300 users, не очень интенсивного).</p>
+<p>Цена тут реально имеет значение.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

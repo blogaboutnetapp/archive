@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; simulator</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;simulator&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1232">
+				<h2 class="posttitle"><a href="../1232/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP Simulator 8.1.1 в VirtualBox">Data ONTAP Simulator 8.1.1 в VirtualBox</a></h2>
+				<div class="postmetadata">12 Ноябрь 2012, 10:38 <!-- от  --></div>
+				<div class="postentry">
+					<p>О том что такое симулятор Data ONTAP я не буду повторяться в пятый, кажется, раз, отсылая к <a href="simulator.html">более ранним постам на эту тему</a>. Сегодня – о возможности поставить Simulator под гипервизором, отличным от рекомендуемой NetApp VMware. Ну, допустим, у вас Linux, Solaris, или еще что-то, и поставить VMware Player вы не можете. ??ли просто больше любите VirtualBox. Если для симуляторов версии 7 все было просто, там, фактически, это была задача под обычным Linux, то теперь, для симуляторов v8, это стало чуть сложнее, так как он идет уже готовой VM с FreeBSD внутри.</p>
+<p>Описание того, как настроить VM в VirtualBox для запуска в нем Simulator 8.1.1 было недавно опубликовано в Community NetApp.</p>
+<ol>
+<li>Установите VirtualBox обычным образом.     <br />&#160; </li>
+<li>Скачайте и распакуйте Симулятор 8.1.1 <br />&#160; </li>
+<li>Создайте новую VM с типом OS – “BSD”, версией “FreeBSD (64bit)”. Выделите памяти 1600MB, не выбирайте создание виртуальных дисков, они у нас уже есть и мы подключим их позже в готовую VM. <br />&#160; </li>
+<li>Откройте настройки VM (Settings), и на странице System, на табе Processor установите количество CPU – 2.<br />&#160;  </li>
+<li>В настройках Storage удалите CDROM с IDE-контроллера. Затем добавьте 4 виртуальных жестких диска, для каждого диска выберите уже существующий vmdk симулятора, по порядку: “DataONTAP.vmdk”, “DataONTAP-var.vmdk”, “DataONTAP-nvram.vmdk” и “DataONTAP-sim.vmdk”. Добавьте контроллер floppy drive с одним пустым floppy. Получившиеся настройки должны выглядеть так: <br />&#160;
+<p><img src="https://communities.netapp.com/servlet/JiveServlet/downloadImage/2-94337-17566/450-127/sim-storage.png" /> </p>
+<p>&#160;   </li>
+<li>На странице <em>Audio</em> уберите отметку в чекбоксе Enable Audio. <br />&#160; </li>
+<li>На странице <em>Network</em> добавьте четыре сетевых адаптера (любого нужного вам режима: “host only”, “bridged”, “internal”, “NAT”). В каждом из четырех добавленных NIC откройте секцию Advanced, и выберите в ней тип адаптера “Intel Pro/1000MT Server (82545EM)”. В симуляторе есть драйвер только для этой карты. Выглядит в итоге все так: <br />&#160;
+<p><img src="https://communities.netapp.com/servlet/JiveServlet/downloadImage/2-94337-17567/450-330/sim-network.png" /> </p>
+<p>&#160;    </li>
+<li>В стандартной установке виртуальная машина использует подключенные пайпы Windows для двух последовательных портов: стандартной консоли и дебага. Выможете перенаправить их в обычные последовательные порты, но это не обязательно. <br />&#160; </li>
+<li>На странице <em>USB</em> снимите отметку в чекбоксе “Enable USB Controller” <br />&#160; </li>
+<li>На странице <em>Shared Folder</em> не устанавливайте shared folder. <br />&#160; </li>
+<li>Запишите все изменения в VM. <br />&#160; </li>
+<li>Убедитесь, что имеете 1600MB физической свободной памяти для запуска VM, иначе запуск прервется в произвольном месте. <br />&#160; </li>
+<li>Запустим VM. <br />&#160; </li>
+<li>Во время 10-секундной паузы нажмите любую клавишу КРОМЕ Enter, чтобы прервать нормальную загрузку. <br />&#160; </li>
+<li>??змените настройки, запретив запуск установленных в виртуальной машине VMware Tools командой: <em>“setenv bootarg.vm.run_vmtools false”        <br /></em><br />&#160; </li>
+<li>Тут же можно изменить и серийный номер симулятора, если вы собираете многосимуляторную конфигурацию, чтобы избежать конфликта при их одновременной работе. <br />&#160; </li>
+<li>Введите команду <em>“boot”</em> для нормальной загрузки <br />&#160; </li>
+<li>Когда появится сообщение <em>“Press Ctrl-C for menu”</em>, нажмите Ctrl-C и дождитесь появления boot menu. Первая загрузка может занять порой довольно значительное время. <br />&#160; </li>
+<li>В появившемся boot menu выберите пункт 4, и подтвердите очистку всех дисков и конфигурации. <br />&#160; </li>
+<li>Затем симулятор перезагрузится, эту загрузку уже не нужно прерывать. После окончания загрузки вы увидите стандартную подсказку мастера начальной установки параметров системы, следуйте этой установке и введите все необходимые параметры. Откажитесь от предложения “продолжить в графическом режиме” где-то в середине мастера (в 8.1.1 FilerView уже нет), и дойдите до конца. Если вы сбились, то просто введите setup в качестве команды в консоли, после завершения мастера, и вы сможете повторить настройку с уже введенными данными и изменить какие-то из них. <br />&#160; </li>
+</ol>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="howto/index.html" rel="tag">howto</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="simulator.html" rel="tag">simulator</a>, <a href="virtualbox.html" rel="tag">virtualbox</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1232/trackback.html#comments" title="Комментарий к записи Data ONTAP Simulator 8.1.1 в VirtualBox">Комментарии (5)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1210">
+				<h2 class="posttitle"><a href="../1210/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP Edge &ndash; виртуальный NetApp в VM">Data ONTAP Edge &ndash; виртуальный NetApp в VM</a></h2>
+				<div class="postmetadata">10 Сентябрь 2012, 11:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>На прошедшем на прошлой неделе VMworld NetApp показал крайне интересную штуку – Data ONTAP Edge. Это виртуальный appliance, виртуальная машина, с установленной в ней OS Data ONTAP, работающей как “виртуальная система хранения” в среде VMware ESXi. </p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="VSA[1]" border="0" alt="VSA[1]" src="/pics//vsa1.jpg" width="540" height="186" /></p>
+<p>Наверняка вы уже знаете и пользуетесь симулятором Data ONTAP (а если не пользуетесь, то самое время <a href="../40/trackback.html">пойти почитать про него подробнее</a>). В двух словах: Data ONTAP Simulator это код Data ONTAP, выполняемый не на реальном железе стораджа, а в среде Linux (для Simulator 7.x) или виртуальной машины FreeBSD (Simulator 8.х). Симулятор позволяет создать “эмуляцию стораджа”, протестировать те или иные решения, отработать какие-то процедуры, настроить инфраструктуру, не трогая реальный физический сторадж, проводить обучение и всякие эксперименты. Не позволяет он только сделать на симуляторе реальную систему хранения, так как в код симулятора вшиты строгие ограничения на объем. Сделано это с понятной целью, не провоцировать пользователя на попытку сделать из такой виртуальной машины реальный “сторадж”, так как производительность такого решения не идет в сравнение с нормальным физическим стораджем на физическом железе. ??ли по крайней мере “не шла”.</p>
+<p>Однако времена меняются, и некоторое время назад NetApp объявила о появлении у нее продукта Data ONTAP-v, который предоставляется не напрямую, а через партнеров (например Fujitsu в их blade-серверах для SMB), для создания virtual appliance, как раз того самого virtual storage. Data ONTAP-v это, если по-простому, симулятор со снятыми ограничениями. А&#160; на VMworld был сделан новый шаг – объявлено о доступности для конечных пользователей нового решения – Data ONTAP Edge – virtual storage appliance для малых офисов и филиалов.</p>
+<p>Data ONTAP Edge это, по сути, код Data ONTAP, практически такой, как он работает в реальном сторадже. Соответственно в таком апплайенсе вы получаете практически все то, что получаете в реальном железном сторадже, то есть универсальный (NAS+SAN) доступ, снэпшоты, thin provisioning, дедупликацию, FlexClone, SnapMirror и SnapVault. Однако, как и в эмуляторе, в Edge и ONTAP-v нет FC. Управлять Edge можно как и обычным нетапповским стораджем, с помощью System Manager, консоли, а также поддерживается Virtual Storage Console в&#160; vCenter.</p>
+<p>Цель Data ONTAP Edge – это филиалы и малые офисы. ?? прежде всего я вижу для таких организаций интерес в отношении Edge – это использовать его как SnapVault Primary. К сожалению, прекрасная и очень полезная для как раз малых компаний с филиалами и удаленными офисами идея с централизованным бэкапом через SnapVault разбивается о необходимость для использования всех плюсов SnapVault заводить второй (и более) железный нетапповский сторадж, так как SnapVault Primary, то есть “получатель” снэпшотов на хранение, может быть только нетаппом (SnapVault Secondary, “источник”, может быть даже обычный сервер, например при использовании OSSV, Open Systems SnapVault). Также интересным может быть организация репликации через SnapMirror.</p>
+<p>Кроме работы в составе SnapVault, вы можете использовать его как обычный виртуальный сторадж, например в составе инфраструктуры виртуальных серверов, используя его возможности эффективного хранения.</p>
+<p>Data ONTAP Edge можно скачать в виде 90-дневного триала, в формате OVA, с необходимым набором лицензий. Для установки его необходим, в отличие от симулятора, ряд строгих условий. Edge устанавливается только на ESXi (симулятор можно было установить на почти любой гипервизор), он требует много памяти и процессора (строго 2 выделенных vCPU и 4GB выделенной RAM, 57,5 GB места для самой системы), а также обязательно не ниже 4-ядерного или 2 двухядерных 64bit Intel x86 процессор, более 2,27GHz, четыре и более физических диска на Hardware battery-backed RAID, минимум одна Gigabit Ethernet карта, но в реальности, для современных серьезных продакшновых инфраструктур, эти требования вполне подъемны. Существует список поддерживаемых систем в качестве хоста. Рекомендую также посмотреть и на <a href="http://media.netapp.com/documents/ds-data-ontap-edge.pdf">Data ONTAP Edge datasheet</a>.</p>
+<p>Для получения ссылки на скачивание триала вам будет нужен логин на support.netapp.com (бывший NOW), в том числе вы можете получить его и не будучи уже зарегистрированным клиентом NetApp, по “гостевому входу”. Лицензии на триал придут на адрес почты, зарегистрированной на логин.</p>
+<p>Обсуждение и ответы на вопросы по Data ONTAP Edge можно получить в специальном разделе communities: <a href="https://communities.netapp.com/community/products_and_solutions/data-ontap-edge">https://communities.netapp.com/community/products_and_solutions/data-ontap-edge</a></p>
+<p>Любопытно, что, по слухам, в начале своей истории NetApp серьезно рассмативала вариант выпустить Data ONTAP как софт, устанавливаемый на пользовательское “железо”, то есть не становиться еще одним “вендором железа”, а оставаться софтовой компанией. К сожалению, тогда, в первой половине 90-х состояние дел с надежностью доступного пользователям железа не позволило достичь приемлемого качества и производительности, и пришлось под Data ONTAP строить свою железную платфолрму. Сегодня, как видите, старинная идея переживает второе рождение.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="data-ontap.html" rel="tag">data ontap</a>, <a href="edge.html" rel="tag">edge</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ontap-v.html" rel="tag">ontap-v</a>, <a href="simulator.html" rel="tag">simulator</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1210/trackback.html#comments" title="Комментарий к записи Data ONTAP Edge &ndash; виртуальный NetApp в VM">Комментарии (25)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1102">
+				<h2 class="posttitle"><a href="../1102/trackback.html" rel="bookmark" title="Permanent Link to Как добавить &ldquo;дисков&rdquo; в Data ONTAP Simulator 8?">Как добавить &ldquo;дисков&rdquo; в Data ONTAP Simulator 8?</a></h2>
+				<div class="postmetadata">22 Декабрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Когда вы поставили и запустили симулятор Data ONTAP 8, вы увидите, что он идет с 28 (2х14) “дисками”, размером 1GB. Этого в общем вполне достаточно для большинства целей использования, однако, если вам потребуется больше дисков, вы можете увеличить их количество (но не размер!) до 56 штук. Обратите внимание, что вы не можете увеличить размер дисков, он для симулятора не может превышать 1GB. Ну… например чтобы не было соблазна устраивать из не предназначенного для этого симулятора бесплатный “виртуальный сторадж” ;). Как говорил один большой друг СССР – “Doverjai no proverjai!” ;)</p>
+<p>Но сперва стоит немного остановится на некоторых деталях.</p>
+<p>В отличие от Data ONTAP 7, в версии 8 появился специальный user-mode shell (консоль админа, несмотря на внешнюю схожесть, шеллом как таковым не является). Он доступен для специального, отключенного в целях безопасности, пользователя diaguser.</p>
+<p>Мы рассмотрим добавление дисков только для симулятора 7-Mode. Для Cluster-mode это возможно также, но чтобы не удлиннять пост я его опущу (если кому-то понадобится процедура для Cluster-mode Simulator – напишите).</p>
+<p>??так, начнем с того, что разблокируем diaguser, от имени которого в шелле мы проделаем операции добавления:</p>
+<p><code>priv set advanced      <br />useradmin diaguser unlock       <br />useradmin diaguser password</code></p>
+<p>Теперь зайдем с systemshell этм пользователем:</p>
+<p><code>systemshell      <br />login: diag       <br />password: &lt;password&gt;</code></p>
+<p>Далее нам придется поправить некий глюк, допущенный при сборке утилиты управления “дисками”. Добавим символьные линки на стандартные библиотеки, а то утилита не сможет их найти:</p>
+<p><code>cd /lib      <br />sudo mount -u -o rw /       <br />sudo ln -s libc.so.6 libc.so.7       <br />sudo mount -u -o ro /</code></p>
+<p>Установим переменную пути:</p>
+<p><code>setenv PATH &quot;${PATH}:/sim/bin&quot;      <br />echo $PATH</code></p>
+<p>?? перейдем в директорию эмулированных устройств</p>
+<p><code>cd /sim/dev      <br />ls ,disks/</code></p>
+<p>Тут вы увидите уже созданные 28 дисков. К ним мы сейчас добавим еще 28. ??мена уже существующих файлов-дисков начинаются с v1 и v2, что означает, что они “подключены” к адаптерам v1 и v2. У нас есть еще два неиспользованных адаптера (v3 и v4), к каждому из которых мы “подключим” по 14 дисков (это похоже на то, как подключаются обычные FC-полки к адаптерам отдельной FC-“петлей”, каждая полка на 14 дисков на свой адаптер).</p>
+<p>Для этого воспользуемся утилитой makedisk.main:</p>
+<p><code>makedisks.main -h      <br />sudo makedisks.main -n 14 -t 23 -a 2       <br />sudo makedisks.main -n 14 -t 23 -a 3       <br />ls ,disks/</code></p>
+<p>Первая команда печатает пояснение по доступным ключам. Две другие создают по 14 дисков    <br />(-n 14) с типом диска 23 (-t 23) на адаптерах 2 и 3 (-a 2 и -a 3). Симулятор Data ONTAP 8.0.1 поддерживает конструктивно только диски размером 1GB и менее. Даже если вы видите в подсказке команды диски большего размера, воздержитесь от соблазна попробовать добавить их в симулятор. С виртуальными дисками размером больше 1GB Data ONTAP упадет в panic при перезагрузке, и вам придется устанавливать симулятор заново.</p>
+<p>Ну вот и все, что необходимо было сделать в шелле. Вернемся “по своим следам” из шелла в обычную админскую консоль, выйдя из шелла и запретив diaguser, перезагрузим симулятор и он увидит новые диски:</p>
+<p><code>exit      <br />useradmin diaguser lock       <br />priv set admin       <br />reboot</span></code></p>
+<p>После перезагрузки необходимо назначить ownership новым дискам:</p>
+<p><code>disk show -n      <br />disk assign all       <br />disk show -v</code></p>
+<p>Теперь у вас в симуляторе 56 “дисков” по 1GB каждый. Они уже zeroed, и вы можете непосредственно добавить их в нужный вам aggregate.</p>
+<p>??сходный текст был взят тут: <a href="https://communities.netapp.com/docs/DOC-9579">https://communities.netapp.com/docs/DOC-9579</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="801.html" rel="tag">8.0.1</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="simulator.html" rel="tag">simulator</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1102/trackback.html#comments" title="Комментарий к записи Как добавить &ldquo;дисков&rdquo; в Data ONTAP Simulator 8?">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1100">
+				<h2 class="posttitle"><a href="../1100/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP Simulator 8.0.1: Как изменить SystemID/SerialNo?">Data ONTAP Simulator 8.0.1: Как изменить SystemID/SerialNo?</a></h2>
+				<div class="postmetadata">19 Декабрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В ряде случаев, например когда вы планируете использовать несколько установленных симуляторов, подключенных в Operations Manager, необходимо задать каждому из этих симуляторов индивидуальный SystemID и Serial Number. В будущем в NetApp обещают генерировать при установке произвольный номер, а пока все симуляторы идут с одним. Поэтому нужно проделать небольшой трюк.</p>
+<p>При начальной загрузке прервите ее и войдите в SIMLOADER.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="sim801_serial_change_1" border="0" alt="sim801_serial_change_1" src="/pics/Data-ONTAP-Simulator-8---SystemIDSerialN_9393/sim801_serial_change_1.png" width="725" height="503" /></p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="sim801_serial_change_2" border="0" alt="sim801_serial_change_2" src="/pics/Data-ONTAP-Simulator-8---SystemIDSerialN_9393/sim801_serial_change_2.png" width="729" height="503" /></p>
+<p>Выполните там две следующие команды:</p>
+<p><code>SIMLOADER&gt; set bootarg.nvram.sysid=1111111101</code>    <br /><code>SIMLOADER&gt; set SYS_SERIAL_NUM=1111111101</code></p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="sim801_serial_change_3" border="0" alt="sim801_serial_change_3" src="/pics/Data-ONTAP-Simulator-8---SystemIDSerialN_9393/sim801_serial_change_3.png" width="725" height="503" /></p>
+<p>SystemID это 10-значное число. Последние две цифры должны быть уникальны в пределах Cluster-mode кластера для того, чтобы обеспечить уникальность UID дисков. Таким образом первые 8 цифр определяют кластер, а последние 2 – ноду в этом кластере. Впрочем, если вы используете симулятор только как 7-mode, вам это не важно, назначьте туда любое 10-циферное число.</p>
+<p>Дайте команду:</p>
+<p><code>SIMLOADER&gt; boot</code></p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="sim801_serial_change_4" border="0" alt="sim801_serial_change_4" src="/pics/Data-ONTAP-Simulator-8---SystemIDSerialN_9393/sim801_serial_change_4_3.png" width="727" height="501" /></p>
+<p>Войдите в Boot Menu нажатием Ctrl-C и выберите там Maintenance mode boot</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="sim801_serial_change_6" border="0" alt="sim801_serial_change_6" src="/pics/Data-ONTAP-Simulator-8---SystemIDSerialN_9393/sim801_serial_change_6.png" width="727" height="504" /></p>
+<p>Переназначьте диски на новый SystemID, если вы уже назначили их ранее контроллеру на его прежний SystemID. Если вы делаете описываемую процедуру при самом первом старте, то переназначать диски еще не нужно, назначьте из обычным образом.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="sim801_serial_change_7" border="0" alt="sim801_serial_change_7" src="/pics/Data-ONTAP-Simulator-8---SystemIDSerialN_9393/sim801_serial_change_7.png" width="728" height="502" /></p>
+<p>UPD: Приведенный метод, к сожалению, <strong>НЕ РАБОТАЕТ </strong>для Simulator версии <strong>8.1</strong>, он работает только для <strong>8.0.1</strong></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="801.html" rel="tag">8.0.1</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="simulator.html" rel="tag">simulator</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1100/trackback.html#comments" title="Комментарий к записи Data ONTAP Simulator 8.0.1: Как изменить SystemID/SerialNo?">1 комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1099">
+				<h2 class="posttitle"><a href="../1099/trackback.html" rel="bookmark" title="Permanent Link to Настраиваем Data Ontap Simulator 8">Настраиваем Data Ontap Simulator 8</a></h2>
+				<div class="postmetadata">12 Декабрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В предыдущей статье я показал, как поставить виртуальную машину, в виде которой сейчас идет симулятор 8.0.1 на сервер VMware ESX. А сейчас попробуем начать с ним работу.</p>
+<p>Как я уже рассказывал в предыдущем посте, <a href="../40/trackback.html">Data Ontap Simulator</a> это виртуальная машина, в которой работает версия Data ONTAP 8 для выполнения в среде VM. Data ONTAP 8 базируется на OS FreeBSD, однако, вопреки распространенному (ошибочному) мнению, <a href="../12/trackback.html">Data ONTAP 8 это НЕ FreeBSD</a>. Это даже не программа под FreeBSD. Это самостоятельная OS, которая использует FreeBSD как загрузчик своего kernel space code, а также использует некоторые ее ресурсы, например driver model, и драйвера оборудования. Ситуация была примерно та же, что с гипервизором VMware ESX-не-i, если вы помните, там сперва грузился RedHat, под которым затем запускался как модуль собственно ESX, который уже Linux не являлся. ??менно этим объясняется то, что мы в прошлой статье создали VM типа “FreeBSD 64-bit”, действительно, сперва VM загружается с использованием loader FreeBSD, а затем использует ее драйверную модель для внешних устройств.</p>
+<p>Симулятор, как я уже рассказывал выше, это полноценная версия Data ONTAP, за некоторым исключением: установлено ограничение по поддерживаемой емкости, не работает протокол FC (но работает iSCSI) и, в настоящий момент, реализована только одноконтроллерная конфигурация. Но для экспериментов и обучения этого будет вполне достаточно.</p>
+<p>Давайте, для начала, отключим на симуляторе <a href="http://habrahabr.ru/company/netapp/blog/111916/">Autosupport</a>. Симулятор это экспериментальная площадка, и лучше будет не беспокоить поддержку NetApp странными сообщениями, которые будет при наших экспериментах посылать”в центр” служба Autosupport. Войдя в консоль даем команду:</p>
+<p><code>options autosupport.enable off</code></p>
+<p>Штатным образом Simulator приходит с набором из 28 “как-бы дисков” размером 1GB (как я уже сказал, для экспериментов этого объема достаточно). ??значально, только 3 диска назначены (assigned) контроллеру, и на них создан root volume на RAID-DP. Остальные диски помечены как unassigned. Назначим оставшиеся диски нашему симулятору:</p>
+<p><code>disk assign all</code></p>
+<p>Теперь добавим ключи-лицензии. Эти ключи предназначены только для симулятора, и не будут работать на физической системе. Можно установить только то, что используется на вашей продакшн-системе, или поставить дополнительные лицензии, чтобы посмотреть “что это и как работает”, или же просто все, и экспериментировать со всеми возможными фичами.</p>
+<ul>
+<li>a_sis MTVVGAF </li>
+<li>cifs DZDACHD </li>
+<li>disk_sanitization PZKEAZL </li>
+<li>http NAZOMKC </li>
+<li>flex_clone ANLEAZL </li>
+<li>iscsi BSLRLTG </li>
+<li>multistore NQBYFJJ </li>
+<li>nearstore_option ELNRLTG </li>
+<li>nfs BQOEAZL </li>
+<li>smdomino RKBAFSN </li>
+<li>smsql HNGEAZL </li>
+<li>snapmanagerexchange BCJEAZL </li>
+<li>snapmirror DFVXFJJ </li>
+<li>snapmirror_sync XJQIVFK </li>
+<li>snaprestore DNDCBQH </li>
+<li>snapvalidator JQAACHD </li>
+<li>sv_linux_pri ZYICXLC </li>
+<li>sv_ontap_pri PVOIVFK </li>
+<li>sv_ontap_sec PDXMQMI </li>
+<li>sv_unix_pri RQAYBFE </li>
+<li>sv_windows_ofm_pri ZOFNMID </li>
+<li>sv_windows_pri ZOPRKAM </li>
+<li>syncmirror_local RIQTKCL </li>
+</ul>
+<p>Лицензионный ключ – это 7 заглавных букв после имени функции. Для того, чтобы ввести лицензионный ключ дайте команду:</p>
+<p><code>license add XXXXXXX</code></p>
+<p>Допустим, мы решили оставить 3 уже назначенных диска в отдельном root aggregate (так рекомендуется по ряду причин), однако если ваша реальная система мала, то вам, возможно, не захочется терять эти 3 диска и их IOPS-ы, тогда возможен вариант с единым общим aggregate, не выделенным под root volume, а общим с пользовательстими данными. Тогда вам нужно будет создать из имеющихся дисков новый aggregate, перенести root volume на него, затем удалить старый том и aggregate, и освободившиеся 3 диска добавить к созданному вами “большому” aggregate. Как это сделать я уже <a href="../922/trackback.html">писал в блоге ранее</a>.</p>
+<p>Если же мы собираемся оставить 3 диска root vol в отдельном aggregate, то просто создавайте новый aggregate на оставшихся 25 дисках. Однако тут имеет смысле сделать небольшие изменения в опциях системы. Дело в том, что размер RAID-группы по умолчанию в Data ONTAP равен 16 дискам (а максимальный для дисков FC, SAS и виртуальных дисков симулятора – 28). Если вы создаете большой единый aggregate на всех 25 дисках, то, при установленном размере RAID-группы равной 16, он создастся так:</p>
+<p>Сперва будет взято 16 дисков, из которых 2 будут RAID-DP parity и dparity, а остальные 14 будут data в RAID-группе rg0. Затем на оставшихся будет создана вторая RAID-группа (rg1), из оставшихся 9 дисков, которые, в свою очередь, станут двумя parity и 7 data. В дальнейшем, если в aggregate добавляются новые диски они добавляются в “неполную” RAID-группу, пока она не достигнет заданного в опциях размера в 16 дисков, а следующие создадут еще одну новую “неполную” группу.</p>
+<p>Логично было бы, особенно на небольшом числе дисков, не полагаться на такую автоматику, а самостоятельно расчитать и создать RAID-группы, по возможности равного размера. То есть, с точки зрения порядка, аккуратности (да и производительности) вариант 12+12+1 hot spare будет лучше, чем 16+8+1hs. А в нашем случае мы поступим еще лучше, мы просто увеличим заданный размер RAID-группы до максимума (28), или, хотя бы до 25. Тогда все наши диски поместятся в одну группу. Дадим в консоли команду:</p>
+<p><code>aggr options aggr1 raidsize 28</code></p>
+<p>Теперь добавим оставшиеся unassigned диски в созданный aggr0</p>
+<p><code>aggr add aggr1 24</code></p>
+<p>Мы оставим один диск под spare, это требование Data ONTAP. Для того, чтобы в логах не валились сообщения о нехватке spares, проверьте значение опции:</p>
+<p><code>options raid.min_spare_count 1</code></p>
+<p>Здесь 1 – количество spare для данного контроллера. Одного будет вполне достаточно, а при количестве дисков более 16 поставить 0 система не даст.</p>
+<p>??меет смысл также уменьшить резерв под snapshots уровня aggregate. Что это я уже тоже писал в блоге, есл вкратце и в двух словах – это вам не надо, это для Metrocluster, синхронной репликации, и может помочь для ремонта сильно поврежденной WAFL. Если у вас этого всег нет, то можете этот резерв убрать и выключить расписание создания их. </p>
+<p><code>snap reserve -A aggr1 0      <br />snap sched -A aggr1 0</code></p>
+<p>Отдельно отмечу, это ТОЛЬКО для специальных, внутренних снэпшотов уровня aggregate, на обычные и привычные пользовательские снэпшоты уровня volume и файлов это не влияет, они буду работать по-прежнему, и вы по-прежнему сможете их использовать.</p>
+<p>Вот теперь все готово к созданию томов и экспериментам. Можете начать из консоли, или же подключить к симулятору System Manager, если вам в GUI привычнее. Симулятор, повторюсь, работает и ведет себя идентично реальной системе хранения (за вычетом FC, SnapLock и ограничения по объему хранения). К нему можно подключить любой софтовый продукт (System/Operations/Protection/Provision Manager, SnapManager, VSC), настроить на него репликацию, использовать его как получатель (secondary) или источник (primary) для SnapVault, и так далее.</p>
+<p>В основу этого поста легла статья <a href="http://mtellin.com/2011/01/03/getting-started-with-the-netapp-ontap-8-0-1-simulator/">http://mtellin.com/2011/01/03/getting-started-with-the-netapp-ontap-8-0-1-simulator/</a>.</p>
+<p>В следующей статье я покажу, как можно добавить диски симулятору, сверх предустановленных 28, а также добавить serial console или изменить предустановленный серийный номер и SystemID, если вы планируете использовать несколько разных симуляторов в одной сети.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="801.html" rel="tag">8.0.1</a>, <a href="howto/index.html" rel="tag">howto</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="simulator.html" rel="tag">simulator</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1099/trackback.html#comments" title="Комментарий к записи Настраиваем Data Ontap Simulator 8">Комментарии (3)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1098">
+				<h2 class="posttitle"><a href="../1098/trackback.html" rel="bookmark" title="Permanent Link to Как поставить Data ONTAP Simulator v8 на VMware">Как поставить Data ONTAP Simulator v8 на VMware</a></h2>
+				<div class="postmetadata">5 Декабрь 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Я уже рассказывал в этом блоге про то, <a href="../40/trackback.html">что такое Data ONTAP Simulator</a>, и чем он полезен, не только когда у вас нет “живой” системы хранения NetApp под руками, но даже, причем в большей степени, когда она у вас есть. На таком симуляторе можно упражняться “на кошечках”, можно проверять какие-то свои идеи, ставить эксперименты, отлаживать какие-то решения (не на продакшновом же сторадже это проделывать?), наконец учиться и обучать новичков.</p>
+<p>Однако, как вы знаете, Data ONTAP 8 отличается от DOT7 довольно прилично. Была изменена платформа, на которой выполняется код собственно NetApp. В результате теперь по другому выглядит и Симулятор. Если раньше, для версии 7, это была программа под Linux, то Симулятор под Data ONTAP v8 это самостоятельный образ виртуальной машины, который можно запустить из под, например, VMware Player, или установить ее как VM в ESX.</p>
+<p>Вот как раз этому варианту и посвящена эта статья, которую в оригинале я подсмотрел на <a href="http://mtellin.com/2010/03/12/use-ontap-8-0-7-mode-simulator-on-esx/">http://mtellin.com/2010/03/12/use-ontap-8-0-7-mode-simulator-on-esx/</a></p>
+<p>   <a href="../1098/trackback.html#more-1098" class="more-link"><small>Continue reading &#8216;Как поставить Data ONTAP Simulator v8 на VMware&#8217; &raquo;</small></a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="801.html" rel="tag">8.0.1</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="simulator.html" rel="tag">simulator</a>, <a href="vmware/index.html" rel="tag">vmware</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1098/trackback.html#comments" title="Комментарий к записи Как поставить Data ONTAP Simulator v8 на VMware">Комментарии (3)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-293">
+				<h2 class="posttitle"><a href="../293/trackback.html" rel="bookmark" title="Permanent Link to Обратная связь">Обратная связь</a></h2>
+				<div class="postmetadata">12 Июнь 2009, 0:50 <!-- от  --></div>
+				<div class="postentry">
+					<p>Порой процесс взаимодействия меня, как автора, с читателями бывает довольно необычен.<br />
+Тем 44 посетителям, что зашли в течении прошедшего месяца с поисковиков по запросу:<br />
+<code>netapp simulator how to add disk</code></p>
+<p>Вот так:)</p>
+<p><img src="/pics/makedisks.png" alt="netapp simulator how to add disk" /></p>
+<p>В корне папки симулятора лежит скрипт makedisks. Кроме добавления дисков, как видите, он еще может изменить кучу настроек, которые обычно ставятся в момент инсталляции симулятора.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="howto/index.html" rel="tag">howto</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="simulator.html" rel="tag">simulator</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../293/trackback.html#respond" title="Комментарий к записи Обратная связь">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-40">
+				<h2 class="posttitle"><a href="../40/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP Simulator">Data ONTAP Simulator</a></h2>
+				<div class="postmetadata">27 Август 2007, 16:17 <!-- от  --></div>
+				<div class="postentry">
+					<p>Вполне возможно мне уже удалось заинтересовать некоторых моих читателей возможностями систем хранения Network Appliance. Однако одно дело слушать рассказы, а совсем другое - попробовать самому, ибо &#8220;даже маленькая практика стоит большой теории&#8221;.</p>
+<p>?? тут я хотел бы рассказать о существовании поистине уникального для рынка систем хранения продукта - Симуляторе системы хранения NetApp. </p>
+<p>Пожалуй самым правильным будет процитировать тут <a href="http://blogs.netapp.com/dave/2006/11/simulate_netapp.html">заметку Dave Hitz</a> в блоге NetApp об этом продукте:</p>
+<blockquote><p>Несколько лет назад мы начали получать жалобы от системных администраторов, которые использовали системы NetApp, примерно такого вида:</p>
+<p><em>&#8220;Мне хочется попробовать новые возможности вашего нового релиза Data ONTAP, но все мои системы в продакшне, а мой босс не хочет покупать &#8220;железо&#8221; для моих экспериментов&#8221;</em></p>
+<p>Чтобы решить эту проблему мы выпустили &#8220;ONTAP Simulator&#8221;. Симулятор это полная версия Data ONTAP, которая работает как процесс под Linux. Вместо реальных жестких дисков она открывает файлы с именами disk.1, disk.2 и так далее. Вместо физической сетевой карты она перехватывает raw-пакеты из Linux ethernet-драйвера.</p>
+<p>Это отличный инструмент для обучения нашему Data ONTAP. Попробуйте новые возможности, или, например, убедитесь, что комбинация возможностей работает так как обещано. Вы можете удалить один из файлов дисков, чтобы увидеть, что произойдет в случае выхода из строя диска, или отредактировать дисковый файл в двоичном редакторе, чтобы увидеть что получается в случае дисковых ошибок.</p>
+<p>Мы также используем симулятор в наших учебных классах. Нам больше не нужно держать 30 систем для 30 студентов. Мы используем несколько физических систем для того чтобы показать, например, процедуру замены жесткого диска, когда безусловно нужно видеть реальное &#8220;железо&#8221;, но большинство учащихся используют симулятор. Это уменьшает шум, сберегает электричество и снижает затраты на транспорт при выездном обучении.</p>
+<p>Сперва люди только игрались им, но некоторые пользователи вскоре сумели сделать кое-что посерьезнее. Они используют симулятор для тестирования сложных конфигураций, включающих в себя системы с кластеризацией, удаленным реплицированием и долговременным архивированием информации, все с помощью нескольких симуляторов в одной Linux PC. Пользователи сообщали мне, что оказалось гораздо проще и быстрее найти ошибки конфигурации на симуляторе, чем если бы это было на реальном оборудовании, и это могло быть сделано еще до того как это реальное оборудование было куплено, привезено и установлено.<br />
+Пользователи используют симулятор также для того, например, чтобы познакомиться с новой версией OS Data ONTAP до апгрейда, для проверки как это заработает в их сетевой структуре и для отладки скриптов управления. Пользователям даже удалось выловить несколько багов Data ONTAP. За исключением низкоуровневых драйверов, симулятор <strong>в точности тот же самый код</strong>, что работает в реальном Data ONTAP, так что вы видите ровно то, как поведет себя реальная система. <em>(С некоторыми исключениями: симулятор медленнее, у него жесткий лимит по доступной дисковой емкости, и мы не эмулируем FС, так что блочный доступ может быть только iSCSI).</em></p>
+<p>Симулятор также &#8220;взросл&#8221; как и сам ONTAP. Когда мы были маленькой компанией-стартапом, мы сделали симулятор еще до того, как получили реальное &#8220;железо&#8221;. Позже инженеры обнаружили, что чаще быстрее и проще запускать эмулятор, чем загружать новую OS в реальную систему. Кроме этого инструменты дебаггинга удобнее работали в локальном процессе, чем в &#8220;железном&#8221; устройстве. Мы использовали симулятор в разработке почти 10 лет, прежде чем придумали, что это может быть также отличным инструментом для пользователей.</p>
+<p>На этот момент многие тысячи пользователей скачали симулятор. Может конечно мы и не продали несколько &#8220;железных&#8221; систем в результате, но я уверен, что большинство из этих людей просто не могут себе позволить купить дополнительное оборудование только чтобы &#8220;поиграться&#8221;. ??ными словами я думаю, что все, что позволит системным администраторам чуствовать комфорт при работе с нашими системами это наша выгода в долгосрочной перспективе, даже если мы теряем несколько продаж в краткосрочной.</p>
+</blockquote>
+<p>В принципе загрузка симулятора доступна только действующим клиентам и партнерам компании, однако для настойчивого и умелого интернетчика, умеющего <a href="http://www.google.ru/search?hl=ru&amp;q=Data+ONTAP+Simulator+ISO&amp;lr=">пользоваться поиском </a>нет <a href="http://rapidshare.com/users/F5JY14">проблем найти</a> его и <a href="http://keriomail.googlepages.com/">в свободном доступе</a>.</p>
+<p>Симулятор снабжен документацией и инструкцией по установке. Там есть несколько тонких моментов, поэтому убедитесь, что вы прочли инструкцию до конца и поняли ее.</p>
+<p>При необходимости можно даже установить &#8220;симулятор в симуляторе&#8221;, например я на своем рабочем ноутбуке использую ONTAP Simulator запущенный внутри виртуальной машины с установленным Linux-ом, работающей на бесплатном VMware Player. Конечно быстродействие такой системы оставляет желать лучшего, однако это вполне работоспособное решение при наличии досточного количества памяти на хост-машине.<br />
+Разнообразные готовые &#8220;виртуальные машины&#8221; с установленным Linux можно свободно скачать <a target="_blank" href="http://www.vmware.com/appliances/directory/cat/45">с вебсайта VMware</a>.</p>
+<p>Хочу напоследок также привлечь ваше внимание к тому факту, что если у вас есть по настоящему серьезный интерес к системам NetApp, и вы хотите не просто поэкспериментировать с конфигурированием, но и включить в свою реальную IT-систему настоящую систему хранения, например для оценки производительности или для тестирования в &#8220;боевых условиях&#8221;, то все партнеры компании имеют (должны иметь по крайней мере, если это настоящие, серьезные партнеры NetApp) демо-оборудование, которое можно получить на тестирование.</p>
+<p>Что еще почитать:<br />
+<a href="http://www.oracle.com/technology/pub/articles/garg-netapp-simulator.html"><strong>Learning Oracle RAC with the NetApp Simulator</strong></a><br />
+<em>by Sachin Garg</em></p>
+<p><a href="http://blog.scottlowe.org/2006/06/27/netapp-ontap-simulator-and-esx-server/"><strong>NetApp ONTAP Simulator and ESX Server</strong></a><br />
+<em>blog.scottlowe.org</em></p>
+<p><a href="http://blog.scottlowe.org/2006/07/10/iscsi-and-esx-server-3/"><strong>iSCSI and ESX Server 3</strong></a><br />
+<em>blog.scottlowe.org</em></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="netapp/index.html" rel="tag">netapp</a>, <a href="simulator.html" rel="tag">simulator</a>, <a href="techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../40/trackback.html#comments" title="Комментарий к записи Data ONTAP Simulator">Комментарии (4)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.094 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

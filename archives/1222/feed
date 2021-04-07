@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: NetApp ExpressPod</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1222/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1222</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:56 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-4896</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 19 Nov 2012 11:18:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-4896</guid>
+		<description>В общем имел возможность поговорить с одним технарем из команды Cisco по сабжу. К сожалению мои догадки оправдались.
+Тем не менее это решение существенно дешевле FlexPod, и тоже востребовано рынком.</description>
+		<content:encoded><![CDATA[<p>В общем имел возможность поговорить с одним технарем из команды Cisco по сабжу. К сожалению мои догадки оправдались.<br />
+Тем не менее это решение существенно дешевле FlexPod, и тоже востребовано рынком.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-4258</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 26 Oct 2012 07:04:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-4258</guid>
+		<description>bbk: 
+
+&gt; Как вы думаете зачем Cisco’вские системы вообще обозвали UCS и что в них такого особенного?
+
+Ну я так думаю, что единый фреймворк управления, тот, который в UCS 6120XP 20-port Fabric Interconnect. Видимо Алексей описался и именно его назвал Fabric Extender. ?? UCS-B и UCS-C поддерживают такое управление, пусть и в разных масштабах.</description>
+		<content:encoded><![CDATA[<p>bbk: </p>
+<p>> Как вы думаете зачем Cisco’вские системы вообще обозвали UCS и что в них такого особенного?</p>
+<p>Ну я так думаю, что единый фреймворк управления, тот, который в UCS 6120XP 20-port Fabric Interconnect. Видимо Алексей описался и именно его назвал Fabric Extender. ?? UCS-B и UCS-C поддерживают такое управление, пусть и в разных масштабах.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-4257</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 26 Oct 2012 06:54:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-4257</guid>
+		<description>2 Алексей:
+Как вы думаете зачем Cisco'вские системы вообще обозвали UCS и что в них такого особенного? FI действительно не обязательная часть для реков, но именно она их превращает в UCS. По поводу руления блейдами при помощи "Fabric Extender" это жестко, ваши коллеги по Cisco что-то вам не то говорят. FEX'ы - это абсолютно тупые бессмысленные железяки (расширители) у них даже менеджмента нет, они сами даже не управляются и темболее никем не управляют. Комментарий по поводу CNA не въехал.
+По поводу Nexus это светлая мысль, уточню этот вопрос.</description>
+		<content:encoded><![CDATA[<p>2 Алексей:<br />
+Как вы думаете зачем Cisco&#8217;вские системы вообще обозвали UCS и что в них такого особенного? FI действительно не обязательная часть для реков, но именно она их превращает в UCS. По поводу руления блейдами при помощи &#8220;Fabric Extender&#8221; это жестко, ваши коллеги по Cisco что-то вам не то говорят. FEX&#8217;ы - это абсолютно тупые бессмысленные железяки (расширители) у них даже менеджмента нет, они сами даже не управляются и темболее никем не управляют. Комментарий по поводу CNA не въехал.<br />
+По поводу Nexus это светлая мысль, уточню этот вопрос.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: navion</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-4211</link>
+		<dc:creator>navion</dc:creator>
+		<pubDate>Wed, 24 Oct 2012 13:42:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-4211</guid>
+		<description>А в Москву его не привезли :(</description>
+		<content:encoded><![CDATA[<p>А в Москву его не привезли :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-4036</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Thu, 18 Oct 2012 10:26:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-4036</guid>
+		<description>bbk: 
+На сколько мне известно, общаясь с коллегами из Cisco - Fabric Interconnect фактически необходим только в случае с блейдами, или если тебе из конвергентной среды надо вынуть с одного адаптера CNA воткнутого в сервер FC и/или 10Gb . 
+Если ставятся простые рэки, то всё можно рулить Nexus-ами и Fabric Extender-ами(при необходимости).</description>
+		<content:encoded><![CDATA[<p>bbk:<br />
+На сколько мне известно, общаясь с коллегами из Cisco - Fabric Interconnect фактически необходим только в случае с блейдами, или если тебе из конвергентной среды надо вынуть с одного адаптера CNA воткнутого в сервер FC и/или 10Gb .<br />
+Если ставятся простые рэки, то всё можно рулить Nexus-ами и Fabric Extender-ами(при необходимости).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-4000</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Wed, 17 Oct 2012 10:00:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-4000</guid>
+		<description>Судя по подключению на стенде - используются обычная сетевая карта  4*1Gb - нет там никакого UCS, Cisco Nexus 3048 здесь - это просто гигабитный управляемый коммутатор 3го уровня, только очень быстрый (и дорогой), заявленный latency 200нс, в стек собран двумя гигабитными патчкордами.</description>
+		<content:encoded><![CDATA[<p>Судя по подключению на стенде - используются обычная сетевая карта  4*1Gb - нет там никакого UCS, Cisco Nexus 3048 здесь - это просто гигабитный управляемый коммутатор 3го уровня, только очень быстрый (и дорогой), заявленный latency 200нс, в стек собран двумя гигабитными патчкордами.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-3999</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 17 Oct 2012 09:19:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-3999</guid>
+		<description>bbk:
+
+Возможно посмотрю и расспрошу в ноябре, на местном vForum.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Возможно посмотрю и расспрошу в ноябре, на местном vForum.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-3997</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 17 Oct 2012 07:52:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-3997</guid>
+		<description>??нтересно как они выкрутились без UCS FabricInterconnect, вы что-то об этом знаете?
+??ли никак не выкручивались, и оставили компьютинг часть не совсем унифицированной (или лучше сказать, совсем не унифицированной)?</description>
+		<content:encoded><![CDATA[<p>??нтересно как они выкрутились без UCS FabricInterconnect, вы что-то об этом знаете?<br />
+??ли никак не выкручивались, и оставили компьютинг часть не совсем унифицированной (или лучше сказать, совсем не унифицированной)?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-3961</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 15 Oct 2012 07:28:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-3961</guid>
+		<description>Bakset:
+
+Нет, я так понимаю, что решение принято NetApp и Cisco :)
+Вряд ли Oracle это нужно. Но подробности будут, как я понимаю, позже, пока - только то, что было опубликовано в новостях:
+
+Additionally, for companies that are virtualizing Oracle RAC databases with VMware vSphere and vCenter™, Cisco and NetApp offer validated design support, including documented deployment best practices. The Oracle RAC on FlexPod solution, validated with VMware, features secure multi-tenancy, application and data mobility, integrated data protection, and automated provisioning. These features provide organizations with a prevalidated, virtualized production solution to manage more databases in less time and space. 
+http://newsroom.cisco.com/press-release-content?type=webcontent&#038;articleId=1046630</description>
+		<content:encoded><![CDATA[<p>Bakset:</p>
+<p>Нет, я так понимаю, что решение принято NetApp и Cisco :)<br />
+Вряд ли Oracle это нужно. Но подробности будут, как я понимаю, позже, пока - только то, что было опубликовано в новостях:</p>
+<p>Additionally, for companies that are virtualizing Oracle RAC databases with VMware vSphere and vCenter™, Cisco and NetApp offer validated design support, including documented deployment best practices. The Oracle RAC on FlexPod solution, validated with VMware, features secure multi-tenancy, application and data mobility, integrated data protection, and automated provisioning. These features provide organizations with a prevalidated, virtualized production solution to manage more databases in less time and space.<br />
+<a href="http://newsroom.cisco.com/press-release-content?type=webcontent&#038;articleId=1046630" rel="nofollow">http://newsroom.cisco.com/press-release-content?type=webcontent&#038;articleId=1046630</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1222#comment-3960</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 15 Oct 2012 07:19:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1222#comment-3960</guid>
+		<description>Ссылок немного 
+http://datacenterblog.cisco.fr/tag/expresspod/
+http://www.vmguru.nl/wordpress/wp-content/uploads/2012/10/ExpressPOD-001.jpg
+http://www.vmguru.nl/wordpress/wp-content/uploads/2012/10/ExpressPOD-002.jpg</description>
+		<content:encoded><![CDATA[<p>Ссылок немного<br />
+<a href="http://datacenterblog.cisco.fr/tag/expresspod/" rel="nofollow">http://datacenterblog.cisco.fr/tag/expresspod/</a><br />
+<a href="http://www.vmguru.nl/wordpress/wp-content/uploads/2012/10/ExpressPOD-001.jpg" rel="nofollow">http://www.vmguru.nl/wordpress/wp-content/uploads/2012/10/ExpressPOD-001.jpg</a><br />
+<a href="http://www.vmguru.nl/wordpress/wp-content/uploads/2012/10/ExpressPOD-002.jpg" rel="nofollow">http://www.vmguru.nl/wordpress/wp-content/uploads/2012/10/ExpressPOD-002.jpg</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Во что обходится производительность: NetApp и EMC</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/523/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/523</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:18 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-2764</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 19 Jun 2012 12:54:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-2764</guid>
+		<description>bbk:
+
+Строго говоря "в попугаях" получаются любые тесты. Даже если их результаты "в IOPS и миллисекундах". :)</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Строго говоря &#8220;в попугаях&#8221; получаются любые тесты. Даже если их результаты &#8220;в IOPS и миллисекундах&#8221;. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-2763</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 19 Jun 2012 12:26:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-2763</guid>
+		<description>А разве тесты в попугаях? Я думал в IOPS'ах и миллисекундах.</description>
+		<content:encoded><![CDATA[<p>А разве тесты в попугаях? Я думал в IOPS&#8217;ах и миллисекундах.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-250</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Thu, 11 Feb 2010 10:27:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-250</guid>
+		<description>вторая ссылка про CIFS:
+http://www.spec.org/sfs2008/results/res2010q1/sfs2008-20091218-00149.html</description>
+		<content:encoded><![CDATA[<p>вторая ссылка про CIFS:<br />
+<a href="http://www.spec.org/sfs2008/results/res2010q1/sfs2008-20091218-00149.html" rel="nofollow">http://www.spec.org/sfs2008/results/res2010q1/sfs2008-20091218-00149.html</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-249</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Thu, 11 Feb 2010 08:01:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-249</guid>
+		<description>Тесты  Celerra NS-G8 сравнивать с каким-то NetApp просто не смешно и тоскливо. NFS - это тоска.
+Вот CIFS! 
+
+"Ну мне ли
+ Могучих
+ Бояться зверей!
+
+ Я всякого зверя
+ Сильней и храбрей!"
+
+http://www.spec.org/sfs2008/results/res2009q2/sfs2008-20090518-00124.html
+http://www.spec.org/sfs2008/results/res2009q2/sfs2008-20090518-00124.html</description>
+		<content:encoded><![CDATA[<p>Тесты  Celerra NS-G8 сравнивать с каким-то NetApp просто не смешно и тоскливо. NFS - это тоска.<br />
+Вот CIFS! </p>
+<p>&#8220;Ну мне ли<br />
+ Могучих<br />
+ Бояться зверей!</p>
+<p> Я всякого зверя<br />
+ Сильней и храбрей!&#8221;</p>
+<p><a href="http://www.spec.org/sfs2008/results/res2009q2/sfs2008-20090518-00124.html" rel="nofollow">http://www.spec.org/sfs2008/results/res2009q2/sfs2008-20090518-00124.html</a><br />
+<a href="http://www.spec.org/sfs2008/results/res2009q2/sfs2008-20090518-00124.html" rel="nofollow">http://www.spec.org/sfs2008/results/res2009q2/sfs2008-20090518-00124.html</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-248</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Thu, 11 Feb 2010 07:55:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-248</guid>
+		<description>"На днях EMC выкатило на тесты SPECmark (тесты производительности NAS enterprise-уровня)"
+читаем http://www.spec.org/spec/glossary/#specmark</description>
+		<content:encoded><![CDATA[<p>&#8220;На днях EMC выкатило на тесты SPECmark (тесты производительности NAS enterprise-уровня)&#8221;<br />
+читаем <a href="http://www.spec.org/spec/glossary/#specmark" rel="nofollow">http://www.spec.org/spec/glossary/#specmark</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-247</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Thu, 11 Feb 2010 07:54:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-247</guid>
+		<description>http://www.spec.org/spec/glossary/#specmark
+
+:)</description>
+		<content:encoded><![CDATA[<p><a href="http://www.spec.org/spec/glossary/#specmark" rel="nofollow">http://www.spec.org/spec/glossary/#specmark</a></p>
+<p>:)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-246</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Thu, 11 Feb 2010 07:52:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-246</guid>
+		<description>2 ivs:
+
+1. V-MAX взяли, что бы не "напороться на узкое место (та самая дисковая подсистема!)"
+2. Если "поставить на бекэнд CLARiiON с конфигурацией аналогичной FAS6080 в тесте) - то производительность скорее всего не упадет"
+
+логика не понятна :) - Нафига козе боян, если поп не хулиган?</description>
+		<content:encoded><![CDATA[<p>2 ivs:</p>
+<p>1. V-MAX взяли, что бы не &#8220;напороться на узкое место (та самая дисковая подсистема!)&#8221;<br />
+2. Если &#8220;поставить на бекэнд CLARiiON с конфигурацией аналогичной FAS6080 в тесте) - то производительность скорее всего не упадет&#8221;</p>
+<p>логика не понятна :) - Нафига козе боян, если поп не хулиган?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-219</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Sat, 06 Feb 2010 11:59:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-219</guid>
+		<description>Отчасти согласен, но мы ведь технические люди - не так ли? Я и написал от хеническом аспекте.
+А что подложили дорогущий overcvalified бекэнд сторадж - да, это было глупо.</description>
+		<content:encoded><![CDATA[<p>Отчасти согласен, но мы ведь технические люди - не так ли? Я и написал от хеническом аспекте.<br />
+А что подложили дорогущий overcvalified бекэнд сторадж - да, это было глупо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-218</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 06 Feb 2010 04:03:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-218</guid>
+		<description>Не-не-не, погоди. Для того и проводятся тесты, чтобы не "догадываться", а "знать". "Ведь ты понимаешь" это неправильное начало для обсуждения результата.
+О чем,собственно, я и написал. У EMC проблемы в методологии.
+
+Опять же повторюсь, никто же не заставляет публиковать _имено эти_ результаты. Попробовали так, попробовали сяк, нет большой разницы - давайте опубликуем вариант подешевле. Железа-то в тестлабе у EMC поди навалом.
+
+А так получается предмет для критики. ?? вот уже конкуренты ехидно спрашивают, что "не оттого ли вы не участвуете в SPC-1, что там надо указывать цену и считать IOPS per $?"
+</description>
+		<content:encoded><![CDATA[<p>Не-не-не, погоди. Для того и проводятся тесты, чтобы не &#8220;догадываться&#8221;, а &#8220;знать&#8221;. &#8220;Ведь ты понимаешь&#8221; это неправильное начало для обсуждения результата.<br />
+О чем,собственно, я и написал. У EMC проблемы в методологии.</p>
+<p>Опять же повторюсь, никто же не заставляет публиковать _имено эти_ результаты. Попробовали так, попробовали сяк, нет большой разницы - давайте опубликуем вариант подешевле. Железа-то в тестлабе у EMC поди навалом.</p>
+<p>А так получается предмет для критики. ?? вот уже конкуренты ехидно спрашивают, что &#8220;не оттого ли вы не участвуете в SPC-1, что там надо указывать цену и считать IOPS per $?&#8221;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/523#comment-217</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Fri, 05 Feb 2010 22:34:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=523#comment-217</guid>
+		<description>Ромх, вот тут я совсем не согласен с твоим выводом.
+
+На бекэнде дорогущий V-Mac с SSD только для одной причины - бескомпромисное хранилище, то есть SPECsfs2008_nfs.v3 показал чистую производительность бошек (двух Celerra NS-G8 Datamovers) без опаски напороться на узкое место (та самая дисковая подсистема!).
+
+Ведь ты понимаешь, что если сильно уменьшить ценик EMC-системы (поставить на бекэнд CLARiiON с конфигурацией аналогичной FAS6080 в тесте) - то производительность скорее всего не упадет! Тогда сравняются и ценники и производительность - и говорить будет не о чем.
+
+
+Жаль, что это понимает даже технарей полпроцента, но говорю уже о Заказчиках (:</description>
+		<content:encoded><![CDATA[<p>Ромх, вот тут я совсем не согласен с твоим выводом.</p>
+<p>На бекэнде дорогущий V-Mac с SSD только для одной причины - бескомпромисное хранилище, то есть SPECsfs2008_nfs.v3 показал чистую производительность бошек (двух Celerra NS-G8 Datamovers) без опаски напороться на узкое место (та самая дисковая подсистема!).</p>
+<p>Ведь ты понимаешь, что если сильно уменьшить ценик EMC-системы (поставить на бекэнд CLARiiON с конфигурацией аналогичной FAS6080 в тесте) - то производительность скорее всего не упадет! Тогда сравняются и ценники и производительность - и говорить будет не о чем.</p>
+<p>Жаль, что это понимает даже технарей полпроцента, но говорю уже о Заказчиках (:</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: 64-bit aggregates в Data ONTAP 8</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/612/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/612</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:08 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/612#comment-457</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 03 Jun 2010 13:09:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=612#comment-457</guid>
+		<description>Yes, I'm talking about PAM, not Flash Cache (more recent name for PAMII). Thank you for your comment. It can be important for some users. 
+Hope some support for 64-bit aggr AND Flash Cache (PAMII) will be added soon.</description>
+		<content:encoded><![CDATA[<p>Yes, I&#8217;m talking about PAM, not Flash Cache (more recent name for PAMII). Thank you for your comment. It can be important for some users.<br />
+Hope some support for 64-bit aggr AND Flash Cache (PAMII) will be added soon.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Mohit</title>
+		<link>http://blog.aboutnetapp.ru/archives/612#comment-456</link>
+		<dc:creator>Mohit</dc:creator>
+		<pubDate>Thu, 03 Jun 2010 12:21:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=612#comment-456</guid>
+		<description>Nice Stuff, however as per my knowledge still PAMII card doesn't supports 64bit aggregate so either you are stuck with 32 bit aggregate or PAMI card.</description>
+		<content:encoded><![CDATA[<p>Nice Stuff, however as per my knowledge still PAMII card doesn&#8217;t supports 64bit aggregate so either you are stuck with 32 bit aggregate or PAMI card.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/612#comment-455</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 03 Jun 2010 05:53:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=612#comment-455</guid>
+		<description>Вообще-то в русском языке слово "агрегат" однозначно связано с машиностроением и прочими такими же отраслями.
+У переводчиков есть даже такой термин как &lt;a href="http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5_%D0%B4%D1%80%D1%83%D0%B7%D1%8C%D1%8F_%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%87%D0%B8%D0%BA%D0%B0" rel="nofollow"&gt;"ложные друзья переводчика"&lt;/a&gt;, для слов, которые, казалось бы, "переводятся" в аналогичное по звучанию на русском, но несущее при этом совсем другой смысл.
+В качестве примера приведу какое-нибудь "magazine", которое переводится вовсе не "магазин", и прочие подобные :)</description>
+		<content:encoded><![CDATA[<p>Вообще-то в русском языке слово &#8220;агрегат&#8221; однозначно связано с машиностроением и прочими такими же отраслями.<br />
+У переводчиков есть даже такой термин как <a href="http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5_%D0%B4%D1%80%D1%83%D0%B7%D1%8C%D1%8F_%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%87%D0%B8%D0%BA%D0%B0" rel="nofollow">&#8220;ложные друзья переводчика&#8221;</a>, для слов, которые, казалось бы, &#8220;переводятся&#8221; в аналогичное по звучанию на русском, но несущее при этом совсем другой смысл.<br />
+В качестве примера приведу какое-нибудь &#8220;magazine&#8221;, которое переводится вовсе не &#8220;магазин&#8221;, и прочие подобные :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: centrist</title>
+		<link>http://blog.aboutnetapp.ru/archives/612#comment-454</link>
+		<dc:creator>centrist</dc:creator>
+		<pubDate>Thu, 03 Jun 2010 05:05:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=612#comment-454</guid>
+		<description>вообще-то слово "агрегат" в русском есть</description>
+		<content:encoded><![CDATA[<p>вообще-то слово &#8220;агрегат&#8221; в русском есть</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

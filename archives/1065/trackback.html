@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Обновление timezone на системах хранения NetApp</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1064/trackback.html">SearchStorage Quality Awards 2011 for Midrange Storage</a></div>
+			<div class="alignright"><a href="../1043/trackback.html">iSCSI или FC? Цена решения.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1065">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Обновление timezone на системах хранения NetApp">Обновление timezone на системах хранения NetApp</a></h2>
+			<div class="postmetadata">12 Октябрь 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Как вы все знаете, <em>внезапно</em> Россия решила прекратить сезонную смену временного сдвига (так называемый “переход на зимнее/летнее время”). Оставив за рамками данной статьи все прочие аспекты этой темы, сосредоточимся на проблемах сисадминских.</p>
+<p>Как вы знаете, все действующие в настоящее время OS умеют автоматически осуществлять переход&#160; и производить соответствующий сдвиг времени, в какой бы стране они ни были установлены (конечно, если правильно эта страна для OS указана). Средство, которое позволяет OS правильно, и в соответствии с национальными правилами (часто разными в разных странах), провести эту корректировку времени – это составляемая&#160; Американской Национальной Лабораторией Времени (NIST) специальная база данных в файлах, которую производители OS, будь то Linux или Windows, распространяют с регулярными апдейтами.</p>
+<p>Но как быть с такими OS, как Data ONTAP? Ведь от правильной установки времени, например, зависит работа механизма аутентификации Kerberos, и при несовпадении локального времени сервера или NAS-стораджа и контроллера домена, пользователи не смогут получить доступ к данным (их сессионные тикеты системы аутентификации Kerberos “испортятся”, например для домена Windows допустимо временное смещение для членов домена не более 15 минут).</p>
+<p>Если вы обновляете Data ONTAP регулярно, то новое содержимое timezone у вас придет с новой версией. Если же нет – нужно записать свежий timezone, на место старого, в вашей текущей версии.</p>
+<p>По этому поводу в Knowledge Base у NetApp есть соответствующая статья, вот вам ее сокращенный перевод.    <br />(Я не стал переводить части, относящиеся к NetCache, VTL, а также 8.0 Cluster-mode системам).</p>
+<h3><a href="https://kb.netapp.com/support/index?page=content&amp;id=1011616">How to update timezone information on NetApp appliances</a></h3>
+<p>KB ID: 1011616 Version: 3.0 Published date: 08/02/2011 </p>
+<p>Эта статья рассматривает следующие темы:</p>
+<ul>
+<li>Обновление информации timezone на Data ONTAP 7G / 7-Mode
+<ul>
+<li>Версии Data ONTAP, на которые распространяется эта информация </li>
+<li>Скачивание и обновление файлов timezone </li>
+<li>Установка новых значений timezone </li>
+</ul>
+</li>
+</ul>
+<p>[опущены разделы о NetCache, 8.0 Cluster-mode и пр.]</p>
+<p><strong>На какие версии Data ONTAP распространяется эта информация:</strong></p>
+<p>Все версии Data ONTAP подвержены изменениям правил в&#160; timezone. Эти правила определяют, когда и каким образом происходит переключение локального Daylight Savings Time, а также прекращается такое переключение и производится возврат к Standard Time.</p>
+<p>Каждая версия Data ONTAP поставляется с версией файлов timezone, текущей на момент публикации соответствующего релиза. Когда появляются обновления правил timezone после выхода версии Data ONTAP, файлы timezone следует обновить вручную, согласно инструкции, приведенной ниже.</p>
+<p><strong>Скачивание и обновление файлов timezone:</strong>     <br />Файлы timezone, которые поставляет в составе Data ONTAP компания NetApp, берутся из репозитория NIST (<a href="ftp://elsie.nci.nih.gov/pub/">ftp://elsie.nci.nih.gov/pub/</a>) , а затем компилируются и помещаются как zip, tar или в виде обычных файлов. NetApp отслеживает изменения в репозитори и автоматически получает самую свежую версию файлов, размещаемую на сайте NOW (NetApp Support).</p>
+<p>Процесс скачивания файла на компьютер администратора под Windows/UNIX и распаковка его на систему хранения</p>
+<p><strong>С компьютера под управлением UNIX, с использованием NFS для подключения к&#160; root volume:</strong></p>
+<p>Complete the following steps to extract the ontap_zoneinfo.tar file from a UNIX admin host to the storage system&#8217;s /etc directory:</p>
+<ol>
+<li>Войдите на сайт <a href="https://now.netapp.com/eservice/SupportHome.jsp">NetApp Support</a>. </li>
+<li>Скачайте и запишите на локальный диск свежую версию файла ontap_zoneinfo.zip (щелкните по ссылке ниже и выберите <em>Save as&#8230;</em> или <em>Записать файл как…</em>:       <br /><a href="http://now.netapp.com/NOW/download/tools/ontap_timezone/current_version/ontap_zoneinfo.zip">http://now.netapp.com/NOW/download/tools/ontap_timezone/current_version/ontap_zoneinfo.zip</a>       <br />Если вы по какой-то причине не можете скачать его оттуда, то версия на момент написания этого перевода <a href="/docs/ontap_zoneinfo.zip">лежит тут</a> (обратите внимание! Эта версия не обновляется, и действительна для октября 2011 года!). </li>
+<li>Введите следующие команды:      <br /><code>unix&gt; mount&#160;&#160; &lt;filername:/vol/ROOTVOLUME&gt;&#160;&#160; /MOUNTPOINT</code>       <br />Внимание: Если вы получили в ответ на команду сообщение RPC error, это означает, что система хранения не имеет экспорта для root voume. Если вы получаете RPC error, войдите на систему хранения как root, и выполните следующую команду:       <br /><code>exportfs -i -o /</code>       <br />Затем повторите команду монтирования. </li>
+<li>Введите команду:      <br /><code>unix&gt; cd MOUNTPOINT/&gt;etc</code> </li>
+<li>Введите команду:      <br /><code>unix&gt; gunzip PATHTOZONEFILE&gt;/ontap_zoneinfo.zip</code> </li>
+<li>Введите команду:      <br /><code>unix&gt; cd /</code> </li>
+<li>Введите команду:      <br /><code>unix&gt; umount MOUNTPOINT&gt;</code> </li>
+<li>Проведите инициализацию новых установок и правил нового timezone. </li>
+</ol>
+<p><strong>С компьютера под управлением Windows, с использованием CIFS для подключения к root volume:</strong></p>
+<p>Выполните следующие шаги, для того, чтобы распаковать ontap_zoneinfo.zip в сетевую папку ETC$ на системе хранения:</p>
+<ol>
+<li>Войдите на сайт <a href="https://now.netapp.com/eservice/SupportHome.jsp">NetApp Support</a>. </li>
+<li>Скачайте и запишите на локальный диск свежую версию файла ontap_zoneinfo.zip (щелкните по ссылке ниже и выберите <em>Save as&#8230;</em> или <em>Записать файл как…</em>:       <br /><a href="http://now.netapp.com/NOW/download/tools/ontap_timezone/current_version/ontap_zoneinfo.zip">http://now.netapp.com/NOW/download/tools/ontap_timezone/current_version/ontap_zoneinfo.zip</a> </li>
+<li>Подключите сетевой ресурс (share) ETC$ с системы хранения как сетевой диск на букву диска T: на админском компьютере.      <br /><strong>Внимание:</strong> Выбор имен диска T: приведен для примера. ??спользуйте любую доступную букву. </li>
+<li>Распакуйте содержимое файла ontap_zoneinfo.zip на диск T: . </li>
+<li>Проведите инициализацию новых установок и правил нового timezone. </li>
+</ol>
+<p><strong>??нициализация новых установок и правил timezone</strong></p>
+<p><font color="#c0504d">ВАЖНО: Обязательно выполните приведенные шаги для успешного обновления информации timezone!</font></p>
+<p>Для загрузки новых установок timezone, исполните следующие команды:</p>
+<ol>
+<li>Введите команду:      <br /><code>filer&gt; timezone </code>      <br /><code>Current time zone is <em>Location/YourTimezone</em></code>&#160;&#160;&#160;&#160; &lt;&#8212; введите текст, который будет выведен на месте выделенного курсивом на следующем шаге. </li>
+<li>Введите команду:      <br /><code>filer&gt; timezone <em>Location/YourTimezone</em></code>&#160; </li>
+</ol>
+<p>(например: <code>filer&gt; timezone Europe/Moscow</code>)</p>
+<p>Система хранения НЕ ТРЕБУЕТ перезагрузки для обновления и установки новых значений правил timezone.</p>
+<p><font color="#c0504d">Внимание: НЕ ПЕРЕСТАВЛЯЙТЕ ВРЕМЯ НА С??СТЕМЕ ХРАНЕН??Я ВРУЧНУЮ ВПЕРЕД ?? НАЗАД. Это не является правильным способом проверить новые изменения DST (Daylight Saving Time). Если вы так сделаете, не будут работать расписания создания снэпшотов, пока система не будет перезагружена. Такое поведение документировано в баге BUG </font><a href="http://now.netapp.com/NOW/cgi-bin/bol?Type=Detail&amp;Display=234237"><font color="#c0504d">234237</font></a> (<em>в настоящий момент считается fixed на всех актуальных версиях Data ONTAP. прим romx</em>)<font color="#c0504d">.</font></p>
+<p><font color="#c0504d">??нженеры NetApp проверили и подтвердили, что процедура, описанная в данной статье, успешно решает задачу изменения установок и правил DST.</font></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/dst.html" rel="tag">DST</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/time.html" rel="tag">time</a>, <a href="../tag/timezone.html" rel="tag">timezone</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (19)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1790">
+		<div id="div-comment-1790">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Как же вовремя&#8230; :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1790" title="">13 Октябрь 2011, 20:50</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1794">
+		<div id="div-comment-1794">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Александр:</p>
+<p>На самом деле многие темы рождаются из вопросов читателей. Вот недавно человек спросил - &#8220;Как?&#8221;, а я и не знаю. Пошел искать ответ и написалась статья.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1794" title="">14 Октябрь 2011, 23:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1799">
+		<div id="div-comment-1799">
+		<div class="comment-author">
+			<cite>Umlyaut:<cite></div>
+			<p>&gt;На самом деле многие темы рождаются из вопросов читателей. Вот недавно человек спросил - “Как?”</p>
+<p>Роман, а можно спросить &#8220;как?&#8221; насчёт нюансов работы СХД с SSD-дисками?<br />
+Верно ли я понимаю, что пресловутые TRIM/BackgroundGC там всё же реализованы силами встроенной NOS?</p>
+<p>С уважением,<br />
+Umlyaut.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1799" title="">17 Октябрь 2011, 14:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1800">
+		<div id="div-comment-1800">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Umlyaut:</p>
+<p>Рекомендую спрашивать почтой, так как во первых все же оффтоп, а во вторых комментарии не уведомляются, и об ответе можно ничего не узнать, если не зайти и не посмотреть.</p>
+<p>Про SSD собираюсь в будушем как-нибудь написать.<br />
+Про TRIM там ситуаця такая.<br />
+1. Это команда, входящая в стандарт SATA.<br />
+2. Команду должен с одной стороны поддерживать контроллер диска и как-то на нее реагировать.<br />
+3. С другой стороны ее должна уметь отдавать OS.<br />
+4. Также стоит помнить, что в WAFL запись и удаление делается принципиально по иному, и многие проблемы &#8220;классических FS&#8221; не валидны для нее. (Например проблема с удалением блока на странице Flash, собственно и требующая TRIM)</p>
+<p>В качестве SSD все enterprise вендоры, насколько я знаю, используют диски компании STEC. Есть подозрение, что у них с реализацией TRIM все в порядке.<br />
+Реализован ли TRIM на уровне Data ONTAP - думаю что да, но стоит помнить про написаное в п.4.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1800" title="">17 Октябрь 2011, 16:18</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1805">
+		<div id="div-comment-1805">
+		<div class="comment-author">
+			<cite>Umlyaut:<cite></div>
+			<p>Роман, спасибо за ответ&#8230; и позволю себе ещё тут кое-что уточнить по теме SSD (не оффтопа ради, но связности для) - коль скоро Вы планируете статью, то, возможно, мои уточнения/вопросы Вам пригодятся.</p>
+<p>Про 1,2,3 - без вопросов, это &#8220;классика жанра&#8221;.</p>
+<p>Про п.4&#8230; </p>
+<p>&gt;(Например проблема с удалением блока на странице Flash, собственно и требующая TRIM)</p>
+<p>&#8230; ??МХО, не совсем так.</p>
+<p>TRIM решает (а точнее - обходит) не &#8220;проблему с удалением блока&#8221;, а проблему записи данных в блок (кластер, сектор - короче, в физическую ячейку) SSD при условии, что место для записи уже было до того использовано (т.е. несвободно с т.з. внутреннего контроллера SSD (флэша)). </p>
+<p>Собственно, если ОС (Data ONTAP) умеет отдать &#8220;вниз&#8221; (согласно пп2,3), через дисковый SATA/SAS-контроллер внутреннему контроллеру флэша SSD, TRIM-посылку о том, что у неё на файловой системе WAFL во-о-о-от эти блоки помечены как свободные, то никаких проблем - внутренний контроллер флэша SSD во время простоя устроит очистку физ.ячеек флэша, по его мнению соответствующим &#8220;логическому уровню&#8221;. т.е. блокам ФС, освобождённым с т.з.операционки.</p>
+<p>С такого ракурса вся уникальность WAFL как ФС нисколько не выделяет её в ряду любых иных ФС (это я про Ваше &#8220;Также стоит помнить, что в WAFL запись и удаление делается принципиально по иному, и многие проблемы “классических FS” не валидны для нее.&#8221;).</p>
+<p>Ещё раз извините за оффтоп: будет Ваша статья про SSD на СХД - с удовольствием переберусь в её комменты с обсуждением.</p>
+<p>С уважением,<br />
+Umlyaut.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1805" title="">18 Октябрь 2011, 16:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1806">
+		<div id="div-comment-1806">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Umlyaut:</p>
+<p>> С такого ракурса вся уникальность WAFL как ФС нисколько не выделяет её в ряду любых иных ФС</p>
+<p>Не, не так. Вы не поняли. :) Но давайте все же продолжим позже, в комментариях к соответствующей статье. ??ли, если хотите сейчас, то в почте.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1806" title="">18 Октябрь 2011, 18:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1807">
+		<div id="div-comment-1807">
+		<div class="comment-author">
+			<cite>Umlyaut:<cite></div>
+			<p>Если у Вас есть время и желание помочь разобраться в этом вопросе, то я был бы склонен продолжить в почте (благо, мой мейл должен быть у Вас по факту моего комментирования). Жду от Вас соображений насчёт того, что именно я не понял. :)</p>
+<p>С уважением,<br />
+Umlyaut.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1807" title="">18 Октябрь 2011, 18:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1832">
+		<div id="div-comment-1832">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>А в Data ONTAP® 7.3.6 timezone уже новые?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1832" title="">22 Октябрь 2011, 16:51</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1833">
+		<div id="div-comment-1833">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:</p>
+<p>Не знаю, надо в Release Notes посмотреть.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1833" title="">22 Октябрь 2011, 16:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1852">
+		<div id="div-comment-1852">
+		<div class="comment-author">
+			<cite>Дмитрий ??ванов:<cite></div>
+			<p>Роман, это я у Вас спрашивал.<br />
+Дык вот.<br />
+Проделал все по статье.<br />
+В 3-00 нетапп ПЕРЕВЕЛ время на 2, еще разок забил timezone Europe/Moskow-ничего не дало<br />
+Поставил timezone Etc/GMT-4 и успокоился. Снапшоты доступны, контроллеры не перезагружал</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1852" title="">30 Октябрь 2011, 20:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1853">
+		<div id="div-comment-1853">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Дмитрий ??ванов:</p>
+<p>> Роман, это я у Вас спрашивал.</p>
+<p>Не, не только вы.</p>
+<p>> Проделал все по статье.</p>
+<p>А в конце перечитывали содержмое нового timezone? Которое после:<br />
+&#8220;ВАЖНО: Обязательно выполните приведенные шаги для успешного обновления информации timezone!&#8221;</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1853" title="">30 Октябрь 2011, 21:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1854">
+		<div id="div-comment-1854">
+		<div class="comment-author">
+			<cite>Дмитрий ??ванов:<cite></div>
+			<p>А в конце перечитывали содержмое нового timezone?<br />
+Да, неоднократно пробовал:)<br />
+Вводил команду timezone Europe/Moscow -время в 3:01 перескочило на 2:01<br />
+Очень спать хотелось, поэтому поставил gmt-4, проверил доступность инфы в снапшотах и пошел спать</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1854" title="">30 Октябрь 2011, 23:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1902">
+		<div id="div-comment-1902">
+		<div class="comment-author">
+			<cite>Николай:<cite></div>
+			<p>&gt; Подключите сетевой ресурс (share) ETC$<br />
+Подскажите, как это сделать? Ему не нравится учетная запись под которой я пытаюсь это сделать. Пытался и под root-ом и под доменным админом. Пробовал через Web-интерфейс отдельно добавлять права Full control для произвольного доменного пользователя - но все равно не могу открыть эту шару.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1902" title="">10 Ноябрь 2011, 20:59</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1903">
+		<div id="div-comment-1903">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Николай:</p>
+<p>Сложно сказать не видя деталей, но обратите внимание, что машина под Windows, введенная в домен, при попытке логина, всегда начинает логиниться ломенным юзером, в том домене, в котором она находится.<br />
+Если у вас рабочая станция в домене, а файлер, например, нет (выбрана модель аутентификации Workgroup, то есть локальной базой пользователей), то надо логиниться в него явно указывая локального пользователя на этой машине, то есть не просто Administrator, а именно вот 192.168.1.10\Administrator (где 192.168.1.10 это адрес самого файлера).</p>
+<p>Также помните, что после активации CIFS для входа по CIFS надо пользоваться не root, а Administrator (он замаплен на root, но именно юзера root в CIFS нет, надо указывать Administrator), вход же в консоль остается root.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1903" title="">11 Ноябрь 2011, 12:41</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1904">
+		<div id="div-comment-1904">
+		<div class="comment-author">
+			<cite>Николай:<cite></div>
+			<p>romx, действительно использование Administrator место root помогло. Обновил timezones успешно. Спасибо!</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1904" title="">11 Ноябрь 2011, 13:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-1975">
+		<div id="div-comment-1975">
+		<div class="comment-author">
+			<cite>alexandr:<cite></div>
+			<p>romx, подскажите необходимо ли перезагружать контроллеры и возможны ли перерывы в работе системы в результате инициализации обновления?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1975" title="">29 Ноябрь 2011, 17:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-1976">
+		<div id="div-comment-1976">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>alexandr:</p>
+<p>Я даже выделил крупно:</p>
+<p><b>Система хранения НЕ ТРЕБУЕТ перезагрузки для обновления и установки новых значений правил timezone.</b></p>
+<p>Главное не забудьте в конце сделать указанные два пункта: вывести текушую timezone (для контроля) и <b>ввести команду с указанием текущей таймзоны</b>, при этом перечитывается новое содержимое файла timezone</p>
+<p>Также помните, что вместо перезагрузки, в подавляющем числе случаев (любых других), можно делать cluster takeover. Доступ к данным такая перезагрузка не прерывает, так как ресурсы перезагружающегося соседа принимает на себя его кластерный партнер.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1976" title="">29 Ноябрь 2011, 18:02</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2129">
+		<div id="div-comment-2129">
+		<div class="comment-author">
+			<cite><a href='http://dmarck.livejournal.com' rel='external nofollow'>dmarck</a>:<cite></div>
+			<p>Вот сегодня пришлось применить. ??справление для юниксового случая &#8212; по умолчанию в NFS, как мы помним, root мапится в непривилегированный UID (defaults to -2), так что экспортить надо вот так:</p>
+<p><b>exportfs -i -orw,root=[maint WS IP] /</b></p>
+<p>по завершении хорошо бы ещё не забыть сказать </p>
+<p><b>exportfs -r</b></p>
+						<div class="comment-meta"><a href="trackback.html#comment-2129" title="">20 Январь 2012, 0:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-13516">
+		<div id="div-comment-13516">
+		<div class="comment-author">
+			<cite><a href='../1373/trackback.html' rel='external nofollow'>На колу мочало - начинай сначала: UTC+3 | about NetApp</a>:<cite></div>
+			<p>[...] по поводу предыдущего каталипсиса, в 2011 году: Обновление timezone на системах хранения NetApp. Помните, что совпадение временных зон и времени на [...]</p>
+						<div class="comment-meta"><a href="trackback.html#comment-13516" title="">2 Июль 2014, 4:26</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1065" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.080 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

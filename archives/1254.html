@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Data ONTAP 8.2 goes RC!</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1252/trackback.html">??зменения в схеме лицензирования Data ONTAP 8.2</a></div>
+			<div class="alignright"><a href="1253/trackback.html">Как изменить serialnumber у ONTAP Edge?</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1254">
+			<h2 class="posttitle"><a href="1254/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP 8.2 goes RC!">Data ONTAP 8.2 goes RC!</a></h2>
+			<div class="postmetadata">15 Апрель 2013, 7:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>??так, на днях был опубликован новый релиз Data ONTAP 8 – версия 8.2 RC1. Напомню, что в текущей модели релизов, релизы с названием RC (release candidate) являются версиями “готовыми в продакшн”, однако по ним могут быть не завершены различные внутренние compatibility тесты. Тем не менее статус RC у NetApp указывает, что код релиза стабилен, и, как правило, уже не будет меняться, а когда все внутренние процедуры сертификаций будут завершены, то этот код станет уже “не-RC”, как правило уже без фактических изменений. Поэтому RC в терминах NetApp это <strong>уже production-ready release</strong>.</p>
+<p>Так что можно “начинать смотреть” что нам там приготовили. Если вы уже понемногу привыкли, что в мире браузеров теперь “мажорные версии” меняются каждые два месяца, что вызвано, прежде всего попсовыми маркетиговыми соображениями, то и тут у NetApp своя, олдскульная стратегическая модель. По ней 8.2 это мажорный релиз в OS Generation 8 с большими функционалными изменениями. Как вы уже знаете, DOT G7 и 8.х 7-mode в настоящий момент практически заморожены, и все развитие идет в Clustered ONTAP. Посмотрим что именно.</p>
+<ul>
+<li>В Clustered ONTAP появилась поддержка SnapVault      <br />&#160; </li>
+<li>Для уровней Vserver, LUN и файлов появился Quality of Service, который позволяет определять их лимиты по IOPS или MB/s      <br />&#160; </li>
+<li>Реализована поддержа SMB 3.0 для cDOT (Clustered Data ONTAP AKA Cluster-mode), включая Continuous Availability, Witness Node (для Hyper-V) и Referrals (для standard shares).      <br />&#160; </li>
+<li>Появилась поддержка для ODX (Offloaded Data Transfer), функции, появившейся в Windows Server 2012 и Hyper-V 3.0. Как и в случае VAAI, у NetApp ODX позволяет повысить не только скорость работы, но и эффективность хранения, копирование не только ускоряется, но, при наличии лицензии FlexClone, еще и не дублирует занятые блоки.      <br />&#160; </li>
+<li>Продолжется улучшение функциональности для SMB file services, в Clustered ONTAP появились Fpolicy, Remote VSS, Branch Cache, Access Based Enumeration, Roaming Profiles, Previous Versions для снэпшотов NetApp, Folder Redirection, поддержка локальных пользователей и групп, и т.д.)      <br />&#160; </li>
+<li>Поддерживаются Consistency Groups при создании снэпшотов.      <br />&#160; </li>
+<li>Появилась поддержка непрерывающего работу перемещения aggregate в HA-паре без перемещения данных.      <br />&#160; </li>
+<li>Улучшена производительность этапа сканирования при дедупликации.      <br />&#160; </li>
+<li>Теперь в Clustered ONTAP реализована полная поддержка всех опций VMware VAAI для SAN.      <br />&#160; </li>
+<li>Про изменения в лицензиях я уже писал в четверг. Прежде чем планировать апгрейд – обязательно поговорите с вашими контактами в вендоре насчет необходимость получить новые лицензии и того, как это все будет происходить.      <br />&#160; </li>
+<li>Наконец-то появилась “безсвитчевая” конфигурация для двух нодового кластера. Как вы знаете, можно установить Cluster-mode на одну HA-пару контроллеров. Однако ранее это все равно требовало от вас иметь коммутатор 10G для этих двух контроллеров. Теперь воможна конфигурация для двух контроллеров в Clustered ONTAP без коммутатора для Cluster link. При добавлении в кластер второй и далее пары контроллеров, конечно, коммутатор понадобится.      <br />&#160; </li>
+<li>Появилась официальная поддержка для “однонодового кластера”, пример использования – “secondary” системы, например получатели репликации SnapMirror или SnapVault.      <br />&#160; </li>
+<li>Появилась поддержка Intracluster FlexCache.      <br />&#160; </li>
+<li>Вновь увеличены размеры Aggregate. Для старших систем они выросли до 400TB. В целом лимиты практически удвоены для всех платформ.      <br />&#160; </li>
+<li>Число поддерживаемых FlexVol на ноду увеличено с 500 to 1000, за исключением моделей ряда FAS2xxx и старых платформ (FAS3140 и FAS3210). Максимальное число FlexVols на кластер вцелом достигло 6000.      <br />&#160; </li>
+<li>Число LUN на ноду увеличено с 2048 до 8192, с максмальным числом на кластер нод 49.152 LUN.      <br />&#160; </li>
+<li>Infinite Volumes могут жить со стандартными FlexVol-ами и Vserver, добавлена поддержка SMB 1.0 (ранее только NFS), Flash Pool и Unified ACLs.      <br />&#160; </li>
+<li>Появилась возможность иметь разные типы RAID для SSD и HDD в Flash Pool Aggregate. Раньше, как вы помните, если Aggregate состоял из RAID-групп RAID-DP, то и на SSD два диска шли под party disks. Теперь можно сделать для HDD (например SATA) – RAID-DP, а для SSD – RAID-4 с одним parity disk. </li>
+</ul>
+<p>Data ONTAP 8.2 RC1 опубликован на NetApp Support Site, и его уже можно <a href="http://support.netapp.com/NOW/cgi-bin/software/?product=Data+ONTAP&amp;platform=FAS6290">качать оттуда</a>.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/82.html" rel="tag">8.2</a>, <a href="tag/cdot.html" rel="tag">cDOT</a>, <a href="tag/clustered.html" rel="tag">clustered</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>					&nbsp;|&nbsp;&nbsp;<a href="1254/trackback.html#respond">Комментарий</a> (<a href='1254/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1254/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (15)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-6908">
+		<div id="div-comment-6908">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Хочу, хочу, хочу!! Правда иностранный NetApp заикался ещё о возможности делать метрокластер для C-Mode т.е. возможность разносить C-Mode по ЦОДам.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-6908" title="">17 Апрель 2013, 17:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-6911">
+		<div id="div-comment-6911">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Александр:</p>
+<p>Проблема пока в &#8220;дальнобойности&#8221; 10G, используемого для межкластерного интерконнекта. ??менно это, прежде всего, ограничивает разнос узлов кластера.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-6911" title="">17 Апрель 2013, 18:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-6912">
+		<div id="div-comment-6912">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Про SnapMirror Sync ничего не слышно?</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-6912" title="">17 Апрель 2013, 19:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-6913">
+		<div id="div-comment-6913">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Роман, а как же оптический интерконнект? :) Оптику именно для дальних расстояний и придумали. В моём понимании метрокластер для цЭ-Мода должен выглядеть как объединение в цЭ-моде нескольких метрокластеров. Т.е. берем один метрокластер (один контроллер в одном ЦОДе, а другой в другом) и объединяем его в цЭ-мод с другим таким же метрокластером. Как-то так, надеюсь понятно изложил.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-6913" title="">17 Апрель 2013, 20:11</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-7148">
+		<div id="div-comment-7148">
+		<div class="comment-author">
+			<cite>Виктор:<cite></div>
+			<p>SMB 3 появится только в кластерной версии?<br />
+Причина вопроса в том, что у нас один файлер FAS2220, и рекомендуется ли переводить его на CLUSTER, мне пока не ясно.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-7148" title="">29 Апрель 2013, 19:26</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-7149">
+		<div id="div-comment-7149">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Виктор:</p>
+<p>Насколько я знаю - и в 7-mode тоже. Единственный протокол, которого нет в 7-mode, но есть в C-mode, это pNFS, и это, в общем, понятно почему.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-7149" title="">29 Апрель 2013, 20:30</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-7150">
+		<div id="div-comment-7150">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Александр:</p>
+<p>Оптика ведь никак не влияет на величину задержки в линии, а именно она определяет максимум длины кабеля от передатчика до приемника.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-7150" title="">29 Апрель 2013, 20:32</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-7643">
+		<div id="div-comment-7643">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p><b>Виктор</b><br />
+&gt;Причина вопроса в том, что у нас один файлер FAS2220, и рекомендуется ли переводить его на CLUSTER, мне пока не ясно.<br />
+Нетап перейдёт полностью на C-Mode, разработка под 7-Mode будет приостановлена до минимума.<br />
+Так что задумываться о переходе всё-равно есть повод.</p>
+<p><b>Александр</b><br />
+&gt;Оптику именно для дальних расстояний и придумали.<br />
+C-Mode в версии 8.1 поддерживал &#8220;растянутые&#8221; конфигурации, по PVR, но в 8.2 это убрали.<br />
+Возможно допиливают, не знаю.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-7643" title="">24 Май 2013, 14:14</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-7997">
+		<div id="div-comment-7997">
+		<div class="comment-author">
+			<cite>Виктор:<cite></div>
+			<p>Сейчас, когда RC уже можно скачать - в описании я вижу, что поддержка SMB3.0 появилась только в c-mode<br />
+Размышляю, стоит ли переходить на неё и какие будут плюсы-минусы.<br />
+Про плюсы более-менее ясно, а вот с минусами..</p>
+<p>во-первых:<br />
+Насколько я понимаю, в C-mode добавлен, как бы сказать, уровень виртуализации.<br />
+Насколько это дополнительно загружает файлер? У меня самый простенький по нынешним временам, FAS2220 в HA-режиме.</p>
+<p>во-вторых: насколько я вычитал, мне потребуются все новые лицензии. Видимо их надо запрашивать у поставщика (в моём случае это IT-Grad)</p>
+<p>В-третьих: перехода с 7-mode на C-mode, по-моему, не существует - то есть файлер будет полностью очищен.<br />
+шары я перекину, а что делать с LUN-ами - копировать с них информацию или есть способ экспорта/импорта (читал в этом жэе блоге про проблемы с метаданными)</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-7997" title="">10 Июнь 2013, 20:40</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-7998">
+		<div id="div-comment-7998">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Виктор:</p>
+<p>Откровенно говоря не думаю, что в вашем случае овчинка (перестановка OS) стоит выделки.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-7998" title="">10 Июнь 2013, 21:03</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-8082">
+		<div id="div-comment-8082">
+		<div class="comment-author">
+			<cite>Виктор:<cite></div>
+			<p>Спасибо</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-8082" title="">17 Июнь 2013, 21:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-10766">
+		<div id="div-comment-10766">
+		<div class="comment-author">
+			<cite>Евгений:<cite></div>
+			<p>А есть ли примеры успешного внедрения в странах СНГ Clustered DataONTAP?</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-10766" title="">28 Октябрь 2013, 13:05</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-10768">
+		<div id="div-comment-10768">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Евгений:</p>
+<p>Говорят и уже есть, говорят, что и спрашивают у партнеров вовсю, мне вот в переводы поназаказали Cluster-mode, я об этом как раз недавно писал. Так что интересн есть, и уже первые успешные инсталляции пошли, и будут еще, когда выйдет 8.3 с, по слухам, SnapMirror Sync.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-10768" title="">28 Октябрь 2013, 13:28</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-10770">
+		<div id="div-comment-10770">
+		<div class="comment-author">
+			<cite>Евгений:<cite></div>
+			<p>С удовольствием бы почитал в вашем переводе.<br />
+К слову со слов представителей NetApp Russia - 8.3 будет только Clustered, без 7-mode.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-10770" title="">28 Октябрь 2013, 13:48</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-10771">
+		<div id="div-comment-10771">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Евгений:<br />
+Да, переходный период считается завершенным, остатки фич допереносятся в Cluster-mode, и все, дальше уже только она. ?? правильно, сколько можно тащить легаси.</p>
+						<div class="comment-meta"><a href="1254/trackback.html#comment-10771" title="">28 Октябрь 2013, 13:50</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1254" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.076 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

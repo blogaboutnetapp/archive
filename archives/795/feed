@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: IBM N-series и NetApp FAS: cross-system communicating</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/795/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/795</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:52 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/795#comment-10705</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 23 Oct 2013 10:37:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/795#comment-10705</guid>
+		<description>Роман, а поддерживается ли данные отношения (репликация, архивация) со стороны NetApp?</description>
+		<content:encoded><![CDATA[<p>Роман, а поддерживается ли данные отношения (репликация, архивация) со стороны NetApp?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/795#comment-1061</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 24 Jan 2011 12:08:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/795#comment-1061</guid>
+		<description>RIchard Swain: Yes, Richard, but actually, especially here, in Russia, IBM support have had a many differences between our local IBM Support and, for example, support standards in US. And, as I know, its a big pain for our N-series customers.</description>
+		<content:encoded><![CDATA[<p>RIchard Swain: Yes, Richard, but actually, especially here, in Russia, IBM support have had a many differences between our local IBM Support and, for example, support standards in US. And, as I know, its a big pain for our N-series customers.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: RIchard Swain</title>
+		<link>http://blog.aboutnetapp.ru/archives/795#comment-1060</link>
+		<dc:creator>RIchard Swain</dc:creator>
+		<pubDate>Mon, 24 Jan 2011 11:55:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/795#comment-1060</guid>
+		<description>IBM N series is the same as the Netapp FAS, the releases are generally 60 days after Netapp GAs their code. You can purchase a entire disk shelf or a partial shelf at IBM.  IBM will support the N series system with the backing of Netapp Engineering.</description>
+		<content:encoded><![CDATA[<p>IBM N series is the same as the Netapp FAS, the releases are generally 60 days after Netapp GAs their code. You can purchase a entire disk shelf or a partial shelf at IBM.  IBM will support the N series system with the backing of Netapp Engineering.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

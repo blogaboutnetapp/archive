@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; SnapMirror, часть 1</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1258/trackback.html">VServers &ndash; теперь Storage Virtual Machines (SVM)</a></div>
+			<div class="alignright"><a href="../1262/trackback.html">Новинки на EMC World или всегда ли &ldquo;рулит софт&rdquo;?</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1260">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to SnapMirror, часть 1">SnapMirror, часть 1</a></h2>
+			<div class="postmetadata">27 Май 2013, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Как-то довольно давно у меня в блоге не появлялось постов про технические фичи. Оно и понятно, блог ведется с 2007 года, и наверное уже про все в той или иной мере я уже или писал, или упоминал в предыдущие годы,<strike> сколько можно-то уже</strike>.</p>
+<p>Тем не менее все равно остаются темы, на которые хотелось бы иметь больше информации “простым человеческим языком”, многие фичи NetApp, как я заметил, именно поэтому и не используются широко, потому что раз никто не пользуется – мало информации, а раз мало информации – вот никто и не пользуется. Так что начнем со сравнительно&#160; неплохо известного <em>в принципе</em>: с средства репликации SnapMirror.</p>
+<p><strong>SnapMirror </strong>это средство синхронной или асинхронной репликации данных как между двумя физическими системами хранения, так и для томов внутри одной системы хранения. Репликация идет по IP-сети, и в этом ее существенное отличие от других решений репликации, других вендоров, которые часто предпочитают FC.</p>
+<p>Для начала несколько слов о том, в чем разница между двумя системами репликации, имеющимися у NetApp. Это <strong>Sync</strong>Mirror и <strong>Snap</strong>Mirror.</p>
+<p>??сторически SyncMirror была синхронной репликацией (только), а SnapMirror – асинхронной (только). В те времена было все просто и понятно. Если нужна синхронная репликация – первое, асинхроная – второе. Напомню разницу: синхроная репликация – это такая, на которой сигнал “готово, записано” от стораджа к записыващему приложению не отдается до тех пор, пока блок данных не будет записан <strong>??</strong> на исходный сторадж, <strong>??</strong> на его реплику. Сперва пишем блок на локальный, потом передаем его на удаленный, записываем там, получаем ответ “записано” с удаленного, и только после этого сигналим “записано, продолжай” приложению.</p>
+<ul>
+<li><strong>Плюсы:</strong> Мы гарантированно имеем два стораджа в синхронной, идентичной копии. Если блок не записан на удаленную систему, то и на локальной он не записан, и приложение об этом знает. Никакой потери данных и рассинхронизации из-за обрыва связи между стораджами нет “по определению”. Это самый надежный способ.</li>
+<li><strong>Минусы:</strong> Это, одновременно, и самый медленный способ с точки зрения приложения. Нетрудно видеть, что скорость работы с приложением, bandwidth между приложением и стораджем, равен скорости работы, bandwidth между локальным и удаленным стораджем. Если у вас приложение подключено к стораджу по 8Gb FC, а канал между стораджами, находящимися в синхронной репликации, составляет 10Mb/s, то максимальная скорость передачи данных между приложением и локально подключенным по FC 8Gb стораджем будет составлять не более 10 мегабит в секунду, то есть будет равным скорости межстораджевого канала репликации.</li>
+</ul>
+<p>Отсюда видно, почему синхронная репликация крайне редко применяется в “географически” разнесенных решениях, а там, где она применяется в таких решениях, например в NetApp Metrocluster, это сложная и дорогая конструкция, с отдельной “фабрикой” репликации, занятой только этим.</p>
+<p>Гораздо чаще на практике для репликации двух систем хранения используют так называемую “асинхронную” репликацию. В этом случае локальная система сразу сигналит “записано” приложению, а потом, с определенным интервалом, шлет обновления на удаленную систему – “Эй, тут у меня есть свежак, прими!”</p>
+<ul>
+<li><strong>Плюсы:</strong> Производительность работы приложения с локальным стораджем максимальна, канал репликации не ограничивает производительность приложения. Кроме того существенно экономится и ресурсы самого канала. Представим себе, что приложение каждые несколько миллисекунд изменияет один блок данных. В случае синхронной репликации, каждое такое изменение должно быть передано на удаленную систему. А в случае асинхронной репликации – только одно, состояние этого блока на момент начала репликации, или же итоговое его значение после всех изменений.</li>
+<li><strong>Минусы:</strong> Удаленная копия никогда не становится идентичной локальной. Она ее всегда догоняет, но, если изменения непрерывны, всегда отстает, и этот интервал отставания называется “лагом репликации”. Более того, если не предпринимать специальных мер, то приложение может и не узнать, что каких-то данных на удаленной системе нет, или они не соответствуют данным локальной системы.</li>
+</ul>
+<p>Некоторым промежуточным вариантом является так называемая “полусинхронная” или “квазисинхронная” репликация, то есть пока успеваем физически – синхронная, когда не успеваем – не тормозим локальную систему, а переходим в асинхронный режим, и синхронизируемся так, пока не догоним, после чего опять переходим в “синхрон”.</p>
+<p>Так вот, в свете всего вышеизложенного, <strong>SyncMirror</strong> это в чистом виде <strong>синхронная</strong> репликация, причем на достаточно низком уровне. Так как вы помните, что в NetApp его RAID это просто то, как функционирует его файловая система WAFL, можно считать, что SyncMirror это просто в этой файловой системе функция RAID-1, “зеркалирование”, “мирроринг”, или, вернее будет, RAID-41 или RAID-61, как принято называть комбинированные уровни, одни, поверх уже имеющихся других.</p>
+<p>На сегодня SyncMirror в ее изначальной форме широко применяется только в Metrocluster.</p>
+<p><strong>SnapMirror</strong> – это дело другое. Она изначально создавалась как асинхронная репликация на сравнительно “высоком” уровне дисковых абстракций. Однако впоследствии удалось к ней добавить синхронный и полусинхронный режим работы, и сегодня вы можете выбирать нужный вам режим просто указывая нужный ключ в настройках в конфиге.</p>
+<p>Обратите внимание также, что в текущей лицензионной модели <strong>Sync</strong>Mirror бесплатно входит в Data ONTAP Essentials, то есть присутствует бесплатно на любой системе хранения, а вот <strong>Snap</strong>Mirror стоит денег, причем довольно существенных, и это отдельная лицензия.</p>
+<p>Ну и, наконец, слово <em>Snap</em> в названии как бы намекает нам, что за технология использована при реализации репликации – это снэпшоты, или разностные “снимки состояния” соответствующего тома. При организации репликации сначала осуществляется так называемый baseline transfer, то есть передача исходного состояния. Это довольно продолжительная и емкая по ресурсам задача, когда целиком весь объем данных реплицируемого тома передается с локальной на удаленную систему. Зато потом, когда завершен baseline transfer на удаленную систему по каналу репликации передаются только изменения от одного цикла репликации до другого, они, обычно, сравнительно невелики по объему. Технически сторадж для этого делает специальный служебный, обычно невидимый пользователю снэпшот с реплицируемого тома, а затем получившиеся изменения передает на удаленную систему, “накатывая” их на тот том, находящийся в специальном состоянии <em>restricted</em>, после чего служебный снэпшот удаляется, на следующий цикл обновления операция повторяется.</p>
+<p>??так, разобравшись с тем, что является, и что не является SnapMirror, перейдем к деталям. Продолжение следует.</p>
+<p><strong>SnapMirror, Часть 2</strong>.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/snapmirror.html" rel="tag">snapmirror</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (6)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-7703">
+		<div id="div-comment-7703">
+		<div class="comment-author">
+			<cite>panvartan:<cite></div>
+			<p>Пять копеек про syncMirror - сейчас nettapp позиционирует эту технологию, как средство от отказа полки (говорят, такое тоже бывает). В сопутствующих плюшках - повышение скорости чтения на 80% и значительное повышение устойчивости рейда при отказе больших дисков, особенно под нагрузкой.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7703" title="">27 Май 2013, 12:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-7704">
+		<div id="div-comment-7704">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>panvartan:</p>
+<p>Ну это не прям вот сейчас, а уже несколько лет как, насколько я помню, ну и - да, возможность параллельно читать с зеркала действительно позволяет улучшить производительность чтения, как и для всех ныне существующих RAID-1 контроллеров.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7704" title="">27 Май 2013, 12:54</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-7708">
+		<div id="div-comment-7708">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Мне вот интересно как сохраняется консистентность данных при асинхронной репликации. Если механизм базируется на снапшотах, которые могут быть консистентными при использовании снапменеджеров. Собственно вопрос - как? (возможно я что-то не понимаю)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7708" title="">27 Май 2013, 17:36</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-7709">
+		<div id="div-comment-7709">
+		<div class="comment-author">
+			<cite>Minus:<cite></div>
+			<p>Александр,<br />
+В случае установленных &#8220;отношений&#8221; SnapMirror между массивами можно отдавать команду на апдейт удаленной копии средствами нужного SnapManager.<br />
+Проще говоря, SnapManager делает консистентный снапшот тома, после чего именно этот снапшот передается на удаленную систему.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7709" title="">27 Май 2013, 17:53</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-7710">
+		<div id="div-comment-7710">
+		<div class="comment-author">
+			<cite>Артур:<cite></div>
+			<p>Если я правильно помню, репликация идет по IP, но при этом есть возможность в качестве транспорта использовать Fibre Channel (IP over FC).</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7710" title="">27 Май 2013, 18:56</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-7790">
+		<div id="div-comment-7790">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Артур:</p>
+<p>Да, но для этого обязательно использовать специальную интерфейсную плату, через который будет идти такая репликация, в общем в живой природе я ни разу такого варианта не видел, это осталось в качестве поддержки какого-то глубокого легаси в прошлом веке.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-7790" title="">1 Июнь 2013, 11:01</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1260" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.069 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Перешли ли вы уже на Clustered Data ONTAP (C-mode)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1351/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1351</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:13 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Yaroslav</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13940</link>
+		<dc:creator>Yaroslav</dc:creator>
+		<pubDate>Sun, 31 Aug 2014 06:15:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13940</guid>
+		<description>Офиса NetApp в Новосибирске нет</description>
+		<content:encoded><![CDATA[<p>Офиса NetApp в Новосибирске нет</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Переход на Clustered Data ONTAP. Часть 1 &#124; about NetApp</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13366</link>
+		<dc:creator>Переход на Clustered Data ONTAP. Часть 1 &#124; about NetApp</dc:creator>
+		<pubDate>Tue, 10 Jun 2014 08:25:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13366</guid>
+		<description>[...] месяцами ранее я уже проводил опрос, на тему перспектив перехода пользователей на Clustered Data [...]</description>
+		<content:encoded><![CDATA[<p>[...] месяцами ранее я уже проводил опрос, на тему перспектив перехода пользователей на Clustered Data [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Евгений</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13280</link>
+		<dc:creator>Евгений</dc:creator>
+		<pubDate>Thu, 22 May 2014 05:47:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13280</guid>
+		<description>romx:
+Насчет root aggregate спасибо, приятная новость, поищу доп. инфо на доступных ресурсах. Надеюсь, и для FAS8000 это будет актуально..
+
+Однако относительно OSSV четкий ответ (источник Technical FAQ. SnapVault in Clustered Data ONTAP. (c) Amit Prakash Sawant, NetApp March 2014) такой:
+
+Does clustered Data ONTAP 8.2 support OSSV?
+Answer: No.
+
+Эта тема интересует, так как (согласно маркетингу) потенциально является идеей использовать решение по резервному копированию на одну емкую FAS из нескольких snapvault-источников (например, в филиалах) без DOT Edge или младших линеек.
+Кроме того, вы уже однажды уже обещали рассказать поподробнее про это изделие ;-) (см.http://blog.aboutnetapp.ru/archives/1264 "Но тему OSSV и его использования мы рассмотрим как-нибудь отдельно.")</description>
+		<content:encoded><![CDATA[<p>romx:<br />
+Насчет root aggregate спасибо, приятная новость, поищу доп. инфо на доступных ресурсах. Надеюсь, и для FAS8000 это будет актуально..</p>
+<p>Однако относительно OSSV четкий ответ (источник Technical FAQ. SnapVault in Clustered Data ONTAP. (c) Amit Prakash Sawant, NetApp March 2014) такой:</p>
+<p>Does clustered Data ONTAP 8.2 support OSSV?<br />
+Answer: No.</p>
+<p>Эта тема интересует, так как (согласно маркетингу) потенциально является идеей использовать решение по резервному копированию на одну емкую FAS из нескольких snapvault-источников (например, в филиалах) без DOT Edge или младших линеек.<br />
+Кроме того, вы уже однажды уже обещали рассказать поподробнее про это изделие ;-) (см.http://blog.aboutnetapp.ru/archives/1264 &#8220;Но тему OSSV и его использования мы рассмотрим как-нибудь отдельно.&#8221;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13266</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 19 May 2014 11:45:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13266</guid>
+		<description>Евгений:
+
+??менно так и будет в отношении root aggregate. Подробнее не могу сказать, ждите анонса в июне новых моделей младшей линейки.
+
+Про OSSV не понял. Разве его куда-то девали? Как был, так и есть, бесплатен он потому, что это продавать - гнилое дело, редкостного неудобства изделие.</description>
+		<content:encoded><![CDATA[<p>Евгений:</p>
+<p>??менно так и будет в отношении root aggregate. Подробнее не могу сказать, ждите анонса в июне новых моделей младшей линейки.</p>
+<p>Про OSSV не понял. Разве его куда-то девали? Как был, так и есть, бесплатен он потому, что это продавать - гнилое дело, редкостного неудобства изделие.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Евгений</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13265</link>
+		<dc:creator>Евгений</dc:creator>
+		<pubDate>Mon, 19 May 2014 10:32:09 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13265</guid>
+		<description>Clustered Data ONTAP требует накладных расходов в виде не только 10GbE интерфейсов, но и.. отдельных дисков под root-агрегаты. Как продать заказчику дополнительные 8 дисков на системе уровня FAS2200 "чисто под систему". Выходит очень похоже на EMC уровня кларион, где 4 первых диска - под FLAREOS.
+Опять же.. все ещё непрезентабельно. Было бы неплохо помимо "узнаете в июне" (кстати, или ссылка побилась, или разный доступ), как нибудь нивелировать требование доп. дисков в качестве ещё одного накладного расхода. 
+Хочется верить, что и OSSV вернется (если уже не вернулся?) в DOT - вещь невероятно интересная, особенно радует её бесплатность в отличие от OSSP.</description>
+		<content:encoded><![CDATA[<p>Clustered Data ONTAP требует накладных расходов в виде не только 10GbE интерфейсов, но и.. отдельных дисков под root-агрегаты. Как продать заказчику дополнительные 8 дисков на системе уровня FAS2200 &#8220;чисто под систему&#8221;. Выходит очень похоже на EMC уровня кларион, где 4 первых диска - под FLAREOS.<br />
+Опять же.. все ещё непрезентабельно. Было бы неплохо помимо &#8220;узнаете в июне&#8221; (кстати, или ссылка побилась, или разный доступ), как нибудь нивелировать требование доп. дисков в качестве ещё одного накладного расхода.<br />
+Хочется верить, что и OSSV вернется (если уже не вернулся?) в DOT - вещь невероятно интересная, особенно радует её бесплатность в отличие от OSSP.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13259</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 18 May 2014 16:39:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13259</guid>
+		<description>Дмитрий:
+
+Дмитрий, а зачем вы это пишете сюда, вы надеетесь, что вам тут кто ответит?
+Достаточно несложно написать ваш вопрос в сам российский netapp, или в 2GIS, с уточнением, наверняка вы получите ответ. Тут - сомневаюсь, разве что вот "Одна Птичка" залетит, но она в старые посты редко ходит.</description>
+		<content:encoded><![CDATA[<p>Дмитрий:</p>
+<p>Дмитрий, а зачем вы это пишете сюда, вы надеетесь, что вам тут кто ответит?<br />
+Достаточно несложно написать ваш вопрос в сам российский netapp, или в 2GIS, с уточнением, наверняка вы получите ответ. Тут - сомневаюсь, разве что вот &#8220;Одна Птичка&#8221; залетит, но она в старые посты редко ходит.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Дмитрий</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13258</link>
+		<dc:creator>Дмитрий</dc:creator>
+		<pubDate>Sun, 18 May 2014 16:26:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13258</guid>
+		<description>"наличием в Новосибирске его офиса" разве в Новосибирске есть офис NetApp?
+Можно узнать контакты офиса или специалистов которые реально продают и обслуживают NetApp в новосибирске?</description>
+		<content:encoded><![CDATA[<p>&#8220;наличием в Новосибирске его офиса&#8221; разве в Новосибирске есть офис NetApp?<br />
+Можно узнать контакты офиса или специалистов которые реально продают и обслуживают NetApp в новосибирске?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Maksim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13081</link>
+		<dc:creator>Maksim</dc:creator>
+		<pubDate>Wed, 23 Apr 2014 04:54:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13081</guid>
+		<description>Прощу прощения, похоже, невольно ввел в заблуждение. Речь не о России.</description>
+		<content:encoded><![CDATA[<p>Прощу прощения, похоже, невольно ввел в заблуждение. Речь не о России.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13077</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 22 Apr 2014 07:07:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13077</guid>
+		<description>Maksim:
+
+А в России кто-то реально использует SnapLock?? 8-&#124;
+Вот прямо таки настолько часто, и настолько важно, чтобы это как-то влияло на рещение "переходить или нет?"
+Мне всегда казалось, что в условиях России это совершенно бесполезная фича. Она сертифицирована для compliance-рынка США, но я так понимаю, что для России все эти американские сертификации - ничего не значащая фитюлька, не признаваемая "компетентными органами". Удивили. За много лет знакомства с Нетаппом, не видел в России ни одной реально используемой системы со SnapLock.</description>
+		<content:encoded><![CDATA[<p>Maksim:</p>
+<p>А в России кто-то реально использует SnapLock?? 8-|<br />
+Вот прямо таки настолько часто, и настолько важно, чтобы это как-то влияло на рещение &#8220;переходить или нет?&#8221;<br />
+Мне всегда казалось, что в условиях России это совершенно бесполезная фича. Она сертифицирована для compliance-рынка США, но я так понимаю, что для России все эти американские сертификации - ничего не значащая фитюлька, не признаваемая &#8220;компетентными органами&#8221;. Удивили. За много лет знакомства с Нетаппом, не видел в России ни одной реально используемой системы со SnapLock.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Maksim</title>
+		<link>http://blog.aboutnetapp.ru/archives/1351#comment-13076</link>
+		<dc:creator>Maksim</dc:creator>
+		<pubDate>Tue, 22 Apr 2014 06:59:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1351#comment-13076</guid>
+		<description>Многие заказчики задерживаются с переходом на cDOT из-за отсутствия (пока) поддержки SnapLock.</description>
+		<content:encoded><![CDATA[<p>Многие заказчики задерживаются с переходом на cDOT из-за отсутствия (пока) поддержки SnapLock.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

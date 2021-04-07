@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; PAM - Performance Acceleration Module</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../591/trackback.html">VMware на NFS: Best Practices</a></div>
+			<div class="alignright"><a href="../600/trackback.html">About NetApp: 3 года &ldquo;в эфире&rdquo;</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-599">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to PAM - Performance Acceleration Module">PAM - Performance Acceleration Module</a></h2>
+			<div class="postmetadata">10 Май 2010, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Вот уже пару лет как у NetApp в номенклатуре продуктов находится интересный, но все еще не слишком известный широкому кругу пользователей продукт – <strong>PAM – Performance Acceleration Module</strong>, а в прошлом году к нему в компанию добавился еще один вариант – <strong>PAM-II</strong> (ныне <strong>Flash Cache</strong>). </p>
+<p>Давайте разберемся подробнее что это, чем полезно и как применяется. </p>
+<p>Первое, что следует понимать, чтобы разобраться в том, что есть PAM и как его применяют:    <br /><strong>PAM это не SSD!</strong></p>
+<p><strong><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="PAMII" border="0" alt="PAMII" src="/pics//pamii1.jpg" width="470" height="246" /> </strong></p>
+<p>Широкое распространение SSD (даже этот пост пишется на ноутбуке с SSD) привело к тому, что любой продукт так или иначе использующий память для хранения данных называется “SSD”.</p>
+<p>Давайте разберемся, что такое SSD, и чем PAM <em><strong>не SSD</strong></em>.</p>
+<p> <span id="more-599"></span></p>
+<p>SSD – Solid State Disk, “твердотельный диск”, это такая организация памяти (обычно используется технология Flash), при которой микросхемы памяти эмулируют для обращающейся к ним системы “дисковое устройство”, позволяя OS и компьютеру в целом работать с ним привычным для них образом, словно с “жестким диском”, используя обычные для этого процедуры.</p>
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image40.png" width="240" height="165" /></p>
+<p>Преимуществом такого подхода является простота использования, не ведущая к переделке внутреннего устройства OS, драйверов или периферийных систем.    <br />Недостатком – во-первых то, что это все же эмуляция. Как любая эмуляция, она может иметь ряд накладных расходов, которые могут ухудшить свойства решения. Во-вторых – это диктует способы решения, которые могут быть совсем не оптимальны для использования памяти в таком качестве.</p>
+<p>NetApp пошел тут вновь “своим путем”.</p>
+<p>Хранимые на дисках данные можно охарактеризовать в зависимости от интенсивности к ним обращения. Существуют данные к которым активность обращения высока, и данные, к которым обращения редки. Последние принято называть “холодные” данные (cold data). Как показывают наблюдения, для значительного числа данных в “реальной жизни” процент “холодных” данных составляет до 70-80%. На “горячие”-же приходится не более 20-30%. То есть, если мы храним данные на SSD, всего лишь 20-30% этих данных получат преимущество от большего быстродействия SSD, остальные же 70-80% SSD будут занято непроизводительно, так как от того, хранятся ли данные, к которым никто не обращается, на сверхдорогом и сверхбыстром SSD, или на медленном и дешевом SATA, этим данным и нашей задаче абсолютно все равно. При цене Enterprise SSD достигающей 9-10 тысяч долларов (за один диск SSD!) использовать их на 20-30% (а то и менее) это поистине сумасшедшее расточительство.</p>
+<p>Чтобы как-то улучшить ситуацию с такой дичайшей нелепицей, вендоры предпринимают попытки каким-то образом сглядить этот неприятный эффект. Так EMC придумала FAST – средство, позволяющее мигрировать данные на диски того или иного типа в зависимости от их активности. Оставим сейчас в стороне как вопросы эффективности его работы, так и довольно риторический вопрос о разумности сперва создать проблему, а потом ее решать отдельным продуктом. Давайте посмотрим каким образом можно решить задачу ускорения данных путем использования быстродействущей памяти, но <em>не</em> способом хранить на ней данные сэмулировав “виртуальный жесткий диск”, как мы уже увидели выше, проблема с хранением “холодных” данных резко снижает эффктивность хранения и увеличивает цену.</p>
+<p>Перед тем, как перейти к варианту, который предложил и использует NetApp, позвольте кратко описать традиционную схему работы любых дисковых систем хранения.</p>
+<p>Практически любая дисковая система хранения сегодня построена по простой схеме. В ней есть массив жестких дисков, в ней есть контроллер, который считывает и записывает по запросам подключенных к ней серверов блоки данных, и есть так называемая кэш-память.</p>
+<p>Необходимость в кэш-памяти создана тем фактом, что жесткие диски это довольно медленные устройства. Я уже писал, что отдельный жесткий диск обрабатывает всего от нескольких десятков (SATA) до нескольких сотен (SAS/FC) операций считывания-записи в секунду. Это связано с тем, что жесткий диск это “механическое” устройство, для того, чтобы считать блок данных ему нужно спозиционировать головку, дождаться прохождения мимо нее нужного сектора, считать данные и передать запрошенный блок управляющему контроллеру, после чего вновь передвинуть магнитную головку для считывания следующего блока.    <br />Отчасти эта проблема решается с помощью соединения множества дисков в RAID-группы, при этом различные блоки запрошенных данных оказываются на разных дисках, и они могут начать считывать их параллельно. Если ситуация близка к идеальной, то группа в 10 дисков будет иметь быстродействие в 10 раз выше одиночного диска. (<em>Зачастую именно требования быстродействия заставляет увеличивать количество жестких дисков в системе, даже несмотря на то, что для собственно хранения данных нам было бы вполне достаточно гораздо меньшего их количества. Об этой проблеме я относительно недавно уже писал в блоге:</em> (<a href="../388/trackback.html" target="_blank">“вы платите только за быстродействие, терабайты- бесплатно!”</a>)</p>
+<p>Однако этого часто все равно недостаточно.    <br />Поэтому всегда между дисками и контроллером располагается так называемая “кэш-память”. Это пространство быстродействующей памяти, которая помогает повысить быстродействие в том случае, если контролер по какой-то причине запрашивает блок, который уже ранее был считан с дисков (или собирается записываться на них). При этом такой блок не считывается медленно с дисков, а гораздо быстрее попадает запросившему, так как оперативной памяти не нужно заниматься “механической работой” жестких дисков.</p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image41.png" width="694" height="99" /> </p>
+<p>Если данные в кэше долго никем не затребовались, то контроллер этот объем освобождает, так как считает, что данные “холодные” и не нужны, а занятое ими место лучше отдать более “горячим” данным, которые могут быть затребованы и место в кэше будт использовано более продуктивно.</p>
+<p>Отсюда мы видим, что все самые “горячие” данные дисков всегда располагаются в пространстве кэш-памяти, ведь любые считанные данные всегдя через него проходят, а “холодные” данные либо совсем в него не попадают, либо быстро из него “вымываются” более “горячими”. Кроме того из кэша выносятся данные, потерявшие актуальность, например перезаписанные новым значением на дисках, поэтому такие данные в кэше также опустошаются.</p>
+<p>Практически все системы хранения используют такую схему с кэш-памятью, от размера кэша как правило напрямую зависит быстродействие, а по-настоящему большие enterprise и high-end системы имеют объемы кэша в десятки гигабайт. От объема и алгоритмов работы с кэшем (тем, насколько ловко контроллер заполняет этот кэш и предугадывает какие запросы от сервера придут) напрямую зависит быстродействие системы.</p>
+<p>Однако цена объема кэша весьма велика, именно этот параметр (а также мощность обслуживающего его контроллера) зачастую и ограничивает безудержный рост его объемов. Кроме того, управление большим кэшем сопряжено с рядом трудностей технического и алгоритмического плана.</p>
+<p>Как я уже показал выше, данные в кэше характеризуются максимальной “температурой”. Следовательно, если мы используем память не для эмуляции жестких дисков, а напрямую, непосредственно как память, для “расширения кэша”, то мы достигнем максимально высокой эффективности ее использования.</p>
+<p>Так и поступил NetApp.    <br />Первым их продуктом был модуль под названием PAM – Performance Acceleration Module. Это плата расширения в стадартный слот PCIe, который имеется в контроллерах NetApp среднего (FAS3100) и верхнего (FAS6000) класса. Модуль представляет собой плату, на которой установлены DDR-DIMM оперативной памяти, объемом 16GB. В каждый из контроллеров, в зависимости от его модели, можно установить от 2 до 5 таких модулей. ??х емкость образует своеобразный “кэш второго уровня”, о принципах работы которого чуть ниже.</p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image42.png" width="450" height="333" /> </p>
+<p>Спустя год с момента выпуска PAM, был выпущен новый модуль – PAM-II, который недавно, для лучшего понимания, переименовали во <strong>Flash Cache</strong>.</p>
+<p>Две версии этого модуля несут на себе 256GB или 512GB быстрого SLC NAND Flash, такого же, как применятся для создания Enterprise-class SSD, и, в зависимости от типа и мощности контроллера, их может быть установлено от 1 до 4 в каждый из контроллеров. Но как и в случае PAM, Flash Cache не эмулирует “жесткий диск”, а организован как обычная память, образовывая собой “кэш второго уровня” и расширяя его “оперативную емкость”. Принципиальным преимуществом такого варианта, как я уже рассказал выше, яляется максимальная эффективность использования его емкости только лишь для “горячих”, максимально в нем нуждающихся данных, без необходимости устраивать хитрые и дорогостоящие системы миграции, подобные EMC FAST.</p>
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="PAMII" border="0" alt="PAMII" src="/pics//pamii2.jpg" width="470" height="246" /><strong>&#160;</strong></p>
+<p>Принцип работы как <strong>PAM</strong>, так и <strong>Flash Cache</strong> (PAM-II) идентичен.     <br />Каждая система хранения NetApp, также как и все другие системы хранения, других производителей, использует традиционую схему с кэш-памятью, в которую попадают считываемые данные на случай, если эти данные потребуются повторно, в этом случае они не читаются с диска, а быстро отдаются непосредствено из кэша.     <br />Емкость системного кэша варьируется в зависимости от модели от 1GB на контроллер в самой младшей системе FAS2020, до 32GB в самой старшей FAS6080.</p>
+<p>Основным отличием от традиционного, используемого в других системах, принципа яляется то, что контроллеры NetApp практически не используют этот объем кэша для процесса записи. Это связано с тем, что используемая на дисках структура WAFL максимально оптимизирована для ускорения операций записи, и, в отличие от “традиционных систем хранения”, данные, которые поступают на запись на диски, записываются с максимально возможной скоростью, и использование кэша на запись уже не проведет этот процесс быстрее, чем он уже происходит.</p>
+<p>Поэтому практически весь системный кэш используется только на чтение.    <br />Такая схема довольно здорово упрощает задачу кэширования алгоритмически, ну и, разумеется, увеличивает доступный объем для кэширования чтения.</p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image43.png" width="628" height="217" /> </p>
+<p>Как я уже рассказал выше, принцип работы кэша “на пальцах” довольно прост. Кэш-память заполняется данными при чтении (так как NetApp не использует кэширование записи, то здесь и далее мы будем говорить только о чтении) в надежде, что какой-то из прочитанных блоков (а также какие-то из “предположений” контроллера, например в результате операций read-ahead, то есть “упреждающего чтения”) потребуется считать повторно, и тогда его можно будет отдать из кэша, в сотни раз быстрее, чем читать заново с диска.    <br />По мере того, как кэш заполняется данными, его надо очищать. Контроллер делает ряд оценок и предположений (в первую очередь ориентируясь на срок нахождения и частоту обращения к данным в кэше) того, какие данные скорее всего не будут востребованы, и их можно “вытолкнуть” из кэша ради более нужных.     <br />При этом чем интенсивнее обмен с дисками и трафик системы хранения, тем скорее будет наполняться кэш, тем чаще приходится его опустошать контроллеру, и тем меньше срок хранения блоков данных в нем.     <br />Сокращение же времени нахождения блоков в кэше уменьшает вероятность <em>Cache Hit</em>, то есть нахождения нужного блока в кэше, и радикального ускорения работы системы за счет кэширования.</p>
+<p>Таков штатный режим работы системного кэша NetApp.    <br />Добавление же PAM/Flash Cache в виде “кэша второго уровня” позволяет иерархически расширить его объем. Теперь если данные, по оценке контроллера, необходимо вытолкнуть из системного кэша, они не удаляются совсем, а переносятся в более обширный и более емкий кэш, образованный из карт PAM.</p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="/pics//image44.png" width="627" height="284" /> </p>
+<p>Да, кэш в PAM не такой быстрый, как системный кэш самого контроллера. Но он все равно в десятки раз быстрее, чем считывание с дисков.</p>
+<p>С установкой PAM/Flash Cache мы решаем задачу ускорения доступа и уменьшения латентности (времени задержки между запросом и ответом) при чтении данных, причем вся его емкость будет эффективно использована под по настоящему “горячие” данные.</p>
+<p>“Но довольно слов”, скажете мне вы. “Дай нам цифры!”.</p>
+<p>??звольте.</p>
+<p>NetApp протестировала три варианта своей системы FAS3140, самой массовой системы “среднего уровня” (midrange) с помощью популярного теста SPECsfs2008, оценивающего быстродействие системы хранения при работе с сетевой файловой системой NFS или CIFS (подробное описание всех конфигураций, результатов, а также сравнение с аналогичными тестами других производителей вы можете посмотреть на сайте SPEC.org - <a href="http://www.spec.org/sfs2008/results/sfs2008.html">http://www.spec.org/sfs2008/results/sfs2008.html</a>     <br />В качестве эталонной системы использовалась двухконтроллерная конфигурация с 15 полками 300GB 15K FC дисков (суммарно 224 диска).</p>
+<p>?? вот какие результаты получились</p>
+</p>
+<table border="0" cellspacing="0" cellpadding="2" width="700">
+<tbody>
+<tr>
+<td valign="top" width="100">&#160;</td>
+<td valign="top" width="261"><strong>Конфигурация</strong></td>
+<td valign="top" width="96"><strong>Результат SPECsfs2008_cifs            <br />ops/sec</strong></td>
+<td valign="top" width="64"><strong>Overall            <br />Responce             <br />time</strong></td>
+<td valign="top" width="73"><strong>Raw            <br />емкость</strong></td>
+<td valign="top" width="61"><strong>Потребление            <br />электричества</strong></td>
+<td valign="top" width="45"><strong>Места            <br />в рэке</strong></td>
+</tr>
+<tr>
+<td valign="top" width="100">224 диска FC</td>
+<td valign="top" width="261">2xFAS3140          <br />16 полок 300GB 15K FC           <br />(224 диска)</td>
+<td valign="top" width="96"><strong>55 476</strong></td>
+<td valign="top" width="64">1,84ms</td>
+<td valign="top" width="73">~64TB</td>
+<td valign="top" width="61">-</td>
+<td valign="top" width="45">-</td>
+</tr>
+<tr>
+<td valign="top" width="100">56 дисков FC плюс          <br />Flash Cache</td>
+<td valign="top" width="261">2xFAS3140          <br />4 полки 300GB 15K FC           <br />(56 дисков)           <br />2x Flash Cache (PAM-II)</td>
+<td valign="top" width="96"><strong>55 398</strong></td>
+<td valign="top" width="64"><strong>лучше</strong>           <br />(1,25 ms)</td>
+<td valign="top" width="73"><strong>на 75% меньше</strong>           <br />(~16TB)</td>
+<td valign="top" width="61"><strong>на 67%            <br />меньше</strong></td>
+<td valign="top" width="45"><strong>на 67%            <br />меньше</strong></td>
+</tr>
+<tr>
+<td valign="top" width="100">96 дисков          <br />SATA плюс           <br />Flash Cache</td>
+<td valign="top" width="261">2xFAS3140          <br />4 полки 1TB 7,2K SATA           <br />(96 дисков)           <br />2x Flash Cache (PAM-II)</td>
+<td valign="top" width="96"><strong>54 047</strong></td>
+<td valign="top" width="64"><strong>лучше</strong>           <br />(1,50ms)</td>
+<td valign="top" width="73"><strong>на 49% больше</strong>           <br />(~96TB)</td>
+<td valign="top" width="61"><strong>на 66%            <br />меньше</strong></td>
+<td valign="top" width="45"><strong>на 59% меньше</strong></td>
+</tr>
+</tbody>
+</table>
+<p>&#160;</p>
+<p>Ранее NetApp протестировал и PAM-I на NFS, со сходными результатами, подробные результаты и полное описание процесса и использованного оборудования вы можете найти по приведеному выше адресу.</p>
+<p>Как вы видите, с использованием Flash Cache (PAM-II) удалось достичь сходного с системой на <strong>224</strong> дисках FC быстродействия, для системы не только всего на <strong>56</strong> дисках FC (в четыре раза меньше!), но и системе на традиционно считающихся непригодными для построения быстродействующих решений дисках SATA.     <br />В обоих случаях результатов бОльшей системы удалось достичь на системах почти втрое меньшего размера по размерам в рэке и энергопотреблению.    <br />Результаты использования PAM/Flash Cache говорят сами за себя.</p>
+<p>Несмотря на довольно значительную цену (enterprise-class flash никогда не стоил дешево) решение с использованием PAM явно достойно пристального внимания при планировании покупки midrange системы хранения, в особенности если уделяется значительно внимание быстродействию, эффективности, и экономии средств в условиях ограниченных ресурсов по электропитанию или объемам занятого/арендованного в датацентре места.</p>
+<p>Для желающих углубленно разобраться в принципах и механизмах работы PAM и Flash Cache хочу прекомендовать недавно переведенный на русский язык официальный Technical Report (TR-3832), который, как и все наши переводы, доступен на странице российского дистрибутора NetApp, <a href="http://www.netwell.ru/production/techbiblioteka.php">компании Netwell</a>:</p>
+<p><strong><a href="http://www.netwell.ru/docs/netapp/tr-3832_rus_flashcache_pam_best_practices.pdf">Flash Cache (PAM-II) and PAM: наилучшие методы использования</a></strong></p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/flash-cache.html" rel="tag">flash cache</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/pam.html" rel="tag">pam</a>, <a href="../tag/ssd/index.html" rel="tag">ssd</a>, <a href="../tag/techtalk/index.html" rel="tag">techtalk</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (16)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-420">
+		<div id="div-comment-420">
+		<div class="comment-author">
+			<cite>vitaly:<cite></div>
+			<p>А каково среднее время хранения данных в таком кеше на среднестатистической системе ? Хотя бы порядок - секунды, минуты, десятки минут.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-420" title="">11 Май 2010, 18:07</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-421">
+		<div id="div-comment-421">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Это зависит много от чего.<br />
+В первую очередь от трафика с дисков, конечно. Потом следует учесть, что PAM имеет три разных режима кэширования: &#8220;только метаданные&#8221;, &#8220;обычный (метаданные+данные)&#8221; и &#8220;низкоприоритетные данные (метаданные+данные+низкоприоритетные данные)&#8221;, соответственно попадающий в PAM объем данных тоже будет разный.<br />
+Ну и, наконец, сам объем PAM может быть разный. От 16GB одна плата PAM-I до 2TB в случае 4 плат PAM-II/Flash Cache. Это на каждый контроллер.<br />
+Примерно можно рассчитать объем &#8220;прогрева кэша&#8221; по формуле, приведенной в TR, на который я сослался:<br />
+(размер кэша) / (пропускная способность чтения в секунду) = время заполнения кэша<br />
+Например:<br />
+512GB/100MB в секунду = 5120 секунд = 85 минут<br />
+Столько будет заполняться пустой PAM-II объемом 512GB.</p>
+<p>Текущее же состояние системного кэша (то есть того, что на &#8220;материнской плате&#8221; контроллера) можно посмотреть в выводе команды sysstat<br />
+Про нее я писал тут: <a href="../199/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/199</a></p>
+						<div class="comment-meta"><a href="trackback.html#comment-421" title="">11 Май 2010, 20:04</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-422">
+		<div id="div-comment-422">
+		<div class="comment-author">
+			<cite>Marryhorse:<cite></div>
+			<p>Я так понял, что PAM исключительно на чтение?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-422" title="">11 Май 2010, 21:33</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-423">
+		<div id="div-comment-423">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Любой кэш у NetApp работает только на чтение, что системный, что PAM. Запись у NetApp организована таким образом, что кэшировать ее бесполезно, она и так максимально быстро осуществляется, благодаря WAFL. Кэширование в том виде, в котором это делается в &#8220;обычных системах хранения&#8221; просто ее уже не ускорит больше чем уже есть.</p>
+<p>Впрочем, практика показывает, что использование PAM несколько увличивает и скорость записи тоже, так как снижает наргузку по физической IO с дисков, высвобождая часть IOPS дисков на осуществление операций записи.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-423" title="">11 Май 2010, 21:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-3067">
+		<div id="div-comment-3067">
+		<div class="comment-author">
+			<cite>s1d:<cite></div>
+			<p>Добрый день.<br />
+Спасибо, очень интересная статья. Единственное, мне кажется, что FlashCache скорее можно сравнить с EMC FAST Cache, а не с FAST VP. FAST Cache - тоже &#8220;кэш память второго уровня&#8221;, правда реализованная на SSD дисках, но все же.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3067" title="">3 Август 2012, 14:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-3068">
+		<div id="div-comment-3068">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>s1d:</p>
+<p>1. На момент выхода Flash Cache у EMC еще не было FAST Cache.</p>
+<p>2. Я напрямую нигде не приравниваю PAM/Flash Cache с EMC FAST, я только указываю, что обе эти системы решают одну задачу tiering-а данных, правда разным способом.<br />
+Впрочем, далее в блоге я довольно подробно эту тему рассмотрел.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-3068" title="">3 Август 2012, 14:35</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4001">
+		<div id="div-comment-4001">
+		<div class="comment-author">
+			<cite>Дмитрий:<cite></div>
+			<p>Добрый день.</p>
+<p>несколько вопросов.<br />
+1. Будут ли отличия (функционально и по скорости) при использовании в 3240 PAM-II 512 от 2х256?<br />
+2. PAMы ставят парами, одинаковые в каждый контроллер? или возможны несимметричные конфигурации?<br />
+3. деградирует ли скорость работы FlashCache со временем? является ли значительная (какая?) деградация производительности гарантийным случаем?<br />
+4. правильно ли понимаю, что FlashCache будет более производительным решением, чем FlashPool?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-4001" title="">17 Октябрь 2012, 17:11</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4004">
+		<div id="div-comment-4004">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Дмитрий:</p>
+<p>1. Да вроде нет. Ну кроме как во втором случае останется меньше PCIe. :)<br />
+2. Нет, нельзя. Можно несимметричные, если они не в кластерной паре :)<br />
+3. А чего ему деградировать-то?<br />
+4. Пока неясно. Для Flash Cache есть опубликованные результаты тестов, а для Flash Pool пока нет. Теоретически Flash Cache архитектурно чуть более &#8220;прямое&#8221; для данных решение, не грузящее при кэшировании интерфейс от контроллера к дискам. Но зато умеет записи кэшировать. В общем, пока не вполне ясно, понятно только, что их сравнивать напрямую нельзя. Где-то лучше будет Flash Pool, где-то - Flash Cache. ??х можно использорвать и вместе, кстати.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-4004" title="">17 Октябрь 2012, 17:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4005">
+		<div id="div-comment-4005">
+		<div class="comment-author">
+			<cite>Дмитрий:<cite></div>
+			<p>Спасибо большое!</p>
+<p>1. думал, может быть - от 2х256 будет больше иопсов:)<br />
+2. ясно.<br />
+3. ну, вроде как фдэш-память - при интенсивной записи ячейки портятся&#8230; или, т.к. кэшируется только чтение - то записей будет немного и проблемы нет?<br />
+4. ??х можно использорвать и вместе, кстати. - если я правильно понял этот документ: <a href="../1197/trackback.html#more-1197" rel="nofollow">http://blog.aboutnetapp.ru/archives/1197#more-1197</a> , если поставить в 3240 512Гб ПАМы - то уже нельзя. ну и отдельно сказано, что не рекомендуется.<br />
+кстати, ФлэшПул, при кэшировании интенсивной записи - уж точно будет деградировать? или опять неправ?:)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-4005" title="">17 Октябрь 2012, 18:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4006">
+		<div id="div-comment-4006">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Дмитрий:</p>
+<p>1. А я думаю, что вы переоцениваете свои возможности в данном вопросе :)</p>
+<p>3. Так нет &#8220;интенсивной записи&#8221;, в том-то и фокус. Для флэша вредна рандомная запись мелкими блоками, поскольку, вследствие его устройства, вынуждает переписывать ради одного байта целую страницу в пару мегабайт. Но в случае Flash Cache кэш заполняется и опорожняется не рандомными блоками, а довольно протяженными страницами, секвентально, и сравнительно редко и предсказуемо.<br />
+Я уж не говорю о том, что пугало &#8220;записи на флэш&#8221; давно пора уже списать за устарелостью.</p>
+<p>> кстати, ФлэшПул, при кэшировании интенсивной записи - уж точно будет деградировать?</p>
+<p>Это не ваша проблема, это проблема саппорта. Если они дают вам на SSD трехгодичную гарантию, то это уже их забота каким образом они ее будут соблюдать.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-4006" title="">17 Октябрь 2012, 19:22</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4007">
+		<div id="div-comment-4007">
+		<div class="comment-author">
+			<cite>Дмитрий:<cite></div>
+			<p>1. я просто высказал предположение:) знания свои не переоцениваю, просто задаю вопросы и благодарен за помощь.</p>
+<p>&gt; кстати, ФлэшПул, при кэшировании интенсивной записи - уж точно будет деградировать?</p>
+<p>Это не ваша проблема, это проблема саппорта. Если они дают вам на SSD трехгодичную гарантию, то это уже их забота каким образом они ее будут соблюдать.<br />
+- а гарантия распространяется на производительность? если через 2 года сказать саппорту - что-то у меня ССД работает медленнее, чем САТА диски - они будут менять? или ответят - ну так работает же!<br />
+Вдруг  Вы и это знаете:)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-4007" title="">17 Октябрь 2012, 19:45</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-4009">
+		<div id="div-comment-4009">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Дмитрий:</p>
+<p>??звините, если ответы ненамеренно с моей стороны получаются резкими и даже, возможно, грубыми. Конец рабочего дня :-/<br />
+Ну просто оцените производительность шины PCIe 2.0, и сопоставьте с реальной производительностью каналов на ввод-вывод. Я не думаю, что в мире существует много задач, реально прогружающих такой канал вводом-выводом до его потолка.<br />
+Упираться будет в совсем других местах.</p>
+<p>>  а гарантия распространяется на производительность? если через 2 года сказать саппорту - что-то у меня ССД работает медленнее, чем САТА диски - они будут менять? или ответят - ну так работает же!</p>
+<p>В таких случаях открывается кейс и долбается саппорт до победы. Уплочено. :)</p>
+						<div class="comment-meta"><a href="trackback.html#comment-4009" title="">17 Октябрь 2012, 20:18</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-4010">
+		<div id="div-comment-4010">
+		<div class="comment-author">
+			<cite>Дмитрий:<cite></div>
+			<p>Нет, я не обиделся:)</p>
+<p>если интересен ход мысли - то я не думал, что упрется в производительность интерфейса&#8230; а вот будет ли контроллер на 512Гб плате в 2 раза мощнее (или - есть ли у контроллера 2-кратный резерв, если он там одинаковый), больше ли в 2 раза число каналов к флэш памяти - этого я не знал. </p>
+<p>еще раз - спасибо большое!</p>
+						<div class="comment-meta"><a href="trackback.html#comment-4010" title="">17 Октябрь 2012, 20:42</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-5140">
+		<div id="div-comment-5140">
+		<div class="comment-author">
+			<cite>Ануар:<cite></div>
+			<p>Добрый день.<br />
+Подскажите, есть ли возможность выяснить установлен модуль или нет из командной строки?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5140" title="">10 Декабрь 2012, 11:05</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-5141">
+		<div id="div-comment-5141">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Ануар:</p>
+<p>Наверняка должен быть представлен в sysconfig -v</p>
+						<div class="comment-meta"><a href="trackback.html#comment-5141" title="">10 Декабрь 2012, 11:29</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-16048">
+		<div id="div-comment-16048">
+		<div class="comment-author">
+			<cite>Станислав:<cite></div>
+			<p>Доброго дня.</p>
+<p>Подскажите можно заставить Flash Cache заставить работать на рабочей станции при рендеринге видео и работы с CAD-приложениями или это чисто серверная железка?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-16048" title="">23 Сентябрь 2018, 23:20</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="599" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.083 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

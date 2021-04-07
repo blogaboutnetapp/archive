@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Почему NetApp E2700 так похож на &#8230;</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1367/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1367</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:30 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Владислав</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13932</link>
+		<dc:creator>Владислав</dc:creator>
+		<pubDate>Thu, 28 Aug 2014 08:17:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13932</guid>
+		<description>сказано: директ аттач к хба
+т.е. с блейдами видимо нет.</description>
+		<content:encoded><![CDATA[<p>сказано: директ аттач к хба<br />
+т.е. с блейдами видимо нет.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13917</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 25 Aug 2014 14:43:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13917</guid>
+		<description>Владислав:
+&gt; Где посмотреть, будет ли работать E2700 с Blade-серверами по SAS ?
+
+Если вы спрашиваете, будучи партнером, то, очевидно, в Interoperability Matrix
+http://www.netapp.com/us/technology/interop.aspx</description>
+		<content:encoded><![CDATA[<p>Владислав:<br />
+> Где посмотреть, будет ли работать E2700 с Blade-серверами по SAS ?</p>
+<p>Если вы спрашиваете, будучи партнером, то, очевидно, в Interoperability Matrix<br />
+<a href="http://www.netapp.com/us/technology/interop.aspx" rel="nofollow">http://www.netapp.com/us/technology/interop.aspx</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Владислав</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13913</link>
+		<dc:creator>Владислав</dc:creator>
+		<pubDate>Mon, 25 Aug 2014 03:54:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13913</guid>
+		<description>Где посмотреть, будет ли работать E2700 с Blade-серверами по SAS ?</description>
+		<content:encoded><![CDATA[<p>Где посмотреть, будет ли работать E2700 с Blade-серверами по SAS ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Роман</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13512</link>
+		<dc:creator>Роман</dc:creator>
+		<pubDate>Tue, 01 Jul 2014 07:52:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13512</guid>
+		<description>to Nostrono
+Возможно новые модели сами делают(На базе "Купленных" разработок)но первые модели были совсем не Huawei там только наклейка Huawei была.</description>
+		<content:encoded><![CDATA[<p>to Nostrono<br />
+Возможно новые модели сами делают(На базе &#8220;Купленных&#8221; разработок)но первые модели были совсем не Huawei там только наклейка Huawei была.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13411</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 17 Jun 2014 08:19:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13411</guid>
+		<description>Вот интересно, а у Huawei OceanStor кто железки делает? Неуж-то сами? :)</description>
+		<content:encoded><![CDATA[<p>Вот интересно, а у Huawei OceanStor кто железки делает? Неуж-то сами? :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13410</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 17 Jun 2014 07:55:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13410</guid>
+		<description>Ну там правда, во всех случаях, по некоторым признакам, не Xyratex, который нынче &lt;i&gt;a Seagate company&lt;/i&gt;, а, кажется, FoxConn, что, впрочем, не важно, и интересно исключительно из исследовательских соображений.</description>
+		<content:encoded><![CDATA[<p>Ну там правда, во всех случаях, по некоторым признакам, не Xyratex, который нынче <i>a Seagate company</i>, а, кажется, FoxConn, что, впрочем, не важно, и интересно исключительно из исследовательских соображений.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13409</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 17 Jun 2014 07:44:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13409</guid>
+		<description>А IBM Storwize v3×00, v5000 с E2700 так вообще очень похожи.</description>
+		<content:encoded><![CDATA[<p>А IBM Storwize v3×00, v5000 с E2700 так вообще очень похожи.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13408</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 17 Jun 2014 07:23:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13408</guid>
+		<description>2 Nostromo
+IBM Storwize v3x00, v5000 спереди (те же три секции по 8мь 2,5" дисков) и сзади (форма, размещение блоков питания и контроллеров) очень похож с FAS2240 и соотвестсвенно полками DS2246.</description>
+		<content:encoded><![CDATA[<p>2 Nostromo<br />
+IBM Storwize v3&#215;00, v5000 спереди (те же три секции по 8мь 2,5&#8243; дисков) и сзади (форма, размещение блоков питания и контроллеров) очень похож с FAS2240 и соотвестсвенно полками DS2246.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1367#comment-13404</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Mon, 16 Jun 2014 10:16:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1367#comment-13404</guid>
+		<description>Ну, насчёт ibm не знаю, но, что FAS, что 3par делаются на Xyratex-овской основе. Думаю, остальные тоже. Не-DotHill, как в MSA, hp выбрал, видимо, по причине его серьёзной глюкавости.</description>
+		<content:encoded><![CDATA[<p>Ну, насчёт ibm не знаю, но, что FAS, что 3par делаются на Xyratex-овской основе. Думаю, остальные тоже. Не-DotHill, как в MSA, hp выбрал, видимо, по причине его серьёзной глюкавости.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

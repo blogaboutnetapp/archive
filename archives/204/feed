@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Методы записи во Flash memory в SSD</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/204/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/204</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:29 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/204#comment-2597</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 30 May 2012 08:30:18 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=204#comment-2597</guid>
+		<description>2 &lt;b&gt;romx&lt;/b&gt;
+По-поводу "второй беды", дельное замечание от ivs.</description>
+		<content:encoded><![CDATA[<p>2 <b>romx</b><br />
+По-поводу &#8220;второй беды&#8221;, дельное замечание от ivs.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/204#comment-145</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Thu, 04 Jun 2009 08:38:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=204#comment-145</guid>
+		<description>Единственная беда - во многих старых постах уже не работают картинки. Вот только вчера я тупанул и никак не мог понять что мне нужно - SnapMirror или MetroCluster :) Полез читать твои старые статьи, про MC, а там картинок уже нет :(
+
+Вторая беда - не приходят ответы на комменты в почту, я пишу коммент и потом никак и ничем не могу отследить твои ответы.</description>
+		<content:encoded><![CDATA[<p>Единственная беда - во многих старых постах уже не работают картинки. Вот только вчера я тупанул и никак не мог понять что мне нужно - SnapMirror или MetroCluster :) Полез читать твои старые статьи, про MC, а там картинок уже нет :(</p>
+<p>Вторая беда - не приходят ответы на комменты в почту, я пишу коммент и потом никак и ничем не могу отследить твои ответы.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/204#comment-106</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 29 Jan 2009 01:34:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=204#comment-106</guid>
+		<description>ivs: К такому комменту полагается ссылка на какую-нибудь виагру или турагентво.
+Шутка. Для тех, кто в теме ситуации со ссылочным спамом в блогах ;) 
+
+А вообще куда уж чаще, и так уже на режим два раза в неделю перешел, если заметил. Вообще же посты написаны до конца февраля, и поставлены в очередь на публикацию, так что почитать будет что, не сумневайтесь.</description>
+		<content:encoded><![CDATA[<p>ivs: К такому комменту полагается ссылка на какую-нибудь виагру или турагентво.<br />
+Шутка. Для тех, кто в теме ситуации со ссылочным спамом в блогах ;) </p>
+<p>А вообще куда уж чаще, и так уже на режим два раза в неделю перешел, если заметил. Вообще же посты написаны до конца февраля, и поставлены в очередь на публикацию, так что почитать будет что, не сумневайтесь.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: ivs</title>
+		<link>http://blog.aboutnetapp.ru/archives/204#comment-105</link>
+		<dc:creator>ivs</dc:creator>
+		<pubDate>Wed, 28 Jan 2009 21:03:29 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=204#comment-105</guid>
+		<description>Пиши чаще, очень интересно!</description>
+		<content:encoded><![CDATA[<p>Пиши чаще, очень интересно!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

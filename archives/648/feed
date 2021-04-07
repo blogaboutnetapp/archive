@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Usable Space у NetApp &#8211; что стоит за FUD? (часть 2)</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/648/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/648</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:58 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/648#comment-12062</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 24 Jan 2014 12:12:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=648#comment-12062</guid>
+		<description>evans:
+Разверните ваше утверждение, пожалуйста. Пока мне видится, что вы неправильно понимаете вопрос.</description>
+		<content:encoded><![CDATA[<p>evans:<br />
+Разверните ваше утверждение, пожалуйста. Пока мне видится, что вы неправильно понимаете вопрос.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: evans</title>
+		<link>http://blog.aboutnetapp.ru/archives/648#comment-12055</link>
+		<dc:creator>evans</dc:creator>
+		<pubDate>Thu, 23 Jan 2014 13:35:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=648#comment-12055</guid>
+		<description>Хорошо сразано, но вот один баальшой косяк.
+Не стоит заменять снапшотами и зеркалированием резервные копии.
+Это большая ошибка и она зачастую покрывается или дизастером или фатальным(логическим) дефектом который улетает в репликацию.
+а в остально согласен на пять :)</description>
+		<content:encoded><![CDATA[<p>Хорошо сразано, но вот один баальшой косяк.<br />
+Не стоит заменять снапшотами и зеркалированием резервные копии.<br />
+Это большая ошибка и она зачастую покрывается или дизастером или фатальным(логическим) дефектом который улетает в репликацию.<br />
+а в остально согласен на пять :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/648#comment-2813</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 25 Jun 2012 11:28:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=648#comment-2813</guid>
+		<description>bbk:
+
+Например в этом блоге:
+http://blog.aboutnetapp.ru/archives/1101</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Например в этом блоге:<br />
+<a href="http://blog.aboutnetapp.ru/archives/1101" rel="nofollow">http://blog.aboutnetapp.ru/archives/1101</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/648#comment-2812</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 25 Jun 2012 11:26:50 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=648#comment-2812</guid>
+		<description>romx&#62;Есть три "формы существования" снэпшота как технологии (Snapshot, SnapVault и FlexClone)
+А как же SnapMirror? Вполне себе уникальная форма снепшота. Так что +1 :)</description>
+		<content:encoded><![CDATA[<p>romx&gt;Есть три &#8220;формы существования&#8221; снэпшота как технологии (Snapshot, SnapVault и FlexClone)<br />
+А как же SnapMirror? Вполне себе уникальная форма снепшота. Так что +1 :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/648#comment-2811</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Mon, 25 Jun 2012 11:21:05 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=648#comment-2811</guid>
+		<description>Где можно посмотреть right-sized по дискам НетАпп'а?</description>
+		<content:encoded><![CDATA[<p>Где можно посмотреть right-sized по дискам НетАпп&#8217;а?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/648#comment-664</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Thu, 12 Aug 2010 19:49:38 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=648#comment-664</guid>
+		<description>Ещё +5 копеек... ;) Да, так оно и есть. У меня Fractional reserve устанавливается в 100% сразу, но это не мешает мне его поставить в 0 на ходу.. никаких проблем с этим связанных я не вижу и не встречал. Также наблюдая за местом, занимаемым снапшотами (Snap reserve), уменьшил процент Snap reserve так же на ходу. Почему не страшно уменьшать Snap reserve? Да очень просто - снапшоты могут забраться в область где лежат данные, если не хватит Snap reserve и если будет свободное место в области данных, но вот данные забраться в Snap reserve уже не могут. Как все просто... также система хранит 30 ежедневных снапшотов которые сливаются на летну всего один раз в месяц вместо того чтобы всю неделю катать инкременты и в конце недели ещё и фул (да знаю не безопасно, но это позволило выйти из кризиса нехватки ресурсов системы резервного копирования и временным недофинансированием ??Т :))
+
+К слову - Clariion мне не позволит сделать даже ТАКОЕ маленькое для NetApp количество снапшотов ;)
+
+P.S. что-то openid меня не идентифицирует правильно :)
+P.P.S. руки чешутся поофтопить сравнивая с Old School block devices... :)</description>
+		<content:encoded><![CDATA[<p>Ещё +5 копеек&#8230; ;) Да, так оно и есть. У меня Fractional reserve устанавливается в 100% сразу, но это не мешает мне его поставить в 0 на ходу.. никаких проблем с этим связанных я не вижу и не встречал. Также наблюдая за местом, занимаемым снапшотами (Snap reserve), уменьшил процент Snap reserve так же на ходу. Почему не страшно уменьшать Snap reserve? Да очень просто - снапшоты могут забраться в область где лежат данные, если не хватит Snap reserve и если будет свободное место в области данных, но вот данные забраться в Snap reserve уже не могут. Как все просто&#8230; также система хранит 30 ежедневных снапшотов которые сливаются на летну всего один раз в месяц вместо того чтобы всю неделю катать инкременты и в конце недели ещё и фул (да знаю не безопасно, но это позволило выйти из кризиса нехватки ресурсов системы резервного копирования и временным недофинансированием ??Т :))</p>
+<p>К слову - Clariion мне не позволит сделать даже ТАКОЕ маленькое для NetApp количество снапшотов ;)</p>
+<p>P.S. что-то openid меня не идентифицирует правильно :)<br />
+P.P.S. руки чешутся поофтопить сравнивая с Old School block devices&#8230; :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

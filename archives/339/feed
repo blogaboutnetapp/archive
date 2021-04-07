@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Проблемы и решения Usable Space. Часть 4.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/339/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/339</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:25 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/339#comment-154</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 06 Aug 2009 17:03:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=339#comment-154</guid>
+		<description>Трудно сравнивать EVA и NetApp, принципы дисковой организации в основе их очень разные, несмотря на некоторую поверхностную похожесть.
+
+Про отдельный aggregate для разных типов нагрузки я и написал выше в тексте, формально так и есть, но дело в том, что сравнительно редко, на практике наверное 70% пользователей, вы будете сталкиваться с _настолько_ разной нагрузкой, что для этого потребуется дробить aggregate-ы. В общем случае ущерба от дробления получается больше чем выгоды. Выгода настает на по настоящему больших системах, с сотнями дисков, но их админы уже все знают и без моих популярных статей :)</description>
+		<content:encoded><![CDATA[<p>Трудно сравнивать EVA и NetApp, принципы дисковой организации в основе их очень разные, несмотря на некоторую поверхностную похожесть.</p>
+<p>Про отдельный aggregate для разных типов нагрузки я и написал выше в тексте, формально так и есть, но дело в том, что сравнительно редко, на практике наверное 70% пользователей, вы будете сталкиваться с _настолько_ разной нагрузкой, что для этого потребуется дробить aggregate-ы. В общем случае ущерба от дробления получается больше чем выгоды. Выгода настает на по настоящему больших системах, с сотнями дисков, но их админы уже все знают и без моих популярных статей :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: anvarich.livejournal.com/</title>
+		<link>http://blog.aboutnetapp.ru/archives/339#comment-153</link>
+		<dc:creator>anvarich.livejournal.com/</dc:creator>
+		<pubDate>Thu, 06 Aug 2009 10:43:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=339#comment-153</guid>
+		<description>Администраторы СХД из дружественного нам банка, говорили что на EVA 6xxx у них возникли большие проблемы со схемой "все диски в один массив, а потом нарежем" . Так что совет "отдельный aggregate" для разных типов нагрузки я так понимаю актуален и у Netapp?</description>
+		<content:encoded><![CDATA[<p>Администраторы СХД из дружественного нам банка, говорили что на EVA 6xxx у них возникли большие проблемы со схемой &#8220;все диски в один массив, а потом нарежем&#8221; . Так что совет &#8220;отдельный aggregate&#8221; для разных типов нагрузки я так понимаю актуален и у Netapp?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

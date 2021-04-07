@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Reallocation в Data ONTAP. Часть 1.</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1290/trackback.html">NetApp MetroCluster в Германии</a></div>
+			<div class="alignright"><a href="1293/trackback.html">Переписка с читателями :)</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1292">
+			<h2 class="posttitle"><a href="1292/trackback.html" rel="bookmark" title="Permanent Link to Reallocation в Data ONTAP. Часть 1.">Reallocation в Data ONTAP. Часть 1.</a></h2>
+			<div class="postmetadata">23 Сентябрь 2013, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Многие мои посты тут пишутся заранее, и потом <em>отлеживаются</em>. Некоторые – отлеживаются в моей голове. Но среди них есть порой и настоящие старожилы, вот, например, посту на тему того, как работает reallocation в WAFL и Data ONTAP, скоро уж три года. Все это время я пытаюсь сложить полноценную, непротиворечивую и исчерпывающую картину вопроса, чтобы изложить это все в блоге. Проблема в том, что, вследствие закрытости многих механизмов работы Data ONTAP (а также того, что они меняются, а закрытость позволяет не рассказывать публике об изменениях в деталях), многие вопросы остаются для меня не исчерпывающе отвеченными. Но, тем не менее, давайте перестанем тянуть кота за хвост, и приступим к тому, что нам известно, и о чем можно рассказать.</p>
+<p>Тема процесса перекомпоновки блоков данных в структурах WAFL всегда была <em>темноватой</em>, и, как любая тема, испытывающая недостаток ясности, она раз за разом становится поводом для более или менее честных <a href="1272/trackback.html">спекуляций</a>, причем не только со стороны <a href="1266/trackback.html">конкурентов NetApp</a> по рынку систем хранения данных, но, зачастую, и среди самих пользователей. Типичным ходом в такой спекуляции является назвать процессы записи на WAFL – “фрагментацией”, и, готово дело, дальше уже можно пугать потенциальных клиентов NetApp жупелом, растущим еще из FAT и обязательного Norton Defragment с бегающими квадратиками.</p>
+<p>О том, насколько на самом деле так называемая “фрагментация” на WAFL влияет на производительность я уже <a href="tag/fragmentation.html">писал не раз</a>, не стану повторяться, все есть по ссылкам выше, сегодня поговорим об обратном процессе, что же представляет собой процесс <em>reallocation</em>.</p>
+<p><strong>Reallocation</strong> – это фоновый процесс в OS Data ONTAP, который оптимизирует и перераспределяет структуру хранения блоков WAFL для оптимизации к ним доступа. Он близко связан с тем, как именно происходит запись данных на WAFL в OS Data ONTAP. Не вполне корректно называть процесс реаллокации - “дефрагментацией”, как и проводить аналогии с файловой системой, например FAT, построенной на совсем иных&#160; принципах выделения пространства. Многие годы считалось, например, что файловые системы Linux (читай inode-овые BSD-like файловые системы, с использованием идей которых создана и WAFL) <a href="https://www.google.co.th/search?q=linux+не+требует+дефрагментации">вообще не подвержены фрагментации</a>, так, до ext4 там вообще не существовало штатных средств “дефрагментации”, и ничего, работали же, а многие системы в продакшне и на ext3fs работают и до сих пор. Но, конечно, фрагментация, или, корректнее <em>non-contiguous file allocation</em> существует и в них, и с ростом дисковой нагрузки на серверные системы в целом, и увеличении объемов хранения, несомненно эта проблема стала все более заметной. Оставим сейчас в стороне спор, насколько фрагментация данных влияет в условиях, когда практически 100% workload составляет не sequental, а random access, об этом <a href="455/trackback.html">я уже писал</a>, поговорим о том, что же можно сделать для оптимизации структуры хранения путем вот этой самой block reallocation. Подобной “фрагментации” данных подверженны все системы хранения (особенно использующие современные фишечки работы с данныеми, такие как снэпшоты, дисковые пулы, thin provisioning, а не просто dumb SCSI LUN). Но не все умеют с этим бороться.     <br />NetApp – умеет.</p>
+<p>В документации сказано скупо:</p>
+<p><em><strong>reallocate</strong> - Command for managing reallocation of files, LUNs, volumes, and aggregates</em></p>
+<p><em>The <strong>reallocate</strong> family of commands manages the allocation, or layout optimization, of large files and       <br />LUNs on a node. Additionally all files in a volume may be reallocated, and the block layout of       <br />aggregates may be optimized. Using the <strong>reallocate</strong> command, layout measurement and optimization       <br />(reallocation) can be automated.</em></p>
+<p>Определенную сложность для пользователей вызывает тот факт, что процесс reallocate не запущен на системе по умолчанию. Сделано это, по всей видимости, исходя из главного принципа, которым руководствуется NetApp, назначая свои значения по умолчанию. Даже если вы не прочтете ни одной страницы документации, и запустите систему хранения “энтером” (то есть просто тупо давя Enter на все вопросы, соглашаясь на все установки по умолчанию), то даже при сочетании самых нелепых решений, данные не будут повреждены и система будет, пусть неоптимально, но работать. В общем тот самый врачебный Noli Nocere! - “Не навреди!”. Реаллокация может быть не нужна в ряде профилей использования. Но даже когда она не нужна, а она запущена по умолчанию, и при этом вы об этом не знаете, она неизбежно занимает какую-то долю системных ресурсов, и лучше было бы, чтобы, если уж она запущена, то запущена она была “по делу”, и понимающим это человеком. </p>
+<p>Вот поэтому по умолчанию, на свежеустановленной системе процесс <em>reallocation</em> не запущен автоматически и не работает.</p>
+<p>Для того, чтобы понять, нужна ли вам <em>reallocation</em>, и какой эффект она вам даст, вам следует найти ответы на ряд вопросов, связанных с вашей системой и данными на ней хранящимися.</p>
+<ol>
+<li>Насколько сильно, в процентном отношении, заполнены активными, изменяющимися, а не просто хранящимися данными, заполнены диски, конкретнее - тома на aggregate?      </li>
+<li>Каков процент свободного места на томах и aggregate? (помните, что WAFL – структура thin by design, и для нее 100% занятый пустыми томами aggregate – пустой)      </li>
+<li>Насколько активно используется на томах deduplication, и сколько места она у вас высвобождает.      </li>
+<li>Наконец, насколько часто вы расширяли тома и aggregate физическими дисками? </li>
+</ol>
+<p>На первые два вопроса ответ, и то как он соотносится с темой необходимости реаллокации, вы, скорее всего <a href="881/trackback.html">уже знаете</a>. Если на диске в момент записи достаточно свободного места, то подсистема, выделяющая на диске место по запросу OS в форме дисковых <em>экстентов</em>, или протяженных сегментов блоков, с легкостью найдет и выделит процессу записи любое нужное количество блоков в единой цепочке. ??менно по этой причине в таких файловых системах, как ext2/3 и NTFS фрагментация файлов в самом деле принципиально ниже, чем в FAT, где OS не использует такое “групповое выделение” блоков, и занимает их по порядку, один за одним, не обращая внимание на то, где и как они расположены. Разумеется такой вариант, особенно в активной и, как это называется, <em>aged</em>, то есть давно используемой в работе файловой системе, вызывает существенное дробление фрагментов файла по диску.</p>
+<p>Это не так в уже перечисленных “BSD-like” системах и NTFS. Пока на файловой системе есть достаточно свободного места, механизм выделения цепочек последовательных блоков работает хорошо. Сложности начинаются тогда, когда файловая система заполняется файлами, которые произвольно создаются и удаляются, и постепенно структура блоков данных начинает напоминать сыр с его дырками, когда вроде место и есть, но оно все “пузырьками”. Дело в том, что если последовательный экстент блоков нужной длины на дисковом томе найти не удается (а данные писать все ж таки надо), то описываемая подсистема OS говорит файловой системе: “ну ОК, давай мне два покороче, пусть в разных местах. Нету? Ну что-ж, ну а четыре еще короче есть?”. ?? такое <a href="225/trackback.html">дробление</a> продолжается до тех пор, пока вся последовательность, ожидающая записи на диски не будет записана.</p>
+<p>Очевидно, что чем меньше у файловой системы будет “пространства для маневра”, то есть последовательно свободного пространства на томе, и чем больше будет на этот том записей и перезаписей, тем сложнее ей будет&#160; с каждым разом&#160; находить связные последовательно куски блоков. ??менно по этой причине, например, Windows тревожно закрашивает красным диск, слишком сильно заполненным данными. Если это диск с файловой системой, которая не просто залита фильмами, как на скриншоте ниже, а активно обновляется, записывается и перезаписывается данными, то вскоре вы увидите, что коэффициент фрагментации файлов, ранее невысокий, на ней вдруг начнет резко расти, ухудшая ее характеристики производительности.</p>
+<p><a href="/pics/Reallocation--Data-ONTAP_D3DC/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="/pics/Reallocation--Data-ONTAP_D3DC/image_thumb.png" width="658" height="204" /></a></p>
+<p>Напомню, что рекомендуется поддерживать 10-15% свободного места на томе и aggregate для нормальной работы описанных выше механизмов (это примерно совпадает с рекомендациями MS для NTFS), причем на уровне aggregate это пространство уже зарезервировано в WAFL reserve, недоступном пользователю.</p>
+<p>Подводя итоги по этой части хочу специально указать: это <em>рекомендация</em>, но не <em>требование</em>. Вы МОЖЕТЕ заполнить диск данными на все 100% его емкости. ?? в ряде случаев, например как на картинке выше, где приведен скриншот моего лэптопа, и где выделенный диск есть хранилище бэкапов, фильмов и музыки, то есть записи на него нерандомны и крайне редки, это не имеет большого значения и мало влияет на его производительность.</p>
+<p>Но если ваши данные активно перезаписываются, и у вас есть возможность не заливать их на том “с горкой”, то оставьте побольше свободного места на томе (и на aggregate для thin-томов) – не пожалеете :)</p>
+<p>??так, чтобы не раздувать один пост, продолжим на следующей неделе.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/defragmentation.html" rel="tag">defragmentation</a>, <a href="tag/fragmentation.html" rel="tag">fragmentation</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/reallocate.html" rel="tag">reallocate</a>, <a href="tag/reallocation.html" rel="tag">reallocation</a><br />					Раздел: <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="1292/trackback.html#respond">Комментарий</a> (<a href='1292/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1292/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (10)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-9977">
+		<div id="div-comment-9977">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Добрый день!<br />
+Хотелось бы уточнить по поводу WAFL reserve.</p>
+<p>Неоднократно встречал упоминания, что при заполнении диска более чем на 90% приведет к ощутимой потере производительности. Так вот, WAFL reserve учитывает как раз это, или же рекомендации заказчику для систем с высокой нагрузкой не забивать до конца таки актуальны?</p>
+<p>Ну то есть вопрос снова сводится к usable space&#8230;</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-9977" title="">23 Сентябрь 2013, 14:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-9978">
+		<div id="div-comment-9978">
+		<div class="comment-author">
+			<cite>vladmv:<cite></div>
+			<p>Спросил у одного клиента, почему они не включают Дедупликацию на системе FAS2020A 12*1Tb Complete.<br />
+Оказалось, что ограничение на lun дедупликации - 1Тб. Естессно у них больше.<br />
+Хотелось бы больше говорить в блоге про такие штуки. ?? как с ними потом бороться.</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-9978" title="">23 Сентябрь 2013, 15:09</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-9981">
+		<div id="div-comment-9981">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Александр:<br />
+Тут на самом деле есть темное место (одно из). Есть пространство на уровне aggregate (и оно в WAFL reserve, судя по всему, включено), и есть пространство на уровне тома (volume). При определенных условиях, например при большом (sic!) количестве перезаписей данных на томе, запас <strong>на томе</strong> даст прямой эффект в увеличении производительности.<br />
+Это, конечно, спор о наполовину полном или наполовину пустом стакане, но специально уточню, не &#8220;снижение производительности при заполнении&#8221;, а &#8220;увеличение производительности при наличии свободного места (и определенном типе workload)&#8221;. Это важно, потому что за &#8220;норму&#8221; NetApp принимает именно заполненный на 90% том (и именно сверх этого уровня вы получаете прибавку), и, во-вторых, речь идет не о любой рабочей нагрузке, а об определенной, с большим числом перезаписей мелкими блоками. Это я упомянул в тексте выше.<br />
+Кроме этого я в этом блоге постил на эту тему хороший перевод: <a href="1083/trackback.html" rel="nofollow">http://blog.aboutnetapp.ru/archives/1083</a></p>
+<p>Так что ответ на вопрос: это гибко и вы выбираете, хотите ли вы плюс, допустим, 20% за счет неиспользуемой емкости дисков, <strong>сверх того</strong>, что вы купили как &#8220;производительность на данной системе&#8221;, или же вам важнее хранимые объемы, тогда прироста нет, вы получаете то, за что заплатили.<br />
+Откровенно говоря, сегодня, в особенности для больших систем где число дисков измеряется десятками и полками, получить +20-30% для работающей системы просто по цене жестких дисков - отличный deal :)</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-9981" title="">23 Сентябрь 2013, 15:52</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-9983">
+		<div id="div-comment-9983">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>vladmv:<br />
+А что про это писать, это написано в документации. Это ограничение на данной модели контроллера, оно опубликовано, пресейлы должны это знать и говорит об этом покупателю, соответственно покупатель должен это учитывать.<br />
+Говоря технически, оно вызвано предельно небольшим объемом памяти контроллера для данной модели. Дедупликация это процесс, довольно крепко едящий при работе память. Если памяти начинает не хватать, то в первую очередь начнет страдать производительность (память же нужна не только дедупликации, но и другим процессам контроллера, да и просто кэшу). Поэтому было принято совершенно грамотное решение - ограничить потребление памяти дедупликацией, чтобы это не пошло в ущерб общей производительности системы.</p>
+<p>Соответственно решение - если нужна дедупликация на слабой системе типа 2020, то дробить пространство хранения на тома размером не более 1TB. Причем обращу внимание, тома нельзя уменьшить shrink-ом до этой величины, они должны быть <strong>созданы</strong> такого размера.</p>
+<p>Но вообще говоря, 2020 это уже несколько лет как не актуальная система, с появлением Data ONTAP 8.0 и контроллеров с ней работающих, эти лимиты стоят уже довольно высоко, а начиная с мидренджа и выше, кажется, и вовсе равны предельному размеру тома,</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-9983" title="">23 Сентябрь 2013, 16:01</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-9984">
+		<div id="div-comment-9984">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Спасибо, как раз этот документ я и упустил. Все-таки правильный ответ делать некоторый буффер с запасом свободной емкости помимо WAFL reserve.</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-9984" title="">23 Сентябрь 2013, 16:10</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-9985">
+		<div id="div-comment-9985">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Александр:<br />
+Да, официальный Best Practices - оставлять на томе место (если на томе часто пишут). Это так для любых smart-стораджей с файловой системой, выше я это показываю для Windows и NTFS.<br />
+Да, это не так сильно проявляется для dumb SCSI LUN (но все равно есть, просто не так сильно, и немного по другой причине), но кто сегодня использует dumb LUN, даже у EMC сегодня всюду storage pools, а Чак вон из EMC вообще уволился (или, вернее, перешел в VMware), видимо так и не смирился с таким &#8220;кидком&#8221; со стороны его компании. ;D</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-9985" title="">23 Сентябрь 2013, 16:16</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-10003">
+		<div id="div-comment-10003">
+		<div class="comment-author">
+			<cite>Alexander:<cite></div>
+			<p>Не могу сообразить, почему reallocation физических блоков (ключ -p) вызывает такие эффекты:<br />
+&#8220;Using the -p option may reduce the extra storage requirements in a flexible volume when reallocation is run on a volume with snapshots. It may also reduce the amount of data that needs to be transmitted by SnapMirror on its next update after reallocation is performed on a SnapMirror source volume&#8221;.</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-10003" title="">24 Сентябрь 2013, 3:59</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-10057">
+		<div id="div-comment-10057">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Офф: &#8230;Сколько Александров стало в блоге</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-10057" title="">26 Сентябрь 2013, 19:57</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-10059">
+		<div id="div-comment-10059">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>&#8220;Ничего-ничего, зовите меня просто &#8220;Александр Первый&#8221; :)</p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-10059" title="">26 Сентябрь 2013, 20:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-11126">
+		<div id="div-comment-11126">
+		<div class="comment-author">
+			<cite>??лья:<cite></div>
+			<p>Рома, не совсем понял про заполненность томов. Насколько я помню NetApp всегда говорил про свободное место на агрегате и производительность, но про тома я слышу впервые. То есть, если я на томе с луном с резервацией места оставляю 1 Гб свободного места при общем объеме тома в 400 Гб, то у меня падает производительность? Есть какие то документы подтверждающие это?</p>
+<p>По поводу производительности агрегата: сам недавно искал официальное подтверждение про 90% занятого места на агрегате. Думаю стоит добавить в статью: <a href="https://kb.netapp.com/support/index?page=content&amp;id=2017993&amp;locale=en_US" rel="nofollow">https://kb.netapp.com/support/index?page=content&amp;id=2017993&amp;locale=en_US</a></p>
+						<div class="comment-meta"><a href="1292/trackback.html#comment-11126" title="">14 Ноябрь 2013, 13:07</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1292" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.078 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

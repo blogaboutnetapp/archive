@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP 8.1 GA release!</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1152/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1152</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:16 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2478</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 08 May 2012 11:44:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2478</guid>
+		<description>Alexey Marushchenko:
+
+Написал уточняющий пост сегодня, причем исключительно по открытым материалам (это было непросто, учитывая типичную для нетаппа политику "тут играем (даем кастомеру), тут не играем (не даем, под NDA), тут рыбу заворачивали (ссылка о подробностях на анутренний, недоступный не стаффу портал компании)".)</description>
+		<content:encoded><![CDATA[<p>Alexey Marushchenko:</p>
+<p>Написал уточняющий пост сегодня, причем исключительно по открытым материалам (это было непросто, учитывая типичную для нетаппа политику &#8220;тут играем (даем кастомеру), тут не играем (не даем, под NDA), тут рыбу заворачивали (ссылка о подробностях на анутренний, недоступный не стаффу портал компании)&#8221;.)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Alexey Marushchenko</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2468</link>
+		<dc:creator>Alexey Marushchenko</dc:creator>
+		<pubDate>Mon, 07 May 2012 20:37:58 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2468</guid>
+		<description>To all:
+Если очень внимательно прочитать Product Bulletin: Refresh of 256GB and 512GB Flash Cache (доступен с партнерским уровнем доступа), то можно увидеть строки, которые NetApp разрешает сообщать AS IS Заказчикам:
+
+For the current installed base of FAS/V3210 + Flash Cache, Data ONTAP 8.1.1 will support the 256GB Flash Cache.
+
+Data ONTAP 8.1.1 adds considerable new features in the areas of storage efficiency, scalability, security, and manageability. Data ONTAP 8.1.1 reenables the 256GB Flash Cache on the FAS/V3140 systems using the full capacity for wear-leveling and cache storage. However, to deliver on the full value of Data ONTAP 8.1.1, the maximum working dataset in the 256GB Flash Cache on FAS/V3140 will be 128GB.
+
+Please note that this is for the existing installed base only and not for new systems. Flash Cache will continue to be an unsupported option in new FAS/V3210 shipments. Additionally, adding new Flash Cache cards to existing FAS/V3210 and FAS/V3140 systems is not supported or allowed. Lastly, please note that Data ONTAP 8.2 and beyond will not support Flash Cache on the FAS/V3210 and FAS/V3140</description>
+		<content:encoded><![CDATA[<p>To all:<br />
+Если очень внимательно прочитать Product Bulletin: Refresh of 256GB and 512GB Flash Cache (доступен с партнерским уровнем доступа), то можно увидеть строки, которые NetApp разрешает сообщать AS IS Заказчикам:</p>
+<p>For the current installed base of FAS/V3210 + Flash Cache, Data ONTAP 8.1.1 will support the 256GB Flash Cache.</p>
+<p>Data ONTAP 8.1.1 adds considerable new features in the areas of storage efficiency, scalability, security, and manageability. Data ONTAP 8.1.1 reenables the 256GB Flash Cache on the FAS/V3140 systems using the full capacity for wear-leveling and cache storage. However, to deliver on the full value of Data ONTAP 8.1.1, the maximum working dataset in the 256GB Flash Cache on FAS/V3140 will be 128GB.</p>
+<p>Please note that this is for the existing installed base only and not for new systems. Flash Cache will continue to be an unsupported option in new FAS/V3210 shipments. Additionally, adding new Flash Cache cards to existing FAS/V3210 and FAS/V3140 systems is not supported or allowed. Lastly, please note that Data ONTAP 8.2 and beyond will not support Flash Cache on the FAS/V3210 and FAS/V3140</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Никита</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2456</link>
+		<dc:creator>Никита</dc:creator>
+		<pubDate>Sat, 05 May 2012 07:00:35 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2456</guid>
+		<description>&#62;&#62; Ylytch:
+
+to Dake
+ То есть я правильно понимаю, что в случае наличия SSP я не потеряю поддержку если буду обновлятся только по maintenance release ветке 8.0.x?
+
+Ну и вопросы. Вы системный интегратор? Ага, NetApp будет выпускать обновления для 8.0.x, но тех, кто будет их ставить, будет лишать поддержки :)</description>
+		<content:encoded><![CDATA[<p>&gt;&gt; Ylytch:</p>
+<p>to Dake<br />
+ То есть я правильно понимаю, что в случае наличия SSP я не потеряю поддержку если буду обновлятся только по maintenance release ветке 8.0.x?</p>
+<p>Ну и вопросы. Вы системный интегратор? Ага, NetApp будет выпускать обновления для 8.0.x, но тех, кто будет их ставить, будет лишать поддержки :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ylytch</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2446</link>
+		<dc:creator>Ylytch</dc:creator>
+		<pubDate>Fri, 04 May 2012 13:10:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2446</guid>
+		<description>to Dake
+То есть я правильно понимаю, что в случае наличия SSP я не потеряю поддержку если буду обновлятся только по maintenance release ветке 8.0.x?</description>
+		<content:encoded><![CDATA[<p>to Dake<br />
+То есть я правильно понимаю, что в случае наличия SSP я не потеряю поддержку если буду обновлятся только по maintenance release ветке 8.0.x?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dake</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2437</link>
+		<dc:creator>Dake</dc:creator>
+		<pubDate>Thu, 03 May 2012 12:03:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2437</guid>
+		<description>To Ylytch: 3210 с некоторых пор нельзя даже сконфигурировать с Flash Cache.
+
+3210 c FlashCache работает на 8.0.3, GA которой не затронут в данном посте.
+
+В 8.1.1 по слухам ожидается поддержка Flash Cache до 256ГБ на контроллер для 3210 и до 128Гб на контроллер для 3140.
+Будем надеяться все пофиксят...</description>
+		<content:encoded><![CDATA[<p>To Ylytch: 3210 с некоторых пор нельзя даже сконфигурировать с Flash Cache.</p>
+<p>3210 c FlashCache работает на 8.0.3, GA которой не затронут в данном посте.</p>
+<p>В 8.1.1 по слухам ожидается поддержка Flash Cache до 256ГБ на контроллер для 3210 и до 128Гб на контроллер для 3140.<br />
+Будем надеяться все пофиксят&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2436</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 03 May 2012 11:52:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2436</guid>
+		<description>А, это отчасти меняет дело, значит факап был неплановый, и случился внезапно и для них, и есть шансы на исправление.
+Вынесу-ка я это в UPD:</description>
+		<content:encoded><![CDATA[<p>А, это отчасти меняет дело, значит факап был неплановый, и случился внезапно и для них, и есть шансы на исправление.<br />
+Вынесу-ка я это в UPD:</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Никита</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2434</link>
+		<dc:creator>Никита</dc:creator>
+		<pubDate>Thu, 03 May 2012 09:33:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2434</guid>
+		<description>&#62;&#62; Ylytch:
+
+&#62;&#62; А я неделю назад 3210+Flash Cache как вариант решения клиенту под vSphere выкатил. Теперь обосновывать изменение конфигурации придется((((
+
+Вот беда-беда, огорчение, придется обосновывать!!! Соболезную. То ли дело у нас мелочи какие-то: FAS3210 с Flash Cache уже куплен, никому ничего уже обосновывать не надо.
+
+&#62;&#62; Впрочем, если клиент готов жить на 8.0.2, то может и ничего. Все же, как я понимаю, 8.1 это, прежде всего, Cluster-mode.
+
+??з потерь кроме возможности обновления как таковой со всеми вытекающими отсюда последствиями конкретно из новых возможностей 8.1 7-mode навскидку могу отметить следующее:
+
+реаллокация дедуплицированных томов, снятие ограничения на размер дедуплицируемого тома, обещанное увеличение производительности дедупликации, поддержка SAS ленточных библиотек
+
+Немного обнадеживает следующая фраза в release notes:
+
+Attention: If you have a 3210 or 3140 storage system with Flash Cache modules installed, do not upgrade your system to Data ONTAP 8.1 7-Mode. Flash Cache modules are not supported in 3210 or 3140 storage systems with Data ONTAP 8.1.
+The issue is under investigation and a long-term strategy will be communicated as soon as possible.</description>
+		<content:encoded><![CDATA[<p>&gt;&gt; Ylytch:</p>
+<p>&gt;&gt; А я неделю назад 3210+Flash Cache как вариант решения клиенту под vSphere выкатил. Теперь обосновывать изменение конфигурации придется((((</p>
+<p>Вот беда-беда, огорчение, придется обосновывать!!! Соболезную. То ли дело у нас мелочи какие-то: FAS3210 с Flash Cache уже куплен, никому ничего уже обосновывать не надо.</p>
+<p>&gt;&gt; Впрочем, если клиент готов жить на 8.0.2, то может и ничего. Все же, как я понимаю, 8.1 это, прежде всего, Cluster-mode.</p>
+<p>??з потерь кроме возможности обновления как таковой со всеми вытекающими отсюда последствиями конкретно из новых возможностей 8.1 7-mode навскидку могу отметить следующее:</p>
+<p>реаллокация дедуплицированных томов, снятие ограничения на размер дедуплицируемого тома, обещанное увеличение производительности дедупликации, поддержка SAS ленточных библиотек</p>
+<p>Немного обнадеживает следующая фраза в release notes:</p>
+<p>Attention: If you have a 3210 or 3140 storage system with Flash Cache modules installed, do not upgrade your system to Data ONTAP 8.1 7-Mode. Flash Cache modules are not supported in 3210 or 3140 storage systems with Data ONTAP 8.1.<br />
+The issue is under investigation and a long-term strategy will be communicated as soon as possible.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2433</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 03 May 2012 08:48:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2433</guid>
+		<description>bbk:
+
+Software Subscription Plan - подписка на обновление поставленного ПО (может быть куплена на срок от 3 месяцев, до трех лет).</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Software Subscription Plan - подписка на обновление поставленного ПО (может быть куплена на срок от 3 месяцев, до трех лет).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2431</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Thu, 03 May 2012 08:45:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2431</guid>
+		<description>Что такое SSP?</description>
+		<content:encoded><![CDATA[<p>Что такое SSP?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1152#comment-2428</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 03 May 2012 05:56:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1152#comment-2428</guid>
+		<description>Ylytch:
+
+А я, к счастью, не успел. :(
+Впрочем, если клиент готов жить на 8.0.2, то может и ничего. Все же, как я понимаю, 8.1 это, прежде всего, Cluster-mode.</description>
+		<content:encoded><![CDATA[<p>Ylytch:</p>
+<p>А я, к счастью, не успел. :(<br />
+Впрочем, если клиент готов жить на 8.0.2, то может и ничего. Все же, как я понимаю, 8.1 это, прежде всего, Cluster-mode.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

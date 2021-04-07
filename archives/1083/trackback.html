@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Как заполненность данными системы хранения влияет на ее производительность?</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../1087/trackback.html">FAS2240 - новинка модельного ряда NetApp этого года.</a></div>
+			<div class="alignright"><a href="../1090/trackback.html">Что такое Mailbox Disk?</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1083">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Как заполненность данными системы хранения влияет на ее производительность?">Как заполненность данными системы хранения влияет на ее производительность?</a></h2>
+			<div class="postmetadata">9 Ноябрь 2011, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Сегодня в переводах новый автор, это principal technologist регионального представительства NetApp по Австрали и Новой Зеландии, и директор SNIA ANZ - <a href="http://storagewithoutborders.com/about/www.storagewithoutborders.com" rel="cc:attributionURL"><font color="#0066cc">Richard J Martin</font></a>. Его блог это вообще и в целом довольно отличающееся явление от, увы, распространенного сейчас стиля среди блоггеров “<em>Так как мне не хватает 140 символов моего твиттера, я вынужден написать эти 320 символов в блог, но лучше читайте мой твиттер</em>”, его записи в блог это, порой, настоящие глубокие статьи, которые интересно читать и трудно переводить.</p>
+<p>Надеюсь, что он еще не раз появится в моих переводах.</p>
+<p>Ричард Мартин, NetApp Australia отвечает на вопрос “как заполненность данными системы хранения влияет на ее производительность?”</p>
+<p><h3><a href="http://storagewithoutborders.com/2011/09/10/how-does-capacity-utilisation-affect-performance/">How does capacity utilisation affect performance ?</a></h3>
+<p>September 10, 2011 <a href="http://storagewithoutborders.com/author/storagewithoutborders/">storagewithoutborders</a></p>
+<p> Несколько дней назад я получил письмо с вопросом &quot;Каковы рекомендации по максимальному уровню использования пространства системы хранения, не вызывающему падения ее производительности?&quot;. С одной стороны такие вопросы раздражают меня, так как чаще всего рождаются из регулярно вбрасываемого FUDa о NetApp, с другой стороны, даже несмотря на то, что правильно спроектированная для стабильного уровня производительности система хранения редко (если такое и вообще возможно) сводится к любой единственной метрике, понимание особенностей использования емкости хранилища и его влияния на производительность, это важный аспект при проектировании вашей системы хранения.</p>
+<p>Первое, что я хотел бы сказать, говоря на эту тему, и что хотел бы, чтобы было ясно здесь сказано, это то, что уровень производительности <strong>любой</strong> системы хранения, <strong>любого</strong> производителя, использующей вращающиеся жесткие диски, будет падать пропорционально количеству занятого на них пространства.</p>
+<p>Поэтому, отвечая на вопрос, как уровень заполненности системы хранения влияет на ее производительность, мне приходится оговариваться, что &quot;это зависит от ряда факторов&quot;, но в большинстве случаев, когда задают такой вопрос, то спрашивающего он интересует для нагрузки с высоким уровнем операций записи, например VDI, некоторые виды online transaction processing, и системы электронной почты.</p>
+<p>Если вы рассматриваете такие варианты нагрузки, то можно смотреть наш старый добрый <a href="http://media.netapp.com/documents/tr-3647.pdf">TR-3647</a> в котором как раз рассматриваются высокие нагрузки со значительными объемами записи, и где говорится:</p>
+<blockquote><p>Структура размещения данных WAFL, используемая в Data ONTAP, оптимизирует записи на диск, для улучшения производительности системы и повышения уровня использования полосы пропускания дисков. Оптимизация в WAFL использует небольшой объем свободного или зарезервированного пространства в пределах aggregate. Для высокой нагрузки, связанной с интенсивной записью, мы рекомендуем оставлять незанятым пространство, равное, в среднем, 10% от usable space, для работы этого оптимизационного процесса. Это пространство не только обеспечивает высокопроизводительную запись, но также работает как буфер при неожиданно возникающих потребностях приложения в свободном месте при объемных записях на диск.</p>
+</blockquote>
+<p>Я видел некоторые бенчмарки, использующие синтетическую нагрузку, где точка перелома графика производительности наблюдалась между 98 и 100% usable емкости, после вычета WAFL reserve, я также видел проблемы производительности, когда люди полностью заполняли все доступное пространство на системе хранения, а затем начинали писать не нее мелкими блоками множество перезаписей данных. Это не является уникальным свойством именно WAFL, в случае любой системы хранения такое ее использование будет довольно плохой идеей, заполнить все пространство на любой структуре данных, а затем пустить на нее объемный random write.</p>
+<p>Однако можно смело сказать, что на подавляющем большинстве нагрузок, вы получите на системах NetApp больше &quot;IOPS со шпинделя&quot;, чем у любой аналогично сконфигурированной (и за сходную цену) системы хранения других производителей.</p>
+<p>Оставляя в стороне тему FUD, (подробный его разбор требует довольно глубокого понимания внутренней архитектуры ONTAP) при рассмотрении того, как влияет заполнение емкости на производительность на системах хранения NetApp FAS, надо хорошо понимать следующие моменты:</p>
+<ol>
+<li>Для любого конкретного типа рабочей нагрузки и типа системы хранения вы можете достичь только сравнительно ограниченного числа операций на диск, это число на диск 15K RPM составляет, обычно менее 250.</li>
+<li>Производительность системы хранения обычно определяется тем, на сколько дисков может быть распараллелена нагрузка ввода-вывода.</li>
+<li>Большинство производителей систем хранения предоставляют для рабочей нагрузки ввода-вывода диски, объединенные в RAID-10, который использует вдвое больше raw-дисков на данный объем usable. При этом NetApp использует RAID-DP, который не требует удваивать количество дисковых шпинделей на заданный объем usable данных.</li>
+<li>В большинстве бенчмарков (см. например SPC-1), NetApp использует для тестирования все доступное дисковое пространство, кроме 10% от usable space (в соответствии с написанным в TR-3647) что дает пользователю примерно 60% от емкости raw дисков, при этом достигая того же уровня IOPS/диск, которое другие производители получают при уровне usable в 30% от raw. Таким образом, равную производительность из расчет на жесткий диск мы обеспечиваем при на 10% большем уровне usable пространства, чем другие производители могут теоретически достичь при использовании RAID-10.</li>
+</ol>
+<p>В итоге, даже без использования дедупликации и thin provisioning, или чего-то подобного, вы можете хранить вдвое больше данных на системе хранения NetApp FAS, обеспечивая тот же уровень производительности, как и большинство конкурирующих решений с RAID-10.</p>
+<p>Хотя все это действительно правда, следует отметить, что тут есть и один недостаток. Хотя величина IOPS/Spindle более-менее та же, величина &quot;плотности IOPS&quot; (IOPS density) измеренная в IOPS/GB для результатов NetApp SPC-1 составляет примерно половину от решений конкурентов, (те же IOPS , 2x данных = вдвое меньше плотность). Хотя это на самом деле и сложнее сделать, за счет более низкого соотношения cache/data, если у вас есть приложение, которое требует очень высокой плотности IOPS/GB (например некоторые инфраструктуры VDI), тогда вы можете не использовать всю имеющуюся у вас дополнительную емкость под эту нагрузку ввода-вывода. Все это дает вам, в результате, возможность выбора из трех вариантов.</p>
+<ol>
+<li>Не использовать это дополнительное место, оставив его незанятым на aggregate, позволить работать на нем оптимизации записей и получить лучшую производительность.</li>
+<li>??спользовать дополнительное место, например для данных некритичных к производительности, таким как хранение снэпшотов, или зеркальная реплика данных, или архивы, и так далее, и установить этой нагрузке пониженный приоритет с помощью FlexShare.</li>
+<li>Установить карту Flash Cache, которая удвоит эффективные показатели IOPS (зависит от вида нагрузки, конечно) на физический диск, что обойдется дешевле, и сэкономит ресурсы, чем удвоение количества физических дисков.</li>
+</ol>
+<p>Если вы поступаете иначе, то вы можете получить ситуацию, когда наша высокая эффективность использования пространства позволяет пользователю запустить слишком большую нагрузку по вводу-выводу на недостаточном количестве физических жестких дисков, и, к сожалению, снова снова порождает пресловутый и бесконечно гуляющий FUD о &quot;Netapp Capacity / Performance&quot;. </p>
+<p>Он некорректен прежде всего потому, что причина тут не в каких-то тонкостях Data ONTAP или WAFL, а в том, что на систему, сайзинг которой был проведен для рабочей нагрузки X, помещают 3X данных, так как &quot;на дисках еще есть место&quot;, и весь ввод-вывод этих 2-3-кратного объема данных наваливается на дисковые шпиндели, запланированные под совсем другой уровень нагрузки и объемов.</p>
+<p>Для того, чтобы сделать счастливыми, и, что немаловажно, поддерживать это состояние в пользователях вашей системы хранения, вам, как администратору, нужно уметь управлять не только доступной вам емкостью, но и доступной производительностью системы хранения. Чаще всего у вас будет исчерпываться одно раньше, чем другое, и работа эффективной IT инфраструктры означает умение балансировать рабочую нагрузку между этими двумя ресурсами. В первую очередь это означает, что вы потратили определенное время измеряя и мониторя емкость и производительность вашей системы. Кроме этого вам следует настроить вашу систему так чтобы иметь возможность мигрировать и ребалансировать нагрузку между ресурсными пулами, или же иметь возможность легко добавлять дополнительную производительность для имеющейся нагрузки не прерывая нормальной работы системы, что может быть осуществлено с помощью таких технологий, как Storage DRS в vSphere 5, или Data Motion и Virtual Storage Tiering в Data ONTAP.</p>
+<p>Когда вы наблюдаете за параметрами вашей системы хранения, вы можете своевременно принять меры, до того, как какие-либо проблемы проявятся. У NetApp есть множество великолепных инструментов по мониторингу производительности всей системы хранения. Performance Advisor дает вам визуализированные и настраиваемые алерты и пороги их срабатывания для встроенных метрик производительности, доступных в каждой системе хранения FAS, а OnCommand Insight Balance предоставляет углубленный отчет и упреждающий анализ для всей вашей виртуализованной инфраструктуры, включающей, в том числе, и стороннее, не-NetApp, оборудование.</p>
+<p>Вне зависимости, используете ли вы инструменты NetApp, или какие-то другие, важно то, что вы их используете, и потратили немного своего времени на то, чтобы найти подходящие метрики оценки, и решение, что нужно делать, если превышен тот или иной верхний порог. Если вы не уверены в правильности выбора метрик для вашего оборудования - спросите меня, или даже лучше опубликуйте вопрос в <a href="http://communities.netapp.com/index.jspa">комьюнити NetApp</a>, которое имеет куда более высокую посещаемость, чем этот блог.</p>
+<p>Хотя я понимаю весь соблазн вернуться к старой практике, привычной для &quot;классических&quot; систем хранения, когда для системы хранения почти нет шансов превысить ее возможности по IOPS, прежде чем она исчерпает свои возможности по емкости, это почти всегда невероятно расточительно, и ведет, по моему опыту, к уровню использования емкости около 20% и менее, и приводит к экономически неоправданной цене/GB для таких “Tier-1″ хранилищ. Возможно еще настанут &quot;сытные годы&quot;, когда администраторы будут снова иметь роскошь не обращать внимания на цену решения, или, быть может, вы окажетесь в такой редкой отрасли, где &quot;цена не имеет значения&quot;, однако для остальных нынешние времена - времена начистить и привести в готовность свои навыки мониторинга, настройки и оптимизации. Сегодня спрос есть на умение делать больше с меньшими затратами, и надо учиться этому.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/capacity.html" rel="tag">capacity</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/performance/index.html" rel="tag">performance</a>, <a href="../tag/wafl/index.html" rel="tag">wafl</a><br />					Раздел: <a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;" rel="category tag">переводы</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (5)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-2911">
+		<div id="div-comment-2911">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>интересно, если создать на всех дисках один агрегат, а на нём один раздел, куда положить один лун (с LUN Space Reservation), который займёт максимально свободное пространство, но при этом на самом деле он будет заполнен на 1%, будет ли это иметь хоть какой-то негативный эффект?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2911" title="">13 Июль 2012, 19:39</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-2912">
+		<div id="div-comment-2912">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Обычно все говорят о падении производительности на запись от того, что нужно искать свободные блоки и распихивать их то тут - то там. Но обычно все забывают о возможном падении производительности на запись, когда свободное пространство забито под завязку, из-за не рационального подсчёта данных для парити дисков. По-этому поводу нашел интересный абзац:<br />
+<a href="http://media.netapp.com/documents/tr-3001.pdf" rel="nofollow">TR-3001 A Storage Networking Appliance</a>: 5.2 Eliminating the Parity Disk Bottleneck.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-2912" title="">13 Июль 2012, 21:17</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-6407">
+		<div id="div-comment-6407">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Блин, вот снова и снова конкуренты забрасывают заказчику эту &#8220;мульку&#8221;.<br />
+Снова и снова нужно доказывать что &#8220;ты не верблюд&#8221;. Как это уже это приелось.</p>
+<p>Какой результат теста вы бы порекомендовали для опровержения?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-6407" title="">15 Март 2013, 18:44</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-6408">
+		<div id="div-comment-6408">
+		<div class="comment-author">
+			<cite><a href='../../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>bbk:<br />
+Если клиенту нравится слушать про то, что &#8220;А - верблюд&#8221;, то ничем вы ему это не измените. Почему он должен верить вашим результатам, и не верить результатам, которые ему нравятся?</p>
+						<div class="comment-meta"><a href="trackback.html#comment-6408" title="">15 Март 2013, 19:06</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-6409">
+		<div id="div-comment-6409">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>Результатам теста поверит. Многие клиенты не то чтобы сильно в это верят, но как говориться осадок осаётся. Так вот хочется убрать осадок.<br />
+Да и хочется решить этот вопрос раз и навсегда.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-6409" title="">15 Март 2013, 20:33</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1083" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

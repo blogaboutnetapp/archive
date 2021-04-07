@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: ??з чего складывается величина IOPS отдельного диска?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/993/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/993</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:34 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/993#comment-11645</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 20 Dec 2013 10:26:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/993#comment-11645</guid>
+		<description>Напомните, правильно ли я понимаю, что получаемая величина "Estimated IOPS" соблюдается при условии оперирования случайными (не последовательными) операциями чтения/записи минимального зазмера в 4KB, с величиной латенси равной "average latency"?</description>
+		<content:encoded><![CDATA[<p>Напомните, правильно ли я понимаю, что получаемая величина &#8220;Estimated IOPS&#8221; соблюдается при условии оперирования случайными (не последовательными) операциями чтения/записи минимального зазмера в 4KB, с величиной латенси равной &#8220;average latency&#8221;?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Toka</title>
+		<link>http://blog.aboutnetapp.ru/archives/993#comment-2231</link>
+		<dc:creator>Toka</dc:creator>
+		<pubDate>Wed, 14 Mar 2012 23:04:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/993#comment-2231</guid>
+		<description>Поправка, не в знаменателе, а в числителе имелось в виду менять значения в зависимости от RPM.</description>
+		<content:encoded><![CDATA[<p>Поправка, не в знаменателе, а в числителе имелось в виду менять значения в зависимости от RPM.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Toka</title>
+		<link>http://blog.aboutnetapp.ru/archives/993#comment-2207</link>
+		<dc:creator>Toka</dc:creator>
+		<pubDate>Tue, 06 Mar 2012 23:36:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/993#comment-2207</guid>
+		<description>В формулах есть определенная неточность. В знаменателе стоит 1 только когда расчитывается диск с 10K RPM. Однако, для диков 15K, в знаменателе правильнее будет поставить 1,5.т.е IOPS= 1,5/( (3.65 / 1000) + (2.0 / 1000) )= 265 IOPS. Также для дисков с 7200 оборотов, в знаменателе ставят 0,72. Так уже становится более понятно откуда берется большая разница в IOPS между 10K (max 150 IOPS) и 15K (250 IOPS) дисков.</description>
+		<content:encoded><![CDATA[<p>В формулах есть определенная неточность. В знаменателе стоит 1 только когда расчитывается диск с 10K RPM. Однако, для диков 15K, в знаменателе правильнее будет поставить 1,5.т.е IOPS= 1,5/( (3.65 / 1000) + (2.0 / 1000) )= 265 IOPS. Также для дисков с 7200 оборотов, в знаменателе ставят 0,72. Так уже становится более понятно откуда берется большая разница в IOPS между 10K (max 150 IOPS) и 15K (250 IOPS) дисков.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/993#comment-1627</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 23 Aug 2011 13:22:59 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/993#comment-1627</guid>
+		<description>Pavel Kruchok:
+
+Несмотря на то, что в теории может быть некоторая разница во времени отклика между протоколами, на практике, как я понимаю, в основном решает RPM. То есть 15000 это в 2 с чутью раза быстрее доезжает сектор до головки, вот эти два раза и дают основную разницу между SAS 15K и SATA 7.2K</description>
+		<content:encoded><![CDATA[<p>Pavel Kruchok:</p>
+<p>Несмотря на то, что в теории может быть некоторая разница во времени отклика между протоколами, на практике, как я понимаю, в основном решает RPM. То есть 15000 это в 2 с чутью раза быстрее доезжает сектор до головки, вот эти два раза и дают основную разницу между SAS 15K и SATA 7.2K</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pavel Kruchok</title>
+		<link>http://blog.aboutnetapp.ru/archives/993#comment-1626</link>
+		<dc:creator>Pavel Kruchok</dc:creator>
+		<pubDate>Tue, 23 Aug 2011 13:06:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/993#comment-1626</guid>
+		<description>??нтересно, я правильно понимаю что кроме очевидной разницы в IOPS между SATA 7200 и SAS 15k есть еще и разница во времни отклика.
+Т.е. SAS примерно в 2.5 раза больше операций делает, и при этом время отклика в 2,5 разм меньше чем у SATA.</description>
+		<content:encoded><![CDATA[<p>??нтересно, я правильно понимаю что кроме очевидной разницы в IOPS между SATA 7200 и SAS 15k есть еще и разница во времни отклика.<br />
+Т.е. SAS примерно в 2.5 раза больше операций делает, и при этом время отклика в 2,5 разм меньше чем у SATA.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/993#comment-1620</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Fri, 19 Aug 2011 10:45:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/993#comment-1620</guid>
+		<description>Еще один шаг в техпроцессе ssd  и 10k&#38;15k уйдут в историю - единственный их плюс - высокая маржа производителя). 15k они уже обогнали по емкости - http://servernews.ru/news/Hitachi-anonsirovala-proizvoditelniy-SSD-na-mikroshemah-pamyati-MLC. ??нтересно, этоха DataOntap = эпоха hdd?</description>
+		<content:encoded><![CDATA[<p>Еще один шаг в техпроцессе ssd  и 10k&amp;15k уйдут в историю - единственный их плюс - высокая маржа производителя). 15k они уже обогнали по емкости - <a href="http://servernews.ru/news/Hitachi-anonsirovala-proizvoditelniy-SSD-na-mikroshemah-pamyati-MLC" rel="nofollow">http://servernews.ru/news/Hitachi-anonsirovala-proizvoditelniy-SSD-na-mikroshemah-pamyati-MLC</a>. ??нтересно, этоха DataOntap = эпоха hdd?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: EGarbuzov</title>
+		<link>http://blog.aboutnetapp.ru/archives/993#comment-1618</link>
+		<dc:creator>EGarbuzov</dc:creator>
+		<pubDate>Thu, 18 Aug 2011 08:00:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/993#comment-1618</guid>
+		<description>Всегда было интересно, как получают "номинальные" IOPS'ы одного диска. Только фигня со скобками. Во всех четырёх формулах не хватает по одной-две :)</description>
+		<content:encoded><![CDATA[<p>Всегда было интересно, как получают &#8220;номинальные&#8221; IOPS&#8217;ы одного диска. Только фигня со скобками. Во всех четырёх формулах не хватает по одной-две :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Andrew Ivanov</title>
+		<link>http://blog.aboutnetapp.ru/archives/993#comment-1617</link>
+		<dc:creator>Andrew Ivanov</dc:creator>
+		<pubDate>Thu, 18 Aug 2011 04:36:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/993#comment-1617</guid>
+		<description>Я бы только "1000" вынес куда-нибудь наверх (или еще лучше размерность указать), а то некоторое время тупо смотрел на изначальную формулу, пока ниже не увидел что все времена в мс указаны :)</description>
+		<content:encoded><![CDATA[<p>Я бы только &#8220;1000&#8243; вынес куда-нибудь наверх (или еще лучше размерность указать), а то некоторое время тупо смотрел на изначальную формулу, пока ниже не увидел что все времена в мс указаны :)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

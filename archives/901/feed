@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Конкурс &#8220;экономия пространства на NetApp&#8221;</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/901/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/901</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:41 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1737</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Mon, 26 Sep 2011 09:43:27 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1737</guid>
+		<description>Дедупликация от microsoft, кашерные блоки 4КБ присутствуют
+http://blogs.technet.com/b/vm/archive/2011/09/26/block_2d00_level-data-deduplication-and-vhd-support.aspx</description>
+		<content:encoded><![CDATA[<p>Дедупликация от microsoft, кашерные блоки 4КБ присутствуют<br />
+<a href="http://blogs.technet.com/b/vm/archive/2011/09/26/block_2d00_level-data-deduplication-and-vhd-support.aspx" rel="nofollow">http://blogs.technet.com/b/vm/archive/2011/09/26/block_2d00_level-data-deduplication-and-vhd-support.aspx</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1406</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Tue, 31 May 2011 06:24:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1406</guid>
+		<description>fas2020 базы данных 1с (77,82)
+Filesystem                used      saved       %saved
+
+/vol/vol1c/               14GB       15GB          51%</description>
+		<content:encoded><![CDATA[<p>fas2020 базы данных 1с (77,82)<br />
+Filesystem                used      saved       %saved</p>
+<p>/vol/vol1c/               14GB       15GB          51%</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Kosmatiy</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1363</link>
+		<dc:creator>Kosmatiy</dc:creator>
+		<pubDate>Wed, 18 May 2011 09:08:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1363</guid>
+		<description>Нет еще. Системе неделя. В тестовом режиме пока.</description>
+		<content:encoded><![CDATA[<p>Нет еще. Системе неделя. В тестовом режиме пока.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1361</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 17 May 2011 15:52:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1361</guid>
+		<description>Kosmatiy:
+
+Спасибо, засчитано. А, если используете 8.х, не пробовали компрессию?</description>
+		<content:encoded><![CDATA[<p>Kosmatiy:</p>
+<p>Спасибо, засчитано. А, если используете 8.х, не пробовали компрессию?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Kosmatiy</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1360</link>
+		<dc:creator>Kosmatiy</dc:creator>
+		<pubDate>Tue, 17 May 2011 12:57:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1360</guid>
+		<description>FAS 3240. vol0 - картографическая информация (растры, карты и т.п.). Грубо: куча мелких файлов и много здоровых tif.
+filer1&#62; df -gs
+Filesystem                used      saved       %saved
+/vol/root/                 2GB        0GB           0%
+/vol/vol0/              3454GB      960GB          22%</description>
+		<content:encoded><![CDATA[<p>FAS 3240. vol0 - картографическая информация (растры, карты и т.п.). Грубо: куча мелких файлов и много здоровых tif.<br />
+filer1&gt; df -gs<br />
+Filesystem                used      saved       %saved<br />
+/vol/root/                 2GB        0GB           0%<br />
+/vol/vol0/              3454GB      960GB          22%</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Dmitriy</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1336</link>
+		<dc:creator>Dmitriy</dc:creator>
+		<pubDate>Fri, 06 May 2011 12:04:19 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1336</guid>
+		<description>Тоже попробуем выйграть сертификат!
+
+FAS 2040 - все тома (vol1,vol2,vol3) - это в файл-сервер, в основном пользовательские данные: doc,xls,pdf,jpeg
+Filesystem                used      saved       %saved
+/vol/vol0/                2GB        0GB           0%
+/vol/vol1/             1302GB      798GB          38%
+/vol/vol2/              468GB      101GB          18%
+/vol/vol3/              215GB      112GB          34%
+
+FAS 3240:
+Filesystem         used      saved       %saved
+/vol/vol0/         5GB        0GB           0%
+/vol/vol_00/       98GB       16GB          15% - Oracle Applications
+/vol/vol_01/       68GB       11GB          14% - Oracle (database binares 11g2)
+/vol/vol_02/       12GB        0GB           5% - Oracle Database 11g2 - transaction logs 
+/vol/vol_03/      642GB        9GB           1% - Oracle Database 11g2 - data,index
+/vol/vol_04/      516GB       99GB          16% - Oracle Database 11g2 - binary lob
+/vol/vol_05/      285GB        0GB           0% - Oracle Database 11g2 - archive logs</description>
+		<content:encoded><![CDATA[<p>Тоже попробуем выйграть сертификат!</p>
+<p>FAS 2040 - все тома (vol1,vol2,vol3) - это в файл-сервер, в основном пользовательские данные: doc,xls,pdf,jpeg<br />
+Filesystem                used      saved       %saved<br />
+/vol/vol0/                2GB        0GB           0%<br />
+/vol/vol1/             1302GB      798GB          38%<br />
+/vol/vol2/              468GB      101GB          18%<br />
+/vol/vol3/              215GB      112GB          34%</p>
+<p>FAS 3240:<br />
+Filesystem         used      saved       %saved<br />
+/vol/vol0/         5GB        0GB           0%<br />
+/vol/vol_00/       98GB       16GB          15% - Oracle Applications<br />
+/vol/vol_01/       68GB       11GB          14% - Oracle (database binares 11g2)<br />
+/vol/vol_02/       12GB        0GB           5% - Oracle Database 11g2 - transaction logs<br />
+/vol/vol_03/      642GB        9GB           1% - Oracle Database 11g2 - data,index<br />
+/vol/vol_04/      516GB       99GB          16% - Oracle Database 11g2 - binary lob<br />
+/vol/vol_05/      285GB        0GB           0% - Oracle Database 11g2 - archive logs</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Igor Zinovik</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1331</link>
+		<dc:creator>Igor Zinovik</dc:creator>
+		<pubDate>Wed, 04 May 2011 05:55:34 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1331</guid>
+		<description>СХД FAS3020c.
+
+fas1&#62; version
+NetApp Release 7.3.3: Thu Mar 11 22:43:52 PST 2010
+
+Том на котором храню ВМ.  
+fas1&#62; df -s -g /vol/vm_vmdk
+Filesystem                used      saved       %saved
+/vol/vm_vmdk/            265GB      364GB          58%
+
+ВМ:
+- 24 windows xp
+- 1 windows 7
+- 4 windows server 2003
+- 4 centos linux
+- 1 ubuntu desktop
+- 2 freebsd 8.2</description>
+		<content:encoded><![CDATA[<p>СХД FAS3020c.</p>
+<p>fas1&gt; version<br />
+NetApp Release 7.3.3: Thu Mar 11 22:43:52 PST 2010</p>
+<p>Том на котором храню ВМ.<br />
+fas1&gt; df -s -g /vol/vm_vmdk<br />
+Filesystem                used      saved       %saved<br />
+/vol/vm_vmdk/            265GB      364GB          58%</p>
+<p>ВМ:<br />
+- 24 windows xp<br />
+- 1 windows 7<br />
+- 4 windows server 2003<br />
+- 4 centos linux<br />
+- 1 ubuntu desktop<br />
+- 2 freebsd 8.2</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Rafaelich</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1326</link>
+		<dc:creator>Rafaelich</dc:creator>
+		<pubDate>Thu, 28 Apr 2011 06:42:01 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1326</guid>
+		<description>Data ONTAP (fas3140-2a.lab.it-grad.ru)
+login: root
+fas3140-2a&#62; df -s -g
+Filesystem                used      saved       %saved
+/vol/vol0/                 4GB        0GB           0%
+/vol/vol1/                 9GB        0GB           0%
+/vol/vol2/                 0GB        0GB           0%
+/vol/vol3/                48GB       37GB          43%
+/vol/vol4/                31GB      169GB          84%
+/vol/luns/                 6GB        0GB           2%
+/vol/mtu/                 33GB        0GB           0%
+/vol/TESTMTU/              0GB        0GB           0%
+fas3140-2a&#62;</description>
+		<content:encoded><![CDATA[<p>Data ONTAP (fas3140-2a.lab.it-grad.ru)<br />
+login: root<br />
+fas3140-2a&gt; df -s -g<br />
+Filesystem                used      saved       %saved<br />
+/vol/vol0/                 4GB        0GB           0%<br />
+/vol/vol1/                 9GB        0GB           0%<br />
+/vol/vol2/                 0GB        0GB           0%<br />
+/vol/vol3/                48GB       37GB          43%<br />
+/vol/vol4/                31GB      169GB          84%<br />
+/vol/luns/                 6GB        0GB           2%<br />
+/vol/mtu/                 33GB        0GB           0%<br />
+/vol/TESTMTU/              0GB        0GB           0%<br />
+fas3140-2a&gt;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1325</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 28 Apr 2011 05:54:21 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1325</guid>
+		<description>Minus:
+Спасибо, засчитано! :)</description>
+		<content:encoded><![CDATA[<p>Minus:<br />
+Спасибо, засчитано! :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Minus</title>
+		<link>http://blog.aboutnetapp.ru/archives/901#comment-1324</link>
+		<dc:creator>Minus</dc:creator>
+		<pubDate>Thu, 28 Apr 2011 05:49:51 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/901#comment-1324</guid>
+		<description>Сорри, сделал изначально без -g.
+Вот с ним:
+1. 
+
+
+Filesystem                used      saved       %saved
+/vol/vol0/                 4GB        0GB           0%
+/vol/vol_personal_shares/      425GB      140GB          25%
+/vol/vol_sata_hv/       1320GB      258GB          16%
+/vol/vol_sata_dv/        531GB      111GB          17%
+/vol/vol_sas_dv/         500GB      593GB          54%
+/vol/vol_snapinfo/        58GB        4GB           6%
+/vol/vol_shares/         471GB       88GB          16%
+
+2.
+
+
+Filesystem                used      saved       %saved
+/vol/vol0/                 3GB        0GB           0%
+/vol/vol_sas_dbcl/       276GB       33GB          11%
+/vol/vol_sata_ex/       1692GB      361GB          18%
+/vol/vol_sata_dbcl/      255GB       46GB          15%
+/vol/vol_sata_fs/        954GB      269GB          22%
+/vol/vol_sas_dwh/        183GB       85GB          32%
+/vol/vol_sas_mrdb/         0GB        0GB          43%</description>
+		<content:encoded><![CDATA[<p>Сорри, сделал изначально без -g.<br />
+Вот с ним:<br />
+1. </p>
+<p>Filesystem                used      saved       %saved<br />
+/vol/vol0/                 4GB        0GB           0%<br />
+/vol/vol_personal_shares/      425GB      140GB          25%<br />
+/vol/vol_sata_hv/       1320GB      258GB          16%<br />
+/vol/vol_sata_dv/        531GB      111GB          17%<br />
+/vol/vol_sas_dv/         500GB      593GB          54%<br />
+/vol/vol_snapinfo/        58GB        4GB           6%<br />
+/vol/vol_shares/         471GB       88GB          16%</p>
+<p>2.</p>
+<p>Filesystem                used      saved       %saved<br />
+/vol/vol0/                 3GB        0GB           0%<br />
+/vol/vol_sas_dbcl/       276GB       33GB          11%<br />
+/vol/vol_sata_ex/       1692GB      361GB          18%<br />
+/vol/vol_sata_dbcl/      255GB       46GB          15%<br />
+/vol/vol_sata_fs/        954GB      269GB          22%<br />
+/vol/vol_sas_dwh/        183GB       85GB          32%<br />
+/vol/vol_sas_mrdb/         0GB        0GB          43%</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

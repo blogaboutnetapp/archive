@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Насколько выгоден Flash Pool для системы класса FAS2200?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1317/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1317</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:50 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1317#comment-11744</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 24 Dec 2013 13:36:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1317#comment-11744</guid>
+		<description>Александр, спасибо за информацию!</description>
+		<content:encoded><![CDATA[<p>Александр, спасибо за информацию!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1317#comment-11743</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 24 Dec 2013 12:19:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1317#comment-11743</guid>
+		<description>Чуть наврал - 32 к IOPS с HA пары (OLTP), и тут уже явно вопрос не в самих иопсах, а в латенси, по которой у меня информации нету. Поэтому еще раз - смотрим нужную величину задержек и пляшем от этого. Есть варианты, когда и для 10 к IOPS потребуется средняя система.
+
+Далее, по поводу последовательной нагрузки - на чтение вытащить реально порядка 1.5 к MB/s, на запись - 500 MB/s. Но этот опять же синтетические тесты, относитесь к ним как к лабораторным.
+
+В случае если стоят задачи по последовательной записи или чтению - стоит смотреть в сторону E-series.</description>
+		<content:encoded><![CDATA[<p>Чуть наврал - 32 к IOPS с HA пары (OLTP), и тут уже явно вопрос не в самих иопсах, а в латенси, по которой у меня информации нету. Поэтому еще раз - смотрим нужную величину задержек и пляшем от этого. Есть варианты, когда и для 10 к IOPS потребуется средняя система.</p>
+<p>Далее, по поводу последовательной нагрузки - на чтение вытащить реально порядка 1.5 к MB/s, на запись - 500 MB/s. Но этот опять же синтетические тесты, относитесь к ним как к лабораторным.</p>
+<p>В случае если стоят задачи по последовательной записи или чтению - стоит смотреть в сторону E-series.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1317#comment-11742</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 24 Dec 2013 11:50:43 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1317#comment-11742</guid>
+		<description>Александр, то есть, порядка 15k iops в худшем случае, что составляет где-то около 75 дисков SAS@15k. Для небольшой компании - вполне себе ничего, на мой взгляд... Кстати, ваши цифры - это с пары контроллеров, или с одного?
+Разве что, как я понимаю, будут проблемы с sequential нагрузкой, как я понял, с одного контроллера больше четырёх гигабит не вытащить (опровергните меня, если я не прав).</description>
+		<content:encoded><![CDATA[<p>Александр, то есть, порядка 15k iops в худшем случае, что составляет где-то около 75 дисков SAS@15k. Для небольшой компании - вполне себе ничего, на мой взгляд&#8230; Кстати, ваши цифры - это с пары контроллеров, или с одного?<br />
+Разве что, как я понимаю, будут проблемы с sequential нагрузкой, как я понял, с одного контроллера больше четырёх гигабит не вытащить (опровергните меня, если я не прав).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1317#comment-11741</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 24 Dec 2013 11:06:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1317#comment-11741</guid>
+		<description>Nostromo, тут все сильно зависит как всегда от того какая нагрузка :)
+
+Формально встречал упоминания 20-25 к иопсов при OLTP нагрузке. В продакшн я бы такое, конечно же, не порекомендовал пускать.</description>
+		<content:encoded><![CDATA[<p>Nostromo, тут все сильно зависит как всегда от того какая нагрузка :)</p>
+<p>Формально встречал упоминания 20-25 к иопсов при OLTP нагрузке. В продакшн я бы такое, конечно же, не порекомендовал пускать.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1317#comment-11739</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 24 Dec 2013 10:54:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1317#comment-11739</guid>
+		<description>?? да, было бы ещё интересно посмотреть на производительность 2.5" sas vs 2.5" sata + ssd :)</description>
+		<content:encoded><![CDATA[<p>?? да, было бы ещё интересно посмотреть на производительность 2.5&#8243; sas vs 2.5&#8243; sata + ssd :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nostromo</title>
+		<link>http://blog.aboutnetapp.ru/archives/1317#comment-11738</link>
+		<dc:creator>Nostromo</dc:creator>
+		<pubDate>Tue, 24 Dec 2013 10:52:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1317#comment-11738</guid>
+		<description>Кстати, а каков примерный потолок производительности контроллеров 2200-й серии, кто-нибудь в курсе?</description>
+		<content:encoded><![CDATA[<p>Кстати, а каков примерный потолок производительности контроллеров 2200-й серии, кто-нибудь в курсе?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1317#comment-11737</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 24 Dec 2013 10:40:16 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1317#comment-11737</guid>
+		<description>Тут не совсем корректно. Если мы говорим про такую набивку дисками SSD, то мы не сможем ускорить всю СХД: гибридным у нас получится лишь 1 агрегат. 
+
+Но опять же, начиная с версии 8.2.1 максимальный размер FlashPool для систем 2240 увеличен до 800 ГБ. Появляется возможность сделать красивую конфигурацию для двух контроллеров, но это будут уже немного другие деньги.</description>
+		<content:encoded><![CDATA[<p>Тут не совсем корректно. Если мы говорим про такую набивку дисками SSD, то мы не сможем ускорить всю СХД: гибридным у нас получится лишь 1 агрегат. </p>
+<p>Но опять же, начиная с версии 8.2.1 максимальный размер FlashPool для систем 2240 увеличен до 800 ГБ. Появляется возможность сделать красивую конфигурацию для двух контроллеров, но это будут уже немного другие деньги.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Zerg</title>
+		<link>http://blog.aboutnetapp.ru/archives/1317#comment-11732</link>
+		<dc:creator>Zerg</dc:creator>
+		<pubDate>Tue, 24 Dec 2013 07:15:06 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1317#comment-11732</guid>
+		<description>??нтересное сравнение. Думаю для многих это будет отличным решением.</description>
+		<content:encoded><![CDATA[<p>??нтересное сравнение. Думаю для многих это будет отличным решением.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

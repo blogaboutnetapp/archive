@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Вышел Flash Accel 1.2</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1277/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1277</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:55 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1277#comment-9702</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 11 Sep 2013 06:04:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1277#comment-9702</guid>
+		<description>panvartan:
+
+Ну сейчас это будет видимо у всех.</description>
+		<content:encoded><![CDATA[<p>panvartan:</p>
+<p>Ну сейчас это будет видимо у всех.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: panvartan</title>
+		<link>http://blog.aboutnetapp.ru/archives/1277#comment-9701</link>
+		<dc:creator>panvartan</dc:creator>
+		<pubDate>Wed, 11 Sep 2013 06:03:17 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1277#comment-9701</guid>
+		<description>После выхода vsphere 5.5 появился аналог от vmware - flash read cache. Здесь можно потыкать демо интерфейса последнего http://vmwarewalkthroughs.com/vCloudSuite5-5/. А здесь описываются различия этих двух решений https://communities.netapp.com/thread/31541</description>
+		<content:encoded><![CDATA[<p>После выхода vsphere 5.5 появился аналог от vmware - flash read cache. Здесь можно потыкать демо интерфейса последнего <a href="http://vmwarewalkthroughs.com/vCloudSuite5-5/" rel="nofollow">http://vmwarewalkthroughs.com/vCloudSuite5-5/</a>. А здесь описываются различия этих двух решений <a href="https://communities.netapp.com/thread/31541" rel="nofollow">https://communities.netapp.com/thread/31541</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1277#comment-9400</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 26 Aug 2013 13:29:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1277#comment-9400</guid>
+		<description>Eshteynman:
+
+Нет, пока оно предназначено для работы с Нетаппом на "другом конце". Сложно сказать, насколько они увязаны, но есть подозрение, что увязаны. ??наче какой интересн нетаппу было бы выкладывать его бесплатно?</description>
+		<content:encoded><![CDATA[<p>Eshteynman:</p>
+<p>Нет, пока оно предназначено для работы с Нетаппом на &#8220;другом конце&#8221;. Сложно сказать, насколько они увязаны, но есть подозрение, что увязаны. ??наче какой интересн нетаппу было бы выкладывать его бесплатно?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Eshteynman</title>
+		<link>http://blog.aboutnetapp.ru/archives/1277#comment-9399</link>
+		<dc:creator>Eshteynman</dc:creator>
+		<pubDate>Mon, 26 Aug 2013 13:15:24 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1277#comment-9399</guid>
+		<description>Возможно ли приобретение данной системы и ее использование с СХД отличными от NetApp (допустим EVA)?
+Насколько я понял это чисто программное решение и по идее никак не привязано к используемым системам хранения?</description>
+		<content:encoded><![CDATA[<p>Возможно ли приобретение данной системы и ее использование с СХД отличными от NetApp (допустим EVA)?<br />
+Насколько я понял это чисто программное решение и по идее никак не привязано к используемым системам хранения?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1277#comment-8924</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 07 Aug 2013 07:47:12 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1277#comment-8924</guid>
+		<description>Александр:
+
+Ну вот смотрите, это решение для бизнес-приложений с большим вводом-выводом, на грани пропускной способности SAN, и который хотелось бы с нее (SAN) снять. Это достаточно суровые приложения должны быть по своим требованиям и выполняемым задачам.
+Но при этом использование Flash Accel оставляло бы их, до версии 1.2, без HA и FT, а также не позволяло использовать актуальную версию vSphere. О каком business-critical приложении для описанного уровня можно говорить без HA и FT?
+
+Я по списку whatsnew примерно оцениваю то, что еще не сделано, раз уж такие элементарные вещи к уже третьему релизу все еще не были сделаны.
+Мне кажется, что в суровый бизнес-критичный продакшн оно пока не готово, я бы не поставил :) А остальное вполне справится и традиционным способом.</description>
+		<content:encoded><![CDATA[<p>Александр:</p>
+<p>Ну вот смотрите, это решение для бизнес-приложений с большим вводом-выводом, на грани пропускной способности SAN, и который хотелось бы с нее (SAN) снять. Это достаточно суровые приложения должны быть по своим требованиям и выполняемым задачам.<br />
+Но при этом использование Flash Accel оставляло бы их, до версии 1.2, без HA и FT, а также не позволяло использовать актуальную версию vSphere. О каком business-critical приложении для описанного уровня можно говорить без HA и FT?</p>
+<p>Я по списку whatsnew примерно оцениваю то, что еще не сделано, раз уж такие элементарные вещи к уже третьему релизу все еще не были сделаны.<br />
+Мне кажется, что в суровый бизнес-критичный продакшн оно пока не готово, я бы не поставил :) А остальное вполне справится и традиционным способом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1277#comment-8918</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Wed, 07 Aug 2013 07:20:31 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1277#comment-8918</guid>
+		<description>Роман, а какие ограничения, по-твоему, мешают ему быть "тру" продакшен?
+По-моему главное, что есть "когерентность" данных между локальным кэшем сервера в flash/SSD и содержимым сетевого хранилища.</description>
+		<content:encoded><![CDATA[<p>Роман, а какие ограничения, по-твоему, мешают ему быть &#8220;тру&#8221; продакшен?<br />
+По-моему главное, что есть &#8220;когерентность&#8221; данных между локальным кэшем сервера в flash/SSD и содержимым сетевого хранилища.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1277#comment-8867</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 06 Aug 2013 09:06:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1277#comment-8867</guid>
+		<description>sl0n:
+Пока нет, к сожалению. Вообще, как мне кажется, продукт будет окончательно юзабельным и готовым к продакшну к версии 2.0, пока это скорее бета, слишком многое еще не сделано как надо. Разве только у вас есть абсолютно иначе не реализуемая задача, на которой ограничения Flash Accel особой роли не играют.</description>
+		<content:encoded><![CDATA[<p>sl0n:<br />
+Пока нет, к сожалению. Вообще, как мне кажется, продукт будет окончательно юзабельным и готовым к продакшну к версии 2.0, пока это скорее бета, слишком многое еще не сделано как надо. Разве только у вас есть абсолютно иначе не реализуемая задача, на которой ограничения Flash Accel особой роли не играют.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: sl0n</title>
+		<link>http://blog.aboutnetapp.ru/archives/1277#comment-8866</link>
+		<dc:creator>sl0n</dc:creator>
+		<pubDate>Tue, 06 Aug 2013 09:03:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1277#comment-8866</guid>
+		<description>А известны ли какие-либо сроки по поддержки Linux-a ?</description>
+		<content:encoded><![CDATA[<p>А известны ли какие-либо сроки по поддержки Linux-a ?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

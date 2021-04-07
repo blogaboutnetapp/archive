@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; Multistore и использование vFiler</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../999/trackback.html">Vox Populi: Как бы вы отнеслись к появлению рекламы в блоге?</a></div>
+			<div class="alignright"><a href="../1022/trackback.html">NetApp Virtual Storage Console 2.1.1</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1017">
+			<h2 class="posttitle"><a href="trackback.html" rel="bookmark" title="Permanent Link to Multistore и использование vFiler">Multistore и использование vFiler</a></h2>
+			<div class="postmetadata">19 Сентябрь 2011, 17:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Ну и, чтобы не превращать этот блог в одни сплошные опросы, вот вам сегодня и новая статья.</p>
+<p>Я уже <a href="../862/trackback.html">писал</a> в этом блоге о такой любопытной штуке в системах NetApp, как так называемый Multistore, или возможности создать в одном “физическом” файлере множество “логических”, виртуальных, так называемых vFilers. Хотя эта опция существует аж с 2002 года, она все еще, как я заметил, не слишком популярна и даже не слишком известна.</p>
+<p>В двух словах, <a href="../862/trackback.html">Multistore</a> (можете также посмотреть мою заметку о нем ранее) это способ создать “виртуальные мини-нетаппы” внутри физического, которые будут почти полностью такие же, как и физические, за исключением отсутствия в них протокола FC, но с наличием iSCSI, NFS, CIFS и так далее, если они лицензированы на “большом” нетаппе.</p>
+<p>Такие “виртуальные файлеры” можно применять, например, при необходимости разделять данные по зонам безопасности (secure multi-tenant). Например на одной системе хранения могут располагаться виртуальные файлеры с данными внутренней сети, и “внешние”, например для DMZ или данными внешнего вебсайта, или же между разным клиентами, использующими один сторадж (что полезно, например, при построении &#8220;облака&#8221;). ??золяция между такими виртуальными файлерами достаточно безопасна для такого использования и независимый аудит безопасности показал отсутствие проблем с безопасностью и изоляцией данных. vFiler также может располагаться в своем собственном IP space, то есть независимо маршрутизируемом пространстве, и даже на отдельном физическом интерфейсе.</p>
+<p>Другой популярный способ использования Multistore это включение системы хранения в многодоменную сеть. Один физический NetApp FAS может быть включен как член домена только в один домен (не рассматриваем сейчас ситуацию с доверительными междоменными отношениями), поэтому для организации с несколькими доменами или лесами потребуется либо купить отдельные стораджи для каждого домена, либо воспользоваться таким “партиционированием”, и включить в домены виртуальные файлеры, базирующиеся на одном физическом.</p>
+<p>Наконец, как я также уже немного рассказывал ранее, с помощью vFilers можно использовать сравнительно новую возможность, под названием <a href="../468/trackback.html">NetApp Data Motion</a>. </p>
+<p><a href="../468/trackback.html">Data Motion</a> это возможность делать с виртуальными системами хранения vFiler то же, что VMware делает с виртуальными машинами при VMotion, то есть не прерывая их работы мигрировать их с одного физического контроллера на другой. Эта возможность работает для любых приложений, использующих сторадж NetApp с Data Motion, не обязательно для виртуальных машин, например. Также обратите внимание, что при такой миграции мигрируют, например, и отношения репликации. То есть если у вас мигрируемый vFiler располагался на контроллере fas1, и реплицировал через SnapMirror свои данные в резервный датацентр на контроллер drnetapp, а потом был мигрирован с помощью Data Motion на контроллер fas2, например чтобы снизить нагрузку на загруженный fas1 и сбалансировать ее на недогруженный fas2, то его данные по прежнему будут, без вмешательства администратора и перенастройки, реплицироваться на drnetapp уже с контроллера fas2.</p>
+<p>Но для того, чтобы всем этим воспользоваться, надо, во-первых, vFiler-ы создать.<br />
+<span id="more-1017"></span><br />
+Убедитесь, что лицензия multistore у вас имеется, иначе остальное не получится. С новыми системами, серии 3200/6200 она поставляется в base pack и включена по умолчанию, для остальных вы можете попросить у партнера NetApp сгенерировать вам time-limited триал.</p>
+<p><code>vfiler create vfiler_name -i ip_address [ -i ip_address ] &#8230; path [ path ] &#8230;</code></p>
+<p>Где:</p>
+<p>vfiler_name – произвольное имя вашего создаваемого “виртуального файлера”</p>
+<p>ip_address – его IP-адрес</p>
+<p>path – путь к тому или qtree, который будет его rootvol, и где будет располагаться его индивидуальная копия /etc</p>
+<p>  <br clear="all" /></p>
+<p><code>itsotuc3&gt; vfiler create yournamevfiler -i 9.11.218.199 /vol/yourname      <br />Mon Nov 19 12:03:02 MST [yournamevfiler@itsotuc3: export.file.missing:warning]:       <br />Could not open &#8216;/etc/exports&#8217; for reading.       <br />Mon Nov 19 12:03:02 MST [yournamevfiler@itsotuc3: rc:notice]: vFiler yournamevfi       <br />ler initialized.       <br />The etc configuration directory for vfiler &quot;yournamevfiler&quot; is /vol/yourname/etc       <br />.       <br />Setting up vfiler yournamevfiler       <br />Configure vfiler IP address 9.11.218.199? [y]: y       <br />Interface to assign this address to {e0a, e0b, e0c, e0d}: e0b       <br />Netmask to use: [255.255.255.0]:       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; The administration host is given root access to the filer&#8217;s       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; /etc files for system administration.&#160; To allow /etc root access       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; to all NFS clients enter RETURN below.       <br />Please enter the name or IP address of the administration host: 9.11.218.250       <br />Do you want to run DNS resolver? [n]: n       <br />Do you want to run NIS client? [n]: n       <br />Mon Nov 19 12:03:24 MST [yournamevfiler@itsotuc3: useradmin.added.deleted:info]:       <br />The user &#8216;root&#8217; has been added.       <br />Default password for root on vfiler yournamevfiler is &quot;&quot;.       <br />New password:       <br />Retype new password:       <br />Mon Nov 19 12:03:29 MST [yournamevfiler@itsotuc3: passwd.changed:info]: passwd f       <br />or user &#8216;root&#8217; changed.       <br />Do you want to setup CIFS? [y]: y       <br />This process will enable CIFS access to the filer from a Windows(R) system.       <br />Use &quot;?&quot; for help at any prompt and Ctrl-C to exit without committing changes.       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; Your filer does not have WINS configured and is visible only to       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; clients on the same subnet.       <br />Do you want to make the system visible via WINS? [n]: n       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; A filer can be configured for multiprotocol access, or as an NTFS-only       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; filer. Since multiple protocols are currently licensed on this filer,       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; we recommend that you configure this filer as a multiprotocol filer       <br />(1) Multiprotocol filer       <br />(2) NTFS-only filer       <br />Selection (1-2)? [1]: 1       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CIFS requires local /etc/passwd and /etc/group files and default files       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; will be created.&#160; The default passwd file contains entries for &#8216;root&#8217;,       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#8216;pcuser&#8217;, and &#8216;nobody&#8217;.       <br />Enter the password for the root user []:       <br />Retype the password:       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; The default name for this CIFS server is &#8216;YOURNAMEVFILER&#8217;.       <br />Would you like to change this name? [n]: n       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; Data ONTAP CIFS services support four styles of user authentication.       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; Choose the one from the list below that best suits your situation.       <br />(1) Active Directory domain authentication (Active Directory domains only)       <br />(2) Windows NT 4 domain authentication (Windows NT or Active Directory domains)       <br />(3) Windows Workgroup authentication using the filer&#8217;s local user accounts       <br />(4) /etc/passwd and/or NIS/LDAP authentication       <br />Selection (1-4)? [1]: 1       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; In order to operate correctly within an Active Directory-based Windows       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; domain, CIFS must use the DNS resolver service. That service is       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; currently not configured on the filer. You must either configure DNS       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; resolver services or choose a different authentication style.       <br />Do you want to configure the filer&#8217;s DNS resolver service? [y]: y       <br />What is the filer&#8217;s DNS domain name? []: itso.tucson       <br />What are the IPv4 address(es) of your authoritative DNS name server(s)? []:       <br />9.11.218.250       <br />Would you like to specify additional DNS name servers? [n]: y       <br />What are the IPv4 address(es) of your authoritative DNS name server(s)? []:       <br />192.168.3.242       <br />Would you like to specify additional DNS name servers? [n]: n       <br />What is the name of the Active Directory domain? [itso.tucson]:       <br />***&#160;&#160;&#160;&#160; In Active Directory-based domains, it is essential that the filer&#8217;s       <br />***&#160;&#160;&#160;&#160; time match the domain&#8217;s internal time so that the Kerberos-based       <br />***&#160;&#160;&#160;&#160; authentication system works correctly. If the time difference between       <br />***&#160;&#160;&#160;&#160; the filer and the domain controllers is more than 5 minutes,       <br />***&#160;&#160;&#160;&#160; authentication will fail. Time services are currently not configured       <br />***&#160;&#160;&#160;&#160; on this filer. Since time services are configured on the local default       <br />***&#160;&#160;&#160;&#160; vfiler (vfiler0),, and since this particular setup is for a different       <br />***&#160;&#160;&#160;&#160; vfiler, we cannot configure time services now.&#160; We recommend that you       <br />***&#160;&#160;&#160;&#160; terminate setup with Ctrl-C, configure time services on local vfiler0,       <br />***&#160;&#160;&#160;&#160; and then re-run CIFS setup.       <br />In order to create an Active Directory machine account for the filer,       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; you must supply the name and password of a Windows account with       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; sufficient privileges to add computers to the ITSO.TUCSON domain.       <br />Enter the name of the Windows user [Administrator@ITSO.TUCSON]:       <br />Password for <a href="mailto:Administrator@ITSO.TUCSON">Administrator@ITSO.TUCSON</a>:       <br />CIFS - Logged in as <a href="mailto:Administrator@ITSO.TUCSON">Administrator@ITSO.TUCSON</a>.       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; An account that matches the name &#8216;YOURNAMEVFILER&#8217; already exists in       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; Active Directory: &#8216;cn=yournamevfiler,cn=computers,dc=itso,dc=tucson&#8217;.       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; This is normal if you are re-running CIFS Setup. You may continue by       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; using this account or changing the name of this CIFS server.       <br />Do you want to re-use this machine account? [y]: y       <br />CIFS - Starting SMB protocol&#8230;       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; It is highly recommended that you create the local administrator       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; account (YOURNAMEVFILER\administrator) for this filer. This account       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; allows access to CIFS from Windows when domain controllers are not       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; accessible.       <br />Do you want to create the YOURNAMEVFILER\administrator account? [y]: y       <br />Enter the new password for YOURNAMEVFILER\administrator:       <br />Retype the password:       <br />Welcome to the ITSO.TUCSON (ITSO) Active Directory(R) domain.       <br />itsotuc3&gt; Mon Nov 19 12:05:42 MST [yournamevfiler@itsotuc3: cifs.startup.local.s       <br />ucceeded:info]: CIFS: CIFS local server is running.       <br />itsotuc3&gt; Mon Nov 19 12:05:55 MST [yournamevfiler@itsotuc3: nbt.nbns.registratio       <br />nComplete:info]: NBT: All CIFS name registrations have completed for the local s       <br />erver.       <br /></code></p>
+<p>Готово. Мы создали новый виртуальный, сидящий на отдельном IP, и даже на отдельном физическом интерфейсе сторадж, и включили на нем CIFS. Теперь вы увидите в сети кроме вашего основного NetApp, еще один, с именем (в данном случае, для демонстрации: yournamevfiler)</p>
+<p>Это можно проделать и из веб-интерфейса FilerView, если он вам более близок.</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image127.png" width="432" height="365" /></p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image128.png" width="498" height="418" /></p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image129.png" width="496" height="416" /></p>
+<p>?? так далее.</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image130.png" width="498" height="176" /></p>
+<p>Чтобы проверить, что все работает:</p>
+<p><code>itsotuc3&gt; vfiler status      <br />vfiler0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; running       <br />yournamevfiler&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; running</code></p>
+<p>Под ???vfiler0’ в данном случае понимается “физический” файлер, который с точки зрения vfiler-ов называется <em>vfiler0</em>.</p>
+<p>В завершение хочу отметить еще одну особенность. Несмотря не то, что созданный vfiler и имеет свой собственный IP-адрес, войти в его консоль администрирования как привычно, просто зайдя на этот адрес телнетом или SSH нельзя. Отсюда я часто встречаю утверждения, что, якобы, у vfiler нет, дескать, административной консоли. Это не совсем так. Да, действительно, непосредственно войти по IP-адресу vfiler в интерактивный shell нельзя, и сделано это, как я понимаю, намеренно, по соображениям безопасности (однако можно, например, подключить к vfiler Windows MMC для администрирования CIFS ил исполнять на одном или сразу группе отдельные команды с помощью vfiler run).</p>
+<p>Однако при необходимости получить командную строку, следует войти на основной, физический файлер, так сказать vfiler0, и в нем дать команду переключения контекста консоли: <code>vfiler context vfiler_name</code>, где <em>vfiler_name</em> это имя нужного вам vfiler.</p>
+<p>При необходимости это можно делать и с помощью позволяемых многими клиентами ssh скриптами входа, чтобы сразу попадать в контекст нужного vfiler.</p>
+<p>Для возвращения консоли в контекст физического файлера дайте команду <code>vfiler context vfiler0</code>.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="../tag/multistore.html" rel="tag">multistore</a>, <a href="../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../tag/vfiler.html" rel="tag">vfiler</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="trackback.html#respond">Комментарий</a> (<a href='feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>One Comment</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-1709">
+		<div id="div-comment-1709">
+		<div class="comment-author">
+			<cite>Nikolay:<cite></div>
+			<p>Я бы упомянул еще об интересной фиче Multistore - DR vfiler.<br />
+Цитата:<br />
+One of the real advantages of using MultiStore and vFilers is the data migration and disaster recovery functionality that it enables when used in conjunction with SnapMirror.<br />
+Если я правильно понял, то на соседнем массиве (именно массиве, а не контроллере-партнере) можно создать dr vfiler и смигрировать на него сервисы (например виртуальную инфраструктуру) в случае падения основного vfiler. Правда встает вопрос с синхронизацией данных между двумя vfiler, т. к. синхронный SnapMirror не везде можно запустить из-за тех. ограничений.</p>
+						<div class="comment-meta"><a href="trackback.html#comment-1709" title="">19 Сентябрь 2011, 18:46</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1017" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.070 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	

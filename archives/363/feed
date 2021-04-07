@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Про Usable Space на примере NetApp FAS2050A</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/363/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/363</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:24 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/363#comment-2878</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 06 Jul 2012 12:46:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=363#comment-2878</guid>
+		<description>Стремимся. Скачал, прийдёт и ему черёд. Спасибо.</description>
+		<content:encoded><![CDATA[<p>Стремимся. Скачал, прийдёт и ему черёд. Спасибо.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/363#comment-2876</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 06 Jul 2012 08:31:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=363#comment-2876</guid>
+		<description>bbk:
+
+Но к этому надо стремиться. :)
+Сходите почитайте NetApp Resiliency Guide. Он даже переведенный есть.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>Но к этому надо стремиться. :)<br />
+Сходите почитайте NetApp Resiliency Guide. Он даже переведенный есть.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/363#comment-2874</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Fri, 06 Jul 2012 07:41:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=363#comment-2874</guid>
+		<description>Всё не перечитаешь. Конкретно о том, что вы говорите, похоже не читал.</description>
+		<content:encoded><![CDATA[<p>Всё не перечитаешь. Конкретно о том, что вы говорите, похоже не читал.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/363#comment-2744</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 16:37:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=363#comment-2744</guid>
+		<description>bbk:
+Что значит "теперь"? Эта рекомендация была всегда, но она распространяется только на системы с большим числом дисков, и для систем серии FAS2000 написано исключение, и рекомендация иная. Вы читаете техдокументацию, или просто так, от балды ходите и комментируете?</description>
+		<content:encoded><![CDATA[<p>bbk:<br />
+Что значит &#8220;теперь&#8221;? Эта рекомендация была всегда, но она распространяется только на системы с большим числом дисков, и для систем серии FAS2000 написано исключение, и рекомендация иная. Вы читаете техдокументацию, или просто так, от балды ходите и комментируете?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/363#comment-2743</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 16 Jun 2012 16:28:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=363#comment-2743</guid>
+		<description>Немного портит картину тот факт, что теперь есть рекомендация два хотспера для одного типа дисков на контроллер. Но что поделать - отказоустойчивость.</description>
+		<content:encoded><![CDATA[<p>Немного портит картину тот факт, что теперь есть рекомендация два хотспера для одного типа дисков на контроллер. Но что поделать - отказоустойчивость.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

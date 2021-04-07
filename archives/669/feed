@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Частота отказов в SSD: реальные данные из жизни</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/669/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/669</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:15 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: cc</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-1066</link>
+		<dc:creator>cc</dc:creator>
+		<pubDate>Sun, 30 Jan 2011 19:44:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-1066</guid>
+		<description>Slava Gilyov:
+
+я эксплуатирую диски, в среднем по 5 лет. Предоставите соотв. статистику? ?? без отключения modtime, sync  пр. :)</description>
+		<content:encoded><![CDATA[<p>Slava Gilyov:</p>
+<p>я эксплуатирую диски, в среднем по 5 лет. Предоставите соотв. статистику? ?? без отключения modtime, sync  пр. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Slava Gilyov</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-943</link>
+		<dc:creator>Slava Gilyov</dc:creator>
+		<pubDate>Sun, 21 Nov 2010 17:57:47 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-943</guid>
+		<description>мы продаем около полугода диска, на текущий момент отказов нет,
+предполагаю что статистика выхода из строя ентерпрайз ssd дисков будет не сильно отличатся от других типов дисков</description>
+		<content:encoded><![CDATA[<p>мы продаем около полугода диска, на текущий момент отказов нет,<br />
+предполагаю что статистика выхода из строя ентерпрайз ssd дисков будет не сильно отличатся от других типов дисков</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pablo</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-728</link>
+		<dc:creator>Pablo</dc:creator>
+		<pubDate>Mon, 06 Sep 2010 06:06:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-728</guid>
+		<description>Один-Ноль... ;)
+Кстати - у ЕМС теперь SSD 100ГБ по 16-20к $.</description>
+		<content:encoded><![CDATA[<p>Один-Ноль&#8230; ;)<br />
+Кстати - у ЕМС теперь SSD 100ГБ по 16-20к $.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-727</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 06 Sep 2010 05:20:28 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-727</guid>
+		<description>Ну OK, не Кайен, BMW Z4. :)
+http://www.flickr.com/photos/pancamo/4415114906/</description>
+		<content:encoded><![CDATA[<p>Ну OK, не Кайен, BMW Z4. :)<br />
+<a href="http://www.flickr.com/photos/pancamo/4415114906/" rel="nofollow">http://www.flickr.com/photos/pancamo/4415114906/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Pablo</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-726</link>
+		<dc:creator>Pablo</dc:creator>
+		<pubDate>Mon, 06 Sep 2010 05:13:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-726</guid>
+		<description>Тому, кто считает что SSD стоит как Порш Кайен - попробуйка купи Кайен за 25к $ ;))))))))
+(Утопленники и перевертыши не в счет...)</description>
+		<content:encoded><![CDATA[<p>Тому, кто считает что SSD стоит как Порш Кайен - попробуйка купи Кайен за 25к $ ;))))))))<br />
+(Утопленники и перевертыши не в счет&#8230;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-721</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sun, 05 Sep 2010 04:29:52 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-721</guid>
+		<description>Алексей, а ничего особенно удивительного, EMC действительно крупнейший поставщик SSD в энтерпрайзе.
+Более того скажу, по это же самой статистике 98% всех SSD это продукты компании STEC. :)
+
+Ориентироваться на статистику пока нет особенного смысла, так как пока нет сколь-нибудь ощутимого выбора предложений - нет и адекватной статистической выборки.</description>
+		<content:encoded><![CDATA[<p>Алексей, а ничего особенно удивительного, EMC действительно крупнейший поставщик SSD в энтерпрайзе.<br />
+Более того скажу, по это же самой статистике 98% всех SSD это продукты компании STEC. :)</p>
+<p>Ориентироваться на статистику пока нет особенного смысла, так как пока нет сколь-нибудь ощутимого выбора предложений - нет и адекватной статистической выборки.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-718</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Sat, 04 Sep 2010 18:11:08 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-718</guid>
+		<description>Вот ещё интересная статистика: по отчётам IDC из всех массивов, проданных на данный момент с SSD-дисками, около 90% массивы EMC.</description>
+		<content:encoded><![CDATA[<p>Вот ещё интересная статистика: по отчётам IDC из всех массивов, проданных на данный момент с SSD-дисками, около 90% массивы EMC.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: villain</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-710</link>
+		<dc:creator>villain</dc:creator>
+		<pubDate>Thu, 02 Sep 2010 04:20:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-710</guid>
+		<description>ну в тех SSD - запас на ремап от 30 до 50% 8-) т.е. 400Гб SSD имеет внутреннюю емкость на самом деле около 600 Гб 8-)
+и стоит блин как порш каен.</description>
+		<content:encoded><![CDATA[<p>ну в тех SSD - запас на ремап от 30 до 50% 8-) т.е. 400Гб SSD имеет внутреннюю емкость на самом деле около 600 Гб 8-)<br />
+и стоит блин как порш каен.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-708</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 30 Aug 2010 16:54:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-708</guid>
+		<description>Это ни первое, ни второе и ни третье. Это отзывы людей, практически использующих SSD в энтерпрайзе.</description>
+		<content:encoded><![CDATA[<p>Это ни первое, ни второе и ни третье. Это отзывы людей, практически использующих SSD в энтерпрайзе.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: одна птичка</title>
+		<link>http://blog.aboutnetapp.ru/archives/669#comment-706</link>
+		<dc:creator>одна птичка</dc:creator>
+		<pubDate>Mon, 30 Aug 2010 11:17:20 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=669#comment-706</guid>
+		<description>есть ложь, наглая ложь, а есть статистика.</description>
+		<content:encoded><![CDATA[<p>есть ложь, наглая ложь, а есть статистика.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Полезные инструменты: NAGIOS</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/207/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/207</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:33 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/207#comment-2599</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Wed, 30 May 2012 09:24:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=207#comment-2599</guid>
+		<description>Проект плагина переехал &lt;a href="http://oss.teamix.org/projects/monitoringplugins/wiki/Check_naf" rel="nofollow"&gt;сюда&lt;/a&gt; теперь он называется &lt;b&gt;check_naf&lt;/b&gt;. Также проект включает templates для PNP, что очень приятно.</description>
+		<content:encoded><![CDATA[<p>Проект плагина переехал <a href="http://oss.teamix.org/projects/monitoringplugins/wiki/Check_naf" rel="nofollow">сюда</a> теперь он называется <b>check_naf</b>. Также проект включает templates для PNP, что очень приятно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Блог журналиста</title>
+		<link>http://blog.aboutnetapp.ru/archives/207#comment-112</link>
+		<dc:creator>Блог журналиста</dc:creator>
+		<pubDate>Wed, 18 Feb 2009 10:28:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=207#comment-112</guid>
+		<description>&lt;strong&gt;обзор за сегодня...&lt;/strong&gt;
+
+[...]й рассмотренному ранее UNNOC инструмент мониторинга - NAGIOS (http://www.nagios.org). Довольно попул...</description>
+		<content:encoded><![CDATA[<p><strong>обзор за сегодня&#8230;</strong></p>
+<p>[...]й рассмотренному ранее UNNOC инструмент мониторинга - NAGIOS (http://www.nagios.org). Довольно попул&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: http://arkanoid.livejournal.com/</title>
+		<link>http://blog.aboutnetapp.ru/archives/207#comment-111</link>
+		<dc:creator>http://arkanoid.livejournal.com/</dc:creator>
+		<pubDate>Mon, 16 Feb 2009 15:54:02 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=207#comment-111</guid>
+		<description>Когда я на него смотрел в последний раз, он очень паршиво масштабировался наверх, у него архитектура была не приспособлена к большому количеству параллельных мониторинговых запросов.</description>
+		<content:encoded><![CDATA[<p>Когда я на него смотрел в последний раз, он очень паршиво масштабировался наверх, у него архитектура была не приспособлена к большому количеству параллельных мониторинговых запросов.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

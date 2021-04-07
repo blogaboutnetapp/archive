@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Untitled Document</title>
+</head>
+<body bgcolor="#FFFFFF">
+<div class="Section1">
+  <p><b><span style='font-size:14.0pt;font-family:Arial'>Тестирование </span></b><b><span style='font-size:14.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">FAS3020
+    FC SAN</span></b></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>Тестировался </span><span style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">FAS</span><span
+style='font-size:11.0pt;font-family:Arial'>3020 («одноголовая» конфигурация).
+    Интерфейсы </span><span style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">FC</span><span
+style='font-size:11.0pt;font-family:Arial'>.</span></p>
+  <p><b><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">FAS3020 (DataONTAP 7.2.0)</span></b></p>
+  <p><b><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">14HDD 72G15K, 2GB RAM Cache</span></b></p>
+  <p><b><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">aggr0 RAID-DP 13 HDD (2 parity + 11
+    data) + 1 Spare</span></b><br />
+    <b><span
+style='font-size:11.0pt;font-family:Arial' lang="de" xml:lang="de">vol1</span></b><br />
+    <b><span
+style='font-size:11.0pt;font-family:Arial' lang="de" xml:lang="de">10hdd in vol1 (flexvol type)<br />
+    </span></b><b><span
+style='font-size:11.0pt;font-family:Arial' lang="de" xml:lang="de">lun 10GB<br />
+    </span></b><b><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">no snapshots, 0% reserve<br />
+    </span></b><b><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">vol1 minra on<br />
+    </span></b><b><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">vol1 no_atime_upd on</span></b></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>Подключался</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> «</span><span
+style='font-size:11.0pt;font-family:Arial'>прямым</span><span style='font-size:
+11.0pt;font-family:Arial'> </span><span style='font-size:11.0pt;font-family:
+Arial'>проводом</span><span style='font-size:11.0pt;font-family:
+Arial' lang="EN-US" xml:lang="EN-US">» </span><span style='font-size:11.0pt;font-family:Arial'>в</span><span
+style='font-size:11.0pt;font-family:Arial'> <span lang="EN-US" xml:lang="EN-US">Load Generator (point-to-point
+    2GB/s)<br />
+    </span></span><span style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">“Load
+    Generator”: SUN Enterprise 4900 2x SPARC3 1.2GHz 4GB RAM / Solaris10 06/06<br />
+    </span><span style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">FC
+    HBA Emulex LP10000 (driver bundled in Solaris10)</span></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>Измерения
+    проводились с помощью </span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US">IOmeter</span><span style='font-size:11.0pt;font-family:
+Arial'>:<br />
+    </span><b><span style='font-size:11.0pt;font-family:
+Arial' lang="EN-US" xml:lang="EN-US">IOMeter v.2006.07.27 stable, dynamo compiled for SPARC (gcc 3.4.3)</span></b><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">, </span><span
+style='font-size:11.0pt;font-family:Arial'>собирался из исходников</span><span
+style='font-size:11.0pt;font-family:Arial'> </span><span style='font-size:11.0pt;
+font-family:Arial'>на</span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US"> Load Generator </span><span style='font-size:11.0pt;
+font-family:Arial'>непосредственно</span><span style='font-size:
+11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">.</span></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>Тестировался</span><span
+style='font-size:11.0pt;font-family:Arial'> </span><span style='font-size:11.0pt;
+font-family:Arial'>тремя</span><span style='font-size:11.0pt;font-family:Arial'> </span><span style='font-size:11.0pt;font-family:Arial'>типами</span><span
+style='font-size:11.0pt;font-family:Arial'> </span><span style='font-size:11.0pt;
+font-family:Arial'>паттернов</span><span style='font-size:11.0pt;font-family:
+Arial'> <b><span lang="EN-US" xml:lang="EN-US">database pattern</span></b><span lang="EN-US" xml:lang="EN-US">, <b>fileserver
+    pattern</b> </span></span><span style='font-size:11.0pt;font-family:Arial'>и</span><span
+style='font-size:11.0pt;font-family:Arial'> <b><span lang="EN-US" xml:lang="EN-US">webserver pattern</span></b><span
+lang="EN-US" xml:lang="EN-US">.<br />
+    </span></span><span style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">RAW</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> </span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">access</span><span style='font-size:
+11.0pt;font-family:Arial'>:</span><span style='font-size:11.0pt;font-family:
+Arial'> </span><span style='font-size:11.0pt;font-family:Arial'>16777216 </span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">sectors (8GiB)<br />
+    </span><span style='font-size:11.0pt;font-family:Arial'>Режим</span><span
+style='font-size:11.0pt;font-family:Arial'> </span><span style='font-size:11.0pt;
+font-family:Arial'>тестирования</span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US">: 1 Worker, up to 256 Outstanding IOs exponential up
+    (1,2,4,8…256)<br />
+    </span><span style='font-size:11.0pt;font-family:Arial'>Замерялся</span><span
+style='font-size:11.0pt;font-family:Arial'> </span><span style='font-size:11.0pt;
+font-family:Arial'>лимит</span><span style='font-size:11.0pt;font-family:Arial'> </span><span style='font-size:11.0pt;font-family:Arial'>по</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> IOPS: 512bytes blocks
+    Sequential Read, up to 256 Outstanding IOs<br />
+    </span><span style='font-size:11.0pt;font-family:Arial'>и</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> MBPS: 1MB blocks
+    Sequential Read, up to 256 Outstanding IOs</span></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>Также
+    замерялся тест </span><span style='font-size:11.0pt;font-family:
+Arial' lang="EN-US" xml:lang="EN-US">IOzone</span><span style='font-size:11.0pt;font-family:Arial'> по
+    спецификации </span><span style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">Alex</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> </span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">Roudnev</span><span
+style='font-size:11.0pt;font-family:Arial'> (</span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">forum</span><span style='font-size:
+11.0pt;font-family:Arial'>.</span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US">sql</span><span style='font-size:11.0pt;font-family:Arial'>.</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">ru</span><span
+style='font-size:11.0pt;font-family:Arial'>) на блоках 64</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">K</span><span
+style='font-size:11.0pt;font-family:Arial'> и 4</span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">K</span><span style='font-size:11.0pt;
+font-family:Arial'>.</span></p>
+  <p><b><span style='font-size:11.0pt;font-family:
+&quot;Courier New&quot;' lang="EN-US" xml:lang="EN-US">iozone64 -i 0 -i 1 -i 2 -i 4 -i 5 -i 8 -e -o -c -s 4000M -r 4K
+    -j 1 -f TEST4G4k.log -b /export/home/romx/testlog-NF4g4k.xls</span></b></p>
+  <p><b><span style='font-size:11.0pt;font-family:
+&quot;Courier New&quot;' lang="EN-US" xml:lang="EN-US">iozone64 -i 0 -i 1 -i 2 -i 4 -i 5 -i 8 -e -o -c -s 4000M -r 64K
+    -j 1 -f TEST4G64k.log -b /export/home/romx/testlog-NF4g64k.xls</span></b></p>
+  <p><b><span style='font-size:11.0pt;font-family:
+&quot;Courier New&quot;' lang="EN-US" xml:lang="EN-US">iozone64 -a -b /export/home/romx/testlog-NFA.xls</span></b></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>(результаты
+    не обработаны, есть только “</span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US">raw</span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US"> </span><span style='font-size:11.0pt;font-family:
+Arial' lang="EN-US" xml:lang="EN-US">data</span><span style='font-size:11.0pt;font-family:Arial'>”)</span></p>
+  <p>
+    <a href="FAS3020/testlog-NF4g64k.xls">testlog-NF4g4k.xls</a><br />
+    <a href="FAS3020/testlog-NF4g64k.xls">testlog-NF4g64k.xls</a><br />
+    <a href="FAS3020/testlog-NFA.xls">testlog-NFA.xls</a></p>
+  <p><b><span style='font-size:11.0pt;font-family:Arial'>Описания
+    использованных паттернов:</span></b></p>
+  <table border="1" cellspacing="0" cellpadding="0" width="367">
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="91" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="88" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="91" nowrap="nowrap" valign="bottom">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="367" nowrap="nowrap" colspan="4" valign="bottom"><p align="center" style='text-align:center'><b><span
+  style='font-size:10.0pt;font-family:Arial'>database pattern</span></b></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>block
+          size</span></i></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>% of
+          size</span></i></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>% read</span></i></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>%
+          random</span></i></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>8192</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>67</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="91" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="88" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="91" nowrap="nowrap" valign="bottom">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="367" nowrap="nowrap" colspan="4" valign="bottom"><p align="center" style='text-align:center'><b><span
+  style='font-size:10.0pt;font-family:Arial'>fileserver pattern</span></b></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>block
+          size</span></i></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>% of
+          size</span></i></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>% read</span></i></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>%
+          random</span></i></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>512</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>10</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>80</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>1024</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>5</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>80</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>2048</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>5</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>80</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>4096</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>60</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>80</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>8192</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>2</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>80</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>16384</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>4</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>80</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>32768</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>4</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>80</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>65535</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>10</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>80</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="91" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="88" nowrap="nowrap" valign="bottom">&nbsp;</td>
+      <td width="91" nowrap="nowrap" valign="bottom">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="367" nowrap="nowrap" colspan="4" valign="bottom"><p align="center" style='text-align:center'><b><span
+  style='font-size:10.0pt;font-family:Arial'>webserver pattern</span></b></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>block
+          size</span></i></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>% of
+          size</span></i></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>% read</span></i></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p><i><span style='font-size:10.0pt;font-family:Arial'>%
+          random</span></i></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>512</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>22</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>1024</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>15</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>2048</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>8</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>4096</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>23</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>8192</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>15</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>16384</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>2</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>32768</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>6</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>65535</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>7</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>131072</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>1</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+    <tr>
+      <td width="97" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>524288</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>1</span></p></td>
+      <td width="88" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+      <td width="91" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>100</span></p></td>
+    </tr>
+  </table>
+  <p><b><span style='font-size:11.0pt;font-family:Arial'>Результаты:</span></b></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>1. паттерны</span></p>
+  <table border="1" cellspacing="0" cellpadding="0" width="295">
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p><b><span style='font-size:10.0pt;font-family:Arial'>IOPS</span></b></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p><span style='font-size:10.0pt;font-family:Arial'>dbPattern
+          FC 270</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p><span style='font-size:10.0pt;font-family:Arial'>fsPattern
+          FC 270</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p><span style='font-size:10.0pt;font-family:Arial'>webPattern
+          FC 270</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>1</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>3866</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>3817</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>3905</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>2</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>6991</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>6420</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>6373</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>4</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>11207</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>9261</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>8962</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>8</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>14777</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>11845</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>10502</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>16</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>17378</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>14431</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>11044</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>32</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>18602</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>15797</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>11103</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>64</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>19026</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>15086</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>11127</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>128</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>19331</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>14430</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>11173</span></p></td>
+    </tr>
+    <tr>
+      <td width="46" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>256</span></p></td>
+      <td width="81" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>19404</span></p></td>
+      <td width="72" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>13880</span></p></td>
+      <td width="96" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>11209</span></p></td>
+    </tr>
+  </table>
+  <p><span style='font-size:11.0pt;font-family:Arial'>2.
+    максималка</span></p>
+  <table border="1" cellspacing="0" cellpadding="0" width="229">
+    <tr>
+      <td width="116" nowrap="nowrap" valign="bottom"><p><span style='font-size:10.0pt;font-family:Arial'>FC
+          maxIOPS</span></p></td>
+      <td width="113" nowrap="nowrap" valign="bottom"><p><span style='font-size:10.0pt;font-family:Arial'>FC
+          maxMBPS</span></p></td>
+    </tr>
+    <tr>
+      <td width="116" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>2</span><span
+  style='font-size:10.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">365</span><span style='font-size:
+  10.0pt;font-family:Arial'>5</span></p></td>
+      <td width="113" nowrap="nowrap" valign="bottom"><p align="right" style='text-align:right'><span
+  style='font-size:10.0pt;font-family:Arial'>18</span><span
+  style='font-size:10.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">8</span><span style='font-size:
+  10.0pt;font-family:Arial'>,</span><span style='font-size:10.0pt;
+  font-family:Arial' lang="EN-US" xml:lang="EN-US">18</span></p></td>
+    </tr>
+  </table>
+  <p><img
+src="image003.gif" alt="patterns"/></p>
+  <p><img
+src="image004.gif" alt="iops"/></p>
+  <p><b><span style='font-size:11.0pt;font-family:Arial'>Выводы:</span></b></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>Производительность </span><span style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">FAS</span><span
+style='font-size:11.0pt;font-family:Arial'>3020 зависит от характера доступа,
+    хотя и не столь заметно как в модели </span><span style='font-size:
+11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">FAS</span><span style='font-size:11.0pt;font-family:
+Arial'>270, при этом производительность на </span><b><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">database</span></b><b><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> </span></b><b><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">pattern</span></b><span
+style='font-size:11.0pt;font-family:Arial'>, в отличие от </span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">FAS</span><span
+style='font-size:11.0pt;font-family:Arial'>270, максимально высокая, показывая
+    плавный экспоненциальный рост почти до максимальных значений на 256 </span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">Outstanding</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> </span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">IOs</span><span style='font-size:
+11.0pt;font-family:Arial'>, что говорит об очень хорошем нагрузочном потенциале
+    системы. (до 16 </span><span style='font-size:11.0pt;font-family:
+Arial' lang="EN-US" xml:lang="EN-US">OutIOs</span><span style='font-size:11.0pt;font-family:Arial'> имеет
+    практически линейный прирост).</span></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>В этой
+    конфигурации разница в производительности для </span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">FC</span><span style='font-size:
+11.0pt;font-family:Arial'> и </span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US">iSCSI</span><span style='font-size:11.0pt;font-family:Arial'> не измерялась, см. следующий документ. </span></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>Следует
+    отметить странный эффект на </span><b><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US">fileserver</span></b><b><span style='font-size:
+11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US"> </span></b><b><span style='font-size:
+11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">pattern</span></b><span style='font-size:11.0pt;
+font-family:Arial'>, после плавного линейного роста производительности до 32 </span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">OutIOs</span><span
+style='font-size:11.0pt;font-family:Arial'>, далее начинается плавный линейный
+    спад (характеристика нетипична для большинства типов нагрузки, эффект
+    повторяемый). Странное поведение на </span><b><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">fileserver</span></b><b><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> </span></b><b><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">pattern</span></b><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> </span><span
+style='font-size:11.0pt;font-family:Arial'>отмечено и для </span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">FAS</span><span
+style='font-size:11.0pt;font-family:Arial'>270, где, однако, наблюдается почти
+    обратный эффект, медленный прирост на малых </span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">OutIOs</span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US"> </span><span style='font-size:11.0pt;
+font-family:Arial'>и большой на средне-больших.</span></p>
+  <p><span style='font-size:11.0pt;font-family:Arial'>Тестирование
+    максимальной производительности (синтетический тест интерфейса-кэша) системы
+    показало плавный рост </span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US">IOPS</span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US"> </span><span style='font-size:11.0pt;font-family:Arial'>до
+    максимальных значений в 23655 на 64 </span><span style='font-size:
+11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">OutIOs</span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US"> </span><span style='font-size:11.0pt;font-family:Arial'>с
+    незначительным (доли процента) последующим спадом. Загрузка процессора </span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US">LG</span><span style='font-size:11.0pt;font-family:Arial'
+lang="EN-US" xml:lang="EN-US"> </span><span
+style='font-size:11.0pt;font-family:Arial'>при этом остановилась примерно на
+    88%. Производительность по </span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US">MBPS</span><span style='font-size:11.0pt;
+font-family:Arial' lang="EN-US" xml:lang="EN-US"> </span><span style='font-size:11.0pt;font-family:Arial'>быстро
+    выросла до максимального значения уже на 2 </span><span
+style='font-size:11.0pt;font-family:Arial' lang="EN-US" xml:lang="EN-US">OutIOs</span><span style='font-size:
+11.0pt;font-family:Arial'>.</span></p>
+</div>
+</body>
+</html>

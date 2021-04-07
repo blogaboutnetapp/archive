@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Эксперименты с Calibration IO в Oracle 11g</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1074/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1074</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:29 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1074#comment-1870</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 02 Nov 2011 07:40:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1074#comment-1870</guid>
+		<description>Korj:
+
+Это перевод. Если у вас есть вопросы к neto - напишите их к нему в комментарии, а не мне.
+Ссылки на оригинальный пост я всегда даю.</description>
+		<content:encoded><![CDATA[<p>Korj:</p>
+<p>Это перевод. Если у вас есть вопросы к neto - напишите их к нему в комментарии, а не мне.<br />
+Ссылки на оригинальный пост я всегда даю.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/1074#comment-1869</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Wed, 02 Nov 2011 07:38:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1074#comment-1869</guid>
+		<description>А что, простите, должен этот тест показать? Что драйвера сетевых карт на сервере и на NetApp работают, как задумано? Что оверхид относительно невелик? Что у господина neto достаточно винтов/флэшкэша, чтоб выдать 110МБайт/с? Так ни размер базы неизвестен, ни его конфигурация. Может база 20МБайт и вся в кэше, а может там полки с дисками за горизонт уходят и для них это низкая скорость. К чему это?
+Вот первый попавшийся в интернете обзор SSD дисков.
+http://www.storagereview.com/images/intel_320_300gb_2mb_randomtransfer_4k.png
+С _одного_ современного SSD диска на аналогичном тесте (блок 2МБайта, что не принципиально) ниже 200МБайт/с не получают. Воткните 1 такой диск в первый попавшийся компьютер с гигабитной сетевухой, и если не будет глюков с драйверами/ОС, получите Ваши 110МБайт/с по сети. What's the catch?</description>
+		<content:encoded><![CDATA[<p>А что, простите, должен этот тест показать? Что драйвера сетевых карт на сервере и на NetApp работают, как задумано? Что оверхид относительно невелик? Что у господина neto достаточно винтов/флэшкэша, чтоб выдать 110МБайт/с? Так ни размер базы неизвестен, ни его конфигурация. Может база 20МБайт и вся в кэше, а может там полки с дисками за горизонт уходят и для них это низкая скорость. К чему это?<br />
+Вот первый попавшийся в интернете обзор SSD дисков.<br />
+<a href="http://www.storagereview.com/images/intel_320_300gb_2mb_randomtransfer_4k.png" rel="nofollow">http://www.storagereview.com/images/intel_320_300gb_2mb_randomtransfer_4k.png</a><br />
+С _одного_ современного SSD диска на аналогичном тесте (блок 2МБайта, что не принципиально) ниже 200МБайт/с не получают. Воткните 1 такой диск в первый попавшийся компьютер с гигабитной сетевухой, и если не будет глюков с драйверами/ОС, получите Ваши 110МБайт/с по сети. What&#8217;s the catch?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; utilities</title>
+
+<link rel="stylesheet" href="../../../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../../../feed" />
+<link rel="pingback" href="../../../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Archive for the &#8216;utilities&#8217; Category.</p>
+
+ 				
+		<div class="navigation">
+			<div class="alignleft"><a href="4.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="2.html">Next Entries &raquo;</a></div>
+		</div>
+
+						
+			<div class="post" id="post-559">
+				<h2 class="posttitle"><a href="../../../559/trackback.html" rel="bookmark" title="Permanent Link to Syslog forwarding">Syslog forwarding</a></h2>
+				<div class="postmetadata">8 Апрель 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Основной лог в Data ONTAP, как у “правильной юниксподобной OS”, ведется в виде <a href="http://en.wikipedia.org/wiki/Syslog">syslog</a>. ??, как правильный syslog, он может передаваться на удаленную машину для сборки-разборки его в спциализированных программах.</p>
+<p>Для того, чтобы настроить логи на передачу их на удаленную машину, надо изменить настройки в /etc/syslog.conf    <br />Его синтаксис идентичен таковому в Linux/UNIX.</p>
+<p><code># Log all kernel messages, and anything of level err or higher to the console.      <br />&#160;&#160;&#160; *.err;kern.*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /dev/console       <br /># Also log console messages to a remote loghost system called adminhost.       <br />&#160;&#160;&#160; *.err;kern.*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; @adminhost </code></p>
+<p>То есть: выводим все сообщения уровня ядра, а также все сообщения с уровнем err и выше в системную консоль, а также передаем их на систему adminhost (где его должен принимать syslog-сервер).</p>
+<p>На указанной машине запустим сервер syslog (например <a href="http://www.kiwisyslog.com/kiwi-syslog-server-overview/">Kiwi Syslog Server</a>), и будем получать и обрабатывать эти логи, настроив по ним желаемые алерты и репорты.</p>
+<p>Смотрите также статью: <a href="http://partners.netapp.com/go/techontap/swatch-kiwi.html">Swatch and Kiwi Syslog Daemon</a>. К сожалению, за время, прошедшее с ее публикации, компанию-производителя Kiwi Syslog Daemon купили, и теперь их продукт платный, что, впрочем, не может помешать найти множество бесплатных вариатов той или иной степени удобности.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/management.html" rel="tag">management</a>, <a href="../../../tag/monitoring.html" rel="tag">monitoring</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/syslog.html" rel="tag">syslog</a><br />					Раздел: <a href="../../howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../559/trackback.html#respond" title="Комментарий к записи Syslog forwarding">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-555">
+				<h2 class="posttitle"><a href="../../../555/trackback.html" rel="bookmark" title="Permanent Link to NetApp System Analyser for CIFS">NetApp System Analyser for CIFS</a></h2>
+				<div class="postmetadata">22 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Продолжая тему контроля пользователей NAS, начатую постом про команду <strong>cifs top</strong>, хочу отметить любопытную утилиту, доступную на сайте NOW: <a href="http://now.netapp.com/NOW/download/tools/ntapsa_cifs/">NetApp System Analyser for CIFS</a></p>
+<p>Это автономная утилита под x32 и x64 Windows, помогает контролировать и анализировать загрузку NAS-системы пользователями по протоколу CIFS.</p>
+<p><a href="/pics//image33.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image-thumb18.png" width="652" height="433" /></a> </p>
+<p>Утилита состоит из четырех компонент:</p>
+<p><strong>Dashboard:</strong> основная панель, показывающая обзор состояния контроллера системы хранения, таких его параметров, как CPU utilization, объемы трафика, счетчики производительности CIFS и общую информацию по системе.</p>
+<p><a href="/pics//image34.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image-thumb19.png" width="266" height="368" /></a> </p>
+<p><strong>Analyzer:</strong> Создает отчеты и делает рекомендации по вашей ситуации, определяя возможные источники проблем.</p>
+<p><a href="/pics//image35.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image-thumb20.png" width="321" height="230" /></a> </p>
+<p><strong>User Statistics:</strong> Показывает статистику по пользователям,&#160; позволяет оценить кто из пользователей (а также серверов или приложений) и сколько использует ресурсов CIFS.</p>
+<p>&#160;</p>
+<p><strong>Support Report:</strong> Собирает данные, необходимые для работы NetApp Support, для анализа и устранения проблем, связанных с CIFS. Вывод может быть послан непосредственно в NetApp из самой утилиты, или записан и отослан отдельно.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/cifs.html" rel="tag">cifs</a>, <a href="../../../tag/nas.html" rel="tag">nas</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tools.html" rel="tag">tools</a><br />					Раздел: <a href="../../review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../555/trackback.html#comments" title="Комментарий к записи NetApp System Analyser for CIFS">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-547">
+				<h2 class="posttitle"><a href="../../../547/trackback.html" rel="bookmark" title="Permanent Link to Syslog Translator">Syslog Translator</a></h2>
+				<div class="postmetadata">18 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Несмотря на то, что в целом ONTAP стремится быть понятной и “самоописательной”, как в своих командах, так и в сообщениях в логах, в них нередко встречаются сообщения довольно “загадочные”.</p>
+<p>Для того, чтобы лучше разобраться в сообщениях syslog, на сайте NOW (NetApp on Web) есть полезная служба: <a href="https://now.netapp.com/eservice/ems">System Log Translator</a><em>     <br />ниже – скриншот:</em></p>
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image31.png" width="878" height="181" /> </p>
+<p>Например, мы видим в логе сообщение:</p>
+<p>[scsitarget.partnerPath.misconfigured:error]: FCP Partner Path Misconfigured - Host I/O access through a non-primary and non-optimal path was detected. </p>
+<p>Введенное в Syslog Translator оно покажет следующее:</p>
+<p><a href="/pics//image32.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="/pics//image-thumb17.png" width="667" height="161" /></a> </p>
+<p>Уже гораздо понятнее что делать и куда бечь.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/now.html" rel="tag">now</a>, <a href="../../../tag/support.html" rel="tag">support</a>, <a href="../../../tag/tools.html" rel="tag">tools</a>, <a href="../../../tag/web.html" rel="tag">web</a><br />					Раздел: <a href="../../howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../547/trackback.html#respond" title="Комментарий к записи Syslog Translator">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-526">
+				<h2 class="posttitle"><a href="../../../526/trackback.html" rel="bookmark" title="Permanent Link to Встроенный сниффер: pktt">Встроенный сниффер: pktt</a></h2>
+				<div class="postmetadata">15 Февраль 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В недрах OS Data ONTAP скрывается много удивительных гитик.<br />
+Вот, например, в каждой системе хранения NetApp, вернее в ее OS, имеется встроенный сниффер, запускаемый командой pktt, и собирающий дамп с интерфейса для последующей разборки, в формате стандартного юниксного tcpdump.</p>
+<p>??спользование:<br />
+<code>pktt start {if | all} [-b bsize] [-d dir] [-s size] [-m pklen] [-v] [-i ipaddr] [-i ipaddr] …<br />
+pktt pause {if | all}<br />
+pktt dump {if | all} [-d dir]<br />
+pktt stop {if | all}<br />
+pktt status [{if | all}] [-v]<br />
+pktt delete [filename.trc]+<br />
+pktt list </code></p>
+<p>Команда pktt управляет простым встроенным средством сбора ethernet-трафика. Пакеты захватываются с указаного интерфейса в специальный trace buffer, и после этого записываются в файл на диске. Данные записываются в формате &#8220;tcpdump&#8221;, который может быть прочитан разнообразными средствами, такими как tcpdump, ethereal (wireshark), и прочими программами-анализаторами и просмотрщиками. Вывод можно также конвертировать (утилитой editcap) в различные другие употребимые форматы, например для Sniffer, NetMon, и snoop.</p>
+<p>pktt может захватывать пакеты для всех поддерживаемых типов медиа.</p>
+<p><code>pktt start {if | all} [-b bsize] [-d dir] [-s size] [-m pklen] [-v] [-i ipaddr] [-i ipaddr] …</code></p>
+<p>Команда <code>start</code> запускает трассировку, (или рестартует ее, если pktt находился в положении <code>paused</code>). Данные собираются в память, и пишутся в кольцеой буфер в памяти в формате &#8220;tcpdump&#8221;. Опции могут быть следующие:</p>
+<p><strong>-b размербуфера</strong><br />
+Устанавливает размер буфера, который может быть определен в килобайтах или мегабайтах, при задании &#8216;k&#8217; или &#8216;m&#8217; после числа. Если не определен, то будет равен 128K, если вы не задали также опцию -d, что немного, но может быть достаточно в ряде случаев. Если задана опция -d, то значение буфера по умолчанию равно 1M. Значение может быть от 8K до 32M, то в очень редких случаях стоит устанавливать его большим  1-2M. Максимальный объем пространства, доступного pktt в памяти, равен 64M.</p>
+<p><strong>-d директория</strong><br />
+Определяет путь к существующей директории, куда будет записан файл дампа. Файл будет иметь имя &#8220;<strong>if</strong>.trc&#8221; где&#8221;<strong>if</strong>&#8221; это имя интерфейса (например e0, fa3, и так далее.). Если опция не указана, то данные будут собиратся только в памяти, и после его заполнения, данные будут перезаписываться по кругу. Однак в любой момент можно сбросить содержимое буфера на диск с помощью команды <strong>pktt dump</strong>. Обратите внимание, что если система не будет успевать записывать все пакеты, то будет расти показатель счетчика &#8220;dropped&#8221; в выводе статуса pktt. Помните, что запись дампа всего трафика на диск может вызвать значительную нагрузку на запись для системы, и замедлить ее работу, поэтому, если это возможно, всегда ограничивайте область трассировки определенными IP-адресами и интерфейсами. Кроме этого, если вам не нужно сохранять содержимое всего пакета, то вы можете обрезать его командой -m.</p>
+<p>??мейте ввиду, что любой существующий файл .trc будет молча перезаписан при выполнении этой команды.</p>
+<p><strong>-s размер</strong><br />
+Эта опция позволяет вам задать максимальный размер файла дампа. Величина может быть задана с указанием &#8220;k&#8221;, &#8220;m&#8221;, или &#8220;g&#8221;. По умолчанию - 1G. Этот параметр всегда используется вместе с опцией -d. После достижения максимального лимита по размеру, пакеты продолжают собираться в буфер, но уже не пишутся на диск.</p>
+<p><strong>-m длинапакета</strong><br />
+Этот параметр задает длину обрабатываемых пакетов (обрезая все что выходит за заданные пределы). По умолчанию - 1514 байт, что подходит для обычного ethernet, но может быть недостаточно для gigabit ethernet с использованием jumbo frames. ??ногда может быть использован для ситуаций, когда не обязательно сохранять полное содержимое пакета. Однако, во многих случаях полезно сохранять полное содержимое всего пакета. В этом случае, если пакеты имеют размер свыше 1514 байт, вы можете задать желаемый максимум. ??мейте виду, что некоторые декодеры (как пример - snoop) не обрабатывают пакеты более 1514 байт. Декодер ethereal/wireshark не имеет такой проблемы.</p>
+<p><strong>-i ipaddr [-i ipaddr] …</strong><br />
+Эта опция включает простую возможность фильтрации. Можно задать до чтырех IP-адресов, для которых (на которые и с которых) будет записываться трафик. Это, кроме всего прочего, ограничит записываемый трафик только IP-пакетами, то есть в него не попадут пакеты, например arp/rarp, и прочие подобные.</p>
+<p><strong>pktt pause {if | all}</strong><br />
+Команда &#8220;pause&#8221; приостанавливает сбор трафика с указаных интерфейсов. Незаписанные данные в буфере сбрасываются на диск. С помощью команды <strong>pktt start</strong> без других опций, можно возобновить сбор данных.</p>
+<p><strong>pktt dump {if | all} [-d dir]</strong><br />
+Команда dump вызывает сброс содержимого кольцевого буфера в памяти в файл на диске. Если задана опция <strong>-d dir</strong>, то файл будет создан в указанной директории, в противном случае - в корневой директории root volume. ??мя файла всегда равно <strong>if.trc</strong> (где if это название интерфейса), и содержимое записывается в формате &#8220;tcpdump&#8221;. Если файл уже существует, то он будет молча перезаписан.</p>
+<p><strong>pktt stop {if | all}</strong><br />
+Эта команда выполнит остановку сбора дампа для всех заданных (или вообще всех) интерфейсов. Если вы пишете на диск, то все незаписанные на этот момент данные в буфере будут сброшен на диск. Если вы не задали файл записи дампа, то все данные в буфере будут потеряны. Это действие не требует подтверждения, так что будьте аккуратны.</p>
+<p><strong>pktt status [{if | all}] [-v]</strong><br />
+Эта команда покажет вым состояние буфера и файла дампа для действующей трассировки. ??спользуя &#8220;pktt status -v&#8221; вы получите полный статус всех интерфейсов.</p>
+<p><strong>pktt delete [filename.trc]+</strong><br />
+Эта команда позволит вам удалить один или неколько файлов дампа в корневой директории. Длжен быть указан хотя бы один файл.</p>
+<p><strong>pktt list</strong><br />
+Показывает список всех файлов трассировки в корневой директории.</p>
+<p>Примеры:<br />
+<strong>pktt start e0</strong><br />
+Эта команда начинает захват трафика с интерфейса &#8220;e0&#8243;. Весь трафик пищется в кольцевой буфер, размером 128K. ??ли же, если предыдущая команда приостановила сбор дампа, то она его возобновит.</p>
+<p><strong>pktt start fa3 -d / -s 100m -b 2m</strong><br />
+Эта команда начинает захватывать дамп трафика на интерфейсе &#8220;fa3&#8243;, и писать в файл под названием &#8220;/fa3.trc&#8221; которому будеи позволено расти до максимальног размера в 100MB, с использованием буфера в 2MB.</p>
+<p><strong>pktt start el10 -d /home -m 10k -b 500k -i ehost1 -i ehost2</strong><br />
+Эта команда начинает захватывать пакеты на и с определенных хостов, в данном примере &#8220;ehost1&#8243; и &#8220;ehost2&#8243; записывая их в файл &#8220;/home/el10.trc&#8221;. Пакеты размером до 10K записываются в буфер, размером 500K buffer. Отметьте, это будет работать только в том случае, если имена заданных хостов будут успешно резолвиться в DNS.</p>
+<p><strong>pktt start all -b 128k -i 172.20.4.1</strong><br />
+Все интерфейсы начинают записыват дамп трафика на и с определенного IP-адреса. Это простой и быстрый способ посмотреть трафик, сли вы не уверены в том, какой интерфейс используется, но хотите увидеть пакеты с одного или более адресов IP.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/ontap.html" rel="tag">ontap</a><br />					Раздел: <a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../526/trackback.html#respond" title="Комментарий к записи Встроенный сниффер: pktt">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-494">
+				<h2 class="posttitle"><a href="../../../494/trackback.html" rel="bookmark" title="Permanent Link to Утилита сбора диагностических данных nSANity">Утилита сбора диагностических данных nSANity</a></h2>
+				<div class="postmetadata">21 Январь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Любопытую утилитку предлагает NetApp, на сайте NOW, в разделе инструментов (нужен логин в NOW!).</p>
+<p><a href="http://now.netapp.com/NOW/download/tools/nsanity/">nSANity Diagnostic and Configuration Data Collector 1.1.14</a></p>
+<p>Это сборщик диагностической и конфигурационной информации. Причем не только для NetApp.</p>
+<p>#  Data ONTAP Storage Controllers<br />
+# Windows 2003 and 2008 hosts<br />
+# VMware ESX hosts (excluding i variants)<br />
+# Linux hosts with kernel 2.6<br />
+# Solaris hosts<br />
+# AIX hosts<br />
+# HP-UX 11i hosts<br />
+# Brocade switches<br />
+# McData switches (EOS, EOSn)<br />
+# Cisco switches (IOS, NXOS and SANOS)<br />
+# QLogic switches</p>
+<p>Работает по следующим протоколам:</p>
+<p># HTTP/HTTPS is used for communicating with Data ONTAP<br />
+# SSH is used for communicating with Cisco, Brocade, VMware ESX, Linux, Solaris, AIX and HP-UX.<br />
+# WMI is used for communicating with Windows hosts<br />
+# A telnet fallback is available for McData switches when SSH is not enabled</p>
+<p>Запускается так: </p>
+<p><code>c:\> nsanity ontap://root:*@storage1</code></p>
+<p>при этом спросит пароль рута (звездочку можно заменить на собственно пароль, что, понятно, не рекомендуется)</p>
+<p>Собранный пак инфы в gzip можно развалить на отдельные файлы так:</p>
+<p><code>c:\> nsanity –x zipfilename.gz</code></p>
+<p>Есть версия под Linux и Windows.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/diagnostic.html" rel="tag">diagnostic</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/support.html" rel="tag">support</a>, <a href="../../../tag/utility.html" rel="tag">utility</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../494/trackback.html#respond" title="Комментарий к записи Утилита сбора диагностических данных nSANity">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-475">
+				<h2 class="posttitle"><a href="../../../475/trackback.html" rel="bookmark" title="Permanent Link to IOmeter file access patterns">IOmeter file access patterns</a></h2>
+				<div class="postmetadata">2 Декабрь 2009, 9:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Here a basic sample patterns for IOmeter testing evaluation.<br />
+Database and Fileserver patterns taken from Intel’s IOmeter distribution (prior it’s opensourse development), Workstation – from <a href="http://www.storagereview.com/articles/200003/20000313OSandBM_5.html">StorageReview.com website</a>, Webserver – it’s an “empirical” pattern from some real webserver load.<br />
+Up-to-date IOmeter can be downloaded from <a href="http://sourceforge.net/projects/iometer/files/">SourceForge website</a> (not from <a href="http://www.iometer.org/">iometer.org</a>, which still give you outdated “2006” version, latest (currently) is a 2008-rc2 for Windows32-64/IA64/Linux, with many improvements).</p>
+<p>&#160;</p>
+<p><strong>Database pattern (Intel/StorageReview.com)</strong></p>
+<div style="direction: ltr">
+<table style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; border-collapse: collapse; direction: ltr; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid" border="1" cellspacing="0" cellpadding="0" valign="top">
+<tbody>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">Block size</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of size</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of read</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of random</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">8192b</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">67</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&#160;</p>
+<p><strong>Fileserver pattern (Intel)</strong></p>
+<div style="direction: ltr">
+<table style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; border-collapse: collapse; direction: ltr; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid" border="1" cellspacing="0" cellpadding="0" valign="top">
+<tbody>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">Block size</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of size</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of read</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of random</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">512</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">10</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">1024</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">5</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">2048</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">5</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">4096</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">60</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">8192</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">2</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">16384</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">4</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">32768</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">4</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">65535</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">10</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">&#160;</p>
+<p><strong>Workstation pattern (StorageReview.com)</strong></p>
+<div style="direction: ltr">
+<table style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; border-collapse: collapse; direction: ltr; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid" border="1" cellspacing="0" cellpadding="0" valign="top">
+<tbody>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">Block size</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of size</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of read</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of random</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">8192</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">80</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">&#160;</p>
+<p><strong>Webserver pattern </strong></p>
+<div style="direction: ltr">
+<table style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; border-collapse: collapse; direction: ltr; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid" border="1" cellspacing="0" cellpadding="0" valign="top">
+<tbody>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">Block size</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of size</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of read</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">% of random</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">512</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">22</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">1024</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">15</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">2048</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">8</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">4096</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">23</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">8192</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">15</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">16384</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">2</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">32768</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">6</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">65535</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">7</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">131072</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">1</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.82in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">524288</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.758in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">1</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 0.809in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+<td style="border-bottom: #a3a3a3 1pt solid; border-left: #a3a3a3 1pt solid; padding-bottom: 4pt; padding-left: 4pt; width: 1.029in; padding-right: 4pt; vertical-align: top; border-top: #a3a3a3 1pt solid; border-right: #a3a3a3 1pt solid; padding-top: 4pt">
+<p style="margin: 0in; font-family: calibri; font-size: 11pt" lang="en-US">100</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ready to use iometer settings file is here: <a href="/docs/iometer.icf"><strong>iometer.icf</strong></a></p>
+<p>UPD: Slightly extended list of workloads in iometer settings file is here: <a href="/docs/iometer.icf"><strong>iometer2.icf</strong></a><br />
+Thanks to: <a href="http://blogs.msdn.com/tvoellm/archive/2009/05/07/useful-io-profiles-for-simulating-various-workloads.aspx">Tony Voyellm</a>, and <a href="http://vmind.ru/">http://vmind.ru/</a></p>
+<p><em>(Моим русскоязычным читателям: пост сделан по просьбе некоторых “нерусскоязычных” людей, которые приходят сюда по ссылкам с поисковиков, на статью о <a href="../../../37/trackback.html">тестировании с помощью IOmeter</a>. К сожалению, параметры тестовых паттернов для IOmeter часто приходится искать по интернету отдельно, в существующем дистрибутиве они не включены, поэтому выложил их сюда).</em></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/iometer.html" rel="tag">iometer</a>, <a href="../../../tag/testing.html" rel="tag">testing</a><br />					Раздел: <a href="../../howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../475/trackback.html#comments" title="Комментарий к записи IOmeter file access patterns">Комментарии (2)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-387">
+				<h2 class="posttitle"><a href="../../../387/trackback.html" rel="bookmark" title="Permanent Link to SANscreen trial">SANscreen trial</a></h2>
+				<div class="postmetadata">10 Сентябрь 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Приобретенный с компанией Onaro в 2008 году продукт управления и анализа инфраструктуры SAN (не только стораджей NetApp), выпускаемый ныне NetApp под названием <a href="http://www.netapp.com/us/products/management-software/sanscreen/sanscreen.html">SANscreen</a> можно попробовать получить с вебсайта Onaro по следующей ссылке: <a href="http://gate.onaro.com/files/SANscreen-x86-5.1.1-248.msi">http://gate.onaro.com/files/SANscreen-x86-5.1.1-248.msi</a></p>
+<p> login: webuser passwrd: 1ceHockey! (1094MB)</p>
+<p><a href="/pics//sanscreen_screenshot.jpg"><img src="/pics//sanscreen_screenshot-300x150.jpg" alt="" title="sanscreen_screenshot" width="300" height="150" class="alignnone size-medium wp-image-389" /></a></p>
+<p><a href="/pics//sanscreen_root_cause_analysis.jpg"><img src="/pics//sanscreen_root_cause_analysis-300x225.jpg" alt="" title="sanscreen_root_cause_analysis" width="300" height="225" class="alignnone size-medium wp-image-390" /></a></p>
+<p><a href="/pics//sanscreen-reports.jpg"><img src="/pics//sanscreen-reports-300x212.jpg" alt="" title="sanscreen-reports" width="300" height="212" class="alignnone size-medium wp-image-391" /></a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/demo.html" rel="tag">demo</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/sanscreen.html" rel="tag">sanscreen</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../387/trackback.html#respond" title="Комментарий к записи SANscreen trial">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-237">
+				<h2 class="posttitle"><a href="../../../237/trackback.html" rel="bookmark" title="Permanent Link to Полезные инструменты: Управление через PowerShell">Полезные инструменты: Управление через PowerShell</a></h2>
+				<div class="postmetadata">13 Апрель 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Многие админы Windows Servers уже знают и используют новые возможности &#8220;коммандлайнового интерфейса Windows&#8221; - PowerShell.<br />
+Кто еще не вникал - самое время вникнуть: <noindex><nofollow><a href="http://www.microsoft.com/windowsserver2003/technologies/management/powershell/default.mspx">MS Official</a></nofollow></noindex>,  <noindex><nofollow><a href="http://en.wikipedia.org/wiki/Windows_PowerShell">Wikipedia</a></nofollow></noindex>, <noindex><nofollow><a href="http://blogs.msdn.com/powershell/">Blog</a></nofollow></noindex>.</p>
+<p>Для уже знакомых с PowerShell укажу интересную разработку, позволяющую управлять системами хранения NetApp через PowerShell, с использованием ONTAP Management SDK.</p>
+<p>Найдено тут: <noindex><nofollow><a href="http://get-admin.com/blog/?p=442">PoshOnTap</a></nofollow></noindex><br />
+Просмотрите также и прочие темы этого автора в блоге, можно найти любопытного.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/management.html" rel="tag">management</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/scripting.html" rel="tag">scripting</a>, <a href="../../../tag/tools.html" rel="tag">tools</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../237/trackback.html#respond" title="Комментарий к записи Полезные инструменты: Управление через PowerShell">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-207">
+				<h2 class="posttitle"><a href="../../../207/trackback.html" rel="bookmark" title="Permanent Link to Полезные инструменты: NAGIOS">Полезные инструменты: NAGIOS</a></h2>
+				<div class="postmetadata">16 Февраль 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Аналогичный рассмотренному ранее UNNOC инструмент мониторинга - NAGIOS (<noindex><nofollow><a href="http://www.nagios.org">http://www.nagios.org</a></nofollow></noindex>). Довольно популярная сама по себе штука.</p>
+<p>К нему также существует модуль, специально разработанный для наблюдения систем NetApp<br />
+<noindex><nofollow><a href="http://people.teamix.net/~svelt/check_netappfiler">http://people.teamix.net/~svelt/check_netappfiler</a></nofollow></noindex></p>
+<p>В отличие от UNNOC, который обновлялся аж в 2007 году, этот модуль активно пишется, и автор приветствует feature requests и bug reports.</p>
+<p>Смотри также: <noindex><nofollow><a href="http://www.nagiosexchange.org/cgi-bin/page.cgi?g=Check_Plugins%2FHardware%2FStorage%2FNetApp%2Findex.html;d=1">nagiosexchange.org</a></nofollow></noindex></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/monitoring.html" rel="tag">monitoring</a>, <a href="../../../tag/nagios.html" rel="tag">nagios</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/snmp.html" rel="tag">snmp</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../207/trackback.html#comments" title="Комментарий к записи Полезные инструменты: NAGIOS">Комментарии (3)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-206">
+				<h2 class="posttitle"><a href="../../../206/trackback.html" rel="bookmark" title="Permanent Link to Полезные инструменты: UNNOC">Полезные инструменты: UNNOC</a></h2>
+				<div class="postmetadata">9 Февраль 2009, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Если вам приелся довольно таки спартанский и непритязательный вид штатного мониторинга FilerView, то по адресу unnoc.org находится опенсорсный пакет мониторинга с веб-мордой, для множества разного железа, включая специальные модули под NetApp, а также под множество другого разнообразного железа и софта.</p>
+<p>Есть демо-сайт. <noindex><nofollow><a href="http://unnoc.org/demo/">http://unnoc.org/demo/</a></nofollow></noindex></p>
+<p>Так выглядит авторский FAS3020<br />
+<noindex><nofollow><a href="http://unnoc.org/demo/display.php?host=slide">http://unnoc.org/demo/display.php?host=slide</a></nofollow></noindex></p>
+<p>а так - сервера VMware (VCMS)<br />
+<noindex><nofollow><a href="http://unnoc.org/demo/display.php?host=odysseus">http://unnoc.org/demo/display.php?host=odysseus</a></nofollow></noindex></p>
+<p>или даже файрволл<br />
+<noindex><nofollow><a href="http://unnoc.org/demo/display.php?host=skyhammer">http://unnoc.org/demo/display.php?host=skyhammer</a></nofollow></noindex></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/monitoring.html" rel="tag">monitoring</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/snmp.html" rel="tag">snmp</a>, <a href="../../../tag/unnoc.html" rel="tag">unnoc</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../206/trackback.html#comments" title="Комментарий к записи Полезные инструменты: UNNOC">Комментарии (3)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="4.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="2.html">Next Entries &raquo;</a></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../../howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../../justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../../review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../../tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95 current-cat"><a href="../index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../../whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../../opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../../citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../../../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../../../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../../../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../../../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../../../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../../../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../../../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../../../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../../../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../../../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../../../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../../../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../../../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../../../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../../../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../../../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../../../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../../../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../../../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../../../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../../../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../../../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../../../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../../../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../../../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../../../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../../../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../../../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../../../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../../../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../../../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../../../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../../../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../../../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../../../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../../../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../../../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../../../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../../../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../../../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../../../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../../../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../../../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../../../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../../../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../../../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../../../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../../../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../../../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../../../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../../../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../../../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../../../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../../../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../../../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../../../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../../../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../../../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../../../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../../../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../../../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../../../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../../../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../../../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../../../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../../../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../../../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../../../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../../../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../../../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../../../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../../../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../../../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../../../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../../../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../../../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../../../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../../../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../../../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../../../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../../../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../../../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../../../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../../../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../../../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../../../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../../../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../../../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../../../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../../../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../../../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../../../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../../../feed">Entries (RSS)</a> and <a href="../../../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.101 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

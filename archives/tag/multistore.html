@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; multistore</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;multistore&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1017">
+				<h2 class="posttitle"><a href="../1017/trackback.html" rel="bookmark" title="Permanent Link to Multistore и использование vFiler">Multistore и использование vFiler</a></h2>
+				<div class="postmetadata">19 Сентябрь 2011, 17:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Ну и, чтобы не превращать этот блог в одни сплошные опросы, вот вам сегодня и новая статья.</p>
+<p>Я уже <a href="../862/trackback.html">писал</a> в этом блоге о такой любопытной штуке в системах NetApp, как так называемый Multistore, или возможности создать в одном “физическом” файлере множество “логических”, виртуальных, так называемых vFilers. Хотя эта опция существует аж с 2002 года, она все еще, как я заметил, не слишком популярна и даже не слишком известна.</p>
+<p>В двух словах, <a href="../862/trackback.html">Multistore</a> (можете также посмотреть мою заметку о нем ранее) это способ создать “виртуальные мини-нетаппы” внутри физического, которые будут почти полностью такие же, как и физические, за исключением отсутствия в них протокола FC, но с наличием iSCSI, NFS, CIFS и так далее, если они лицензированы на “большом” нетаппе.</p>
+<p>Такие “виртуальные файлеры” можно применять, например, при необходимости разделять данные по зонам безопасности (secure multi-tenant). Например на одной системе хранения могут располагаться виртуальные файлеры с данными внутренней сети, и “внешние”, например для DMZ или данными внешнего вебсайта, или же между разным клиентами, использующими один сторадж (что полезно, например, при построении &#8220;облака&#8221;). ??золяция между такими виртуальными файлерами достаточно безопасна для такого использования и независимый аудит безопасности показал отсутствие проблем с безопасностью и изоляцией данных. vFiler также может располагаться в своем собственном IP space, то есть независимо маршрутизируемом пространстве, и даже на отдельном физическом интерфейсе.</p>
+<p>Другой популярный способ использования Multistore это включение системы хранения в многодоменную сеть. Один физический NetApp FAS может быть включен как член домена только в один домен (не рассматриваем сейчас ситуацию с доверительными междоменными отношениями), поэтому для организации с несколькими доменами или лесами потребуется либо купить отдельные стораджи для каждого домена, либо воспользоваться таким “партиционированием”, и включить в домены виртуальные файлеры, базирующиеся на одном физическом.</p>
+<p>Наконец, как я также уже немного рассказывал ранее, с помощью vFilers можно использовать сравнительно новую возможность, под названием <a href="../468/trackback.html">NetApp Data Motion</a>. </p>
+<p><a href="../468/trackback.html">Data Motion</a> это возможность делать с виртуальными системами хранения vFiler то же, что VMware делает с виртуальными машинами при VMotion, то есть не прерывая их работы мигрировать их с одного физического контроллера на другой. Эта возможность работает для любых приложений, использующих сторадж NetApp с Data Motion, не обязательно для виртуальных машин, например. Также обратите внимание, что при такой миграции мигрируют, например, и отношения репликации. То есть если у вас мигрируемый vFiler располагался на контроллере fas1, и реплицировал через SnapMirror свои данные в резервный датацентр на контроллер drnetapp, а потом был мигрирован с помощью Data Motion на контроллер fas2, например чтобы снизить нагрузку на загруженный fas1 и сбалансировать ее на недогруженный fas2, то его данные по прежнему будут, без вмешательства администратора и перенастройки, реплицироваться на drnetapp уже с контроллера fas2.</p>
+<p>Но для того, чтобы всем этим воспользоваться, надо, во-первых, vFiler-ы создать.<br />
+ <a href="../1017/trackback.html#more-1017" class="more-link"><small>Continue reading &#8216;Multistore и использование vFiler&#8217; &raquo;</small></a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="multistore.html" rel="tag">multistore</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="vfiler.html" rel="tag">vfiler</a><br />					Раздел: <a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1017/trackback.html#comments" title="Комментарий к записи Multistore и использование vFiler">1 комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-862">
+				<h2 class="posttitle"><a href="../862/trackback.html" rel="bookmark" title="Permanent Link to Multistore">Multistore</a></h2>
+				<div class="postmetadata">4 Апрель 2011, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Как и обещал чуть раньше – рассказываю про этого зверя.    <br /><a href="http://www.netapp.com/us/products/platform-os/multistore.html">Multistore</a> – опция систем хранения NetApp, позволяющая делить физическую систему хранения на “логические партиции”.</p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="/pics//image82.png" width="418" height="318" /></p>
+<p><a href="http://www.netapp.com/us/products/platform-os/multistore.html">Multistore</a> - “в обед сто лет”. Она существует многие годы (с первых версий 7.0, а то может и даже раньше), но, к сожалению, до недавних пор сравнительно редко применялась. На нее требовалась отдельная и не самая дешевая лицензия, поэтому многие NetApp-админы часто даже не слышали о Multistore, и не применяли ее.</p>
+<p>Однако многое изменилось в прошлом году. Во-первых Multistore была извлечена из забвения, в котором находилась много лет, и приспособлена к многим новым инициативам NetApp, куда она удивительно органично подошла, например к <a href="http://www.netapp.com/us/technology/secure-multi-tenancy.html">Secure Multi-Tenancy</a>. Во-вторых, появились новые и многообещающие продукты, использующие Multistore, например NetApp <a href="http://www.netapp.com/us/library/technical-reports/tr-3814.html">DataMotion for vFilers</a>, позволяющая такие “виртуальные партиции” – виртуальные “файлеры”, созданные внутри физической системы хранения, переносить между системами хранения, даже между физически различными, и установленными в разных местах, без прерывания к ним доступа, наподобие vMotion для виртуальных машин в VMware.     <br />??, наконец, логичным шагом стало включение Multistore в комплект <em><a href="http://www.netapp.com/us/products/storage-systems/fas3200/fas3200-software.html">ONTAP Essentials</a></em>, идущий по умолчанию, и доступный целиком, без покупки дополнительных лицензий, для новых систем FAS3200/6200, что тем более делает нужным и полезным знакомство с этой интересной опцией.</p>
+<p>Но давайте по порядку.</p>
+<p>Multistore – это средство создавать внутри физического контроллера системы хранения множество “виртуальных”, автономных “логических” систем хранения, с автономным управлением, и своим набором данных для каждой.    <br />Разумеется вы уже подумали про гипервизоры в стиле VMware, но – нет, все проще, используется механизм, подобный chroot или jail во FreeBSD. Это позволяет гораздо меньше “нагружать” железо, и вполне безопасно изолирует такие виртуальные файлеры друг от друга. Так, например, для самой младшей FAS2020 количество таких виртуальных файлеров ограничено 26, а для всех остальных контроллеров NetApp под версиями Data ONTAP 7.x можно создать до 65 таких ???vfilers’ (на каждом контроллере, на HA-пару – 130), что, конечно, гораздо экономичнее, с точки зрения расхода памяти и ресурсов, так как как “сущность” Data ONTAP не множится в памяти, продолжая существовать в единственном экземпляре. Каждый vFiler занимает в системной памяти всего около 400Kb.</p>
+<p>В отношении же безопасности изоляции данных, следует упомянуть, что, в течении нескольких лет, независимая компания информационной безопасности Matasano Security проводила security audit OS NetApp Data ONTAP, и отметила в итоговом документе:</p>
+<blockquote><p>At the conclusion of our testing, we found that the Data ONTAP operating system exceeded our expectations for security. We know of no vulnerability in Data ONTAP that would allow an attacker to use a FAS Storage System, even if they have a login to a portion of it, to compromise another subnet.      </p>
+<p><strong><a href="http://media.netapp.com/documents/wp-multistore-analysis.pdf">NetApp MultiStore: An Independent Security Analysis</a>         <br /></strong>Prepared By: Thomas Ptacek and Eric Monti, Matasano Security</p>
+</blockquote>
+<p>Классической, изначальной областью применения Multistore, до недавних пор, была организация использования NAS-файлера в многодоменной Windows-сети, а также возможность создавать виртуальные файлеры для подразделений в компании, требующих отдельных политик администрирования и безопасности. В этом случае, вместо заведения таким подразделениям отдельных физических систем, вы могли выделить им виртуальный файлер, на котором они могли быть своим собственным виртуальным рутом, создавать на нем любые, угодные им ресурсы, с любыми нужными им политиками, все в таком своеобразном изолированном jail-е внутри физического файлера.</p>
+<p>Такой виртуальный файлер выглядит изнутри себя как отдельный “netapp”, включая свой собственный vol0 и /etc, а попасть администратору в его контекст можно с помощью команды:</p>
+<p><code>mainfiler&gt; vfiler context vfiler1      <br /><a href="mailto:vfiler1@mainfiler">vfiler1@mainfiler</a>&gt; Wed Apr 8 22:18:24 EDT [vfiler1@cmds.vfiler.console.switch:notice]: Console context was switched to a vFiler(tm) unit vfiler1.</code> </p>
+<p><a href="mailto:vfiler1@mainfiler">vfiler1@mainfiler</a>&gt;</p>
+<p>Далее вы можете оперировать в среде такого vfiler как в реальной системе. В настоящее время&#160; в среде vfiler команды управления в значительной мере совпадают с тем, что доступно в “физическом” файлере.</p>
+<p>Каковы же ограничения?</p>
+<p>Пожалуй самым заметным следует указать отсутствие в среде такого vfiler поддержки FCP. Работают все остальные протоколы, то есть CIFS, NFS, NDMP, FTP, и так далее, но из “блочных” протоколов доступен iSCSI. То есть vfiler <strong>может</strong> работать в SAN, но в настоящее время только как iSCSI-target. Отсутствие поддержки FCP в контексте vfiler связано, прежде всего, с отсутствием поддержки <a href="http://en.wikipedia.org/wiki/NPIV">NPIV</a> в Data ONTAP, однако&#160; она также может быть со временем добавлена. Но в настоящий момент вы не можете “виртуализовать” физический FC HBA, разделив его между виртуальными файлерами, поэтому FCP доступен только на уровне хост-системы, или vfiler0, как ее в данном случае принято называть.</p>
+<p>Мне не удалось найти однозначных сведений по поводу текущего состояния с FCoE на Unified Target, возможно уточнят этот вопрос присутствующие и читающие меня люди из NetApp?</p>
+<p>Что касается ethernet, то каждый vfiler оперирует своим набором IP-адресов, VLAN, VIF и таблиц маршрутизации, что позволяет оперировать с ним как с самостоятельной сущностью, с точки зрения администрирования. Например можно держать один vfiler в DMZ, а другой – во внутренней сети, оба будут находиться внутри одного физического контроллера, но данные первого будут надежно изолированы от данных второго. На физический контроллер доступно до 101 набора IPspaces, то есть логических таблиц маршрутизации.</p>
+<p>Кроме уже упомянутой, традиционной области применения, такой как многодоменная Windows-сеть, и подразделения с индивидуальными политиками администрирования, областью применения Multistore, в особенности с новыми продуктами Secure Multi-Tenancy и DataMotion, может быть задачи Disaster Recovery или миграции данных.</p>
+<p>Например команда <code>vfiler migrate</code> перенесет весь instance виртуального файлера, включая его данные и конфигурацию, IP-адреса, NETBIOS Name, hostname, на новый контроллер (требуется активированная лицензия SnapMirror).</p>
+<p>Вы также можете регулировать загрузку физического файлера его vfiler-ами с помощью средств FlexShare и назначения приоритетов доступа к томам FlexVol. Помните, что оттого, что вы на одном физическом контроллере создали десяток виртуальных, производительность физического не увеличилась, IOPSы, выдаваемые физическим контроллером распределятся между vfiler-ами, а с помощью FlexShare вы сможете правильно сбалансировать приоритеты.</p>
+<p>Так что тем, кто получает новые системы с набором лицензий ONTAP Essentials, куда, повторюсь, входит Multistore, рекомендую пошевелить тему поподробнее, возможно вы найдете что-то интересное для конкретно вашего случая использования.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="multistore.html" rel="tag">multistore</a>, <a href="netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../862/trackback.html#comments" title="Комментарий к записи Multistore">Комментарии (2)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.071 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Техническоэ: о блоге</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1231/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1231</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:05 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Александр</title>
+		<link>http://blog.aboutnetapp.ru/archives/1231#comment-4756</link>
+		<dc:creator>Александр</dc:creator>
+		<pubDate>Tue, 13 Nov 2012 09:58:04 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1231#comment-4756</guid>
+		<description>Netapp Innovation взбадривает публику. :)</description>
+		<content:encoded><![CDATA[<p>Netapp Innovation взбадривает публику. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1231#comment-4739</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 12 Nov 2012 15:56:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1231#comment-4739</guid>
+		<description>Алексей:
+
+Да нет, весьма steady растем, за вычетом "мертвых сехонов" в январе и летом - постоянный стабильный рост от месяца к месяцу.
+?? это приятно.</description>
+		<content:encoded><![CDATA[<p>Алексей:</p>
+<p>Да нет, весьма steady растем, за вычетом &#8220;мертвых сехонов&#8221; в январе и летом - постоянный стабильный рост от месяца к месяцу.<br />
+?? это приятно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Алексей</title>
+		<link>http://blog.aboutnetapp.ru/archives/1231#comment-4725</link>
+		<dc:creator>Алексей</dc:creator>
+		<pubDate>Mon, 12 Nov 2012 05:36:44 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/1231#comment-4725</guid>
+		<description>В блоге установили FlashChache модуль :о)</description>
+		<content:encoded><![CDATA[<p>В блоге установили FlashChache модуль :о)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Right-sized Usable Capacity для разных дисков</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1101/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1101</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:26 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Расчет полезного пространства (usable space) от сырого (raw) для дискового массива Netapp &#124; Системная архитектура и все-все-все</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-13017</link>
+		<dc:creator>Расчет полезного пространства (usable space) от сырого (raw) для дискового массива Netapp &#124; Системная архитектура и все-все-все</dc:creator>
+		<pubDate>Thu, 10 Apr 2014 05:16:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-13017</guid>
+		<description>[...] x реальная_емкость_диска. Реальную емкость диска можно посмотреть тут.  У нас получается 47 x 560ГБ = 26 [...]</description>
+		<content:encoded><![CDATA[<p>[...] x реальная_емкость_диска. Реальную емкость диска можно посмотреть тут.  У нас получается 47 x 560ГБ = 26 [...]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2038</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 17 Dec 2011 12:58:53 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2038</guid>
+		<description>В http://blog.aboutnetapp.ru/about
+написан email: romx@mail.ru</description>
+		<content:encoded><![CDATA[<p>В <a href="http://blog.aboutnetapp.ru/about" rel="nofollow">http://blog.aboutnetapp.ru/about</a><br />
+написан email: <a href="mailto:romx@mail.ru">romx@mail.ru</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Gera</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2037</link>
+		<dc:creator>Gera</dc:creator>
+		<pubDate>Sat, 17 Dec 2011 12:53:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2037</guid>
+		<description>Скажите, а как-бы к Вам на почту обратиться? ??ли в Скайп стукнуться?</description>
+		<content:encoded><![CDATA[<p>Скажите, а как-бы к Вам на почту обратиться? ??ли в Скайп стукнуться?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Gera</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2036</link>
+		<dc:creator>Gera</dc:creator>
+		<pubDate>Sat, 17 Dec 2011 12:49:22 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2036</guid>
+		<description>Вау! ??нтереснейший документ оказался. Похоже я для себя найду там ответы на некоторое вопросы, которые не то чтобы меня мучили... так, раздражали. :-) Спасибо!</description>
+		<content:encoded><![CDATA[<p>Вау! ??нтереснейший документ оказался. Похоже я для себя найду там ответы на некоторое вопросы, которые не то чтобы меня мучили&#8230; так, раздражали. :-) Спасибо!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2035</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 17 Dec 2011 11:27:00 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2035</guid>
+		<description>Gera: 
+
+Пробовать-то всегда лучше, но не всегда возможно, это во-первых, а во-вторых есть опасность не вытянуть все потенциально возможное, например просто не разобравшись с настройками и конфигурацией, ла много может быть причин. Особенно у начинающих с таким проблемы возникают. Опубликованные результаты все же проходят тщательный контроль методики, и там меньше опасности встретить явный факап конфигурации.
+
+&gt; Точное название приведите плиз, а то не могу найти в NOW…
+
+tr-3838 Storage Subsystem Configuration Guide
+Только он не в NOW а на fieldportal.</description>
+		<content:encoded><![CDATA[<p>Gera: </p>
+<p>Пробовать-то всегда лучше, но не всегда возможно, это во-первых, а во-вторых есть опасность не вытянуть все потенциально возможное, например просто не разобравшись с настройками и конфигурацией, ла много может быть причин. Особенно у начинающих с таким проблемы возникают. Опубликованные результаты все же проходят тщательный контроль методики, и там меньше опасности встретить явный факап конфигурации.</p>
+<p>> Точное название приведите плиз, а то не могу найти в NOW…</p>
+<p>tr-3838 Storage Subsystem Configuration Guide<br />
+Только он не в NOW а на fieldportal.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Gera</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2034</link>
+		<dc:creator>Gera</dc:creator>
+		<pubDate>Sat, 17 Dec 2011 11:06:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2034</guid>
+		<description>Я не очень доверяю различным подобного рода "опубликованным результатам" хотя бы в силу того, что в таких экспериментах есть масса нюансов, которые могут кардинально изменить картину. Предпочитаю все потрогать ручками в конкретных применениях.
+Плюс к этому часто документы весьма противоречивы. В том-же NetApp-е в документации на Data ONTAP есть места, которые можно по разному понимать. Вот недавно наткнулся на подобное с FlexClon. В документации есть описание трех команд: vol clone create; lun clone create; clone. В последней явно указано, что требуется лицензия FlexClone. В первых двух про лицензии - молчек.
+В общем лучше пробовать! :-)
+На счет документа "Storage Subsystem FAQ"... Точное название приведите плиз, а то не могу найти в NOW...</description>
+		<content:encoded><![CDATA[<p>Я не очень доверяю различным подобного рода &#8220;опубликованным результатам&#8221; хотя бы в силу того, что в таких экспериментах есть масса нюансов, которые могут кардинально изменить картину. Предпочитаю все потрогать ручками в конкретных применениях.<br />
+Плюс к этому часто документы весьма противоречивы. В том-же NetApp-е в документации на Data ONTAP есть места, которые можно по разному понимать. Вот недавно наткнулся на подобное с FlexClon. В документации есть описание трех команд: vol clone create; lun clone create; clone. В последней явно указано, что требуется лицензия FlexClone. В первых двух про лицензии - молчек.<br />
+В общем лучше пробовать! :-)<br />
+На счет документа &#8220;Storage Subsystem FAQ&#8221;&#8230; Точное название приведите плиз, а то не могу найти в NOW&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2033</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 17 Dec 2011 10:43:25 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2033</guid>
+		<description>Gera:
+
+&gt; К сожалению пока не удалось понаблюдать поведение системы с “медленными” дисками и FlashCash
+
+Можно попробовать оценить и интерполировать согласно опублкованым результатам SPECsfs2008 и SPC-1/E
+
+&gt; А Вы откуда эти цифры взяли? С реальных систем?
+
+??з Storage Subsystem FAQ, который в целом, к сожалению, недоступен для не-партнеров.</description>
+		<content:encoded><![CDATA[<p>Gera:</p>
+<p>> К сожалению пока не удалось понаблюдать поведение системы с “медленными” дисками и FlashCash</p>
+<p>Можно попробовать оценить и интерполировать согласно опублкованым результатам SPECsfs2008 и SPC-1/E</p>
+<p>> А Вы откуда эти цифры взяли? С реальных систем?</p>
+<p>??з Storage Subsystem FAQ, который в целом, к сожалению, недоступен для не-партнеров.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Gera</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2032</link>
+		<dc:creator>Gera</dc:creator>
+		<pubDate>Sat, 17 Dec 2011 07:48:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2032</guid>
+		<description>Да, про FlashCash знаю не по наслышке. ??спытывали на стенде у клиента с "быстрыми" (FC) дисками. В таком варианте использования FlashCash дал изумительную изоляцию очень приличной нагрузки по чтению на запись, скорость которой была критична для задач клиента. Со стороны записи (после "прогрева" FlashCash) это выглядело как будто вообще чтения не было.
+К сожалению пока не удалось понаблюдать поведение системы с "медленными" дисками и FlashCash...
+Про SSD... Если вычесть 1/9 для этих дисков zone checksum, то получается меньше чем у Вас. :-(
+А Вы откуда эти цифры взяли? С реальных систем?</description>
+		<content:encoded><![CDATA[<p>Да, про FlashCash знаю не по наслышке. ??спытывали на стенде у клиента с &#8220;быстрыми&#8221; (FC) дисками. В таком варианте использования FlashCash дал изумительную изоляцию очень приличной нагрузки по чтению на запись, скорость которой была критична для задач клиента. Со стороны записи (после &#8220;прогрева&#8221; FlashCash) это выглядело как будто вообще чтения не было.<br />
+К сожалению пока не удалось понаблюдать поведение системы с &#8220;медленными&#8221; дисками и FlashCash&#8230;<br />
+Про SSD&#8230; Если вычесть 1/9 для этих дисков zone checksum, то получается меньше чем у Вас. :-(<br />
+А Вы откуда эти цифры взяли? С реальных систем?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2031</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 17 Dec 2011 01:15:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2031</guid>
+		<description>Gera:
+
+&gt; С SSD дисками мне дела иметь не приходилось, но вдруг попадется клиент богатый! :-) Расскажите, почему с SSD дисками у нас с вами получается разница существенная?
+
+Не знаю, но при наличии FlashCache можно SSD у NetApp просто игнорировать. Это специальное решение для узкой конкретной задачи. Вот видите, я даже не знаю почему. Подозреваю, что причина там та же, что у SATA, вынужденное использование схемы 8+1 (zone checksum) из- за конструктивной невозможности использовать сектор произвольного размера.</description>
+		<content:encoded><![CDATA[<p>Gera:</p>
+<p>> С SSD дисками мне дела иметь не приходилось, но вдруг попадется клиент богатый! :-) Расскажите, почему с SSD дисками у нас с вами получается разница существенная?</p>
+<p>Не знаю, но при наличии FlashCache можно SSD у NetApp просто игнорировать. Это специальное решение для узкой конкретной задачи. Вот видите, я даже не знаю почему. Подозреваю, что причина там та же, что у SATA, вынужденное использование схемы 8+1 (zone checksum) из- за конструктивной невозможности использовать сектор произвольного размера.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Gera</title>
+		<link>http://blog.aboutnetapp.ru/archives/1101#comment-2030</link>
+		<dc:creator>Gera</dc:creator>
+		<pubDate>Fri, 16 Dec 2011 20:13:26 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1101#comment-2030</guid>
+		<description>Хм... Я был уверен, что эти 8 байт не влияют столь значительно... :-/ Мне казалось что это расширение идет исключительно за счет "внутренних" резервов. Ну типа все равно место на дорожке под 0 не используют...
+Спасибо за науку! Буду и для FC/SAS дисков учитывать дополнительные 1,8%.
+С SSD дисками мне дела иметь не приходилось, но вдруг попадется клиент богатый! :-) Расскажите, почему с SSD дисками у нас с вами получается разница существенная? Я, считая по моему прикидочному алгоритму, получаю 100 GB = 100*10^9 / (1024*1024*1024)= 93,13 GiB Даже вычитание 1,8% не помогает... :-( Разница то почти 10%...</description>
+		<content:encoded><![CDATA[<p>Хм&#8230; Я был уверен, что эти 8 байт не влияют столь значительно&#8230; :-/ Мне казалось что это расширение идет исключительно за счет &#8220;внутренних&#8221; резервов. Ну типа все равно место на дорожке под 0 не используют&#8230;<br />
+Спасибо за науку! Буду и для FC/SAS дисков учитывать дополнительные 1,8%.<br />
+С SSD дисками мне дела иметь не приходилось, но вдруг попадется клиент богатый! :-) Расскажите, почему с SSD дисками у нас с вами получается разница существенная? Я, считая по моему прикидочному алгоритму, получаю 100 GB = 100*10^9 / (1024*1024*1024)= 93,13 GiB Даже вычитание 1,8% не помогает&#8230; :-( Разница то почти 10%&#8230;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

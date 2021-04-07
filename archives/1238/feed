@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Отпуск и будущие планы.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/1238/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/1238</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:06:03 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/1238#comment-5308</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Thu, 27 Dec 2012 13:03:11 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1238#comment-5308</guid>
+		<description>dmarck:
+Та если бы отдых... Я паузю блог на первую половину января просто потому что "С первава и по тринацато-Е!" (с) интернет вымирает, постить смысла нет, на блог заходят считаные единицы трезвых чудаков.
+
+Bakset:
+Да мне и самому скучно без них ;)</description>
+		<content:encoded><![CDATA[<p>dmarck:<br />
+Та если бы отдых&#8230; Я паузю блог на первую половину января просто потому что &#8220;С первава и по тринацато-Е!&#8221; (с) интернет вымирает, постить смысла нет, на блог заходят считаные единицы трезвых чудаков.</p>
+<p>Bakset:<br />
+Да мне и самому скучно без них ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Bakset</title>
+		<link>http://blog.aboutnetapp.ru/archives/1238#comment-5307</link>
+		<dc:creator>Bakset</dc:creator>
+		<pubDate>Thu, 27 Dec 2012 12:13:42 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1238#comment-5307</guid>
+		<description>С наступающим Новым Годом!
+Роман, без твоих постов скучно... )</description>
+		<content:encoded><![CDATA[<p>С наступающим Новым Годом!<br />
+Роман, без твоих постов скучно&#8230; )</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: dmarck</title>
+		<link>http://blog.aboutnetapp.ru/archives/1238#comment-5304</link>
+		<dc:creator>dmarck</dc:creator>
+		<pubDate>Thu, 27 Dec 2012 09:34:41 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=1238#comment-5304</guid>
+		<description>Хорошо отдохнуть! ;)</description>
+		<content:encoded><![CDATA[<p>Хорошо отдохнуть! ;)</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

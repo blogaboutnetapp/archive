@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Vox Populi: Как вы поступаете со стораджами после истечения hardware warranty (3 года)?</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/998/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/998</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:35 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/998#comment-1693</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Tue, 13 Sep 2011 07:28:30 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=998#comment-1693</guid>
+		<description>kpoxa:
+
+Три года hardware warranty Next Business Day включено в цену при продаже, плюс при наличии такой возможности, например наличии склада и возможности доставить за заданный срок, можно расширить до 4h 24x7.
+Затем сервис по аппаратной поддержке (читай замена вышедшх из строя запчастей и их доступнгость на складе) продляется за деньги, затем для модели наступает End of Availability (прекращение продаж), после EOA, через 5, если правильно помню, лет наступает End of HW Support, и детали для данных систем перестают содержаться на складах, и перестают предприниматься усилия по поддержке старого оборудования в новых версиях OS Data ONTAP.
+
+Так что если купить систему накануне окончания ее продаж (EOA), то есть в наихудшем случае, то HW Support это три года включенной поддержки, и два года расширенной.</description>
+		<content:encoded><![CDATA[<p>kpoxa:</p>
+<p>Три года hardware warranty Next Business Day включено в цену при продаже, плюс при наличии такой возможности, например наличии склада и возможности доставить за заданный срок, можно расширить до 4h 24&#215;7.<br />
+Затем сервис по аппаратной поддержке (читай замена вышедшх из строя запчастей и их доступнгость на складе) продляется за деньги, затем для модели наступает End of Availability (прекращение продаж), после EOA, через 5, если правильно помню, лет наступает End of HW Support, и детали для данных систем перестают содержаться на складах, и перестают предприниматься усилия по поддержке старого оборудования в новых версиях OS Data ONTAP.</p>
+<p>Так что если купить систему накануне окончания ее продаж (EOA), то есть в наихудшем случае, то HW Support это три года включенной поддержки, и два года расширенной.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: kpoxa</title>
+		<link>http://blog.aboutnetapp.ru/archives/998#comment-1692</link>
+		<dc:creator>kpoxa</dc:creator>
+		<pubDate>Tue, 13 Sep 2011 06:15:15 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=998#comment-1692</guid>
+		<description>А какой максимальный срок гарантии у НетАпп?</description>
+		<content:encoded><![CDATA[<p>А какой максимальный срок гарантии у НетАпп?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Nikolay</title>
+		<link>http://blog.aboutnetapp.ru/archives/998#comment-1657</link>
+		<dc:creator>Nikolay</dc:creator>
+		<pubDate>Thu, 01 Sep 2011 06:32:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=998#comment-1657</guid>
+		<description>Апгрейд делаем лет через 6, когда модель снимается с поддержки вообще, т. е. для нее даже за денюжку NetApp уже ничего не продаст.</description>
+		<content:encoded><![CDATA[<p>Апгрейд делаем лет через 6, когда модель снимается с поддержки вообще, т. е. для нее даже за денюжку NetApp уже ничего не продаст.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: diz</title>
+		<link>http://blog.aboutnetapp.ru/archives/998#comment-1650</link>
+		<dc:creator>diz</dc:creator>
+		<pubDate>Mon, 29 Aug 2011 10:23:55 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=998#comment-1650</guid>
+		<description>Проголосовал за вариант "купим поддержку", но вот как-то не обратил внимания, что речь идет только о netapp :) Mr.Aloof и еще пара человек - тоже :))</description>
+		<content:encoded><![CDATA[<p>Проголосовал за вариант &#8220;купим поддержку&#8221;, но вот как-то не обратил внимания, что речь идет только о netapp :) Mr.Aloof и еще пара человек - тоже :))</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/998#comment-1649</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Mon, 29 Aug 2011 07:49:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=998#comment-1649</guid>
+		<description>Mr.Aloof:
+
+А, так это вы дали этот единственный ответ? ;D</description>
+		<content:encoded><![CDATA[<p>Mr.Aloof:</p>
+<p>А, так это вы дали этот единственный ответ? ;D</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Mr.Aloof</title>
+		<link>http://blog.aboutnetapp.ru/archives/998#comment-1648</link>
+		<dc:creator>Mr.Aloof</dc:creator>
+		<pubDate>Mon, 29 Aug 2011 05:54:46 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=998#comment-1648</guid>
+		<description>Переводим на некритичный сервис, пока хоть какие-то задачи "тянет" и сокращаем до минимума затраты на поддержку (в том числе человеко-часы).
+Наверное подходит вариант "покупаем новую".</description>
+		<content:encoded><![CDATA[<p>Переводим на некритичный сервис, пока хоть какие-то задачи &#8220;тянет&#8221; и сокращаем до минимума затраты на поддержку (в том числе человеко-часы).<br />
+Наверное подходит вариант &#8220;покупаем новую&#8221;.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

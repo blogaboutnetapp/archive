@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; tricks</title>
+
+<link rel="stylesheet" href="../../../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../../../feed" />
+<link rel="pingback" href="../../../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Archive for the &#8216;tricks&#8217; Category.</p>
+
+ 				
+		<div class="navigation">
+			<div class="alignleft"><a href="5.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="3.html">Next Entries &raquo;</a></div>
+		</div>
+
+						
+			<div class="post" id="post-718">
+				<h2 class="posttitle"><a href="../../../718/trackback.html" rel="bookmark" title="Permanent Link to Data ONTAP 7G Cookbook">Data ONTAP 7G Cookbook</a></h2>
+				<div class="postmetadata">14 Октябрь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Бродя по бесконечным просторам внутренних пространств вебсайта NetApp обнаружил там в глухом уголке чрезвычайно полезную вещь, каковой и поделюсь.   <br />Называется <a href="http://www.divshare.com/download/12748580-cab">Data ONTAP Cookbook</a>.</p>
+<p>Представляет собой сравнительно краткий “сборник рецептов” (cookbook – кулинарная книга) для повседневной жизни админа, этакая “настольная книга <strike>домо</strike>системохозяина”.    <br />Как и обычная кулинарная книга это сборник пошаговых инструкций по выполнению тех или иных практических действий на системе хранения NetApp, например:</p>
+<ul>
+<li>Как создать том</li>
+<li>Настроить NFS export</li>
+<li>Сконфигурировать порт FC</li>
+<li>??зменить размер LUN</li>
+<li>Создать и настроить VIF/ifgrp</li>
+<li>Настроить SnapMirror</li>
+<li>…и так далее, всего 70 страниц.</li>
+</ul>
+<p>Скачать можно тут: <a href="http://www.divshare.com/download/12748580-cab">http://www.divshare.com/download/12748580-cab</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/guide.html" rel="tag">guide</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/ontap.html" rel="tag">ontap</a><br />					Раздел: <a href="../../howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../718/trackback.html#comments" title="Комментарий к записи Data ONTAP 7G Cookbook">Комментарии (7)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-709">
+				<h2 class="posttitle"><a href="../../../709/trackback.html" rel="bookmark" title="Permanent Link to Распределение дисков по RAID groups в aggregate">Распределение дисков по RAID groups в aggregate</a></h2>
+				<div class="postmetadata">27 Сентябрь 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Несколько слов о такой теме, которая, как я заметил, часто вызывает замешательство и непонимание.</p>
+<p>Для начала кратко о том, что такое aggregate и как они соотносятся с RAID-группами <em>(например для тех, кто тут впервые, пришел из поисковика, и еще не разглядел, что тут порядка двух сотен постов, в которых о многом написано не по разу)</em>.</p>
+<p>Aggregate это “уровень виртуализации” для физических дисков в системах хранения NetApp, это своеобразный виртуальный мета-том, на котором можно размещать уже непосредственно адресуемые пользователем тома, сетевые шары для NAS или LUN для SAN. ??спользование такого уровня виртуализации, например, позволяет равномерно распределять операции ввода-вывода по всем нижележащим дискам, увеличивая общую произвдительность, а также с легкостью увеличивать и уменьшать в объемах лежашие поверх него ресурсы – тем самые тома, LUN, сетевые шары, и так далее. Aggregate это одна из самых полезных и эффктивных “фич” систем хранения NetApp.</p>
+<p>Однако вопросы возникают вокруг темы создания, и дальнейшего увеличения самого aggregate, путем добавления в его структуру физических дисков. Как это делать правильно, и почему часто это проделывается неправильно – об этом сегодня и пойдет речь.</p>
+<p>В физической иерархии aggregate находится на уровне, на котором в традиционных системах хранения находится volume. Ниже него лежат непосредственно физические диски, на которых организованы RAID-группы. Каждый aggregate может занимать одну или, обычно, несколько сконкатенированных RAID-групп, причем размер этих групп в количестве дисков может быть разным. NetApp рекомендует, если нет каких-то особых причин, создавать минимально возможное количество максимально “длинных” aggregate. Это повышает производительность ввода-вывода всех лежащих на них томов и LUN.</p>
+<p>Для OS Data ONTAP семейства G7 (версий 7.х.x) максимальный размер aggregate был равен 16TB.    <br />В версиях семейства G8 (8.x.x), для нового формата, под названием 64-bit aggregate, его размер варьируется в зависимости от мощности контроллера, и достигает 100TB для систем FAS6080, самых мощных на сегодня.</p>
+<p>Подходить к созданию aggregate следует очень вдумчиво и аккуратно, так как то, что aggregate это фундамент в основе всех вышележащих структур, накладывает на его создание большую ответственность. Просчеты при создании aggregate будут влиять на все использующие его структуры выше. Кроме того, добавленные в aggregate диски нельзя из него извлечь не уничтожая весь aggregate вместе со всеми вышележащими структурами – LUN-ами, томами и сетевыми шарами, вместе со всем их содержимым.</p>
+<p>Для того, чтобы создать aggregate, надо отдать команду в командной строке админской консоли, или запустить мастер в FilerView web-GUI. ?? там и там от нас потребуется задать величину RAID-групп.</p>
+<p>Какой же должна быть величина этих RAID-групп в количестве дисков?    <br />На сегодня, максимальный размер RAID-групп для дисков FC и SAS равен 28 дискам (то есть, например, для RAID-DP это 26 дисков данных и 2 диска parity), а для дисков SATA – 16 дисков (в версии 8.0.1 будет увеличена до 20).     <br />Однако “рекомендованные величины”, выбранные “по умолчанию”, несколько меньше, это 16 и 14 дисков соответственно. (Все для типа RAID – RAID-DP).</p>
+<p>“Если не знаете что делать – не делайте ничего” гласит по легенде главное правило в учебнике по пилотированию самолетов. Последуем ему и мы. Если вы не знаете, какие параметры при создании aggregate нужно выбрать, например размер RAID-групп – рекомендую вам оставить параметры по умолчанию.</p>
+<p>Однако какие параметры стоит рассмотреть в том случае, если мы хотим разобраться и создать максимально оптимизированную структуру RAID?</p>
+<p>Прежде всего, рекомендуется создавать RAID-группы, на которых лежит aggregate, по возможности равного размера. Причины этому понятны. Сильный дисбаланс в размерах может ограничить производительность aggregate производительностью самой маленькой RAID-группы.</p>
+<p>То есть&#160; между вариантами распределения 26 дисков в виде: 22 диска (RAID-DP 20+2) и 4 (RAID-DP 2+2) или же 13 и 13 (RAID-DP 11+2), следует предпочесть второе, несмотря на то, что в первом случае одна из групп будет значительно крупнее, второй вариант будет иметь в целом гораздо более стабильное быстродйствие в IOPS.</p>
+<p>Создавать группы равного размера в принципе дело несложное в том случае, если количество дисков, которыми мы располагаем, заранее определено. Но что делать, если нам понадобится добавить дисков в aggregate, причем количество добавляемых дисков <strong>не</strong> 13, а заметно меньше, то есть создать из добавляемых дисков целую новую RAID-группу и растянуть на нее aggregate у нас не выйдет?</p>
+<p>Допустим, у нас есть 6 дисков, на которые мы хотим увеличить наш aggregate, лежащий на двух группах RAID-DP по 13 дисков каждый.</p>
+<p>У нас есть два варианта: </p>
+<p>Вариант 1. Мы може просто, не особо думая, добавить эти диски командой <code>aggr add &lt;aggrname&gt; 8a.1, 8a.2, 8a.3</code> (и прочие необходимые нам диски), или соответствующим GUI-мастером. Если ранее мы задали, что наш aggregate имеет размер RAID – 13 дисков, то вновь добавленные диски образуют третью RAID-группу rg2 (вдобавок к имещимся rg0 и rg1) размером 6 дисков (RAID-DP 4+2). Если в дальнейшем мы будем добавлять в этот aggregate еще дисков, то диски автоматически станут наращивать эту группу, пока она не достигнет размера 13 дисков, после чего начнется новая группа rg3.     <br />Результат в целом простой, но не совсем для нас желательный. Для системы с высокими требованиями по производительности мы можем столкнуться с ситуацией, когда производительность ввода-вывода системы будет заметно колебаться в зависимости от того, какая порция данных на каком RAID окажется.     <br />Хотя этот эффект часто не слшком ярко выражен, и часто переоценивается, но мы хотели бы его избежать.</p>
+<p>Вариант 2. Несколько более хитрый. Как я уже сказал выше, мы не можем вывести уже введенные в aggregate диски. Также мы не можем <em>уменьшить</em> уже установленный в aggregate размер RAID-групп (ведь на дисках уже могут располагаться данные). Однако мы можем <em>увеличивать</em> размер RAID-группы в параметре входящих в нее дисков, вплоть до максимального размера, равного 28 для SAS/FC и 16/20 для SATA. Как вы уже знаете, особенностью использованного у NetApp типа RAID, как RAID-4, так и RAID-DP, является то, что добавление в них новых дисков и увличение RAID производится без необходимости полного перестроения RAID, как это привычно при использовании, например, RAID-5. Новый диск добавляется в RAID-4 или RAID-DP, и сразу же на него можно писать, расширив RAID-группу на размер этого диска.</p>
+<p>Начнем с того, что зададим в свойствах aggregate размер его RAID-групп больше, чем было установлено ранее (13), в случае необходимости добавления 6 дисков зададим их величину в 16 дисков.</p>
+<p><code>fas1&gt; aggr options aggr1 raidsize 16</code></p>
+<p>После выполнения этой команды мы получаем тот же aggregate, только теперь вместо двух заполненных RAID-групп на 13 (11d+2p) дисков, мы имеем две неполных RAID-группы по 13 дисков (11d+2p), с максимальным размером 16 (13d+2p). Слдующей командой мы добавляем 6 наших дисков в aggr1:</p>
+<p><code>fas1&gt; aggr add aggr1 8a.1, 8a.2, 8a.3, 8a.4, 8a.5, 8a.6</code></p>
+<p>Логика добавления дисков неполные RAID-группы проста. Если в aggregate имеются неполные группы, то сперва системе следует заполнить эти группы до максимального зачения, начиная с самой младшей, затем переходя к следующей. Таким образом диски 1, 2, 3 добавятся RAID-группе rg0, а 4, 5, 6 – группе rg1. При необходимости можно и вручную задать какой диск в какую группу будет добавляться.</p>
+<p>В итоге мы добились нужного нам. Мы добавили 6 дисков, расширили aggregate, и избежали создания неравномерно разбитых RAID в этом aggregate. Обратите внимание, что все эти действия по изменению размеров RAID-группы и добавлнию дисков осуществляются “на ходу”, не прерывая работы системы, перестроения RAID не требуется, и емкость добавленных дисков становится немеленно доступна системе.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/aggregates.html" rel="tag">aggregates</a>, <a href="../../../tag/howto/index.html" rel="tag">howto</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tipstricks/index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../709/trackback.html#comments" title="Комментарий к записи Распределение дисков по RAID groups в aggregate">Комментарии (5)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-646">
+				<h2 class="posttitle"><a href="../../../646/trackback.html" rel="bookmark" title="Permanent Link to Администраторский доступ с нескольких хостов">Администраторский доступ с нескольких хостов</a></h2>
+				<div class="postmetadata">5 Август 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Системы хранения NetApp позволяют ограничить доступ к админской консоли, задав IP-адрес админского хоста либо при установке, либо в параметре admin.hosts</p>
+<p>Однако, иногда хотелось бы задать не один конкретный адрес, а подсеть, или несколько адресов.</p>
+<p>В этом случае возможен следующий простой трюк. Можно указать в качестве админхоста gateway соответствующей подсети, например в которой находятся рабочие места админов. В этом случае доступ будет ограничен только хостами указанной подсети:</p>
+<p><code>fas1&gt; options admin.hosts 192.168.1.254</code></p>
+<p>Другой вариант – указать их в таком виде:</p>
+<p><code>fas1&gt; options admin.hosts host1.domain.com:host2.domain.com:host3.domain.com</code></p>
+<p>Не забывайте, что это ограничение предельно примитивное, и строить защиту админского доступа только на нем не стоит, так как определяет возможность доступа к логину консоли исключительно по легко изменяемому IP источника. Если стоит задача серьезного разграничения доступа, то стоит использовать как &#8220;секурный&#8221; доступ по SSH и HTTPS (команда secureadmin), pre-shared key, и средства RBAC (Role-based Access Control), о которых я писал ранее и есть переведенный на русский документ в техбиблиотеке.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/access.html" rel="tag">access</a>, <a href="../../../tag/adminhost.html" rel="tag">adminhost</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tricks/index.html" rel="tag">tricks</a><br />					Раздел: <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../646/trackback.html#comments" title="Комментарий к записи Администраторский доступ с нескольких хостов">Комментарии (3)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-647">
+				<h2 class="posttitle"><a href="../../../647/trackback.html" rel="bookmark" title="Permanent Link to Дисконтный код от NetApp на VMworld 2010">Дисконтный код от NetApp на VMworld 2010</a></h2>
+				<div class="postmetadata">30 Июль 2010, 10:21 <!-- от  --></div>
+				<div class="postentry">
+					<p>В <a href="http://blogs.netapp.com/virtualstorageguy/2010/07/netapp-providing-discounted-vmware-conference-passes.html">блоге Vaughan Stewart</a>-а, “главного блоггера NetApp по VMware” найдена полезная информация. NetApp предлагает специальный скидочный код для покупки full conference pass for individuals для VMworld в San Francisco, а также VMworld в Copenhagen. С дисконтом NetApp цена снижается с $1745 до $1495 (USD) и с € 1150 до € 950 (Euro).</p>
+<p>??спользовать код можно при регистрации на <a href="http://www.vmworld.com/registration.jspa?sponsorCode=NAPP">VMworld</a> по следующему адресу:</p>
+<p><a href="http://www.vmworld.com/registration.jspa?sponsorCode=NAPP">http://www.vmworld.com/registration.jspa?sponsorCode=NAPP</a></p>
+<p>Просто введите один из этих кодов при завершении покупки билета:</p>
+<p>San Francisco code: <strong>NETAPP_EB_US2010</strong>    <br />Copenhagen code: <strong>NETAPP_EB_EMEA2010</strong></p>
+<p>Дополнение: Как пишет <a href="http://twitter.com/that1guynick/">Nick Howell</a>, дисконт NetApp работает и “задним числом”, то есть, если вы уже приобрели билет за полную цену, вы можете получить вашу скидку, послав запрос по email: VMworld2010Registration@vmware-events.com.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/vmware/index.html" rel="tag">vmware</a>, <a href="../../../tag/vmworld2010.html" rel="tag">vmworld2010</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../../justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>,  <a href="../../review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>,  <a href="../../whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;" rel="category tag">whoisho</a>,  <a href="../../news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../647/trackback.html#respond" title="Комментарий к записи Дисконтный код от NetApp на VMworld 2010">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-577">
+				<h2 class="posttitle"><a href="../../../577/trackback.html" rel="bookmark" title="Permanent Link to Скорость RAID Reconstruction">Скорость RAID Reconstruction</a></h2>
+				<div class="postmetadata">17 Май 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>При выходе из строя жесткого диска система начинает процесс RAID reconstruction. Время его завершения зависит от загрузки системы задачами ввода-вывода и установленного приоритета задачи реконструкции. Это приоритет (вернее степень влияния на производительность системы в целом задачей реконструкции) может быть настроен с помощью системной опции:</p>
+<p><code>fas1&gt; options raid.reconstruct.perf_impact [high | medium | low]</code> </p>
+<p>
+<p>Обратите внимание, эта опция и ее изменение глобально (для всех RAID-групп системы в целом), и, что важно, не работает для уже запустившейся reconstruction. То есть увидеть слишком долгий процесс восстановления, поменять ее на high и ждать, что процесс ускорится, не стоит.</p>
+<p>По умолчанию она установлена в medium, и менять ее стоит только если вы в самом деле хорошо представляете зачем вы это делаете.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/raid.html" rel="tag">raid</a>, <a href="../../../tag/reconstruction.html" rel="tag">reconstruction</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../577/trackback.html#respond" title="Комментарий к записи Скорость RAID Reconstruction">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-564">
+				<h2 class="posttitle"><a href="../../../564/trackback.html" rel="bookmark" title="Permanent Link to Недокументированные команды: hammer">Недокументированные команды: hammer</a></h2>
+				<div class="postmetadata">22 Апрель 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В прошлый раз мы нашли и посмотрели команду <strong>filersio</strong> – внутренний генератор нагрузки ввода-вывода. Однако оказывается, такая штука, как stress test tool, внутри Data ONTAP есть не одна.</p>
+<p>Еще один инструмент нагрузочного тестирования системы хранения – <strong>hammer</strong></p>
+<p> <code></p>
+<p>*** WARNING *** Hammer is a system level stress test.      <br />CPU utilization may approach 100 percent       <br />with very high disk IO rate when hammer is run.       <br />This may adversely affect system performance       <br />and may cause loss of filer service.       <br />Hammer is an undocumented, unsuppported command.</p>
+<p> </code><code></p>
+<p>usage: hammer [abort|pause|restart|status|      <br />&#160;&#160;&#160;&#160;&#160;&#160; [-f]&lt;# Runs&gt;&lt;fileName&gt;&lt;# BlocksInFile&gt; (&lt;# Runs&gt; == -1 runs hammer forever)|       <br />&#160;&#160;&#160;&#160;&#160;&#160; fill &lt;writeSize&gt; (use all available disk space)]</p>
+<p> </code></p>
+<p><strong>hammer</strong> это в чистом виде stress load generator, не делающий ничего, кроме нагрузки. Если вы хотите не просто “подвесить систему”, но еще и наблюдать за тем, что эта нагрузка дает вам в плане показателей, воспользуйтесь средствами <strong>sysstat</strong> или <strong>stats</strong>.</p>
+<p> <code></p>
+<p>filer1*&gt; hammer -f 5 /vol/vol0/hammer.txt 400      <br />Mon Dec&#160; 8 12:32:02 GMT [blacksmith:warning]: blacksmith #0: Starting work.       <br />filer1*&gt; hammer status       <br />blacksmith #0: file /vol/vol0/hammer.txt, 580 KB of 1600 KB writesize 4096 bytes, iteration 1 of 5 – Writing       <br />filer1*&gt; hammer status       <br />blacksmith #0: file /vol/vol0/hammer.txt, 1600 KB of 1600 KB writesize 4096 bytes, iteration 1 of 5 – Writing       <br />filer1*&gt; hammer status       <br />blacksmith #0: file /vol/vol0/hammer.txt, 652 KB of 1600 KB writesize 4096 bytes, iteration 2 of 5 – Writing       <br />filer1*&gt; hammer status       <br />blacksmith #0: file /vol/vol0/hammer.txt, 1600 KB of 1600 KB writesize 4096 bytes, iteration 2 of 5 – Writing       <br />filer1*&gt; Mon Dec&#160; 8 12:32:13 GMT [blacksmith:info]: blacksmith #0: No errors detected. Stopping work</p>
+<p> </code></p>
+<p>В заключение еще раз предостерегу вас от экспериментов с такими командами на рабочей системе с данными. Все это небезопасно, и может в лучшем случае привсти к временной неработоспособности или недоступности системы, а в худшем – к случайной потере ваших данных.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tipstricks/index.html" rel="tag">tips&amp;tricks</a>, <a href="../../../tag/undocumented.html" rel="tag">undocumented</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../564/trackback.html#respond" title="Комментарий к записи Недокументированные команды: hammer">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-565">
+				<h2 class="posttitle"><a href="../../../565/trackback.html" rel="bookmark" title="Permanent Link to Недокументированные команды: filersio">Недокументированные команды: filersio</a></h2>
+				<div class="postmetadata">15 Апрель 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>В недрах Data ONTAP кроме малоизвестных команд можно отрыть и какие-то совсем загадочные вещи. Занятие по отрыванию таких загадок никак нельзя рекомендовать как безопасное, но иногда находятся интересные штуки.</p>
+<p>Вот, например, команда <strong>filersio</strong> (доступна в advanced mode)</p>
+<p><code>filer1*> filersio<br />
+The following commands are available; For more information<br />
+filersio help <command><br />
+asyncio_pause           asyncio_active          spc1<br />
+status                  stop<br />
+</code></p>
+<p>Эта команда включает встроенный генератор ввода-вывода нагрузки на систему хранения.</p>
+<p><code>filer1*> filersio asyncio_active 50 -r 50 4 0 10m 60 5 /vol/vol0/filersio.test -create -print_stats 5<br />
+filersio: workload initiated asynchronously. Results will be displayed on the<br />
+console after completion<br />
+filersio: starting workload asyncio_active, instance 0</p>
+<pre>Read I/Os       Avg. read       Max. read       Write I/Os      Avg. write      Max write
+                latency(ms)     latency(ms)                     latency(ms)     latency(ms)
+6087            0               11              6216            3               981
+4410            0               471             4300            5               1551
+5323            0               11              5375            4               1121
+5439            0               113             5379            4               1151
+4354            0               105             4304            5               1674
+4307            0               411             4300            5               1171
+5459            0               20              5371            5               1260
+5384            0               180             5379            4               1071
+5439            0               211             5375            4               1011
+4396            0               71              4300            5               1311</pre>
+<p>Statistics for active_active model, instance 0<br />
+Running for 60s<br />
+Total read latency(ms)  16383<br />
+Read I/Os               51687<br />
+Avg. read IOPS          861<br />
+Avg. read latency(ms)   0<br />
+Max read latency(ms)    471<br />
+Total write latency(ms) 286501<br />
+Write I/Os              51413<br />
+Avg. write IOPS         856<br />
+Avg. write latency(ms)  5<br />
+Max write latency(ms)   4891<br />
+filersio: instance 0: workload completed successfully<br />
+</code></p>
+<p>Напомню еще раз, что все команды, доступные в advanced mode, могут быть небезопасны, не требуются для повседневного администрировани и конфигурирования, и использование их требует ясного понимания возможных результатов и рисков использования и настоятельно не рекомендуется на “боевых” системах с рабочими даными. ?? уж тем более это так для команд из “недокументированного” и “слабодокументирванного” списка.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tipstricks/index.html" rel="tag">tips&amp;tricks</a>, <a href="../../../tag/undocumented.html" rel="tag">undocumented</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../565/trackback.html#respond" title="Комментарий к записи Недокументированные команды: filersio">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-559">
+				<h2 class="posttitle"><a href="../../../559/trackback.html" rel="bookmark" title="Permanent Link to Syslog forwarding">Syslog forwarding</a></h2>
+				<div class="postmetadata">8 Апрель 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Основной лог в Data ONTAP, как у “правильной юниксподобной OS”, ведется в виде <a href="http://en.wikipedia.org/wiki/Syslog">syslog</a>. ??, как правильный syslog, он может передаваться на удаленную машину для сборки-разборки его в спциализированных программах.</p>
+<p>Для того, чтобы настроить логи на передачу их на удаленную машину, надо изменить настройки в /etc/syslog.conf    <br />Его синтаксис идентичен таковому в Linux/UNIX.</p>
+<p><code># Log all kernel messages, and anything of level err or higher to the console.      <br />&#160;&#160;&#160; *.err;kern.*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /dev/console       <br /># Also log console messages to a remote loghost system called adminhost.       <br />&#160;&#160;&#160; *.err;kern.*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; @adminhost </code></p>
+<p>То есть: выводим все сообщения уровня ядра, а также все сообщения с уровнем err и выше в системную консоль, а также передаем их на систему adminhost (где его должен принимать syslog-сервер).</p>
+<p>На указанной машине запустим сервер syslog (например <a href="http://www.kiwisyslog.com/kiwi-syslog-server-overview/">Kiwi Syslog Server</a>), и будем получать и обрабатывать эти логи, настроив по ним желаемые алерты и репорты.</p>
+<p>Смотрите также статью: <a href="http://partners.netapp.com/go/techontap/swatch-kiwi.html">Swatch and Kiwi Syslog Daemon</a>. К сожалению, за время, прошедшее с ее публикации, компанию-производителя Kiwi Syslog Daemon купили, и теперь их продукт платный, что, впрочем, не может помешать найти множество бесплатных вариатов той или иной степени удобности.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/management.html" rel="tag">management</a>, <a href="../../../tag/monitoring.html" rel="tag">monitoring</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/syslog.html" rel="tag">syslog</a><br />					Раздел: <a href="../../howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>,  <a href="../../utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;" rel="category tag">utilities</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../559/trackback.html#respond" title="Комментарий к записи Syslog forwarding">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-560">
+				<h2 class="posttitle"><a href="../../../560/trackback.html" rel="bookmark" title="Permanent Link to Полезные команды: led_on">Полезные команды: led_on</a></h2>
+				<div class="postmetadata">31 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>??ногда в работе админа случается необходимость найти и идентифицировать, например в целом шкафу дисков, какой-то конкретный. Допустим, вы не ведете подробную документацию по установленой системе (а зря), и расположение дисков и полок системы у вас не записано. Допустим вы хотите извлечь из стойки spare disk и переставить его в другую полку. Как найти правильный диск, и не выдернуть, ненароком, неправильный, рабочий?</p>
+<p>На помошь приходит специальная команда led_on</p>
+<p><code>fas1&gt; priv set advanced</code> – включаем режим повышенного приоритета (будьте осторожны!)     <br /><code>fas1&gt; led_on 0c.54</code> – зажигает на диске с данным номером светодиод (LED) желтого цвета     <br /><code>fas1&gt; led_off 0c.54</code> – гасит светодиод на диске с данным номером     <br /><code>fas1&gt; priv set</code> – выводит консоль из режима повышенных привелегий</p>
+<p>Аналогично работает команда blink_on/blink_off, с понятным отличием, она светодиодом мигает.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a>, <a href="../../../tag/tipstricks/index.html" rel="tag">tips&amp;tricks</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../560/trackback.html#respond" title="Комментарий к записи Полезные команды: led_on">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-557">
+				<h2 class="posttitle"><a href="../../../557/trackback.html" rel="bookmark" title="Permanent Link to Полезные команды: source">Полезные команды: source</a></h2>
+				<div class="postmetadata">29 Март 2010, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Хотя в Data ONTAP и нет таких мощных скриптовых средств командной строки, как bash или PowerShell в Windows, но что-то для простейших скриптовых действий все же есть.</p>
+<p>Команда называется source, и просто воспроизводит из поданного на вход файла команды одну за другой.</p>
+<p><code>fas1&gt; source /etc/my_scripts/vol_create.txt</code></p>
+<p>Она может применяться, например, для массового и однообразного изменения каких-то параметров, например на множестве идентичных томов.</p>
+<p>Сама по себе команда весьма примитивна, и имет множество недостатков и ограничений, о которых стоит помнить, начиная ее использовать.</p>
+<ul>
+<li>??сполнение не прерывается и не останавливается в случае ошибок, так что следует быть особенно внимательным при создании скрипта, условием в котором является обязательное выполнение каких-то предшествующих шагов. Особенно внимательно проверяйте опечатки и ошибки в аргументах и ключах.</li>
+<li>Команда не умеет делать пайп (|) или перенаправление вывода в лог-файл.</li>
+<li>Не поддерживаются wildcards (?, *, %).</li>
+<li>Нет условного выполнения (IF THEN ELSE)</li>
+<li>Нет операции паузы, так что команды выполняются последовательно и одна за другой, даже если какая-то команда может быть и не завершила операцию (например процесс выполнения команды продолжителен). Простой workaround – запускать команду sysstat между командами.</li>
+<li>Почти единственное отклонение от простого листинга команд – возможность использовать # в качестве знака комментария. Строка, начинающаяся с # в подаваемой на вход source последователности команд, игнорируется. </li>
+</ul>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="../../../tag/commands/index.html" rel="tag">commands</a>, <a href="../../../tag/console/index.html" rel="tag">console</a>, <a href="../../../tag/netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;" rel="category tag">commands</a>,  <a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;" rel="category tag">tricks</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../../../557/trackback.html#respond" title="Комментарий к записи Полезные команды: source">Комментарий</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="5.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"><a href="3.html">Next Entries &raquo;</a></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../../commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../../howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../../justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../../review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../../techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71 current-cat"><a href="../index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../../utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../../whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../../news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../../opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../../citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../../../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../../../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../../../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../../../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../../../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../../../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../../../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../../../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../../../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../../../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../../../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../../../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../../../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../../../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../../../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../../../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../../../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../../../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../../../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../../../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../../../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../../../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../../../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../../../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../../../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../../../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../../../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../../../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../../../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../../../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../../../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../../../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../../../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../../../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../../../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../../../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../../../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../../../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../../../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../../../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../../../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../../../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../../../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../../../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../../../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../../../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../../../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../../../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../../../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../../../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../../../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../../../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../../../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../../../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../../../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../../../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../../../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../../../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../../../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../../../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../../../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../../../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../../../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../../../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../../../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../../../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../../../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../../../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../../../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../../../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../../../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../../../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../../../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../../../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../../../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../../../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../../../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../../../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../../../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../../../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../../../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../../../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../../../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../../../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../../../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../../../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../../../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../../../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../../../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../../../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../../../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../../../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../../../feed">Entries (RSS)</a> and <a href="../../../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.094 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

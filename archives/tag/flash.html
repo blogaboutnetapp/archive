@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp   &raquo; flash</title>
+
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../../feed" />
+<link rel="pingback" href="../../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+	
+			<p>Posts tagged &#8216;flash&#8217;</p>
+
+	 		
+		<div class="navigation">
+			<div class="alignleft"><a href="flash/page/2.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"></div>
+		</div>
+
+						
+			<div class="post" id="post-1377">
+				<h2 class="posttitle"><a href="../1377/trackback.html" rel="bookmark" title="Permanent Link to NetApp AFF: All-Flash FAS. Комментарии специалиста.">NetApp AFF: All-Flash FAS. Комментарии специалиста.</a></h2>
+				<div class="postmetadata">7 Июль 2014, 11:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Автор блога <a href="http://www.ntapgeek.com">NTAPgeek</a> расспросил <a href="http://www.linkedin.com/in/ntriantos">Ника Триантоса</a>, одного из ведущих инженеров NetApp, по поводу All-Flash FAS систем, стоящих за ними технических решений, и чем AFF отличается от других flash-стораджей, в том числе и тех, что производит сам NetApp, например уже известного вам EF550.</p>
+<p>Ник говорит: </p>
+<p>“Наибольшая проблема для нас была не в том, как WAFL пишет; на деле это как раз большой плюс архитектуры. Основные проблемы и задачи при разработке были:</p>
+<p><strong>Оптимизация под многоядерные процессоры</strong> – Долгое время Data ONTAP не умела эффективно использовать многоядерность процессоров. Проект по проведению оптимизации под многоядерность стартовал с версии 7.3 и продолжался вплоть до релиза Data ONTAP 8. Я уверен, что вам доводилось видеть ситуацию, когда один CPU работает с загрузкой 90% и другой - на 20%! Если нагрузка упирается на уровне ONTAP domain, который должен выплняться на одном единственном ядре, то возникает узкое место для роста производительности. ?? при этом неважно, что другие ядра были недозагружены. Эта задача была, в итоге, решена.</p>
+<p><strong>Управление метаданными</strong> – Когда вы используете маленькие блоки данных, например у NetApp это 4K, то при этом вы получаете множество метаданых, которыми нужно управлять. Для того, чтобы получить максимально быстрый доступ к даным, вам нужно сперва максимально быстро получить доступ к их метаданным. А где быстрее всего доступ к метаданым? В оперативной памяти. Вот почему мы используем так много оперативной памяти на контроллерах серий FAS2500 и FAS8000; мы стараемся как можно больше метаданных при работе держать в быстрой памяти контроллера.</p>
+<p><strong>Защита данных</strong> – Это связано с темой выше. Системы AFF имеют больше возможностей по защите данных, чем любая другая система c flash (и, кстати, не только flash) на сегодняшнем рынке. Хотя это и полезная штука, есть определенные недостатки. Недостатки состоят в более динных путях ввода-вывода, так как метаданные размещаются и валидируются отдельно от блоков данных.     <br />Как вы защищаетесь от lost writes? Что случится, если вы торговая компания, и на вашей системе хранения SSD сказал, что данные записаны, а на деле он их не записал, или записал не так или не туда? Вы рискуете огромными финансовыми потерями. Data ONTAP не только обнаруживает такие ситуации, но и защищает, а также помогает восстановить данные, испорченые в результате lost writes (это крайне коварная проблема).”</p>
+<p>Потерянные операции записи, или “Lost writes”, это редкая, но при этом очень трудно обнаруживаемая ошибка, и самое плохое с ней то, что вы не знаете, что она уже произошла, и&#160; обнаруживаете ее только дни или даже месяцы спустя. Но когда она случилась, она повреждает ваши данные! ?? тут можно только пожелать удачи вам, в поисках бэкапа, снэпшота или точки репликации, в котором эта ошибка еще не проявилась и данные еще не повреждены. Конечно же, любые фичи по зашите данных имеют свои побочные эффекты и недостатки.</p>
+<p>Другими словами, хорошая скорость работы и устойчивость к отказам сразу двух дисков – недостаточны для того, чтобы считать, что ваши данные надежно защишены. В особенности, когда flash-хранилища используются для бизнес-критичных приложений. Вам следует проанализировать возможные ситуации отказов, и убедиться, что ваше хранилище устойчиво к ним, а данные - защищены. Более 20 лет мы совершенствеум и развиваем Data ONTAP, и достигли в ней очень высокого уровня надежности и устойчивости против всех видов отказов и различных их комбинаций.”</p>
+<p>Напомним, бандлы NetApp AFF имеют:</p>
+<ol>
+<li><strong>Больше памяти</strong>       <br />Больший объем кэша чтения-записи в FAS8000, что позволяет держать в нем больше метаданных </li>
+<li><strong>Более быстрый NVRAM</strong>       <br />Быстрее отрабатываются ACK, как следствие – ниже отклик и задержки </li>
+<li><strong>Значительно оптимизированную многоядерную эффективность OS        <br /></strong>Проводилась начиная с Data ONTAP 7.3 </li>
+<li><strong>Continuous Segment Size Cleaning (CSS)</strong>       <br />Переменный размер сегмента Data ONTAP&#160; (4K-256K) </li>
+<li><strong>??нтеллектуальные алгоритмы упреждающего чтения, определяющие типовые паттерны операций:</strong>
+<ul>
+<li>Последовательное чтение с тем же (например 32k) и различными размерами блоков (4k,64k,4k,64k) </li>
+<li>Скачущее (strided) чтение: Начнем с блока N и прочитаем, считая с него, блоки 10 и 12, но пропустим блок 11 </li>
+<li>Обратное чтение: Начнем с блока N, и прочитаем –10 блоков, считая от него </li>
+<li>Несколько потоков чтения, читающих из разных точек </li>
+</ul>
+</li>
+</ol>
+<p>Бандлы NetApp AFF доступны к заказу с 23 июня 2014 года.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="aff.html" rel="tag">aff</a>, <a href="all-flash.html" rel="tag">all-flash</a>, <a href="fas.html" rel="tag">FAS</a>, <a href="flash/index.html" rel="tag">flash</a>, <a href="netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1377/trackback.html#comments" title="Комментарий к записи NetApp AFF: All-Flash FAS. Комментарии специалиста.">Комментарии (10)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1376">
+				<h2 class="posttitle"><a href="../1376/trackback.html" rel="bookmark" title="Permanent Link to NetApp AFF: All-Flash FAS">NetApp AFF: All-Flash FAS</a></h2>
+				<div class="postmetadata">3 Июль 2014, 15:28 <!-- от  --></div>
+				<div class="postentry">
+					<p>??з всей троицы продуктов, появившихся у NetApp этим летом, а именно: <strong>FAS2500</strong>, <strong>FAS8080EX</strong> и <strong>NetApp AFF</strong>, совершенно неожиданно для меня именно последний стал предметом преткновения, пост про который я пишу уже вторую неделю. Если про FAS2500 я <a href="../1369/trackback.html">написал сразу</a>, и там, в целом, все ясно по прочтении техспек и&#160; Technical FAQ / SE Presentation, если c FAS8080ES тоже все ясно, это “больше, выше, сильнее”, вот, в общем, и все что про него можно рассказать, я даже отдельно про него писать не стану, то вот в отношении All-Flash FAS такая ясность долго не наступала. ?? далее я попробую рассказать, в чем, собствено, состоял предмет затруднения.</p>
+<p>   <a href="../1376/trackback.html#more-1376" class="more-link"><small>Continue reading &#8216;NetApp AFF: All-Flash FAS&#8217; &raquo;</small></a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="aff.html" rel="tag">aff</a>, <a href="all-flash-fas.html" rel="tag">all-flash-fas</a>, <a href="flash/index.html" rel="tag">flash</a>, <a href="flash-cache.html" rel="tag">flash cache</a>, <a href="flash-pool.html" rel="tag">flash pool</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1376/trackback.html#comments" title="Комментарий к записи NetApp AFF: All-Flash FAS">Комментарии (4)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1363">
+				<h2 class="posttitle"><a href="../1363/trackback.html" rel="bookmark" title="Permanent Link to Новые SSD для E/EF-series">Новые SSD для E/EF-series</a></h2>
+				<div class="postmetadata">19 Май 2014, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Постепенно происходит обновление для линейки SSD в системах серии E/EF.<br />
+Теперь это 24nm eMLC диски с двухпортовыми SAS контроллерами, емкостью 400GB, 800GB  и 1,6TB.<br />
+Причем первых две емкости имеют толщину корпуса 7mm, а третий - 15mm.<br />
+Все три используют внутренний контроллер SSD Marvell TC58NC9036GTC.<br />
+Надежность по объему перезаписей нормирована по уровню: для модели 400GB - 7.3PB; для 800GB - 14.6PB; и для 1.6TB - 29.2PB, что примерно соответствует 10 перезаписям всего диска в день (Drive Writes Per Day, DWPD), и обеспечивается MTBF, равное 2 миллионам MTBF. К слову, это ВЫШЕ, чем для обычных HDD.<br />
+На диски предоставляется гарантия 3 года, с расширением до пяти лет, то есть как на любое другое &#8220;железо&#8221; дискового массива. При этом SANtricity предоставляет инструменты для контроля и анализа &#8220;износа&#8221; ячеек flash.</p>
+<p>??нтересно, что для этих дисков поддерживается новый способ sanitization, то есть полной очистки данных с дисков перед тем как, например, отправлять из на замену по гарантии или списывать, чтобы гарантировать невозможность утечки данных стораджа. Дело в том, что на большинстве таких дисков записываемые данные на лету шифруются с помощью AES-256, и непосредствено на flash-чипах уже находятся в криптостойко-зашифрованном виде (это так даже для многих современных &#8220;бытовых&#8221; SSD, так как это функция контроллера). Обычно sanitization происходит путем неоднократной перезаписи секторов диска случайными данными, что отнимает много времени при проведении этой операции. Однако для SSD эту процедуру можно реализовать просто сменив ключ шифрования, что сделает все уже записанные данные недоступными для прочтения, и что может быть выполнено значительно быстрее, экономя время админа и стоража, если такая процедура требуется по соображениям информационной безопасности компании.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="e-series.html" rel="tag">e-series</a>, <a href="ef540.html" rel="tag">ef540</a>, <a href="flash/index.html" rel="tag">flash</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1363/trackback.html#respond" title="Комментарий к записи Новые SSD для E/EF-series">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1334">
+				<h2 class="posttitle"><a href="../1334/trackback.html" rel="bookmark" title="Permanent Link to Flash и энергопотребление. Какова экономия в деньгах?">Flash и энергопотребление. Какова экономия в деньгах?</a></h2>
+				<div class="postmetadata">24 Март 2014, 11:42 <!-- от  --></div>
+				<div class="postentry">
+					<p>Коллеги из украинского дистрибутора (вы, кстати, обратили внимание на то, что у меня тут появился новый раздел - <a href="../../disti-ua/trackback.html">Дистрибуторы в Украине</a>?) провели очень <a href="http://habrahabr.ru/company/netapp/blog/214995/">интересный подсчет</a> того, сколько экономится денег на электропотреблении при использовании не дисковой, а диски+SSD/Flash Cache системы.<br />
+Ну то есть все мы знаем, что экономия, типа, есть, а вот во что эта экономия выливается в &#8220;деньгах&#8221;?<br />
+Оказывается экономия - весьма и весьма существенна, даже для пессимистически настроенных.<br />
+Посчитали просто две <a href="../1324/trackback.html">объявленных на SPEC SFS2008 конфигурации</a>, о которых мы говорили раньше, то есть &#8220;чисто-HDD&#8221; FAS3250, и HDD+Flash Cache FAS8020, идущая ей на замену, и имеющая производительность даже чуть выше.<br />
+Оказывается, за три года эксплуатации, экономия на энергопотреблении составляет около 17 с половиной тысяч долларов, а за пять лет - около 30 тысяч долларов, при цене &#8220;за киловатт&#8221; - около 0,1-0,09$/kWh (для промышленных предприятий в Москве - так примерно и стоит, как я знаю.) </p>
+<p>При этом следует помнить, что экономия также идет при охлаждении, за счет энергии, потребляемой кондиционерами, и в данном подсчете пока не учитывается, но тоже может составлять довольно существенную величину.</p>
+<p>Следует также помнить, что экономия существенно растет с увеличением размеров системы по числу дисков, и если на небольших стораджах, типа 2240, она будет сравнительно невелика, то для больших систем, с несколькими полками дисков, она может выливаться в реальные десятки тысяч долларов.  </p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="economy.html" rel="tag">economy</a>, <a href="energy.html" rel="tag">energy</a>, <a href="flash/index.html" rel="tag">flash</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>,  <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1334/trackback.html#respond" title="Комментарий к записи Flash и энергопотребление. Какова экономия в деньгах?">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1320">
+				<h2 class="posttitle"><a href="../1320/trackback.html" rel="bookmark" title="Permanent Link to Оценочное тестирование EF540 и E5460 NL-SAS+SSD">Оценочное тестирование EF540 и E5460 NL-SAS+SSD</a></h2>
+				<div class="postmetadata">10 Февраль 2014, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Небольшая аналитическая компания Demartek Lab провела недавно оценочное тестирование ряда технологий и продуктов NetApp, использующих Flash memory, в частности <a href="http://www.netapp.com/us/media/ar-lab-evaluation.pdf">были протестированы и оценены</a> all-flash storage EF540 и система хранения NetApp E5460 с дисками NL-SAS (SATA), дополненных SSD-кэшем (обратите внимание, кстати, что это результат для &#8220;предыдущего&#8221; поколения, а не для текущего, EF550 и E5500). <a href="http://www.demartek.com/Reports_Free/Demartek_NetApp_FlashAccel_Evaluation_2013-10.pdf">В другом тесте</a> был померян сравнительный результат Flash Accel и Flash Cache. </p>
+<p>Так, например, было установлено, что на 100% random read EF540 с 24 дисками SSD на 800GB достиг результата в 330 000 IOPS при менее 1ms latency.</p>
+<p>Не стоит сразу и безоговорочно верить любому такому тесту, но как источник данных &#8220;на подумать&#8221; - очень интересно.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="e5460.html" rel="tag">e5460</a>, <a href="ef450.html" rel="tag">ef450</a>, <a href="flash/index.html" rel="tag">flash</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;" rel="category tag">justread</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1320/trackback.html#respond" title="Комментарий к записи Оценочное тестирование EF540 и E5460 NL-SAS+SSD">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1319">
+				<h2 class="posttitle"><a href="../1319/trackback.html" rel="bookmark" title="Permanent Link to Flash Accel v1.3.0">Flash Accel v1.3.0</a></h2>
+				<div class="postmetadata">31 Январь 2014, 1:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>На днях вышла новая версия относительно нового продукта NetApp - системы flash-кэширования данных непосредственно на хост-сервере виртуальных машин - <a href="flash-accel.html">Flash Accel</a>. Если вы следите за этим продуктом, то должны помнить, что это бесплатный для клиентов NetApp программный продукт (это НЕ код Data ONTAP, и он работает НЕ внутри стораджей NetApp, а устанавливается на хост-сервер VMware vSphere). Flash Accel постепенно обрастает функциональностью, и ему стоит поторопиться, так как на рынок локального SSD-кэщирования выходят разнообразные игроки, в том числе и сам VMware со своим <del datetime="2014-02-07T08:44:06+00:00">vSAN</del> vFlash.</p>
+<p>В новой версии, доступной для бесплатного скачивания клиентам NetApp с обычного места получения нетапповского софта, появилось:</p>
+<ul>
+<li>Поддерживается до 4TB SSD-кэша на сервер</li>
+<li>Поддерживается sTEC SSD PCI-e</li>
+<li>Наконец поддерживается Windows Server 2012 и 2012 R2, а также vSphere 5.5</li>
+<li>Поддерживается Windows Server baremetal caching (2008 R2, 2012, 2012 R2) для FC и iSCSI.</li>
+<li>Существенно уменьшился объем занимаемый FlashAccel в физической памяти хоста. Например для v1.2.0 он был равен 0,006GB физической памяти хоста на каждый его гигабайт памяти, плюс 0,006GB памяти VM на каждый гигабайт используемого SSD-кэша, то в этой версии эта величина снизилась почти вдвое, до 0,0035GB.</li>
+<li>Увеличился также размер блока кэша по умолчанию, с 4 до 8 KB.</li>
+</ul>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="flash/index.html" rel="tag">flash</a>, <a href="flash-accel.html" rel="tag">flash accel</a>, <a href="flashaccel.html" rel="tag">flashaccel</a>, <a href="netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1319/trackback.html#comments" title="Комментарий к записи Flash Accel v1.3.0">Комментарии (8)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1317">
+				<h2 class="posttitle"><a href="../1317/trackback.html" rel="bookmark" title="Permanent Link to Насколько выгоден Flash Pool для системы класса FAS2200?">Насколько выгоден Flash Pool для системы класса FAS2200?</a></h2>
+				<div class="postmetadata">24 Декабрь 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Flash Pool - это способ использовать установленные в систему хранения SSD в качестве кэша для операций записи и чтения. При этом они составляют с обычными жесткими дисками так называемый hybrid aggregate, и активные операции, как записи, так и чтения, могут эффективно кэшироваться на пространстве этих SSD, позволяя использовать все преимущества flash на обычных дисковых системах хранения.<br />
+Об этой технологии  я <a href="../../page/3%3Fs=Flash+pool.html">писал в блоге не раз</a>, однако за эти несколько лет, что Flash Pool доступен к использованию на системах хранения NetApp, у некоторых потенциальных клиентов NetApp Flash Pool сложилось мнение, что для полноценного, эффективного использования возможностей Flash Pool нужно иметь достаточно мощный контроллер сам по себе, и что широко распространенные и очень популярные контроллеры класса FAS2200 не дают существенной выгоды от использования Flash Pool, просто потому что &#8220;силенок у них его раскачать не хватает&#8221;.<br />
+Для того, чтобы раз и навсегда ответить на этот вопрос, аналитическая компания ESG провела по просьбе NetApp сравнительное тестирование двух систем:</p>
+<p>1. FAS2240-2,  c 48 2.5&#8243; 900GB 10Krpm дисками SAS, с общей емкостью 42TB raw<br />
+2. FAS2240-4, c 32 3.5&#8243; 2TB 7.2Krpm дисками SATA, плюс 4 дисками SSD 200GB, и общей емкостью 64TB raw</p>
+<p>В качестве нагрузки были протестированы типовые нагрузки, характерные для:</p>
+<p>1. OLTP database (100% random, 66/33 read/write, мелкими блоками, чувствительный к responce time) MS SQL Server 2010.<br />
+2. Нагрузка, характерная для Exchange Server (2010).<br />
+3. Нагрузка файлового сервера (переменные размеры блоков, большой объем работы с метаданными)</p>
+<p>Физический сервер, на котором под VMware vSphere 5.1 были развернуты две тестовые VM (Windows Server 2008R2), и которые были подключены одним каналом 10G Ethernet к системе хранения по протоколам iSCSI и NFS. Все три рабочих нагрузки генерировались с помощью IOmeter на тестовых VM вперемешку, одновременно.</p>
+<p>Результат (слева - all-SAS FAS2240-2, справа - FAS2240-4 (SATA +4xSSD):</p>
+<p><img src="http://www.esg-global.com/default/assets/Image/flashpoolF4.png" alt="" /></p>
+<p>Резюмируя же &#8220;в цифрах&#8221;:</p>
+<p><img src="http://www.esg-global.com/default/assets/Image/flashpoolT1.png" alt="" /></p>
+<p>Система с Flash Pool вида SATA+SSD, показала существенно лучшую производительность, чем точно такой же контроллер, но работающий с 48 SAS-дисками. Величина выигрыша была различной для разных профилей, но выигрыш был всегда. (максимально - 48% - на OLTP, минимально - 15% - на fileserver). Одновременно с этим на 31% улучшился responce time.<br />
+При этом система с Flash Pool имела на 48% больше емкости хранения, и, одновременно, была на 18% дешевле, чем система с SAS-дисками. </p>
+<p>Цена за GB и на IOPS улучшилась, соответственно, на 45 и 40 процентов, а общая пропускная способность улучшилась на 34%, причем при использовании более медленных &#8220;по природе&#8221; дисков  SATA.</p>
+<p>Как вы видите, даже на таком, сравнительно слабом контроллере, как контроллер самой младшей не сегодня системы хранения NetApp FAS, результат использования Flash Pool является более чем впечатляющим.</p>
+<p>Подробно о методике тестирования и деталях можно прочитать тут: <a href="http://www.esg-global.com/lab-reports/netapp-fas2200-series-with-flash-pool/">http://www.esg-global.com/lab-reports/netapp-fas2200-series-with-flash-pool/</a></p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="fas2240.html" rel="tag">fas2240</a>, <a href="fas2240-2.html" rel="tag">fas2240-2</a>, <a href="fas2240-4.html" rel="tag">fas2240-4</a>, <a href="flash/index.html" rel="tag">flash</a>, <a href="flash-pool.html" rel="tag">flash pool</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1317/trackback.html#comments" title="Комментарий к записи Насколько выгоден Flash Pool для системы класса FAS2200?">Комментарии (8)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1277">
+				<h2 class="posttitle"><a href="../1277/trackback.html" rel="bookmark" title="Permanent Link to Вышел Flash Accel 1.2">Вышел Flash Accel 1.2</a></h2>
+				<div class="postmetadata">2 Август 2013, 15:49 <!-- от  --></div>
+				<div class="postentry">
+					<p>Если вы еще не запутались окончательно в многочисленных Flash-что-то у NetApp, то вы помните, для тех же, кто запутался - вкратце:   <br /><strong><a href="http://">Flash Cache</a></strong> - плата с микросхемами flash memory, устанавливаемая внутрь контроллера на его внутреннюю шину PCIe, и НЕ являющаяся SSD. Обрабатывает только чтение, используя write-акселерацию WAFL для ускорения записи.    <br />Я бы хотел специально отметить, так как многие на это не обращают внимание: именно так, в два слова с большой буквы, потому что <a href="http://en.wikipedia.org/wiki/flashcache">flashcache</a> это совсем другой продукт, это опенсорсный проект кэша приложений на flash-памяти, разработанный в Facebook.    <br /><strong><a href="../1158/trackback.html">Flash Pool</a></strong> - ранее назывался Hybrid Pool, расширение структуры aggregate, позволяющее включать в него SSD (в виде дисков в полках) для еще одного варианта кэширования операций. Работает и на чтение, и на запись. Может работать на одной системе в Flash Cache, расширяя его.    <br /><strong><a href="../1194/trackback.html">Flash Accel</a> </strong>- то, о чем я пишу сегодня. Бесплатная для клиентов NetApp программная система, которая устанавливается на стороне сервера, и позволяет использовать установленные на сервере SSD или платы с flash на PCIe, как локальный кэш на стороне этого сервера. Ориентирована она, прежде всего, на работу с гипервизором VMware ESXi.</p>
+<p>Flash Accel позволяет улучшить производительность системы, сняв часть операций ввода-вывода с backend стораджа, что заметно и положительно сказывается на производительности VM.   <br />Он обеспечивает &quot;когерентность&quot; данных между локальным кэшем сервера в flash/SSD и содержимым сетевого хранилища.    <br />Независим от используемых в сервере SSD и плат flash на PCIe.    <br />Позволяет сохранять кэш при перезагрузке системы хранения.    <br />Обеспечивает передачу записей в сетевой сторадж, тем самым обеспечивая целостность данных    <br />Работает как с 7-mode, так и Clustered Data ONTAP.</p>
+<p>На прошлой неделе вышла новая версия этого продукта - Flash Accel 1.2, и вот что в ней нового:</p>
+<ul>
+<li>Поддерживается VMware vSphere 5.1.</li>
+<li>VM, использующие Flash Accel, теперь могут использовать vMotion и VMware HA.</li>
+<li>Поддерживатся iSCSI LUN-ы, смонтированные в гостевой OS.</li>
+<li>Поддерживается работа с ASUP (AutoSupport).</li>
+<li>Улучшена работа FMC (Flash Accel Management Console).</li>
+<li>Поддерживаются FusionIO ioDrive card.</li>
+<li>Управляется через VSC 4.2 (Virtual Storage Console).</li>
+<li>Появился импорт и экспорт конфигураций.</li>
+<li>Сохраняется лог консоли.</li>
+</ul>
+<p>Схема работы и устройства Flash Accel:</p>
+<p><img src="https://communities.netapp.com/servlet/JiveServlet/showImage/38-12688-22212/FA+block+diagram.jpg" width="640" height="364" /></p>
+<p>Как вы видите, решение состоит из нескольких основных частей. Это: </p>
+<p><strong>Flash Accel Host Agent</strong>, устанавливаемый на ESXi как VIB, и обеспечивающий управление локально установленными SSD в физическом сервере. Он создает виртуальное логическое устройство, представленное для ESXi как SCSI-устройство. Будучи созданным на нескольких хостах, оно имеет одинаковый WWN, что позволяет гипервизору со своей стороны трактовать его как единое и совместно используемое, и это позволяет использующим его виртуальным машинам работать в vMotion и VMware HA. На одном хосте вы можете кэшировать до 32 VM.</p>
+<p><strong>Flash Accel Agent</strong> для VM (Windows), в настоящий момент, к сожалению, есть только для Windows Server 2008 R2, поддержка Linux обещана. Этот компонент необходим для включения-выключения кэширования этой VM, добавляет возможности управления с помошью командлетов PowerShell, коммуницирует с Flash Accel Management Console (FMC), и позволяет интегрироваться Flash Accel в SnapDrive и SnapManager.</p>
+<p><strong>Flash Accel Management Console (FMC)</strong> – это виртуальный appliance, который ставится в среде vSphere, и позволяет управлять всей конструкцией Flash Accel в целом.</p>
+<p><img src="https://communities.netapp.com/servlet/JiveServlet/showImage/38-12688-22213/FA+Management+console.jpg" width="640" height="427" /></p>
+<p>Подробнее про работу FMC можно посмотреть на скринкасте:    <br /><a href="https://communities.netapp.com/videos/3416">https://communities.netapp.com/videos/3416</a></p>
+<p>Flash Accel был протестирован на задачах вида OLTP, и показал, что может снять с системы хранения в локальный SSD-кэш до 80% запросов ввода-вывода сервера, после развертывания Flash Accel загрузка системы хранения снизилась на 50%, кроме того, на 60% снизилась загрузка CPU системы хранения, в сравнении с использованием на ней одного только Flash Cache.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="flash/index.html" rel="tag">flash</a>, <a href="flash-accel.html" rel="tag">flash accel</a>, <a href="flashaccel.html" rel="tag">flashaccel</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="ssd/index.html" rel="tag">ssd</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1277/trackback.html#comments" title="Комментарий к записи Вышел Flash Accel 1.2">Комментарии (8)</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1268">
+				<h2 class="posttitle"><a href="../1268/trackback.html" rel="bookmark" title="Permanent Link to Опубликованы результаты теста OLTP Oracle RAC 11g на Flash Pool">Опубликованы результаты теста OLTP Oracle RAC 11g на Flash Pool</a></h2>
+				<div class="postmetadata">22 Июль 2013, 8:00 <!-- от  --></div>
+				<div class="postentry">
+					<p>Наконец-то опубликованы долгожданные результаты тестирования Flash Pool (гибридный aggregate с SSD в полке), показывающие эффект от его использования на задачах OLTP баз данных. Полностью отчет с описанием можно прочитать в соответствующем <a href="http://www.netapp.com/us/media/tr-4195.pdf">Technical Report</a>, а для затравки просто картинка (а в отчете есть еще):</p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="/pics/---OLTP-Oracle-12g--Flash-Pool_1379E/image.png" width="959" height="347" /></p>
+<p>В работе также приводится подробное описание тестируемой конфигурации и настроек Oracle.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="flash/index.html" rel="tag">flash</a>, <a href="flash-pool.html" rel="tag">flash pool</a>, <a href="netapp/index.html" rel="tag">netapp</a>, <a href="oltp.html" rel="tag">oltp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1268/trackback.html#respond" title="Комментарий к записи Опубликованы результаты теста OLTP Oracle RAC 11g на Flash Pool">Комментарий</a>									 </div>
+			</div>
+	
+						
+			<div class="post" id="post-1246">
+				<h2 class="posttitle"><a href="../1246/trackback.html" rel="bookmark" title="Permanent Link to FlashRay">FlashRay</a></h2>
+				<div class="postmetadata">25 Февраль 2013, 14:48 <!-- от  --></div>
+				<div class="postentry">
+					<p>Следует отметить, что новости про flash прошлой недели показывают, что для NetApp это не просто “ну еще один all-flash сторадж, раз у всех есть”, налицо стратегическая линия. Одновременно с EF540 был анонсирован продукт, который пока не выпущен, но о котором, что, в общем, необычно для NetApp, уже рассказывается: FlashRay.</p>
+<p>Если вы уже начинаете запутываться в том, что где и для чего у NetApp на flash-рынке предназначено, то давайте посмотрим на схему:</p>
+<p><img src="http://regmedia.co.uk/2013/02/19/netapp_flashray.jpg" /></p>
+<p>На ней вы видите позиционирование всех на сегодняший момент flash-продуктов NetApp: Flash Cache находится в контроллере, Flash Pool -&#160; во “встроенном” хранилище самого NetApp, его часть, Flash Accel – софтверное решение внутри хост-серверов, использующая их внутренние SSD. EF450 – это standalone-сторадж, никак, архитектурно, не связанный с FAS. А вот что будет в этой картине мира делать анонсированный FlashRay?</p>
+<p>FlashRay – это компонент развивающейся силами Clustered ONTAP (Data ONTAP 8 Cluster-mode) архитектуры scale-out, или, если по-русски, “горизонтального масштабирования. Напомню, что такое “горизонтальное” и “вертикальное” масштабирование. </p>
+<p>Если вы переросли ваш сторадж,&#160; и меняете его на более мощный – это “вертикальное масштабирование”. Если вы увеличиваете мощность имеющегося стораджа, добавляя непосредственно в имеющуюся инфраструктуру новый контроллер и диски, которые не образуют новую, более мощную “сущность”, а расширяя емкость и производительность уже имеющейся системы – это “горизонтальное масштабирование”. В NetApp “горизонтальное”, или scale-out (в отличие от scale-up, “вертикального”) масштабирование – это Cluster-mode.</p>
+<p>Хорошо знакомые с номенклатурой NetApp могут увидеть в FlashRay наследника NetApp SA, специальных кэширующих систем, <a href="http://habrahabr.ru/company/netapp/blog/98537/">нацеленных на ускорение работы NFS</a>. Такие системы, представляющие собой контроллер соответствующей системы хранения и небольшой объем дисков, подключенных к нему для хранения закэшированных данных, устанавливаются на пути между клиентским приложением на хост-сервере, и собственно хранилищем данных, и ускоряют доступ к часто обращаемым данным, как, например, в рассмотренном выше по ссылке кейсе.</p>
+<p>В отличие от NetApp SA, согласно анонсу, FlashRay это будут all-flash устройства, ускоряющие доступ к бэкэнд-стораджу FAS, он будет поддерживать кластерность, многопротокольность (а не только NFS), inline-компрессию и inline-дедупликацию данных с переменной длинной блока (неужели пригодились-таки разработки для VTL в этой области?), и ряд других, более обычных для NetApp опций, включая репликацию и автобалансировку нагрузки в кластере FlashRay. </p>
+<p>Таким образом, если после анонса EF540 вам показалось, что NetApp начала отходить от своей парадигмы “во flash выгоднее кэшировать, чем хранить”, то анонс FlashRay показывает, что концепция жива, здорова, и передает всем пламенный привет с нового уровня своего развития. Ждем более подробных новостей с техническими деталями.</p>
+				</div>
+		
+				<div class="postmetadata">
+					Метки: <a href="cache.html" rel="tag">cache</a>, <a href="cluster/index.html" rel="tag">cluster</a>, <a href="cluster-mode/index.html" rel="tag">cluster-mode</a>, <a href="ef450.html" rel="tag">ef450</a>, <a href="flash/index.html" rel="tag">flash</a>, <a href="flash-cache.html" rel="tag">flash cache</a>, <a href="flash-pool.html" rel="tag">flash pool</a>, <a href="netapp/index.html" rel="tag">netapp</a><br />					Раздел: <a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;" rel="category tag">review</a>,  <a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;" rel="category tag">новости</a>&nbsp;&nbsp;|&nbsp;
+					<a href="../1246/trackback.html#comments" title="Комментарий к записи FlashRay">Комментарии (5)</a>									 </div>
+			</div>
+	
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="flash/page/2.html">&laquo; Previous Entries</a></div>
+			<div class="alignright"></div>
+		</div>
+		
+	
+	</div>
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="../category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="../category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="../category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="../category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="../category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="../category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="../category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="../category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="../category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="../category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="../category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="../category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='../date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='../date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='../date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='../date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='../date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='../date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='../date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='../date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='../date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='../date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='../date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='../date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='../date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='../date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='../date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='../date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='../date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='../date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='../date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='../date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='../date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='../date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='../date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='../date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='../date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='../date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='../date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='../date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='../date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='../date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='../date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='../date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='../date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='../date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='../date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='../date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='../date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='../date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='../date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='../date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='../date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='../date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='../date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='../date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='../date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='../date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='../date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='../date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='../date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='../date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='../date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='../date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='../date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='../date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='../date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='../date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='../date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='../date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='../date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='../date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='../date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='../date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='../date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='../date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='../date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='../date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='../date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='../date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='../date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='../date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='../date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='../date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='../date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='../date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='../date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='../date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='../date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='../date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='../date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='../date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='../date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='../date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='../date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='../date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='../date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='../date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='../date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='../date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='../date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='../date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='../date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='../date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../../feed">Entries (RSS)</a> and <a href="../../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 15 queries. 0.092 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>

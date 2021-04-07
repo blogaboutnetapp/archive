@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: Data ONTAP-v</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/784/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/784</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:05:33 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/784#comment-964</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Wed, 08 Dec 2010 10:28:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/784#comment-964</guid>
+		<description>Я тут так заинтересовался :), что скачал симулятор ONTAP8, так там уже не линукс и из-под него процесс, а, похоже, практически сам ONTAP8 на ядре FreeBSD, эмулируются только диски, полки (пока слабо, в отличие от симулятора-7) и флешь. Кластеризация пока эмулируется только в закрытой версии, как они пишут. Всё это раздаётся сразу в виде образа для VMWare. Так что не удивительно, что они это на ESX (в статье опечатка - написано EX) поставили и продают.
+Возникает один вопрос - не пойдёт ли после этого ONTAP в пиратские массы? В SMB, куда они будут продавать VSX960, ответственность админов может быть нулевая, переносимость максимальная - сразу готовый образ для виртуалки, внутри - почти обычная x86-64 FreeBSD с базовыми сервисами, доступ к BSD-шной консоли есть штатный из консоли ONTAP, причем с доступным sudo... Не удивлюсь, если увижу ONTAP-v "на торрентах" с подписью "таблетка - присутствует"...
+Но может оно и к лучшему - больше известности платформе, больше специалистов, а крупный бизнес "левые" пиратки в продакшен всё равно не поставит...</description>
+		<content:encoded><![CDATA[<p>Я тут так заинтересовался :), что скачал симулятор ONTAP8, так там уже не линукс и из-под него процесс, а, похоже, практически сам ONTAP8 на ядре FreeBSD, эмулируются только диски, полки (пока слабо, в отличие от симулятора-7) и флешь. Кластеризация пока эмулируется только в закрытой версии, как они пишут. Всё это раздаётся сразу в виде образа для VMWare. Так что не удивительно, что они это на ESX (в статье опечатка - написано EX) поставили и продают.<br />
+Возникает один вопрос - не пойдёт ли после этого ONTAP в пиратские массы? В SMB, куда они будут продавать VSX960, ответственность админов может быть нулевая, переносимость максимальная - сразу готовый образ для виртуалки, внутри - почти обычная x86-64 FreeBSD с базовыми сервисами, доступ к BSD-шной консоли есть штатный из консоли ONTAP, причем с доступным sudo&#8230; Не удивлюсь, если увижу ONTAP-v &#8220;на торрентах&#8221; с подписью &#8220;таблетка - присутствует&#8221;&#8230;<br />
+Но может оно и к лучшему - больше известности платформе, больше специалистов, а крупный бизнес &#8220;левые&#8221; пиратки в продакшен всё равно не поставит&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/784#comment-963</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Wed, 08 Dec 2010 02:24:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/784#comment-963</guid>
+		<description>Да, спасибо, в новостях на эту тему много путаницы :(</description>
+		<content:encoded><![CDATA[<p>Да, спасибо, в новостях на эту тему много путаницы :(</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/784#comment-962</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Tue, 07 Dec 2010 16:48:56 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/784#comment-962</guid>
+		<description>С контроллером разобрался - виртуальный appliance находится не "внутри их модулей хранения SX960", а в отдельном блейд-сервере BX920, и вместе с ним уже называется VSX960. Вся система занимает 3 отсека из 8. Контроллер нужен для того, чтоб подключать SX960 к обычному серверу, а не к виртуалке с ONTAP-v. Виртуалке его функции, по-видимому, не нужны.
+
+Вопрос о размере сектора остаётся открытым.
+
+На 14 странице есть хорошая иллюстрация https://globalsp.ts.fujitsu.com/dmsp/docs/d6_patric-echle.pdf.</description>
+		<content:encoded><![CDATA[<p>С контроллером разобрался - виртуальный appliance находится не &#8220;внутри их модулей хранения SX960&#8243;, а в отдельном блейд-сервере BX920, и вместе с ним уже называется VSX960. Вся система занимает 3 отсека из 8. Контроллер нужен для того, чтоб подключать SX960 к обычному серверу, а не к виртуалке с ONTAP-v. Виртуалке его функции, по-видимому, не нужны.</p>
+<p>Вопрос о размере сектора остаётся открытым.</p>
+<p>На 14 странице есть хорошая иллюстрация <a href="https://globalsp.ts.fujitsu.com/dmsp/docs/d6_patric-echle.pdf" rel="nofollow">https://globalsp.ts.fujitsu.com/dmsp/docs/d6_patric-echle.pdf</a>.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Korj</title>
+		<link>http://blog.aboutnetapp.ru/archives/784#comment-961</link>
+		<dc:creator>Korj</dc:creator>
+		<pubDate>Tue, 07 Dec 2010 16:27:07 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/archives/784#comment-961</guid>
+		<description>??з описания SX960:
+"High performance RAID controller within the storage blade, providing RAID levels 0, 1, 5 and 6, accelerated by 512 MB cache module with ECC and secured by BBU."
+
+Там вместо прямого доступа к дискам, 520-байтового сектора и т.д. используется "железный" обычный RAID? Т.е. теряется половина преимуществ WAFL/ONTAP? ??ли на сайте ошибка?</description>
+		<content:encoded><![CDATA[<p>??з описания SX960:<br />
+&#8220;High performance RAID controller within the storage blade, providing RAID levels 0, 1, 5 and 6, accelerated by 512 MB cache module with ECC and secured by BBU.&#8221;</p>
+<p>Там вместо прямого доступа к дискам, 520-байтового сектора и т.д. используется &#8220;железный&#8221; обычный RAID? Т.е. теряется половина преимуществ WAFL/ONTAP? ??ли на сайте ошибка?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

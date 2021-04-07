@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Комментарии к записи: VMware на NFS: подробности о плюсах.</title>
+	<atom:link href="http://blog.aboutnetapp.ru/archives/159/feed" rel="self" type="application/rss+xml" />
+	<link>http://blog.aboutnetapp.ru/archives/159</link>
+	<description>Системы хранения данных как предмет разговора</description>
+	<pubDate>Wed, 07 Apr 2021 12:07:09 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6</generator>
+		<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/159#comment-2592</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Tue, 29 May 2012 12:25:40 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=159#comment-2592</guid>
+		<description>&#62;Это можно обойти наделав IP-алиасов на конце стораджа
+
+Алиасы нужны только в случае, когда количество интерфейсов в линк-агрегате больше, чем количество ESXi хостов (что большая редкость). ??наче алиасы не нужны, вопрос сводится только к равномерному распределению виртуальных машин по ESXi хостам, что вполне естественно.</description>
+		<content:encoded><![CDATA[<p>&gt;Это можно обойти наделав IP-алиасов на конце стораджа</p>
+<p>Алиасы нужны только в случае, когда количество интерфейсов в линк-агрегате больше, чем количество ESXi хостов (что большая редкость). ??наче алиасы не нужны, вопрос сводится только к равномерному распределению виртуальных машин по ESXi хостам, что вполне естественно.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/159#comment-2392</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 09:55:49 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=159#comment-2392</guid>
+		<description>bbk:
+
+&gt; У НетАпа есть агрегация портов (в терминах НетАпа VIF - Virtual InterFace), 
+
+Там все не так просто. Если вкратце, то в NFS на конкретный IP-destination получается только одна TCP/IP-сессия, то есть в чистом виде по более одному физическому порту в группе трафик не балансируется (одну сессию, имеющую один IP-source и IP-destination нельзя пустить более чем по одному физическому интерфейсу, даже в VIF). Это можно обойти наделав IP-алиасов на конце стораджа, и обращаться к ним со стороны IP-source (сервера) более-менее равномерно. Но это во-первых, не всегда возможно, во-вторых усложняет схему.
+
+Впрочем, про NFS ухе запланирована статья на следующей неделе. ??ам будет подробнее.</description>
+		<content:encoded><![CDATA[<p>bbk:</p>
+<p>> У НетАпа есть агрегация портов (в терминах НетАпа VIF - Virtual InterFace), </p>
+<p>Там все не так просто. Если вкратце, то в NFS на конкретный IP-destination получается только одна TCP/IP-сессия, то есть в чистом виде по более одному физическому порту в группе трафик не балансируется (одну сессию, имеющую один IP-source и IP-destination нельзя пустить более чем по одному физическому интерфейсу, даже в VIF). Это можно обойти наделав IP-алиасов на конце стораджа, и обращаться к ним со стороны IP-source (сервера) более-менее равномерно. Но это во-первых, не всегда возможно, во-вторых усложняет схему.</p>
+<p>Впрочем, про NFS ухе запланирована статья на следующей неделе. ??ам будет подробнее.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: bbk</title>
+		<link>http://blog.aboutnetapp.ru/archives/159#comment-2390</link>
+		<dc:creator>bbk</dc:creator>
+		<pubDate>Sat, 28 Apr 2012 08:58:03 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=159#comment-2390</guid>
+		<description>2 Ildarych
+&#62;1. Скорость ограничена 1Гб
+
+У НетАпа есть агрегация портов (в терминах НетАпа VIF - Virtual InterFace), можно 4-ре гигабита в один VIF собрать, сделать _правильное_ распределение нагрузки и получите, ну не 4 Гб/с, но и не 1.
+
+Теперь это можно сделать и с 10Gb карточками. А ещё можно в один VIF "второго уровня" собрать два VIF'а, те что из 10-к и те что из 1-ц для пущей отказоустойчивости и настроить JamboFrames %)</description>
+		<content:encoded><![CDATA[<p>2 Ildarych<br />
+&gt;1. Скорость ограничена 1Гб</p>
+<p>У НетАпа есть агрегация портов (в терминах НетАпа VIF - Virtual InterFace), можно 4-ре гигабита в один VIF собрать, сделать _правильное_ распределение нагрузки и получите, ну не 4 Гб/с, но и не 1.</p>
+<p>Теперь это можно сделать и с 10Gb карточками. А ещё можно в один VIF &#8220;второго уровня&#8221; собрать два VIF&#8217;а, те что из 10-к и те что из 1-ц для пущей отказоустойчивости и настроить JamboFrames %)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: romx</title>
+		<link>http://blog.aboutnetapp.ru/archives/159#comment-43</link>
+		<dc:creator>romx</dc:creator>
+		<pubDate>Fri, 05 Sep 2008 07:07:23 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=159#comment-43</guid>
+		<description>А об этом у нас будет еще третья серия ;)
+
+Но вкратце:
+
+1А. Ну строго говоря уже не ограничена. Уже есть 10GB-адаптеры, и даже вот уже года два как NetApp их поддерживает и продает как порты расширения в своих системах. ?? VMware 10GBE поддерживает. ?? даже при желании можно купить эвалюэйшн-кит из пары адаптеров с hardware iSCSI и TOE за 2000$ за пару у Chelsio.
+http://chelsio.com/products_10g_adapters.html
+
+  
+1В. Ты традиционно путаешь bandwidth и speed.
+Я об этой проблеме уже писал еще в том блоге.
+Вот эта статья: http://blog.aboutnetapp.ru/archives/38
+В случае характера нагрузки VMware, то есть предельно random, небольшим блоками, роль играет не bandwith, а IOPS, который зависит прежде всего от латентности, а он у NFS весьма неплох.
+
+2. Чем же он проблемен? Не более проблемен чем у обычного IP-сервиса. NFS это ведь стандартный сетевой протокол поверх TCP/IP, то есть у него будет не более проблемный мультипасинг чем у FTP или HTTP.
+Транкинг портов же сейчас делать умеют по моему любые смартсвитчи, да еще и не одним способом.</description>
+		<content:encoded><![CDATA[<p>А об этом у нас будет еще третья серия ;)</p>
+<p>Но вкратце:</p>
+<p>1А. Ну строго говоря уже не ограничена. Уже есть 10GB-адаптеры, и даже вот уже года два как NetApp их поддерживает и продает как порты расширения в своих системах. ?? VMware 10GBE поддерживает. ?? даже при желании можно купить эвалюэйшн-кит из пары адаптеров с hardware iSCSI и TOE за 2000$ за пару у Chelsio.<br />
+<a href="http://chelsio.com/products_10g_adapters.html" rel="nofollow">http://chelsio.com/products_10g_adapters.html</a></p>
+<p>1В. Ты традиционно путаешь bandwidth и speed.<br />
+Я об этой проблеме уже писал еще в том блоге.<br />
+Вот эта статья: <a href="http://blog.aboutnetapp.ru/archives/38" rel="nofollow">http://blog.aboutnetapp.ru/archives/38</a><br />
+В случае характера нагрузки VMware, то есть предельно random, небольшим блоками, роль играет не bandwith, а IOPS, который зависит прежде всего от латентности, а он у NFS весьма неплох.</p>
+<p>2. Чем же он проблемен? Не более проблемен чем у обычного IP-сервиса. NFS это ведь стандартный сетевой протокол поверх TCP/IP, то есть у него будет не более проблемный мультипасинг чем у FTP или HTTP.<br />
+Транкинг портов же сейчас делать умеют по моему любые смартсвитчи, да еще и не одним способом.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Автор: Ildarych</title>
+		<link>http://blog.aboutnetapp.ru/archives/159#comment-42</link>
+		<dc:creator>Ildarych</dc:creator>
+		<pubDate>Fri, 05 Sep 2008 03:13:10 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.aboutnetapp.ru/?p=159#comment-42</guid>
+		<description>Есть 2 вопроса:
+1. Скорость ограничена 1Гб
+2. Проблемный мультипасинг</description>
+		<content:encoded><![CDATA[<p>Есть 2 вопроса:<br />
+1. Скорость ограничена 1Гб<br />
+2. Проблемный мультипасинг</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

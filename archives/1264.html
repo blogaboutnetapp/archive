@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>about NetApp  &raquo; Blog Archive   &raquo; SnapVault</title>
+
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../wp-content/themes/fluid-blue/print.css" type="text/css" media="print" />
+<link rel="alternate" type="application/rss+xml" title="about NetApp RSS Feed" href="../feed" />
+<link rel="pingback" href="../xmlrpc.php.html" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 2.6" />
+
+</head>
+
+<body>
+<div id="page">
+<div id="header">
+	<div id="headertitle">
+		<h1><a href="../index.html" title="about NetApp: Системы хранения данных как предмет разговора">about NetApp</a></h1>
+		<p>Системы хранения данных как предмет разговора</p>
+	</div> 
+	<!-- Search box (If you prefer having search form as a sidebar widget, remove this block) -->
+	<div class="search">
+		<form method="get" id="searchform" action="../index.html">
+<input type="text" size="20" name="s" id="s" value="Поиск..."  onblur="if(this.value=='') this.value='Поиск...';" onfocus="if(this.value=='Поиск...') this.value='';"/>
+</form>
+	</div> 
+	<!-- Search ends here-->
+		
+</div>
+
+<div id="navbar">
+<ul id="nav">
+	<li><a href="../index.html">Home</a></li>
+	<li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul>
+</div>
+<div id="wrapper">
+
+	<div id="content">
+
+			
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="1263/trackback.html">SnapMirror, часть 2</a></div>
+			<div class="alignright"><a href="1265/trackback.html">Соответствие команд 7-mode и C-mode</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-1264">
+			<h2 class="posttitle"><a href="1264/trackback.html" rel="bookmark" title="Permanent Link to SnapVault">SnapVault</a></h2>
+			<div class="postmetadata">24 Июнь 2013, 8:00 <!-- от  --></div>
+			<div class="postentry">
+				<p>Продолжим наш курс Back to basics. Кроме репликации SnapMirror у NetApp есть еще один <em>Snap-что-то</em> продукт – SnapVault. Давайте посмотрим, что это и для чего может в жизни сгодиться.</p>
+<p>SnapVault, как можно догадаться из названия, это средство, позволяющее сложить снэпшоты (Snap) на долговременое хранилище (Vault), то есть это такое средство бэкапа данных с системы хранения, например главной, рабочей, или, в терминах NetApp – <em>Primary</em>, на резервную, или <em>Secondary</em>.</p>
+<p>Зачем? Ну, зачем вообще используется резервное копирование на другой сторадж? Чтобы обезопаситься и обезопасить данные от физического отказа системы хранения. Почму бы для этого не использовать SnapMirror? Очень просто. Потому же, почему RAID это не бэкап. Репликация никак не поможет в случае повреждения непосредственно данных. Поврежденные данные, например испорченные на уровне приложения, точно также отреплицируются на резервную систему, и вы будете иметь два комплекта плохих данных. Тут выручили бы снэпшоты. Но снэпшоты, как вы помните, хранятся на самой системе хранения, непосредственно на исходном томе, такова их принциппиальная конструкция, и если мы вдобавок ко всему, имеем поврежденную или физически потерянную primary систему хранения, то вместе с ней погибнут и данные снэпшотов. Хорошо бы эти снэпшоты уметь выносить куда-то наружу, чтобы потом иметь возможность из них исходные данные не любой сохраненный момент восстанавливать. Вот как раз этим и занимается SnapVault.</p>
+<p>  <span id="more-1264"></span>
+<p>SnapVault позволяет передавать для хранения снэпшоты томов с одной или множества primary-систем хранения, тех, которые хранят собственно ваши рабочие данные, на одну secondary, где они и складируются. В роли такой системы, кроме физического стораджа NetApp, может работать также Data ONTAP Edge-V, то есть виртуальная машина с Data ONTAP в ней.</p>
+<p>Для использования SnapVault вам нужно иметь две лицензии, отдельно для primary-системы (sv_ontap_pri), и отдельно для secondary (sv_ontap_sec). </p>
+<p>?? в случае SnapVault мы впервые всерьез сталкиваемся с таким элементом иерархии данных Data ONTAP как Qtree. Что это я уже тут, было дело, писал. Вкратце – это “папка” уровнем иерархии выше тома (volume), и ее можно рассматривать как поддиректорию на томе-корне. Свойством Qtree, откуда и пошло ее название, является то, что на нее можно назначить пользовательскую и групповую квоту (Quota Tree). ??менно QTree является базовым элементом структуры, которой оперирует SnapVault, именно с уровнем QTree он и работает. Даже если на primary-системе данные не располагаются в QTree, например лежали прямо в корне тома, на Secondary она будут помещены в структуры Qtree.</p>
+<p>Как и в случае SnapMirror все начинается с процесса первоначальной передачи данных – Initial (baseline) Transfer. После успешного завершения Baseline transfer, далее по расписанию на secondary-систему передается только изменения, как это и принято в Snap-продуктах.</p>
+<p>На файрволлах между системами, участвующих в процессе обмена данными SnapVault должны быть открыты в обоих направлениях порты: 10000 – для операций управления протокола NDMP, используемому в SnapVault, а также 10566, это порт, по которому осуществляется основной обмен данными в SnapVault.</p>
+<p>Если у вас уже развернута инфраструктура управления, в частности NetApp Protection Manager, то удобно настроить политики резервного копирования для SnapVault именно через него. Но для небольших систем, например для всего пары, primary – secondary, все настройки можно делать и так, через командную строку.</p>
+<p>Логи операций SnapVault вы можете найти в обычном месте, в /etc/log</p>
+<p>При необходимости настроить throttling, то есть ограничение по загрузке канала между системами, следует воспользоваться опцией <strong>&gt; options replication.throttle.enable on|off</strong> как видно из ее названия, она работает глобально на все операции репликации.</p>
+<p>Наконец, немного про дедупликацию. Как вы помните из моего рассказа про SnapMirror, в SM существует два режима, Volume SnapMirror (VSM), при котором на систему-получатель передается полный образ тома, включая все особенности его структуры, снэпшоты и, в том числе, компресия и дедупликация. ?? QTree SnapMirror, в котором репликация происходит пофайлово, и при этом, конечно, дедупликация не передается, дедуплицированный файл считывается для передачи как файл, соответственно “разжимается”, и в таком виде передается и записывается. Также работает и SnapVault.</p>
+<p>Однако, у SV есть интересный механизм, помогающий с дедупликацией. SnapVault может автоматически стартовать процесс дедупликации сразу после окончания передачи данных на secondary_систему, то есть получатель и хранитель бэкапов. Помните, однако, что таким образом, например при передаче множества primary на одну secondary, может быть стартовано сразу множество процессов дедпликации, это это может повлиять на производительность secondary-системы. В текущей версии Data ONTAP одновременно может работать до восьми процессов дедупликации на одном контроллере, остальные заносятся в очередь, и запускаются по мере окончания работы ранее стартовавших.</p>
+<p>Давайте рассмотрим на примерах, как происходит настройка и использование SnapVault. FilerA это система-источник, та, что сохраняет свои данные, FilerB – получатель, та, что хранит бэкапы.</p>
+<p>Предположим, что лицензии у нас уже введены, если же нет – вводим их</p>
+<p><code>filerA&gt; license add &lt;sv_ontap_pri&gt;</code></p>
+<p><code>filerB&gt; license add &lt;sv_ontap_sec&gt;</code></p>
+<p>Разрешаем взаимный доступ участвующих систем</p>
+<p><code>filerA&gt; options sanpvault.enable on</code></p>
+<p><code>filerA&gt; options snapvault.access all</code></p>
+<p><code>filerB&gt; options sanpvault.enable on</code></p>
+<p><code>filerB&gt; options snapvault.access all</code></p>
+<p>Создадим Qtree для бэкапируемых данных на стороне системы-источника, сделаем так “для порядку”, напомню, что бэкапить можно и данные не в Qtree, но с ними удобнее и более “аккуратненько”. Qtree на стороне-получателе создастся автоматически при начале baseline transfer.</p>
+<p><code>filerA&gt; qtree create /vol/vol_primary/qt</code></p>
+<p>Настроим расписание работы SnapVault</p>
+<p><code>filerA&gt; snapvault snap sched vol_primary sv_hourly 6@0-23</code></p>
+<p><code>filerB&gt; snapvault snap sched -x vol_secondary sv_hourly 24@0-23</code></p>
+<p>??, наконец, запустим baseline transfer</p>
+<p><code>filerB&gt; snapvault start -S filerA:/vol/vol_primary/qt /vol/vol_secondary/qt</code></p>
+<p>Обратите внимание, создание и передача бэкапа инициируется с системы-получателя, с secondary! При выполнении этой команды на secondary-системе создастся Qtree с именем qt, и начнется передача состояния указанного Qtree с данными в этот Qtree-папку.</p>
+<p>Проверим статус передачи. Эта команда работает и на системе-источнике, и на получателе.</p>
+<p><code>snapvault status -l filerA:/vol/vol_primary/qt</code></p>
+<p>или просто</p>
+<p><code>snapvault status</code></p>
+<p>При необходмости обновим состояние “бэкапа” инициировав передачу данных вручную. Снова, обратите внимание, это делается командой с системы-получателя, хранящей бэкапы!</p>
+<p><code>filerB&gt; snapvault update /vol/vol_secondary/qt</code></p>
+<p>&#160;</p>
+<p>Теперь посмотрим, как можно сделать восстановление данных:</p>
+<p><code>filerA&gt; snapvault restore -S filerB:/vol/vol_secondary/qt /vol/vol_primary/qt</code></p>
+<p>&#160;</p>
+<p>Отключим более ненужные реплики, например для уже неиспользуемых систем. Снова, как и выше, FilerA это источник данных, то, что бэкапим, FilerB – получатель, то, куда бэкапим.</p>
+<p>Определим кто у нас получатель</p>
+<p><code>filerA&gt; snapvault destinations</code></p>
+<p>Отцепляем уже ненужные реплики</p>
+<p><code>filerA&gt; snapvault release /vol/vol_primary/qt filerB:/vol/vol_secondary/qt</code></p>
+<p>Останавливаем сервис snapvault</p>
+<p><code>filerB&gt; snapvault stop -f filerB:/vol/vol_secondary/qt</code></p>
+<p>Убираем расписания</p>
+<p><code>filerA&gt; snapvault snap unsched -f vol_primary sv_hourly</code></p>
+<p><code>filerB&gt; snapvault snap unsched -f vol_secondary sv_hourly</code></p>
+<p>Удаляем старые копии</p>
+<p><code>filerA&gt; snap list vol_primary</code></p>
+<p><code>filerA&gt; snap delete vol_primary &lt;snapshot name&gt;</code></p>
+<p><code>filerB&gt; snap list vol_secondary</code></p>
+<p><code>filerB&gt; snap delete vol_secondary &lt;snapshot name&gt;</code></p>
+<p>&#160;</p>
+<p>Ресинхронизируем реплику SnapVault (снова, обратите внимание, делается с secondary).</p>
+<p><code>filerB&gt; snapvault start -r -S filerA:/vol/vol_primary/qt filerB:/vol/vol_secondary/qt</code></p>
+<p>&#160;</p>
+<p>Отдельно в нашей теме стоит такой интересный продукт, как OSSV или Open Systems SnapVault, это программный продукт, разработанный для того, чтобы подключить к secondary-SnapVault системе, то есть той, которая <strong>принимает</strong> данные резервных копий, и хранит бэкапы, сервера под управлением Windows, Linux, и прочие системы, иногда называемые “Open Systems”. То есть OSSV это такая система резервного копирования для ваших серверов, также построенная на снэпшотах состояния дисков, но бэкапящая не сторадж NetApp на другой сторадж NetApp, а обычные сервера с обычными приложениями и OS на хранилище NetApp, как параллельно обычному SnapVault, так и просто так, само по себе. Разработал OSSV, кстати, сторонний разработчик, компания Bakbone, автор сравнительно малоизвестного, но славящегося своей многоплатформенностью и широкой поддержкой <strike>странных</strike> разнообразных приложений, продукта резервного копирования NetVault. OSSV, кстати, совместим с NetVault, в том числе может с него управляться, и, в отличие от него, бесплатен для пользователей NetApp. Но тему OSSV и его использования мы рассмотрим как-нибудь отдельно.</p>
+							</div>
+	
+			<div class="postmetadata">
+				<div class="postmetadata">
+					Метки: <a href="tag/backup/index.html" rel="tag">backup</a>, <a href="tag/netapp/index.html" rel="tag">netapp</a>, <a href="tag/snapshots.html" rel="tag">snapshots</a>, <a href="tag/snapvault.html" rel="tag">snapvault</a><br />					Раздел: <a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;" rel="category tag">howto</a>,  <a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;" rel="category tag">techtalk</a>					&nbsp;|&nbsp;&nbsp;<a href="1264/trackback.html#respond">Комментарий</a> (<a href='1264/feed'>RSS</a>)					&nbsp;|&nbsp;&nbsp;<a href="1264/trackback.html" rel="trackback">Обратная ссылка</a>									 </div>
+			</div>
+		</div>
+	
+<!-- You can start editing here. -->
+
+<div id="comments">
+	<h3>Комментарии (7)</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="comment even" id="comment-8169">
+		<div id="div-comment-8169">
+		<div class="comment-author">
+			<cite>Сергей:<cite></div>
+			<p>Удалённые снэпшоты это конечно хорошо.<br />
+Но как обстоит дело с их консистентностью?</p>
+						<div class="comment-meta"><a href="1264/trackback.html#comment-8169" title="">24 Июнь 2013, 13:47</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-8170">
+		<div id="div-comment-8170">
+		<div class="comment-author">
+			<cite><a href='../index.html' rel='external nofollow'>romx</a>:<cite></div>
+			<p>Сергей:</p>
+<p><i>&#8220;?? сельского хозяйства!&#8221; (с)</i></p>
+<p>Консистентностью чему?</p>
+						<div class="comment-meta"><a href="1264/trackback.html#comment-8170" title="">24 Июнь 2013, 13:51</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-8174">
+		<div id="div-comment-8174">
+		<div class="comment-author">
+			<cite>bbk:<cite></div>
+			<p>??рония в том, что когда мы данные копировали с корня вольюма, назад востанавливаются они только в Qtree.<br />
+Наука - всё по максимуму сразу держать на Qtree, иначе потом геморой с восстановлением (ручками на прежнее место) или перекконфигурированием.</p>
+						<div class="comment-meta"><a href="1264/trackback.html#comment-8174" title="">24 Июнь 2013, 17:13</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-8178">
+		<div id="div-comment-8178">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>Консистентность либо соответствующим SnapManager&#8217;ом осуществляется, либо Snap Creator Framework, если под аппликуху нет своего Snapmanager&#8217;а</p>
+						<div class="comment-meta"><a href="1264/trackback.html#comment-8178" title="">24 Июнь 2013, 20:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-8193">
+		<div id="div-comment-8193">
+		<div class="comment-author">
+			<cite>Сергей:<cite></div>
+			<p>Есть ли встроенная поддержка волта в SnapManager? Т.е. можно ли сделать снимок SM и перенести его на удалённую систему волтом в автоматическом режиме.</p>
+						<div class="comment-meta"><a href="1264/trackback.html#comment-8193" title="">25 Июнь 2013, 17:20</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment odd" id="comment-8194">
+		<div id="div-comment-8194">
+		<div class="comment-author">
+			<cite>Александр:<cite></div>
+			<p>В самом SnapManager, нет, но это делает SnapDrive, которым управляет SnapManager.</p>
+<p>Вот как пример кусок из документации по SnapManager for Exchange:<br />
+SnapDrive for Windows: This application helps with storage provisioning and managing disks in both physical and virtual environments. SnapDrive for Windows manages the LUNs on the storage system, making them available as local disks on Windows hosts.<br />
+Here are the key features of SnapDrive for Windows:<br />
+* Enhances online storage configuration, LUN expansion, and shrinking; provides streamlined management<br />
+* Works in conjunction with NetApp SnapMirror software to facilitate disaster recovery from either asynchronously or synchronously mirrored destination volumes<br />
+* Enables NetApp SnapVault updates of qtrees to a SnapVault destination<br />
+* Enables management of SnapDrive for Windows on multiple hosts<br />
+* Enhances support on Microsoft cluster configurations<br />
+* Simplifies iSCSI session management<br />
+* Enables technology for SnapManager for Exchange products</p>
+						<div class="comment-meta"><a href="1264/trackback.html#comment-8194" title="">25 Июнь 2013, 18:25</a>
+			</div></div>
+		</li>
+
+		
+		<li class="comment even" id="comment-8206">
+		<div id="div-comment-8206">
+		<div class="comment-author">
+			<cite>Pavel Kosachev:<cite></div>
+			<p>Я конечно же буду говорить только за себя, но документация на современные продукты MS сообщает, что нет никаких доп. расходов на виртуализацию, а это в свою очередь подталкивает использовать приложения поверх слоя виртуализации. Тем временем ПО SnapManager к этому не совсем готово. Т.е. либо вы делаете application aware backup со стороны гипервизора, не имеет значения hyper-v или Vmware, тогда состояния VSS синхронизируются с помощью компонент интеграции, в этом случае приложение не узнало, что его забэкапили. Либо с помощью SnapManager  для конкретного продукта, который позволит дернуть snapvault и закоммитить логи транзакции, но на лунах или Raw Device.  Хочется конечно же всего и сразу, может быть у тебя есть информация, будет ли это делать и когда? Получается вы перед выбором или мобильность виртуальных машин или резервную копию на соседней системе. как видите выбор не очень очевиден.</p>
+						<div class="comment-meta"><a href="1264/trackback.html#comment-8206" title="">26 Июнь 2013, 16:31</a>
+			</div></div>
+		</li>
+
+		
+	</ol>
+
+ 
+
+<h3 id="respond">Оставить комментарий</h3>
+
+
+<form action="http://blog.aboutnetapp.ru/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Имя (обязательно)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-Mail (will not be published) (обязательно)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Сайт</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" rows="10" cols="" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type="hidden" name="comment_post_ID" value="1264" />
+</p>
+
+</form>
+
+</div>
+
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Автор</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			<li class="pagenav"><h2>Страницы</h2><ul><li class="page_item page-item-153"><a href="../about/trackback.html" title="about">about</a></li>
+<li class="page_item page-item-215"><a href="../distributory-v-rossii/trackback.html" title="Дистрибуторы в России">Дистрибуторы в России</a></li>
+<li class="page_item page-item-1327"><a href="../disti-ua/trackback.html" title="Дистрибуторы в Украине">Дистрибуторы в Украине</a></li>
+</ul></li>
+			<li><h2>Рубрики</h2>
+				<ul>
+					<li class="cat-item cat-item-89"><a href="category/commands/index.html" title="Просмотреть все записи в рубрике &laquo;commands&raquo;">commands</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="category/howto/index.html" title="Просмотреть все записи в рубрике &laquo;howto&raquo;">howto</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="category/justread/index.html" title="Просмотреть все записи в рубрике &laquo;justread&raquo;">justread</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="category/review/index.html" title="Просмотреть все записи в рубрике &laquo;review&raquo;">review</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="category/techtalk/index.html" title="Просмотреть все записи в рубрике &laquo;techtalk&raquo;">techtalk</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="category/tricks/index.html" title="Просмотреть все записи в рубрике &laquo;tricks&raquo;">tricks</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="category/utilities/index.html" title="Просмотреть все записи в рубрике &laquo;utilities&raquo;">utilities</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="category/whoisho/index.html" title="Просмотреть все записи в рубрике &laquo;whoisho&raquo;">whoisho</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="category/news/index.html" title="Просмотреть все записи в рубрике &laquo;новости&raquo;">новости</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="category/opros.html" title="Просмотреть все записи в рубрике &laquo;опрос&raquo;">опрос</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="category/translations/index.html" title="Просмотреть все записи в рубрике &laquo;переводы&raquo;">переводы</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="category/citaty/index.html" title="Просмотреть все записи в рубрике &laquo;цитаты&raquo;">цитаты</a>
+</li>
+				</ul>
+			</li>
+
+			<li><h2>Архивы</h2>
+				<ul>
+					<li><a href='date/2018/01.html' title='Январь 2018'>Январь 2018</a></li>
+	<li><a href='date/2015/10.html' title='Октябрь 2015'>Октябрь 2015</a></li>
+	<li><a href='date/2015/04.html' title='Апрель 2015'>Апрель 2015</a></li>
+	<li><a href='date/2015/03.html' title='Март 2015'>Март 2015</a></li>
+	<li><a href='date/2015/01.html' title='Январь 2015'>Январь 2015</a></li>
+	<li><a href='date/2014/12.html' title='Декабрь 2014'>Декабрь 2014</a></li>
+	<li><a href='date/2014/11.html' title='Ноябрь 2014'>Ноябрь 2014</a></li>
+	<li><a href='date/2014/10.html' title='Октябрь 2014'>Октябрь 2014</a></li>
+	<li><a href='date/2014/09.html' title='Сентябрь 2014'>Сентябрь 2014</a></li>
+	<li><a href='date/2014/08.html' title='Август 2014'>Август 2014</a></li>
+	<li><a href='date/2014/07.html' title='Июль 2014'>Июль 2014</a></li>
+	<li><a href='date/2014/06.html' title='Июнь 2014'>Июнь 2014</a></li>
+	<li><a href='date/2014/05.html' title='Май 2014'>Май 2014</a></li>
+	<li><a href='date/2014/04.html' title='Апрель 2014'>Апрель 2014</a></li>
+	<li><a href='date/2014/03.html' title='Март 2014'>Март 2014</a></li>
+	<li><a href='date/2014/02.html' title='Февраль 2014'>Февраль 2014</a></li>
+	<li><a href='date/2014/01.html' title='Январь 2014'>Январь 2014</a></li>
+	<li><a href='date/2013/12.html' title='Декабрь 2013'>Декабрь 2013</a></li>
+	<li><a href='date/2013/11.html' title='Ноябрь 2013'>Ноябрь 2013</a></li>
+	<li><a href='date/2013/10.html' title='Октябрь 2013'>Октябрь 2013</a></li>
+	<li><a href='date/2013/09.html' title='Сентябрь 2013'>Сентябрь 2013</a></li>
+	<li><a href='date/2013/08.html' title='Август 2013'>Август 2013</a></li>
+	<li><a href='date/2013/07.html' title='Июль 2013'>Июль 2013</a></li>
+	<li><a href='date/2013/06.html' title='Июнь 2013'>Июнь 2013</a></li>
+	<li><a href='date/2013/05.html' title='Май 2013'>Май 2013</a></li>
+	<li><a href='date/2013/04.html' title='Апрель 2013'>Апрель 2013</a></li>
+	<li><a href='date/2013/03.html' title='Март 2013'>Март 2013</a></li>
+	<li><a href='date/2013/02.html' title='Февраль 2013'>Февраль 2013</a></li>
+	<li><a href='date/2013/01.html' title='Январь 2013'>Январь 2013</a></li>
+	<li><a href='date/2012/12.html' title='Декабрь 2012'>Декабрь 2012</a></li>
+	<li><a href='date/2012/11.html' title='Ноябрь 2012'>Ноябрь 2012</a></li>
+	<li><a href='date/2012/10.html' title='Октябрь 2012'>Октябрь 2012</a></li>
+	<li><a href='date/2012/09.html' title='Сентябрь 2012'>Сентябрь 2012</a></li>
+	<li><a href='date/2012/08.html' title='Август 2012'>Август 2012</a></li>
+	<li><a href='date/2012/07.html' title='Июль 2012'>Июль 2012</a></li>
+	<li><a href='date/2012/06.html' title='Июнь 2012'>Июнь 2012</a></li>
+	<li><a href='date/2012/05.html' title='Май 2012'>Май 2012</a></li>
+	<li><a href='date/2012/04.html' title='Апрель 2012'>Апрель 2012</a></li>
+	<li><a href='date/2012/03.html' title='Март 2012'>Март 2012</a></li>
+	<li><a href='date/2012/02.html' title='Февраль 2012'>Февраль 2012</a></li>
+	<li><a href='date/2012/01.html' title='Январь 2012'>Январь 2012</a></li>
+	<li><a href='date/2011/12.html' title='Декабрь 2011'>Декабрь 2011</a></li>
+	<li><a href='date/2011/11.html' title='Ноябрь 2011'>Ноябрь 2011</a></li>
+	<li><a href='date/2011/10/index.html' title='Октябрь 2011'>Октябрь 2011</a></li>
+	<li><a href='date/2011/09/index.html' title='Сентябрь 2011'>Сентябрь 2011</a></li>
+	<li><a href='date/2011/08.html' title='Август 2011'>Август 2011</a></li>
+	<li><a href='date/2011/07/index.html' title='Июль 2011'>Июль 2011</a></li>
+	<li><a href='date/2011/06/index.html' title='Июнь 2011'>Июнь 2011</a></li>
+	<li><a href='date/2011/05/index.html' title='Май 2011'>Май 2011</a></li>
+	<li><a href='date/2011/04/index.html' title='Апрель 2011'>Апрель 2011</a></li>
+	<li><a href='date/2011/03/index.html' title='Март 2011'>Март 2011</a></li>
+	<li><a href='date/2011/02.html' title='Февраль 2011'>Февраль 2011</a></li>
+	<li><a href='date/2011/01.html' title='Январь 2011'>Январь 2011</a></li>
+	<li><a href='date/2010/12.html' title='Декабрь 2010'>Декабрь 2010</a></li>
+	<li><a href='date/2010/11/index.html' title='Ноябрь 2010'>Ноябрь 2010</a></li>
+	<li><a href='date/2010/10/index.html' title='Октябрь 2010'>Октябрь 2010</a></li>
+	<li><a href='date/2010/09/index.html' title='Сентябрь 2010'>Сентябрь 2010</a></li>
+	<li><a href='date/2010/08.html' title='Август 2010'>Август 2010</a></li>
+	<li><a href='date/2010/07/index.html' title='Июль 2010'>Июль 2010</a></li>
+	<li><a href='date/2010/06.html' title='Июнь 2010'>Июнь 2010</a></li>
+	<li><a href='date/2010/05.html' title='Май 2010'>Май 2010</a></li>
+	<li><a href='date/2010/04/index.html' title='Апрель 2010'>Апрель 2010</a></li>
+	<li><a href='date/2010/03/index.html' title='Март 2010'>Март 2010</a></li>
+	<li><a href='date/2010/02.html' title='Февраль 2010'>Февраль 2010</a></li>
+	<li><a href='date/2010/01.html' title='Январь 2010'>Январь 2010</a></li>
+	<li><a href='date/2009/12/index.html' title='Декабрь 2009'>Декабрь 2009</a></li>
+	<li><a href='date/2009/11/index.html' title='Ноябрь 2009'>Ноябрь 2009</a></li>
+	<li><a href='date/2009/10.html' title='Октябрь 2009'>Октябрь 2009</a></li>
+	<li><a href='date/2009/09.html' title='Сентябрь 2009'>Сентябрь 2009</a></li>
+	<li><a href='date/2009/08/index.html' title='Август 2009'>Август 2009</a></li>
+	<li><a href='date/2009/07/index.html' title='Июль 2009'>Июль 2009</a></li>
+	<li><a href='date/2009/06.html' title='Июнь 2009'>Июнь 2009</a></li>
+	<li><a href='date/2009/05.html' title='Май 2009'>Май 2009</a></li>
+	<li><a href='date/2009/04.html' title='Апрель 2009'>Апрель 2009</a></li>
+	<li><a href='date/2009/03.html' title='Март 2009'>Март 2009</a></li>
+	<li><a href='date/2009/02.html' title='Февраль 2009'>Февраль 2009</a></li>
+	<li><a href='date/2009/01.html' title='Январь 2009'>Январь 2009</a></li>
+	<li><a href='date/2008/12.html' title='Декабрь 2008'>Декабрь 2008</a></li>
+	<li><a href='date/2008/11.html' title='Ноябрь 2008'>Ноябрь 2008</a></li>
+	<li><a href='date/2008/10.html' title='Октябрь 2008'>Октябрь 2008</a></li>
+	<li><a href='date/2008/09.html' title='Сентябрь 2008'>Сентябрь 2008</a></li>
+	<li><a href='date/2008/08.html' title='Август 2008'>Август 2008</a></li>
+	<li><a href='date/2008/03.html' title='Март 2008'>Март 2008</a></li>
+	<li><a href='date/2008/02.html' title='Февраль 2008'>Февраль 2008</a></li>
+	<li><a href='date/2007/12.html' title='Декабрь 2007'>Декабрь 2007</a></li>
+	<li><a href='date/2007/11.html' title='Ноябрь 2007'>Ноябрь 2007</a></li>
+	<li><a href='date/2007/10.html' title='Октябрь 2007'>Октябрь 2007</a></li>
+	<li><a href='date/2007/09.html' title='Сентябрь 2007'>Сентябрь 2007</a></li>
+	<li><a href='date/2007/08.html' title='Август 2007'>Август 2007</a></li>
+	<li><a href='date/2007/07/index.html' title='Июль 2007'>Июль 2007</a></li>
+	<li><a href='date/2007/06.html' title='Июнь 2007'>Июнь 2007</a></li>
+	<li><a href='date/2007/05.html' title='Май 2007'>Май 2007</a></li>
+				</ul>
+			</li>
+
+			
+					</ul>
+	</div>
+
+</div> <!-- wrapper -->
+<div id="footer">
+	<a href="../feed">Entries (RSS)</a> and <a href="../comments/feed">Comments (RSS)</a>. Valid <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer"><abbr title="Cascading Style Sheets">CSS</abbr></a>.<br />
+	Powered by <a href="http://wordpress.org/" title="Powered by WordPress.">WordPress</a> and <a href="http://srinig.com/wordpress/themes/fluid-blue/">Fluid Blue theme</a>.<br />
+	<!-- 16 queries. 0.074 seconds. -->
+	</div>
+</div> <!-- page -->
+</body>
+</html>
+	
